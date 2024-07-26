@@ -1,8 +1,8 @@
 # Oh My Prvd
 
-![CI](https://github.com/team-fireworks/ohmyprvd/actions/workflows/ci.yml/badge.svg)
-
 <img src="assets/logo.svg" width="300px" align="right" alt="Logo"/>
+
+![CI](https://github.com/team-fireworks/ohmyprvd/actions/workflows/ci.yml/badge.svg)
 
 Oh My Prvd is a delightful framework for next-generation Roblox game
 development.
