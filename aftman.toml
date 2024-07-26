@@ -3,5 +3,6 @@
 
 # To add a new tool, add an entry to this table.
 [tools]
-  rojo = "rojo-rbx/rojo@7.4.1"
   lune = "lune-org/lune@0.8.6"
+  rojo = "rojo-rbx/rojo@7.4.2"
+  selene = "Kampfkarren/selene@0.27.1"
