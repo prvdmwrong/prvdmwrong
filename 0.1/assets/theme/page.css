@@ -1,0 +1,36 @@
+.md-typeset h1 {
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+.md-typeset h2 {
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+.md-typeset h3 {
+	font-weight: 600;
+	letter-spacing: -0.01em;
+}
+
+.md-header {
+	box-shadow: none;
+}
+
+.md-typeset img {
+	border-radius: 0.25rem;
+}
+
+h1 > .twemoji:first-child,
+h2 > .twemoji:first-child,
+h3 > .twemoji:first-child,
+h4 > .twemoji:first-child,
+h5 > .twemoji:first-child,
+h6 > .twemoji:first-child {
+	margin-right: 0.25em;
+}
+
+.fusiondoc-yt-embed {
+	width: 100%;
+	aspect-ratio: 16/9;
+}
