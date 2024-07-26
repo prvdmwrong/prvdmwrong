@@ -1,5 +1,7 @@
 # Oh My Prvd
 
+<img src="assets/logo.svg" width="300px" align="right"/>
+
 Oh My Prvd is a delightful framework for next-generation Roblox game
 development.
 
@@ -24,6 +26,17 @@ background, freeing you to build faster and shout: **Oh, My Prvd!**
 
 > **Warning:** Oh My Prvd is in early development. Portions of the API may
 > break, be changed, or outright deleted. There will be dragons.
+
+Install Oh My Prvd with your preferred package manager:
+
+```sh
+# Wally
+wally add @znotfireman/ohmyprvd
+# npm
+npm i @znotfireman/ohmyprvd
+# pnpm
+pnpm i @znotfireman/ohmyprvd
+```
 
 ## Usage
 
