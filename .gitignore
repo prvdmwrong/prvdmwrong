@@ -1,9 +1,23 @@
+**.rbxlx
+**.rbxmx
+**.rbxm
+**.rbxl
+
+**.env
+
 **/node_modules
 **/out
 **/include
 **.tsbuildinfo
 
-**/sourcemap.json
-
-**/ServerPackages
 **/DevPackages
+
+**.DS_Store
+**.DS_Store
+desktop.ini
+
+roblox.toml
+
+**/sourcemap*.json
+globalTypes.d.luau
+/*.d.luau
