@@ -1,0 +1,34 @@
+.ompdoc-home-hero {
+  --vertical-padding: 15vh;
+  --target-size: 40vh;
+
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 120ch;
+  min-height: calc(var(--target-size) - var(--top-padding));
+  margin-top: calc(var(--vertical-padding) / 2);
+  margin-bottom: calc(var(--vertical-padding) / 2);
+}
+
+.ompdoc-home-hero-inner {
+  font-size: 1.2em;
+  margin: auto;
+  max-width: 60ch;
+  text-align: center;
+}
+
+.ompdoc-home-content {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80ch;
+}
+
+.ompdoc-home-body {
+  font-size: 1.2em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+  max-width: 80ch;
+  padding: 1em 0;
+}

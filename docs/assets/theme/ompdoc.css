@@ -1,0 +1,121 @@
+:root {
+	--ompdoc-gray-0: oklch(0 0 0);
+	--ompdoc-gray-1: oklch(0.05 0 0);
+	--ompdoc-gray-2: oklch(0.1 0 0);
+	--ompdoc-gray-3: oklch(0.15 0 0);
+	--ompdoc-gray-4: oklch(0.2 0 0);
+	--ompdoc-gray-5: oklch(0.4 0 0);
+	--ompdoc-gray-6: oklch(0.8 0 0);
+	--ompdoc-gray-7: oklch(0.85 0 0);
+	--ompdoc-gray-8: oklch(0.9 0 0);
+	--ompdoc-gray-9: oklch(0.95 0 0);
+	--ompdoc-gray-10: oklch(1 0 0);
+
+	--ompdoc-accent: oklch(0.6 0.186 52.985);
+	--ompdoc-accent-dark: oklch(0.55 0.186 52.985);
+	--ompdoc-accent-darker: oklch(0.4 0.186 52.985);
+	--ompdoc-accent-light: oklch(0.65 0.186 52.985);
+	--ompdoc-accent-lighter: oklch(0.7 0.186 52.985);
+}
+
+[data-md-color-scheme="ompdoc-dark"] {
+	--md-primary-fg-color: var(--ompdoc-accent);
+	--md-primary-fg-color--light: var(--ompdoc-accent-dark);
+	--md-primary-fg-color--dark: var(--ompdoc-accent-light);
+	--md-primary-bg-color: var(--ompdoc-gray-8);
+	--md-primary-bg-color--light: var(--ompdoc-gray-6);
+
+	--md-accent-fg-color: var(--ompdoc-accent);
+	--md-accent-fg-color--transparent: oklch(from var(--ompdoc-accent), 0.9);
+	--md-accent-bg-color: var(--ompdoc-gray-8);
+	--md-accent-bg-color--light: var(--ompdoc-gray-6);
+
+	--md-default-fg-color: var(--ompdoc-gray-8);
+	--md-default-fg-color--light: var(--ompdoc-gray-7);
+	--md-default-fg-color--lighter: var(--ompdoc-gray-6);
+	--md-default-fg-color--lightest: var(--ompdoc-gray-5);
+	--md-default-bg-color: var(--ompdoc-gray-4);
+	--md-default-bg-color--light: var(--ompdoc-gray-3);
+	--md-default-bg-color--lighter: var(--ompdoc-gray-2);
+	--md-default-bg-color--lightest: var(--ompdoc-gray-0);
+
+	--md-code-fg-color: var(--ompdoc-gray-8);
+	--md-code-bg-color: var(--ompdoc-gray-3);
+
+	/* --md-code-hl-color:                  hsla(#{hex2hsl($clr-blue-a200)}, 1);
+  --md-code-hl-color--light:           hsla(#{hex2hsl($clr-blue-a200)}, 0.1); */
+
+	--md-code-hl-number-color: hsla(0, 67%, 50%, 1);
+	--md-code-hl-special-color: hsla(340, 83%, 47%, 1);
+	--md-code-hl-function-color: hsla(291, 45%, 50%, 1);
+	--md-code-hl-constant-color: hsla(250, 63%, 60%, 1);
+	--md-code-hl-keyword-color: hsla(219, 54%, 51%, 1);
+	--md-code-hl-string-color: hsla(150, 63%, 30%, 1);
+	--md-code-hl-name-color: var(--md-code-fg-color);
+	--md-code-hl-operator-color: var(--md-default-fg-color--light);
+	--md-code-hl-punctuation-color: var(--md-default-fg-color--light);
+	--md-code-hl-comment-color: var(--md-default-fg-color--light);
+	--md-code-hl-generic-color: var(--md-default-fg-color--light);
+	--md-code-hl-variable-color: var(--md-default-fg-color--light);
+
+	--md-typeset-color: var(--ompdoc-gray-8);
+
+	--md-typeset-a-color: var(--md-primary-fg-color);
+
+	--md-typeset-del-color: hsla(6, 90%, 60%, 0.15);
+	--md-typeset-ins-color: hsla(150, 90%, 44%, 0.15);
+
+	--md-typeset-kbd-color: hsla(0, 0%, 98%, 1);
+	--md-typeset-kbd-accent-color: hsla(0, 100%, 100%, 1);
+	--md-typeset-kbd-border-color: hsla(0, 0%, 72%, 1);
+
+	--md-typeset-mark-color: hsla(#{hex2hsl($clr-yellow-a200)}, 0.5);
+
+	--md-typeset-table-color: hsla(0, 0%, 0%, 0.12);
+	--md-typeset-table-color--light: hsla(0, 0%, 0%, 0.035);
+
+	--md-admonition-fg-color: var(--md-default-fg-color);
+	--md-admonition-bg-color: var(--md-default-bg-color);
+
+	--md-warning-fg-color: hsla(0, 0%, 0%, 0.87);
+	--md-warning-bg-color: hsla(60, 100%, 80%, 1);
+
+	--md-footer-fg-color: hsla(0, 0%, 100%, 1);
+	--md-footer-fg-color--light: hsla(0, 0%, 100%, 0.7);
+	--md-footer-fg-color--lighter: hsla(0, 0%, 100%, 0.45);
+	--md-footer-bg-color: hsla(0, 0%, 0%, 0.87);
+	--md-footer-bg-color--dark: hsla(0, 0%, 0%, 0.32);
+}
+
+[data-md-color-scheme="ompdoc-light"] {
+	/** TODO: finish up this tmr im eepy */
+	--md-primary-fg-color: #ee0f0f;
+	--md-primary-fg-color--light: #ecb7b7;
+	--md-primary-fg-color--dark: #90030c;
+}
+
+.md-typeset code,
+.md-typeset kbd,
+.md-typeset pre {
+	font-feature-settings: "kern", "liga";
+	font-variant-ligatures: normal;
+}
+
+.md-header__button.md-logo {
+	padding: 0 0 0 0.4rem;
+}
+.md-header__button.md-logo > img {
+	height: 1.8rem;
+}
+
+[data-md-color-scheme="ompdoc-light"] .ompdoc-dark-theme-only,
+[data-md-color-scheme="ompdoc-dark"] .ompdoc-light-theme-only,
+[data-md-color-scheme="ompdoc-light"] img[src$="#only-dark"],
+[data-md-color-scheme="ompdoc-dark"] img[src$="#only-light"] {
+	display: none !important;
+}
+
+[data-md-color-scheme="ompdoc-light"] img[src$="#only-light"],
+[data-md-color-scheme="ompdoc-dark"] img[src$="#only-dark"] {
+	display: initial;
+}

@@ -1,0 +1,106 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+site_name: Oh My Prvd
+site_url: https://team-fireworks.github.io/ohmyprvd
+repo_url: https://github.com/team-fireworks/ohmyprvd
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: ompdoc-dark
+      toggle:
+        icon: octicons/sun-24
+        title: Switch to light theme
+    - media: "(prefers-color-scheme: light)"
+      scheme: ompdoc-light
+      toggle:
+        icon: octicons/moon-24
+        title: Switch to dark theme
+  font:
+    text: Inter
+    code: JetBrains Mono
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+  icon:
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+  features:
+    - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+
+nav:
+  - Home: index.md
+  - Tutorials:
+    - Get Started: tutorials/index.md
+    - Installation: tutorials/get-started/installation.md
+    - Providers: tutorials/get-started/providers.md
+    - Ignition: tutorials/get-started/ignition.md
+    - Net:
+      - Net: tutorials/net/index.md
+      - Events: tutorials/net/events.md
+      - Functions: tutorials/net/functions.md
+      - Middlewares: tutorials/net/middlewares.md
+      - Namespaces: tutorials/net/namespaces.md
+    - Components:
+      - Components: tutorials/components/index.md
+      - Usage: tutorials/components/usage.md
+      - Attributes: tutorials/components/attributes.md
+      - Inheritance: tutorials/components/inheritance.md
+    - Mods:
+      - Mods: tutorials/mods/index.md
+      - Lifecycle Methods: tutorials/mods/lifecycle-methods.md
+    - Best Practices:
+      - Alternatives: tutorials/best-practices/alternatives.md
+  - API Reference:
+    - General:
+      - Error Messages: api-reference/general/error-messages.md
+
+extra_css:
+  - assets/theme/home.css
+  - assets/theme/ompdoc.css
+  - assets/theme/page.css
+
+extra:
+  version:
+    provider: mike
+
+plugins:
+  - mike:
+      alias_type: symlink
+      redirect_template: null
+      deploy_prefix: ''
+      canonical_version: null
+      version_selector: true
+      css_dir: css
+      javascript_dir: js
+
+markdown_extensions:
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true

@@ -14,8 +14,8 @@ one.***
 
 It accelerates the process with providers, connecting the top-level design of
 your game. Choose to mix in networking and components as you need. Oh My Prvd
-provides a seamless, next-generation development experience that fades into the
-background, freeing you to build faster and shout: **Oh, My Prvd!**
+provides a seamless, development experience that fades into the background,
+freeing you to build faster and shout: **Oh, My Prvd!**
 
 ## Highlights
 
@@ -67,7 +67,7 @@ export const LeProvider = create("LeProvider", {})
 ### Dependencies
 
 Often, providers may depend on other providers, such as a `CombatProvider`
-requiring the player's `CharacterProvider`. Catalyst lets you use providers
+requiring the player's `CharacterProvider`. Oh my Prvd lets you use providers
 through dependency injection.
 
 Just specify your provider `use()`s another provider:
