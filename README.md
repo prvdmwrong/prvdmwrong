@@ -15,7 +15,7 @@ your game. Choose to mix in networking and components as you need. Oh My Prvd
 provides a seamless, next-generation development experience that fades into the
 background, freeing you to build faster and shout: **Oh, My Prvd!**
 
-## Features
+## Highlights
 
 - Type-safe APIs for both Luau and TypeScript
 - Featherlight, choose to mix in packages as you need
@@ -38,7 +38,7 @@ npm i @znotfireman/ohmyprvd
 pnpm i @znotfireman/ohmyprvd
 ```
 
-## Usage
+## Getting Started
 
 Oh My Prvd allows you to define providers for your game logic. These *provide*
 specific functions within your game, e.g. you might create a `SaveDataProvider`
