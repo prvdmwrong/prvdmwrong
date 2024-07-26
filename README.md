@@ -41,8 +41,7 @@ pnpm i @znotfireman/ohmyprvd
 ## Usage
 
 Oh My Prvd allows you to define providers for your game logic. These *provide*
-specific functions within your game, with services for the server, and
-controllers for the client. For example, you might create a `SaveDataProvider`
+specific functions within your game, e.g. you might create a `SaveDataProvider`
 to manage save files or a `CameraProvider` to handle player camera movement.
 
 ### Boilerplate
@@ -51,10 +50,10 @@ This is the minimum structure of a provider, which can be used and hook onto
 lifecycle events:
 
 ```lua
-local ohmyprvd = require("@pkg/ohmyprvd")
+local prvd = require("@pkg/ohmyprvd")
 
 local LeProvider = {}
-return ohmyprvd.create("LeProvider", LeProvider)
+return prvd.create("LeProvider", LeProvider)
 ```
 
 ```ts
