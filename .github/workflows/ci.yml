@@ -18,6 +18,9 @@ jobs:
               uses: ok-nick/setup-aftman@v0.3.0
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
+            - name: Install tooling
+              run: |
+                  aftman install
 
             - name: Run Selene
               run: |
