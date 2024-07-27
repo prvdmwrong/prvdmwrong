@@ -1,7 +1,7 @@
 # Alternatives
 
-There are several existing frameworks for Roblox that try to solve a game's
-codebase. Besides Oh My Prvd, you might consider:
+There are several existing game frameworks for Roblox. Besides Oh My Prvd, you
+might consider:
 
 - [Knit by sleitnick](https://github.com/Sleitnick/Knit)
 - [Flamework by fireboltofdeath](https://github.com/rbxts-flamework)
@@ -13,11 +13,13 @@ codebase. Besides Oh My Prvd, you might consider:
 
 So, why did we make Oh My Prvd?
 
-Each of these frameworks solve the same problem in multiple angles. In addition,
-all of these frameworks have major drawbacks:
+Each of these frameworks solve the same problem in multiple angles. The goal of
+Oh My Prvd is to take all of the lessons and ideas learned from these projects
+and build a framework that can solve this problem for good. In addition, all of
+these frameworks have major drawbacks:
 
 - Knit is under long term support with sparse updates and nearing an archive, in
-  addition it introduces a hefty level of bloat;
+  addition it introduces a hefty level of bloat, has subpar types;
 - Flamework requires TypeScript and is tightly coupled with its transformer;
 - Nevermore introduces an outrageous level of bloat and also harder to use,
   being geared primarily just for Quenty;
@@ -28,7 +30,7 @@ all of these frameworks have major drawbacks:
 - Lumin Framework only focuses on networking and provides no primitives for
   singletons/providers;
 
-In addition:
+Finally:
 
 - We think a framework should be distributed as a single module, for decoupling
   and extensibility.

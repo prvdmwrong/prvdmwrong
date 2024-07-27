@@ -17,7 +17,7 @@ if you're a complete newcomer to the library.
 
     Oh My Prvd is in very early alpha right now! You *will* encounter:
 
-    - glitches in core features
+    - nonexistent or broken features
     - changes in how things work between versions
     - updates that completely remove existing features
     - evolving recommendations on conventions and project structure
@@ -28,6 +28,8 @@ if you're a complete newcomer to the library.
     Don't be discouraged though, feel free to follow along with our development
     and try using the library in your own time. We hope you enjoy using Oh My
     Prvd!
+
+---
 
 ## Expectations
 
@@ -48,16 +50,18 @@ Some tutorials might challenge you more than others. Remember, Oh My Prvd is
 built with you in mind, but it may still take a bit of time to absorb some
 concepts. Take your time and explore at your own pace.
 
+---
+
 ## Support
 
-If you're struggling to understand a concept, or need help debugging an error,
-here are some resources which can help.
+Should you be struggling to understand a concept, or need help debugging an
+error, here are some resources which can help.
 
 ### Support with Errors
 
-Oh My Prvd provides helpful links with every console log message. These links
-direct you to our comprehensive [Error Messages](../api-reference/general/error-messages.md)
-documentation.
+Oh My Prvd attaches a link with every console log message. These links direct
+you to our comprehensive [Error
+Messages](../api-reference/general/error-messages.md) documentation.
 
 ```txt hl_lines="2"
 [ohmyprvd error(requireAfterIgnition)]: cannot require other providers after ignition

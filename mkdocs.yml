@@ -5,6 +5,7 @@ repo_url: https://github.com/team-fireworks/ohmyprvd
 
 theme:
   name: material
+  custom_dir: docs/assets/overrides
   palette:
     - media: "(prefers-color-scheme: dark)"
       scheme: ompdoc-dark
@@ -22,6 +23,7 @@ theme:
   logo: assets/logo.svg
   favicon: assets/logo.svg
   icon:
+    repo: fontawesome/brands/github
     admonition:
       note: octicons/tag-16
       abstract: octicons/checklist-16
@@ -44,14 +46,15 @@ theme:
     - navigation.sections
     - navigation.tabs
     - navigation.top
+    - search.suggest
 
 nav:
   - Home: index.md
   - Tutorials:
     - Get Started: tutorials/index.md
-    - Installation: tutorials/get-started/installation.md
-    - Providers: tutorials/get-started/providers.md
-    - Ignition: tutorials/get-started/ignition.md
+    - Installation: tutorials/installation.md
+    - Providers: tutorials/providers.md
+    - Ignition: tutorials/ignition.md
     - Net:
       - Net: tutorials/net/index.md
       - Events: tutorials/net/events.md
@@ -71,8 +74,20 @@ nav:
   - API Reference:
     - General:
       - Error Messages: api-reference/general/error-messages.md
+    - Core:
+      - awaitIgnition: api-reference/core/await-ignition.md
+      - create: api-reference/core/create.md
+      - ignite: api-reference/core/ignite.md
+      - IgnitionStatus: api-reference/core/ignition-status.md
+      - LoadMode: api-reference/core/load-mode.md
+      - onIgnition: api-reference/core/on-ignition.md
+      - Options: api-reference/core/options.md
+      - preloadProviders: api-reference/core/preload-providers.md
+      - Provider: api-reference/core/provider.md
+      - use: api-reference/core/use.md
 
 extra_css:
+  - assets/theme/code.css
   - assets/theme/home.css
   - assets/theme/ompdoc.css
   - assets/theme/page.css
@@ -82,6 +97,7 @@ extra:
     provider: mike
 
 plugins:
+  - search
   - mike:
       alias_type: symlink
       redirect_template: null
@@ -92,6 +108,8 @@ plugins:
       javascript_dir: js
 
 markdown_extensions:
+  - toc:
+      title: On this page
   - md_in_html
   - admonition
   - pymdownx.details
@@ -104,3 +122,8 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.tabbed:
       alternate_style: true
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+

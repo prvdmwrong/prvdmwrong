@@ -4,27 +4,37 @@ hide:
   - toc
 ---
 
-<section class="ompdoc-home-hero">
+<section class="ompdoc-home-hero" markdown>
 
-<div class="ompdoc-home-hero-inner">
+<section class="ompdoc-home-hero-inner" markdown>
 
-<h1 style="font-weight: 400;">The Roblox Developer's</br>Secret Weapon</h1>
+<!-- <img src="./assets/logo.svg" width="150px"/> -->
+
+<h1 style="font-weight: 600;">The Roblox Developer's<br/>Secret Weapon.</h1>
 
 <p>
-Oh My Prvd is a delightful framework for
-next-generation Roblox game development.
+Oh My Prvd is a delightful framework for next-generation Roblox game
+development.
 </p>
 
 <p>
-It accelerates the process with providers, connecting the top-level design of
-your game. Choose to mix in networking and components as you need. Oh My Prvd
-provides a seamless, development experience that fades into the background,
-freeing you to build faster and shout:
+Oh My Prvd accelerates the process with providers, connecting the top-level
+design of your game. Choose to mix in networking and components as you need.
+Enjoy a development experience that fades into the background, freeing you to
+build faster and shout:
 </p>
 
-<span style="font-size: 1.5em;" markdown><b>"Oh, My Prvd!"</b></span>
+<b style="font-size: 1.5em;" markdown>"Oh, My Prvd!"</b>
 
-</div>
+<nav markdown>
+
+<a href="./tutorials/">Get Started</a> ·
+<a href="https://github.com/team-fireworks/ohmyprvd/releases">Download</a> ·
+:octicons-zap-24: Batteries included
+
+</nav>
+
+</section>
 
 </section>
 
@@ -64,25 +74,123 @@ freeing you to build faster and shout:
 
 </section>
 
+<aside class="ompdoc-home-aside">
+
+Scroll down for a quick look at the three main highlights
+
+</aside>
+
 <section class="ompdoc-home-body" markdown>
 
-## Providers
+## :material-numeric-1-circle-outline: Providers
 
 Oh My Prvd introduces providers for your game logic. These *provide* specific
 functions within your game, e.g. you might create a `SaveDataProvider` to manage
 save files or a `CameraProvider` to handle player camera movement.
 
-## Networking
+---
 
-## Modding
+Create providers to handle the top level logic of your game:
+
+=== "Luau"
+
+    ```Lua
+    local CoinsProvider = {}
+    return prvd.create("CoinsProvider", CoinsProvider)
+    ```
+
+=== "TypeScript"
+
+    ```TypeScript
+    export const CoinsProvider = prvd.create("CoinsProvider", {
+    })
+    ```
+
+At the end of the day, providers are just plain tables. It's easy to implement
+more methods, properties, and the likes into a provider:
+
+=== "Luau"
+
+    ```Lua
+    local CoinsProvider = {}
+    CoinsProvider.balance = {}
+
+    function CoinsProvider.addCoins(
+      self: typeof(CoinsProvider),
+      player: Player,
+      coins: number
+    )
+      self.coins[person] += coins
+    end
+
+    return prvd.create("CoinsProvider", CoinsProvider)
+    ```
+
+=== "TypeScript"
+
+    ```TypeScript
+    export const CoinsProvider = prvd.create("CoinsProvider", {
+      balance: Map<Player, number> = {},
+
+      addCoins(
+        player: Player,
+        coins: number
+      ) {
+        this.coins[person] += coins
+      }
+    })
+
+    export = CoinsProvider
+    ```
+
+Providers can `use()` other providers. Oh My Prvd will provide its types and
+figure out a corresponding load order for you:
+
+=== "Luau"
+
+    ```Lua
+    local RewardsProvider = {}
+    RewardsProvider.coinsProvider = prvd.use(CoinsProvider)
+
+    function RewardsProvider.addWinRewards(
+      self: typeof(CoinsProvider),
+      player: Player,
+    )
+      self.coinsProvider:addCoins(player, 30)
+    end
+
+    return prvd.create("RewardsProvider", RewardsProvider)
+    ```
+
+=== "TypeScript"
+
+    ```TypeScript
+    export const RewardsProvider = prvd.create("RewardsProvider", {
+      coinsProvider = prvd.use(CoinsProvider)
+
+      addCoins(
+        person: Player
+      ) {
+        this.coinsProvider:addCoins(player, coins)
+      }
+    })
+
+    export = RewardsProvider
+    ```
+
+Finally, preload your providers, then ignite Oh My Prvd, and you're off to the races:
+
+```TypeScript
+prvd.preloadProviders(ServerScriptService.Providers)
+prvd.ignite()
+```
+
+---
+
+## :material-numeric-2-circle-outline: Networking
+
+---
+
+## :material-numeric-3-circle-outline: Modding
 
 </section>
-
-## Highlights
-
-- Type-safe APIs for both Luau and TypeScript
-- Featherlight, choose to mix in packages as you need
-- Uses dependency injection for cleaner code organization
-- Extendable through the modding API
-- Non-intrusive lifecycle events for flexibility
-- Designed for clarity with syntax inspired by Rust

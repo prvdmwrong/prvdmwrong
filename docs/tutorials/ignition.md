@@ -71,7 +71,7 @@ used, which will spawn the callback when Oh My Prvd has fully ignited:
 === "Luau"
 
     ```Lua
-    prvd.awaitIgnition(function()
+    prvd.onIgnition(function()
       print("ignited!")
     end)
     ```
@@ -79,5 +79,5 @@ used, which will spawn the callback when Oh My Prvd has fully ignited:
 === "TypeScript"
 
     ```TypeScript
-    prvd.awaitIgnition(() => print("ignited!"))
+    prvd.onIgnition(() => print("ignited!"))
     ```
