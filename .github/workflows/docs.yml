@@ -22,5 +22,7 @@ jobs:
               run: |
                   pip install mkdocs-material
                   pip install pillow cairosvg mike
+            - name: Pull
+              run: git pull
             - name: Build Docs Website
               run: mike deploy --push latest
