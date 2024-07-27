@@ -14,12 +14,9 @@ Boring. Do it again.
 one.***
 
 Oh My Prvd accelerates the process with providers, connecting the top-level
-design of your game. Choose to mix in networking and components as you need. Oh
-My Prvd provides a seamless, development experience that fades into the
-background, freeing you to build faster and shout: **Oh, My Prvd!**
-
-Sparked your interest? [Get going in minutes with our on-rails
-tutorial](https://team-fireworks.github.io/ohmyprvd/latest/tutorials/).
+design of your game. Choose to mix in networking and components as you need.
+Enjoy a development experience that fades into the background, freeing you to
+build faster and shout: **Oh, My Prvd!**
 
 ## Highlights
 
@@ -29,6 +26,9 @@ tutorial](https://team-fireworks.github.io/ohmyprvd/latest/tutorials/).
 - Extendable through the modding API
 - Non-intrusive lifecycle events for flexibility
 - Designed for clarity with syntax inspired by Rust
+
+Sparked your interest? [Get going in minutes with our on-rails
+tutorial](https://team-fireworks.github.io/ohmyprvd/latest/tutorials/).
 
 > **Warning:** Oh My Prvd is in early development. Portions of the API may
 > break, be changed, or outright deleted. There will be dragons.
