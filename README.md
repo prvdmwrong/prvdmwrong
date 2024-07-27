@@ -25,13 +25,14 @@ build faster and shout: **Oh, My Prvd!**
 - Uses dependency injection for cleaner code organization
 - Extendable through the modding API
 - Non-intrusive lifecycle events for flexibility
-- Designed for clarity with syntax inspired by Rust
+- Designed for clarity
 
 Sparked your interest? [Get going in minutes with our on-rails
 tutorial](https://team-fireworks.github.io/ohmyprvd/latest/tutorials/).
 
-> **Warning:** Oh My Prvd is in early development. Portions of the API may
-> break, be changed, or outright deleted. There will be dragons.
+> **Warning:** Oh My Prvd is in early development. Portions of the API may be
+> nonexistent, be broken, be changed, or be outright deleted. There will be
+> dragons.
 
 ## Code Sample
 
