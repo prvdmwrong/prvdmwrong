@@ -23,13 +23,22 @@ lifecycle events:
     ```TypeScript
     import { Provider } from "@rbxts/ohmyprvd"
 
-    return Provider("PointsProvider", {})
+    export = Provider("PointsProvider", {})
     ```
 
-!!! tip "`.new` can be used as an alias for `.Provider`"
+??? tip "Too verbose?"
 
     If writing `prvd.Provider` sounds verbose for you, Oh My Prvd aliases the
     `Provider` constructor with `.new`.
+
+    ```Lua
+    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+
+    local PointsProvider = {}
+    return prvd.new("PointsProvider", PointsProvider)
+    ```
+
+    For consistency, we recommend using `Provider` when favorable.
 
 The `name` argument signifies what to identify your provider as. This name must
 be unique from all other providers. Ideally, you should name your variable the
@@ -39,16 +48,6 @@ same as the service name, e.g. `#!lua local PointsProvider` would mean
 Notice that you're creating the provider at the bottom of a file, and then
 returning it. This lets Oh My Prvd to strictly type your provider, something
 which will be important later.
-
-Alternatively, you could write your provider as such:
-
-```Lua
-return prvd.Provider("PointsProvider", {
-  -- write your methods here
-})
-```
-
-Both approaches are just as good. Pick your poison and run with it.
 
 ## Methods, Properties, The Likes
 
@@ -74,10 +73,58 @@ a `Player` and their points:
     ```TypeScript hl_lines="4"
     import { Provider } from "@rbxts/ohmyprvd"
 
-    return Provider("PointsProvider", {
+    export = Provider("PointsProvider", {
       points: Map<Player, number> = {}
     })
     ```
+
+To instantiate our `points`, let's also implement a `setDefaultPoints` method
+for convenience:
+
+=== "Luau"
+
+    ```Lua hl_lines="6-14"
+    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+
+    local PointsProvider = {}
+    PointsProvider.points = {}
+
+    function PointsProvider.setDefaultPoints(
+      self: typeof(PointsProvider)
+      player: Player
+    )
+      if self.points[player] ~= nil then
+        return
+      end
+      self.points[player] = 10
+    end
+
+    return prvd.Provider("PointsProvider", PointsProvider)
+    ```
+
+=== "TypeScript"
+
+    ```TypeScript hl_lines="6-8"
+    import { Provider } from "@rbxts/ohmyprvd"
+
+    export = Provider("PointsProvider", {
+      points: Map<Player, number> = {}
+
+      setDefaultPoints(player: Player) {
+        this.points.get(player)?.set(10)
+      }
+    })
+    ```
+
+Notice we are passing `self` as an argument to our methods, which is of type
+`typeof(PointsProvider)`. This allows internal code to use `self` as a shorthand
+for the PointsProvider, with `self` fully typed, while external code can use the
+colon syntax. Both of these are equivalent:
+
+```Lua
+PointsProvider.setDefaultPoints(PointsProvider, player)
+PointsProvider:setDefaultPoints(player)
+```
 
 ## Lifecycle Methods
 
@@ -101,53 +148,73 @@ In order to maintain this pattern, be sure to set up your provider in the
 `:init` method (or earlier; just in the module itself). By the time `:start`
 methods are fired, other providers should be available for use.
 
-Let's implement a `:init` method to our `PointsProvider`, which will add the
-player to our points table, and set it to a default value:
+As a rule of thumb, prefer to implement `:start` unless you need the unique
+behavior of `:init`.
 
-```Lua hl_lines="2 7-26"
-local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
-local Players = game:GetService("Players")
+Speaking of which, let's implement a `:start` method to our `PointsProvider`,
+which will add the player to our points table, and set it to a default value:
 
-local PointsProvider = {}
-PointsProvider.points = {}
+=== "Luau"
 
-function PointsProvider.setDefaultPoints(
-  self: typeof(PointsProvider)
-  player: Player
-)
-  if self.points[player] ~= nil then
-    return
-  end
-  self.points[player] = 10
-end
+    ```Lua hl_lines="2 17-26"
+    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+    local Players = game:GetService("Players")
 
-function PointsProvider.start(
-  self: typeof(PointsProvider)
-)
-  Players.PlayerAdded:Connect(function(newPlayer)
-    self:setDefaultPoints(player)
-  end)
-  for _, existingPlayer in pairs(Players:GetPlayers()) do
-    self:setDefaultPoints(existingPlayer)
-  end
-end
+    local PointsProvider = {}
+    PointsProvider.points = {}
 
-return prvd.Provider("PointsProvider", PointsProvider)
-```
+    function PointsProvider.setDefaultPoints(
+      self: typeof(PointsProvider)
+      player: Player
+    )
+      if self.points[player] ~= nil then
+        return
+      end
+      self.points[player] = 10
+    end
 
-Notice we are passing `self` as an argument to our methods, which is of type
-`typeof(PointsProvider)`. This allows internal code to use `self` as a shorthand
-for the PointsProvider, while having `self` be fully typed. External code can
-use the colon syntax. Both of these are equivalent:
+    function PointsProvider.start(
+      self: typeof(PointsProvider)
+    )
+      Players.PlayerAdded:Connect(function(newPlayer)
+        self:setDefaultPoints(newPlayer)
+      end)
+      for _, existingPlayer in pairs(Players:GetPlayers()) do
+        self:setDefaultPoints(existingPlayer)
+      end
+    end
 
-```Lua
-PointsProvider.setDefaultPoints(PointsProvider, player)
-PointsProvider:setDefaultPoints(player)
-```
+    return prvd.Provider("PointsProvider", PointsProvider)
+    ```
+
+=== "TypeScript"
+
+    ```TypeScript hl_lines="2 11-18"
+    import { Provider } from "@rbxts/ohmyprvd"
+    import { Players } from "@rbxts/services"
+
+    export = Provider("PointsProvider", {
+      points: Map<Player, number> = {},
+
+      setDefaultPoints(player: Player) {
+        this.points.get(player)?.set(10)
+      }
+
+      start() {
+        Players.PlayerAdded.Connect((newPlayer) => {
+          this.setDefaultPoints(newPlayer)
+        })
+        for (const existingPlayer in Players.GetPlayers()) {
+          this.setDefaultPoints(existingPlayer)
+        }
+      }
+    })
+    ```
 
 ## Memory
 
-Now we have a problem: theres a [memory leak](https://en.wikipedia.org/wiki/Memory_leak)!
+Now we have a problem: theres a [memory
+leak](https://en.wikipedia.org/wiki/Memory_leak).
 
 When we set points for a player, we add the player to the table. What happens
 when the player leaves? Nothing. Which is an issue.
@@ -196,9 +263,51 @@ Often, providers may depend on other providers, such as a `CombatProvider`
 requiring the player's `CharacterProvider`. Oh my Prvd lets you use providers
 through dependency injection.
 
-Just specify your provider `use()`s another provider:
+First, create a file for a new `MathProvider` with the following:
 
-```Lua hl_lines="2 32-41"
+=== "Luau"
+
+    ```Lua
+    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+
+    local MathProvider = {}
+
+    function MathProvider.add(
+      self: typeof(PointsProvider),
+      a: number,
+      b: number
+    ): number
+      -- this method is very expensive!
+      task.wait(5)
+      return a + b
+    end
+
+    return prvd.Provider("MathProvider", MathProvider)
+    ```
+
+=== "TypeScript"
+
+    ```TypeScript
+    import { Provider } from "@rbxts/ohmyprvd"
+
+    export = Provider("MathProvider", {
+      add(a: number, b: number) {
+        // this method is very expensive!
+        task.wait(5)
+        return a + b
+      }
+    })
+    ```
+
+Then, from `PointsProvider`, import your newly created `MathProvider`:
+
+```Lua
+local MathProvider = require(script.Parent.MathProvider)
+```
+
+Finally, just specify your provider `use()`s another provider:
+
+```Lua hl_lines="32-41"
 local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 local MathProvider = require(script.Parent.MathProvider)
 local Players = game:GetService("Players")
@@ -244,7 +353,7 @@ end
 return prvd.Provider("PointsProvider", PointsProvider)
 ```
 
-!!! failure "Do not use dependencies outside of lifecycle methods!"
+!!! danger "Do not use dependencies outside of lifecycle methods!"
 
     Oh My Prvd only returns a shadow of the `use()`d provider. You *cannot* use
     it outside of lifecycle methods:

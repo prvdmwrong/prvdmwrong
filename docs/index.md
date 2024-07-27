@@ -10,7 +10,7 @@ hide:
 
 <!-- <img src="./assets/logo.svg" width="150px"/> -->
 
-<h1 style="font-weight: 600;">The Roblox Developer's<br/>Secret Weapon.</h1>
+<h1 style="font-weight: 600;">The Roblox Developer's<br/>Secret Weapon</h1>
 
 <p>
 Oh My Prvd is a delightful framework for next-generation Roblox game
