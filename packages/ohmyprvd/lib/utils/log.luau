@@ -25,6 +25,8 @@
 
 ]]
 
+local RunService = game:GetService("RunService")
+
 export type Error = {
   type: "Error",
   raw: string,
@@ -34,63 +36,52 @@ export type Error = {
 
 export type Message = {
   brief: string,
-  tip: string?,
+  help: string?,
 }
 
 local function Message(x: Message): Message
   return table.freeze(x)
 end
 
+local ERROR_MESSAGES_URL =
+  "team-fireworks.github.io/ohmyprvd/latest/api-reference/general/error-messages#"
 local MESSAGES: { [string]: Message } = table.freeze {
-  alreadyIgnited = Message {
-    brief = "cannot ignite more than once",
-    tip = nil,
-  },
-  cannotRegister = Message {
-    brief = "cannot register provider; %s",
-    tip = nil,
-  },
-  invalidAddProvidersParent = Message {
-    brief = "addProviders must be given an instance",
-    tip = nil,
-  },
-  initError = Message {
-    brief = "cannot initialize %s; %s",
-    tip = nil,
-  },
+  alreadyIgnited = Message { brief = "cannot ignite more than once" },
+  cannotRegister = Message { brief = "cannot register provider; %s" },
+  initError = Message { brief = "cannot initialize %s; %s" },
   invalidOnIgnitionCallback = Message {
     brief = "`onIgnition` must be given callbacks",
-    tip = nil,
   },
-  lifecycleEvent = Message {
-    brief = "running lifecycle event %s",
-    tip = nil,
-  },
+  invalidLoadParent = Message { brief = "loadX must be given an instance" },
+  lifecycleEvent = Message { brief = "running lifecycle event %s" },
   registerAfterIgnition = Message {
     brief = "cannot register providers after ignition",
-    tip = nil,
   },
   requireAfterIgnition = Message {
     brief = "cannot require other providers after ignition",
-    tip = nil,
   },
-  requireError = Message {
-    brief = "cannot require provider %s; %s",
-    tip = nil,
-  },
+  requireError = Message { brief = "cannot require %s; %s" },
   serverRenderLifecycle = Message {
     brief = "cannot use `.render` lifecycle from the server",
-    tip = nil,
   },
-  unknown = {
+  unknown = Message {
     brief = "unknown error: %s",
-    tip = "this indicates oh my prvd isn't reporting errors correctly, please file an issue",
+    help = "this indicates oh my prvd isn't reporting errors correctly, please file an issue",
+  },
+  usedBeforeIgnition = Message {
+    brief = 'cannot use provider "%s" prior to ignition',
+    help = "ohmyprvd will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method",
   },
 }
 
 local Log = {}
 
-local function fmtMessage(id: string, level: string, trace: string?, ...: unknown)
+local function fmtMessage(
+  id: string,
+  level: string,
+  trace: string?,
+  ...: unknown
+)
   local message: Message = MESSAGES[id]
   if not message then
     local unknownMessage = table.clone(MESSAGES.unknown)
@@ -103,9 +94,12 @@ local function fmtMessage(id: string, level: string, trace: string?, ...: unknow
   if select("#", ...) > 0 then
     formatted:format(...)
   end
-  if message.tip then
-    local tip = message.tip
-    formatted ..= `\ntip: {tip}`
+  if message.help then
+    local help = message.help
+    formatted ..= `\nhelp: {help}`
+  end
+  if RunService:IsStudio() then
+    formatted ..= `\nlearn more: {ERROR_MESSAGES_URL}{id:lower()}`
   end
   if trace then
     formatted ..= `\nstack trace:\n{(trace:gsub("\n", "\n    "))}`
@@ -115,7 +109,11 @@ local function fmtMessage(id: string, level: string, trace: string?, ...: unknow
 end
 
 function Log.throw(id: string, trace: string?, ...: unknown): never
-  task.spawn(error, fmtMessage(id, "error", trace or debug.traceback(nil, 2), ...), 0)
+  task.spawn(
+    error,
+    fmtMessage(id, "error", trace or debug.traceback(nil, 2), ...),
+    0
+  )
   task.defer(coroutine.close, coroutine.running())
   return coroutine.yield()
 end

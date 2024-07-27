@@ -246,7 +246,7 @@ return prvd.create("PointsProvider", PointsProvider)
 
     ```Txt
     [ohmyprvd error(usedBeforeIgnition)]: cannot use provider "MathProvider" prior to ignition
-      tip: ohmyprvd will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method
+      help: ohmyprvd will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method
       more info: team-fireworks.github.io/ohmyprvd/latest/api-reference/general/error-messages#usedbeforeignition
       stack trace:
         ohmyprvd.log:118 function throw
