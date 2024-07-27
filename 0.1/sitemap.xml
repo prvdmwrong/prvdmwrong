@@ -6,12 +6,77 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/api-reference/core/await-ignition/</loc>
+         <lastmod>2024-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/api-reference/core/create/</loc>
+         <lastmod>2024-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/api-reference/core/ignite/</loc>
+         <lastmod>2024-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/api-reference/core/ignition-status/</loc>
+         <lastmod>2024-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/api-reference/core/load-mode/</loc>
+         <lastmod>2024-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/api-reference/core/on-ignition/</loc>
+         <lastmod>2024-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/api-reference/core/options/</loc>
+         <lastmod>2024-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/api-reference/core/preload-providers/</loc>
+         <lastmod>2024-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/api-reference/core/provider/</loc>
+         <lastmod>2024-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/api-reference/core/use/</loc>
+         <lastmod>2024-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://team-fireworks.github.io/ohmyprvd/0.1/api-reference/general/error-messages/</loc>
          <lastmod>2024-07-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://team-fireworks.github.io/ohmyprvd/0.1/tutorials/</loc>
+         <lastmod>2024-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/tutorials/ignition/</loc>
+         <lastmod>2024-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/tutorials/installation/</loc>
+         <lastmod>2024-07-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/tutorials/providers/</loc>
          <lastmod>2024-07-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -37,21 +102,6 @@
     </url>
     <url>
          <loc>https://team-fireworks.github.io/ohmyprvd/0.1/tutorials/components/usage/</loc>
-         <lastmod>2024-07-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/tutorials/get-started/ignition/</loc>
-         <lastmod>2024-07-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/tutorials/get-started/installation/</loc>
-         <lastmod>2024-07-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/tutorials/get-started/providers/</loc>
          <lastmod>2024-07-27</lastmod>
          <changefreq>daily</changefreq>
     </url>

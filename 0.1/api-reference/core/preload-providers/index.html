@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://team-fireworks.github.io/ohmyprvd/0.1/tutorials/get-started/installation/">
+        <link rel="canonical" href="https://team-fireworks.github.io/ohmyprvd/0.1/api-reference/core/preload-providers/">
       
       
-        <link rel="prev" href="../../">
+        <link rel="prev" href="../options/">
       
       
-        <link rel="next" href="../providers/">
+        <link rel="next" href="../provider/">
       
       
       <link rel="icon" href="../../../assets/logo.svg">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Installation - Oh My Prvd</title>
+        <title>preloadProviders - Oh My Prvd</title>
       
     
     
@@ -89,6 +89,8 @@
       
     
     
+      <link rel="stylesheet" href="../../../assets/theme/code.css">
+    
       <link rel="stylesheet" href="../../../assets/theme/home.css">
     
       <link rel="stylesheet" href="../../../assets/theme/ompdoc.css">
@@ -119,11 +121,6 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#installation" class="md-skip">
-          Skip to content
-        </a>
       
     </div>
     <div data-md-component="announce">
@@ -158,7 +155,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installation
+              preloadProviders
             
           </span>
         </div>
@@ -196,12 +193,88 @@
     
     
     
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <!--
+  Copyright (c) 2016-2024 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Search interface -->
+<div class="md-search" data-md-component="search" role="dialog">
+	<label class="md-search__overlay" for="__search"></label>
+	<div class="md-search__inner" role="search">
+		<form class="md-search__form" name="search">
+
+			<!-- Search input -->
+			<input type="text" class="md-search__input" name="query" aria-label="Search"
+				placeholder="Search" autocapitalize="off" autocorrect="off"
+				autocomplete="off" spellcheck="false" data-md-component="search-query" required />
+
+			<!-- Button to open search -->
+			<label class="md-search__icon md-icon" for="__search">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2ZM3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0Z"/></svg>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"/></svg>
+			</label>
+
+			<!-- Search options -->
+			<nav class="md-search__options" aria-label="search.title">
+
+				<!-- Button to share search -->
+				
+
+				<!-- Button to reset search -->
+				<button type="reset" class="md-search__icon md-icon" aria-label="Clear"
+					tabindex="-1">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.72 5.72a.75.75 0 0 1 1.06 0L12 10.94l5.22-5.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L13.06 12l5.22 5.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L12 13.06l-5.22 5.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L10.94 12 5.72 6.78a.75.75 0 0 1 0-1.06Z"/></svg>
+				</button>
+			</nav>
+
+			<!-- Search suggestions -->
+			
+			<div class="md-search__suggest" data-md-component="search-suggest"></div>
+			
+		</form>
+		<div class="md-search__output">
+			<div class="md-search__scrollwrap" data-md-scrollfix>
+
+				<!-- Search results -->
+				<div class="md-search-result" data-md-component="search-result">
+					<div class="md-search-result__meta">
+						Initializing search
+					</div>
+					<ol class="md-search-result__list"></ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+    
     
       <div class="md-header__source">
         <a href="https://github.com/team-fireworks/ohmyprvd" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -243,13 +316,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../tutorials/" class="md-tabs__link">
           
   
     
@@ -265,17 +336,21 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../api-reference/general/error-messages/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../general/error-messages/" class="md-tabs__link">
           
   
     
@@ -325,7 +400,7 @@
       <a href="https://github.com/team-fireworks/ohmyprvd" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -359,8 +434,6 @@
       
   
   
-    
-  
   
   
     
@@ -387,24 +460,23 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../tutorials/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -415,13 +487,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Tutorials
@@ -434,30 +506,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Installation
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../tutorials/installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -466,77 +518,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      Methods
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Methods">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install-via-roblox" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install via Roblox
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-via-a-package-manager" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install via a Package Manager
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-via-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install via Source
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Testing
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -549,7 +530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../providers/" class="md-nav__link">
+      <a href="../../../tutorials/providers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -570,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ignition/" class="md-nav__link">
+      <a href="../../../tutorials/ignition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -610,13 +591,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -627,7 +605,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../net/" class="md-nav__link ">
+            <a href="../../../tutorials/net/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -638,7 +616,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -660,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../net/events/" class="md-nav__link">
+      <a href="../../../tutorials/net/events/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -681,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../net/functions/" class="md-nav__link">
+      <a href="../../../tutorials/net/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -702,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../net/middlewares/" class="md-nav__link">
+      <a href="../../../tutorials/net/middlewares/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -723,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../net/namespaces/" class="md-nav__link">
+      <a href="../../../tutorials/net/namespaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -769,13 +747,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -786,7 +761,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../components/" class="md-nav__link ">
+            <a href="../../../tutorials/components/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -797,7 +772,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -819,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../components/usage/" class="md-nav__link">
+      <a href="../../../tutorials/components/usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -840,7 +815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../components/attributes/" class="md-nav__link">
+      <a href="../../../tutorials/components/attributes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -861,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../components/inheritance/" class="md-nav__link">
+      <a href="../../../tutorials/components/inheritance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -903,13 +878,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -920,7 +892,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../mods/" class="md-nav__link ">
+            <a href="../../../tutorials/mods/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -931,7 +903,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -953,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mods/lifecycle-methods/" class="md-nav__link">
+      <a href="../../../tutorials/mods/lifecycle-methods/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -991,13 +963,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -1006,7 +975,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8" >
         
           
-          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1031,7 +1000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../best-practices/alternatives/" class="md-nav__link">
+      <a href="../../../tutorials/best-practices/alternatives/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1064,31 +1033,36 @@
       
   
   
+    
   
   
+  
     
     
+      
+        
       
         
       
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1099,7 +1073,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             API Reference
@@ -1122,10 +1096,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -1134,7 +1111,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
         
           
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1159,11 +1136,304 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api-reference/general/error-messages/" class="md-nav__link">
+      <a href="../../general/error-messages/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Error Messages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Core
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../await-ignition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    awaitIgnition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    create
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ignite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ignite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ignition-status/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IgnitionStatus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../load-mode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LoadMode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../on-ignition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    onIgnition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../options/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Options
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    preloadProviders
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../provider/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Provider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    use
   </span>
   
 
@@ -1201,71 +1471,12 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      Methods
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Methods">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install-via-roblox" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install via Roblox
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-via-a-package-manager" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install via a Package Manager
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-via-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install via Source
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Testing
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1283,109 +1494,9 @@
   
 
 
-<h1 id="installation">Installation</h1>
-<p>Oh My Prvd is distributed as a single module script, which you will need to
-import into your game.</p>
-<h2 id="methods">Methods</h2>
-<h3 id="install-via-roblox">Install via Roblox</h3>
-<p>If you edit directly inside Roblox Studio, then you can import a Roblox model
-file containing Og My Prvd.</p>
-<ol>
-<li>Click the 'Assets' dropdown to view the downloadable files</li>
-<li>Click on the package you would like to import, which should end in <code>.rbxm</code>.
-  If you are just following the tutorials, just <code>ohmyprvd.rbxm</code> will do.</li>
-<li>Open Roblox Studio to import the model. If you are just following the
-  tutorials, just an empty baseplate will do.</li>
-<li>Right-click on <code>ReplicatedStorage</code>, and select 'Insert from File'</li>
-<li>You should see an <code>ohmyprvd</code> module script appear in ReplicatedStorage!</li>
-</ol>
-<h3 id="install-via-a-package-manager">Install via a Package Manager</h3>
-<p>If you use <a href="https://wally.run/">Wally</a> for Luau or <a href="https://www.npmjs.com/">NPM</a>
-for TypeScript, Oh My Prvd has packages for both package managers.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Wally</label><label for="__tabbed_1_2">NPM &amp; PNPM</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>Append this below <code>[dependencies]</code> in your <code>wally.toml</code>:</p>
-<div class="language-TOML highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">ohmyprvd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;znotfireman/ohmyprvd&quot;</span>
-</span></code></pre></div>
-<p>Then, install your packages:</p>
-<div class="language-Bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>wally<span class="w"> </span>install
-</span></code></pre></div>
-<p>This will install Oh My Prvd into the <code>Packages</code> directory, though the
-actual location of the folder in-game depends on your Rojo project
-configuration, but it is usually in <code>ReplicatedStorage</code>.</p>
-</div>
-<div class="tabbed-block">
-<p>Run either of these commands:</p>
-<div class="language-Bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>npm<span class="w"> </span>i<span class="w"> </span>@rbxts/ohmyprvd<span class="w"> </span><span class="c1"># npm</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$<span class="w"> </span>pnpm<span class="w"> </span>i<span class="w"> </span>@rbxts/ohmyprvd<span class="w"> </span><span class="c1"># pnpm</span>
-</span></code></pre></div>
-<p>This will install Oh My Prvd under <code>node_modules</code>, which can be imported
-directly:</p>
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">ohmyprvd</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/znotfireman&quot;</span>
-</span></code></pre></div>
-</div>
-</div>
-</div>
-<h3 id="install-via-source">Install via Source</h3>
-<p>If you are synchronizing external files into Roblox Studio, Oh My Prvd can be
-imported as source code.</p>
-<ol>
-<li>Click the 'Assets' dropdown to view the downloadable files</li>
-<li>Under 'Assets', download <code>Source code (zip)</code>. Inside is a copy of the Oh My
-  Prvd GitHub repository.</li>
-<li>Inside the zip, open <code>packages</code>, then the package you'd like to import,
-  and copy it's <code>out</code> folder; it may be inside another folder.</li>
-<li>Create a new folder inside your project named "ohmyprvd", place it wherever
-  you keep your libraries.</li>
-<li>For example, you might paste it inside a <code>shared</code> or a <code>packages</code> folder.</li>
-<li>Paste the contents of the <code>out</code> folder into the newly created folder.</li>
-</ol>
-<h2 id="testing">Testing</h2>
-<p>Now, you can create a script for testing:</p>
-<ol>
-<li>Create a <code>Script</code> under <code>ServerScriptService</code>.</li>
-<li>
-<p>Remove the following code, and paste this in depending on your installation:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Roblox</label><label for="__tabbed_2_2">Wally</label><label for="__tabbed_2_3">TypeScript</label><label for="__tabbed_2_4">Darklua</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">ohmyprvd</span><span class="p">)</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">ohmyprvd</span><span class="p">)</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">ohmyprvd</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/ohmyprvd&quot;</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;@pkg/ohmyprvd&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Press 'Play' - if there are no errors, everything was set up correctly!</p>
-</li>
-</ol>
-<details class="failure">
-<summary>My script didn't work!</summary>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ohmyprvd is not a valid member of ReplicatedStorage &quot;ReplicatedStorage&quot;
-</span></code></pre></div>
-If you're seeing this error, then your script can't find Oh My Prvd.</p>
-<p>This code assumes you've placed Oh My Prvd under ReplicatedStorage. If
-you've installed both elsewhere, you'll need to the <code>require()</code> to point
-towards the correct location.</p>
-<p>If both looks like it points to the correct location, refer back to the
-previous section and double-check you've set everything up properly. Make
-sure under ReplicatedStorage, there's a ModuleScript named <code>ohmyprvd</code>.</p>
-</details>
+  <h1>preloadProviders</h1>
+
+
 
 
 
@@ -1414,48 +1525,89 @@ sure under ReplicatedStorage, there's a ModuleScript named <code>ohmyprvd</code>
         
       </main>
       
-        <footer class="md-footer">
+        <!--
+  Copyright (c) 2016-2024 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="Footer"
+        
+      >
+
+        <!-- Link to previous page -->
         
           
-          <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Get Started">
+          <a
+            href="../options/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="Previous: Options"
+          >
             <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.78 19.03a.75.75 0 0 1-1.06 0l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L5.81 11.5h14.44a.75.75 0 0 1 0 1.5H5.81l4.97 4.97a.75.75 0 0 1 0 1.06Z"/></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Previous
               </span>
               <div class="md-ellipsis">
-                Get Started
+                Options
               </div>
             </div>
           </a>
         
+
+        <!-- Link to next page -->
         
           
-          <a href="../providers/" class="md-footer__link md-footer__link--next" aria-label="Next: Providers">
+          <a
+            href="../provider/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="Next: Provider"
+          >
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Providers
+                Provider
               </div>
             </div>
             <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg>
             </div>
           </a>
         
       </nav>
     
   
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -1467,6 +1619,8 @@ sure under ReplicatedStorage, there's a ModuleScript named <code>ohmyprvd</code>
     </a>
   
 </div>
+
+      <!-- Social links -->
       
     </div>
   </div>
@@ -1480,7 +1634,7 @@ sure under ReplicatedStorage, there's a ModuleScript named <code>ohmyprvd</code>
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.top"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
