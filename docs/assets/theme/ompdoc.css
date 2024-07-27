@@ -43,36 +43,69 @@
 
 	--md-typeset-a-color: var(--md-primary-fg-color);
 
-	--md-typeset-del-color: hsla(6, 90%, 60%, 0.15);
-	--md-typeset-ins-color: hsla(150, 90%, 44%, 0.15);
+	--md-typeset-del-color: oklch(75% 1 120 / 0.15);
+	--md-typeset-ins-color: oklch(75% 1 160 / 0.15);
 
 	--md-typeset-kbd-color: hsla(0, 0%, 98%, 1);
 	--md-typeset-kbd-accent-color: hsla(0, 100%, 100%, 1);
 	--md-typeset-kbd-border-color: hsla(0, 0%, 72%, 1);
 
-	/* --md-typeset-mark-color: hsla(#{hex2hsl($clr-yellow-a200)}, 0.5); */
+	--md-admonition-fg-color: var(--md-default-fg-color);
+	--md-admonition-bg-color: var(--md-default-bg-color);
 
-	--md-typeset-table-color: hsla(0, 0%, 0%, 0.12);
-	--md-typeset-table-color--light: hsla(0, 0%, 0%, 0.035);
+	--md-warning-fg-color: var(--ompdoc-gray-8);
+	--md-warning-bg-color: var(--ompdoc-accent);
+
+	--md-footer-fg-color: var(--ompdoc-gray-8);
+	--md-footer-fg-color--light: var(--ompdoc-gray-7);
+	--md-footer-fg-color--lighter: var(--ompdoc-gray-6);
+	--md-footer-bg-color: var(--ompdoc-gray-4);
+	--md-footer-bg-color--dark: var(--ompdoc-gray-3);
+}
+
+[data-md-color-scheme="ompdoc-light"] {
+	--md-primary-fg-color: var(--ompdoc-accent);
+	--md-primary-fg-color--light: var(--ompdoc-accent-light);
+	--md-primary-fg-color--dark: var(--ompdoc-accent-dark);
+	--md-primary-bg-color: var(--ompdoc-gray-4);
+	--md-primary-bg-color--light: var(--ompdoc-gray-5);
+
+	--md-accent-fg-color: var(--ompdoc-accent);
+	--md-accent-fg-color--transparent: oklch(from var(--ompdoc-accent), 0.9);
+	--md-accent-bg-color: var(--ompdoc-gray-8);
+	--md-accent-bg-color--light: var(--ompdoc-gray-7);
+
+	--md-default-fg-color: var(--ompdoc-gray-2);
+	--md-default-fg-color--light: var(--ompdoc-gray-3);
+	--md-default-fg-color--lighter: var(--ompdoc-gray-4);
+	--md-default-fg-color--lightest: var(--ompdoc-gray-6);
+	--md-default-bg-color: var(--ompdoc-gray-8);
+	--md-default-bg-color--light: var(--ompdoc-gray-7);
+	--md-default-bg-color--lighter: var(--ompdoc-gray-6);
+	--md-default-bg-color--lightest: var(--ompdoc-gray-5);
+
+	--md-typeset-color: var(--ompdoc-gray-4);
+
+	--md-typeset-a-color: var(--md-primary-fg-color);
+
+	--md-typeset-del-color: oklch(75% 1 120 / 0.15);
+	--md-typeset-ins-color: oklch(75% 1 160 / 0.15);
+
+	--md-typeset-kbd-color: hsla(0, 0%, 98%, 1);
+	--md-typeset-kbd-accent-color: hsla(0, 100%, 100%, 1);
+	--md-typeset-kbd-border-color: hsla(0, 0%, 72%, 1);
 
 	--md-admonition-fg-color: var(--md-default-fg-color);
 	--md-admonition-bg-color: var(--md-default-bg-color);
 
-	--md-warning-fg-color: hsla(0, 0%, 0%, 0.87);
-	--md-warning-bg-color: hsla(60, 100%, 80%, 1);
+	--md-warning-fg-color: var(--ompdoc-gray-8);
+	--md-warning-bg-color: var(--ompdoc-accent);
 
-	--md-footer-fg-color: hsla(0, 0%, 100%, 1);
-	--md-footer-fg-color--light: hsla(0, 0%, 100%, 0.7);
-	--md-footer-fg-color--lighter: hsla(0, 0%, 100%, 0.45);
-	--md-footer-bg-color: hsla(0, 0%, 0%, 0.87);
-	--md-footer-bg-color--dark: hsla(0, 0%, 0%, 0.32);
-}
-
-[data-md-color-scheme="ompdoc-light"] {
-	/** TODO: finish up this tmr im eepy */
-	--md-primary-fg-color: #ee0f0f;
-	--md-primary-fg-color--light: #ecb7b7;
-	--md-primary-fg-color--dark: #90030c;
+	--md-footer-fg-color: var(--ompdoc-gray-2);
+	--md-footer-fg-color--light: var(--ompdoc-gray-3);
+	--md-footer-fg-color--lighter: var(--ompdoc-gray-4);
+	--md-footer-bg-color: var(--ompdoc-gray-7);
+	--md-footer-bg-color--dark: var(--ompdoc-gray-8);
 }
 
 .md-header__button.md-logo {
