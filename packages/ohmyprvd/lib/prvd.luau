@@ -36,8 +36,10 @@ local info = log.info
 local parseError = log.parseError
 local throw = log.throw
 
-export type LoadMode = "LoadMode.Children" | "LoadMode.Descendants"
-export type IgnitionStatus = "IgnitionStatus.Pending" | "IgnitionStatus.Igniting" | "IgnitionStatus.Ignited"
+export type IgnitionStatus =
+  "IgnitionStatus.Pending"
+  | "IgnitionStatus.Igniting"
+  | "IgnitionStatus.Ignited"
 export type Options = {
   logLevel: "none" | "verbose",
   profiling: boolean,
@@ -68,10 +70,6 @@ local EXPECTED_METHOD_TYPES = {
   render = "function",
 }
 
-local LoadMode = table.freeze {
-  Children = "LoadMode.Children" :: "LoadMode.Children",
-  Descendants = "LoadMode.Descendants" :: "LoadMode.Descendants",
-}
 local IgnitionStatus = table.freeze {
   Pending = "IgnitionStatus.Pending" :: "IgnitionStatus.Pending",
   Igniting = "IgnitionStatus.Igniting" :: "IgnitionStatus.Igniting",
@@ -80,7 +78,8 @@ local IgnitionStatus = table.freeze {
 
 -- If we held strong references to threads here, then if a thread was killed
 -- before Oh My Prvd is ignited, it would be held strongly in this table forever
-local awaitingThreads: { [thread]: true } = setmetatable({} :: any, WEAK_KEYS_METATABLE)
+local awaitingThreads: { [thread]: true } =
+  setmetatable({} :: any, WEAK_KEYS_METATABLE)
 local awaitingCallbacks: { () -> () } = {}
 local status: IgnitionStatus = IgnitionStatus.Pending
 
@@ -88,7 +87,6 @@ local providers: { [string]: Provider<any> } = {}
 local lifecycleHooks: { [string]: (Provider<any>) -> () } = {}
 
 local prvd = {}
-prvd.LoadMode = LoadMode
 prvd.IgnitionStatus = IgnitionStatus
 
 local function topologicalSort(objects: { string }): { [string]: number }
@@ -108,7 +106,8 @@ local function topologicalSort(objects: { string }): { [string]: number }
       return
     end
 
-    local dependencies = reflect.getMetadata(object, "ohmyprvd:dependencies") :: { string }
+    local dependencies =
+      reflect.getMetadata(object, "ohmyprvd:dependencies") :: { string }
     for _, dependency in pairs(dependencies or {}) do
       visitor(dependency)
     end
@@ -151,11 +150,31 @@ end
 ]]
 function prvd.create<T>(name: string, provider: T): Provider<T>
   expect(status == IgnitionStatus.Pending, "registerAfterIgnition")
-  expect(typeof(name) == "string", "cannotRegister", nil, "`name` must be a string")
+  expect(
+    typeof(name) == "string",
+    "cannotRegister",
+    nil,
+    "`name` must be a string"
+  )
   expect(name:len() > 0, "cannotRegister", nil, "`name` cannot be empty")
-  expect(typeof(provider) == "table", "cannotRegister", nil, "provider must be a table")
-  expect(not table.isfrozen(provider :: any), "cannotRegister", nil, "provider cannot be frozen")
-  expect(providers[name] == nil, "cannotRegister", nil, `already registered "{name}"`)
+  expect(
+    typeof(provider) == "table",
+    "cannotRegister",
+    nil,
+    "provider must be a table"
+  )
+  expect(
+    not table.isfrozen(provider :: any),
+    "cannotRegister",
+    nil,
+    "provider cannot be frozen"
+  )
+  expect(
+    providers[name] == nil,
+    "cannotRegister",
+    nil,
+    `already registered "{name}"`
+  )
 
   local provider = table.clone(provider :: Provider<T>) :: Provider<T>
   for method, expectedType in pairs(EXPECTED_METHOD_TYPES) do
@@ -230,7 +249,8 @@ function prvd.ignite(options: {
     end
   end
 
-  local dependencies: { { instance: Provider<any>, loadOrder: number, identifier: string } } = {}
+  local dependencies: { { instance: Provider<any>, loadOrder: number, identifier: string } } =
+    {}
   for _, provider in pairs(providers) do
     table.insert(dependencies, {
       instance = provider,
@@ -244,7 +264,11 @@ function prvd.ignite(options: {
 
     local encountered = {}
     local dependencies = {}
-    local function resolveUses(target: unknown, key: unknown, parent: { [unknown]: unknown })
+    local function resolveUses(
+      target: unknown,
+      key: unknown,
+      parent: { [unknown]: unknown }
+    )
       if encountered[target] then
         return
       end
@@ -398,34 +422,6 @@ function prvd.onIgnition(callback: () -> ())
   end
   expect(typeof(callback) == "function", "invalidOnIgnitionCallback")
   table.insert(awaitingCallbacks, callback)
-end
-
---[[
-  Preload the specified parent by requiring all ModuleScripts within it. An
-  optional `predicate` function and `loadMode` can be provided to help dictate
-  the load behavior.
-]]
-function prvd.preloadProviders(
-  parent: Instance,
-  predicate: ((ModuleScript) -> boolean)?,
-  loadMode: LoadMode
-): { unknown }
-  expect(typeof(parent) == "Instance", "invalidAddProvidersParent")
-  local loadMode = loadMode or LoadMode.Descendants
-  local exports: { unknown } = {}
-  for _, module in pairs(loadMode == LoadMode.Children and parent:GetChildren() or parent:GetDescendants()) do
-    if not module:IsA("ModuleScript") then
-      continue
-    end
-    if predicate and not predicate(module) then
-      continue
-    end
-    local ok, result: Error = xpcall(require, parseError, module)
-    print(tostring(result))
-    expect(ok, "requireError", result.trace, module:GetFullName(), result.message)
-    table.insert(exports, result)
-  end
-  return exports
 end
 
 table.freeze(prvd)

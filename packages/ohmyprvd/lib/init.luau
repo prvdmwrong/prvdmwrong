@@ -25,23 +25,24 @@
 
 ]]
 
-local Prvd = require(script.prvd)
+local loader = require(script.utils.loader)
+local prvd = require(script.prvd)
 
-export type IgnitionStatus = Prvd.IgnitionStatus
-export type LoadMode = Prvd.LoadMode
-export type Options = Prvd.Options
-export type Provider<T> = Prvd.Provider<T>
+export type IgnitionStatus = prvd.IgnitionStatus
+export type Options = prvd.Options
+export type Provider<T> = prvd.Provider<T>
 
 return table.freeze {
   version = "0.1.0-alpha",
 
-  IgnitionStatus = Prvd.IgnitionStatus,
-  LoadMode = Prvd.LoadMode,
+  IgnitionStatus = prvd.IgnitionStatus,
 
-  awaitIgnition = Prvd.awaitIgnition,
-  create = Prvd.create,
-  ignite = Prvd.ignite,
-  onIgnition = Prvd.onIgnition,
-  preloadProviders = Prvd.preloadProviders,
-  use = Prvd.use,
+  awaitIgnition = prvd.awaitIgnition,
+  create = prvd.create,
+  ignite = prvd.ignite,
+  onIgnition = prvd.onIgnition,
+  use = prvd.use,
+
+  loadChildren = loader.loadChildren,
+  loadDescendants = loader.loadDescendants,
 }
