@@ -15,16 +15,21 @@ lifecycle events:
     local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 
     local PointsProvider = {}
-    return prvd.create("PointsProvider", PointsProvider)
+    return prvd.Provider("PointsProvider", PointsProvider)
     ```
 
 === "TypeScript"
 
     ```TypeScript
-    import { create } from "@rbxts/ohmyprvd"
+    import { Provider } from "@rbxts/ohmyprvd"
 
-    return create("PointsProvider", {})
+    return Provider("PointsProvider", {})
     ```
+
+!!! tip "`.new` can be used as an alias for `.Provider`"
+
+    If writing `prvd.Provider` sounds verbose for you, Oh My Prvd aliases the
+    `Provider` constructor with `.new`.
 
 The `name` argument signifies what to identify your provider as. This name must
 be unique from all other providers. Ideally, you should name your variable the
@@ -38,7 +43,7 @@ which will be important later.
 Alternatively, you could write your provider as such:
 
 ```Lua
-return prvd.create("PointsProvider", {
+return prvd.Provider("PointsProvider", {
   -- write your methods here
 })
 ```
@@ -61,15 +66,15 @@ a `Player` and their points:
     local PointsProvider = {}
     PointsProvider.points = {}
 
-    return prvd.create("PointsProvider", PointsProvider)
+    return prvd.Provider("PointsProvider", PointsProvider)
     ```
 
 === "TypeScript"
 
     ```TypeScript hl_lines="4"
-    import { create } from "@rbxts/ohmyprvd"
+    import { Provider } from "@rbxts/ohmyprvd"
 
-    return create("PointsProvider", {
+    return Provider("PointsProvider", {
       points: Map<Player, number> = {}
     })
     ```
@@ -127,7 +132,7 @@ function PointsProvider.start(
   end
 end
 
-return prvd.create("PointsProvider", PointsProvider)
+return prvd.Provider("PointsProvider", PointsProvider)
 ```
 
 Notice we are passing `self` as an argument to our methods, which is of type
@@ -182,7 +187,7 @@ function PointsProvider.start(
   end)
 end
 
-return prvd.create("PointsProvider", PointsProvider)
+return prvd.Provider("PointsProvider", PointsProvider)
 ```
 
 ## Dependencies
@@ -236,7 +241,7 @@ function PointsProvider.addPoints(
   )
 end
 
-return prvd.create("PointsProvider", PointsProvider)
+return prvd.Provider("PointsProvider", PointsProvider)
 ```
 
 !!! failure "Do not use dependencies outside of lifecycle methods!"

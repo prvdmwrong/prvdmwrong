@@ -51,14 +51,14 @@ function CombatController.performMove(
   -- do something with the character
 end
 
-return prvd.create("CombatProvider", CombatProvider)
+return prvd.Provider("CombatProvider", CombatProvider)
 ```
 
 ```TypeScript
-import { create, use } from "@rbxts/ohmyprvd"
+import { Provider, use } from "@rbxts/ohmyprvd"
 import { CharacterProvider } from "./character-controller"
 
-export const CombatProvider = create("CombatProvider", {
+export const CombatProvider = Provider("CombatProvider", {
   characterProvider: use(CharacterProvider)
 
   performMove(move: CombatMove) {

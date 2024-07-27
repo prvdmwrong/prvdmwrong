@@ -53,17 +53,17 @@ build faster and shout:
       return self.calculusProvider.add(a, b)
     end
 
-    return prvd.create("MathProvider", MathProvider)
+    return prvd.Provider("MathProvider", MathProvider)
     ```
 
 === "TypeScript"
 
     ```TypeScript
-    import { create, use } from "@rbxts/ohmyprvd"
+    import { Provider, use } from "@rbxts/ohmyprvd"
     import CalculusProvider from "./calculus-provider"
 
-    export const MathProvider = prvd.create("MathProvider", {
-      calculusProvider = prvd.use(CalculusProvider)
+    export const MathProvider = Provider("MathProvider", {
+      calculusProvider = use(CalculusProvider)
 
       add(a: number, b: number) {
         return this.CalculusProvider.add(a, b)
@@ -96,13 +96,13 @@ Create providers to handle the top level logic of your game:
 
     ```Lua
     local CoinsProvider = {}
-    return prvd.create("CoinsProvider", CoinsProvider)
+    return prvd.Provider("CoinsProvider", CoinsProvider)
     ```
 
 === "TypeScript"
 
     ```TypeScript
-    export const CoinsProvider = prvd.create("CoinsProvider", {
+    export const CoinsProvider = prvd.Provider("CoinsProvider", {
     })
     ```
 
@@ -123,13 +123,13 @@ more methods, properties, and the likes into a provider:
       self.coins[person] += coins
     end
 
-    return prvd.create("CoinsProvider", CoinsProvider)
+    return prvd.Provider("CoinsProvider", CoinsProvider)
     ```
 
 === "TypeScript"
 
     ```TypeScript
-    export const CoinsProvider = prvd.create("CoinsProvider", {
+    export const CoinsProvider = Provider("CoinsProvider", {
       balance: Map<Player, number> = {},
 
       addCoins(
@@ -159,14 +159,14 @@ figure out a corresponding load order for you:
       self.coinsProvider:addCoins(player, 30)
     end
 
-    return prvd.create("RewardsProvider", RewardsProvider)
+    return prvd.Provider("RewardsProvider", RewardsProvider)
     ```
 
 === "TypeScript"
 
     ```TypeScript
-    export const RewardsProvider = prvd.create("RewardsProvider", {
-      coinsProvider = prvd.use(CoinsProvider)
+    export const RewardsProvider = Provider("RewardsProvider", {
+      coinsProvider = use(CoinsProvider)
 
       addCoins(
         person: Player
@@ -181,7 +181,7 @@ figure out a corresponding load order for you:
 Finally, preload your providers, then ignite Oh My Prvd, and you're off to the races:
 
 ```TypeScript
-prvd.preloadProviders(ServerScriptService.Providers)
+prvd.loadDescendants(ServerScriptService.Providers)
 prvd.ignite()
 ```
 

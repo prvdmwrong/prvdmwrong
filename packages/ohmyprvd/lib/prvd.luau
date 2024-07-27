@@ -40,10 +40,12 @@ export type IgnitionStatus =
   "IgnitionStatus.Pending"
   | "IgnitionStatus.Igniting"
   | "IgnitionStatus.Ignited"
+
 export type Options = {
   logLevel: "none" | "verbose",
   profiling: boolean,
 }
+
 export type Provider<T> = T & {
   loadOrder: number?,
 
@@ -148,7 +150,7 @@ end
   Constructs and returns a new provider within Oh My Prvd. Providers must be
   created before calling `Prvd.ignite()`.
 ]]
-function prvd.create<T>(name: string, provider: T): Provider<T>
+function prvd.Provider<T>(name: string, provider: T): Provider<T>
   expect(status == IgnitionStatus.Pending, "registerAfterIgnition")
   expect(
     typeof(name) == "string",

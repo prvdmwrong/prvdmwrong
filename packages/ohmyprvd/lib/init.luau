@@ -38,9 +38,10 @@ return table.freeze {
   IgnitionStatus = prvd.IgnitionStatus,
 
   awaitIgnition = prvd.awaitIgnition,
-  create = prvd.create,
+  new = prvd.Provider,
   ignite = prvd.ignite,
   onIgnition = prvd.onIgnition,
+  Provider = prvd.Provider,
   use = prvd.use,
 
   loadChildren = loader.loadChildren,
