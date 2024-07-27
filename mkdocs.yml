@@ -38,6 +38,7 @@ theme:
       example: octicons/beaker-16
       quote: octicons/quote-16
   features:
+    - content.code.copy
     - navigation.expand
     - navigation.footer
     - navigation.indexes
@@ -47,7 +48,6 @@ theme:
     - navigation.tabs
     - navigation.top
     - search.suggest
-    - content.code.copy
 
 nav:
   - Home: index.md
