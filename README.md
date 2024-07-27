@@ -78,3 +78,9 @@ However you want:
 - *Oh, my providers!* for completeness
 - *O-m-p!* for brevity
 - *Ommp!* for power
+
+### Who's that handsome gentlemen on the home page?
+
+His name is Womp Womp:
+
+<img src="assets/womp.png" alt="Womp Womp" height="256px" />
