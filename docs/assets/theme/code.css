@@ -18,8 +18,8 @@
 	--md-code-hl-name-color: var(--ompdoc-gray-8);
 	--md-code-hl-operator-color: oklch(0.5 0 0);
 	--md-code-hl-punctuation-color: oklch(0.5 0 0);
-	--md-code-hl-comment-color: var(--ompdoc-gray-4);
-	--md-code-hl-generic-color: var(--ompdoc-gray-6);
+	--md-code-hl-comment-color: oklch(0.5 0 0);
+	--md-code-hl-generic-color: var(--ompdoc-gray-5);
 	--md-code-hl-variable-color: var(--ompdoc-gray-6);
 }
 
@@ -36,8 +36,8 @@
 	--md-code-hl-name-color: var(--ompdoc-gray-8);
 	--md-code-hl-operator-color: oklch(0.5 0 0);
 	--md-code-hl-punctuation-color: oklch(0.5 0 0);
-	--md-code-hl-comment-color: var(--ompdoc-gray-4);
-	--md-code-hl-generic-color: var(--ompdoc-gray-6);
+	--md-code-hl-comment-color: oklch(0.5 0 0);
+	--md-code-hl-generic-color: var(--ompdoc-gray-5);
 	--md-code-hl-variable-color: var(--ompdoc-gray-6);
 }
 
@@ -55,7 +55,7 @@
 }
 
 .highlighttable .linenos {
-	box-shadow: inset -0.05rem 0 var(--fusiondoc-grey-3);
+	box-shadow: inset -0.05rem 0 var(--ompdoc-gray-3);
 }
 
 .highlight .hll {
@@ -70,22 +70,24 @@
 }
 
 .highlighttable .linenodiv pre {
-	color: var(--fusiondoc-grey-6);
+	color: var(--ompdoc-gray-6);
 }
 
 .highlight .md-clipboard {
-	color: transparent;
+	color: var(--md-code-bg-color);
 }
 
 .highlight:hover .md-clipboard {
-	color: var(--fusiondoc-grey-5);
+	background-color: transparent;
+	color: var(--md-default-fg-color--lightest);
 }
 
 .highlight .md-clipboard:hover {
-	color: var(--fusiondoc-grey-10);
+	background-color: transparent;
+	color: var(--md-code-fg-color);
 }
 
 code:not(pre code, .highlight) {
-	background-color: var(--fusiondoc-bg-2) !important;
+	background-color: var(--md-code-bg-color) !important;
 	color: inherit !important;
 }
