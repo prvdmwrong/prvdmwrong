@@ -13,10 +13,13 @@ Boring. Do it again.
 ***Oh My Prvd will not make you a front page developer, but you may feel like
 one.***
 
-It accelerates the process with providers, connecting the top-level design of
-your game. Choose to mix in networking and components as you need. Oh My Prvd
-provides a seamless, development experience that fades into the background,
-freeing you to build faster and shout: **Oh, My Prvd!**
+Oh My Prvd accelerates the process with providers, connecting the top-level
+design of your game. Choose to mix in networking and components as you need. Oh
+My Prvd provides a seamless, development experience that fades into the
+background, freeing you to build faster and shout: **Oh, My Prvd!**
+
+Sparked your interest? [Get going in minutes with our on-rails
+tutorial](https://team-fireworks.github.io/ohmyprvd/latest/tutorials/).
 
 ## Highlights
 
@@ -30,50 +33,9 @@ freeing you to build faster and shout: **Oh, My Prvd!**
 > **Warning:** Oh My Prvd is in early development. Portions of the API may
 > break, be changed, or outright deleted. There will be dragons.
 
-Install Oh My Prvd with your preferred package manager:
+## Code Sample
 
-```sh
-# Wally
-wally add @znotfireman/ohmyprvd
-# npm
-npm i @znotfireman/ohmyprvd
-# pnpm
-pnpm i @znotfireman/ohmyprvd
-```
-
-## Getting Started
-
-Oh My Prvd allows you to define providers for your game logic. These *provide*
-specific functions within your game, e.g. you might create a `SaveDataProvider`
-to manage save files or a `CameraProvider` to handle player camera movement.
-
-### Boilerplate
-
-This is the minimum structure of a provider, which can be used and hook onto
-lifecycle events:
-
-```lua
-local prvd = require("@pkg/ohmyprvd")
-
-local LeProvider = {}
-return prvd.create("LeProvider", LeProvider)
-```
-
-```ts
-import { create } from "@rbxts/ohmyprvd"
-
-export const LeProvider = create("LeProvider", {})
-```
-
-### Dependencies
-
-Often, providers may depend on other providers, such as a `CombatProvider`
-requiring the player's `CharacterProvider`. Oh my Prvd lets you use providers
-through dependency injection.
-
-Just specify your provider `use()`s another provider:
-
-```lua
+```Lua
 local prvd = require("@pkg/ohmyprvd")
 local CharacterProvider = require("./character-provider")
 
@@ -92,7 +54,7 @@ end
 return prvd.create("CombatProvider", CombatProvider)
 ```
 
-```ts
+```TypeScript
 import { create, use } from "@rbxts/ohmyprvd"
 import { CharacterProvider } from "./character-controller"
 
@@ -104,30 +66,6 @@ export const CombatProvider = create("CombatProvider", {
     // do something with the character
   }
 })
-```
-
-### Ignition
-
-With your providers defined, its time to ignite Oh My Prvd.
-
-It's necessary to preload your providers to for Oh My Prvd to pick it up. For
-convenience, you can use the `addProviders()` function, which will load all
-providers recursively:
-
-```lua
-local prvd = require("@pkg/ohmyprvd")
-prvd.addProviders(script.Providers)
-```
-
-```ts
-import { addProviders } from "@rbxts/ohmyprvd"
-addProviders(script.Providers)
-```
-
-Finally, ignite Oh My Prvd, and you're off to the races:
-
-```ts
-prvd.ignite()
 ```
 
 ## FAQ
