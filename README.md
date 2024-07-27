@@ -56,7 +56,7 @@ return prvd.Provider("CombatProvider", CombatProvider)
 
 ```TypeScript
 import { Provider, use } from "@rbxts/ohmyprvd"
-import { CharacterProvider } from "./character-controller"
+import { CharacterProvider } from "./character-provider"
 
 export const CombatProvider = Provider("CombatProvider", {
   characterProvider: use(CharacterProvider)
