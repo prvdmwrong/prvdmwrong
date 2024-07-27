@@ -35,11 +35,11 @@ export type Provider<T> = prvd.Provider<T>
 return table.freeze {
   version = "0.1.0-alpha",
 
-  IgnitionStatus = prvd.IgnitionStatus,
-
   awaitIgnition = prvd.awaitIgnition,
-  new = prvd.Provider,
   ignite = prvd.ignite,
+  IgnitionStatus = prvd.IgnitionStatus,
+  implementMethod = prvd.implementMethod,
+  new = prvd.Provider,
   onIgnition = prvd.onIgnition,
   Provider = prvd.Provider,
   use = prvd.use,

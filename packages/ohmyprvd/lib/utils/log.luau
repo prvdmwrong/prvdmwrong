@@ -27,17 +27,11 @@
 
 local RunService = game:GetService("RunService")
 
-export type Error = {
-  type: "Error",
-  raw: string,
-  message: string,
-  trace: string,
-}
+local package = script.Parent.Parent
+local types = require(package.types)
 
-export type Message = {
-  brief: string,
-  help: string?,
-}
+export type Error = types.Error
+export type Message = types.Message
 
 local function Message(x: Message): Message
   return table.freeze(x)

@@ -24,44 +24,37 @@
   SOFTWARE.
 
 ]]
-local WEAK_KEYS_METATABLE = { __mode = "k" }
 
-local metadata = setmetatable({} :: any, WEAK_KEYS_METATABLE) :: {
-  [unknown]: {
-    [string]: unknown,
-  },
+export type IgnitionStatus =
+  "IgnitionStatus.Pending"
+  | "IgnitionStatus.Igniting"
+  | "IgnitionStatus.Ignited"
+
+export type Options = {
+  logLevel: "none" | "verbose",
+  profiling: boolean,
 }
 
-local reflect = {}
-reflect.idToObject = {} :: { [string]: unknown }
-reflect.objectToId = {} :: { [unknown]: string }
+export type Provider<T> = T & {
+  loadOrder: number?,
 
-function reflect.defineMetadata(object: unknown, key: string, value: unknown)
-  if key == "identifier" then
-    assert(typeof(value) == "string", "identifier must be a string.")
-    assert(not reflect.objectToId[object], "obj is already registered.")
-    assert(not reflect.idToObject[value], "id is already registered.")
+  init: (self: Provider<T>) -> ()?,
+  start: (self: Provider<T>) -> ()?,
+  heartbeat: (self: Provider<T>, dt: number) -> ()?,
+  step: (self: Provider<T>, dt: number) -> ()?,
+  render: (self: Provider<T>, dt: number) -> ()?,
+}
 
-    reflect.objectToId[object] = value
-    reflect.idToObject[value] = object
-  end
+export type Error = {
+  type: "Error",
+  raw: string,
+  message: string,
+  trace: string,
+}
 
-  if not metadata[object] then
-    metadata[object] = {}
-  end
-  metadata[object][key] = value
-end
+export type Message = {
+  brief: string,
+  help: string?,
+}
 
-function reflect.getMetadata(object: unknown, key: string): unknown?
-  local result = metadata[object] and metadata[object][key]
-  return result
-end
-
-function reflect.deleteMetadata(object: unknown, key: string, property: string?)
-  if metadata[object] then
-    metadata[object][key] = nil
-  end
-end
-
-table.freeze(reflect)
-return reflect
+return nil

@@ -25,7 +25,8 @@
 
 ]]
 
-local log = require(script.Parent.log)
+local package = script.Parent.Parent
+local log = require(package.utils.log)
 local expect = log.expect
 local parseError = log.parseError
 

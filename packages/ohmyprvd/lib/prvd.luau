@@ -27,35 +27,21 @@
 
 local RunService = game:GetService("RunService")
 
-local log = require(script.Parent.utils.log)
-local promise = require(script.Parent.utils.promise)
-local reflect = require(script.Parent.reflect)
-local threads = require(script.Parent.utils.threads)
+local package = script.Parent
+local log = require(package.utils.log)
+local promise = require(package.utils.promise)
+local reflect = require(package.reflect)
+local threads = require(package.utils.threads)
+local types = require(package.types)
 local expect = log.expect
 local info = log.info
 local parseError = log.parseError
 local throw = log.throw
 
-export type IgnitionStatus =
-  "IgnitionStatus.Pending"
-  | "IgnitionStatus.Igniting"
-  | "IgnitionStatus.Ignited"
-
-export type Options = {
-  logLevel: "none" | "verbose",
-  profiling: boolean,
-}
-
-export type Provider<T> = T & {
-  loadOrder: number?,
-
-  init: (self: Provider<T>) -> ()?,
-  start: (self: Provider<T>) -> ()?,
-  heartbeat: (self: Provider<T>, dt: number) -> ()?,
-  step: (self: Provider<T>, dt: number) -> ()?,
-  render: (self: Provider<T>, dt: number) -> ()?,
-}
-type Error = log.Error
+export type IgnitionStatus = types.IgnitionStatus
+export type Options = types.Options
+export type Provider<T> = types.Provider<T>
+type Error = types.Error
 
 local WEAK_KEYS_METATABLE = { __mode = "k" }
 local DEFAULT_OPTIONS: Options = {
@@ -86,7 +72,7 @@ local awaitingCallbacks: { () -> () } = {}
 local status: IgnitionStatus = IgnitionStatus.Pending
 
 local providers: { [string]: Provider<any> } = {}
-local lifecycleHooks: { [string]: (Provider<any>) -> () } = {}
+local lifecycleMethods: { [string]: { [{}]: (Provider<any>) -> () } } = {}
 
 local prvd = {}
 prvd.IgnitionStatus = IgnitionStatus
@@ -336,10 +322,13 @@ function prvd.ignite(options: {
       render[getIdentifier(provider, ".render")] = provider
     end
 
-    for hook, listener in pairs(lifecycleHooks) do
-      local method = rawget(provider, hook)
-      if method ~= nil then
-        listener(provider)
+    for method, handlers in pairs(lifecycleMethods) do
+      local method = rawget(provider, method)
+      if method == nil then
+        continue
+      end
+      for _, handler in pairs(handlers) do
+        threads.spawn(handler, provider)
       end
     end
   end
@@ -424,6 +413,20 @@ function prvd.onIgnition(callback: () -> ())
   end
   expect(typeof(callback) == "function", "invalidOnIgnitionCallback")
   table.insert(awaitingCallbacks, callback)
+end
+
+--[[
+  Listen for when a provider implements a method.
+]]
+function prvd.implementMethod(
+  method: string,
+  handler: (Provider<unknown>) -> ()
+)
+  if not lifecycleMethods[method] then
+    lifecycleMethods[method] = {}
+  end
+  local identifier = table.freeze {}
+  lifecycleMethods[method][identifier] = handler
 end
 
 table.freeze(prvd)
