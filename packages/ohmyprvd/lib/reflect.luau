@@ -24,61 +24,21 @@
   SOFTWARE.
 
 ]]
-
-export type None = {
-  __ohmyprvd_none__: never,
-}
-
-type GetObjectMetadata =
-  ((object: unknown, property: string?, create: true) -> { [string]: unknown })
-  & ((object: unknown, property: string?) -> { [string]: unknown }?)
-
 local WEAK_KEYS_METATABLE = { __mode = "k" }
-local NONE: None = newproxy(true)
-getmetatable(NONE :: any).__tostring = function()
-  return "ohmyprvd.none"
-end
 
 local metadata = setmetatable({} :: any, WEAK_KEYS_METATABLE) :: {
   -- object
   [unknown]: {
-    -- property
-    [string | None]: {
-      -- key: value
-      [string]: unknown,
-    },
+    -- key: value
+    [string]: unknown,
   },
 }
 
 local reflect = {}
-reflect.none = NONE
 reflect.idToObject = {} :: { [string]: unknown }
 reflect.objectToId = {} :: { [unknown]: string }
 
-local getObjectMetadata: GetObjectMetadata = function(
-  object: unknown,
-  property: string?,
-  create: boolean?
-): { [string]: unknown }?
-  local property = property or NONE
-  local objectMetadata = metadata[object]
-  if not create then
-    if objectMetadata then
-      return objectMetadata[property]
-    end
-    return nil
-  end
-  if not objectMetadata then
-    metadata[object] = {}
-  end
-  local propertyMetadata = metadata[object][property]
-  if not propertyMetadata then
-    metadata[object][property] = {}
-  end
-  return propertyMetadata
-end :: GetObjectMetadata
-
-function reflect.defineMetadata(object: unknown, key: string, value: unknown, property: string?)
+function reflect.defineMetadata(object: unknown, key: string, value: unknown)
   if key == "identifier" then
     assert(typeof(value) == "string", "identifier must be a string.")
     assert(not reflect.objectToId[object], "obj is already registered.")
@@ -88,22 +48,20 @@ function reflect.defineMetadata(object: unknown, key: string, value: unknown, pr
     reflect.idToObject[value] = object
   end
 
-  local metadata = getObjectMetadata(object, property, true)
-  metadata[key] = value
+  if not metadata[object] then
+    metadata[object] = {}
+  end
+  metadata[object][key] = value
 end
 
-function reflect.getOwnMetadata(object: unknown, key: string, property: string?): unknown?
-  local metadata = getObjectMetadata(object, property)
-  if metadata then
-    return metadata[key]
-  end
-  return nil
+function reflect.getMetadata(object: unknown, key: string): unknown?
+  local result = metadata[object] and metadata[object][key]
+  return result
 end
 
 function reflect.deleteMetadata(object: unknown, key: string, property: string?)
-  local metadata = getObjectMetadata(object, property)
-  if metadata then
-    metadata[key] = nil
+  if metadata[object] then
+    metadata[object][key] = nil
   end
 end
 

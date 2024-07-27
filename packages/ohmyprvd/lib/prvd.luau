@@ -91,7 +91,7 @@ local prvd = {}
 prvd.LoadMode = LoadMode
 prvd.IgnitionStatus = IgnitionStatus
 
-local function topologicalSort(objects: { string })
+local function topologicalSort(objects: { string }): { [string]: number }
   -- TODO: account for cyclic requires
   local currentSize = 0
   local sorted: { [string]: number } = {}
@@ -108,7 +108,7 @@ local function topologicalSort(objects: { string })
       return
     end
 
-    local dependencies = reflect.getOwnMetadata(object, "ohmyprvd:dependencies") :: { string }
+    local dependencies = reflect.getMetadata(object, "ohmyprvd:dependencies") :: { string }
     for _, dependency in pairs(dependencies or {}) do
       visitor(dependency)
     end
@@ -126,7 +126,7 @@ end
 
 local function getIdentifier(object: unknown, suffix: string?): string
   local suffix = suffix or ""
-  local identifier = reflect.getOwnMetadata(object, "ohmyprvd:identifier")
+  local identifier = reflect.getMetadata(object, "identifier")
   if typeof(identifier) == "string" then
     return identifier .. suffix
   end
@@ -157,7 +157,7 @@ function prvd.create<T>(name: string, provider: T): Provider<T>
   expect(not table.isfrozen(provider :: any), "cannotRegister", nil, "provider cannot be frozen")
   expect(providers[name] == nil, "cannotRegister", nil, `already registered "{name}"`)
 
-  local provider = provider :: Provider<T>
+  local provider = table.clone(provider :: Provider<T>) :: Provider<T>
   for method, expectedType in pairs(EXPECTED_METHOD_TYPES) do
     if rawget(provider, method) == nil then
       continue
@@ -167,7 +167,7 @@ function prvd.create<T>(name: string, provider: T): Provider<T>
   end
 
   reflect.defineMetadata(provider, "ohmyprvd:provider", true)
-  reflect.defineMetadata(provider, "ohmyprvd:identifier", name)
+  reflect.defineMetadata(provider, "identifier", name)
   reflect.defineMetadata(provider, "ohmyprvd:loadOrder", provider.loadOrder)
   providers[name] = provider
   return provider
@@ -230,14 +230,21 @@ function prvd.ignite(options: {
     end
   end
 
+  local dependencies: { { instance: Provider<any>, loadOrder: number, identifier: string } } = {}
   for _, provider in pairs(providers) do
-    if not reflect.getOwnMetadata(provider, "ohmyprvd:provider") then
+    table.insert(dependencies, {
+      instance = provider,
+      loadOrder = rawget(provider, "loadOrder") or 1,
+      identifier = getIdentifier(provider),
+    })
+
+    if not reflect.getMetadata(provider, "ohmyprvd:provider") then
       continue
     end
 
     local encountered = {}
     local dependencies = {}
-    local function resolveUses(target: unknown, key: unknown)
+    local function resolveUses(target: unknown, key: unknown, parent: { [unknown]: unknown })
       if encountered[target] then
         return
       end
@@ -248,25 +255,18 @@ function prvd.ignite(options: {
       local target = target :: { [any]: any }
       local required = rawget(target, "__prvdRequired__")
       if required ~= nil then
+        print(parent, target, key, required)
         -- TODO: check if this is a good idea lmfao
-        rawset(target, key, required)
+        rawset(parent, key, required)
         table.insert(dependencies, getIdentifier(required))
       end
       for key, value in pairs(target) do
-        resolveUses(value, key)
+        resolveUses(value, key, target)
       end
     end
 
-    resolveUses(provider)
+    resolveUses(provider, nil, provider)
     reflect.defineMetadata(provider, "ohmyprvd:dependencies", dependencies)
-  end
-
-  local dependencies: { { instance: Provider<any>, loadOrder: number } } = {}
-  for _, provider in pairs(providers) do
-    table.insert(dependencies, {
-      instance = provider,
-      loadOrder = rawget(provider, "loadOrder") or 1,
-    })
   end
 
   local identifiers = {}
@@ -279,8 +279,8 @@ function prvd.ignite(options: {
       return a.loadOrder < b.loadOrder
     end
 
-    local aIndex = sortedDependencies[getIdentifier(a)]
-    local bIndex = sortedDependencies[getIdentifier(b)]
+    local aIndex = sortedDependencies[a.identifier]
+    local bIndex = sortedDependencies[b.identifier]
     return aIndex < bIndex
   end)
 
@@ -421,6 +421,7 @@ function prvd.preloadProviders(
       continue
     end
     local ok, result: Error = xpcall(require, parseError, module)
+    print(tostring(result))
     expect(ok, "requireError", result.trace, module:GetFullName(), result.message)
     table.insert(exports, result)
   end
