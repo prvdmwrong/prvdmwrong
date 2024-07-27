@@ -1,6 +1,6 @@
 [package]
   name = "znotfireman/ohmyprvd"
-  description = "Oh My Prvd is a delightful framework for next-generation Roblox game development."
+  description = "Implements a networking system for the Oh My Prvd Roblox framework."
   version = "0.1.0-alpha"
   authors = ["ImNotFireMan123"]
   realm = "shared"
