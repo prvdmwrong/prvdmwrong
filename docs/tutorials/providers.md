@@ -162,8 +162,8 @@ As a rule of thumb, prefer to implement `:start` unless you need the unique
 behavior of `:init`.
 
 If you need to modify when a provider loads, you can specify a `loadOrder`
-parameter, which defaults to `#!lua 1`, e.g. to load before other providers,
-you can use a `loadOrder` of `#!lua 0`.
+parameter, which defaults to one, e.g. to load before other providers,
+you can use a `loadOrder` of zero.
 
 Let's implement a `:start` method to our `PointsProvider`, which will add the
 player to our points table, and set it to a default value:
@@ -324,7 +324,7 @@ local MathProvider = require(script.Parent.MathProvider)
 
 Finally, just specify your provider `use()`s another provider:
 
-```Lua hl_lines="33-42"
+```Lua hl_lines="34-43"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 local MathProvider = require(script.Parent.MathProvider)
@@ -332,6 +332,7 @@ local Players = game:GetService("Players")
 
 local PointsProvider = {}
 PointsProvider.points = {}
+PointsProvider.mathProvider = prvd.use(MathProvider)
 
 function PointsProvider.setDefaultPoints(
   self: typeof(PointsProvider)
@@ -393,7 +394,9 @@ return prvd.Provider("PointsProvider", PointsProvider)
     This is also why you can't freeze your provider tables - Oh My Prvd will
     have to modify them.
 
-**Congratulations! You just successfully wrote your first provider using Oh My Prvd!**
+## Congratulations
+
+Congratulations! You just successfully wrote your first provider using Oh My Prvd!
 
 That was a taste of Oh My Prvd. Later on, you will learn how to register your
 own lifecycle methods, use Oh My Prvd networking primitives, and creating your
