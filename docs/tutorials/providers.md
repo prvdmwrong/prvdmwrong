@@ -12,6 +12,7 @@ lifecycle events:
 === "Luau"
 
     ```Lua
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 
     local PointsProvider = {}
@@ -32,6 +33,7 @@ lifecycle events:
     `Provider` constructor with `.new`.
 
     ```Lua
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 
     local PointsProvider = {}
@@ -59,7 +61,8 @@ a `Player` and their points:
 
 === "Luau"
 
-    ```Lua hl_lines="4"
+    ```Lua hl_lines="5"
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 
     local PointsProvider = {}
@@ -83,7 +86,8 @@ for convenience:
 
 === "Luau"
 
-    ```Lua hl_lines="6-14"
+    ```Lua hl_lines="7-15"
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 
     local PointsProvider = {}
@@ -135,13 +139,6 @@ Oh My Prvd provides a few lifecycle events out of the box:
 
 - `:init` runs sequentially before any other lifecycle methods, methods are
   expected to be infallible and preferably non-yielding.
-
-  ??? tip "Promises"
-
-      If you return a `Promise`, Oh My Prvd will wait for the promise to
-      resolve. Anything with a `:andThen` method and a `:awaitStatus` method
-      will be picked up by Oh My Prvd.
-
 - `:start` runs concurrently *after* all other lifecycle methods have been
   registered. This means failures and yields do not affect other providers.
 - `:heartbeat` is ran every `RunService.HeartBeat` and is optimal for responding
@@ -150,6 +147,12 @@ Oh My Prvd provides a few lifecycle events out of the box:
   physics.
 - `:render` is ran every `RunService.RenderStepped`. Notably, this lifecycle
   event only runs on the client.
+
+??? tip "`:init` can return promises"
+
+    If you return a promise, Oh My Prvd will wait for the promise to
+    resolve. Anything with an `:andThen` method and an `:awaitStatus` method
+    will be picked up by Oh My Prvd.
 
 In order to maintain this pattern, be sure to set up your provider in the
 `:init` method (or earlier; just in the module itself). By the time `:start`
@@ -167,7 +170,8 @@ player to our points table, and set it to a default value:
 
 === "Luau"
 
-    ```Lua hl_lines="2 17-26"
+    ```Lua hl_lines="3 18-27"
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
     local Players = game:GetService("Players")
 
@@ -234,7 +238,8 @@ That player's data is forever held onto within the `points` table. We need to
 clear out that data when the player leaves. Let's hook up our `:start` method
 with the `Players.PlayerRemoving` event and remove their points:
 
-```Lua hl_lines="26-28"
+```Lua hl_lines="27-29"
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 local Players = game:GetService("Players")
 
@@ -279,6 +284,7 @@ First, create a file for a new `MathProvider` with the following:
 === "Luau"
 
     ```Lua
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 
     local MathProvider = {}
@@ -318,7 +324,8 @@ local MathProvider = require(script.Parent.MathProvider)
 
 Finally, just specify your provider `use()`s another provider:
 
-```Lua hl_lines="32-41"
+```Lua hl_lines="33-42"
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 local MathProvider = require(script.Parent.MathProvider)
 local Players = game:GetService("Players")
