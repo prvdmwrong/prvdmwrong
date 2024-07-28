@@ -23,7 +23,7 @@ build faster and shout: **Oh, My Prvd!**
 - Type-safe APIs for both Luau and TypeScript
 - Featherlight, choose to mix in packages as you need
 - Uses dependency injection for cleaner code organization
-- Extendable through the modding API
+- Made to be extendable
 - Non-intrusive lifecycle events for flexibility
 - Designed for clarity with syntax inspired by Rust
 
