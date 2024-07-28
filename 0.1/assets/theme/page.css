@@ -1,0 +1,251 @@
+.md-typeset h1 {
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+.md-typeset h2 {
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+.md-typeset h3 {
+	font-weight: 600;
+	letter-spacing: -0.01em;
+}
+
+.md-typeset a {
+	transition: opacity 125ms;
+}
+
+.md-typeset a::after {
+	content: "↗";
+	display: inline-block;
+	margin-left: 0.125rem;
+	position: relative;
+	left: 0;
+	bottom: 0;
+	transition:
+		top,
+		bottom,
+		0.2s ease;
+}
+
+.md-typeset a:focus,
+.md-typeset a:hover {
+	opacity: 50%;
+}
+
+.md-typeset a:focus::after,
+.md-typeset a:hover::after {
+	left: 0.25em;
+	bottom: 0.25em;
+}
+
+.md-header {
+	box-shadow: none;
+}
+
+.md-typeset img {
+	border-radius: 0.25rem;
+}
+
+.md-tabs,
+.md-header {
+	background-color: var(--md-default-bg-color);
+}
+
+h1 > .twemoji:first-child,
+h2 > .twemoji:first-child,
+h3 > .twemoji:first-child,
+h4 > .twemoji:first-child,
+h5 > .twemoji:first-child,
+h6 > .twemoji:first-child {
+	margin-right: 0.25em;
+}
+
+.md-footer__inner md-grid {
+	padding: 0 1.2rem 0.8rem;
+}
+
+.md-copyright::after {
+	content: "∙ Theme by znotfireman";
+}
+
+::selection {
+	background-color: var(--md-accent-fg-color);
+	/* color: var(--md-primary-fg-color); */
+}
+
+.md-top {
+	border-radius: 0.25em;
+	background-color: var(--md-default-bg-color--light);
+}
+
+.md-search__form {
+	border-radius: 0.25em;
+}
+
+.md-footer__inner {
+	font-weight: 600;
+}
+
+.md-footer__title,
+.md-footer__direction {
+	padding: 0;
+}
+
+.md-footer,
+.md-footer-meta {
+	background-color: var(--md-default-bg-color);
+}
+
+.md-footer__button.md-icon {
+	margin-top: -0.25rem;
+	transform: translateX(0rem);
+	transition: transform 0.2s ease;
+}
+
+.md-footer__link--next:hover .md-footer__button.md-icon {
+	transform: translateX(0.5rem);
+}
+
+.md-footer__link--prev:hover .md-footer__button.md-icon {
+	transform: translateX(-0.5rem);
+}
+
+.md-nav--primary .md-nav__title[for="__drawer"],
+.md-source,
+.md-nav__source,
+.md-nav--primary .md-nav__title {
+	background-color: var(--md-default-bg-color);
+}
+.md-input {
+	background: var(--md-default-bg-color--light);
+}
+
+.md-typeset .md-input {
+	border-bottom: 1rem solid
+		oklch(var(--md-default-bg-color--lighter) l c h / 0.1) !important;
+}
+
+.md-input:focus {
+	--md-accent-fg-color: var(--ompdoc-accent);
+}
+
+.md-input::placeholder {
+	opacity: 1;
+	transform: translateX(0rem);
+	transition:
+		opacity 0.2s ease,
+		transform 0.2s ease;
+}
+
+.md-input:focus::placeholder {
+	opacity: 0;
+	transform: translateX(1rem);
+}
+
+/* FUCK YOU. */
+
+.md-typeset
+	.tabbed-set
+	> input:first-child:checked
+	~ .tabbed-labels
+	> :first-child,
+.md-typeset
+	.tabbed-set
+	> input:nth-child(2):checked
+	~ .tabbed-labels
+	> :nth-child(2),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(3):checked
+	~ .tabbed-labels
+	> :nth-child(3),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(4):checked
+	~ .tabbed-labels
+	> :nth-child(4),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(5):checked
+	~ .tabbed-labels
+	> :nth-child(5),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(6):checked
+	~ .tabbed-labels
+	> :nth-child(6),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(7):checked
+	~ .tabbed-labels
+	> :nth-child(7),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(8):checked
+	~ .tabbed-labels
+	> :nth-child(8),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(9):checked
+	~ .tabbed-labels
+	> :nth-child(9),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(10):checked
+	~ .tabbed-labels
+	> :nth-child(10),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(11):checked
+	~ .tabbed-labels
+	> :nth-child(11),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(12):checked
+	~ .tabbed-labels
+	> :nth-child(12),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(13):checked
+	~ .tabbed-labels
+	> :nth-child(13),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(14):checked
+	~ .tabbed-labels
+	> :nth-child(14),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(15):checked
+	~ .tabbed-labels
+	> :nth-child(15),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(16):checked
+	~ .tabbed-labels
+	> :nth-child(16),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(17):checked
+	~ .tabbed-labels
+	> :nth-child(17),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(18):checked
+	~ .tabbed-labels
+	> :nth-child(18),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(19):checked
+	~ .tabbed-labels
+	> :nth-child(19),
+.md-typeset
+	.tabbed-set
+	> input:nth-child(20):checked
+	~ .tabbed-labels
+	> :nth-child(20) {
+	font-weight: 700;
+}
