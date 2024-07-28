@@ -32,12 +32,11 @@ declare namespace ohmyprvd {
 		step?(dt: number): void
 		render?(dt: number): void
 	}
+
 	export type Options = {
 		loglevel: "none" | "verbose"
 		profiling: boolean
 	}
-
-	export const version: string
 
 	export enum IgnitionStatus {
 		Pending = "IgnitionStatus.Pending",
@@ -45,15 +44,15 @@ declare namespace ohmyprvd {
 		Ignited = "IgnitionStatus.Ignited",
 	}
 
-	export enum LoadMode {
-		Children = "LoadMode.Children",
-		Descendants = "LoadMode.Descendants",
-	}
+	export const version: string
 
 	export const awaitIgnition: () => void
 	export const ignite: (options?: Partial<Options>) => void
 	export const onIgnition: (callback: () => void) => void
-	export const register: <T extends object>(name: string, provider: Provider<T>) => Provider<T>
+	export const register: <T extends object>(
+		name: string,
+		provider: Provider<T>,
+	) => Provider<T>
 	export const preloadProviders: (
 		parent: Instance,
 		predicate?: (module: ModuleScript) => boolean,

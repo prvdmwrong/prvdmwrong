@@ -15,5 +15,6 @@ roblox.toml
 **/sourcemap*.json
 globalTypes.d.luau
 /*.d.luau
+**/roblox.yml
 
 site/

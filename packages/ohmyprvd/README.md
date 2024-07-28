@@ -1,6 +1,6 @@
 # Oh My Prvd
 
-<img src="assets/logo.svg" width="300px" align="right" alt="Logo"/>
+<img src="../../assets/logo.svg" width="300px" align="right" alt="Logo"/>
 
 ![CI](https://github.com/team-fireworks/ohmyprvd/actions/workflows/ci.yml/badge.svg)
 ![Docs](https://github.com/team-fireworks/ohmyprvd/actions/workflows/docs.yml/badge.svg)
@@ -83,4 +83,4 @@ However you want:
 
 His name is Womp Womp:
 
-<img src="assets/womp.png" alt="Womp Womp" height="256px" />
+<img src="../../assets/womp.png" alt="Womp Womp" height="256px" />
