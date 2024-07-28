@@ -1808,6 +1808,13 @@ that matches its lifecycle name.</p>
 <ul>
 <li><code>:init</code> runs sequentially before any other lifecycle methods, methods are
   expected to be infallible and preferably non-yielding.</li>
+</ul>
+<p>??? tip "Promises"</p>
+<div class="language-text highlight"><pre><span></span><code>  If you return a `Promise`, Oh My Prvd will wait for the promise to
+  resolve. Anything with a `:andThen` method and a `:awaitStatus` method
+  will be picked up by Oh My Prvd.
+</code></pre></div>
+<ul>
 <li><code>:start</code> runs concurrently <em>after</em> all other lifecycle methods have been
   registered. This means failures and yields do not affect other providers.</li>
 <li><code>:heartbeat</code> is ran every <code>RunService.HeartBeat</code> and is optimal for responding
@@ -1822,8 +1829,11 @@ that matches its lifecycle name.</p>
 methods are fired, other providers should be available for use.</p>
 <p>As a rule of thumb, prefer to implement <code>:start</code> unless you need the unique
 behavior of <code>:init</code>.</p>
-<p>Speaking of which, let's implement a <code>:start</code> method to our <code>PointsProvider</code>,
-which will add the player to our points table, and set it to a default value:</p>
+<p>If you need to modify when a provider loads, you can specify a <code>loadOrder</code>
+parameter, which defaults to <code class="language-lua highlight"><span class="mi">1</span></code>, e.g. to load before other providers,
+you can use a <code>loadOrder</code> of <code class="language-lua highlight"><span class="mi">0</span></code>.</p>
+<p>Let's implement a <code>:start</code> method to our <code>PointsProvider</code>, which will add the
+player to our points table, and set it to a default value:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Luau</label><label for="__tabbed_4_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
