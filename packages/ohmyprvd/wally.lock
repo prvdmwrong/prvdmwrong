@@ -239,5 +239,5 @@ dependencies = [["collections", "jsdotlua/collections@1.2.7"]]
 
 [[package]]
 name = "znotfireman/ohmyprvd"
-version = "0.1.0"
+version = "0.1.0-alpha"
 dependencies = [["jest", "jsdotlua/jest@3.6.1-rc.2"], ["jest_globals", "jsdotlua/jest-globals@3.6.1-rc.2"]]
