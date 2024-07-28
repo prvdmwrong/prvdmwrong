@@ -399,5 +399,8 @@ That was a taste of Oh My Prvd. Later on, you will learn how to register your
 own lifecycle methods, use Oh My Prvd networking primitives, and creating your
 own components.
 
+You can find the completed modules for MathProvider and PointsProvider in [the
+`examples` repository.](https://github.com/team-fireworks/ohmyprvd/tree/main/examples)
+
 Once you're comfortable writing providers, you are ready to take on the rest of
 what Oh My Prvd offers.
