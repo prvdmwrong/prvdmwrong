@@ -1,7 +1,7 @@
 {
   "name": "ohmyprvd",
   "tree": {
-    "$path": "lib",
+    "$path": "out",
     "packages": {
       "$path": "DevPackages"
     }
