@@ -31,44 +31,29 @@ local package = script.Parent.Parent
 local types = require(package.types)
 
 export type Error = types.Error
-export type Message = types.Message
-
-local function Message(x: Message): Message
-  return table.freeze(x)
-end
 
 local ERROR_MESSAGES_URL =
   "team-fireworks.github.io/ohmyprvd/latest/api-reference/general/error-messages#"
-local MESSAGES: { [string]: Message } = table.freeze {
-  alreadyIgnited = Message { brief = "cannot ignite more than once" },
-  cannotRegister = Message { brief = "cannot register provider; %s" },
-  cannotUseNonProvider = Message {
-    brief = "`use()` must be given a provider",
-  },
-  initError = Message { brief = "cannot initialize %s; %s" },
-  invalidOnIgnitionCallback = Message {
-    brief = "`onIgnition` must be given callbacks",
-  },
-  invalidLoadParent = Message { brief = "loadX must be given an instance" },
-  lifecycleEvent = Message { brief = "running lifecycle event %s" },
-  registerAfterIgnition = Message {
-    brief = "cannot register providers after ignition",
-  },
-  useAfterIgnition = Message {
-    brief = "cannot use other providers after ignition",
-  },
-  requireError = Message { brief = "cannot require %s; %s" },
-  serverRenderLifecycle = Message {
-    brief = "cannot use `:render` lifecycle from the server",
-  },
-  unknown = Message {
-    brief = "unknown error: %s",
-    help = "this indicates oh my prvd isn't reporting errors correctly, please file an issue",
-  },
-  usedBeforeIgnition = Message {
-    brief = 'cannot use provider "%s" prior to ignition',
-    help = "ohmyprvd will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method",
-  },
+
+local MESSAGES: { [string]: string } = table.freeze {
+  alreadyIgnited = "cannot ignite more than once",
+  cannotRegister = "cannot register provider; %s",
+  cannotUseNonProvider = "`use()` must be given a provider",
+  initError = "cannot initialize %s; %s",
+  invalidLoadParent = "loadX must be given an instance",
+  invalidOnIgnitionCallback = "`onIgnition` must be given callbacks",
+  lifecycleEvent = "running lifecycle event %s",
+  registerAfterIgnition = "cannot register providers after ignition",
+  requireError = "cannot require %s; %s",
+  serverRenderLifecycle = "cannot use `:render` lifecycle from the server",
+  unknown = "unknown error: %s",
+  useAfterIgnition = "cannot use other providers after ignition",
+  usedBeforeIgnition = 'cannot use provider "%s" prior to ignition',
+}
+
+local TIPS: { [string]: string } = table.freeze {
+  unknown = "this indicates oh my prvd isn't reporting errors correctly, please file an issue",
+  usedBeforeIgnition = "ohmyprvd will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method",
 }
 
 local Log = {}
@@ -79,23 +64,22 @@ local function fmtMessage(
   trace: string?,
   ...: unknown
 )
-  local message: Message = MESSAGES[id]
+  local message = MESSAGES[id]
   if not message then
     local unknownMessage = table.clone(MESSAGES.unknown)
-    unknownMessage.brief = unknownMessage.brief:format(id)
+    unknownMessage = unknownMessage:format(id)
     message = unknownMessage
     id = "unknown"
   end
 
-  local formatted = `[ohmyprvd {level}({id})]: {message.brief}`
+  local formatted = `[ohmyprvd {level}({id})]: {message}`
   if select("#", ...) > 0 then
     formatted:format(...)
   end
-  if message.help then
-    local help = message.help
-    formatted ..= `\nhelp: {help}`
+  if TIPS[id] then
+    formatted ..= `\nhelp: {TIPS[id]}`
   end
-  if RunService:IsStudio() then
+  if level ~= "info" and RunService:IsStudio() then
     formatted ..= `\nlearn more: {ERROR_MESSAGES_URL}{id:lower()}`
   end
   if trace then
