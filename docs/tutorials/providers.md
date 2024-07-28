@@ -135,6 +135,13 @@ Oh My Prvd provides a few lifecycle events out of the box:
 
 - `:init` runs sequentially before any other lifecycle methods, methods are
   expected to be infallible and preferably non-yielding.
+
+  ??? tip "Promises"
+
+      If you return a `Promise`, Oh My Prvd will wait for the promise to
+      resolve. Anything with a `:andThen` method and a `:awaitStatus` method
+      will be picked up by Oh My Prvd.
+
 - `:start` runs concurrently *after* all other lifecycle methods have been
   registered. This means failures and yields do not affect other providers.
 - `:heartbeat` is ran every `RunService.HeartBeat` and is optimal for responding
@@ -151,8 +158,12 @@ methods are fired, other providers should be available for use.
 As a rule of thumb, prefer to implement `:start` unless you need the unique
 behavior of `:init`.
 
-Speaking of which, let's implement a `:start` method to our `PointsProvider`,
-which will add the player to our points table, and set it to a default value:
+If you need to modify when a provider loads, you can specify a `loadOrder`
+parameter, which defaults to `#!lua 1`, e.g. to load before other providers,
+you can use a `loadOrder` of `#!lua 0`.
+
+Let's implement a `:start` method to our `PointsProvider`, which will add the
+player to our points table, and set it to a default value:
 
 === "Luau"
 
