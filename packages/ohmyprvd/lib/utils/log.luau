@@ -42,6 +42,9 @@ local ERROR_MESSAGES_URL =
 local MESSAGES: { [string]: Message } = table.freeze {
   alreadyIgnited = Message { brief = "cannot ignite more than once" },
   cannotRegister = Message { brief = "cannot register provider; %s" },
+  cannotUseNonProvider = Message {
+    brief = "`use()` must be given a provider",
+  },
   initError = Message { brief = "cannot initialize %s; %s" },
   invalidOnIgnitionCallback = Message {
     brief = "`onIgnition` must be given callbacks",
@@ -51,12 +54,12 @@ local MESSAGES: { [string]: Message } = table.freeze {
   registerAfterIgnition = Message {
     brief = "cannot register providers after ignition",
   },
-  requireAfterIgnition = Message {
-    brief = "cannot require other providers after ignition",
+  useAfterIgnition = Message {
+    brief = "cannot use other providers after ignition",
   },
   requireError = Message { brief = "cannot require %s; %s" },
   serverRenderLifecycle = Message {
-    brief = "cannot use `.render` lifecycle from the server",
+    brief = "cannot use `:render` lifecycle from the server",
   },
   unknown = Message {
     brief = "unknown error: %s",

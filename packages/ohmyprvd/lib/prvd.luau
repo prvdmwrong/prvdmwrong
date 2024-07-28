@@ -170,7 +170,11 @@ function prvd.Provider<T>(name: string, provider: T): Provider<T>
       continue
     end
     local realType = typeof(rawget(provider, method))
-    assert(expectedType == realType)
+    expect(
+      expectedType == realType,
+      "cannotRegister",
+      `\`{name}.{method}\` should be a {expectedType}`
+    )
   end
 
   reflect.defineMetadata(provider, "ohmyprvd:provider", true)
@@ -181,11 +185,11 @@ function prvd.Provider<T>(name: string, provider: T): Provider<T>
 end
 
 --[[
-  Uses a provider within Oh My Prvd. During startup, Oh My Prvd will inject
+  Uses a provider within Oh My Prvd. During ignition, Oh My Prvd will inject
   the dependencies your provider uses.
 ]]
 function prvd.use<T>(provider: Provider<T>): T
-  expect(status == IgnitionStatus.Pending, "requireAfterIgnition")
+  expect(status == IgnitionStatus.Pending, "useAfterIgnition")
   expect(providers[getIdentifier(provider)] ~= nil, "cannotUseNonProvider")
   return setmetatable(
     {
