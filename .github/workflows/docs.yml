@@ -25,4 +25,4 @@ jobs:
             - name: Pull
               run: git pull
             - name: Build Docs Website
-              run: mike deploy 0.1 latest --allow-empty
+              run: mike deploy --push --update-aliases 0.1 latest
