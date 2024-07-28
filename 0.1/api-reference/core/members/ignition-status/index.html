@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://team-fireworks.github.io/ohmyprvd/0.1/tutorials/net/middlewares/">
+        <link rel="canonical" href="https://team-fireworks.github.io/ohmyprvd/0.1/api-reference/core/members/ignition-status/">
       
       
-        <link rel="prev" href="../functions/">
+        <link rel="prev" href="../ignite/">
       
       
-        <link rel="next" href="../namespaces/">
+        <link rel="next" href="../implement-method/">
       
       
-      <link rel="icon" href="../../../assets/logo.svg">
+      <link rel="icon" href="../../../../assets/logo.svg">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
     
     
       
-        <title>Middlewares - Oh My Prvd</title>
+        <title>IgnitionStatus - Oh My Prvd</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6543a935.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
   
@@ -89,15 +89,15 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/theme/code.css">
+      <link rel="stylesheet" href="../../../../assets/theme/code.css">
     
-      <link rel="stylesheet" href="../../../assets/theme/home.css">
+      <link rel="stylesheet" href="../../../../assets/theme/home.css">
     
-      <link rel="stylesheet" href="../../../assets/theme/ompdoc.css">
+      <link rel="stylesheet" href="../../../../assets/theme/ompdoc.css">
     
-      <link rel="stylesheet" href="../../../assets/theme/page.css">
+      <link rel="stylesheet" href="../../../../assets/theme/page.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -123,7 +123,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#middlewares" class="md-skip">
+        <a href="#ignitionstatus" class="md-skip">
           Skip to content
         </a>
       
@@ -141,9 +141,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Oh My Prvd" class="md-header__button md-logo" aria-label="Oh My Prvd" data-md-component="logo">
+    <a href="../../../.." title="Oh My Prvd" class="md-header__button md-logo" aria-label="Oh My Prvd" data-md-component="logo">
       
-  <img src="../../../assets/logo.svg" alt="logo">
+  <img src="../../../../assets/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -160,7 +160,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Middlewares
+              IgnitionStatus
             
           </span>
         </div>
@@ -306,7 +306,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link">
         
   
     
@@ -321,13 +321,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../../tutorials/" class="md-tabs__link">
           
   
     
@@ -343,11 +341,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../api-reference/error-messages/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../error-messages/" class="md-tabs__link">
           
   
     
@@ -382,9 +382,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Oh My Prvd" class="md-nav__button md-logo" aria-label="Oh My Prvd" data-md-component="logo">
+    <a href="../../../.." title="Oh My Prvd" class="md-nav__button md-logo" aria-label="Oh My Prvd" data-md-component="logo">
       
-  <img src="../../../assets/logo.svg" alt="logo">
+  <img src="../../../../assets/logo.svg" alt="logo">
 
     </a>
     Oh My Prvd
@@ -411,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -428,8 +428,6 @@
       
   
   
-    
-  
   
   
     
@@ -456,24 +454,21 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../../tutorials/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -484,13 +479,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Tutorials
@@ -506,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/" class="md-nav__link">
+      <a href="../../../../tutorials/installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -527,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/" class="md-nav__link">
+      <a href="../../../../tutorials/providers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -548,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ignition/" class="md-nav__link">
+      <a href="../../../../tutorials/ignition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -566,8 +561,6 @@
                 
   
   
-    
-  
   
   
     
@@ -590,22 +583,19 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../../tutorials/net/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -616,13 +606,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_5">
             <span class="md-nav__icon md-icon"></span>
             Net
@@ -638,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../events/" class="md-nav__link">
+      <a href="../../../../tutorials/net/events/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -659,7 +649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../functions/" class="md-nav__link">
+      <a href="../../../../tutorials/net/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -677,19 +667,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/net/middlewares/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -698,7 +679,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -711,7 +691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../namespaces/" class="md-nav__link">
+      <a href="../../../../tutorials/net/namespaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -757,13 +737,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -772,7 +749,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../components/" class="md-nav__link ">
+            <a href="../../../../tutorials/components/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -783,7 +760,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -805,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../components/usage/" class="md-nav__link">
+      <a href="../../../../tutorials/components/usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -826,7 +803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../components/attributes/" class="md-nav__link">
+      <a href="../../../../tutorials/components/attributes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -847,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../components/inheritance/" class="md-nav__link">
+      <a href="../../../../tutorials/components/inheritance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -889,13 +866,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -904,7 +878,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../mods/" class="md-nav__link ">
+            <a href="../../../../tutorials/mods/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -915,7 +889,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -937,7 +911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mods/lifecycle-methods/" class="md-nav__link">
+      <a href="../../../../tutorials/mods/lifecycle-methods/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -975,20 +949,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
         
           
-          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1013,7 +984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../best-practices/alternatives/" class="md-nav__link">
+      <a href="../../../../tutorials/best-practices/alternatives/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1046,8 +1017,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1058,19 +1031,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1081,7 +1057,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             API Reference
@@ -1095,7 +1071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api-reference/error-messages/" class="md-nav__link">
+      <a href="../../../error-messages/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1113,8 +1089,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1126,18 +1104,21 @@
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1148,7 +1129,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             Core
@@ -1159,8 +1140,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1190,11 +1173,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
@@ -1208,7 +1191,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2_1">
             <span class="md-nav__icon md-icon"></span>
             Members
@@ -1222,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api-reference/core/members/await-ignition/" class="md-nav__link">
+      <a href="../await-ignition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1243,7 +1226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api-reference/core/members/ignite/" class="md-nav__link">
+      <a href="../ignite/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1261,10 +1244,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../api-reference/core/members/ignition-status/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    IgnitionStatus
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1273,6 +1276,70 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#items" class="md-nav__link">
+    <span class="md-ellipsis">
+      Items
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Items">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pending-ignitionstatuspending" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pending : IgnitionStatus.Pending
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ignition-ignitionstatusignition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ignition : IgnitionStatus.Ignition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ignited-ignitionstatusignited" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ignited : IgnitionStatus.Ignited
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1285,7 +1352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api-reference/core/members/implement-method/" class="md-nav__link">
+      <a href="../implement-method/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1306,7 +1373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api-reference/core/members/load-children/" class="md-nav__link">
+      <a href="../load-children/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1327,7 +1394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api-reference/core/members/load-descendants/" class="md-nav__link">
+      <a href="../load-descendants/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1348,7 +1415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api-reference/core/members/on-ignition/" class="md-nav__link">
+      <a href="../on-ignition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1369,7 +1436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api-reference/core/members/provider/" class="md-nav__link">
+      <a href="../provider/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1390,7 +1457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api-reference/core/members/use/" class="md-nav__link">
+      <a href="../use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1465,7 +1532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api-reference/core/types/options/" class="md-nav__link">
+      <a href="../../types/options/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1486,7 +1553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api-reference/core/types/provider/" class="md-nav__link">
+      <a href="../../types/provider/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1545,6 +1612,56 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#items" class="md-nav__link">
+    <span class="md-ellipsis">
+      Items
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Items">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pending-ignitionstatuspending" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pending : IgnitionStatus.Pending
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ignition-ignitionstatusignition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ignition : IgnitionStatus.Ignition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ignited-ignitionstatusignited" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ignited : IgnitionStatus.Ignited
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1561,11 +1678,45 @@
   
 
 
-<h1 id="middlewares">Middlewares</h1>
-<div class="admonition warning">
-<p class="admonition-title">Under construction</p>
-<p>This page is under construction - information may be incomplete or missing.</p>
+<h1 id="ignitionstatus">IgnitionStatus</h1>
+<p>An enumeration of all defined ignition status Oh My Prvd will be in.</p>
+<p>This enum is not useful outside of Oh My Prvd itself; prefer to work with
+<a href="../await-ignition/"><code class="language-lua highlight"><span class="n">awaitIgnition</span><span class="p">()</span></code></a> and <a href="../on-ignition/"><code class="language-lua highlight"><span class="n">onIgnition</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></code></a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Luau</label><label for="__tabbed_1_2">TypeScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">prvd</span><span class="p">.</span><span class="n">IgnitionStatus</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="n">Pending</span> <span class="o">=</span> <span class="s2">&quot;IgnitionStatus.Pending&quot;</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  <span class="n">Ignition</span> <span class="o">=</span> <span class="s2">&quot;IgnitionStatus.Ignition&quot;</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  <span class="n">Ignited</span> <span class="o">=</span> <span class="s2">&quot;IgnitionStatus.Ignited&quot;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+</span></code></pre></div>
 </div>
+<div class="tabbed-block">
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">export</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="nx">IgnitionStatus</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nx">Pending</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;IgnitionStatus.Pending&quot;</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nx">Ignition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;IgnitionStatus.Ignition&quot;</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nx">Ignited</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;IgnitionStatus.Ignited&quot;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="items">Items</h2>
+<h3 id="pending-ignitionstatuspending">Pending <code class="language-lua highlight"><span class="p">:</span> <span class="n">IgnitionStatus</span><span class="p">.</span><span class="n">Pending</span></code></h3>
+<p>Indicates that <a href="../ignite/"><code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">ignite</span><span class="p">()</span></code></a> has not been called yet. Calls
+to <a href="../use/"><code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">use</span><span class="p">()</span></code></a> and <a href="../provider/"><code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">()</span></code></a> are
+safe.</p>
+<h3 id="ignition-ignitionstatusignition">Ignition <code class="language-lua highlight"><span class="p">:</span> <span class="n">IgnitionStatus</span><span class="p">.</span><span class="n">Ignition</span></code></h3>
+<p>Indicates that <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">ignite</span><span class="p">()</span></code> has been called, but the ignition process
+has not finished. Calls to <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">use</span><span class="p">()</span></code> and <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">()</span></code> will
+throw an error.</p>
+<h3 id="ignited-ignitionstatusignited">Ignited <code class="language-lua highlight"><span class="p">:</span> <span class="n">IgnitionStatus</span><span class="p">.</span><span class="n">Ignited</span></code></h3>
+<p>Indicates that the ignition process has finished. Calls to <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">use</span><span class="p">()</span></code>
+and <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">()</span></code> will throw an error.</p>
+<p>Awaiting threads from <a href="../await-ignition/"><code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">awaitIgnition</span><span class="p">()</span></code></a> and
+queued callbacks from <a href="../on-ignition/"><code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">onIgnition</span><span class="p">()</span></code></a> will be
+spawned just before the ignition status is set to this.</p>
 
 
 
@@ -1633,9 +1784,9 @@
         
           
           <a
-            href="../functions/"
+            href="../ignite/"
             class="md-footer__link md-footer__link--prev"
-            aria-label="Previous: Functions"
+            aria-label="Previous: ignite"
           >
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.78 19.03a.75.75 0 0 1-1.06 0l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L5.81 11.5h14.44a.75.75 0 0 1 0 1.5H5.81l4.97 4.97a.75.75 0 0 1 0 1.06Z"/></svg>
@@ -1645,7 +1796,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Functions
+                ignite
               </div>
             </div>
           </a>
@@ -1655,16 +1806,16 @@
         
           
           <a
-            href="../namespaces/"
+            href="../implement-method/"
             class="md-footer__link md-footer__link--next"
-            aria-label="Next: Namespaces"
+            aria-label="Next: implementMethod"
           >
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Namespaces
+                implementMethod
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1703,10 +1854,10 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
     
   </body>
