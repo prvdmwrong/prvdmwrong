@@ -38,8 +38,6 @@ theme:
       example: octicons/beaker-16
       quote: octicons/quote-16
   features:
-    - content.code.copy
-    - navigation.expand
     - navigation.footer
     - navigation.indexes
     - navigation.instant
@@ -73,19 +71,21 @@ nav:
     - Best Practices:
       - Alternatives: tutorials/best-practices/alternatives.md
   - API Reference:
-    - General:
-      - Error Messages: api-reference/general/error-messages.md
+    - Error Messages: api-reference/error-messages.md
     - Core:
-      - awaitIgnition: api-reference/core/await-ignition.md
-      - create: api-reference/core/create.md
-      - ignite: api-reference/core/ignite.md
-      - IgnitionStatus: api-reference/core/ignition-status.md
-      - LoadMode: api-reference/core/load-mode.md
-      - onIgnition: api-reference/core/on-ignition.md
-      - Options: api-reference/core/options.md
-      - preloadProviders: api-reference/core/preload-providers.md
-      - Provider: api-reference/core/provider.md
-      - use: api-reference/core/use.md
+      - Members:
+        - awaitIgnition: api-reference/core/members/await-ignition.md
+        - ignite: api-reference/core/members/ignite.md
+        - IgnitionStatus: api-reference/core/members/ignition-status.md
+        - implementMethod: api-reference/core/members/implement-method.md
+        - loadChildren: api-reference/core/members/load-children.md
+        - loadDescendants: api-reference/core/members/load-descendants.md
+        - onIgnition: api-reference/core/members/on-ignition.md
+        - Provider: api-reference/core/members/provider.md
+        - use: api-reference/core/members/use.md
+      - Types:
+        - Options: api-reference/core/types/options.md
+        - Provider: api-reference/core/types/provider.md
 
 extra_css:
   - assets/theme/code.css

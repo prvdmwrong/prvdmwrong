@@ -60,10 +60,10 @@ error, here are some resources which can help.
 ### Support with Errors
 
 Oh My Prvd attaches a link with every console log message. These links direct
-you to our comprehensive [Error
-Messages](../api-reference/general/error-messages.md) documentation.
+you to our comprehensive [Error Messages](../api-reference/error-messages.md)
+documentation.
 
-```txt hl_lines="2"
+```Md hl_lines="2"
 [ohmyprvd error(requireAfterIgnition)]: cannot require other providers after ignition
   more info: team-fireworks.github.io/ohmyprvd/latest/api-reference/general/error-messages#requireafterignition
   stack trace:
@@ -74,3 +74,15 @@ Messages](../api-reference/general/error-messages.md) documentation.
 
 It explains the meaning of each message, its origin within Oh My Prvd, and
 relevant context. When you run into an error, that page is a great place to start!
+
+### Additional Support
+
+Oh My Prvd is built with you in mind and our documentation aims to be as useful
+and comprehensive as possible. However, you might need specific advice on an
+issue, perhaps you may want to learn Oh My Prvd through other means, or you
+caught a showstopper bug.
+
+Whatever you're looking for, feel free to swing by [our dedicated
+thread](https://discord.com/channels/385151591524597761/1267055070374268969)
+over the [Roblox OSS Discord server](https://discord.gg/VaDCnesCXj). Maintainers
+drop in frequently alongside eager Oh My Prvd users.
