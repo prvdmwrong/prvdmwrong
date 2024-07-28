@@ -5,48 +5,47 @@ With your providers defined, its time to ignite Oh My Prvd.
 ## Preloading
 
 It's necessary to preload your providers to for Oh My Prvd to pick it up. For
-convenience, you can use the `preloadProviders()` function, which will load all
-providers recursively:
+convenience, you can use either `loadChildren()` or the `loadDescendants()`
+function, which will load all providers from a parent's children or
+descendants respectively:
 
 === "Luau"
 
     ```lua
     local prvd = require("@pkg/ohmyprvd")
-    prvd.preloadProviders(script.Providers)
+    prvd.loadChildren(script.Providers)
+    prvd.loadDescendants(script.Providers)
     ```
 
 === "TypeScript"
 
     ```ts
-    import { preloadProviders } from "@rbxts/ohmyprvd"
-    preloadProviders(script.Providers)
+    import { loadChildren, loadDescendants } from "@rbxts/ohmyprvd"
+    loadChildren(script.Providers)
+    loadDescendants(script.Providers)
     ```
 
-You can also specify both a predicate function and what instances to preload:
-`LoadMode.Children` for just the children, or `LoadMode.Descendants` for all
-descendants:
+You can also pass a predicate function to filter the target modules:
 
 === "Luau"
 
     ```lua hl_lines="4-7"
     local prvd = require("@pkg/ohmyprvd")
-    prvd.preloadProviders(
+    prvd.loadDescendants(
       script.Providers,
       function(module: ModuleScript)
-        return module.Name:find("Provider^") ~= nil
-      end,
-      prvd.LoadMode.Children
+        return module.Name:find("Provider$") ~= nil
+      end
     )
     ```
 
 === "TypeScript"
 
     ```ts hl_lines="4-5"
-    import { LoadMode, preloadProviders } from "@rbxts/ohmyprvd"
-    preloadProviders(
+    import { LoadMode, loadDescendants } from "@rbxts/ohmyprvd"
+    loadDescendants(
       script.Providers,
-      (module) => module.Name.find("Provider^") !== undefined,
-      LoadMode.Children
+      (module) => module.Name.find("Provider$") !== undefined
     )
     ```
 
