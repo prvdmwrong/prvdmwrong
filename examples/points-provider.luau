@@ -5,6 +5,7 @@ local Players = game:GetService("Players")
 
 local PointsProvider = {}
 PointsProvider.points = {}
+PointsProvider.mathProvider = prvd.use(MathProvider)
 
 function PointsProvider.setDefaultPoints(
   self: typeof(PointsProvider)
