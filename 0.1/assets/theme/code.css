@@ -89,5 +89,5 @@
 
 code:not(pre code, .highlight) {
 	background-color: var(--md-code-bg-color) !important;
-	color: inherit !important;
+	/* color: inherit !important; */
 }
