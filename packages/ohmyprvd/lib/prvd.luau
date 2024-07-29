@@ -271,7 +271,6 @@ function prvd.ignite(options: {
       local target = target :: { [any]: any }
       local required = rawget(target, "__prvdRequired__")
       if required ~= nil then
-        print(parent, target, key, required)
         -- TODO: check if this is a good idea lmfao
         rawset(parent, key, required)
         table.insert(dependencies, getIdentifier(required))
