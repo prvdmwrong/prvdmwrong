@@ -70,6 +70,10 @@ nav:
       - Lifecycle Methods: tutorials/mods/lifecycle-methods.md
     - Best Practices:
       - Alternatives: tutorials/best-practices/alternatives.md
+  - Examples:
+    - examples/index.md
+    - Projects:
+      - Obby: examples/projects/obby.md
   - API Reference:
     - Error Messages: api-reference/error-messages.md
     - Core:
