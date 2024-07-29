@@ -66,6 +66,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/examples/</loc>
+         <lastmod>2024-07-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.1/examples/projects/obby/</loc>
+         <lastmod>2024-07-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://team-fireworks.github.io/ohmyprvd/0.1/tutorials/</loc>
          <lastmod>2024-07-29</lastmod>
          <changefreq>daily</changefreq>
