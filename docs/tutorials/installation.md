@@ -10,13 +10,16 @@ import into your game.
 If you edit directly inside Roblox Studio, then you can import a Roblox model
 file containing Og My Prvd.
 
-1. Click the 'Assets' dropdown to view the downloadable files
-2. Click on the package you would like to import, which should end in `.rbxm`.
-  If you are just following the tutorials, just `ohmyprvd.rbxm` will do.
-3. Open Roblox Studio to import the model. If you are just following the
+1. Head over to [Oh My Prvd's 'Releases' page.](https://github.com/team-fireworks/ohmyprvd/releases)
+2. Click the "Assets" dropdown to view the downloadable files:
+   ![Releases](../assets/static/github-releases.png)
+3. Click on the package you would like to import, which should end in `.rbxm`.
+  If you are just following the tutorials, just `ohmyprvd.rbxm` will do:
+   ![Releases](../assets/static/github-releases-rbxm.png)
+4. Open Roblox Studio to import the model. If you are just following the
   tutorials, just an empty baseplate will do.
-4. Right-click on `ReplicatedStorage`, and select 'Insert from File'
-5. You should see an `ohmyprvd` module script appear in ReplicatedStorage!
+5. Right-click on `ReplicatedStorage`, and select 'Insert from File'
+6. You should see an `ohmyprvd` module script appear in ReplicatedStorage!
 
 ### Install via a Package Manager
 
@@ -62,15 +65,18 @@ for TypeScript, Oh My Prvd has packages for both package managers.
 If you are synchronizing external files into Roblox Studio, Oh My Prvd can be
 imported as source code.
 
-1. Click the 'Assets' dropdown to view the downloadable files
-2. Under 'Assets', download `Source code (zip)`. Inside is a copy of the Oh My
-  Prvd GitHub repository.
-3. Inside the zip, open `packages`, then the package you'd like to import,
-  and copy it's `out` folder; it may be inside another folder.
-4. Create a new folder inside your project named "ohmyprvd", place it wherever
+1. Head over to [Oh My Prvd's 'Releases' page.](https://github.com/team-fireworks/ohmyprvd/releases)
+2. Click the "Assets" dropdown to view the downloadable files:
+   ![Releases](../assets/static/github-releases.png)
+3. Under "Assets", download `Source code (zip)`. Inside is a copy of the Oh My
+  Prvd GitHub repository.:
+   ![Releases](../assets/static/github-releases-src.png)
+4. Inside the zip, open `packages`, then the package you'd like to import,
+  and copy it's `lib` folder; it may be inside another folder.
+5. Create a new folder inside your project named "ohmyprvd", place it wherever
   you keep your libraries.
    - For example, you might paste it inside a `shared` or a `packages` folder.
-5. Paste the contents of the `out` folder into the newly created folder.
+6. Paste the contents of the `lib` folder into the newly created folder.
 
 ## Testing
 
