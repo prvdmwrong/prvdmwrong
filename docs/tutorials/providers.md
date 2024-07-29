@@ -324,7 +324,7 @@ local MathProvider = require(script.Parent.MathProvider)
 
 Finally, just specify your provider `use()`s another provider:
 
-```Lua hl_lines="34-43"
+```Lua hl_lines="8 34-43"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 local MathProvider = require(script.Parent.MathProvider)
