@@ -166,6 +166,7 @@ end
 function prvd.use<T>(provider: Provider<T>): T
   expect(status == IgnitionStatus.Pending, "useAfterIgnition")
   expect(providers[getIdentifier(provider)] ~= nil, "cannotUseNonProvider")
+  local identifier = getIdentifier(provider)
   mods.doProviderUsed(provider)
   return setmetatable(
     {
@@ -174,7 +175,7 @@ function prvd.use<T>(provider: Provider<T>): T
     {
       __metatable = "This metatable is locked.",
       __index = function(_: unknown, key: unknown): never
-        error(`attempted to \`use()\` a provider prior to ignition`)
+        return throw("usedBeforeIgnition", nil, identifier)
       end,
     }
   )
