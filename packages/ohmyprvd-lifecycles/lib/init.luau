@@ -31,9 +31,36 @@ local RunService = game:GetService("RunService")
 local prvd = require(script.Packages.prvd)
 local lifecycles = {}
 
+type Pack = { [number]: any, n: number }
 type Provider<T> = prvd.Provider<T>
 type Self = typeof(lifecycles)
 type Set<T> = { [T]: true }
+
+local freeThreads: { thread } = {}
+
+local function yield()
+  while true do
+    local pack: Pack = table.pack(coroutine.yield())
+    local resume: (...any) -> (), thread: thread = table.unpack(pack, 1, 2)
+    resume(table.unpack(pack, 3, pack.n))
+    table.insert(freeThreads, thread)
+  end
+end
+
+--[[
+  Spawns a thread immediately. This will pool and reuse threads when possible,
+  and thus is more efficient than `task.spawn`.
+]]
+local function spawn<Args...>(resume: (Args...) -> (), ...: Args...)
+  local thread: thread
+  if #freeThreads > 0 then
+    thread = assert(table.remove(freeThreads, #freeThreads), "Luau")
+  else
+    thread = coroutine.create(yield)
+    coroutine.resume(thread)
+  end
+  task.spawn(thread, resume, thread, ...)
+end
 
 -- TODO: this doesnt profile lifecycle methods yet, ideally ohmyprvd would
 -- expose an api for reading ignition config
@@ -60,7 +87,7 @@ function lifecycles.init(self: Self)
     connections,
     RunService.PostSimulation:Connect(function(dt)
       for provider in pairs(postSimulation) do
-        provider:onPostSimulation(dt)
+        spawn(provider.onPostSimulation, provider, dt)
       end
     end)
   )
@@ -70,7 +97,7 @@ function lifecycles.init(self: Self)
     connections,
     RunService.PreSimulation:Connect(function(dt)
       for provider in pairs(preSimulation) do
-        provider:onPreSimulation(dt)
+        spawn(provider.onPreSimulation, provider, dt)
       end
     end)
   )
@@ -81,7 +108,7 @@ function lifecycles.init(self: Self)
       connections,
       RunService.PreRender:Connect(function(dt)
         for provider in pairs(preRender) do
-          provider:onPreRender(dt)
+          spawn(provider.onPreRender, provider, dt)
         end
       end)
     )
@@ -92,7 +119,7 @@ function lifecycles.init(self: Self)
     connections,
     Players.PlayerAdded:Connect(function(player)
       for provider in pairs(playerAdded) do
-        provider:onPlayerAdded(player)
+        spawn(provider.onPlayerAdded, provider, player)
       end
     end)
   )
@@ -102,7 +129,7 @@ function lifecycles.init(self: Self)
     connections,
     Players.PlayerRemoving:Connect(function(player)
       for provider in pairs(playerLeaving) do
-        provider:onPlayerLeaving(player)
+        spawn(provider.onPlayerLeaving, provider, player)
       end
     end)
   )
