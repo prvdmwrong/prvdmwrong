@@ -46,6 +46,7 @@ theme:
     - navigation.tabs
     - navigation.top
     - search.suggest
+    - navigation.expand
 
 nav:
   - Home: index.md
