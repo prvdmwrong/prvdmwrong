@@ -1,14 +1,14 @@
 {
   "name": "@rbxts/ohmyprvd-components",
-  "version": "0.1.1-alpha",
+  "version": "0.1.0-alpha",
   "description": "Implements a components system for the Oh My Prvd Roblox framework.",
-  "main": "out/init.luau",
+  "main": "lib/init.luau",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "types": "out/index.d.ts",
+  "types": "lib/index.d.ts",
   "files": [
-    "out",
+    "lib",
     "!**/*.tsbuildinfo"
   ],
   "publishConfig": {
