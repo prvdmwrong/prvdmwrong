@@ -25,10 +25,7 @@
 
 ]]
 
-export type IgnitionStatus =
-  "IgnitionStatus.Pending"
-  | "IgnitionStatus.Igniting"
-  | "IgnitionStatus.Ignited"
+export type IgnitionStatus = "IgnitionStatus.Pending" | "IgnitionStatus.Igniting" | "IgnitionStatus.Ignited"
 
 export type Options = {
   logLevel: "none" | "verbose",

@@ -32,10 +32,7 @@ local parseError = log.parseError
 
 local loader = {}
 
-local function loaderImpl(
-  instances: { Instance },
-  predicate: ((ModuleScript) -> boolean)?
-)
+local function loaderImpl(instances: { Instance }, predicate: ((ModuleScript) -> boolean)?)
   local exports: { unknown } = {}
   for _, module in ipairs(instances) do
     if not module:IsA("ModuleScript") then
@@ -45,13 +42,7 @@ local function loaderImpl(
       continue
     end
     local ok, result: log.Error = xpcall(require, parseError, module)
-    expect(
-      ok,
-      "requireError",
-      result.trace,
-      module:GetFullName(),
-      result.message
-    )
+    expect(ok, "requireError", result.trace, module:GetFullName(), result.message)
     table.insert(exports, result)
   end
   return exports
@@ -61,10 +52,7 @@ end
   Preload the specified parent by requiring all ModuleScripts within it. An
   optional `predicate` function can be provided to filter modules.
 ]]
-function loader.loadChildren(
-  parent: Instance,
-  predicate: ((ModuleScript) -> boolean)?
-)
+function loader.loadChildren(parent: Instance, predicate: ((ModuleScript) -> boolean)?)
   expect(typeof(parent) == "Instance", "invalidLoadParent")
   return loaderImpl(parent:GetChildren(), predicate)
 end
@@ -74,10 +62,7 @@ end
   recursively. An optional `predicate` function can be provided to filter
   modules.
 ]]
-function loader.loadDescendants(
-  parent: Instance,
-  predicate: ((ModuleScript) -> boolean)?
-)
+function loader.loadDescendants(parent: Instance, predicate: ((ModuleScript) -> boolean)?)
   expect(typeof(parent) == "Instance", "invalidLoadParent")
   return loaderImpl(parent:GetDescendants(), predicate)
 end

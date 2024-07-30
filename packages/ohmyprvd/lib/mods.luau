@@ -27,8 +27,7 @@
 
 local types = require(script.Parent.types)
 
-local methodHandlers: { [string]: { [{}]: (types.Provider<unknown>) -> () } } =
-  {}
+local methodHandlers: { [string]: { [{}]: (types.Provider<unknown>) -> () } } = {}
 local providerHandlers: { [{}]: (types.Provider<unknown>) -> () } = {}
 local useHandlers: { [{}]: (types.Provider<unknown>) -> () } = {}
 local mods = {}
@@ -45,10 +44,7 @@ function mods.implementAllMethods(provider: types.Provider<unknown>)
   end
 end
 
-function mods.doMethodImplemented(
-  method: string,
-  provider: types.Provider<unknown>
-)
+function mods.doMethodImplemented(method: string, provider: types.Provider<unknown>)
   if not methodHandlers[method] then
     return
   end
@@ -79,10 +75,7 @@ end
   Listen for when a provider implements a method. Handlers are expected to be
   infallible and non-yielding.
 ]]
-function mods.onMethodImplemented(
-  method: string,
-  handler: (types.Provider<unknown>) -> ()
-)
+function mods.onMethodImplemented(method: string, handler: (types.Provider<unknown>) -> ())
   if not methodHandlers[method] then
     methodHandlers[method] = {}
   end

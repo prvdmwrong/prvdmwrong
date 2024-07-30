@@ -32,11 +32,7 @@ export type Promise = {
     successHandler: (...any) -> ...any,
     failureHandler: ((...any) -> ...any)?
   ) -> Promise,
-  andThenCall: <TArgs...>(
-    self: Promise,
-    callback: (TArgs...) -> ...any,
-    TArgs...
-  ) -> any,
+  andThenCall: <TArgs...>(self: Promise, callback: (TArgs...) -> ...any, TArgs...) -> any,
   andThenReturn: (self: Promise, ...any) -> Promise,
 
   await: (self: Promise) -> (boolean, ...any),
@@ -46,15 +42,8 @@ export type Promise = {
   catch: (self: Promise, failureHandler: (...any) -> ...any) -> Promise,
   expect: (self: Promise) -> ...any,
 
-  finally: (
-    self: Promise,
-    finallyHandler: (status: Status) -> ...any
-  ) -> Promise,
-  finallyCall: <TArgs...>(
-    self: Promise,
-    callback: (TArgs...) -> ...any,
-    TArgs...
-  ) -> Promise,
+  finally: (self: Promise, finallyHandler: (status: Status) -> ...any) -> Promise,
+  finallyCall: <TArgs...>(self: Promise, callback: (TArgs...) -> ...any, TArgs...) -> Promise,
   finallyReturn: (self: Promise, ...any) -> Promise,
 
   getStatus: (self: Promise) -> Status,

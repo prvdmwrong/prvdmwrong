@@ -67,8 +67,7 @@ local IgnitionStatus = table.freeze {
 
 -- If we held strong references to threads here, then if a thread was killed
 -- before Oh My Prvd is ignited, it would be held strongly in this table forever
-local awaitingThreads: { [thread]: true } =
-  setmetatable({} :: any, WEAK_KEYS_METATABLE)
+local awaitingThreads: { [thread]: true } = setmetatable({} :: any, WEAK_KEYS_METATABLE)
 local awaitingCallbacks: { () -> () } = {}
 local status: IgnitionStatus = IgnitionStatus.Pending
 
@@ -94,8 +93,7 @@ local function topologicalSort(objects: { string }): { [string]: number }
       return
     end
 
-    local dependencies =
-      reflect.getMetadata(object, "ohmyprvd:dependencies") :: { string }
+    local dependencies = reflect.getMetadata(object, "ohmyprvd:dependencies") :: { string }
     for _, dependency in pairs(dependencies or {}) do
       visitor(dependency)
     end
@@ -138,31 +136,11 @@ end
 ]]
 function prvd.Provider<T>(name: string, provider: T): Provider<T>
   expect(status == IgnitionStatus.Pending, "registerAfterIgnition")
-  expect(
-    typeof(name) == "string",
-    "cannotRegister",
-    nil,
-    "`name` must be a string"
-  )
+  expect(typeof(name) == "string", "cannotRegister", nil, "`name` must be a string")
   expect(name:len() > 0, "cannotRegister", nil, "`name` cannot be empty")
-  expect(
-    typeof(provider) == "table",
-    "cannotRegister",
-    nil,
-    "provider must be a table"
-  )
-  expect(
-    not table.isfrozen(provider :: any),
-    "cannotRegister",
-    nil,
-    "provider cannot be frozen"
-  )
-  expect(
-    providers[name] == nil,
-    "cannotRegister",
-    nil,
-    `already registered "{name}"`
-  )
+  expect(typeof(provider) == "table", "cannotRegister", nil, "provider must be a table")
+  expect(not table.isfrozen(provider :: any), "cannotRegister", nil, "provider cannot be frozen")
+  expect(providers[name] == nil, "cannotRegister", nil, `already registered "{name}"`)
 
   local provider = table.clone(provider :: Provider<T>) :: Provider<T>
   for method, expectedType in pairs(EXPECTED_METHOD_TYPES) do
@@ -170,11 +148,7 @@ function prvd.Provider<T>(name: string, provider: T): Provider<T>
       continue
     end
     local realType = typeof(rawget(provider, method))
-    expect(
-      expectedType == realType,
-      "cannotRegister",
-      `\`{name}.{method}\` should be a {expectedType}`
-    )
+    expect(expectedType == realType, "cannotRegister", `\`{name}.{method}\` should be a {expectedType}`)
   end
 
   reflect.defineMetadata(provider, "ohmyprvd:provider", true)
@@ -243,8 +217,7 @@ function prvd.ignite(options: {
     end
   end
 
-  local dependencies: { { instance: Provider<any>, loadOrder: number, identifier: string } } =
-    {}
+  local dependencies: { { instance: Provider<any>, loadOrder: number, identifier: string } } = {}
   for _, provider in pairs(providers) do
     table.insert(dependencies, {
       instance = provider,
@@ -258,11 +231,7 @@ function prvd.ignite(options: {
 
     local encountered = {}
     local dependencies = {}
-    local function resolveUses(
-      target: unknown,
-      key: unknown,
-      parent: { [unknown]: unknown }
-    )
+    local function resolveUses(target: unknown, key: unknown, parent: { [unknown]: unknown })
       if encountered[target] then
         return
       end

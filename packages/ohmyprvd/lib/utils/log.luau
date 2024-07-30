@@ -32,8 +32,7 @@ local types = require(package.types)
 
 export type Error = types.Error
 
-local ERROR_MESSAGES_URL =
-  "team-fireworks.github.io/ohmyprvd/latest/api-reference/general/error-messages#"
+local ERROR_MESSAGES_URL = "team-fireworks.github.io/ohmyprvd/latest/api-reference/general/error-messages#"
 
 local MESSAGES: { [string]: string } = table.freeze {
   alreadyIgnited = "cannot ignite more than once",
@@ -58,12 +57,7 @@ local TIPS: { [string]: string } = table.freeze {
 
 local Log = {}
 
-local function fmtMessage(
-  id: string,
-  level: string,
-  trace: string?,
-  ...: unknown
-)
+local function fmtMessage(id: string, level: string, trace: string?, ...: unknown)
   local message = MESSAGES[id]
   if not message then
     local unknownMessage = table.clone(MESSAGES.unknown)
@@ -90,11 +84,7 @@ local function fmtMessage(
 end
 
 function Log.throw(id: string, trace: string?, ...: unknown): never
-  task.spawn(
-    error,
-    fmtMessage(id, "error", trace or debug.traceback(nil, 2), ...),
-    0
-  )
+  task.spawn(error, fmtMessage(id, "error", trace or debug.traceback(nil, 2), ...), 0)
   task.defer(coroutine.close, coroutine.running())
   return coroutine.yield()
 end
