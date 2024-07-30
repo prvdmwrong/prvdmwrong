@@ -165,11 +165,7 @@ declare namespace ohmyprvd {
 		value: unknown,
 	) => void
 	export const getMetadata: <T>(object: unknown, key: string) => T | undefined
-	export const deleteMetadata: (
-		object: unknown,
-		key: string,
-		property?: string,
-	) => void
+	export const deleteMetadata: (object: unknown, key: string) => void
 
 	/**
 	 * Preload the specified parent by requiring all ModuleScripts within it. An
