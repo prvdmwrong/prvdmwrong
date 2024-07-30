@@ -241,10 +241,10 @@ function prvd.ignite(options: {
         return
       end
       local target = target :: { [any]: any }
-      local required = rawget(target, "__prvdRequired__")
+      local required = target.__prvdRequired__
       if required ~= nil then
         -- TODO: check if this is a good idea lmfao
-        rawset(parent, key, required)
+        parent[key] = required
         table.insert(dependencies, getIdentifier(required))
       end
       for key, value in pairs(target) do
@@ -279,20 +279,20 @@ function prvd.ignite(options: {
 
   for _, provider in ipairs(dependencies) do
     local provider = provider.instance
-    if typeof(rawget(provider, "init")) == "function" then
+    if typeof(provider.init) == "function" then
       table.insert(init, provider)
     end
-    if typeof(rawget(provider, "start")) == "function" then
+    if typeof(provider.start) == "function" then
       table.insert(start, provider)
     end
 
-    if typeof(rawget(provider, "heartbeat")) == "function" then
+    if typeof(provider.provider) == "function" then
       heartbeat[getIdentifier(provider, ".heartbeat")] = provider
     end
-    if typeof(rawget(provider, "step")) == "function" then
+    if typeof(provider.step) == "function" then
       step[getIdentifier(provider, ".step")] = provider
     end
-    if typeof(rawget(provider, "render")) == "function" then
+    if typeof(provider.render) == "function" then
       expect(RunService:IsClient(), "serverRenderLifecycle")
       render[getIdentifier(provider, ".render")] = provider
     end
