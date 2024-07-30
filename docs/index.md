@@ -27,7 +27,7 @@ build faster and shout:
 
 <nav markdown>
 
-<a href="./tutorials/">Get Started</a> ·
+<a href="./get-started/">Get Started</a> ·
 <a href="https://github.com/team-fireworks/ohmyprvd/releases">Download</a> ·
 :octicons-zap-24: Batteries included
 

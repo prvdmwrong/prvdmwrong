@@ -29,4 +29,4 @@ already started, the thread will continue.
 
 ## Learn More
 
-- [Ignition tutorial](../../../tutorials/ignition.md)
+- [Ignition tutorial](../../../get-started/ignition.md)

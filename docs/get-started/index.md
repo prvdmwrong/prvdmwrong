@@ -60,12 +60,12 @@ error, here are some resources which can help.
 ### Support with Errors
 
 Oh My Prvd attaches a link with every console log message. These links direct
-you to our comprehensive [Error Messages](../api-reference/error-messages.md)
+you to our comprehensive [Error Messages](../reference/error-messages.md)
 documentation.
 
 ```Md hl_lines="2"
 [ohmyprvd error(requireAfterIgnition)]: cannot require other providers after ignition
-  more info: team-fireworks.github.io/ohmyprvd/latest/api-reference/general/error-messages#requireafterignition
+  more info: team-fireworks.github.io/ohmyprvd/latest/reference/general/error-messages#requireafterignition
   stack trace:
     ohmyprvd.log:118 function throw
     ohmyprvd.prvd:181 function use

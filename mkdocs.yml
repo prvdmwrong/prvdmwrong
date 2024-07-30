@@ -49,55 +49,55 @@ theme:
 
 nav:
   - Home: index.md
-  - Tutorials:
-    - Get Started: tutorials/index.md
-    - Installation: tutorials/installation.md
-    - Providers: tutorials/providers.md
-    - Ignition: tutorials/ignition.md
+  - Get Started:
+    - get-started/index.md
+    - Installation: get-started/installation.md
+    - Providers: get-started/providers.md
+    - Ignition: get-started/ignition.md
     - Net:
-      - Net: tutorials/net/index.md
-      - Events: tutorials/net/events.md
-      - Functions: tutorials/net/functions.md
-      - Middlewares: tutorials/net/middlewares.md
-      - Namespaces: tutorials/net/namespaces.md
+      - Net: get-started/net/index.md
+      - Events: get-started/net/events.md
+      - Functions: get-started/net/functions.md
+      - Middlewares: get-started/net/middlewares.md
+      - Namespaces: get-started/net/namespaces.md
     - Components:
-      - Components: tutorials/components/index.md
-      - Usage: tutorials/components/usage.md
-      - Attributes: tutorials/components/attributes.md
-      - Inheritance: tutorials/components/inheritance.md
+      - Components: get-started/components/index.md
+      - Usage: get-started/components/usage.md
+      - Attributes: get-started/components/attributes.md
+      - Inheritance: get-started/components/inheritance.md
     - Advanced:
-      - Modding: tutorials/advanced/modding.md
-      - Execution Order: tutorials/advanced/execution-order.md
-      - VSCode Snippets: tutorials/advanced/snippets.md
-      - Alternatives: tutorials/advanced/alternatives.md
+      - Modding: get-started/advanced/modding.md
+      - Execution Order: get-started/advanced/execution-order.md
+      - VSCode Snippets: get-started/advanced/snippets.md
+      - Alternatives: get-started/advanced/alternatives.md
   - Examples:
     - examples/index.md
     - Projects:
       - Obby: examples/projects/obby.md
-  - API Reference:
-    - api-reference/index.md
-    - Error Messages: api-reference/error-messages.md
+  - Reference:
+    - reference/index.md
+    - Error Messages: reference/error-messages.md
     - Core:
-      - api-reference/core/index.md
+      - reference/core/index.md
       - Members:
-        - awaitIgnition: api-reference/core/members/await-ignition.md
-        - defineMetadata: api-reference/core/members/define-metadata.md
-        - deleteMetadata: api-reference/core/members/delete-metadata.md
-        - getIgnitionOptions: api-reference/core/members/get-ignition-options.md
-        - getMetadata: api-reference/core/members/get-metadata.md
-        - ignite: api-reference/core/members/ignite.md
-        - IgnitionStatus: api-reference/core/members/ignition-status.md
-        - loadChildren: api-reference/core/members/load-children.md
-        - loadDescendants: api-reference/core/members/load-descendants.md
-        - onIgnition: api-reference/core/members/on-ignition.md
-        - onMethodImplemented: api-reference/core/members/on-method-implemented.md
-        - onProviderConstructed: api-reference/core/members/on-provider-constructed.md
-        - onProviderUsed: api-reference/core/members/on-provider-used.md
-        - Provider: api-reference/core/members/provider.md
-        - use: api-reference/core/members/use.md
+        - awaitIgnition: reference/core/members/await-ignition.md
+        - defineMetadata: reference/core/members/define-metadata.md
+        - deleteMetadata: reference/core/members/delete-metadata.md
+        - getIgnitionOptions: reference/core/members/get-ignition-options.md
+        - getMetadata: reference/core/members/get-metadata.md
+        - ignite: reference/core/members/ignite.md
+        - IgnitionStatus: reference/core/members/ignition-status.md
+        - loadChildren: reference/core/members/load-children.md
+        - loadDescendants: reference/core/members/load-descendants.md
+        - onIgnition: reference/core/members/on-ignition.md
+        - onMethodImplemented: reference/core/members/on-method-implemented.md
+        - onProviderConstructed: reference/core/members/on-provider-constructed.md
+        - onProviderUsed: reference/core/members/on-provider-used.md
+        - Provider: reference/core/members/provider.md
+        - use: reference/core/members/use.md
       - Types:
-        - Options: api-reference/core/types/options.md
-        - Provider: api-reference/core/types/provider.md
+        - Options: reference/core/types/options.md
+        - Provider: reference/core/types/provider.md
 
 extra_css:
   - assets/theme/code.css

@@ -57,4 +57,4 @@ configuration options:
 
 ## Learn More
 
-- [Ignition tutorial](../../../tutorials/ignition.md)
+- [Ignition tutorial](../../../get-started/ignition.md)

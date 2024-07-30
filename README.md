@@ -26,7 +26,7 @@ build faster and shout: **Oh, My Prvd!**
 - Designed for clarity
 
 Sparked your interest? [Get going in minutes with our on-rails
-tutorial](https://team-fireworks.github.io/ohmyprvd/latest/tutorials/).
+tutorial](https://team-fireworks.github.io/ohmyprvd/latest/get-started/).
 
 > **Warning:** Oh My Prvd is in early development. Portions of the API may be
 > nonexistent, be broken, be changed, or be outright deleted. There will be

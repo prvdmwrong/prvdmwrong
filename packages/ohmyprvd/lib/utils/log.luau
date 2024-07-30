@@ -32,7 +32,7 @@ local types = require(package.types)
 
 export type Error = types.Error
 
-local ERROR_MESSAGES_URL = "team-fireworks.github.io/ohmyprvd/latest/api-reference/general/error-messages#"
+local ERROR_MESSAGES_URL = "team-fireworks.github.io/ohmyprvd/latest/reference/general/error-messages#"
 
 local MESSAGES: { [string]: string } = table.freeze {
   alreadyIgnited = "cannot ignite more than once",
