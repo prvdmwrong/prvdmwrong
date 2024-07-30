@@ -1,0 +1,9 @@
+{
+  "name": "ohmyprvd",
+  "tree": {
+    "$path": "lib",
+    "packages": {
+      "$path": "DevPackages"
+    }
+  }
+}
