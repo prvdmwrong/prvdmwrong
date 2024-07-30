@@ -68,22 +68,31 @@ nav:
     - Advanced:
       - Modding: tutorials/advanced/modding.md
       - Execution Order: tutorials/advanced/execution-order.md
+      - VSCode Snippets: tutorials/advanced/snippets.md
       - Alternatives: tutorials/advanced/alternatives.md
   - Examples:
     - examples/index.md
     - Projects:
       - Obby: examples/projects/obby.md
   - API Reference:
+    - api-reference/index.md
     - Error Messages: api-reference/error-messages.md
     - Core:
+      - api-reference/core/index.md
       - Members:
         - awaitIgnition: api-reference/core/members/await-ignition.md
+        - defineMetadata: api-reference/core/members/define-metadata.md
+        - deleteMetadata: api-reference/core/members/delete-metadata.md
+        - getIgnitionOptions: api-reference/core/members/get-ignition-options.md
+        - getMetadata: api-reference/core/members/get-metadata.md
         - ignite: api-reference/core/members/ignite.md
         - IgnitionStatus: api-reference/core/members/ignition-status.md
-        - implementMethod: api-reference/core/members/implement-method.md
         - loadChildren: api-reference/core/members/load-children.md
         - loadDescendants: api-reference/core/members/load-descendants.md
         - onIgnition: api-reference/core/members/on-ignition.md
+        - onMethodImplemented: api-reference/core/members/on-method-implemented.md
+        - onProviderConstructed: api-reference/core/members/on-provider-constructed.md
+        - onProviderUsed: api-reference/core/members/on-provider-used.md
         - Provider: api-reference/core/members/provider.md
         - use: api-reference/core/members/use.md
       - Types:
