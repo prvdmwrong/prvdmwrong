@@ -1,5 +1,5 @@
 [package]
-  name = "znotfireman/ohmyprvd"
+  name = "znotfireman/ohmyprvd-lifecycles"
   description = "Implements a networking system for the Oh My Prvd Roblox framework."
   version = "0.1.0-alpha"
   authors = ["ImNotFireMan123"]
@@ -10,4 +10,4 @@
   exclude = ["DevPackages, packages"]
 
 [dependencies]
-  prvd = "znotfireman/ohmyprvd@0.1.0-alpha"
+  prvd = "znotfireman/ohmyprvd@0.1.1-alpha"
