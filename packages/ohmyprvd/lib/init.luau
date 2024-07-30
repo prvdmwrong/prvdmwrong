@@ -62,6 +62,7 @@ type Prvd = {
 
   loadChildren: (parent: Instance, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
   loadDescendants: (parent: Instance, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
+  matchesName: (name: string) -> (ModuleScript) -> boolean,
 }
 
 local prvd: Prvd = table.freeze {
@@ -89,6 +90,7 @@ local prvd: Prvd = table.freeze {
   -- Utility APIs
   loadChildren = loader.loadChildren,
   loadDescendants = loader.loadDescendants,
+  matchesName = loader.matchesName,
 }
 
 return prvd

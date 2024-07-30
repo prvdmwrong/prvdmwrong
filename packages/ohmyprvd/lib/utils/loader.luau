@@ -67,5 +67,16 @@ function loader.loadDescendants(parent: Instance, predicate: ((ModuleScript) -> 
   return loaderImpl(parent:GetDescendants(), predicate)
 end
 
+--[[
+  Constructs and returns a function that filters ModuleScript if it matches a
+  given name. Often paired with `loadChildren` and `loadDescendants` as you will
+  frequently filter by name.
+]]
+function loader.matchesName(name: string): (ModuleScript) -> boolean
+  return function(module)
+    return module.Name:match(name) ~= nil
+  end
+end
+
 table.freeze(loader)
 return loader

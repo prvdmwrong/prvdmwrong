@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `onProviderConstructed` and `onProviderUsed` modding hooks
 - Added reflection API with `defineMetadata`, `deleteMetadata`, and
   `getMetadata`
+- Added `matchesName` utility function as a predicate for `loadX` APIs
 
 ### Changed
 

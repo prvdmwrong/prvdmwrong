@@ -170,4 +170,13 @@ declare namespace ohmyprvd {
 		parent: Instance,
 		predicate?: (module: ModuleScript) => boolean,
 	) => unknown[]
+
+	/**
+	 * Constructs and returns a function that filters ModuleScript if it matches a
+	 * given name. Often paired with `loadChildren` and `loadDescendants` as you
+	 * will frequently filter by name.
+	 */
+	export const matchesName: (
+		name: string,
+	) => (module: ModuleScript) => boolean
 }
