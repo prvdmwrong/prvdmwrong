@@ -471,6 +471,8 @@
       
         
       
+        
+      
     
     
       
@@ -682,6 +684,27 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../lifecycle-methods/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lifecycle Methods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
       
@@ -714,7 +737,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
         
           
           
@@ -730,14 +753,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             Net
           </label>
@@ -873,7 +896,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
         
           
           
@@ -889,14 +912,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
             <span class="md-nav__icon md-icon"></span>
             Components
           </label>
@@ -1009,10 +1032,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8" >
         
           
-          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1023,8 +1046,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
             <span class="md-nav__icon md-icon"></span>
             Advanced
           </label>
@@ -2285,6 +2308,7 @@
 <p>Oh My Prvd allows you to define providers for your game logic. These <em>provide</em>
 specific functions within your game, e.g. you might create a <code>SaveDataProvider</code>
 to manage save files or a <code>CameraProvider</code> to handle player camera movement.</p>
+<hr />
 <h2 id="structure">Structure</h2>
 <p>This is the minimum structure of a provider, which can be used and hook onto
 lifecycle events:</p>
@@ -2320,13 +2344,13 @@ lifecycle events:</p>
 </details>
 <p>The <code>name</code> argument signifies what to identify your provider as. This name must
 be unique from all other providers. Ideally, you should name your variable the
-same as the service name, e.g. <code class="language-lua highlight"><span class="kd">local</span> <span class="n">PointsProvider</span></code> would mean
-<code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="s2">&quot;PointsProvider&quot;</span><span class="p">,</span> <span class="p">...)</span></code>.</p>
+same as the service name, e.g. <code class="language-lua highlight"><span class="kd">local</span> <span class="n">PointsProvider</span></code> would mean <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;PointsProvider&quot;</span><span class="p">,</span> <span class="p">...)</span></code>.</p>
 <p>Notice that you're creating the provider at the bottom of a file, and then
 returning it. This lets Oh My Prvd to strictly type your provider, something
 which will be important later.</p>
+<hr />
 <h2 id="methods-properties-the-likes">Methods, Properties, The Likes</h2>
-<p>Providers are just tables at the end of the day. As such, it's dead easy to add
+<p>Providers are just tables at the end of the day. As such, it's easy to add
 methods, properties, and the likes to providers.</p>
 <p>Let's add a <code>points</code> property to our <code>PointsProvider</code>, which will be a map of
 a <code>Player</code> and their points:</p>
@@ -2390,99 +2414,126 @@ for convenience:</p>
 </div>
 </div>
 </div>
-<p>Notice we are passing <code>self</code> as an argument to our methods, which is of type
-<code>typeof(PointsProvider)</code>. This allows internal code to use <code>self</code> as a shorthand
-for the PointsProvider, with <code>self</code> fully typed, while external code can use the
-colon syntax. Both of these are equivalent:</p>
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">PointsProvider</span><span class="p">.</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">,</span> <span class="n">player</span><span class="p">)</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">PointsProvider</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+<p>Take a step back, and review what we wrote.</p>
+<p>Notice in our <code>setDefaultPoints</code>, we require the first argument to be <code>self</code>,
+which is <code>typeof</code> our <code>PointsProvider</code>.</p>
+<p>This allows Luau to provide useful type information. Notice how if we omit the
+<code>self</code> argument and use a colon <code>:</code> for our method, we lose typings for <code>self</code>:</p>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">:</span><span class="nf">setDefaultPoints</span><span class="p">(</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  <span class="n">player</span><span class="p">:</span> <span class="n">Player</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">)</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  <span class="c1">-- self.points is typed as `a`, which is not very helpful!</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  <span class="kr">if</span> <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="kr">return</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>  <span class="kr">end</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>  <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="kr">end</span>
 </span></code></pre></div>
+<p>Contrast as to if we typed <code>self</code> as a parameter:</p>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">setDefaultPoints</span><span class="p">(</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="hll">  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">),</span>
+</span></span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  <span class="n">player</span><span class="p">:</span> <span class="n">Player</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">)</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  <span class="c1">-- self.points is helpfully typed as `{| [Player]: number |}`!</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>  <span class="kr">if</span> <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="kr">return</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>  <span class="kr">end</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>  <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="kr">end</span>
+</span></code></pre></div>
+<p><code>typeof(PointsProvider)</code> is not very concise. Let's make a type alias,
+appropriately named <code>Self</code>:</p>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">local</span> <span class="n">PointsProvider</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="hll"><span class="nb">type</span> <span class="n">Self</span> <span class="o">=</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
+</span></span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">PointsProvider</span><span class="p">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">{}</span>
+</span></code></pre></div>
+<p>We could then easily type <code>self</code> as such:</p>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">setDefaultPoints</span><span class="p">(</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="hll">  <span class="n">self</span><span class="p">:</span> <span class="n">Self</span><span class="p">,</span>
+</span></span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  <span class="n">player</span><span class="p">:</span> <span class="n">Player</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Now, our code can use <code>self</code> as a shorthand for the <code>PointsProvider</code>, while
+other snippets of code could use our method through one of the following:</p>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">-- pass self directly as an argument...</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">PointsProvider</span><span class="p">.</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">,</span> <span class="n">player</span><span class="p">)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1">-- ...or let Luau pass self for us!</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">PointsProvider</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
 <h2 id="lifecycle-methods">Lifecycle Methods</h2>
 <p>Providers and the likes can implement lifecycle methods, by having a method
 that matches its lifecycle name.</p>
-<p>Oh My Prvd provides a few lifecycle events out of the box:</p>
+<p>Oh My Prvd provides two lifecycle events out of the box:</p>
 <ul>
-<li><code>:init</code> runs sequentially before any other lifecycle methods, methods are
-  expected to be infallible and preferably non-yielding.</li>
-<li><code>:start</code> runs concurrently <em>after</em> all other lifecycle methods have been
-  registered. This means failures and yields do not affect other providers.</li>
-<li><code>:heartbeat</code> is ran every <code>RunService.HeartBeat</code> and is optimal for responding
-  to changes in the physics state.</li>
-<li><code>:step</code> is ran every <code>RunService.Stepped</code> and is optimal for manipulating
-  physics.</li>
-<li><code>:render</code> is ran every <code>RunService.RenderStepped</code>. Notably, this lifecycle
-  event only runs on the client.</li>
+<li><code>:onInit()</code> runs sequentially before any other lifecycle methods, methods are
+  expected to be infallible and preferably non-yielding.<ul>
+<li>If you return a promise, Oh My Prvd will wait for the promise to resolve.
+      Anything with an <code>:andThen</code> method and an <code>:awaitStatus</code> method will be
+      picked up by Oh My Prvd.</li>
 </ul>
-<details class="tip">
-<summary><code>:init</code> can return promises</summary>
-<p>If you return a promise, Oh My Prvd will wait for the promise to
-resolve. Anything with an <code>:andThen</code> method and an <code>:awaitStatus</code> method
-will be picked up by Oh My Prvd.</p>
-</details>
-<p>In order to maintain this pattern, be sure to set up your provider in the
-<code>:init</code> method (or earlier; just in the module itself). By the time <code>:start</code>
-methods are fired, other providers should be available for use.</p>
-<p>As a rule of thumb, prefer to implement <code>:start</code> unless you need the unique
-behavior of <code>:init</code>.</p>
-<p>If you need to modify when a provider loads, you can specify a <code>loadOrder</code>
-parameter, which defaults to one, e.g. to load before other providers,
-you can use a <code>loadOrder</code> of zero.</p>
-<p>Let's implement a <code>:start</code> method to our <code>PointsProvider</code>, which will add the
-player to our points table, and set it to a default value:</p>
+</li>
+<li>In contrast, <code>:onStart()</code> runs concurrently <em>after</em> all other lifecycle
+  methods have been registered. This means failures and yields do not affect
+  other providers.</li>
+</ul>
+<p>Let's implement the <code>:onStart()</code> lifecycle, where we will set default points for
+every player that joins:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Luau</label><label for="__tabbed_4_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">ohmyprvd</span><span class="p">)</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="hll"><span class="kd">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
-</span></span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="kd">local</span> <span class="n">PointsProvider</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">PointsProvider</span><span class="p">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">setDefaultPoints</span><span class="p">(</span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>  <span class="n">player</span><span class="p">:</span> <span class="n">Player</span>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="p">)</span>
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>  <span class="kr">if</span> <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    <span class="kr">return</span>
-</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>  <span class="kr">end</span>
-</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>  <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="kr">end</span>
-</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
-</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="hll"><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">start</span><span class="p">(</span>
-</span></span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="hll">  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
-</span></span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="hll"><span class="p">)</span>
-</span></span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="hll">  <span class="n">Players</span><span class="p">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">newPlayer</span><span class="p">)</span>
-</span></span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="hll">    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">newPlayer</span><span class="p">)</span>
-</span></span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="hll">  <span class="kr">end</span><span class="p">)</span>
-</span></span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="hll">  <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">existingPlayer</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">Players</span><span class="p">:</span><span class="n">GetPlayers</span><span class="p">())</span> <span class="kr">do</span>
-</span></span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="hll">    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">existingPlayer</span><span class="p">)</span>
-</span></span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="hll">  <span class="kr">end</span>
-</span></span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="hll"><span class="kr">end</span>
-</span></span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>
-</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">(</span><span class="s2">&quot;PointsProvider&quot;</span><span class="p">,</span> <span class="n">PointsProvider</span><span class="p">)</span>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="hll"><span class="kd">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
+</span></span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">ohmyprvd</span><span class="p">)</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="kd">local</span> <span class="n">PointsProvider</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="nb">type</span> <span class="n">Self</span> <span class="o">=</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="n">PointsProvider</span><span class="p">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">setDefaultPoints</span><span class="p">(</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">Self</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>  <span class="n">player</span><span class="p">:</span> <span class="n">Player</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="p">)</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>  <span class="kr">if</span> <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>    <span class="kr">return</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>  <span class="kr">end</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>  <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="kr">end</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="hll"><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">onStart</span><span class="p">(</span>
+</span></span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="hll">  <span class="n">self</span><span class="p">:</span> <span class="n">Self</span>
+</span></span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="hll"><span class="p">)</span>
+</span></span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="hll">  <span class="n">Players</span><span class="p">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">newPlayer</span><span class="p">)</span>
+</span></span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="hll">    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">newPlayer</span><span class="p">)</span>
+</span></span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="hll">  <span class="kr">end</span><span class="p">)</span>
+</span></span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a><span class="hll">  <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">existingPlayer</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">Players</span><span class="p">:</span><span class="n">GetPlayers</span><span class="p">())</span> <span class="kr">do</span>
+</span></span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a><span class="hll">    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">existingPlayer</span><span class="p">)</span>
+</span></span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a><span class="hll">  <span class="kr">end</span>
+</span></span><span id="__span-12-28"><a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a><span class="hll"><span class="kr">end</span>
+</span></span><span id="__span-12-29"><a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a>
+</span><span id="__span-12-30"><a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">(</span><span class="s2">&quot;PointsProvider&quot;</span><span class="p">,</span> <span class="n">PointsProvider</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Provider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/ohmyprvd&quot;</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="hll"><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Players</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/services&quot;</span>
-</span></span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">export</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Provider</span><span class="p">(</span><span class="s2">&quot;PointsProvider&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="nx">points</span><span class="o">:</span><span class="w"> </span><span class="kt">Map</span><span class="o">&lt;</span><span class="nx">Player</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="nx">setDefaultPoints</span><span class="p">(</span><span class="nx">player</span><span class="o">:</span><span class="w"> </span><span class="kt">Player</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">points</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">player</span><span class="p">)</span><span class="o">?</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="mf">10</span><span class="p">)</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="hll"><span class="w">  </span><span class="nx">start</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span></span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="hll"><span class="w">    </span><span class="nx">Players</span><span class="p">.</span><span class="nx">PlayerAdded</span><span class="p">.</span><span class="nx">Connect</span><span class="p">((</span><span class="nx">newPlayer</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-</span></span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="hll"><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">setDefaultPoints</span><span class="p">(</span><span class="nx">newPlayer</span><span class="p">)</span>
-</span></span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="hll"><span class="w">    </span><span class="p">})</span>
-</span></span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="hll"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">existingPlayer</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">Players</span><span class="p">.</span><span class="nx">GetPlayers</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-</span></span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="hll"><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">setDefaultPoints</span><span class="p">(</span><span class="nx">existingPlayer</span><span class="p">)</span>
-</span></span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="hll"><span class="w">    </span><span class="p">}</span>
-</span></span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="hll"><span class="w">  </span><span class="p">}</span>
-</span></span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="p">})</span>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Provider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/ohmyprvd&quot;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="hll"><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Players</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/services&quot;</span>
+</span></span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="k">export</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Provider</span><span class="p">(</span><span class="s2">&quot;PointsProvider&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="nx">points</span><span class="o">:</span><span class="w"> </span><span class="kt">Map</span><span class="o">&lt;</span><span class="nx">Player</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">  </span><span class="nx">setDefaultPoints</span><span class="p">(</span><span class="nx">player</span><span class="o">:</span><span class="w"> </span><span class="kt">Player</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">points</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">player</span><span class="p">)</span><span class="o">?</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="mf">10</span><span class="p">)</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="hll"><span class="w">  </span><span class="nx">start</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span></span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="hll"><span class="w">    </span><span class="nx">Players</span><span class="p">.</span><span class="nx">PlayerAdded</span><span class="p">.</span><span class="nx">Connect</span><span class="p">((</span><span class="nx">newPlayer</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span></span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="hll"><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">setDefaultPoints</span><span class="p">(</span><span class="nx">newPlayer</span><span class="p">)</span>
+</span></span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="hll"><span class="w">    </span><span class="p">})</span>
+</span></span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="hll"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">existingPlayer</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">Players</span><span class="p">.</span><span class="nx">GetPlayers</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span></span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="hll"><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">setDefaultPoints</span><span class="p">(</span><span class="nx">existingPlayer</span><span class="p">)</span>
+</span></span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="hll"><span class="w">    </span><span class="p">}</span>
+</span></span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="hll"><span class="w">  </span><span class="p">}</span>
+</span></span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="p">})</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -2495,38 +2546,38 @@ when the player leaves? Nothing. Which is an issue.</p>
 <p>That player's data is forever held onto within the <code>points</code> table. We need to
 clear out that data when the player leaves. Let's hook up our <code>:start</code> method
 with the <code>Players.PlayerRemoving</code> event and remove their points:</p>
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">ohmyprvd</span><span class="p">)</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kd">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="kd">local</span> <span class="n">PointsProvider</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">PointsProvider</span><span class="p">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">setDefaultPoints</span><span class="p">(</span>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>  <span class="n">player</span><span class="p">:</span> <span class="n">Player</span>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="p">)</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>  <span class="kr">if</span> <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>    <span class="kr">return</span>
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>  <span class="kr">end</span>
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>  <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="kr">end</span>
-</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>
-</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">start</span><span class="p">(</span>
-</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
-</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="p">)</span>
-</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>  <span class="n">Players</span><span class="p">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">newPlayer</span><span class="p">)</span>
-</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
-</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>  <span class="kr">end</span><span class="p">)</span>
-</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>  <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">existingPlayer</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">Players</span><span class="p">:</span><span class="n">GetPlayers</span><span class="p">())</span> <span class="kr">do</span>
-</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">existingPlayer</span><span class="p">)</span>
-</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>  <span class="kr">end</span>
-</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a><span class="hll">  <span class="n">Players</span><span class="p">.</span><span class="n">PlayerRemoving</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
-</span></span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a><span class="hll">    <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="kc">nil</span>
-</span></span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a><span class="hll">  <span class="kr">end</span><span class="p">)</span>
-</span></span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a><span class="kr">end</span>
-</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>
-</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">(</span><span class="s2">&quot;PointsProvider&quot;</span><span class="p">,</span> <span class="n">PointsProvider</span><span class="p">)</span>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">ohmyprvd</span><span class="p">)</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kd">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="kd">local</span> <span class="n">PointsProvider</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="n">PointsProvider</span><span class="p">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">setDefaultPoints</span><span class="p">(</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>  <span class="n">player</span><span class="p">:</span> <span class="n">Player</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="p">)</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>  <span class="kr">if</span> <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>    <span class="kr">return</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>  <span class="kr">end</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>  <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="kr">end</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">start</span><span class="p">(</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="p">)</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>  <span class="n">Players</span><span class="p">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">newPlayer</span><span class="p">)</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>  <span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>  <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">existingPlayer</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">Players</span><span class="p">:</span><span class="n">GetPlayers</span><span class="p">())</span> <span class="kr">do</span>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">existingPlayer</span><span class="p">)</span>
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>  <span class="kr">end</span>
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a><span class="hll">  <span class="n">Players</span><span class="p">.</span><span class="n">PlayerRemoving</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+</span></span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a><span class="hll">    <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="kc">nil</span>
+</span></span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a><span class="hll">  <span class="kr">end</span><span class="p">)</span>
+</span></span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a><span class="kr">end</span>
+</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a>
+</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">(</span><span class="s2">&quot;PointsProvider&quot;</span><span class="p">,</span> <span class="n">PointsProvider</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="dependencies">Dependencies</h2>
 <p>Often, providers may depend on other providers, such as a <code>CombatProvider</code>
@@ -2536,99 +2587,99 @@ through dependency injection.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Luau</label><label for="__tabbed_5_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">ohmyprvd</span><span class="p">)</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="kd">local</span> <span class="n">MathProvider</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="kr">function</span> <span class="nc">MathProvider</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">),</span>
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>  <span class="n">a</span><span class="p">:</span> <span class="n">number</span><span class="p">,</span>
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>  <span class="n">b</span><span class="p">:</span> <span class="n">number</span>
-</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="p">):</span> <span class="n">number</span>
-</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>  <span class="c1">-- this method is very expensive!</span>
-</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>  <span class="n">task</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>  <span class="kr">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="kr">end</span>
-</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>
-</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">(</span><span class="s2">&quot;MathProvider&quot;</span><span class="p">,</span> <span class="n">MathProvider</span><span class="p">)</span>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">ohmyprvd</span><span class="p">)</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="kd">local</span> <span class="n">MathProvider</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="kr">function</span> <span class="nc">MathProvider</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">),</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>  <span class="n">a</span><span class="p">:</span> <span class="n">number</span><span class="p">,</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>  <span class="n">b</span><span class="p">:</span> <span class="n">number</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="p">):</span> <span class="n">number</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>  <span class="c1">-- this method is very expensive!</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>  <span class="n">task</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>  <span class="kr">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="kr">end</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">(</span><span class="s2">&quot;MathProvider&quot;</span><span class="p">,</span> <span class="n">MathProvider</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Provider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/ohmyprvd&quot;</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">export</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Provider</span><span class="p">(</span><span class="s2">&quot;MathProvider&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="c1">// this method is very expensive!</span>
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="nx">task</span><span class="p">.</span><span class="nx">wait</span><span class="p">(</span><span class="mf">5</span><span class="p">)</span>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span>
-</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="p">})</span>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Provider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/ohmyprvd&quot;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="k">export</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Provider</span><span class="p">(</span><span class="s2">&quot;MathProvider&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span><span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="c1">// this method is very expensive!</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="nx">task</span><span class="p">.</span><span class="nx">wait</span><span class="p">(</span><span class="mf">5</span><span class="p">)</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="p">})</span>
 </span></code></pre></div>
 </div>
 </div>
 </div>
 <p>Then, from <code>PointsProvider</code>, import your newly created <code>MathProvider</code>:</p>
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">local</span> <span class="n">MathProvider</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">script</span><span class="p">.</span><span class="n">Parent</span><span class="p">.</span><span class="n">MathProvider</span><span class="p">)</span>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">local</span> <span class="n">MathProvider</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">script</span><span class="p">.</span><span class="n">Parent</span><span class="p">.</span><span class="n">MathProvider</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Finally, just specify your provider <code>use()</code>s another provider:</p>
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">ohmyprvd</span><span class="p">)</span>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kd">local</span> <span class="n">MathProvider</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">script</span><span class="p">.</span><span class="n">Parent</span><span class="p">.</span><span class="n">MathProvider</span><span class="p">)</span>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="kd">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="kd">local</span> <span class="n">PointsProvider</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="n">PointsProvider</span><span class="p">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="hll"><span class="n">PointsProvider</span><span class="p">.</span><span class="n">mathProvider</span> <span class="o">=</span> <span class="n">prvd</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="n">MathProvider</span><span class="p">)</span>
-</span></span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
-</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">setDefaultPoints</span><span class="p">(</span>
-</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
-</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>  <span class="n">player</span><span class="p">:</span> <span class="n">Player</span>
-</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="p">)</span>
-</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>  <span class="kr">if</span> <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
-</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>    <span class="kr">return</span>
-</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>  <span class="kr">end</span>
-</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>  <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="kr">end</span>
-</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>
-</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">start</span><span class="p">(</span>
-</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
-</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="p">)</span>
-</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>  <span class="n">Players</span><span class="p">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">newPlayer</span><span class="p">)</span>
-</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
-</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>  <span class="kr">end</span><span class="p">)</span>
-</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>  <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">existingPlayer</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">Players</span><span class="p">:</span><span class="n">GetPlayers</span><span class="p">())</span> <span class="kr">do</span>
-</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">existingPlayer</span><span class="p">)</span>
-</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a>  <span class="kr">end</span>
-</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a>  <span class="n">Players</span><span class="p">.</span><span class="n">PlayerRemoving</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
-</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a>    <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="kc">nil</span>
-</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a>  <span class="kr">end</span><span class="p">)</span>
-</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a><span class="kr">end</span>
-</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a>
-</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a><span class="hll"><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">addPoints</span><span class="p">(</span>
-</span></span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a><span class="hll">  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">),</span>
-</span></span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a><span class="hll">  <span class="n">player</span><span class="p">:</span> <span class="n">Player</span><span class="p">,</span>
-</span></span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a><span class="hll">  <span class="n">points</span><span class="p">:</span> <span class="n">number</span>
-</span></span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a><span class="hll"><span class="p">)</span>
-</span></span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a><span class="hll">  <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">mathProvider</span><span class="p">:</span><span class="n">add</span><span class="p">(</span>
-</span></span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a><span class="hll">    <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">],</span>
-</span></span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a><span class="hll">    <span class="n">points</span>
-</span></span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a><span class="hll">  <span class="p">)</span>
-</span></span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a><span class="hll"><span class="kr">end</span>
-</span></span><span id="__span-14-44"><a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a>
-</span><span id="__span-14-45"><a id="__codelineno-14-45" name="__codelineno-14-45" href="#__codelineno-14-45"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">(</span><span class="s2">&quot;PointsProvider&quot;</span><span class="p">,</span> <span class="n">PointsProvider</span><span class="p">)</span>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">ohmyprvd</span><span class="p">)</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="kd">local</span> <span class="n">MathProvider</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">script</span><span class="p">.</span><span class="n">Parent</span><span class="p">.</span><span class="n">MathProvider</span><span class="p">)</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="kd">local</span> <span class="n">Players</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;Players&quot;</span><span class="p">)</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="kd">local</span> <span class="n">PointsProvider</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="n">PointsProvider</span><span class="p">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="hll"><span class="n">PointsProvider</span><span class="p">.</span><span class="n">mathProvider</span> <span class="o">=</span> <span class="n">prvd</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="n">MathProvider</span><span class="p">)</span>
+</span></span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">setDefaultPoints</span><span class="p">(</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>  <span class="n">player</span><span class="p">:</span> <span class="n">Player</span>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="p">)</span>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>  <span class="kr">if</span> <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>    <span class="kr">return</span>
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>  <span class="kr">end</span>
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>  <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="kr">end</span>
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">start</span><span class="p">(</span>
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
+</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="p">)</span>
+</span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>  <span class="n">Players</span><span class="p">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">newPlayer</span><span class="p">)</span>
+</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+</span><span id="__span-18-25"><a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a>  <span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-18-26"><a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a>  <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">existingPlayer</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">Players</span><span class="p">:</span><span class="n">GetPlayers</span><span class="p">())</span> <span class="kr">do</span>
+</span><span id="__span-18-27"><a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a>    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">existingPlayer</span><span class="p">)</span>
+</span><span id="__span-18-28"><a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a>  <span class="kr">end</span>
+</span><span id="__span-18-29"><a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a>  <span class="n">Players</span><span class="p">.</span><span class="n">PlayerRemoving</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+</span><span id="__span-18-30"><a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a>    <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="kc">nil</span>
+</span><span id="__span-18-31"><a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a>  <span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-18-32"><a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a><span class="kr">end</span>
+</span><span id="__span-18-33"><a id="__codelineno-18-33" name="__codelineno-18-33" href="#__codelineno-18-33"></a>
+</span><span id="__span-18-34"><a id="__codelineno-18-34" name="__codelineno-18-34" href="#__codelineno-18-34"></a><span class="hll"><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">addPoints</span><span class="p">(</span>
+</span></span><span id="__span-18-35"><a id="__codelineno-18-35" name="__codelineno-18-35" href="#__codelineno-18-35"></a><span class="hll">  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">),</span>
+</span></span><span id="__span-18-36"><a id="__codelineno-18-36" name="__codelineno-18-36" href="#__codelineno-18-36"></a><span class="hll">  <span class="n">player</span><span class="p">:</span> <span class="n">Player</span><span class="p">,</span>
+</span></span><span id="__span-18-37"><a id="__codelineno-18-37" name="__codelineno-18-37" href="#__codelineno-18-37"></a><span class="hll">  <span class="n">points</span><span class="p">:</span> <span class="n">number</span>
+</span></span><span id="__span-18-38"><a id="__codelineno-18-38" name="__codelineno-18-38" href="#__codelineno-18-38"></a><span class="hll"><span class="p">)</span>
+</span></span><span id="__span-18-39"><a id="__codelineno-18-39" name="__codelineno-18-39" href="#__codelineno-18-39"></a><span class="hll">  <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">mathProvider</span><span class="p">:</span><span class="n">add</span><span class="p">(</span>
+</span></span><span id="__span-18-40"><a id="__codelineno-18-40" name="__codelineno-18-40" href="#__codelineno-18-40"></a><span class="hll">    <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">],</span>
+</span></span><span id="__span-18-41"><a id="__codelineno-18-41" name="__codelineno-18-41" href="#__codelineno-18-41"></a><span class="hll">    <span class="n">points</span>
+</span></span><span id="__span-18-42"><a id="__codelineno-18-42" name="__codelineno-18-42" href="#__codelineno-18-42"></a><span class="hll">  <span class="p">)</span>
+</span></span><span id="__span-18-43"><a id="__codelineno-18-43" name="__codelineno-18-43" href="#__codelineno-18-43"></a><span class="hll"><span class="kr">end</span>
+</span></span><span id="__span-18-44"><a id="__codelineno-18-44" name="__codelineno-18-44" href="#__codelineno-18-44"></a>
+</span><span id="__span-18-45"><a id="__codelineno-18-45" name="__codelineno-18-45" href="#__codelineno-18-45"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">(</span><span class="s2">&quot;PointsProvider&quot;</span><span class="p">,</span> <span class="n">PointsProvider</span><span class="p">)</span>
 </span></code></pre></div>
 <div class="admonition danger">
 <p class="admonition-title">Do not use dependencies outside of lifecycle methods!</p>
 <p>Oh My Prvd only returns a shadow of the <code>use()</code>d provider. You <em>cannot</em> use
 it outside of lifecycle methods:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>[ohmyprvd error(usedBeforeIgnition)]: cannot use provider &quot;MathProvider&quot; prior to ignition
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>  help: ohmyprvd will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>  more info: team-fireworks.github.io/ohmyprvd/latest/api-reference/general/error-messages#usedbeforeignition
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>  stack trace:
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    ohmyprvd.log:118 function throw
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    ohmyprvd.prvd:181 function use
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    PointsService:42
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>[ohmyprvd error(usedBeforeIgnition)]: cannot use provider &quot;MathProvider&quot; prior to ignition
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>  help: ohmyprvd will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>  more info: team-fireworks.github.io/ohmyprvd/latest/api-reference/general/error-messages#usedbeforeignition
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>  stack trace:
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    ohmyprvd.log:118 function throw
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    ohmyprvd.prvd:181 function use
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    PointsService:42
 </span></code></pre></div>
 <p>Behind the scenes, Oh My Prvd will keep track of what dependencies your
 provider uses, figure out the correct load order for you, and inject your
