@@ -28,6 +28,7 @@
 local loader = require(script.utils.loader)
 local mods = require(script.mods)
 local prvd = require(script.prvd)
+local reflect = require(script.reflect)
 
 export type IgnitionStatus = prvd.IgnitionStatus
 export type Options = prvd.Options
@@ -36,6 +37,7 @@ export type Provider<T> = prvd.Provider<T>
 return table.freeze {
   version = "0.1.1-alpha",
 
+  -- Core API
   awaitIgnition = prvd.awaitIgnition,
   ignite = prvd.ignite,
   IgnitionStatus = prvd.IgnitionStatus,
@@ -44,10 +46,17 @@ return table.freeze {
   Provider = prvd.Provider,
   use = prvd.use,
 
+  -- Modding API
   onMethodImplemented = mods.onMethodImplemented,
   onProviderConstructed = mods.onProviderConstructed,
   onProviderUsed = mods.onProviderUsed,
 
+  -- Reflection API
+  defineMetadata = reflect.defineMetadata,
+  getMetadata = reflect.getMetadata,
+  deleteMetadata = reflect.deleteMetadata,
+
+  -- Utility APIs
   loadChildren = loader.loadChildren,
   loadDescendants = loader.loadDescendants,
 }

@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added actual types for `@rbxts/ohmyprvd`
 - Added missing error messages
 - Added `onProviderConstructed` and `onProviderUsed` modding hooks
+- Added reflection API with `defineMetadata`, `deleteMetadata`, and
+  `getMetadata`
 
 ### Changed
 
