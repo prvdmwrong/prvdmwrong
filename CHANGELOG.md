@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## ohmyprvd-lifecycles\@0.1.0-alpha
+
 ### Added
 
 - Added `ohmyprvd-lifecycles` package which implements lifecycle events for the
