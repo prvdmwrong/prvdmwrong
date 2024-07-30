@@ -1,7 +1,7 @@
 [package]
   name = "znotfireman/ohmyprvd"
   description = "Oh My Prvd is a delightful framework for modern Roblox game development."
-  version = "0.1.0-alpha"
+  version = "0.1.1-alpha"
   authors = ["ImNotFireMan123"]
   realm = "shared"
   registry = "https://github.com/UpliftGames/wally-index"
