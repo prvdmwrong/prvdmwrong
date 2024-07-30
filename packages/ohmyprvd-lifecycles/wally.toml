@@ -1,10 +1,13 @@
 [package]
   name = "znotfireman/ohmyprvd"
-  description = "Oh My Prvd is a delightful framework for modern Roblox game development."
+  description = "Implements a networking system for the Oh My Prvd Roblox framework."
   version = "0.1.0-alpha"
   authors = ["ImNotFireMan123"]
   realm = "shared"
   registry = "https://github.com/UpliftGames/wally-index"
 
-  include = ["./lib", "./default.project.json"]
+  include = ["lib", "default.project.json"]
   exclude = ["DevPackages, packages"]
+
+[dependencies]
+  prvd = "znotfireman/ohmyprvd@0.1.0-alpha"

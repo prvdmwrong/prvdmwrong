@@ -12,15 +12,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added actual types for `@rbxts/ohmyprvd`
 - Added missing error messages
 - Added `onProviderConstructed` and `onProviderUsed` modding hooks
-- Added reflection API with `defineMetadata`, `deleteMetadata`, and
-  `getMetadata`
 - Added `matchesName` utility function as a predicate for `loadX` APIs
+- Exposed reflection API with `defineMetadata`, `deleteMetadata`, and
+  `getMetadata`
 
 ### Changed
 
 - Renamed `implementMethod` to `onMethodImplemented` to align it more with
   modding hooks
+- Renamed the `:init` and `:start` lifecycles to `:onInit` and `:onStart` to
+  clarify its a lifecycle event
 
-## 0.1.0-alpha
+### Removed
+
+- Removed `:heartbeat`, `:step`, `:render` from the core package to be extracted
+  as a new `ohmyprvd-lifecycles` package
+  - These lifecycle events aren't necessary and can be considered bloat, and
+    should preferably be extracted as a package for adding more built-in
+    lifecycle events
+
+## ohmyprvd\@0.1.0-alpha
 
 - Initial release

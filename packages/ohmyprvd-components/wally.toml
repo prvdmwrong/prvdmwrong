@@ -1,6 +1,6 @@
 [package]
   name = "znotfireman/ohmyprvd"
-  description = "Oh My Prvd is a delightful framework for next-generation Roblox game development."
+  description = "Implements a component system for the Oh My Prvd Roblox framework."
   version = "0.1.0-alpha"
   authors = ["ImNotFireMan123"]
   realm = "shared"
@@ -9,6 +9,5 @@
   include = ["./lib", "./default.project.json"]
   exclude = ["DevPackages, packages"]
 
-[dev-dependencies]
-  jest = "jsdotlua/jest@3.6.1-rc.2"
-  jest_globals = "jsdotlua/jest-globals@3.6.1-rc.2"
+[dependencies]
+  prvd = "znotfireman/ohmyprvd@0.1.0-alpha"

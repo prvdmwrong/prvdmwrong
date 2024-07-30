@@ -1,27 +1,22 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 local MathProvider = require(script.Parent.MathProvider)
+local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 local Players = game:GetService("Players")
 
 local PointsProvider = {}
 PointsProvider.points = {}
 PointsProvider.mathProvider = prvd.use(MathProvider)
 
-function PointsProvider.setDefaultPoints(
-  self: typeof(PointsProvider)
-  player: Player
-)
+function PointsProvider.setDefaultPoints(self: typeof(PointsProvider), player: Player)
   if self.points[player] ~= nil then
     return
   end
   self.points[player] = 10
 end
 
-function PointsProvider.start(
-  self: typeof(PointsProvider)
-)
+function PointsProvider.start(self: typeof(PointsProvider))
   Players.PlayerAdded:Connect(function(newPlayer)
-    self:setDefaultPoints(player)
+    self:setDefaultPoints(newPlayer)
   end)
   for _, existingPlayer in pairs(Players:GetPlayers()) do
     self:setDefaultPoints(existingPlayer)
@@ -31,15 +26,8 @@ function PointsProvider.start(
   end)
 end
 
-function PointsProvider.addPoints(
-  self: typeof(PointsProvider),
-  player: Player,
-  points: number
-)
-  self.points[player] = self.mathProvider:add(
-    self.points[player],
-    points
-  )
+function PointsProvider.addPoints(self: typeof(PointsProvider), player: Player, points: number)
+  self.points[player] = self.mathProvider:add(self.points[player], points)
 end
 
 return prvd.Provider("PointsProvider", PointsProvider)
