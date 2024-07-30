@@ -55,6 +55,7 @@ nav:
     - Installation: learn/installation.md
     - Providers: learn/providers.md
     - Ignition: learn/ignition.md
+    - Lifecycle Methods: learn/lifecycle-methods.md
     - Net:
       - Net: learn/net/index.md
       - Events: learn/net/events.md

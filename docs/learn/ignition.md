@@ -29,7 +29,7 @@ You can also pass a predicate function to filter the target modules:
 
 === "Luau"
 
-    ```lua hl_lines="4-7"
+    ```lua hl_lines="4-6"
     local prvd = require("@pkg/ohmyprvd")
     prvd.loadDescendants(
       script.Providers,
@@ -41,15 +41,39 @@ You can also pass a predicate function to filter the target modules:
 
 === "TypeScript"
 
-    ```ts hl_lines="4-5"
-    import { LoadMode, loadDescendants } from "@rbxts/ohmyprvd"
+    ```ts hl_lines="4"
+    import { loadDescendants } from "@rbxts/ohmyprvd"
     loadDescendants(
       script.Providers,
       (module) => module.Name.find("Provider$") !== undefined
     )
     ```
 
-## Ignite
+Oh My Prvd includes a built-in predicate for only requiring modules that matches
+a given name. Call the `matchesName(name)` function, and it will return a
+predicate that passes modules if it matches the given name:
+
+=== "Luau"
+
+    ```lua hl_lines="4"
+    local prvd = require("@pkg/ohmyprvd")
+    prvd.loadDescendants(
+      script.Providers,
+      prvd.matchesName("Provider$")
+    )
+    ```
+
+=== "TypeScript"
+
+    ```ts hl_lines="4"
+    import { matchesName, loadDescendants } from "@rbxts/ohmyprvd"
+    loadDescendants(
+      script.Providers,
+      matchesName("Provider$")
+    )
+    ```
+
+## Ignition
 
 Finally, ignite Oh My Prvd, and you're off to the races:
 
@@ -78,5 +102,7 @@ used, which will spawn the callback when Oh My Prvd has fully ignited:
 === "TypeScript"
 
     ```TypeScript
-    prvd.onIgnition(() => print("ignited!"))
+    prvd.onIgnition(() => {
+      print("ignited!")
+    })
     ```

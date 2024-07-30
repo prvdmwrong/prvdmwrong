@@ -1,4 +1,4 @@
-# Get Started
+# Learn Oh My Prvd
 
 Congratulations on choosing Oh My Prvd! You're already making good choices.
 

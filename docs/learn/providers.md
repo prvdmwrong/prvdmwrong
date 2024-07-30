@@ -4,6 +4,8 @@ Oh My Prvd allows you to define providers for your game logic. These *provide*
 specific functions within your game, e.g. you might create a `SaveDataProvider`
 to manage save files or a `CameraProvider` to handle player camera movement.
 
+---
+
 ## Structure
 
 This is the minimum structure of a provider, which can be used and hook onto
@@ -44,16 +46,18 @@ lifecycle events:
 
 The `name` argument signifies what to identify your provider as. This name must
 be unique from all other providers. Ideally, you should name your variable the
-same as the service name, e.g. `#!lua local PointsProvider` would mean
-`#!lua prvd.create("PointsProvider", ...)`.
+same as the service name, e.g. `#!lua local PointsProvider` would mean `#!lua
+prvd.new("PointsProvider", ...)`.
 
 Notice that you're creating the provider at the bottom of a file, and then
 returning it. This lets Oh My Prvd to strictly type your provider, something
 which will be important later.
 
+---
+
 ## Methods, Properties, The Likes
 
-Providers are just tables at the end of the day. As such, it's dead easy to add
+Providers are just tables at the end of the day. As such, it's easy to add
 methods, properties, and the likes to providers.
 
 Let's add a `points` property to our `PointsProvider`, which will be a map of
@@ -120,66 +124,103 @@ for convenience:
     })
     ```
 
-Notice we are passing `self` as an argument to our methods, which is of type
-`typeof(PointsProvider)`. This allows internal code to use `self` as a shorthand
-for the PointsProvider, with `self` fully typed, while external code can use the
-colon syntax. Both of these are equivalent:
+Take a step back, and review what we wrote.
+
+Notice in our `setDefaultPoints`, we require the first argument to be `self`,
+which is `typeof` our `PointsProvider`.
+
+This allows Luau to provide useful type information. Notice how if we omit the
+`self` argument and use a colon `:` for our method, we lose typings for `self`:
 
 ```Lua
+function PointsProvider:setDefaultPoints(
+  player: Player
+)
+  -- self.points is typed as `a`, which is not very helpful!
+  if self.points[player] ~= nil then
+    return
+  end
+  self.points[player] = 10
+end
+```
+
+Contrast as to if we typed `self` as a parameter:
+
+```Lua hl_lines="2"
+function PointsProvider.setDefaultPoints(
+  self: typeof(PointsProvider),
+  player: Player
+)
+  -- self.points is helpfully typed as `{| [Player]: number |}`!
+  if self.points[player] ~= nil then
+    return
+  end
+  self.points[player] = 10
+end
+```
+
+`typeof(PointsProvider)` is not very concise. Let's make a type alias,
+appropriately named `Self`:
+
+```Lua hl_lines="2"
+local PointsProvider = {}
+type Self = typeof(PointsProvider)
+PointsProvider.points = {}
+```
+
+We could then easily type `self` as such:
+
+```Lua hl_lines="2"
+function PointsProvider.setDefaultPoints(
+  self: Self,
+  player: Player
+)
+```
+
+Now, our code can use `self` as a shorthand for the `PointsProvider`, while
+other snippets of code could use our method through one of the following:
+
+```Lua
+-- pass self directly as an argument...
 PointsProvider.setDefaultPoints(PointsProvider, player)
+-- ...or let Luau pass self for us!
 PointsProvider:setDefaultPoints(player)
 ```
+
+---
 
 ## Lifecycle Methods
 
 Providers and the likes can implement lifecycle methods, by having a method
 that matches its lifecycle name.
 
-Oh My Prvd provides a few lifecycle events out of the box:
+Oh My Prvd provides two lifecycle events out of the box:
 
-- `:init` runs sequentially before any other lifecycle methods, methods are
+- `:onInit()` runs sequentially before any other lifecycle methods, methods are
   expected to be infallible and preferably non-yielding.
-- `:start` runs concurrently *after* all other lifecycle methods have been
-  registered. This means failures and yields do not affect other providers.
-- `:heartbeat` is ran every `RunService.HeartBeat` and is optimal for responding
-  to changes in the physics state.
-- `:step` is ran every `RunService.Stepped` and is optimal for manipulating
-  physics.
-- `:render` is ran every `RunService.RenderStepped`. Notably, this lifecycle
-  event only runs on the client.
+      - If you return a promise, Oh My Prvd will wait for the promise to resolve.
+          Anything with an `:andThen` method and an `:awaitStatus` method will be
+          picked up by Oh My Prvd.
+- In contrast, `:onStart()` runs concurrently *after* all other lifecycle
+  methods have been registered. This means failures and yields do not affect
+  other providers.
 
-??? tip "`:init` can return promises"
-
-    If you return a promise, Oh My Prvd will wait for the promise to
-    resolve. Anything with an `:andThen` method and an `:awaitStatus` method
-    will be picked up by Oh My Prvd.
-
-In order to maintain this pattern, be sure to set up your provider in the
-`:init` method (or earlier; just in the module itself). By the time `:start`
-methods are fired, other providers should be available for use.
-
-As a rule of thumb, prefer to implement `:start` unless you need the unique
-behavior of `:init`.
-
-If you need to modify when a provider loads, you can specify a `loadOrder`
-parameter, which defaults to one, e.g. to load before other providers,
-you can use a `loadOrder` of zero.
-
-Let's implement a `:start` method to our `PointsProvider`, which will add the
-player to our points table, and set it to a default value:
+Let's implement the `:onStart()` lifecycle, where we will set default points for
+every player that joins:
 
 === "Luau"
 
-    ```Lua hl_lines="3 18-27"
+    ```Lua hl_lines="2 19-28"
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
     local Players = game:GetService("Players")
+    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 
     local PointsProvider = {}
+    type Self = typeof(PointsProvider)
     PointsProvider.points = {}
 
     function PointsProvider.setDefaultPoints(
-      self: typeof(PointsProvider)
+      self: Self
       player: Player
     )
       if self.points[player] ~= nil then
@@ -188,8 +229,8 @@ player to our points table, and set it to a default value:
       self.points[player] = 10
     end
 
-    function PointsProvider.start(
-      self: typeof(PointsProvider)
+    function PointsProvider.onStart(
+      self: Self
     )
       Players.PlayerAdded:Connect(function(newPlayer)
         self:setDefaultPoints(newPlayer)
