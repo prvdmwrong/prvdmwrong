@@ -7,4 +7,4 @@
   registry = "https://github.com/UpliftGames/wally-index"
 
   include = ["./lib", "./default.project.json"]
-  exclude = ["DevPackages, packages"]
+  exclude = ["node_modules"]
