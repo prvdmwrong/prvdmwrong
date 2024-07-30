@@ -26,6 +26,7 @@
 ]]
 
 local loader = require(script.utils.loader)
+local mods = require(script.mods)
 local prvd = require(script.prvd)
 
 export type IgnitionStatus = prvd.IgnitionStatus
@@ -38,11 +39,14 @@ return table.freeze {
   awaitIgnition = prvd.awaitIgnition,
   ignite = prvd.ignite,
   IgnitionStatus = prvd.IgnitionStatus,
-  implementMethod = prvd.implementMethod,
   new = prvd.Provider,
   onIgnition = prvd.onIgnition,
   Provider = prvd.Provider,
   use = prvd.use,
+
+  onMethodImplemented = mods.onMethodImplemented,
+  onProviderConstructed = mods.onProviderConstructed,
+  onProviderUsed = mods.onProviderUsed,
 
   loadChildren = loader.loadChildren,
   loadDescendants = loader.loadDescendants,

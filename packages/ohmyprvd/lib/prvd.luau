@@ -29,6 +29,7 @@ local RunService = game:GetService("RunService")
 
 local package = script.Parent
 local log = require(package.utils.log)
+local mods = require(package.mods)
 local promise = require(package.utils.promise)
 local reflect = require(package.reflect)
 local threads = require(package.utils.threads)
@@ -72,7 +73,6 @@ local awaitingCallbacks: { () -> () } = {}
 local status: IgnitionStatus = IgnitionStatus.Pending
 
 local providers: { [string]: Provider<any> } = {}
-local lifecycleMethods: { [string]: { [{}]: (Provider<any>) -> () } } = {}
 
 local prvd = {}
 prvd.IgnitionStatus = IgnitionStatus
@@ -181,6 +181,7 @@ function prvd.Provider<T>(name: string, provider: T): Provider<T>
   reflect.defineMetadata(provider, "identifier", name)
   reflect.defineMetadata(provider, "ohmyprvd:loadOrder", provider.loadOrder)
   providers[name] = provider
+  mods.doProviderConstructed(provider)
   return provider
 end
 
@@ -191,6 +192,7 @@ end
 function prvd.use<T>(provider: Provider<T>): T
   expect(status == IgnitionStatus.Pending, "useAfterIgnition")
   expect(providers[getIdentifier(provider)] ~= nil, "cannotUseNonProvider")
+  mods.doProviderUsed(provider)
   return setmetatable(
     {
       __prvdRequired__ = provider,
@@ -325,15 +327,7 @@ function prvd.ignite(options: {
       render[getIdentifier(provider, ".render")] = provider
     end
 
-    for method, handlers in pairs(lifecycleMethods) do
-      local method = rawget(provider, method)
-      if method == nil then
-        continue
-      end
-      for _, handler in pairs(handlers) do
-        threads.spawn(handler, provider)
-      end
-    end
+    mods.implementAllMethods(provider)
   end
 
   for _, provider in ipairs(init) do
@@ -416,20 +410,6 @@ function prvd.onIgnition(callback: () -> ())
   end
   expect(typeof(callback) == "function", "invalidOnIgnitionCallback")
   table.insert(awaitingCallbacks, callback)
-end
-
---[[
-  Listen for when a provider implements a method.
-]]
-function prvd.onMethodImplemented(
-  method: string,
-  handler: (Provider<unknown>) -> ()
-)
-  if not lifecycleMethods[method] then
-    lifecycleMethods[method] = {}
-  end
-  local identifier = table.freeze {}
-  lifecycleMethods[method][identifier] = handler
 end
 
 table.freeze(prvd)
