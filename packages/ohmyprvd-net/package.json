@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "Implements a networking system for the Oh My Prvd Roblox framework.",
   "main": "out/init.luau",
-  "scripts": {
-    "build": "rbxtsc",
-    "watch": "rbxtsc -w"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",

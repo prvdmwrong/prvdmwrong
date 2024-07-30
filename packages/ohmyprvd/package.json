@@ -3,10 +3,6 @@
   "version": "0.1.0-alpha",
   "description": "Oh My Prvd is a delightful framework for next-generation Roblox game development.",
   "main": "out/init.luau",
-  "scripts": {
-    "build": "rbxtsc",
-    "watch": "rbxtsc -w"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
