@@ -9,8 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added actual types for `@znotfireman/ohmyprvd`
+- Added actual types for `@rbxts/ohmyprvd`
 - Added missing error messages
+- Added `onProviderConstructed` and `onProviderUsed` modding hooks
+
+### Changed
+
+- Renamed `implementMethod` to `onMethodImplemented` to align it more with
+  modding hooks
 
 ## 0.1.0-alpha
 

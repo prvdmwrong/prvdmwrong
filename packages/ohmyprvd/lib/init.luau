@@ -34,7 +34,7 @@ export type Options = prvd.Options
 export type Provider<T> = prvd.Provider<T>
 
 return table.freeze {
-  version = "0.1.0-alpha",
+  version = "0.1.1-alpha",
 
   awaitIgnition = prvd.awaitIgnition,
   ignite = prvd.ignite,
