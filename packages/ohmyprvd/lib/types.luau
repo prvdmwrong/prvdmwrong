@@ -35,11 +35,8 @@ export type Options = {
 export type Provider<T> = T & {
   loadOrder: number?,
 
-  init: (self: Provider<T>) -> ()?,
-  start: (self: Provider<T>) -> ()?,
-  heartbeat: (self: Provider<T>, dt: number) -> ()?,
-  step: (self: Provider<T>, dt: number) -> ()?,
-  render: (self: Provider<T>, dt: number) -> ()?,
+  onInit: (self: Provider<T>) -> ()?,
+  onStart: (self: Provider<T>) -> ()?,
 }
 
 export type Error = {

@@ -45,18 +45,16 @@ export type Provider<T> = types.Provider<T>
 type Error = types.Error
 
 local WEAK_KEYS_METATABLE = { __mode = "k" }
+
 local DEFAULT_OPTIONS: Options = {
   logLevel = "none",
   profiling = RunService:IsStudio(),
 }
+
 local EXPECTED_METHOD_TYPES = {
   loadOrder = "number",
-
-  init = "function",
-  start = "function",
-  heartbeat = "function",
-  step = "function",
-  render = "function",
+  onInit = "function",
+  onStart = "function",
 }
 
 local IgnitionStatus = table.freeze {
@@ -232,7 +230,7 @@ function prvd.ignite(options: {
 
     local encountered = {}
     local dependencies = {}
-    local function resolveUses(target: unknown, key: unknown, parent: { [unknown]: unknown })
+    local function resolveDependencies(target: unknown, key: unknown, parent: { [unknown]: unknown })
       if encountered[target] then
         return
       end
@@ -248,11 +246,11 @@ function prvd.ignite(options: {
         table.insert(dependencies, getIdentifier(required))
       end
       for key, value in pairs(target) do
-        resolveUses(value, key, target)
+        resolveDependencies(value, key, target)
       end
     end
 
-    resolveUses(provider, nil, provider)
+    resolveDependencies(provider, nil, provider)
     reflect.defineMetadata(provider, "ohmyprvd:dependencies", dependencies)
   end
 
@@ -273,35 +271,21 @@ function prvd.ignite(options: {
 
   local init: { Provider<any> } = {}
   local start: { Provider<any> } = {}
-  local heartbeat: { [string]: Provider<any> } = {}
-  local step: { [string]: Provider<any> } = {}
-  local render: { [string]: Provider<any> } = {}
 
   for _, provider in ipairs(dependencies) do
     local provider = provider.instance
-    if typeof(provider.init) == "function" then
+    if typeof(provider.onInit) == "function" then
       table.insert(init, provider)
     end
-    if typeof(provider.start) == "function" then
+    if typeof(provider.onStart) == "function" then
       table.insert(start, provider)
     end
-
-    if typeof(provider.provider) == "function" then
-      heartbeat[getIdentifier(provider, ".heartbeat")] = provider
-    end
-    if typeof(provider.step) == "function" then
-      step[getIdentifier(provider, ".step")] = provider
-    end
-    if typeof(provider.render) == "function" then
-      expect(RunService:IsClient(), "serverRenderLifecycle")
-      render[getIdentifier(provider, ".render")] = provider
-    end
-
     mods.implementAllMethods(provider)
   end
 
+  -- Initializing
   for _, provider in ipairs(init) do
-    local identifier = getIdentifier(provider, ".init")
+    local identifier = getIdentifier(provider, ".onInit")
     if options.profiling then
       debug.setmemorycategory(identifier)
     end
@@ -321,28 +305,9 @@ function prvd.ignite(options: {
 
   debug.resetmemorycategory()
 
-  RunService.PostSimulation:Connect(function(dt)
-    for label, provider in pairs(heartbeat) do
-      threads.spawn(profileCallback(provider.heartbeat, label), provider, dt)
-    end
-  end)
-
-  RunService.PreSimulation:Connect(function(dt)
-    for label, provider in pairs(step) do
-      threads.spawn(profileCallback(provider.step, label), provider, dt)
-    end
-  end)
-
-  if RunService:IsClient() then
-    RunService.PreRender:Connect(function(dt)
-      for label, provider in pairs(render) do
-        threads.spawn(profileCallback(provider.render, label), provider, dt)
-      end
-    end)
-  end
-
+  -- Starting
   for _, provider in ipairs(start) do
-    local identifier = getIdentifier(provider, ".start")
+    local identifier = getIdentifier(provider, ".onStart")
     verbose("lifecycleEvent", identifier)
     threads.spawn(profileCallback(provider.start, identifier), provider)
   end
