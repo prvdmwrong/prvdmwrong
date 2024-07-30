@@ -11,7 +11,7 @@
 # Provider
 
 Provides a specific functionality for a game. This type is not useful outside of
-Oh My Prvd itself; prefer to use [`use(provider)`](../members/use.md) for
+Oh My Prvd itself; prefer to use [`use(provider)`](../providers/use.md) for
 more precise types.
 
 === "Luau"
@@ -68,4 +68,4 @@ means failures and yields do not affect other providers.
 
 ## Learn More
 
-- [Providers tutorial](../../../get-started/providers.md)
+- [Providers tutorial](../../../learn/providers.md)

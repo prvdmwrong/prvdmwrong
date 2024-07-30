@@ -1,6 +1,7 @@
 <div class="ompdoc-api-breadcrumbs">
-<a href="../../">Oh My Prvd</a>
-<a href="../">Core</a>
+<a href="../../../">Reference</a>
+<a href="../../">Core</a>
+<a href="../">Providers</a>
 </div>
 
 <div class="ompdoc-api-tags">

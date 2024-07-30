@@ -1,14 +1,14 @@
 <div class="ompdoc-api-breadcrumbs">
-<a href="../../">Oh My Prvd</a>
-<a href="../">Core</a>
+<a href="../../../">Reference</a>
+<a href="../../">Core</a>
+<a href="../">Reflection</a>
 </div>
-
 <div class="ompdoc-api-tags">
 <span>function</span>
 <span>since v0.1</span>
 </div>
 
-# defineMetadata
+# getMetadata
 
 !!! warning "Under construction"
     This page is under construction - information may be incomplete or missing.
@@ -16,20 +16,23 @@
 === "Luau"
 
     ```Lua
-    function prvd.defineMetadata(
+    function prvd.getMetadata(
       object: unknown,
       key: string,
-      value: unknown,
-    ): ()
+    ): unknown?
     ```
 
 === "TypeScript"
 
     ```TypeScript
-    export const defineMetadata: (
+    export const getMetadata: <T>(
+      object: unknown,
+      key: string
+    ) => T | undefined
+    export const deleteMetadata: (
       object: unknown,
       key: string,
-      value: unknown,
+      property?: string,
     ) => void
     ```
 
@@ -41,4 +44,8 @@
 
 ### key `#!lua : string`
 
-### value `#!lua : unknown`
+---
+
+## Returns
+
+The metadata value.

@@ -1,6 +1,7 @@
 <div class="ompdoc-api-breadcrumbs">
-<a href="../../">Oh My Prvd</a>
-<a href="../">Core</a>
+<a href="../../../">Reference</a>
+<a href="../../">Core</a>
+<a href="../">Modding</a>
 </div>
 
 <div class="ompdoc-api-tags">
@@ -8,16 +9,16 @@
 <span>since v0.1</span>
 </div>
 
-# onProviderConstructed
+# onProviderUsed
 
-Called just before Oh My Prvd returns a newly constructed
+Called just before Oh My Prvd returns a used
 [provider](../types/provider.md). Handlers are expected to be infallible and
-non-yielding. The handler receives the constructed provider.
+non-yielding. The handler receives the used provider.
 
 === "Luau"
 
     ```Lua
-    function prvd.onProviderConstructed(
+    function prvd.onProviderUsed(
       handler: (Provider<unknown>) -> ()
     ) -> (),
     ```
@@ -25,7 +26,7 @@ non-yielding. The handler receives the constructed provider.
 === "TypeScript"
 
     ```TypeScript
-    export const onProviderConstructed: (
+    export const onProviderUsed: (
       handler: (provider: Provider<object>) => void,
     ) => void
     ```
@@ -36,5 +37,5 @@ non-yielding. The handler receives the constructed provider.
 
 ### handler `#!lua : (Provider<unknown>) -> void`
 
-A handler that is called just before a newly constructed provider is returned.
-It receives the provider.
+A handler that is called when a provider has been used. It receives the target
+provider.

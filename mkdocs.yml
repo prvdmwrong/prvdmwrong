@@ -49,27 +49,27 @@ theme:
 
 nav:
   - Home: index.md
-  - Get Started:
-    - get-started/index.md
-    - Installation: get-started/installation.md
-    - Providers: get-started/providers.md
-    - Ignition: get-started/ignition.md
+  - Learn:
+    - learn/index.md
+    - Installation: learn/installation.md
+    - Providers: learn/providers.md
+    - Ignition: learn/ignition.md
     - Net:
-      - Net: get-started/net/index.md
-      - Events: get-started/net/events.md
-      - Functions: get-started/net/functions.md
-      - Middlewares: get-started/net/middlewares.md
-      - Namespaces: get-started/net/namespaces.md
+      - Net: learn/net/index.md
+      - Events: learn/net/events.md
+      - Functions: learn/net/functions.md
+      - Middlewares: learn/net/middlewares.md
+      - Namespaces: learn/net/namespaces.md
     - Components:
-      - Components: get-started/components/index.md
-      - Usage: get-started/components/usage.md
-      - Attributes: get-started/components/attributes.md
-      - Inheritance: get-started/components/inheritance.md
+      - Components: learn/components/index.md
+      - Usage: learn/components/usage.md
+      - Attributes: learn/components/attributes.md
+      - Inheritance: learn/components/inheritance.md
     - Advanced:
-      - Modding: get-started/advanced/modding.md
-      - Execution Order: get-started/advanced/execution-order.md
-      - VSCode Snippets: get-started/advanced/snippets.md
-      - Alternatives: get-started/advanced/alternatives.md
+      - Modding: learn/advanced/modding.md
+      - Execution Order: learn/advanced/execution-order.md
+      - VSCode Snippets: learn/advanced/snippets.md
+      - Alternatives: learn/advanced/alternatives.md
   - Examples:
     - examples/index.md
     - Projects:
@@ -79,23 +79,32 @@ nav:
     - Error Messages: reference/error-messages.md
     - Core:
       - reference/core/index.md
-      - Members:
-        - awaitIgnition: reference/core/members/await-ignition.md
-        - defineMetadata: reference/core/members/define-metadata.md
-        - deleteMetadata: reference/core/members/delete-metadata.md
-        - getIgnitionOptions: reference/core/members/get-ignition-options.md
-        - getMetadata: reference/core/members/get-metadata.md
-        - ignite: reference/core/members/ignite.md
-        - IgnitionStatus: reference/core/members/ignition-status.md
-        - loadChildren: reference/core/members/load-children.md
-        - loadDescendants: reference/core/members/load-descendants.md
-        - onIgnition: reference/core/members/on-ignition.md
-        - onMethodImplemented: reference/core/members/on-method-implemented.md
-        - onProviderConstructed: reference/core/members/on-provider-constructed.md
-        - onProviderUsed: reference/core/members/on-provider-used.md
-        - Provider: reference/core/members/provider.md
-        - use: reference/core/members/use.md
+      - Providers:
+        - reference/core/providers/index.md
+        - awaitIgnition: reference/core/providers/await-ignition.md
+        - ignite: reference/core/providers/ignite.md
+        - IgnitionStatus: reference/core/providers/ignition-status.md
+        - onIgnition: reference/core/providers/on-ignition.md
+        - Provider: reference/core/providers/provider.md
+        - use: reference/core/providers/use.md
+      - Loader:
+        - reference/core/loader/index.md
+        - loadChildren: reference/core/loader/load-children.md
+        - loadDescendants: reference/core/loader/load-descendants.md
+        - matchesName: reference/core/loader/matches-name.md
+      - Modding:
+        - reference/core/modding/index.md
+        - getIgnitionOptions: reference/core/modding/get-ignition-options.md
+        - onMethodImplemented: reference/core/modding/on-method-implemented.md
+        - onProviderConstructed: reference/core/modding/on-provider-constructed.md
+        - onProviderUsed: reference/core/modding/on-provider-used.md
+      - Reflection:
+        - reference/core/reflection/index.md
+        - defineMetadata: reference/core/reflection/define-metadata.md
+        - getMetadata: reference/core/reflection/get-metadata.md
+        - deleteMetadata: reference/core/reflection/delete-metadata.md
       - Types:
+        - reference/core/types/index.md
         - Options: reference/core/types/options.md
         - Provider: reference/core/types/provider.md
 

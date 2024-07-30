@@ -33,7 +33,7 @@ the details for you.
 cannot ignite more than once
 ```
 
-**Thrown by:** [`prvd.ignite`](core/members/ignite.md)
+**Thrown by:** [`prvd.ignite`](core/providers/ignite.md)
 
 You attempted to reignite Oh My Prvd when it has already been ignited.
 
@@ -45,8 +45,8 @@ You attempted to reignite Oh My Prvd when it has already been ignited.
 cannot register provider; `MyProvider.init` should be a function
 ```
 
-**Thrown by:** [`prvd.Provider`](core/members/provider.md),
-[`prvd.new`](core/members/provider.md)
+**Thrown by:** [`prvd.Provider`](core/providers/provider.md),
+[`prvd.new`](core/providers/provider.md)
 
 You attempted to register a new provider, but Oh My Prvd caught something wrong.
 The error includes a more specific message which can be used to diagnose the
@@ -65,7 +65,7 @@ issue. Typically it is one of the following:
 `use()` must be given a provider
 ```
 
-**Thrown by:** [`prvd.use`](core/members/use.md)
+**Thrown by:** [`prvd.use`](core/providers/use.md)
 
 You attempted to `use()` an object that was not registered as a provider.
 
@@ -73,7 +73,7 @@ You attempted to `use()` an object that was not registered as a provider.
 
 ## initError
 
-**Thrown by:** [`prvd.ignite`](core/members/ignite.md)
+**Thrown by:** [`prvd.ignite`](core/providers/ignite.md)
 
 ```Md
 cannot initialize MyProvider; attempted to index nil with 'property'
@@ -87,8 +87,8 @@ can be used to diagnose the issue.
 
 ## invalidLoadParent
 
-**Thrown by:** [`prvd.loadChildren`](core/members/load-children.md),
-[`prvd.loadDescendants`](core/members/load-descendants.md)
+**Thrown by:** [`prvd.loadChildren`](core/loader/load-children.md),
+[`prvd.loadDescendants`](core/loader/load-descendants.md)
 
 ```Md
 loadX must be given an instance
@@ -105,7 +105,7 @@ to load from, but you gave it something else.
 `onIgnition` must be given callbacks
 ```
 
-**Thrown by:** [`prvd.onIgnition`](core/members/on-ignition.md)
+**Thrown by:** [`prvd.onIgnition`](core/providers/on-ignition.md)
 
 `onIgnition` expected you to give it a callback to spawn after ignition
 finishes, but you gave it something else.
@@ -118,8 +118,8 @@ finishes, but you gave it something else.
 cannot register providers after ignition
 ```
 
-**Thrown by:** [`prvd.Provider`](core/members/provider.md),
-[`prvd.new`](core/members/provider.md)
+**Thrown by:** [`prvd.Provider`](core/providers/provider.md),
+[`prvd.new`](core/providers/provider.md)
 
 You attempted to register a provider after ignition.
 
@@ -134,8 +134,8 @@ that no other module registers a provider after ignition.
 cannot require ServerScriptService.Providers.MyProvider; Module code did not return exactly one value
 ```
 
-**Thrown by:** [`prvd.loadChildren`](core/members/load-children.md),
-[`prvd.loadDescendants`](core/members/load-descendants.md)
+**Thrown by:** [`prvd.loadChildren`](core/loader/load-children.md),
+[`prvd.loadDescendants`](core/loader/load-descendants.md)
 
 `loadChildren` and `loadDescendants` loaded a module which threw an error that
 Oh My Prvd cannot handle. The error includes a more specific message which can
@@ -149,8 +149,8 @@ be used to diagnose the issue.
 cannot use `:render` lifecycle from the server
 ```
 
-**Thrown by:** [`prvd.Provider`](core/members/provider.md),
-[`prvd.new`](core/members/provider.md)
+**Thrown by:** [`prvd.Provider`](core/providers/provider.md),
+[`prvd.new`](core/providers/provider.md)
 
 You included a `:render` lifecycle method in one of your providers on the
 server. This is undesirable as the server cannot access
@@ -183,7 +183,7 @@ indicates that Oh My Prvd is not reporting errors correctly.
 cannot use other providers after ignition
 ```
 
-**Thrown by:** [`prvd.use`](core/members/use.md)
+**Thrown by:** [`prvd.use`](core/providers/use.md)
 
 You tried to `use()` another provider after ignition started.
 
