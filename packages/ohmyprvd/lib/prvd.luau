@@ -143,10 +143,10 @@ function prvd.Provider<T>(name: string, provider: T): Provider<T>
 
   local provider = table.clone(provider :: Provider<T>) :: Provider<T>
   for method, expectedType in pairs(EXPECTED_METHOD_TYPES) do
-    if rawget(provider, method) == nil then
+    if (provider :: any)[method] == nil then
       continue
     end
-    local realType = typeof(rawget(provider, method))
+    local realType = typeof((provider :: any)[method])
     expect(expectedType == realType, "cannotRegister", `\`{name}.{method}\` should be a {expectedType}`)
   end
 
@@ -222,7 +222,7 @@ function prvd.ignite(options: {
   for _, provider in pairs(providers) do
     table.insert(dependencies, {
       instance = provider,
-      loadOrder = rawget(provider, "loadOrder") or 1,
+      loadOrder = provider.loadOrder or 1,
       identifier = getIdentifier(provider),
     })
 
