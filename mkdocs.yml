@@ -65,11 +65,10 @@ nav:
       - Usage: tutorials/components/usage.md
       - Attributes: tutorials/components/attributes.md
       - Inheritance: tutorials/components/inheritance.md
-    - Mods:
-      - Mods: tutorials/mods/index.md
-      - Lifecycle Methods: tutorials/mods/lifecycle-methods.md
-    - Best Practices:
-      - Alternatives: tutorials/best-practices/alternatives.md
+    - Advanced:
+      - Modding: tutorials/advanced/modding.md
+      - Execution Order: tutorials/advanced/execution-order.md
+      - Alternatives: tutorials/advanced/alternatives.md
   - Examples:
     - examples/index.md
     - Projects:
@@ -118,7 +117,11 @@ markdown_extensions:
   - md_in_html
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
