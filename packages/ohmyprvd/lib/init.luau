@@ -34,7 +34,37 @@ export type IgnitionStatus = prvd.IgnitionStatus
 export type Options = prvd.Options
 export type Provider<T> = prvd.Provider<T>
 
-return table.freeze {
+type Prvd = {
+  version: string,
+
+  awaitIgnition: () -> (),
+  ignite: (options: {
+    logLevel: "none" | "verbose" | nil,
+    profiling: boolean?,
+  }?) -> (),
+  IgnitionStatus: {
+    Pending: "IgnitionStatus.Pending",
+    Igniting: "IgnitionStatus.Igniting",
+    Ignited: "IgnitionStatus.Ignited",
+  },
+  new: <T>(name: string, provider: T) -> Provider<T>,
+  onIgnition: (callback: () -> ()) -> (),
+  Provider: <T>(name: string, provider: T) -> Provider<T>,
+  use: <T>(provider: Provider<T>) -> T,
+
+  onMethodImplemented: (method: string, handler: (Provider<unknown>) -> ()) -> (),
+  onProviderConstructed: (handler: (Provider<unknown>) -> ()) -> (),
+  onProviderUsed: (handler: (Provider<unknown>) -> ()) -> (),
+
+  defineMetadata: (object: unknown, key: string, value: unknown) -> (),
+  getMetadata: (object: unknown, key: string) -> unknown?,
+  deleteMetadata: (object: unknown, key: string, property: string?) -> (),
+
+  loadChildren: (parent: Instance, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
+  loadDescendants: (parent: Instance, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
+}
+
+local prvd: Prvd = table.freeze {
   version = "0.1.1-alpha",
 
   -- Core API
@@ -60,3 +90,5 @@ return table.freeze {
   loadChildren = loader.loadChildren,
   loadDescendants = loader.loadDescendants,
 }
+
+return prvd
