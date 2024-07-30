@@ -1,12 +1,6 @@
 {
-  "name": "jet-test",
+  "name": "ohmyprvd-packages",
   "tree": {
-    "$className": "DataModel",
-    "ServerScriptService": {
-      "$className": "ServerScriptService",
-      "packages": {
-        "$path": "packages"
-      }
-    }
+    "$path": "packages"
   }
 }

@@ -1,0 +1,12 @@
+{
+  "name": "ohmyprvd-test-runner",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "packages": {
+        "$path": "packages"
+      }
+    }
+  }
+}
