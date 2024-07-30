@@ -321,20 +321,20 @@ function prvd.ignite(options: {
 
   debug.resetmemorycategory()
 
-  RunService.Heartbeat:Connect(function(dt)
+  RunService.PostSimulation:Connect(function(dt)
     for label, provider in pairs(heartbeat) do
       threads.spawn(profileCallback(provider.heartbeat, label), provider, dt)
     end
   end)
 
-  RunService.Stepped:Connect(function(dt)
+  RunService.PreSimulation:Connect(function(dt)
     for label, provider in pairs(step) do
       threads.spawn(profileCallback(provider.step, label), provider, dt)
     end
   end)
 
   if RunService:IsClient() then
-    RunService.RenderStepped:Connect(function(dt)
+    RunService.PreRender:Connect(function(dt)
       for label, provider in pairs(render) do
         threads.spawn(profileCallback(provider.render, label), provider, dt)
       end
