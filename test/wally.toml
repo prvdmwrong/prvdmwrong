@@ -1,0 +1,14 @@
+# you would think this can be in the root directory
+# but no bcuz wally will delete the packages folder n you will hate yourself for
+# the rest of eternity
+
+[package]
+  name = "znotfireman/ohmyprvd-test-runner"
+  version = "0.1.0"
+  registry = "https://github.com/UpliftGames/wally-index"
+  realm = "shared"
+  private = true
+
+[dev-dependencies]
+  Jest = "jsdotlua/jest@3.6.1-rc.2"
+  JestGlobals = "jsdotlua/jest-globals@3.6.1-rc.2"

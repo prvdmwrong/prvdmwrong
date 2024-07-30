@@ -1,0 +1,12 @@
+{
+  "name": "ohmyprvd-packages",
+  "tree": {
+    "$path": "src",
+    "Packages": {
+      "$path": "DevPackages"
+    },
+    "__tests__": {
+      "$path": "__tests__"
+    }
+  }
+}
