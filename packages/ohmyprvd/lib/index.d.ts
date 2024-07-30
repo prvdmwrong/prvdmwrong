@@ -152,6 +152,19 @@ declare namespace ohmyprvd {
 		handler: (provider: Provider<object>) => void,
 	) => void
 
+	// TODO: write documentation for this
+	export const defineMetadata: (
+		object: unknown,
+		key: string,
+		value: unknown,
+	) => void
+	export const getMetadata: <T>(object: unknown, key: string) => T | undefined
+	export const deleteMetadata: (
+		object: unknown,
+		key: string,
+		property?: string,
+	) => void
+
 	/**
 	 * Preload the specified parent by requiring all ModuleScripts within it. An
 	 * optional predicate function can be provided to filter modules.
