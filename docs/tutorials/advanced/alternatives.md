@@ -1,7 +1,7 @@
 # Alternatives
 
-There are several existing game frameworks for Roblox. Besides Oh My Prvd, you
-might consider:
+Oh My Prvd is not the first Roblox game framework. In fact, there are several
+existing game frameworks for Roblox. Besides Oh My Prvd, you might consider:
 
 - [Knit by sleitnick](https://github.com/Sleitnick/Knit)
 - [Flamework by fireboltofdeath](https://github.com/rbxts-flamework)
@@ -41,3 +41,5 @@ Finally:
 - We have a good enough understanding of the problem to develop something
   robust.
 - We think Oh My Prvd should be able to do more than just connect providers.
+
+This is not to say Oh My Prvd is superior, at least not yet:

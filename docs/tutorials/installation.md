@@ -31,7 +31,8 @@ for TypeScript, Oh My Prvd has packages for both package managers.
     Append this below `[dependencies]` in your `wally.toml`:
 
     ```TOML
-    ohmyprvd = "znotfireman/ohmyprvd"
+    [dependencies]
+      prvd = "znotfireman/ohmyprvd@0.1.0-alpha"
     ```
 
     Then, install your packages:
@@ -57,7 +58,7 @@ for TypeScript, Oh My Prvd has packages for both package managers.
     directly:
 
     ```TypeScript
-    import ohmyprvd from "@rbxts/znotfireman"
+    import ohmyprvd from "@rbxts/ohmyprvd"
     ```
 
 ### Install via Source
