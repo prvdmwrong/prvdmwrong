@@ -1,7 +1,7 @@
 {
-  "name": "@rbxts/ohmyprvd-net",
-  "version": "1.0.0",
-  "description": "Implements a networking system for the Oh My Prvd Roblox framework.",
+  "name": "@rbxts/ohmyprvd-lifecycles",
+  "version": "0.1.0-alpha",
+  "description": "Implements a \"small\" amount of lifecycle events for providers.",
   "main": "out/init.luau",
   "keywords": [],
   "author": "",
@@ -13,6 +13,9 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@rbxts/ohmyprvd": "0.1.1-alpha"
   },
   "devDependencies": {
     "@rbxts/compiler-types": "2.3.0-types.1",
