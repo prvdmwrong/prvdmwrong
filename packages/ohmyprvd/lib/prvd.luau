@@ -70,6 +70,7 @@ local awaitingCallbacks: { () -> () } = {}
 local status: IgnitionStatus = IgnitionStatus.Pending
 
 local providers: { [string]: Provider<any> } = {}
+local ignitionOptions: Options? = nil
 
 local prvd = {}
 prvd.IgnitionStatus = IgnitionStatus
@@ -194,6 +195,7 @@ function prvd.ignite(options: {
   status = IgnitionStatus.Igniting
 
   local options = reconcileOptions(options or {})
+  ignitionOptions = options
 
   local isVerbose = options.logLevel == "verbose"
   local function verbose(id: string, ...: unknown)
@@ -345,6 +347,14 @@ function prvd.onIgnition(callback: () -> ())
   end
   expect(typeof(callback) == "function", "invalidOnIgnitionCallback")
   table.insert(awaitingCallbacks, callback)
+end
+
+--[[
+  Returns the ignition configuration options. Options are reconciled with
+  default values.
+]]
+function prvd.getIgnitionOptions(): Options
+  return reconcileOptions(ignitionOptions or {})
 end
 
 table.freeze(prvd)

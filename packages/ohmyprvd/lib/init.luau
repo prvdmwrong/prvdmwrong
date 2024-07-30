@@ -55,6 +55,7 @@ type Prvd = {
   onMethodImplemented: (method: string, handler: (Provider<unknown>) -> ()) -> (),
   onProviderConstructed: (handler: (Provider<unknown>) -> ()) -> (),
   onProviderUsed: (handler: (Provider<unknown>) -> ()) -> (),
+  getIgnitionOptions: () -> Options,
 
   defineMetadata: (object: unknown, key: string, value: unknown) -> (),
   getMetadata: (object: unknown, key: string) -> unknown?,
@@ -81,6 +82,7 @@ local prvd: Prvd = table.freeze {
   onMethodImplemented = mods.onMethodImplemented,
   onProviderConstructed = mods.onProviderConstructed,
   onProviderUsed = mods.onProviderUsed,
+  getIgnitionOptions = prvd.getIgnitionOptions,
 
   -- Reflection API
   defineMetadata = reflect.defineMetadata,
