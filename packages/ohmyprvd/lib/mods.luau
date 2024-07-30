@@ -72,8 +72,10 @@ function mods.doProviderUsed(provider: types.Provider<unknown>)
 end
 
 --[[
-  Listen for when a provider implements a method. Handlers are expected to be
-  infallible and non-yielding.
+  Called when a provider implements a method. Handlers are expected to be
+  infallible and non-yielding. The handler receives the constructed provider.
+  Commonly used to implement custom lifecycles by adding providers to a
+  "watchlist" which will have its methods fired.
 ]]
 function mods.onMethodImplemented(method: string, handler: (types.Provider<unknown>) -> ())
   if not methodHandlers[method] then
@@ -85,7 +87,7 @@ end
 
 --[[
   Called just before Oh My Prvd returns a newly constructed provider. Handlers
-  are expected to be infallible and non-yielding. The handler receieves the
+  are expected to be infallible and non-yielding. The handler receives the
   constructed provider.
 ]]
 function mods.onProviderConstructed(handler: (types.Provider<unknown>) -> ())
@@ -95,7 +97,7 @@ end
 
 --[[
   Called just before Oh My Prvd returns a used Provider. Handlers are expected
-  to be infallible and non-yielding. The handler receieves the used provider.
+  to be infallible and non-yielding. The handler receives the used provider.
 ]]
 function mods.onProviderUsed(handler: (types.Provider<unknown>) -> ())
   local identifier = table.freeze {}

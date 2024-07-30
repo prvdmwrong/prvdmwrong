@@ -103,16 +103,6 @@ declare namespace ohmyprvd {
 	export const ignite: (options?: Partial<Options>) => void
 
 	/**
-	 * Listen for when a provider implements a lifecycle method. Commonly used to
-	 * implement custom lifecycles by adding providers to a "watchlist" which will
-	 * have its methods fired.
-	 */
-	export const implementMethod: (
-		method: string,
-		handler: (provider: Provider<object>) => void,
-	) => void
-
-	/**
 	 * Queues a callback to be called just before ignition finishes. If Oh My Prvd
 	 * has already started, the callback will be spawned immediately.
 	 */
@@ -132,6 +122,35 @@ declare namespace ohmyprvd {
 	 * the dependencies your provider uses.
 	 */
 	export const use: <T extends object>(provider: Provider<T>) => T
+
+	/**
+	 * Called when a provider implements a method. Handlers are expected to be
+	 * infallible and non-yielding. The handler receives the constructed
+	 * provider. Commonly used to implement custom lifecycles by adding providers
+	 * to a "watchlist" which will have its methods fired.
+	 */
+	export const onMethodImplemented: (
+		method: string,
+		handler: (provider: Provider<object>) => void,
+	) => void
+
+	/**
+	 * Called just before Oh My Prvd returns a newly constructed provider.
+	 * Handlers are expected to be infallible and non-yielding. The handler
+	 * receives the constructed provider.
+	 */
+	export const onProviderConstructed: (
+		handler: (provider: Provider<object>) => void,
+	) => void
+
+	/**
+	 * Called just before Oh My Prvd returns a used Provider. Handlers are
+	 * expected to be infallible and non-yielding. The handler receives the used
+	 * provider.
+	 */
+	export const onProviderUsed: (
+		handler: (provider: Provider<object>) => void,
+	) => void
 
 	/**
 	 * Preload the specified parent by requiring all ModuleScripts within it. An
