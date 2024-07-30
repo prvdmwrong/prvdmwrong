@@ -145,6 +145,62 @@ h6 > .twemoji:first-child {
 	transform: translateX(1rem);
 }
 
+.ompdoc-api-tags {
+	align-content: space-around;
+	align-items: baseline;
+	display: flex;
+	flex-wrap: wrap;
+	float: right;
+	height: 2.6em;
+	gap: 0.5em;
+}
+
+.ompdoc-api-tags > span {
+	color: var(--md-default-fg-color);
+	height: 2.6em;
+	line-height: 2.6;
+	padding: 0 1em;
+	position: relative;
+	vertical-align: middle;
+	opacity: 50%;
+}
+
+.ompdoc-api-tags > span::before {
+	background-color: var(--md-default-fg-color);
+	border-radius: 1.3em;
+	content: "";
+	display: block;
+	height: 100%;
+	line-height: 2.6;
+	opacity: 10%;
+	padding: 0 1em;
+	position: absolute;
+	right: 0;
+	width: 100%;
+}
+
+.ompdoc-api-breadcrumbs {
+	padding-bottom: 0.25em;
+}
+
+.ompdoc-api-breadcrumbs > a {
+	color: var(--md-default-fg-color);
+	opacity: 70%;
+}
+
+.ompdoc-api-breadcrumbs > a::after {
+	color: var(--md-default-fg-color--light);
+	content: "/";
+	display: inline;
+	opacity: 70%;
+	padding-left: 0.1em;
+}
+
+.ompdoc-api-breadcrumbs > a:hover::after {
+	left: 0;
+	bottom: 0;
+}
+
 /* FUCK YOU. */
 
 .md-typeset
