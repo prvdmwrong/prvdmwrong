@@ -9,6 +9,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added `ohmyprvd-lifecycles` package which implements lifecycle events for the
+  following:
+
+  - `:onPostSimulation(dt: number)` runs every `RunService.PostSimulation`
+  - `:onPreSimulation(dt: number)` runs every `RunService.PreSimulation`
+  - `:onPreRender(dt: number)` runs every `RunService.PreRender`
+  - `:onPlayerAdded(player: Player)` runs every `Player.PlayerAdded`
+  - `:onPlayerLeaving(player: Player)` runs every `Player.PlayerLeaving`
+  - `:onShutdown()` binds to `game:BindToClose` for games and `plugin.Unloading`
+    for plugins
+
+## ohmyprvd\@0.1.1-alpha
+
+### Added
+
 - Added actual types for `@rbxts/ohmyprvd`
 - Added missing error messages
 - Added `onProviderConstructed` and `onProviderUsed` modding hooks
