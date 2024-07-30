@@ -1,9 +1,19 @@
+<div class="ompdoc-api-breadcrumbs">
+<a href="../../">Oh My Prvd</a>
+<a href="../">Core</a>
+</div>
+
+<div class="ompdoc-api-tags">
+<span>type</span>
+<span>since v0.1</span>
+</div>
+
 # Options
 
 Configures how Oh My Prvd will ignite. The following are the available
 configuration options: This type is not useful outside of Oh My Prvd itself;
-prefer to specify ignition options as a parameter of [`#!lua
-ignite(options)`](../members/ignite.md)
+prefer to specify ignition options as a parameter of [`
+ignite(options)`](../members/ignite.md).
 
 === "Luau"
 

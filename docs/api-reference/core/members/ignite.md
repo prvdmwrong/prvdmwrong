@@ -1,3 +1,13 @@
+<div class="ompdoc-api-breadcrumbs">
+<a href="../../">Oh My Prvd</a>
+<a href="../">Core</a>
+</div>
+
+<div class="ompdoc-api-tags">
+<span>function</span>
+<span>since v0.1</span>
+</div>
+
 # ignite
 
 Ignites Oh My Prvd. Expected to be called once in an environment, e.g. once on

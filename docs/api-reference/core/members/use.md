@@ -1,3 +1,13 @@
+<div class="ompdoc-api-breadcrumbs">
+<a href="../../">Oh My Prvd</a>
+<a href="../">Core</a>
+</div>
+
+<div class="ompdoc-api-tags">
+<span>function</span>
+<span>since v0.1</span>
+</div>
+
 # use
 
 Uses a provider within Oh My Prvd. During ignition, Oh My Prvd will inject the

@@ -1,9 +1,19 @@
+<div class="ompdoc-api-breadcrumbs">
+<a href="../../">Oh My Prvd</a>
+<a href="../">Core</a>
+</div>
+
+<div class="ompdoc-api-tags">
+<span>enumeration</span>
+<span>since v0.1</span>
+</div>
+
 # IgnitionStatus
 
 An enumeration of all defined ignition status Oh My Prvd will be in.
 
 This enum is not useful outside of Oh My Prvd itself; prefer to work with
-[`#!lua awaitIgnition()`](await-ignition.md) and [`#!lua
+[`awaitIgnition()`](await-ignition.md) and [`
 onIgnition(callback)`](on-ignition.md)
 
 === "Luau"

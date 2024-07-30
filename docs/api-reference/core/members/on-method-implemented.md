@@ -1,13 +1,24 @@
-# implementMethod
+<div class="ompdoc-api-breadcrumbs">
+<a href="../../">Oh My Prvd</a>
+<a href="../">Core</a>
+</div>
 
-Listen for when a provider implements a lifecycle method. Commonly used to
-implement custom lifecycles by adding providers to a "watchlist" which will have
-its methods fired.
+<div class="ompdoc-api-tags">
+<span>function</span>
+<span>since v0.1</span>
+</div>
+
+# onMethodImplemented
+
+Called when a provider implements a method. Handlers are expected to be
+infallible and non-yielding. The handler receives the constructed provider.
+Commonly used to implement custom lifecycles by adding providers to a
+"watchlist" which will have its methods fired.
 
 === "Luau"
 
     ```Lua
-    function prvd.implementMethod(
+    function prvd.onMethodImplemented(
       method: string,
       handler: (Provider<unknown>) -> ()
     ): ()
@@ -16,7 +27,7 @@ its methods fired.
 === "TypeScript"
 
     ```TypeScript
-    export const implementMethod: (
+    export const onMethodImplemented: (
       method: string,
       handler: (Provider<unknown>) => void
     ) => void
