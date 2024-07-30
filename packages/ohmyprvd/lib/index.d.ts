@@ -152,6 +152,12 @@ declare namespace ohmyprvd {
 		handler: (provider: Provider<object>) => void,
 	) => void
 
+	/**
+	 * Returns the ignition configuration options. Options are reconciled with
+	 * default values.
+	 */
+	export const getIgnitionOptions: () => Options
+
 	// TODO: write documentation for this
 	export const defineMetadata: (
 		object: unknown,
