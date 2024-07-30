@@ -46,12 +46,8 @@ declare namespace ohmyprvd {
 	 */
 	export type Provider<T extends object> = T & {
 		readonly load?: number
-
-		init?(): void | Promise<void>
-		start?(): void
-		heartbeat?(dt: number): void
-		step?(dt: number): void
-		render?(dt: number): void
+		onInit?(): void | Promise<void>
+		onStart?(): void
 	}
 
 	/**

@@ -20,11 +20,8 @@ more precise types.
     export type Provider<T> = T & {
       loadOrder: number?,
 
-      init: ((self: Provider<T>) -> Promise?)?,
-      start: (self: Provider<T>) -> ()?,
-      heartbeat: (self: Provider<T>, dt: number) -> ()?,
-      step: (self: Provider<T>, dt: number) -> ()?,
-      render: (self: Provider<T>, dt: number) -> ()?,
+      onInit: ((self: Provider<T>) -> Promise?)?,
+      onStart: (self: Provider<T>) -> ()?
     }
     ```
 
@@ -33,12 +30,8 @@ more precise types.
     ```TypeScript
     export type Provider<T extends object> = T & {
       loadOrder?: number,
-
-      init?(): void | Promise<void>,
-      start?(): void,
-      heartbeat?(dt: number): void,
-      step?(dt: number): void,
-      render?(dt: number): void,
+      onInit?(): void | Promise<void>,
+      onStart?(): void
     }
     ```
 
