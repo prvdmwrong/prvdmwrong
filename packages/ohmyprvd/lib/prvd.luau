@@ -421,7 +421,7 @@ end
 --[[
   Listen for when a provider implements a method.
 ]]
-function prvd.implementMethod(
+function prvd.onMethodImplemented(
   method: string,
   handler: (Provider<unknown>) -> ()
 )
