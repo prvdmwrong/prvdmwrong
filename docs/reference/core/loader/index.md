@@ -1,3 +1,8 @@
+<div class="ompdoc-api-breadcrumbs">
+<a href="../../">Reference</a>
+<a href="../">Core</a>
+</div>
+
 # Loader
 
 !!! warning "Under construction"
