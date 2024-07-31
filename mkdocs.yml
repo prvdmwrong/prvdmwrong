@@ -53,9 +53,10 @@ nav:
   - Tutorials:
     - tutorials/index.md
     - Installation: tutorials/installation.md
-    - Providers: tutorials/providers.md
-    - Ignition: tutorials/ignition.md
-    - Lifecycle Methods: tutorials/lifecycle-methods.md
+    - Fundamentals:
+      - Providers: tutorials/fundamentals/providers.md
+      - Ignition: tutorials/fundamentals/ignition.md
+      - Lifecycle Methods: tutorials/fundamentals/lifecycle-methods.md
     - Net:
       - Net: tutorials/net/index.md
       - Events: tutorials/net/events.md
@@ -111,6 +112,7 @@ nav:
         - Provider: reference/core/types/provider.md
 
 extra_css:
+  - assets/theme/404.css
   - assets/theme/code.css
   - assets/theme/home.css
   - assets/theme/ompdoc.css
