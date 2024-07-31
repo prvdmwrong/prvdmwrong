@@ -123,7 +123,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lifecycle-events" class="md-skip">
+        <a href="#lifecycle-methods" class="md-skip">
           Skip to content
         </a>
       
@@ -598,6 +598,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lifecycle Methods
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -607,6 +618,45 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#implement-your-own" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implement Your Own
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-lifecycles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Lifecycles
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2140,6 +2190,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#implement-your-own" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implement Your Own
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-lifecycles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Lifecycles
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2156,11 +2232,160 @@
   
 
 
-<h1 id="lifecycle-events">Lifecycle Events</h1>
-<div class="admonition warning">
-<p class="admonition-title">Under construction</p>
-<p>This page is under construction - information may be incomplete or missing.</p>
+<h1 id="lifecycle-methods">Lifecycle Methods</h1>
+<p>Oh My Prvd provides the <code>:onInit()</code> and <code>:onStart()</code> lifecycle methods. To
+tailor your needs, you implement custom lifecycle methods or import additional
+lifecycle methods.</p>
+<hr />
+<h2 id="implement-your-own">Implement Your Own</h2>
+<p>You can implement your own lifecycle method. For this example, we will create
+our own <code>:onPlayerAdded(player)</code> lifecycle method.</p>
+<p>First, tell Oh My Prvd we will track providers which implement a <code>onPlayerAdded</code>
+method:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Luau</label><label for="__tabbed_1_2">TypeScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">prvd</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">prvd</span><span class="p">.</span><span class="n">onMethodImplemented</span><span class="p">(</span><span class="s2">&quot;onPlayerAdded&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  <span class="c1">-- TODO: implement this!</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
 </div>
+<div class="tabbed-block">
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">onMethodImplemented</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/ohmyprvd&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nx">onMethodImplemented</span><span class="p">(</span><span class="s2">&quot;onPlayerAdded&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">provider</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="c1">// TODO: implement this!</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">})</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>Let's add all providers which implement this method to a "watchlist", which we
+will fire the lifecycle methods later:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Luau</label><label for="__tabbed_2_2">TypeScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">prvd</span><span class="p">)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">-- This interface satisfies our lifecycle method!</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">type</span> <span class="n">OnPlayerAdded</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  <span class="n">onPlayerAdded</span><span class="p">:</span> <span class="p">(</span><span class="n">self</span><span class="p">:</span> <span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="o">&lt;</span><span class="n">unknown</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Player</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">()</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="kd">local</span> <span class="n">playerAdded</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="o">&lt;</span><span class="n">OnPlayerAdded</span><span class="o">&gt;</span><span class="p">]:</span> <span class="kc">true</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">prvd</span><span class="p">.</span><span class="n">onMethodImplemented</span><span class="p">(</span><span class="s2">&quot;onPlayerAdded&quot;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  <span class="n">playerAdded</span><span class="p">[</span><span class="n">provider</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">Provider</span><span class="p">,</span><span class="w"> </span><span class="nx">onMethodImplemented</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/ohmyprvd&quot;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">// This interface satisfies our lifecycle method!</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">interface</span><span class="w"> </span><span class="nx">OnPlayerAdded</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nx">onPlayerAdded</span><span class="p">(</span><span class="nx">player</span><span class="o">:</span><span class="w"> </span><span class="kt">Player</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="kd">const</span><span class="w"> </span><span class="nx">playerAdded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="o">&lt;</span><span class="nx">Provider</span><span class="o">&lt;</span><span class="nx">OnPlayerAdded</span><span class="o">&gt;&gt;</span><span class="p">()</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nx">onMethodImplemented</span><span class="p">(</span><span class="s2">&quot;onPlayerAdded&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">provider</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="nx">playerAdded</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">provider</span><span class="p">)</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">})</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we can iterate over this and fire our lifecycle method:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Luau</label><label for="__tabbed_3_2">TypeScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">local</span> <span class="kr">function</span> <span class="nf">doPlayerAdded</span><span class="p">(</span><span class="n">newPlayer</span><span class="p">:</span> <span class="n">Player</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  <span class="kr">for</span> <span class="n">provider</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">playerAdded</span><span class="p">)</span> <span class="kr">do</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">task</span><span class="p">.</span><span class="n">spawn</span><span class="p">(</span><span class="n">provider</span><span class="p">.</span><span class="n">onPlayerAdded</span><span class="p">,</span> <span class="n">provider</span><span class="p">,</span> <span class="n">newPlayer</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  <span class="kr">end</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kr">end</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">Players</span><span class="p">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="n">doPlayerAdded</span><span class="p">)</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">existingPlayer</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">Players</span><span class="p">:</span><span class="n">GetPlayers</span><span class="p">())</span> <span class="kr">do</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  <span class="n">doPlayerAdded</span><span class="p">(</span><span class="n">existingPlayer</span><span class="p">)</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="kr">end</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">doPlayerAdded</span><span class="p">(</span><span class="nx">newPlayer</span><span class="o">:</span><span class="w"> </span><span class="kt">Player</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">provider</span><span class="p">]</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">pairs</span><span class="p">(</span><span class="nx">playerAdded</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nx">task</span><span class="p">.</span><span class="nx">spawn</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">provider</span><span class="p">.</span><span class="nx">onPlayerAdded</span><span class="p">(</span><span class="nx">newPlayer</span><span class="p">))</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="nx">Players</span><span class="p">.</span><span class="nx">PlayerAdded</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="nx">doPlayerAdded</span><span class="p">)</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">existingPlayer</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">Players</span><span class="p">.</span><span class="nx">GetPlayers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="nx">doPlayerAdded</span><span class="p">(</span><span class="nx">existingPlayer</span><span class="p">)</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>Now, other providers can hook onto our lifecycle method. We can refactor our
+<code>PointsProvider</code> earlier to use it:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Luau</label><label for="__tabbed_4_2">TypeScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">onPlayerAdded</span><span class="p">(</span><span class="n">self</span><span class="p">:</span> <span class="n">Self</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span> <span class="n">Player</span><span class="p">)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kr">end</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nx">onPlayerAdded</span><span class="p">(</span><span class="nx">player</span><span class="o">:</span><span class="w"> </span><span class="kt">Player</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="nx">setDefaultPoints</span><span class="p">(</span><span class="nx">player</span><span class="p">)</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="additional-lifecycles">Additional Lifecycles</h2>
+<p>Implementing additional lifecycle methods such as <code>:onPlayerAdded(player)</code> can
+be a hassle. For this, Oh My Prvd exports additional lifecycle methods through a
+separate <code>ohmyprvd-lifecycles</code> package, <a href="../installation/">which you will have to
+install.</a></p>
+<p>Once installed, import the package, preferably within your ignition script:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Luau</label><label for="__tabbed_5_2">TypeScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">-- this assumes you&#39;ve aliased the package as `lifecycles`</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">lifecycles</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;@rbxts/ohmyprvd-lifecycles&quot;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>This package exports nothing. Instead, it registers a separate provider that
+implements a host of lifecycle events during runtime:</p>
+<ul>
+<li><code>:onPostSimulation(dt)</code>, <code>:onPreSimulation(dt)</code>, and <code>:onPreRender(dt)</code> lets you
+  hook onto RunService's runtime events:<ul>
+<li><code>:onPostSimulation(dt)</code> runs every <code>RunService.PostSimulation</code> and is
+    optimal for responding to changes in the physics state.</li>
+<li><code>:onPreSimulation(dt)</code> runs every <code>RunService.PreSimulation</code> and is
+    optimal for manipulating physics.</li>
+<li><code>:onPreRender(dt)</code> runs every <code>RunService.PreRender</code>. Notably, this only
+    runs on the client.</li>
+</ul>
+</li>
+<li><code>:onShutdown</code> hooks onto <code>game:BindToClose</code>, or <code>plugin.Unloading</code> if ran
+  under a plugin environment. <code>:onShutdown</code> also cleanups built-in lifecycle
+  methods, preventing memory leaks especially for a plugin. It's great for doing
+  post-mortem cleanup once the game closes or your plugin is unloaded.</li>
+<li><code>:onPlayerAdded(player)</code> and <code>:onPlayerRemoving(player)</code> binds to
+  Players.PlayerAdded and Players.PlayerRemoving respectively, making it ideal
+  for tracking players.</li>
+</ul>
 
 
 
