@@ -267,6 +267,8 @@ every player that joins:
     })
     ```
 
+---
+
 ## Memory
 
 Now we have a problem: theres a [memory
@@ -313,6 +315,8 @@ end
 
 return prvd.Provider("PointsProvider", PointsProvider)
 ```
+
+---
 
 ## Dependencies
 
@@ -434,6 +438,8 @@ return prvd.Provider("PointsProvider", PointsProvider)
 
     This is also why you can't freeze your provider tables - Oh My Prvd will
     have to modify them.
+
+---
 
 ## Congratulations
 

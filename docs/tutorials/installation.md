@@ -113,6 +113,8 @@ imported as source code.
    - For example, you might paste it inside a `shared` or a `packages` folder.
 6. Paste the contents of the `lib` folder into the newly created folder.
 
+---
+
 ## Testing
 
 Now, you can create a script for testing:
