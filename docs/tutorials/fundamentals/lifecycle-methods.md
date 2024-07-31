@@ -127,7 +127,7 @@ Now, other providers can hook onto our lifecycle method. We can refactor our
 Implementing additional lifecycle methods such as `:onPlayerAdded(player)` can
 be a hassle. For this, Oh My Prvd exports additional lifecycle methods through a
 separate `ohmyprvd-lifecycles` package, [which you will have to
-install.](installation.md)
+install.](../installation.md)
 
 Once installed, import the package, preferably within your ignition script:
 

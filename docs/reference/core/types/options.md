@@ -52,4 +52,4 @@ current session is running in Roblox Studio.
 
 ## Learn More
 
-- [Ignition tutorial](../../../tutorials/ignition.md)
+- [Ignition tutorial](../../../tutorials/fundamentals/ignition.md)
