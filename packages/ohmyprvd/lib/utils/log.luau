@@ -47,7 +47,6 @@ local MESSAGES: { [string]: string } = table.freeze {
   serverRenderLifecycle = "cannot use `:render` lifecycle from the server",
   unknown = "unknown error: %s",
   useAfterIgnition = "cannot use other providers after ignition",
-  useWasDeprecated = "`omp.use(provider)` is deprecated, just specify a provider directly",
   usedBeforeIgnition = 'cannot use provider "%s" prior to ignition',
 }
 
