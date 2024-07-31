@@ -3,6 +3,7 @@
 <img src="assets/logo.svg" width="300px" align="right" alt="Logo"/>
 
 ![CI](https://github.com/team-fireworks/ohmyprvd/actions/workflows/ci.yml/badge.svg)
+![Release](https://github.com/team-fireworks/ohmyprvd/actions/workflows/release.yml/badge.svg)
 
 Oh My Prvd is a delightful framework for modern Roblox game development.
 
@@ -26,7 +27,7 @@ build faster and shout: **Oh, My Prvd!**
 - Designed for clarity
 
 Sparked your interest? [Get going in minutes with our on-rails
-tutorial](https://team-fireworks.github.io/ohmyprvd/latest/get-started/).
+tutorial.](https://team-fireworks.github.io/ohmyprvd/latest/tutorials/)
 
 > **Warning:** Oh My Prvd is in early development. Portions of the API may be
 > nonexistent, be broken, be changed, or be outright deleted. There will be
