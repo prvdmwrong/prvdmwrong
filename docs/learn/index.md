@@ -36,7 +36,7 @@ if you're a complete newcomer to the library.
 These tutorials assume:
 
 - That you're comfortable with Roblox and the Luau scripting language.
-      - These tutorials _are not_ an introduction Luau – If you'd like to learn,
+      - These tutorials _are not_ an introduction to Luau – If you'd like to learn,
         see the [Roblox creator documentation](https://create.roblox.com/docs).
 - That - if you're using Roblox TypeScript - you're comfortable with TypeScript.
       - These tutorials _are not_ an introduction to TypeScript - If you'd like
