@@ -241,11 +241,14 @@ function prvd.ignite(options: {
         return
       end
       local target = target :: { [any]: any }
-      local required = target.__prvdRequired__
-      if required ~= nil then
-        -- TODO: check if this is a good idea lmfao
-        parent[key] = required
-        table.insert(dependencies, getIdentifier(required))
+      if not table.isfrozen(target) then
+        local required = target.__prvdRequired__
+        if required ~= nil then
+          -- TODO: check if this is a good idea lmfao
+          parent[key] = required
+          table.insert(dependencies, getIdentifier(required))
+          return
+        end
       end
       for key, value in pairs(target) do
         resolveDependencies(value, key, target)
