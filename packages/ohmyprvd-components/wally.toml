@@ -1,5 +1,5 @@
 [package]
-  name = "znotfireman/ohmyprvd"
+  name = "znotfireman/ohmyprvd-components"
   description = "Implements a component system for the Oh My Prvd Roblox framework."
   version = "0.1.0-alpha"
   authors = ["ImNotFireMan123"]
@@ -7,7 +7,7 @@
   registry = "https://github.com/UpliftGames/wally-index"
 
   include = ["./lib", "./default.project.json"]
-  exclude = ["DevPackages, packages"]
+  # exclude = ["Packages"]
 
 [dependencies]
-  prvd = "znotfireman/ohmyprvd@0.1.0-alpha"
+  prvd = "znotfireman/ohmyprvd@0.1.1-alpha"
