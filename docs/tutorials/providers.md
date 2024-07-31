@@ -369,11 +369,11 @@ local MathProvider = require(script.Parent.MathProvider)
 
 Finally, just specify your provider `use()`s another provider:
 
-```Lua hl_lines="8 34-43"
+```Lua hl_lines="3 8 34-43"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
-local MathProvider = require(script.Parent.MathProvider)
 local Players = game:GetService("Players")
+local MathProvider = require(script.Parent.MathProvider)
+local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 
 local PointsProvider = {}
 PointsProvider.points = {}
@@ -417,20 +417,10 @@ end
 return prvd.Provider("PointsProvider", PointsProvider)
 ```
 
-!!! danger "Do not use dependencies outside of lifecycle methods!"
+??? danger "Do not use dependencies outside of lifecycle methods!"
 
     Oh My Prvd only returns a shadow of the `use()`d provider. You *cannot* use
-    it outside of lifecycle methods:
-
-    ```Txt
-    [ohmyprvd error(usedBeforeIgnition)]: cannot use provider "MathProvider" prior to ignition
-      help: ohmyprvd will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method
-      more info: team-fireworks.github.io/ohmyprvd/latest/api-reference/general/error-messages#usedbeforeignition
-      stack trace:
-        ohmyprvd.log:118 function throw
-        ohmyprvd.prvd:181 function use
-        PointsService:42
-    ```
+    it outside of lifecycle methods.
 
     Behind the scenes, Oh My Prvd will keep track of what dependencies your
     provider uses, figure out the correct load order for you, and inject your
@@ -450,7 +440,7 @@ own lifecycle methods, use Oh My Prvd networking primitives, and creating your
 own components.
 
 You can find the completed modules for MathProvider and PointsProvider in [the
-`examples` repository.](https://github.com/team-fireworks/ohmyprvd/tree/main/examples)
+`examples` directory.](https://github.com/team-fireworks/ohmyprvd/tree/main/examples)
 
 Once you're comfortable writing providers, you are ready to take on the rest of
 what Oh My Prvd offers.
