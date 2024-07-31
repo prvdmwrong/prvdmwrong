@@ -40,4 +40,4 @@ The callback to be spawned just before ignition finishes.
 
 ## Learn More
 
-- [Ignition tutorial](../../../learn/ignition.md)
+- [Ignition tutorial](../../../tutorials/ignition.md)

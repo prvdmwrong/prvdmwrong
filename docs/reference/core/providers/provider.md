@@ -78,4 +78,4 @@ A freshly registered provider.
 
 ## Learn More
 
-- [Providers tutorial](../../../learn/providers.md)
+- [Providers tutorial](../../../tutorials/providers.md)

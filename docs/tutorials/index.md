@@ -1,6 +1,6 @@
-# Learn Oh My Prvd
+# Get Started
 
-Congratulations on choosing Oh My Prvd! You're already making good choices.
+Congratulations on choosing Oh My Prvd! You're finally making good choices.
 
 Oh My Prvd is a delightful framework for next-generation Roblox game
 development. Here, you will learn how to build great games with Oh My Prvd, even

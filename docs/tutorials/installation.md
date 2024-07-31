@@ -1,25 +1,31 @@
 # Installation
 
-Oh My Prvd is distributed as a single module script, which you will need to
-import into your game.
+Oh My Prvd is broken down into functional packages, which you will need to
+import into your game. This page will walk you through installing a package.
+
+---
 
 ## Methods
 
 ### Install via Roblox
 
 If you edit directly inside Roblox Studio, then you can import a Roblox model
-file containing Og My Prvd.
+file containing Oh My Prvd.
 
-1. Head over to [Oh My Prvd's 'Releases' page.](https://github.com/team-fireworks/ohmyprvd/releases)
-2. Click the "Assets" dropdown to view the downloadable files:
+1. Head over to [Oh My Prvd's "Releases" page.](https://github.com/team-fireworks/ohmyprvd/releases)
+2. Find the package you will install, if you are just following the tutorials,
+  you can install the `ohmyprvd` core package.
+3. Click the "Assets" dropdown to view the downloadable files:
    ![Releases](../assets/static/github-releases.png)
-3. Click on the package you would like to import, which should end in `.rbxm`.
-  If you are just following the tutorials, just `ohmyprvd.rbxm` will do:
+4. Click on the package you would like to import, which should end in `.rbxm`:
    ![Releases](../assets/static/github-releases-rbxm.png)
-4. Open Roblox Studio to import the model. If you are just following the
+5. Open Roblox Studio to import the model. If you are just following the
   tutorials, just an empty baseplate will do.
-5. Right-click on `ReplicatedStorage`, and select 'Insert from File'
-6. You should see an `ohmyprvd` module script appear in ReplicatedStorage!
+6. Right-click on `ReplicatedStorage`, and select "Insert from File":
+   ![Insert from File](../assets/static/insert-from-file.png)
+7. You should see an `ohmyprvd` module script appear in ReplicatedStorage!
+
+---
 
 ### Install via a Package Manager
 
@@ -28,38 +34,66 @@ for TypeScript, Oh My Prvd has packages for both package managers.
 
 === "Wally"
 
-    Append this below `[dependencies]` in your `wally.toml`:
+    1. Head over to one of these packages you will import:
 
-    ```TOML
-    [dependencies]
-      prvd = "znotfireman/ohmyprvd@0.1.0-alpha"
-    ```
+          - [`@znotfireman/ohmyprvd`](https://wally.run/package/znotfireman/ohmyprvd)
+            for the core package
+          - [`@znotfireman/ohmyprvd-lifecycles`](https://wally.run/package/znotfireman/ohmyprvd-lifecycles)
+            for additional lifecycle methods
 
-    Then, install your packages:
+    2. Copy the metadata below "Install", and append it below `[dependencies]` in
+    your `wally.toml`:
 
-    ```Bash
-    $ wally install
-    ```
+        ![Install](../assets/static/wally-install.png)
 
-    This will install Oh My Prvd into the `Packages` directory, though the
-    actual location of the folder in-game depends on your Rojo project
-    configuration, but it is usually in `ReplicatedStorage`.
+        It will look something as such, with `ohmyprvd` renamed to `prvd` for
+        brevity:
 
-=== "NPM & PNPM"
+        ```TOML
+        [dependencies]
+          prvd = "znotfireman/ohmyprvd@0.1.1-alpha"
+        ```
 
-    Run either of these commands:
+    3. Then, install your packages:
 
-    ```Bash
-    $ npm i @rbxts/ohmyprvd # npm
-    $ pnpm i @rbxts/ohmyprvd # pnpm
-    ```
+        ```Bash
+        $ wally install
+        ```
 
-    This will install Oh My Prvd under `node_modules`, which can be imported
+        This will install Oh My Prvd under the `Packages` directory, which is
+        usually located in `ReplicatedStorage`:
+
+        ```Lua
+        local prvd = require(ReplicatedStorage.Packages.prvd)
+        ```
+
+    4. If you'd want the linker modules to also export types, you can use the
+        [Wally Package Types](https://github.com/JohnnyMorganz/wally-package-types)
+        tool:
+
+        ```Bash
+        $ wally-package-types --sourcemap sourcemap.json Packages/
+        ```
+
+=== "NPM"
+
+    1. Head over to one of these packages you will import:
+
+          - [`@rbxts/ohmyprvd`](https://www.npmjs.com/package/@rbxts/ohmyprvd)
+            for the core package
+
+    2. Copy the command below "Install", and run it on a terminal:
+
+        ![Install](../assets/static/npm-install.png)
+
+    3. This will install Oh My Prvd under `node_modules`, which can be imported
     directly:
 
-    ```TypeScript
-    import ohmyprvd from "@rbxts/ohmyprvd"
-    ```
+        ```TypeScript
+        import ohmyprvd from "@rbxts/ohmyprvd"
+        ```
+
+---
 
 ### Install via Source
 
@@ -100,7 +134,7 @@ Now, you can create a script for testing:
         local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
         ```
 
-    === "TypeScript"
+    === "NPM"
 
         ```TypeScript
         import ohmyprvd from "@rbxts/ohmyprvd"
@@ -112,7 +146,7 @@ Now, you can create a script for testing:
         local prvd = require("@pkg/ohmyprvd")
         ```
 
-3. Press 'Play' - if there are no errors, everything was set up correctly!
+3. Playtest your game - if there are no errors, everything was set up correctly!
 
 ??? failure "My script didn't work!"
 

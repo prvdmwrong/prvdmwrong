@@ -1,7 +1,7 @@
 # Reference
 
 This section provides detailed reference documentation for working with React.
-For an introduction to Oh My Prvd, see the [Learn section.](../learn/index.md)
+For an introduction to Oh My Prvd, see the [Learn section.](../tutorials/index.md)
 
 !!! warning "Under construction"
 

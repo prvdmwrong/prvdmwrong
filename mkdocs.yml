@@ -50,28 +50,28 @@ theme:
 
 nav:
   - Home: index.md
-  - Learn:
-    - learn/index.md
-    - Installation: learn/installation.md
-    - Providers: learn/providers.md
-    - Ignition: learn/ignition.md
-    - Lifecycle Methods: learn/lifecycle-methods.md
+  - Tutorials:
+    - tutorials/index.md
+    - Installation: tutorials/installation.md
+    - Providers: tutorials/providers.md
+    - Ignition: tutorials/ignition.md
+    - Lifecycle Methods: tutorials/lifecycle-methods.md
     - Net:
-      - Net: learn/net/index.md
-      - Events: learn/net/events.md
-      - Functions: learn/net/functions.md
-      - Middlewares: learn/net/middlewares.md
-      - Namespaces: learn/net/namespaces.md
+      - Net: tutorials/net/index.md
+      - Events: tutorials/net/events.md
+      - Functions: tutorials/net/functions.md
+      - Middlewares: tutorials/net/middlewares.md
+      - Namespaces: tutorials/net/namespaces.md
     - Components:
-      - Components: learn/components/index.md
-      - Usage: learn/components/usage.md
-      - Attributes: learn/components/attributes.md
-      - Inheritance: learn/components/inheritance.md
+      - Components: tutorials/components/index.md
+      - Usage: tutorials/components/usage.md
+      - Attributes: tutorials/components/attributes.md
+      - Inheritance: tutorials/components/inheritance.md
     - Advanced:
-      - Modding: learn/advanced/modding.md
-      - Execution Order: learn/advanced/execution-order.md
-      - VSCode Snippets: learn/advanced/snippets.md
-      - Alternatives: learn/advanced/alternatives.md
+      - Modding: tutorials/advanced/modding.md
+      - Execution Order: tutorials/advanced/execution-order.md
+      - VSCode Snippets: tutorials/advanced/snippets.md
+      - Alternatives: tutorials/advanced/alternatives.md
   - Examples:
     - examples/index.md
     - Projects:
@@ -154,4 +154,3 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-

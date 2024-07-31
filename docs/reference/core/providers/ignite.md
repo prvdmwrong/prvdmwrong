@@ -58,4 +58,4 @@ configuration options:
 
 ## Learn More
 
-- [Ignition tutorial](../../../learn/ignition.md)
+- [Ignition tutorial](../../../tutorials/ignition.md)

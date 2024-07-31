@@ -49,4 +49,4 @@ A predicate function that filters module if it matches the name.
 
 ## Learn More
 
-- [Ignition tutorial](../../../learn/ignition.md)
+- [Ignition tutorial](../../../tutorials/ignition.md)
