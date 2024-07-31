@@ -61,4 +61,4 @@ will be injected during ignition.
 
 ## Learn More
 
-- [Providers tutorial](../../../learn/providers.md)
+- [Providers tutorial](../../../tutorials/providers.md)

@@ -61,4 +61,4 @@ means failures and yields do not affect other providers.
 
 ## Learn More
 
-- [Providers tutorial](../../../learn/providers.md)
+- [Providers tutorial](../../../tutorials/providers.md)

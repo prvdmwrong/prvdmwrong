@@ -30,4 +30,4 @@ already started, the thread will continue.
 
 ## Learn More
 
-- [Ignition tutorial](../../../learn/ignition.md)
+- [Ignition tutorial](../../../tutorials/ignition.md)

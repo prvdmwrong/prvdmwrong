@@ -437,7 +437,7 @@ return prvd.Provider("PointsProvider", PointsProvider)
 
 ## Congratulations
 
-Congratulations! You just successfully wrote your first provider using Oh My Prvd!
+You just successfully wrote your first provider using Oh My Prvd!
 
 That was a taste of Oh My Prvd. Later on, you will learn how to register your
 own lifecycle methods, use Oh My Prvd networking primitives, and creating your
