@@ -1,6 +1,57 @@
-export type Component = {
-  tag: string,
-  instance: (unknown) -> (boolean, ...unknown),
+--!strict
+--!nolint LocalShadow
+
+--[[
+
+  Copyright 2024 Team Fireworks
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the “Software”), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so,subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+]]
+
+local package = script.Parent
+local prvd = require(package.Parent.prvd)
+type Provider<T> = prvd.Provider<T>
+
+export type ComponentStreamingMode =
+  "ComponentStreamingMode.Disabled"
+  | "ComponentStreamingMode.Watching"
+  | "ComponentStreamingMode.Contextual"
+
+export type Component<T> = T & {
+  tag: string?,
+  instanceGuard: ((Instance) -> (boolean, ...any))?,
+  predicate: ((Instance) -> boolean)?,
+
+  warningTimeout: number?,
+  streamingMode: ComponentStreamingMode?,
+
+  ancestorBlacklist: { Instance }?,
+  ancestorWhitelist: { Instance }?,
+}
+
+export type OnComponentAdded = {
+  onComponentAdded: (self: prvd.Provider<unknown>, Component<unknown>, instance: Instance) -> (),
+}
+
+export type OnComponentRemoved = {
+  onComponentRemoved: (self: prvd.Provider<unknown>, Component<unknown>, instance: Instance) -> (),
 }
 
 return nil

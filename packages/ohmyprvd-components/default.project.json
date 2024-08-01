@@ -1,9 +1,9 @@
 {
-  "name": "ohmyprvd",
+  "name": "ohmyprvd-components",
   "tree": {
-    "$path": "Packages",
-    "ohmyprvd-components": {
-      "$path": "lib"
+    "$path": "lib",
+    "Packages": {
+      "$path": "Packages",
     }
   }
 }

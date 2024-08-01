@@ -4,10 +4,10 @@ registry = "test"
 
 [[package]]
 name = "znotfireman/ohmyprvd"
-version = "0.1.1-alpha"
+version = "0.2.0-dev.1"
 dependencies = []
 
 [[package]]
 name = "znotfireman/ohmyprvd-components"
 version = "0.1.0-alpha"
-dependencies = [["prvd", "znotfireman/ohmyprvd@0.1.1-alpha"]]
+dependencies = [["prvd", "znotfireman/ohmyprvd@0.2.0-dev.1"]]
