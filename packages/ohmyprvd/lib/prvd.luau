@@ -298,7 +298,7 @@ function prvd.start(options: {
       debug.setmemorycategory(identifier)
     end
     verbose("lifecycleEvent", identifier)
-    local ok, result = xpcall(provider.init, parseError, provider)
+    local ok, result = xpcall(provider.onInit, parseError, provider)
     if not ok then
       local error: Error = result
       throw("initError", error.trace, getIdentifier(provider), error.message)
@@ -316,7 +316,7 @@ function prvd.start(options: {
   for _, provider in ipairs(start) do
     local identifier = getIdentifier(provider, ":onStart")
     verbose("lifecycleEvent", identifier)
-    threads.spawn(profileCallback(provider.start, identifier), provider)
+    threads.spawn(profileCallback(provider.onStart, identifier), provider)
   end
 
   for thread in pairs(awaitingThreads) do

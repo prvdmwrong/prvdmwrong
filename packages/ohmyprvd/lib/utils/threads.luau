@@ -30,12 +30,14 @@ type Pack = { [number]: any, n: number }
 local freeThreads: { thread } = {}
 local threads = {}
 
+local function resume<Args...>(resume: (Args...) -> (), thread: thread, ...)
+  resume(...)
+  table.insert(freeThreads, thread)
+end
+
 local function yield()
   while true do
-    local pack: Pack = table.pack(coroutine.yield())
-    local resume: (...any) -> (), thread: thread = table.unpack(pack, 1, 2)
-    resume(table.unpack(pack, 3, pack.n))
-    table.insert(freeThreads, thread)
+    resume(coroutine.yield())
   end
 end
 
