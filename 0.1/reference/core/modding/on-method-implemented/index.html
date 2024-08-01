@@ -1213,11 +1213,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/projects/obby/" class="md-nav__link">
+      <a href="../../../../examples/projects/omp-obby/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Obby
+    Oh My Prvd Obby
   </span>
   
 
@@ -2323,7 +2323,7 @@
 <span>since v0.1</span>
 </div>
 
-<h1 id="onmethodimplemented">onMethodImplemented</h1>
+<h1 id="onmethodimplemented">onMethodImplemented<a class="headerlink" href="#onmethodimplemented" title="Permanent link">&para;</a></h1>
 <p>Called when a provider implements a method. Handlers are expected to be
 infallible and non-yielding. The handler receives the constructed provider.
 Commonly used to implement custom lifecycles by adding providers to a
@@ -2347,11 +2347,11 @@ Commonly used to implement custom lifecycles by adding providers to a
 </div>
 </div>
 <hr />
-<h2 id="parameters">Parameters</h2>
-<h3 id="method-string">method <code class="language-lua highlight"><span class="p">:</span> <span class="n">string</span></code></h3>
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
+<h3 id="method-string">method <code class="language-lua highlight"><span class="p">:</span> <span class="n">string</span></code><a class="headerlink" href="#method-string" title="Permanent link">&para;</a></h3>
 <p>The method to implement. During ignition, all providers that specify this method
 will have its handler be called.</p>
-<h3 id="handler-providerunknown-void">handler <code class="language-lua highlight"><span class="p">:</span> <span class="p">(</span><span class="n">Provider</span><span class="o">&lt;</span><span class="n">unknown</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">void</span></code></h3>
+<h3 id="handler-providerunknown-void">handler <code class="language-lua highlight"><span class="p">:</span> <span class="p">(</span><span class="n">Provider</span><span class="o">&lt;</span><span class="n">unknown</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">void</span></code><a class="headerlink" href="#handler-providerunknown-void" title="Permanent link">&para;</a></h3>
 <p>A handler for providers that implement the specified methods. It receives the
 provider which implements the method. Commonly used to implement custom
 lifecycles by adding providers to a "watchlist" which will have its methods

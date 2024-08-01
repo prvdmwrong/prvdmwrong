@@ -1213,11 +1213,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/projects/obby/" class="md-nav__link">
+      <a href="../../../../examples/projects/omp-obby/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Obby
+    Oh My Prvd Obby
   </span>
   
 
@@ -2341,7 +2341,7 @@
 <span>since v0.1</span>
 </div>
 
-<h1 id="ignitionstatus">IgnitionStatus</h1>
+<h1 id="ignitionstatus">IgnitionStatus<a class="headerlink" href="#ignitionstatus" title="Permanent link">&para;</a></h1>
 <p>An enumeration of all defined ignition status Oh My Prvd will be in.</p>
 <p>This enum is not useful outside of Oh My Prvd itself; prefer to work with
 <a href="../await-ignition/"><code>awaitIgnition()</code></a> and <a href="../on-ignition/"><code>onIgnition(callback)</code></a></p>
@@ -2365,16 +2365,16 @@
 </div>
 </div>
 </div>
-<h2 id="items">Items</h2>
-<h3 id="pending-ignitionstatuspending">Pending <code class="language-lua highlight"><span class="p">:</span> <span class="n">IgnitionStatus</span><span class="p">.</span><span class="n">Pending</span></code></h3>
+<h2 id="items">Items<a class="headerlink" href="#items" title="Permanent link">&para;</a></h2>
+<h3 id="pending-ignitionstatuspending">Pending <code class="language-lua highlight"><span class="p">:</span> <span class="n">IgnitionStatus</span><span class="p">.</span><span class="n">Pending</span></code><a class="headerlink" href="#pending-ignitionstatuspending" title="Permanent link">&para;</a></h3>
 <p>Indicates that <a href="../ignite/"><code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">ignite</span><span class="p">()</span></code></a> has not been called yet. Calls
 to <a href="../use/"><code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">use</span><span class="p">()</span></code></a> and <a href="../provider/"><code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">()</span></code></a> are
 safe.</p>
-<h3 id="ignition-ignitionstatusignition">Ignition <code class="language-lua highlight"><span class="p">:</span> <span class="n">IgnitionStatus</span><span class="p">.</span><span class="n">Ignition</span></code></h3>
+<h3 id="ignition-ignitionstatusignition">Ignition <code class="language-lua highlight"><span class="p">:</span> <span class="n">IgnitionStatus</span><span class="p">.</span><span class="n">Ignition</span></code><a class="headerlink" href="#ignition-ignitionstatusignition" title="Permanent link">&para;</a></h3>
 <p>Indicates that <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">ignite</span><span class="p">()</span></code> has been called, but the ignition process
 has not finished. Calls to <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">use</span><span class="p">()</span></code> and <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">()</span></code> will
 throw an error.</p>
-<h3 id="ignited-ignitionstatusignited">Ignited <code class="language-lua highlight"><span class="p">:</span> <span class="n">IgnitionStatus</span><span class="p">.</span><span class="n">Ignited</span></code></h3>
+<h3 id="ignited-ignitionstatusignited">Ignited <code class="language-lua highlight"><span class="p">:</span> <span class="n">IgnitionStatus</span><span class="p">.</span><span class="n">Ignited</span></code><a class="headerlink" href="#ignited-ignitionstatusignited" title="Permanent link">&para;</a></h3>
 <p>Indicates that the ignition process has finished. Calls to <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">use</span><span class="p">()</span></code>
 and <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">()</span></code> will throw an error.</p>
 <p>Awaiting threads from <a href="../await-ignition/"><code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">awaitIgnition</span><span class="p">()</span></code></a> and

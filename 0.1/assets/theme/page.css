@@ -145,38 +145,22 @@ h6 > .twemoji:first-child {
 	transform: translateX(1rem);
 }
 
-.ompdoc-api-tags {
+.ompdoc-examples-icons {
 	align-content: space-around;
 	align-items: baseline;
 	display: flex;
 	flex-wrap: wrap;
 	float: right;
-	height: 2.6em;
+	height: 2.3em;
 	gap: 0.5em;
 }
 
-.ompdoc-api-tags > span {
-	color: var(--md-default-fg-color);
-	height: 2.6em;
+.ompdoc-examples-icons > span {
+	height: 2.3em;
+	font-size: 2.3em;
 	line-height: 2.6;
-	padding: 0 1em;
 	position: relative;
 	vertical-align: middle;
-	opacity: 50%;
-}
-
-.ompdoc-api-tags > span::before {
-	background-color: var(--md-default-fg-color);
-	border-radius: 1.3em;
-	content: "";
-	display: block;
-	height: 100%;
-	line-height: 2.6;
-	opacity: 10%;
-	padding: 0 1em;
-	position: absolute;
-	right: 0;
-	width: 100%;
 }
 
 .ompdoc-api-breadcrumbs {
@@ -199,6 +183,42 @@ h6 > .twemoji:first-child {
 .ompdoc-api-breadcrumbs > a:hover::after {
 	left: 0;
 	bottom: 0;
+}
+
+.ompdoc-icons-robloxts {
+	color: oklch(from #e2241a 0.6 0.15 h);
+}
+
+.ompdoc-icons-luau {
+	color: oklch(0.6 0.15 210);
+}
+
+.md-typeset .md-button {
+	background-color: oklch(from var(--md-primary-fg-color) l c h / 0.25);
+	border-radius: 0.25em;
+	border: none;
+	padding: 0.5em 1em;
+}
+
+.md-typeset .md-button--primary {
+	background-color: var(--md-primary-fg-color);
+	border-radius: 0.25em;
+	border: none;
+	padding: 0.5em 1em;
+	transition: opacity 125ms;
+}
+
+.md-typeset .md-button:hover {
+	opacity: 100%;
+}
+
+.md-typeset .md-button--primary:hover {
+	opacity: 75%;
+}
+
+a.headerlink::after,
+.md-typeset .md-button::after {
+	content: "";
 }
 
 /* FUCK YOU. */

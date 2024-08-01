@@ -1324,11 +1324,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../examples/projects/obby/" class="md-nav__link">
+      <a href="../../../examples/projects/omp-obby/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Obby
+    Oh My Prvd Obby
   </span>
   
 
@@ -2363,12 +2363,12 @@
   
 
 
-<h1 id="providers">Providers</h1>
+<h1 id="providers">Providers<a class="headerlink" href="#providers" title="Permanent link">&para;</a></h1>
 <p>Oh My Prvd allows you to define providers for your game logic. These <em>provide</em>
 specific functions within your game, e.g. you might create a <code>SaveDataProvider</code>
 to manage save files or a <code>CameraProvider</code> to handle player camera movement.</p>
 <hr />
-<h2 id="structure">Structure</h2>
+<h2 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h2>
 <p>This is the minimum structure of a provider, which can be used and hook onto
 lifecycle events:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Luau</label><label for="__tabbed_1_2">TypeScript</label></div>
@@ -2408,7 +2408,7 @@ same as the service name, e.g. <code class="language-lua highlight"><span class=
 returning it. This lets Oh My Prvd to strictly type your provider, something
 which will be important later.</p>
 <hr />
-<h2 id="methods-properties-the-likes">Methods, Properties, The Likes</h2>
+<h2 id="methods-properties-the-likes">Methods, Properties, The Likes<a class="headerlink" href="#methods-properties-the-likes" title="Permanent link">&para;</a></h2>
 <p>Providers are just tables at the end of the day. As such, it's easy to add
 methods, properties, and the likes to providers.</p>
 <p>Let's add a <code>points</code> property to our <code>PointsProvider</code>, which will be a map of
@@ -2520,7 +2520,7 @@ other snippets of code could use our method through one of the following:</p>
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">PointsProvider</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
 </span></code></pre></div>
 <hr />
-<h2 id="lifecycle-methods">Lifecycle Methods</h2>
+<h2 id="lifecycle-methods">Lifecycle Methods<a class="headerlink" href="#lifecycle-methods" title="Permanent link">&para;</a></h2>
 <p>Providers and the likes can implement lifecycle methods, by having a method
 that matches its lifecycle name.</p>
 <p>Oh My Prvd provides two lifecycle events out of the box:</p>
@@ -2598,7 +2598,7 @@ every player that joins:</p>
 </div>
 </div>
 <hr />
-<h2 id="memory">Memory</h2>
+<h2 id="memory">Memory<a class="headerlink" href="#memory" title="Permanent link">&para;</a></h2>
 <p>Now we have a problem: theres a <a href="https://en.wikipedia.org/wiki/Memory_leak">memory
 leak</a>.</p>
 <p>When we set points for a player, we add the player to the table. What happens
@@ -2640,7 +2640,7 @@ with the <code>Players.PlayerRemoving</code> event and remove their points:</p>
 </span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">(</span><span class="s2">&quot;PointsProvider&quot;</span><span class="p">,</span> <span class="n">PointsProvider</span><span class="p">)</span>
 </span></code></pre></div>
 <hr />
-<h2 id="dependencies">Dependencies</h2>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <p>Often, providers may depend on other providers, such as a <code>CombatProvider</code>
 requiring the player's <code>CharacterProvider</code>. Oh my Prvd lets you use providers
 through dependency injection.</p>
@@ -2741,7 +2741,7 @@ dependencies.</p>
 have to modify them.</p>
 </details>
 <hr />
-<h2 id="congratulations">Congratulations</h2>
+<h2 id="congratulations">Congratulations<a class="headerlink" href="#congratulations" title="Permanent link">&para;</a></h2>
 <p>You just successfully wrote your first provider using Oh My Prvd!</p>
 <p>That was a taste of Oh My Prvd. Later on, you will learn how to register your
 own lifecycle methods, use Oh My Prvd networking primitives, and creating your

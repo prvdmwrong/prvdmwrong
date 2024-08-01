@@ -1213,11 +1213,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/projects/obby/" class="md-nav__link">
+      <a href="../../examples/projects/omp-obby/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Obby
+    Oh My Prvd Obby
   </span>
   
 
@@ -2466,12 +2466,12 @@
 <a href="../">Reference</a>
 </div>
 
-<h1 id="error-messages">Error Messages</h1>
+<h1 id="error-messages">Error Messages<a class="headerlink" href="#error-messages" title="Permanent link">&para;</a></h1>
 <p>Oh My Prvd attaches an error ID with every console log message. This is used to
 uniquely identify what kind of error or message you're seeing.</p>
 <p>For example, given the message below, the error ID would be
 <code>usedBeforeIgnition</code>.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[ohmyprvd error(usedBeforeIgnition)]: cannot use provider &quot;MyProvider&quot; prior to ignition
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[OMP(usedBeforeIgnition)]: cannot use provider &quot;MyProvider&quot; prior to ignition
 </span></code></pre></div>
 <p>Use the search box below to paste in or type an error ID, and it will scroll to
 the details for you.</p>
@@ -2483,13 +2483,13 @@ the details for you.</p>
 <script src="../../assets/javascripts/error-msgs.js" defer></script>
 
 <hr />
-<h2 id="alreadyignited">alreadyIgnited</h2>
+<h2 id="alreadyignited">alreadyIgnited<a class="headerlink" href="#alreadyignited" title="Permanent link">&para;</a></h2>
 <div class="language-Md highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cannot ignite more than once
 </span></code></pre></div>
 <p><strong>Thrown by:</strong> <a href="../core/providers/ignite/"><code>prvd.ignite</code></a></p>
 <p>You attempted to reignite Oh My Prvd when it has already been ignited.</p>
 <hr />
-<h2 id="cannotregister">cannotRegister</h2>
+<h2 id="cannotregister">cannotRegister<a class="headerlink" href="#cannotregister" title="Permanent link">&para;</a></h2>
 <div class="language-Md highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cannot register provider; <span class="sb">`MyProvider.init`</span> should be a function
 </span></code></pre></div>
 <p><strong>Thrown by:</strong> <a href="../core/providers/provider/"><code>prvd.Provider</code></a>,
@@ -2504,13 +2504,13 @@ issue. Typically it is one of the following:</p>
 <li>You forgot to include a non-empty string as a <code>name</code></li>
 </ul>
 <hr />
-<h2 id="cannotusenonprovider">cannotUseNonProvider</h2>
+<h2 id="cannotusenonprovider">cannotUseNonProvider<a class="headerlink" href="#cannotusenonprovider" title="Permanent link">&para;</a></h2>
 <div class="language-Md highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="sb">`use()`</span> must be given a provider
 </span></code></pre></div>
 <p><strong>Thrown by:</strong> <a href="../core/providers/use/"><code>prvd.use</code></a></p>
 <p>You attempted to <code>use()</code> an object that was not registered as a provider.</p>
 <hr />
-<h2 id="initerror">initError</h2>
+<h2 id="initerror">initError<a class="headerlink" href="#initerror" title="Permanent link">&para;</a></h2>
 <p><strong>Thrown by:</strong> <a href="../core/providers/ignite/"><code>prvd.ignite</code></a></p>
 <div class="language-Md highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>cannot initialize MyProvider; attempted to index nil with &#39;property&#39;
 </span></code></pre></div>
@@ -2518,7 +2518,7 @@ issue. Typically it is one of the following:</p>
 error in it's <code>:init</code> method. The error includes a more specific message which
 can be used to diagnose the issue.</p>
 <hr />
-<h2 id="invalidloadparent">invalidLoadParent</h2>
+<h2 id="invalidloadparent">invalidLoadParent<a class="headerlink" href="#invalidloadparent" title="Permanent link">&para;</a></h2>
 <p><strong>Thrown by:</strong> <a href="../core/loader/load-children/"><code>prvd.loadChildren</code></a>,
 <a href="../core/loader/load-descendants/"><code>prvd.loadDescendants</code></a></p>
 <div class="language-Md highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>loadX must be given an instance
@@ -2526,14 +2526,14 @@ can be used to diagnose the issue.</p>
 <p><code>loadChildren</code> and <code>loadDescendants</code> expected you to give it a parent instance
 to load from, but you gave it something else.</p>
 <hr />
-<h2 id="invalidonignitioncallback">invalidOnIgnitionCallback</h2>
+<h2 id="invalidonignitioncallback">invalidOnIgnitionCallback<a class="headerlink" href="#invalidonignitioncallback" title="Permanent link">&para;</a></h2>
 <div class="language-Md highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="sb">`onIgnition`</span> must be given callbacks
 </span></code></pre></div>
 <p><strong>Thrown by:</strong> <a href="../core/providers/on-ignition/"><code>prvd.onIgnition</code></a></p>
 <p><code>onIgnition</code> expected you to give it a callback to spawn after ignition
 finishes, but you gave it something else.</p>
 <hr />
-<h2 id="registerafterignition">registerAfterIgnition</h2>
+<h2 id="registerafterignition">registerAfterIgnition<a class="headerlink" href="#registerafterignition" title="Permanent link">&para;</a></h2>
 <div class="language-Md highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cannot register providers after ignition
 </span></code></pre></div>
 <p><strong>Thrown by:</strong> <a href="../core/providers/provider/"><code>prvd.Provider</code></a>,
@@ -2542,7 +2542,7 @@ finishes, but you gave it something else.</p>
 <p>Make sure you've preloaded all providers you will use prior to ignition, and
 that no other module registers a provider after ignition.</p>
 <hr />
-<h2 id="requireerror">requireError</h2>
+<h2 id="requireerror">requireError<a class="headerlink" href="#requireerror" title="Permanent link">&para;</a></h2>
 <div class="language-Md highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cannot require ServerScriptService.Providers.MyProvider; Module code did not return exactly one value
 </span></code></pre></div>
 <p><strong>Thrown by:</strong> <a href="../core/loader/load-children/"><code>prvd.loadChildren</code></a>,
@@ -2551,7 +2551,7 @@ that no other module registers a provider after ignition.</p>
 Oh My Prvd cannot handle. The error includes a more specific message which can
 be used to diagnose the issue.</p>
 <hr />
-<h2 id="serverrenderlifecycle">serverRenderLifecycle</h2>
+<h2 id="serverrenderlifecycle">serverRenderLifecycle<a class="headerlink" href="#serverrenderlifecycle" title="Permanent link">&para;</a></h2>
 <div class="language-Md highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cannot use <span class="sb">`:render`</span> lifecycle from the server
 </span></code></pre></div>
 <p><strong>Thrown by:</strong> <a href="../core/providers/provider/"><code>prvd.Provider</code></a>,
@@ -2560,7 +2560,7 @@ be used to diagnose the issue.</p>
 server. This is undesirable as the server cannot access
 <code>RunService.RenderStepped</code>.</p>
 <hr />
-<h2 id="unknown">unknown</h2>
+<h2 id="unknown">unknown<a class="headerlink" href="#unknown" title="Permanent link">&para;</a></h2>
 <div class="language-Md highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>unknown error: attempt to call a nil value
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>help: this indicates oh my prvd isn&#39;t reporting errors correctly, please file an issue
 </span></code></pre></div>
@@ -2574,7 +2574,7 @@ yet. If the message just uses <code>camelCase</code> and reads as a lint error, 
 missing error message and should be reported as an issue.</p>
 </details>
 <hr />
-<h2 id="useafterignition">useAfterIgnition</h2>
+<h2 id="useafterignition">useAfterIgnition<a class="headerlink" href="#useafterignition" title="Permanent link">&para;</a></h2>
 <div class="language-Md highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>cannot use other providers after ignition
 </span></code></pre></div>
 <p><strong>Thrown by:</strong> <a href="../core/providers/use/"><code>prvd.use</code></a></p>
@@ -2582,7 +2582,7 @@ missing error message and should be reported as an issue.</p>
 <p>Make sure every provider explicitly <code>use()</code>s all providers it needs. This lets
 Oh My Prvd figure out a corresponding load order.</p>
 <hr />
-<h2 id="usedbeforeignition">usedBeforeIgnition</h2>
+<h2 id="usedbeforeignition">usedBeforeIgnition<a class="headerlink" href="#usedbeforeignition" title="Permanent link">&para;</a></h2>
 <div class="language-Md highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>cannot use provider &quot;MyProvider&quot; prior to ignition
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>help: ohmyprvd will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method
 </span></code></pre></div>
