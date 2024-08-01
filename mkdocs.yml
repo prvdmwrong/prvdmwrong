@@ -113,6 +113,7 @@ nav:
 
 extra_css:
   - assets/theme/404.css
+  - assets/theme/api.css
   - assets/theme/code.css
   - assets/theme/home.css
   - assets/theme/ompdoc.css
