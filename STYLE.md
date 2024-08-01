@@ -1,5 +1,7 @@
 # Oh My Prvd Style Guide
 
+TODO: Finish this
+
 This style guide lists the coding conventions used in all Luau and TypeScript
 code within the Oh My Prvd monorepo.
 
