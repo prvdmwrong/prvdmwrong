@@ -34,13 +34,13 @@ local reflect = require(package.reflect)
 local types = require(package.types)
 local utils = require(package.utils)
 local expect = log.expect
-local info = log.info
 local parseError = log.parseError
 local throw = log.throw
 
 export type StartupStatus = types.StartupStatus
 export type Options = types.Options
 export type Provider<T> = types.Provider<T>
+
 type Error = log.Error
 type OnInit = { onInit: (self: unknown) -> utils.Promise? }
 type OnStart = { onStart: (self: unknown) -> () }
@@ -216,7 +216,14 @@ function prvd.start(options: {
     end
   end
 
-  local dependencies: { { instance: Provider<unknown>, loadOrder: number, identifier: string } } = {}
+  local dependencies: {
+    {
+      instance: Provider<unknown>,
+      loadOrder: number,
+      identifier: string,
+    }
+  } =
+    {}
   for _, provider in pairs(providers) do
     table.insert(dependencies, {
       instance = provider,
@@ -270,14 +277,14 @@ function prvd.start(options: {
   end)
 
   local init: { Provider<OnInit> } = {}
-  modding.onMethodImplemented("onInit", function(provider)
+  modding.onMethodImplemented("onInit", function(provider: any)
     table.insert(init, provider)
   end)
   local start: { Provider<OnStart> } = {}
-  modding.onMethodImplemented("onStart", function(provider)
+  modding.onMethodImplemented("onStart", function(provider: any)
     table.insert(start, provider)
   end)
-  for _, provider in ipairs(dependencies) do
+  for _, provider: any in ipairs(dependencies) do
     modding.implementAllMethods(provider)
   end
 
@@ -287,7 +294,7 @@ function prvd.start(options: {
       debug.setmemorycategory(identifier)
     end
     verbose("running lifecycle method", identifier)
-    local ok, result = xpcall(provider.onInit, parseError, provider)
+    local ok, result: any = xpcall(provider.onInit, parseError, provider)
     if not ok then
       local error: Error = result
       throw("onInitError", error.trace, getIdentifier(provider), error.message)

@@ -31,9 +31,9 @@ local reflect = require(script.reflect)
 local types = require(script.types)
 local utils = require(script.utils)
 
-export type IgnitionStatus = prvd.IgnitionStatus
-export type Options = prvd.Options
-export type Provider<T> = prvd.Provider<T>
+export type IgnitionStatus = types.IgnitionStatus
+export type Options = types.Options
+export type Provider<T> = types.Provider<T>
 
 local prvd: types.Prvd = table.freeze {
   version = "0.2.0-dev.1",

@@ -106,7 +106,6 @@ end
 
 --[[
   Passes the condition if it is truthy, otherwise throws an error with the log
-
   module. Behaves like a modified `assert`.
 ]]
 function log.expect<T>(condition: T, id: string, trace: string?, ...: unknown): T
