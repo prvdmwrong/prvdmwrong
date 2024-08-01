@@ -34,7 +34,7 @@ function Builder.remote(...: types.Typeguard): types.Builder
     return self
   end
 
-  function self:unreliable(...)
+  function self:unreliable()
     local self = self :: Self
     self._unreliable = true
     return self
