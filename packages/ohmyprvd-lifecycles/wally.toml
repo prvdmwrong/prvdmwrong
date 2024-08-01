@@ -1,7 +1,7 @@
 [package]
   name = "znotfireman/ohmyprvd-lifecycles"
   description = "Implements a \"small\" amount of lifecycle events for providers."
-  version = "0.1.0-alpha"
+  version = "0.2.0-dev.2"
   authors = ["ImNotFireMan123"]
   realm = "shared"
   registry = "https://github.com/UpliftGames/wally-index"

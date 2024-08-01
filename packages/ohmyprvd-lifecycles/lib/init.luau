@@ -66,7 +66,7 @@ end
 -- expose an api for reading ignition config
 
 lifecycles.loadOrder = 0
-function lifecycles.init(self: Self)
+function lifecycles:onInit()
   local postSimulation: Set<Provider<{ onPostSimulation: (Provider<unknown>, number) -> () }>> = {}
   local preSimulation: Set<Provider<{ onPreSimulation: (Provider<unknown>, number) -> () }>> = {}
   local preRender: Set<Provider<{ onPreRender: (Provider<unknown>, number) -> () }>> = {}
