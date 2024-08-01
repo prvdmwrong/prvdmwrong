@@ -39,16 +39,36 @@ export type Provider<T> = T & {
   onStart: (self: Provider<T>) -> ()?,
 }
 
-export type Error = {
-  type: "Error",
-  raw: string,
-  message: string,
-  trace: string,
-}
+export type Prvd = {
+  version: string,
 
-export type Message = {
-  brief: string,
-  help: string?,
+  awaitStart: () -> (),
+  start: (options: {
+    logLevel: "none" | "verbose" | nil,
+    profiling: boolean?,
+  }?) -> (),
+  StartupStatus: {
+    Pending: "StartupStatus.Pending",
+    Starting: "StartupStatus.Starting",
+    Startup: "StartupStatus.Started",
+  },
+  new: <T>(name: string, provider: T) -> Provider<T>,
+  onStart: (callback: () -> ()) -> (),
+  Provider: <T>(name: string, provider: T) -> Provider<T>,
+  use: <T>(provider: Provider<T>) -> T,
+
+  onMethodImplemented: (method: string, handler: (Provider<unknown>) -> ()) -> (),
+  onProviderConstructed: (handler: (Provider<unknown>) -> ()) -> (),
+  onProviderUsed: (handler: (Provider<unknown>) -> ()) -> (),
+  getIgnitionOptions: () -> Options,
+
+  defineMetadata: (object: unknown, key: string, value: unknown) -> (),
+  getMetadata: (object: unknown, key: string) -> unknown?,
+  deleteMetadata: (object: unknown, key: string, property: string?) -> (),
+
+  loadChildren: (parent: Instance, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
+  loadDescendants: (parent: Instance, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
+  matchesName: (name: string) -> (ModuleScript) -> boolean,
 }
 
 return nil

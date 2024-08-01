@@ -27,53 +27,51 @@
 
 local RunService = game:GetService("RunService")
 
-local package = script.Parent.Parent
-local types = require(package.types)
+export type Error = {
+  type: "Error",
+  raw: string,
+  message: string,
+  trace: string,
+}
 
-export type Error = types.Error
-
-local ERROR_MESSAGES_URL = "team-fireworks.github.io/ohmyprvd/latest/reference/general/error-messages#"
-
-local MESSAGES: { [string]: string } = table.freeze {
-  alreadyIgnited = "cannot ignite more than once",
+local ERROR_MESSAGES_URL = "team-fireworks.github.io/ohmyprvd/latest/reference/error-messages#"
+local MESSAGES = table.freeze {
+  alreadyStarted = "cannot ignite more than once",
   cannotRegister = "cannot register provider; %s",
-  cannotUseNonProvider = "`use()` must be given a provider",
-  initError = "cannot initialize %s; %s",
+  cannotUseNonProvider = "`prvd.use(provider)` must be given a provider",
   invalidLoadParent = "loadX must be given an instance",
-  invalidOnIgnitionCallback = "`onIgnition` must be given callbacks",
-  lifecycleEvent = "running lifecycle event %s",
-  registerAfterIgnition = "cannot register providers after ignition",
+  invalidOnStartCallback = "`prvd.onStart(callback)` expects a callback",
+  onInitError = "cannot initialize %s; %s",
+  registerAfterStartup = "cannot register providers after ignition",
   requireError = "cannot require %s; %s",
-  serverRenderLifecycle = "cannot use `:render` lifecycle from the server",
-  unknown = "unknown error: %s",
+  unknownError = "unknown error: %s",
   useAfterIgnition = "cannot use other providers after ignition",
   usedBeforeIgnition = 'cannot use provider "%s" prior to ignition',
 }
-
-local TIPS: { [string]: string } = table.freeze {
-  unknown = "this indicates oh my prvd isn't reporting errors correctly, please file an issue",
+local TIPS = table.freeze {
+  unknownError = "this indicates ohmyprvd isn't reporting errors correctly, please file an issue",
   usedBeforeIgnition = "ohmyprvd will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method",
 }
 
-local Log = {}
+local log = {}
 
-local function fmtMessage(id: string, level: string, trace: string?, ...: unknown)
+local function formatError(id: string, trace: string?, ...: unknown)
   local message = MESSAGES[id]
   if not message then
-    local unknownMessage = table.clone(MESSAGES.unknown)
+    local unknownMessage = table.clone(MESSAGES.unknownError)
     unknownMessage = unknownMessage:format(id)
     message = unknownMessage
-    id = "unknown"
+    id = "unknownError"
   end
 
-  local formatted = `[ohmyprvd {level}({id})]: {message}`
+  local formatted = `[OMP({id})]: {message}`
   if select("#", ...) > 0 then
-    formatted:format(...)
+    formatted = formatted:format(...)
   end
   if TIPS[id] then
     formatted ..= `\nhelp: {TIPS[id]}`
   end
-  if level ~= "info" and RunService:IsStudio() then
+  if RunService:IsStudio() then
     formatted ..= `\nlearn more: {ERROR_MESSAGES_URL}{id:lower()}`
   end
   if trace then
@@ -83,43 +81,40 @@ local function fmtMessage(id: string, level: string, trace: string?, ...: unknow
   return (formatted:gsub("\n", "\n    "))
 end
 
-function Log.throw(id: string, trace: string?, ...: unknown): never
-  task.spawn(error, fmtMessage(id, "error", trace or debug.traceback(nil, 2), ...), 0)
+function log.throw(id: string, trace: string?, ...: unknown): never
+  task.spawn(error, formatError(id, trace or debug.traceback(nil, 3), ...), 0)
   task.defer(coroutine.close, coroutine.running())
   return coroutine.yield()
 end
 
-function Log.warn(id: string, ...: unknown)
-  warn(fmtMessage(id, "warning", nil, ...))
-end
-
-function Log.info(id: string, ...: unknown)
-  print(fmtMessage(id, "info", nil, ...))
+function log.warn(id: string, ...: unknown)
+  warn(formatError(id, nil, ...))
 end
 
 --[[
   An `xpcall` handler used to extract useful information such as stack traces
   and messages.
 ]]
-function Log.parseError(err: string): Error
+function log.parseError(err: string): Error
   return {
     type = "Error",
     raw = err,
     message = err:gsub("^.+:%d+:%s*", ""),
-    trace = debug.traceback(nil, 2),
+    trace = debug.traceback(nil, 3),
   }
 end
 
 --[[
   Passes the condition if it is truthy, otherwise throws an error with the log
+
   module. Behaves like a modified `assert`.
 ]]
-function Log.expect<T>(condition: T, id: string, trace: string?, ...: unknown): T
+function log.expect<T>(condition: T, id: string, trace: string?, ...: unknown): T
   if condition then
     return condition
   end
-  return Log.throw(id, trace, ...)
+  return log.throw(id, trace, ...)
 end
 
-table.freeze(Log)
-return Log
+table.freeze(log)
+return log

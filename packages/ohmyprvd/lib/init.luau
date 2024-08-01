@@ -25,48 +25,17 @@
 
 ]]
 
-local loader = require(script.utils.loader)
-local mods = require(script.mods)
+local modding = require(script.mods)
 local prvd = require(script.prvd)
 local reflect = require(script.reflect)
+local types = require(script.types)
+local utils = require(script.utils)
 
 export type IgnitionStatus = prvd.IgnitionStatus
 export type Options = prvd.Options
 export type Provider<T> = prvd.Provider<T>
 
-type Prvd = {
-  version: string,
-
-  awaitStart: () -> (),
-  start: (options: {
-    logLevel: "none" | "verbose" | nil,
-    profiling: boolean?,
-  }?) -> (),
-  StartupStatus: {
-    Pending: "StartupStatus.Pending",
-    Starting: "StartupStatus.Starting",
-    Startup: "StartupStatus.Started",
-  },
-  new: <T>(name: string, provider: T) -> Provider<T>,
-  onStart: (callback: () -> ()) -> (),
-  Provider: <T>(name: string, provider: T) -> Provider<T>,
-  use: <T>(provider: Provider<T>) -> T,
-
-  onMethodImplemented: (method: string, handler: (Provider<unknown>) -> ()) -> (),
-  onProviderConstructed: (handler: (Provider<unknown>) -> ()) -> (),
-  onProviderUsed: (handler: (Provider<unknown>) -> ()) -> (),
-  getIgnitionOptions: () -> Options,
-
-  defineMetadata: (object: unknown, key: string, value: unknown) -> (),
-  getMetadata: (object: unknown, key: string) -> unknown?,
-  deleteMetadata: (object: unknown, key: string, property: string?) -> (),
-
-  loadChildren: (parent: Instance, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
-  loadDescendants: (parent: Instance, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
-  matchesName: (name: string) -> (ModuleScript) -> boolean,
-}
-
-local prvd: Prvd = table.freeze {
+local prvd: types.Prvd = table.freeze {
   version = "0.2.0-dev.1",
 
   -- Core API
@@ -81,10 +50,10 @@ local prvd: Prvd = table.freeze {
   -- Modding API
   getStartupOptions = prvd.getStartupOptions,
   getStartupStatus = prvd.getStartupStatus,
-  implementAllMethods = mods.implementAllMethods,
-  onMethodImplemented = mods.onMethodImplemented,
-  onProviderConstructed = mods.onProviderConstructed,
-  onProviderUsed = mods.onProviderUsed,
+  implementAllMethods = modding.implementAllMethods,
+  onMethodImplemented = modding.onMethodImplemented,
+  onProviderConstructed = modding.onProviderConstructed,
+  onProviderUsed = modding.onProviderUsed,
 
   -- Reflection API
   defineMetadata = reflect.defineMetadata,
@@ -92,9 +61,8 @@ local prvd: Prvd = table.freeze {
   deleteMetadata = reflect.deleteMetadata,
 
   -- Utility APIs
-  loadChildren = loader.loadChildren,
-  loadDescendants = loader.loadDescendants,
-  matchesName = loader.matchesName,
+  loadChildren = utils.loadChildren,
+  loadDescendants = utils.loadDescendants,
 }
 
 return prvd

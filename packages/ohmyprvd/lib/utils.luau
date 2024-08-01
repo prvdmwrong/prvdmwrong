@@ -25,6 +25,11 @@
 
 ]]
 
+local package = script.Parent
+local log = require(package.log)
+local expect = log.expect
+local parseError = log.parseError
+
 export type PromiseStatus = "Started" | "Resolved" | "Rejected" | "Cancelled"
 export type Promise = {
   andThen: (
@@ -51,8 +56,10 @@ export type Promise = {
   tap: (self: Promise, tapHandler: (...any) -> ...any) -> Promise,
   timeout: (self: Promise, seconds: number, rejectionValue: any?) -> Promise,
 }
+type Pack = { [number]: any, n: number }
 
-local promise = {}
+local freeThreads: { thread } = {}
+local utils = {}
 
 local function isCallable(value)
   if type(value) == "function" then
@@ -69,11 +76,53 @@ local function isCallable(value)
   return false
 end
 
+local function loaderImpl(instances: { Instance }, predicate: ((ModuleScript) -> boolean)?)
+  local exports: { unknown } = {}
+  for _, module in ipairs(instances) do
+    if not module:IsA("ModuleScript") then
+      continue
+    end
+    if predicate and not predicate(module) then
+      continue
+    end
+    local ok, result: log.Error = xpcall(require, parseError, module)
+    expect(ok, "requireError", result.trace, module:GetFullName(), result.message)
+    table.insert(exports, result)
+  end
+  return exports
+end
+
+local function resume<Args...>(resume: (Args...) -> (), thread: thread, ...)
+  resume(...)
+  table.insert(freeThreads, thread)
+end
+
+local function yield()
+  while true do
+    resume(coroutine.yield())
+  end
+end
+
+--[[
+  Spawns a thread immediately. This will pool and reuse threads when possible,
+  and thus is more efficient than `task.spawn`.
+]]
+function utils.spawn<Args...>(resume: (Args...) -> (), ...: Args...)
+  local thread: thread
+  if #freeThreads > 0 then
+    thread = assert(table.remove(freeThreads, #freeThreads), "Luau")
+  else
+    thread = coroutine.create(yield)
+    coroutine.resume(thread)
+  end
+  task.spawn(thread, resume, thread, ...)
+end
+
 --[[
   Checks whether the given object is a Promise via duck typing. This only checks
   if the object is a table and has an `andThen` method.
 ]]
-function promise.is(x: unknown): boolean
+function utils.isPromise(x: unknown): boolean
   if typeof(x) ~= "table" then
     return false
   end
@@ -82,13 +131,31 @@ function promise.is(x: unknown): boolean
 
   local metatable = getmetatable(x :: any)
   if metatable == nil then
-    return isCallable(x.andThen)
+    return isCallable(x.andThen) and isCallable(x.awaitStatus)
   end
 
-  return type(metatable) == "table"
-    and type(rawget(metatable, "__index")) == "table"
-    and isCallable(rawget(rawget(metatable, "__index"), "andThen"))
+  local hasMetatable = type(metatable) == "table" and type(metatable.__index) == "table"
+  return hasMetatable and isCallable(metatable.__index.andThen) and isCallable(metatable.__index.awaitStatus)
 end
 
-table.freeze(promise)
-return promise
+--[[
+  Preload the specified parent by requiring all ModuleScripts within it. An
+  optional `predicate` function can be provided to filter modules.
+]]
+function utils.loadChildren(parent: Instance, predicate: ((ModuleScript) -> boolean)?)
+  expect(typeof(parent) == "Instance", "invalidLoadParent")
+  return loaderImpl(parent:GetChildren(), predicate)
+end
+
+--[[
+  Preload the specified parent by requiring all ModuleScripts within it
+  recursively. An optional `predicate` function can be provided to filter
+  modules.
+]]
+function utils.loadDescendants(parent: Instance, predicate: ((ModuleScript) -> boolean)?)
+  expect(typeof(parent) == "Instance", "invalidLoadParent")
+  return loaderImpl(parent:GetDescendants(), predicate)
+end
+
+table.freeze(utils)
+return utils
