@@ -37,18 +37,18 @@ export type Provider<T> = prvd.Provider<T>
 type Prvd = {
   version: string,
 
-  awaitIgnition: () -> (),
-  ignite: (options: {
+  awaitStart: () -> (),
+  start: (options: {
     logLevel: "none" | "verbose" | nil,
     profiling: boolean?,
   }?) -> (),
-  IgnitionStatus: {
-    Pending: "IgnitionStatus.Pending",
-    Igniting: "IgnitionStatus.Igniting",
-    Ignited: "IgnitionStatus.Ignited",
+  StartupStatus: {
+    Pending: "StartupStatus.Pending",
+    Starting: "StartupStatus.Starting",
+    Startup: "StartupStatus.Started",
   },
   new: <T>(name: string, provider: T) -> Provider<T>,
-  onIgnition: (callback: () -> ()) -> (),
+  onStart: (callback: () -> ()) -> (),
   Provider: <T>(name: string, provider: T) -> Provider<T>,
   use: <T>(provider: Provider<T>) -> T,
 
@@ -67,22 +67,24 @@ type Prvd = {
 }
 
 local prvd: Prvd = table.freeze {
-  version = "0.1.1-alpha",
+  version = "0.2.0-dev.1",
 
   -- Core API
-  awaitIgnition = prvd.awaitIgnition,
-  ignite = prvd.ignite,
-  IgnitionStatus = prvd.IgnitionStatus,
+  awaitStart = prvd.awaitStart,
   new = prvd.Provider,
-  onIgnition = prvd.onIgnition,
+  onStart = prvd.onStart,
   Provider = prvd.Provider,
+  StartupStatus = prvd.StartupStatus,
+  start = prvd.start,
   use = prvd.use,
 
   -- Modding API
+  getStartupOptions = prvd.getStartupOptions,
+  getStartupStatus = prvd.getStartupStatus,
+  implementAllMethods = mods.implementAllMethods,
   onMethodImplemented = mods.onMethodImplemented,
   onProviderConstructed = mods.onProviderConstructed,
   onProviderUsed = mods.onProviderUsed,
-  getIgnitionOptions = prvd.getIgnitionOptions,
 
   -- Reflection API
   defineMetadata = reflect.defineMetadata,

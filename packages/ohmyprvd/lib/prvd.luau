@@ -39,10 +39,16 @@ local info = log.info
 local parseError = log.parseError
 local throw = log.throw
 
-export type IgnitionStatus = types.IgnitionStatus
+export type StartupStatus = types.StartupStatus
 export type Options = types.Options
 export type Provider<T> = types.Provider<T>
 type Error = types.Error
+type OnInit = {
+  onInit: (self: unknown) -> promise.Promise?,
+}
+type OnStart = {
+  onStart: (self: unknown) -> (),
+}
 
 local WEAK_KEYS_METATABLE = { __mode = "k" }
 
@@ -57,23 +63,23 @@ local EXPECTED_METHOD_TYPES = {
   onStart = "function",
 }
 
-local IgnitionStatus = table.freeze {
-  Pending = "IgnitionStatus.Pending" :: "IgnitionStatus.Pending",
-  Igniting = "IgnitionStatus.Igniting" :: "IgnitionStatus.Igniting",
-  Ignited = "IgnitionStatus.Ignited" :: "IgnitionStatus.Ignited",
+local StartupStatus = table.freeze {
+  Pending = "StartupStatus.Pending" :: "StartupStatus.Pending",
+  Starting = "StartupStatus.Starting" :: "StartupStatus.Starting",
+  Started = "StartupStatus.Started" :: "StartupStatus.Started",
 }
 
 -- If we held strong references to threads here, then if a thread was killed
 -- before Oh My Prvd is ignited, it would be held strongly in this table forever
 local awaitingThreads: { [thread]: true } = setmetatable({} :: any, WEAK_KEYS_METATABLE)
 local awaitingCallbacks: { () -> () } = {}
-local status: IgnitionStatus = IgnitionStatus.Pending
+local status: StartupStatus = StartupStatus.Pending
 
 local providers: { [string]: Provider<any> } = {}
-local ignitionOptions: Options? = nil
+local startupOptions: Options? = nil
 
 local prvd = {}
-prvd.IgnitionStatus = IgnitionStatus
+prvd.StartupStatus = StartupStatus
 
 local function topologicalSort(objects: { string }): { [string]: number }
   -- TODO: account for cyclic requires
@@ -131,10 +137,10 @@ end
 
 --[[
   Constructs and returns a new provider within Oh My Prvd. Providers must be
-  created before calling `Prvd.ignite()`.
+  created before calling `Prvd.start()`.
 ]]
 function prvd.Provider<T>(name: string, provider: T): Provider<T>
-  expect(status == IgnitionStatus.Pending, "registerAfterIgnition")
+  expect(status == StartupStatus.Pending, "registerAfterStarted")
   expect(typeof(name) == "string", "cannotRegister", nil, "`name` must be a string")
   expect(name:len() > 0, "cannotRegister", nil, "`name` cannot be empty")
   expect(typeof(provider) == "table", "cannotRegister", nil, "provider must be a table")
@@ -159,11 +165,11 @@ function prvd.Provider<T>(name: string, provider: T): Provider<T>
 end
 
 --[[
-  Uses a provider within Oh My Prvd. During ignition, Oh My Prvd will inject
+  Uses a provider within Oh My Prvd. During startup, Oh My Prvd will inject
   the dependencies your provider uses.
 ]]
 function prvd.use<T>(provider: Provider<T>): T
-  expect(status == IgnitionStatus.Pending, "useAfterIgnition")
+  expect(status == StartupStatus.Pending, "useAfterStarted")
   expect(providers[getIdentifier(provider)] ~= nil, "cannotUseNonProvider")
   local identifier = getIdentifier(provider)
   mods.doProviderUsed(provider)
@@ -181,21 +187,21 @@ function prvd.use<T>(provider: Provider<T>): T
 end
 
 --[[
-  Ignites Oh My Prvd. Expected to be called once in an environment, e.g. once on
+  Starts Oh My Prvd. Expected to be called once in an environment, e.g. once on
   the server and once on the client.
 
   All necessary providers should be preloaded before calling this as newly
-  created providers will not run its lifecycle events.
+  created providers will not run its lifecycle methods.
 ]]
-function prvd.ignite(options: {
+function prvd.start(options: {
   logLevel: "none" | "verbose" | nil,
   profiling: boolean?,
 }?)
-  expect(status == IgnitionStatus.Pending, "alreadyIgnited")
-  status = IgnitionStatus.Igniting
+  expect(status == StartupStatus.Pending, "alreadyIgnited")
+  status = StartupStatus.Igniting
 
   local options = reconcileOptions(options or {})
-  ignitionOptions = options
+  startupOptions = options
 
   local isVerbose = options.logLevel == "verbose"
   local function verbose(id: string, ...: unknown)
@@ -274,23 +280,20 @@ function prvd.ignite(options: {
     return aIndex < bIndex
   end)
 
-  local init: { Provider<any> } = {}
-  local start: { Provider<any> } = {}
-
+  local init: { Provider<OnInit> } = {}
+  mods.onMethodImplemented("onInit", function(provider)
+    table.insert(init, provider)
+  end)
+  local start: { Provider<OnStart> } = {}
+  mods.onMethodImplemented("onStart", function(provider)
+    table.insert(start, provider)
+  end)
   for _, provider in ipairs(dependencies) do
-    local provider = provider.instance
-    if typeof(provider.onInit) == "function" then
-      table.insert(init, provider)
-    end
-    if typeof(provider.onStart) == "function" then
-      table.insert(start, provider)
-    end
     mods.implementAllMethods(provider)
   end
 
-  -- Initializing
   for _, provider in ipairs(init) do
-    local identifier = getIdentifier(provider, ".onInit")
+    local identifier = getIdentifier(provider, ":onInit")
     if options.profiling then
       debug.setmemorycategory(identifier)
     end
@@ -310,9 +313,8 @@ function prvd.ignite(options: {
 
   debug.resetmemorycategory()
 
-  -- Starting
   for _, provider in ipairs(start) do
-    local identifier = getIdentifier(provider, ".onStart")
+    local identifier = getIdentifier(provider, ":onStart")
     verbose("lifecycleEvent", identifier)
     threads.spawn(profileCallback(provider.start, identifier), provider)
   end
@@ -324,15 +326,15 @@ function prvd.ignite(options: {
     threads.spawn(callback)
   end
 
-  status = IgnitionStatus.Ignited
+  status = StartupStatus.Ignited
 end
 
 --[[
   Yields the calling thread just before ignition finishes. If Oh My Prvd has
   already started, the thread will continue.
 ]]
-function prvd.awaitIgnition()
-  if status ~= IgnitionStatus.Pending then
+function prvd.awaitStart()
+  if status ~= StartupStatus.Pending then
     return
   end
   awaitingThreads[coroutine.running()] = true
@@ -343,8 +345,8 @@ end
   Queues a callback to be called just before ignition finishes. If Oh My Prvd
   has already started, the callback will be spawned immediately.
 ]]
-function prvd.onIgnition(callback: () -> ())
-  if status ~= IgnitionStatus.Pending then
+function prvd.onStart(callback: () -> ())
+  if status ~= StartupStatus.Pending then
     threads.spawn(callback)
     return
   end
@@ -353,11 +355,18 @@ function prvd.onIgnition(callback: () -> ())
 end
 
 --[[
-  Returns the ignition configuration options. Options are reconciled with
+  Returns the start configuration options. Options are reconciled with
   default values.
 ]]
-function prvd.getIgnitionOptions(): Options
-  return reconcileOptions(ignitionOptions or {})
+function prvd.getStartupOptions(): Options
+  return reconcileOptions(startupOptions or {})
+end
+
+--[[
+  Returns the current startup status of Oh My Prvd.
+]]
+function prvd.getStartupStatus(): StartupStatus
+  return status
 end
 
 table.freeze(prvd)

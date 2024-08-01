@@ -32,9 +32,14 @@ local providerHandlers: { [{}]: (types.Provider<unknown>) -> () } = {}
 local useHandlers: { [{}]: (types.Provider<unknown>) -> () } = {}
 local mods = {}
 
+--[[
+  Implements all lifecycle methods for a provider. This function is not useful
+  outside of Oh My Prvd, it is intended for library authors who need a way to
+  interface with lifecycle methods, e.g. components.
+]]
 function mods.implementAllMethods(provider: types.Provider<unknown>)
   for method, handlers in pairs(methodHandlers) do
-    local method = rawget(provider, method)
+    local method = (provider :: {})[method]
     if method == nil then
       continue
     end

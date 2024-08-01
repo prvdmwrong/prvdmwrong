@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/ohmyprvd",
-  "version": "0.1.1-alpha",
+  "version": "0.2.0-dev.1",
   "description": "Oh My Prvd is a delightful framework for next-generation Roblox game development.",
   "main": "lib/init.luau",
   "keywords": [],
