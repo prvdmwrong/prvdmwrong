@@ -63,8 +63,8 @@ Oh My Prvd attaches a link with every console log message. These links direct
 you to our comprehensive [Error Messages](../reference/error-messages.md)
 documentation.
 
-```Md hl_lines="2"
-[ohmyprvd error(requireAfterIgnition)]: cannot require other providers after ignition
+```Txt hl_lines="2"
+[OMP(requireAfterIgnition)]: cannot require other providers after ignition
   more info: team-fireworks.github.io/ohmyprvd/latest/reference/general/error-messages#requireafterignition
   stack trace:
     ohmyprvd.log:118 function throw

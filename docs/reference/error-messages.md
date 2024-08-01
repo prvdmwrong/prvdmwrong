@@ -11,7 +11,7 @@ For example, given the message below, the error ID would be
 `usedBeforeIgnition`.
 
 ```Txt
-[ohmyprvd error(usedBeforeIgnition)]: cannot use provider "MyProvider" prior to ignition
+[OMP(usedBeforeIgnition)]: cannot use provider "MyProvider" prior to ignition
 ```
 
 Use the search box below to paste in or type an error ID, and it will scroll to

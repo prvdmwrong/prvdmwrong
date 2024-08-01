@@ -7,13 +7,13 @@ implementations to see Oh My Prvd used in a real setting.
 
 ## Open-Source Projects
 
-### Oh My Prvd Obby (for Oh My Prvd 0.1)
+### :ompdoc-luau:{ .ompdoc-icons-luau }Oh My Prvd Obby (for Oh My Prvd 0.1)
 
 ![Thumbnail](thumbnail-obby.png)
+[:octicons-book-16: Read the explanation](projects/omp-obby.md){ .md-button .md-button--primary }
+[:ompdoc-roblox: Play on Roblox](https://www.roblox.com/games/18703010727/Oh-My-Prvd-Obby){ .md-button }
+[:fontawesome-brands-github: Source code on GitHub](https://github.com/znotfireman/ohmyprvd-obby){ .md-button }
 
 See how Oh My Prvd can be used to build a simple obby, decked with a JToH-esque
 client objects provider, a checkpoints provider, a networking provider, and a
 debug provider.
-
-[Play and edit the game on Roblox](https://www.roblox.com/games/18703010727/Oh-My-Prvd-Obby) ·
-[Browse the source code on GitHub](https://github.com/znotfireman/ohmyprvd-obby)

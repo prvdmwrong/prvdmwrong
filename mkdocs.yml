@@ -5,7 +5,7 @@ repo_url: https://github.com/team-fireworks/ohmyprvd
 
 theme:
   name: material
-  custom_dir: docs/assets/overrides
+  custom_dir: docs/overrides
   palette:
     - media: "(prefers-color-scheme: dark)"
       scheme: ompdoc-dark
@@ -76,7 +76,7 @@ nav:
   - Examples:
     - examples/index.md
     - Projects:
-      - Obby: examples/projects/obby.md
+      - Oh My Prvd Obby: examples/projects/omp-obby.md
   - Reference:
     - reference/index.md
     - Error Messages: reference/error-messages.md
@@ -136,6 +136,7 @@ plugins:
 markdown_extensions:
   - toc:
       title: On this page
+      permalink: true
   - md_in_html
   - admonition
   - pymdownx.details
@@ -156,3 +157,6 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - docs/overrides/.icons
