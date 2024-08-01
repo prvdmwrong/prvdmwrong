@@ -216,14 +216,16 @@ function prvd.start(options: {
     end
   end
 
+  -- stylua: ignore
+  -- see https://github.com/JohnnyMorganz/StyLua/issues/881
   local dependencies: {
     {
       instance: Provider<unknown>,
       loadOrder: number,
       identifier: string,
     }
-  } =
-    {}
+  } = {}
+
   for _, provider in pairs(providers) do
     table.insert(dependencies, {
       instance = provider,
