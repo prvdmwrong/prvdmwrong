@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added `prvd.getStartupStatus` for retrieving the status of `prvd.start`
+
+### Changed
+
+- Anything related to ignition has been renamed to startup:
+  - `prvd.ignite` has been renamed to `prvd.start`
+  - `prvd.IgnitionStatus` has been renamed to `prvd.StartupStatus`
+  - `prvd.awaitIgnition` has been renamed to `prvd.awaitStart`
+  - `prvd.onIgnition` has been renamed to `prvd.onStart`
+  - `prvd.awaitIgnition` has been renamed to `prvd.awaitStart`
+  - `prvd.getIgnitionOptions` has been renamed to `prvd.getStartupOptions`
+
 ### Fixed
 
 - Oh My Prvd now respects frozen tables while resolving dependencies
