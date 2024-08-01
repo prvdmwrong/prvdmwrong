@@ -68,7 +68,7 @@ local function isCallable(value)
 
   if type(value) == "table" then
     local metatable = getmetatable(value)
-    if metatable and type(rawget(metatable, "__call")) == "function" then
+    if metatable and typeof(metatable.__call) == "function" then
       return true
     end
   end

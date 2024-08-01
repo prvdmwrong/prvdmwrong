@@ -173,8 +173,8 @@ function prvd.use<T>(provider: Provider<T>): T
     } :: any,
     {
       __metatable = "This metatable is locked.",
-      __index = function(_: unknown, key: unknown): never
-        return throw("usedBeforeIgnition", nil, identifier)
+      __index = function(_: unknown): never
+        return throw("usedBeforeStartup", nil, identifier)
       end,
     }
   )
@@ -211,7 +211,7 @@ function prvd.start(options: {
       -- profilebegin ends when the thread dies
       debug.profilebegin(label)
       debug.setmemorycategory(label)
-      callback()
+      callback(...)
       debug.resetmemorycategory()
     end
   end

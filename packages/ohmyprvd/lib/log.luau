@@ -42,11 +42,11 @@ local MESSAGES = table.freeze {
   invalidLoadParent = "loadX must be given an instance",
   invalidOnStartCallback = "`prvd.onStart(callback)` expects a callback",
   onInitError = "cannot initialize %s; %s",
-  registerAfterStartup = "cannot register providers after ignition",
+  registerAfterStartup = "cannot register providers after startup",
   requireError = "cannot require %s; %s",
   unknownError = "unknown error: %s",
-  useAfterIgnition = "cannot use other providers after ignition",
-  usedBeforeIgnition = 'cannot use provider "%s" prior to ignition',
+  useAfterStartup = "cannot use other providers after startup",
+  usedBeforeStartup = 'cannot use provider "%s" prior to startup',
 }
 local TIPS = table.freeze {
   unknownError = "this indicates ohmyprvd isn't reporting errors correctly, please file an issue",

@@ -57,7 +57,7 @@ function reflect.getMetadata(object: unknown, key: string): unknown?
   return result
 end
 
-function reflect.deleteMetadata(object: unknown, key: string, property: string?)
+function reflect.deleteMetadata(object: unknown, key: string)
   if metadata[object] then
     metadata[object][key] = nil
   end

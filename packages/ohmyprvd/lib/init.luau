@@ -36,7 +36,7 @@ export type Options = types.Options
 export type Provider<T> = types.Provider<T>
 
 local prvd: types.Prvd = table.freeze {
-  version = "0.2.0-dev.1",
+  version = "0.2.0-dev.2",
 
   -- Core API
   awaitStart = prvd.awaitStart,
