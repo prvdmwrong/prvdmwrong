@@ -1,5 +1,5 @@
 [package]
-  name = "znotfireman/ohmyprvd"
+  name = "znotfireman/ohmyprvd-debugger"
   description = "Oh My Prvd is a delightful framework for next-generation Roblox game development."
   version = "0.1.0-alpha"
   authors = ["ImNotFireMan123"]
@@ -9,6 +9,6 @@
   include = ["./lib", "./default.project.json"]
   exclude = ["DevPackages, packages"]
 
-[dev-dependencies]
-  jest = "jsdotlua/jest@3.6.1-rc.2"
-  jest_globals = "jsdotlua/jest-globals@3.6.1-rc.2"
+[dependencies]
+  Fusion = "plainsour/lemon@0.3.0-dev.5.9"
+  prvd = "znotfireman/ohmyprvd@0.2.0-dev.1"
