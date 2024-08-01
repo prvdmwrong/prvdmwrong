@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Anything related to ignition has been renamed to startup:
+
   - `prvd.ignite` has been renamed to `prvd.start`
   - `prvd.IgnitionStatus` has been renamed to `prvd.StartupStatus`
   - `prvd.awaitIgnition` has been renamed to `prvd.awaitStart`
@@ -21,14 +22,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `prvd.awaitIgnition` has been renamed to `prvd.awaitStart`
   - `prvd.getIgnitionOptions` has been renamed to `prvd.getStartupOptions`
 
+- Changed error logging internally
+
 ### Fixed
 
+- Fixed onInit & onStart methods not being fired during startup
 - Oh My Prvd now respects frozen tables while resolving dependencies
+- Log messages now are formatted correctly
 
-## ohmyprvd-lifecycles\@0.1.0-alpha
+## 0.1.1-alpha
 
 ### Added
 
+- Added actual types for `@rbxts/ohmyprvd`
+- Added missing error messages
+- Added `onProviderConstructed` and `onProviderUsed` modding hooks
+- Added `matchesName` utility function as a predicate for `loadX` APIs
+- Exposed reflection API with `defineMetadata`, `deleteMetadata`, and
+  `getMetadata`
 - Added `ohmyprvd-lifecycles` package which implements lifecycle events for the
   following:
 
@@ -39,17 +50,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `:onPlayerLeaving(player: Player)` runs every `Player.PlayerLeaving`
   - `:onShutdown()` binds to `game:BindToClose` for games and `plugin.Unloading`
     for plugins
-
-## ohmyprvd\@0.1.1-alpha
-
-### Added
-
-- Added actual types for `@rbxts/ohmyprvd`
-- Added missing error messages
-- Added `onProviderConstructed` and `onProviderUsed` modding hooks
-- Added `matchesName` utility function as a predicate for `loadX` APIs
-- Exposed reflection API with `defineMetadata`, `deleteMetadata`, and
-  `getMetadata`
 
 ### Changed
 
@@ -66,6 +66,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     should preferably be extracted as a package for adding more built-in
     lifecycle events
 
-## ohmyprvd\@0.1.0-alpha
+## 0.1.0-alpha
 
 - Initial release
