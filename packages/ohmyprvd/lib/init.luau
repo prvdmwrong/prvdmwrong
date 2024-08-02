@@ -61,8 +61,7 @@ local prvd: types.Prvd = table.freeze {
   deleteMetadata = reflect.deleteMetadata,
 
   -- Utility APIs
-  loadChildren = utils.loadChildren,
-  loadDescendants = utils.loadDescendants,
+  preload = utils.preload,
 }
 
 return prvd
