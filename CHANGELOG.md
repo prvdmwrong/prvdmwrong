@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added `prvd.getStartupStatus` for retrieving the status of `prvd.start`
+- Added `prvd.preload(instances, predicate)` utility API in favor of
+  `prvd.loadX` functions
+- Initial release of `ohmyprvd-components`
+- Initial release of `ohmyprvd-net`
 
 ### Changed
 
@@ -23,6 +27,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `prvd.getIgnitionOptions` has been renamed to `prvd.getStartupOptions`
 
 - Changed error logging internally
+
+### Removed
+
+- Removed `prvd.loadChildren(parent, predicate)` and
+  `prvd.loadDescendants(parent, predicate)`, use `prvd.preload(instances,
+  predicate)` instead
 
 ### Fixed
 
