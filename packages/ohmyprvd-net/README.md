@@ -12,7 +12,6 @@ local t = require(Wherever.You.Put.That.Mess)
 type Remotes = {
   clientToServer: ompnet.ClientToServer<string>,
   netFunction: ompnet.ClientAsync<(string), (number)>,
-  twoWay: ompnet.TwoWay<string>,
 }
 
 local remotes: Remotes = ompnet.new {
@@ -21,3 +20,8 @@ local remotes: Remotes = ompnet.new {
   twoWay = ompnet.event(t.string)
 }
 ```
+
+## Prior Work
+
+- [Remo](https://github.com/littensy/remo/)
+- [RbxNet](https://rbxnet.australis.dev/)
