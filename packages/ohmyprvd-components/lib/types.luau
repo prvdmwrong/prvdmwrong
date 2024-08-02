@@ -34,7 +34,7 @@ export type ComponentStreamingMode =
   | "ComponentStreamingMode.Watching"
   | "ComponentStreamingMode.Contextual"
 
-export type Component<Methods, ExpectedInstance> = Methods & {
+export type Component<Methods, ExpectedInstance = Instance> = Methods & {
   tag: string?,
   instance: ExpectedInstance,
   instanceGuard: ((Instance) -> (boolean, ...any))?,
