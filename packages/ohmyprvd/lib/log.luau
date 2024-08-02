@@ -28,7 +28,7 @@
 local RunService = game:GetService("RunService")
 
 local package = script.Parent
-local types = require(package.log)
+local types = require(package.types)
 
 type Error = types.Error
 

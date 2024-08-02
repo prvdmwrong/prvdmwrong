@@ -25,13 +25,14 @@
 
 ]]
 
-local types = require(script.Parent.types)
+local package = script.Parent
+local types = require(package.types)
 
 type UnknownProvider = types.UnknownProvider
 
-local methodHandlers:   { [string]: { [{}]: (UnknownProvider) -> () } } = {}
+local methodHandlers: { [string]: { [{}]: (UnknownProvider) -> () } } = {}
 local providerHandlers: { [{}]: (UnknownProvider) -> () } = {}
-local useHandlers:      { [{}]: (UnknownProvider) -> () } = {}
+local useHandlers: { [{}]: (UnknownProvider) -> () } = {}
 local mods = {}
 
 --[[

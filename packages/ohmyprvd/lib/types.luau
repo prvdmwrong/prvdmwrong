@@ -34,7 +34,7 @@ export type Error = {
   trace: string,
 }
 
-export type OnInit = { onInit: (self: unknown) -> utils.Promise? }
+export type OnInit = { onInit: (self: unknown) -> Promise? }
 export type OnStart = { onStart: (self: unknown) -> () }
 
 export type PromiseStatus = "Started" | "Resolved" | "Rejected" | "Cancelled"
@@ -64,7 +64,6 @@ export type Promise = {
   timeout: (self: Promise, seconds: number, rejectionValue: any?) -> Promise,
 }
 export type Pack = { [number]: any, n: number }
-
 
 export type StartupStatus = "StartupStatus.Pending" | "StartupStatus.Starting" | "StartupStatus.Started"
 

@@ -27,6 +27,7 @@
 
 local package = script.Parent
 local log = require(package.log)
+local types = require(package.types)
 local expect = log.expect
 local parseError = log.parseError
 
@@ -107,7 +108,7 @@ function utils.preload(instances: { Instance }, predicate: ((ModuleScript) -> bo
     if predicate and not predicate(module) then
       continue
     end
-    local ok, result: log.Error = xpcall(require, parseError, module)
+    local ok, result: types.Error = xpcall(require, parseError, module)
     expect(ok, "requireError", result.trace, module:GetFullName(), result.message)
     table.insert(exports, result)
   end

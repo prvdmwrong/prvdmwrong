@@ -37,13 +37,12 @@ local expect = log.expect
 local parseError = log.parseError
 local throw = log.throw
 
-export type StartupStatus = types.StartupStatus
-export type Options = types.Options
-export type Provider<T> = types.Provider<T>
-
 export type Error = types.Error
 export type OnInit = types.OnInit
 export type OnStart = types.OnStart
+export type Options = types.Options
+export type Provider<T> = types.Provider<T>
+export type StartupStatus = types.StartupStatus
 
 local WEAK_KEYS_METATABLE = { __mode = "k" }
 
