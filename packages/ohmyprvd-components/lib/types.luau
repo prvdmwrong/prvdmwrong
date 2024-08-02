@@ -34,8 +34,9 @@ export type ComponentStreamingMode =
   | "ComponentStreamingMode.Watching"
   | "ComponentStreamingMode.Contextual"
 
-export type Component<T> = T & {
+export type Component<Methods, ExpectedInstance> = Methods & {
   tag: string?,
+  instance: ExpectedInstance,
   instanceGuard: ((Instance) -> (boolean, ...any))?,
   predicate: ((Instance) -> boolean)?,
 
@@ -47,11 +48,11 @@ export type Component<T> = T & {
 }
 
 export type OnComponentAdded = {
-  onComponentAdded: (self: prvd.Provider<unknown>, Component<unknown>, instance: Instance) -> (),
+  onComponentAdded: (self: prvd.Provider<unknown>, Component<unknown, Instance>, instance: Instance) -> (),
 }
 
 export type OnComponentRemoved = {
-  onComponentRemoved: (self: prvd.Provider<unknown>, Component<unknown>, instance: Instance) -> (),
+  onComponentRemoved: (self: prvd.Provider<unknown>, Component<unknown, Instance>, instance: Instance) -> (),
 }
 
 return nil
