@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/providers/await-ignition/">
+        <link rel="canonical" href="https://team-fireworks.github.io/ohmyprvd/0.2/tutorials/fundamentals/startup/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../providers/">
       
       
-        <link rel="next" href="../ignite/">
+        <link rel="next" href="../lifecycle-methods/">
       
       
-      <link rel="icon" href="../../../../assets/logo.svg">
+      <link rel="icon" href="../../../assets/logo.svg">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
     
     
       
-        <title>awaitIgnition - Oh My Prvd</title>
+        <title>Startup - Oh My Prvd</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
   
@@ -89,19 +89,19 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/theme/404.css">
+      <link rel="stylesheet" href="../../../assets/theme/404.css">
     
-      <link rel="stylesheet" href="../../../../assets/theme/api.css">
+      <link rel="stylesheet" href="../../../assets/theme/api.css">
     
-      <link rel="stylesheet" href="../../../../assets/theme/code.css">
+      <link rel="stylesheet" href="../../../assets/theme/code.css">
     
-      <link rel="stylesheet" href="../../../../assets/theme/home.css">
+      <link rel="stylesheet" href="../../../assets/theme/home.css">
     
-      <link rel="stylesheet" href="../../../../assets/theme/ompdoc.css">
+      <link rel="stylesheet" href="../../../assets/theme/ompdoc.css">
     
-      <link rel="stylesheet" href="../../../../assets/theme/page.css">
+      <link rel="stylesheet" href="../../../assets/theme/page.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -127,7 +127,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#awaitignition" class="md-skip">
+        <a href="#startup" class="md-skip">
           Skip to content
         </a>
       
@@ -145,9 +145,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Oh My Prvd" class="md-header__button md-logo" aria-label="Oh My Prvd" data-md-component="logo">
+    <a href="../../.." title="Oh My Prvd" class="md-header__button md-logo" aria-label="Oh My Prvd" data-md-component="logo">
       
-  <img src="../../../../assets/logo.svg" alt="logo">
+  <img src="../../../assets/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -164,7 +164,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              awaitIgnition
+              Startup
             
           </span>
         </div>
@@ -310,7 +310,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -325,11 +325,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../tutorials/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
     
@@ -349,7 +351,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../examples/" class="md-tabs__link">
+        <a href="../../../examples/" class="md-tabs__link">
           
   
     
@@ -365,13 +367,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../reference/" class="md-tabs__link">
           
   
     
@@ -406,9 +406,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Oh My Prvd" class="md-nav__button md-logo" aria-label="Oh My Prvd" data-md-component="logo">
+    <a href="../../.." title="Oh My Prvd" class="md-nav__button md-logo" aria-label="Oh My Prvd" data-md-component="logo">
       
-  <img src="../../../../assets/logo.svg" alt="logo">
+  <img src="../../../assets/logo.svg" alt="logo">
 
     </a>
     Oh My Prvd
@@ -435,7 +435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -452,6 +452,8 @@
       
   
   
+    
+  
   
   
     
@@ -474,21 +476,24 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../tutorials/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -499,13 +504,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Tutorials
@@ -521,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/installation/" class="md-nav__link">
+      <a href="../../installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -539,8 +544,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -554,18 +561,21 @@
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
         
           
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -576,7 +586,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             Fundamentals
@@ -590,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/fundamentals/providers/" class="md-nav__link">
+      <a href="../providers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -608,18 +618,78 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../tutorials/fundamentals/ignition/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Startup
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Ignition
+    Startup
   </span>
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preloading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preloading
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#startup_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Startup
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -632,7 +702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/fundamentals/lifecycle-methods/" class="md-nav__link">
+      <a href="../lifecycle-methods/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -680,10 +750,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -692,7 +765,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../tutorials/net/" class="md-nav__link ">
+            <a href="../../net/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -703,7 +776,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -725,7 +798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/net/events/" class="md-nav__link">
+      <a href="../../net/events/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -746,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/net/functions/" class="md-nav__link">
+      <a href="../../net/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -767,7 +840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/net/middlewares/" class="md-nav__link">
+      <a href="../../net/middlewares/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -788,7 +861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/net/namespaces/" class="md-nav__link">
+      <a href="../../net/namespaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -834,10 +907,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -846,7 +922,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../tutorials/components/" class="md-nav__link ">
+            <a href="../../components/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -857,7 +933,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -879,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/components/usage/" class="md-nav__link">
+      <a href="../../components/usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -900,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/components/attributes/" class="md-nav__link">
+      <a href="../../components/attributes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -921,7 +997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/components/inheritance/" class="md-nav__link">
+      <a href="../../components/inheritance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -965,17 +1041,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
         
           
-          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1000,7 +1079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/advanced/modding/" class="md-nav__link">
+      <a href="../../advanced/modding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1021,7 +1100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/advanced/execution-order/" class="md-nav__link">
+      <a href="../../advanced/execution-order/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1042,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/advanced/snippets/" class="md-nav__link">
+      <a href="../../advanced/snippets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1063,7 +1142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/advanced/alternatives/" class="md-nav__link">
+      <a href="../../advanced/alternatives/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1124,7 +1203,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../examples/" class="md-nav__link ">
+            <a href="../../../examples/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1201,7 +1280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../examples/projects/omp-obby/" class="md-nav__link">
+      <a href="../../../examples/projects/omp-obby/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1234,8 +1313,6 @@
       
   
   
-    
-  
   
   
     
@@ -1254,24 +1331,21 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../" class="md-nav__link ">
+            <a href="../../../reference/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1282,13 +1356,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Reference
@@ -1304,7 +1378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../error-messages/" class="md-nav__link">
+      <a href="../../../reference/error-messages/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1322,8 +1396,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1341,29 +1413,24 @@
       
         
       
-        
-      
     
     
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../reference/core/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1374,13 +1441,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             Core
@@ -1393,8 +1460,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1416,6 +1481,8 @@
       
         
       
+        
+      
     
     
       
@@ -1424,16 +1491,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../reference/core/providers/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1450,7 +1517,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_3_2">
             <span class="md-nav__icon md-icon"></span>
             Providers
@@ -1463,86 +1530,14 @@
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    awaitIgnition
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    awaitIgnition
-  </span>
-  
-
-      </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#learn-more" class="md-nav__link">
-    <span class="md-ellipsis">
-      Learn More
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
-      <a href="../ignite/" class="md-nav__link">
+      <a href="../../../reference/core/providers/await-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    ignite
+    awaitStart
   </span>
   
 
@@ -1559,11 +1554,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../ignition-status/" class="md-nav__link">
+      <a href="../../../reference/core/providers/on-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    IgnitionStatus
+    onStart
   </span>
   
 
@@ -1580,28 +1575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../on-ignition/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    onIgnition
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../provider/" class="md-nav__link">
+      <a href="../../../reference/core/providers/provider/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1622,7 +1596,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../use/" class="md-nav__link">
+      <a href="../../../reference/core/providers/preload/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    preload
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/core/providers/startup-status/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StartupStatus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/core/providers/start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/core/providers/use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1663,6 +1700,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -1680,11 +1721,11 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../loader/" class="md-nav__link ">
+            <a href="../../../reference/core/modding/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
-    Loader
+    Modding
   </span>
   
 
@@ -1700,141 +1741,6 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_3_3">
             <span class="md-nav__icon md-icon"></span>
-            Loader
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../loader/load-children/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    loadChildren
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../loader/load-descendants/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    loadDescendants
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../loader/matches-name/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    matchesName
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_4" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../modding/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Modding
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_3_4">
-            <span class="md-nav__icon md-icon"></span>
             Modding
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1848,11 +1754,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modding/get-ignition-options/" class="md-nav__link">
+      <a href="../../../reference/core/modding/get-startup-options/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    getIgnitionOptions
+    getStartupOptions
   </span>
   
 
@@ -1869,7 +1775,28 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modding/on-method-implemented/" class="md-nav__link">
+      <a href="../../../reference/core/modding/get-startup-status/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    getStartupStatus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/core/modding/on-method-implemented/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1890,7 +1817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modding/on-provider-constructed/" class="md-nav__link">
+      <a href="../../../reference/core/modding/on-provider-constructed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1911,7 +1838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modding/on-provider-used/" class="md-nav__link">
+      <a href="../../../reference/core/modding/on-provider-used/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1964,12 +1891,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_4" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../reflection/" class="md-nav__link ">
+            <a href="../../../reference/core/reflection/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1980,14 +1907,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_3_5" id="__nav_4_3_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_3_5">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_4">
             <span class="md-nav__icon md-icon"></span>
             Reflection
           </label>
@@ -2002,7 +1929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reflection/define-metadata/" class="md-nav__link">
+      <a href="../../../reference/core/reflection/define-metadata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2023,7 +1950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reflection/get-metadata/" class="md-nav__link">
+      <a href="../../../reference/core/reflection/get-metadata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2044,7 +1971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reflection/delete-metadata/" class="md-nav__link">
+      <a href="../../../reference/core/reflection/delete-metadata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2095,12 +2022,12 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_5" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../types/" class="md-nav__link ">
+            <a href="../../../reference/core/types/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2111,14 +2038,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_3_6" id="__nav_4_3_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_3_5" id="__nav_4_3_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_3_6">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_5">
             <span class="md-nav__icon md-icon"></span>
             Types
           </label>
@@ -2133,7 +2060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../types/options/" class="md-nav__link">
+      <a href="../../../reference/core/types/options/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2154,7 +2081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../types/provider/" class="md-nav__link">
+      <a href="../../../reference/core/types/provider/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2206,13 +2133,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -2221,7 +2145,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../lifecycles/" class="md-nav__link ">
+            <a href="../../../reference/lifecycles/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2232,7 +2156,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -2285,7 +2209,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../lifecycles/runtime/" class="md-nav__link ">
+            <a href="../../../reference/lifecycles/runtime/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2318,7 +2242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../lifecycles/runtime/on-post-simulation/" class="md-nav__link">
+      <a href="../../../reference/lifecycles/runtime/on-post-simulation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2339,7 +2263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../lifecycles/runtime/on-pre-simulation/" class="md-nav__link">
+      <a href="../../../reference/lifecycles/runtime/on-pre-simulation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2360,7 +2284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../lifecycles/runtime/on-pre-render/" class="md-nav__link">
+      <a href="../../../reference/lifecycles/runtime/on-pre-render/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2381,7 +2305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../lifecycles/runtime/on-shutdown/" class="md-nav__link">
+      <a href="../../../reference/lifecycles/runtime/on-shutdown/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2437,7 +2361,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../lifecycles/players/" class="md-nav__link ">
+            <a href="../../../reference/lifecycles/players/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2470,7 +2394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../lifecycles/players/on-player-added/" class="md-nav__link">
+      <a href="../../../reference/lifecycles/players/on-player-added/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2491,7 +2415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../lifecycles/players/on-player-removed/" class="md-nav__link">
+      <a href="../../../reference/lifecycles/players/on-player-removed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2557,9 +2481,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#learn-more" class="md-nav__link">
+  <a href="#preloading" class="md-nav__link">
     <span class="md-ellipsis">
-      Learn More
+      Preloading
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#startup_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Startup
     </span>
   </a>
   
@@ -2583,37 +2516,75 @@
   
 
 
-<div class="ompdoc-api-breadcrumbs">
-<a href="../../../">Reference</a>
-<a href="../../">Core</a>
-<a href="../">Providers</a>
-</div>
-
-<div class="ompdoc-api-tags">
-<span>function</span>
-<span>since v0.1</span>
-</div>
-
-<h1 id="awaitignition">awaitIgnition<a class="headerlink" href="#awaitignition" title="Permanent link">&para;</a></h1>
-<p>Yields the calling thread just before ignition finishes. If Oh My Prvd has
-already started, the thread will continue.</p>
+<h1 id="startup">Startup<a class="headerlink" href="#startup" title="Permanent link">&para;</a></h1>
+<p>With your providers defined, its time to start Oh My Prvd.</p>
+<h2 id="preloading">Preloading<a class="headerlink" href="#preloading" title="Permanent link">&para;</a></h2>
+<p>It's necessary to preload your providers to for Oh My Prvd to pick it up. For
+convenience, you can use the <code>prvd.preload(instances, predicate)</code> function,
+which will load all modules given an array of instances:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Luau</label><label for="__tabbed_1_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span> <span class="nc">prvd</span><span class="p">.</span><span class="nf">awaitIgnition</span><span class="p">():</span> <span class="p">()</span>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;@pkg/ohmyprvd&quot;</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">prvd</span><span class="p">.</span><span class="n">preload</span><span class="p">(</span><span class="n">script</span><span class="p">.</span><span class="n">Providers</span><span class="p">:</span><span class="n">GetChildren</span><span class="p">())</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">awaitIgnition</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">preload</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/ohmyprvd&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nx">preload</span><span class="p">(</span><span class="nx">script</span><span class="p">.</span><span class="nx">Providers</span><span class="p">.</span><span class="nx">GetChildren</span><span class="p">())</span>
 </span></code></pre></div>
 </div>
 </div>
 </div>
-<hr />
-<h2 id="learn-more">Learn More<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../../../../tutorials/fundamentals/ignition/">Ignition tutorial</a></li>
-</ul>
+<p>You can also pass a predicate function to filter the target modules:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Luau</label><label for="__tabbed_2_2">TypeScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;@pkg/ohmyprvd&quot;</span><span class="p">)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">prvd</span><span class="p">.</span><span class="n">preload</span><span class="p">(</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  <span class="n">script</span><span class="p">.</span><span class="n">Providers</span><span class="p">.</span><span class="n">GetChildren</span><span class="p">(),</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="hll">  <span class="kr">function</span><span class="p">(</span><span class="n">module</span><span class="p">:</span> <span class="n">ModuleScript</span><span class="p">)</span>
+</span></span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="hll">    <span class="kr">return</span> <span class="n">module</span><span class="p">.</span><span class="n">Name</span><span class="p">:</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Provider$&quot;</span><span class="p">)</span> <span class="o">~=</span> <span class="kc">nil</span>
+</span></span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="hll">  <span class="kr">end</span>
+</span></span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">preload</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/ohmyprvd&quot;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nx">preload</span><span class="p">(</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nx">script</span><span class="p">.</span><span class="nx">Providers</span><span class="p">.</span><span class="nx">GetChildren</span><span class="p">(),</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="hll"><span class="w">  </span><span class="p">(</span><span class="nx">module</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="kr">module</span><span class="nx">.Name.find</span><span class="p">(</span><span class="s2">&quot;Provider$&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">undefined</span>
+</span></span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">)</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="startup_1">Startup<a class="headerlink" href="#startup_1" title="Permanent link">&para;</a></h2>
+<p>Finally, start Oh My Prvd, and you're off to the races:</p>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nx">prvd</span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>
+</span></code></pre></div>
+<p>If another script requires Oh My Prvd to be ignited, <code>awaitStart()</code> can be used,
+which will yield until Oh My Prvd is fully ignited:</p>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nx">prvd</span><span class="p">.</span><span class="nx">awaitStart</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Alternatively, if you need to bind to startup, <code>onStart(callback)</code> can be used,
+which will spawn the callback when Oh My Prvd has fully ignited:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Luau</label><label for="__tabbed_3_2">TypeScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">prvd</span><span class="p">.</span><span class="n">onStart</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ignited!&quot;</span><span class="p">)</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kr">end</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nx">onStart</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;ignited!&quot;</span><span class="p">)</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">})</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
 
 
 
@@ -2681,9 +2652,9 @@ already started, the thread will continue.</p>
         
           
           <a
-            href="../"
+            href="../providers/"
             class="md-footer__link md-footer__link--prev"
-            aria-label="Previous: Index"
+            aria-label="Previous: Providers"
           >
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.78 19.03a.75.75 0 0 1-1.06 0l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L5.81 11.5h14.44a.75.75 0 0 1 0 1.5H5.81l4.97 4.97a.75.75 0 0 1 0 1.06Z"/></svg>
@@ -2693,7 +2664,7 @@ already started, the thread will continue.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Index
+                Providers
               </div>
             </div>
           </a>
@@ -2703,16 +2674,16 @@ already started, the thread will continue.</p>
         
           
           <a
-            href="../ignite/"
+            href="../lifecycle-methods/"
             class="md-footer__link md-footer__link--next"
-            aria-label="Next: ignite"
+            aria-label="Next: Lifecycle Methods"
           >
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                ignite
+                Lifecycle Methods
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2751,10 +2722,10 @@ already started, the thread will continue.</p>
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.top", "search.suggest"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
     
   </body>
