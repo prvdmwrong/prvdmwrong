@@ -27,12 +27,10 @@
 
 local RunService = game:GetService("RunService")
 
-export type Error = {
-  type: "Error",
-  raw: string,
-  message: string,
-  trace: string,
-}
+local package = script.Parent
+local types = require(package.log)
+
+type Error = types.Error
 
 local ERROR_MESSAGES_URL = "team-fireworks.github.io/ohmyprvd/latest/reference/error-messages#"
 local MESSAGES = table.freeze {

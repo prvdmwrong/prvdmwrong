@@ -27,9 +27,11 @@
 
 local types = require(script.Parent.types)
 
-local methodHandlers: { [string]: { [{}]: (types.Provider<unknown>) -> () } } = {}
-local providerHandlers: { [{}]: (types.Provider<unknown>) -> () } = {}
-local useHandlers: { [{}]: (types.Provider<unknown>) -> () } = {}
+type UnknownProvider = types.UnknownProvider
+
+local methodHandlers:   { [string]: { [{}]: (UnknownProvider) -> () } } = {}
+local providerHandlers: { [{}]: (UnknownProvider) -> () } = {}
+local useHandlers:      { [{}]: (UnknownProvider) -> () } = {}
 local mods = {}
 
 --[[
@@ -37,7 +39,7 @@ local mods = {}
   outside of Oh My Prvd, it is intended for library authors who need a way to
   interface with lifecycle methods, e.g. components.
 ]]
-function mods.implementAllMethods(provider: types.Provider<unknown>)
+function mods.implementAllMethods(provider: UnknownProvider)
   for method, handlers in pairs(methodHandlers) do
     local method = (provider :: {})[method]
     if method == nil then
@@ -49,7 +51,7 @@ function mods.implementAllMethods(provider: types.Provider<unknown>)
   end
 end
 
-function mods.doMethodImplemented(method: string, provider: types.Provider<unknown>)
+function mods.doMethodImplemented(method: string, provider: UnknownProvider)
   if not methodHandlers[method] then
     return
   end
@@ -58,7 +60,7 @@ function mods.doMethodImplemented(method: string, provider: types.Provider<unkno
   end
 end
 
-function mods.doProviderConstructed(provider: types.Provider<unknown>)
+function mods.doProviderConstructed(provider: UnknownProvider)
   if next(providerHandlers) == nil then
     return
   end
@@ -67,7 +69,7 @@ function mods.doProviderConstructed(provider: types.Provider<unknown>)
   end
 end
 
-function mods.doProviderUsed(provider: types.Provider<unknown>)
+function mods.doProviderUsed(provider: UnknownProvider)
   if next(useHandlers) == nil then
     return
   end
@@ -82,7 +84,7 @@ end
   Commonly used to implement custom lifecycles by adding providers to a
   "watchlist" which will have its methods fired.
 ]]
-function mods.onMethodImplemented(method: string, handler: (types.Provider<unknown>) -> ())
+function mods.onMethodImplemented(method: string, handler: (UnknownProvider) -> ())
   if not methodHandlers[method] then
     methodHandlers[method] = {}
   end
@@ -95,7 +97,7 @@ end
   are expected to be infallible and non-yielding. The handler receives the
   constructed provider.
 ]]
-function mods.onProviderConstructed(handler: (types.Provider<unknown>) -> ())
+function mods.onProviderConstructed(handler: (UnknownProvider) -> ())
   local identifier = table.freeze {}
   providerHandlers[identifier] = handler
 end
@@ -104,7 +106,7 @@ end
   Called just before Oh My Prvd returns a used Provider. Handlers are expected
   to be infallible and non-yielding. The handler receives the used provider.
 ]]
-function mods.onProviderUsed(handler: (types.Provider<unknown>) -> ())
+function mods.onProviderUsed(handler: (UnknownProvider) -> ())
   local identifier = table.freeze {}
   useHandlers[identifier] = handler
 end

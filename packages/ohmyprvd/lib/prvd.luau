@@ -41,9 +41,9 @@ export type StartupStatus = types.StartupStatus
 export type Options = types.Options
 export type Provider<T> = types.Provider<T>
 
-type Error = log.Error
-type OnInit = { onInit: (self: unknown) -> utils.Promise? }
-type OnStart = { onStart: (self: unknown) -> () }
+export type Error = types.Error
+export type OnInit = types.OnInit
+export type OnStart = types.OnStart
 
 local WEAK_KEYS_METATABLE = { __mode = "k" }
 
