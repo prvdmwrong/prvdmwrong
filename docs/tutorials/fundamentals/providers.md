@@ -162,11 +162,14 @@ end
 `typeof(PointsProvider)` is not very concise. Let's make a type alias,
 appropriately named `Self`:
 
-```Lua hl_lines="2"
-local PointsProvider = {}
+```Lua
+-- use just typeof()...
 type Self = typeof(PointsProvider)
-PointsProvider.points = {}
+-- ...or wrap it inside prvd.Provider
+type Self = prvd.Provider<typeof(PointsProvider)>
 ```
+
+Both methods are just as good, pick one and run with it.
 
 We could then easily type `self` as such:
 
