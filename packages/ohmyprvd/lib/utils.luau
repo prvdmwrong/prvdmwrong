@@ -96,17 +96,27 @@ function utils.isPromise(x: unknown): boolean
 end
 
 --[[
-  Preload the specified parent by requiring all ModuleScripts within it. An
-  optional `predicate` function can be provided to filter modules.
+  Preload the specified parent by requiring all ModuleScripts within it. Optional
+  `predicate` functions can be provided to filter modules.
 ]]
-function utils.preload(instances: { Instance }, predicate: ((ModuleScript) -> boolean)?)
+function utils.preload(instances: { Instance }, ...: ((ModuleScript) -> boolean)?)
   local exports: { unknown } = {}
+  local predicates: { ((ModuleScript) -> boolean)? } = { ... }
   for _, module in ipairs(instances) do
     if not module:IsA("ModuleScript") then
       continue
     end
-    if predicate and not predicate(module) then
-      continue
+    if #predicates > 0 then
+      local failed: boolean = false
+      for _, predicate in ipairs(predicates) do
+        if typeof(predicate) == "function" and not predicate(module) then
+          failed = true
+          break
+        end
+      end
+      if failed then
+        continue
+      end
     end
     local ok, result: types.Error = xpcall(require, parseError, module)
     expect(ok, "requireError", result.trace, module:GetFullName(), result.message)
