@@ -46,7 +46,6 @@ theme:
     - navigation.tabs
     - navigation.top
     - search.suggest
-    - navigation.expand
 
 nav:
   - Home: index.md
@@ -110,7 +109,18 @@ nav:
         - reference/core/types/index.md
         - Options: reference/core/types/options.md
         - Provider: reference/core/types/provider.md
-
+    - Lifecycles:
+      - reference/lifecycles/index.md
+      - Runtime:
+        - reference/lifecycles/runtime/index.md
+        - onPostSimulation: reference/lifecycles/runtime/on-post-simulation.md
+        - onPreSimulation: reference/lifecycles/runtime/on-pre-simulation.md
+        - onPreRender: reference/lifecycles/runtime/on-pre-render.md
+        - onShutdown: reference/lifecycles/runtime/on-shutdown.md
+      - Players:
+        - reference/lifecycles/players/index.md
+        - onPlayerAdded: reference/lifecycles/players/on-player-added.md
+        - onPlayerRemoved: reference/lifecycles/players/on-player-removed.md
 extra_css:
   - assets/theme/404.css
   - assets/theme/api.css

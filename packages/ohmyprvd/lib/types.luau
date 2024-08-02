@@ -66,9 +66,7 @@ export type Prvd = {
   getMetadata: (object: unknown, key: string) -> unknown?,
   deleteMetadata: (object: unknown, key: string, property: string?) -> (),
 
-  loadChildren: (parent: Instance, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
-  loadDescendants: (parent: Instance, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
-  matchesName: (name: string) -> (ModuleScript) -> boolean,
+  preload: (parent: Instance, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
 }
 
 return nil

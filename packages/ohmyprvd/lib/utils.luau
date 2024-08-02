@@ -76,22 +76,6 @@ local function isCallable(value)
   return false
 end
 
-local function loaderImpl(instances: { Instance }, predicate: ((ModuleScript) -> boolean)?)
-  local exports: { unknown } = {}
-  for _, module in ipairs(instances) do
-    if not module:IsA("ModuleScript") then
-      continue
-    end
-    if predicate and not predicate(module) then
-      continue
-    end
-    local ok, result: log.Error = xpcall(require, parseError, module)
-    expect(ok, "requireError", result.trace, module:GetFullName(), result.message)
-    table.insert(exports, result)
-  end
-  return exports
-end
-
 local function resume<Args...>(resume: (Args...) -> (), thread: thread, ...)
   resume(...)
   table.insert(freeThreads, thread)
@@ -142,19 +126,20 @@ end
   Preload the specified parent by requiring all ModuleScripts within it. An
   optional `predicate` function can be provided to filter modules.
 ]]
-function utils.loadChildren(parent: Instance, predicate: ((ModuleScript) -> boolean)?)
-  expect(typeof(parent) == "Instance", "invalidLoadParent")
-  return loaderImpl(parent:GetChildren(), predicate)
-end
-
---[[
-  Preload the specified parent by requiring all ModuleScripts within it
-  recursively. An optional `predicate` function can be provided to filter
-  modules.
-]]
-function utils.loadDescendants(parent: Instance, predicate: ((ModuleScript) -> boolean)?)
-  expect(typeof(parent) == "Instance", "invalidLoadParent")
-  return loaderImpl(parent:GetDescendants(), predicate)
+function utils.preload(instances: { Instance }, predicate: ((ModuleScript) -> boolean)?)
+  local exports: { unknown } = {}
+  for _, module in ipairs(instances) do
+    if not module:IsA("ModuleScript") then
+      continue
+    end
+    if predicate and not predicate(module) then
+      continue
+    end
+    local ok, result: log.Error = xpcall(require, parseError, module)
+    expect(ok, "requireError", result.trace, module:GetFullName(), result.message)
+    table.insert(exports, result)
+  end
+  return exports
 end
 
 table.freeze(utils)
