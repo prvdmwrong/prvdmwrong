@@ -169,7 +169,7 @@ type Self = typeof(PointsProvider)
 type Self = prvd.Provider<typeof(PointsProvider)>
 ```
 
-Both methods are just as good, pick one and run with it.
+Both types are good, pick your poison and run with it.
 
 We could then easily type `self` as such:
 
