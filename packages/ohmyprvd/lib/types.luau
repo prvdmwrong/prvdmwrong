@@ -25,6 +25,17 @@
 
 ]]
 
+export type UnknownProvider = Provider<unknown>
+
+export type Error = {
+  type: "Error",
+  raw: string,
+  message: string,
+  trace: string,
+}
+
+export type OnInit = { onInit: (self: unknown) -> utils.Promise? }
+export type OnStart = { onStart: (self: unknown) -> () }
 
 export type PromiseStatus = "Started" | "Resolved" | "Rejected" | "Cancelled"
 export type Promise = {
@@ -52,7 +63,7 @@ export type Promise = {
   tap: (self: Promise, tapHandler: (...any) -> ...any) -> Promise,
   timeout: (self: Promise, seconds: number, rejectionValue: any?) -> Promise,
 }
-type Pack = { [number]: any, n: number }
+export type Pack = { [number]: any, n: number }
 
 
 export type StartupStatus = "StartupStatus.Pending" | "StartupStatus.Starting" | "StartupStatus.Started"
