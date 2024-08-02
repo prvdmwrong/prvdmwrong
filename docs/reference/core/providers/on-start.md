@@ -9,15 +9,15 @@
 <span>since v0.1</span>
 </div>
 
-# onIgnition
+# onStart
 
-Queues a callback to be called just before ignition finishes. If Oh My Prvd has
+Queues a callback to be called just before startup finishes. If Oh My Prvd has
 already started, the callback will be spawned immediately.
 
 === "Luau"
 
     ```Lua
-    function prvd.onIgnition(
+    function prvd.onStart(
       callback: () -> ()
     ): ()
     ```
@@ -25,7 +25,7 @@ already started, the callback will be spawned immediately.
 === "TypeScript"
 
     ```TypeScript
-    export const onIgnition: (
+    export const onStart: (
       callback: () => void
     ) => void
     ```
@@ -36,8 +36,8 @@ already started, the callback will be spawned immediately.
 
 ### callback `#!lua : () -> ()`
 
-The callback to be spawned just before ignition finishes.
+The callback to be spawned just before startup finishes.
 
 ## Learn More
 
-- [Ignition tutorial](../../../tutorials/fundamentals/ignition.md)
+- [startup tutorial](../../../tutorials/fundamentals/startup.md)

@@ -1,7 +1,7 @@
 <div class="ompdoc-api-breadcrumbs">
 <a href="../../../">Reference</a>
 <a href="../../">Core</a>
-<a href="../">Loader</a>
+<a href="../">Providers</a>
 </div>
 
 <div class="ompdoc-api-tags">
@@ -9,16 +9,16 @@
 <span>since v0.1</span>
 </div>
 
-# loadDescendants
+# preload
 
-Preload the specified parent by requiring all `ModuleScripts` within it
-recursively. An optional `predicate` function can be provided to filter modules.
+Preload the specified parent by requiring all `ModuleScripts` within it. An
+optional `predicate` function can be provided to filter modules.
 
 === "Luau"
 
     ```Lua
-    function prvd.loadDescendants(
-      parent: Instance,
+    function prvd.loadChildren(
+      parent: { Instance },
       predicate: ((ModuleScript) -> boolean)?
     ): { unknown }
     ```
@@ -26,8 +26,8 @@ recursively. An optional `predicate` function can be provided to filter modules.
 === "TypeScript"
 
     ```TypeScript
-    export const loadDescendants: (
-      parent: Instance,
+    export const preload: (
+      parent: Instance[],
       predicate?: (module: ModuleScript) => boolean
     ) => unknown[]
     ```
@@ -36,10 +36,10 @@ recursively. An optional `predicate` function can be provided to filter modules.
 
 ## Parameters
 
-### parent `#!lua : Instance`
+### parent `#!lua : { Instance }`
 
-The parent to load ModuleScripts from. Internally uses `#!lua :GetDescendants()`
-to load modules.
+An array of instances to load from. Often paired with `:GetChildren()` or
+`:GetDescendants()`.
 
 ### predicate `#!lua : (ModuleScript) -> boolean`
 
@@ -50,4 +50,4 @@ with.
 
 ## Learn More
 
-- [Ignition tutorial](../../../tutorials/fundamentals/ignition.md)
+- [Startup tutorial](../../../tutorials/fundamentals/startup.md)

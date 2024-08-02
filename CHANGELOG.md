@@ -21,9 +21,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
   - `prvd.ignite` has been renamed to `prvd.start`
   - `prvd.IgnitionStatus` has been renamed to `prvd.StartupStatus`
-  - `prvd.awaitIgnition` has been renamed to `prvd.awaitStart`
-  - `prvd.onIgnition` has been renamed to `prvd.onStart`
-  - `prvd.awaitIgnition` has been renamed to `prvd.awaitStart`
+  - `prvd.awaitStart` has been renamed to `prvd.awaitStart`
+  - `prvd.onStart` has been renamed to `prvd.onStart`
+  - `prvd.awaitStart` has been renamed to `prvd.awaitStart`
   - `prvd.getIgnitionOptions` has been renamed to `prvd.getStartupOptions`
 
 - Changed error logging internally

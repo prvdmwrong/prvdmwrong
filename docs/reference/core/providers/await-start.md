@@ -9,25 +9,25 @@
 <span>since v0.1</span>
 </div>
 
-# awaitIgnition
+# awaitStart
 
-Yields the calling thread just before ignition finishes. If Oh My Prvd has
+Yields the calling thread just before startup finishes. If Oh My Prvd has
 already started, the thread will continue.
 
 === "Luau"
 
     ```Lua
-    function prvd.awaitIgnition(): ()
+    function prvd.awaitStart(): ()
     ```
 
 === "TypeScript"
 
     ```TypeScript
-    export const awaitIgnition: () => void
+    export const awaitStart: () => void
     ```
 
 ---
 
 ## Learn More
 
-- [Ignition tutorial](../../../tutorials/fundamentals/ignition.md)
+- [startup tutorial](../../../tutorials/fundamentals/startup.md)

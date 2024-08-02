@@ -11,7 +11,7 @@
 
 # use
 
-Uses a provider within Oh My Prvd. During ignition, Oh My Prvd will inject the
+Uses a provider within Oh My Prvd. During startup, Oh My Prvd will inject the
 dependencies your provider uses.
 
 === "Luau"
@@ -55,7 +55,7 @@ The provider to use.
 ## Returns `#!lua : T`
 
 The used provider. In reality, this returns a *shadow* of the provider, which
-will be injected during ignition.
+will be injected during startup.
 
 ---
 

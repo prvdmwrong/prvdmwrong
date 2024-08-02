@@ -40,7 +40,7 @@ Commonly used to implement custom lifecycles by adding providers to a
 
 ### method `#!lua : string`
 
-The method to implement. During ignition, all providers that specify this method
+The method to implement. During startup, all providers that specify this method
 will have its handler be called.
 
 ### handler `#!lua : (Provider<unknown>) -> void`

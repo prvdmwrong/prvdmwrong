@@ -9,9 +9,9 @@
 <span>since v0.1</span>
 </div>
 
-# ignite
+# start
 
-Ignites Oh My Prvd. Expected to be called once in an environment, e.g. once on
+Starts Oh My Prvd. Expected to be called once in an environment, e.g. once on
 the server and once on the client.
 
 All necessary providers should be preloaded before calling this as newly created
@@ -20,7 +20,7 @@ providers will not run its lifecycle events.
 === "Luau"
 
     ```Lua
-    function prvd.ignite(
+    function prvd.start(
       options: {
         logLevel: "none" | "verbose" | nil,
         profiling: boolean?,
@@ -31,7 +31,7 @@ providers will not run its lifecycle events.
 === "TypeScript"
 
     ```TypeScript
-    export const ignite: (
+    export const start: (
       options: Partial<Options> = {
         logLevel: "none",
         profiling: RunService.IsStudio(),
@@ -45,7 +45,7 @@ providers will not run its lifecycle events.
 
 ### options `#!lua : Partial<Options>`
 
-Configures how Oh My Prvd will ignite. The following are the available
+Configures how Oh My Prvd will start. The following are the available
 configuration options:
 
 - `#!lua logLevel: "none" | "verbose"` configures if Oh My Prvd should log trace
@@ -58,4 +58,4 @@ configuration options:
 
 ## Learn More
 
-- [Ignition tutorial](../../../tutorials/fundamentals/ignition.md)
+- [startup tutorial](../../../tutorials/fundamentals/startup.md)

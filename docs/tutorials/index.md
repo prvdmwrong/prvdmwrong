@@ -64,7 +64,7 @@ you to our comprehensive [Error Messages](../reference/error-messages.md)
 documentation.
 
 ```Txt hl_lines="2"
-[OMP(requireAfterIgnition)]: cannot require other providers after ignition
+[OMP(requireAfterIgnition)]: cannot require other providers after startup
   more info: team-fireworks.github.io/ohmyprvd/latest/reference/general/error-messages#requireafterignition
   stack trace:
     ohmyprvd.log:118 function throw

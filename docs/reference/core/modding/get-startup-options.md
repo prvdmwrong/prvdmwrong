@@ -11,7 +11,7 @@
 
 # getIgnitionOptions
 
-Returns the ignition configuration options. Options are reconciled with
+Returns the startup configuration options. Options are reconciled with
 default values.
 
 === "Luau"
@@ -30,4 +30,4 @@ default values.
 
 ## Returns
 
-The ignition options, reconciled with default values.
+The startup options, reconciled with default values.

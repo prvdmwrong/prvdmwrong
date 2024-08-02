@@ -1,7 +1,8 @@
 # Examples
 
 Welcome to the Examples section! Here, you can find various open-source
-implementations to see Oh My Prvd used in a real setting.
+implementations to see Oh My Prvd used in a real setting, accompanied with
+in-depth explanations.
 
 ---
 

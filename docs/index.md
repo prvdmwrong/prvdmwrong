@@ -181,7 +181,7 @@ Finally, preload your providers, then ignite Oh My Prvd, and you're off to the r
 
 ```TypeScript
 prvd.loadDescendants(ServerScriptService.Providers)
-prvd.ignite()
+prvd.start(options)
 ```
 
 ---

@@ -12,7 +12,7 @@
 
 Configures how Oh My Prvd will ignite. The following are the available
 configuration options: This type is not useful outside of Oh My Prvd itself;
-prefer to specify ignition options as a parameter of [`
+prefer to specify startup options as a parameter of [`
 ignite(options)`](../providers/use.md).
 
 === "Luau"
@@ -52,4 +52,4 @@ current session is running in Roblox Studio.
 
 ## Learn More
 
-- [Ignition tutorial](../../../tutorials/fundamentals/ignition.md)
+- [startup tutorial](../../../tutorials/fundamentals/startup.md)

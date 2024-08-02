@@ -12,7 +12,7 @@
 # Provider
 
 Constructs and returns a new [provider](../types/provider.md) within Oh My Prvd. Providers must be
-created before calling `Prvd.ignite()`.
+created before calling `prvd.start(options)`.
 
 === "Luau"
 

@@ -54,7 +54,7 @@ nav:
     - Installation: tutorials/installation.md
     - Fundamentals:
       - Providers: tutorials/fundamentals/providers.md
-      - Ignition: tutorials/fundamentals/ignition.md
+      - Startup: tutorials/fundamentals/startup.md
       - Lifecycle Methods: tutorials/fundamentals/lifecycle-methods.md
     - Net:
       - Net: tutorials/net/index.md
@@ -83,20 +83,17 @@ nav:
       - reference/core/index.md
       - Providers:
         - reference/core/providers/index.md
-        - awaitIgnition: reference/core/providers/await-ignition.md
-        - ignite: reference/core/providers/ignite.md
-        - IgnitionStatus: reference/core/providers/ignition-status.md
-        - onIgnition: reference/core/providers/on-ignition.md
+        - awaitStart: reference/core/providers/await-start.md
+        - onStart: reference/core/providers/on-start.md
         - Provider: reference/core/providers/provider.md
+        - preload: reference/core/providers/preload.md
+        - StartupStatus: reference/core/providers/startup-status.md
+        - start: reference/core/providers/start.md
         - use: reference/core/providers/use.md
-      - Loader:
-        - reference/core/loader/index.md
-        - loadChildren: reference/core/loader/load-children.md
-        - loadDescendants: reference/core/loader/load-descendants.md
-        - matchesName: reference/core/loader/matches-name.md
       - Modding:
         - reference/core/modding/index.md
-        - getIgnitionOptions: reference/core/modding/get-ignition-options.md
+        - getStartupOptions: reference/core/modding/get-startup-options.md
+        - getStartupStatus: reference/core/modding/get-startup-status.md
         - onMethodImplemented: reference/core/modding/on-method-implemented.md
         - onProviderConstructed: reference/core/modding/on-provider-constructed.md
         - onProviderUsed: reference/core/modding/on-provider-used.md

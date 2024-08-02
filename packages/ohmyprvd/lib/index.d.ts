@@ -54,17 +54,17 @@ declare namespace ohmyprvd {
 	 * An enumeration of all defined ignition status Oh My Prvd will be in.
 	 *
 	 * This enum is not useful outside of Oh My Prvd itself; prefer to work with
-	 * `awaitIgnition()` and `onIgnition(callback)`
+	 * `awaitStart()` and `onStart(callback)`
 	 */
 	export enum IgnitionStatus {
 		/**
-		 * Indicates that `prvd.ignite()` has not been called yet. Calls to
+		 * Indicates that `prvd.start(options)` has not been called yet. Calls to
 		 * prvd.use() and prvd.Provider() are safe.
 		 */
 		Pending = "IgnitionStatus.Pending",
 
 		/**
-		 * Indicates that `prvd.ignite()` has been called, but the ignition process
+		 * Indicates that `prvd.start(options)` has been called, but the ignition process
 		 * has not finished. Calls to `prvd.use()` and `prvd.Provider()` will throw
 		 * an error.
 		 */
@@ -74,8 +74,8 @@ declare namespace ohmyprvd {
 		 * Indicates that the ignition process has finished. Calls to `prvd.use()`
 		 * and `prvd.Provider()` will throw an error.
 		 *
-		 * Awaiting threads from `prvd.awaitIgnition()` and queued callbacks from
-		 * `prvd.onIgnition()` will be spawned just before the ignition status is
+		 * Awaiting threads from `prvd.awaitStart()` and queued callbacks from
+		 * `prvd.onStart(callback)` will be spawned just before the ignition status is
 		 * set to this.
 		 */
 		Ignited = "IgnitionStatus.Ignited",
@@ -87,7 +87,7 @@ declare namespace ohmyprvd {
 	 * Yields the calling thread just before ignition finishes. If Oh My Prvd has
 	 * already started, the thread will continue.
 	 */
-	export const awaitIgnition: () => void
+	export const awaitStart: () => void
 
 	/**
 	 * Ignites Oh My Prvd. Expected to be called once in an environment, e.g. once
@@ -102,11 +102,11 @@ declare namespace ohmyprvd {
 	 * Queues a callback to be called just before ignition finishes. If Oh My Prvd
 	 * has already started, the callback will be spawned immediately.
 	 */
-	export const onIgnition: (callback: () => void) => void
+	export const onStart: (callback: () => void) => void
 
 	/**
 	 * Constructs and returns a new provider within Oh My Prvd. Providers must be
-	 * created before calling Prvd.ignite().
+	 * created before calling prvd.start(options).
 	 */
 	export const Provider: <T extends object>(
 		name: string,
