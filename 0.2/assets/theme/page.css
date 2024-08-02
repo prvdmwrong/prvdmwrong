@@ -163,28 +163,6 @@ h6 > .twemoji:first-child {
 	vertical-align: middle;
 }
 
-.ompdoc-api-breadcrumbs {
-	padding-bottom: 0.25em;
-}
-
-.ompdoc-api-breadcrumbs > a {
-	color: var(--md-default-fg-color);
-	opacity: 70%;
-}
-
-.ompdoc-api-breadcrumbs > a::after {
-	color: var(--md-default-fg-color--light);
-	content: "/";
-	display: inline;
-	opacity: 70%;
-	padding-left: 0.1em;
-}
-
-.ompdoc-api-breadcrumbs > a:hover::after {
-	left: 0;
-	bottom: 0;
-}
-
 .ompdoc-icons-robloxts {
 	color: oklch(from #e2241a 0.6 0.15 h);
 }

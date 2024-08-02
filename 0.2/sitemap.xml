@@ -191,17 +191,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/tutorials/advanced/alternatives/</loc>
-         <lastmod>2024-08-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://team-fireworks.github.io/ohmyprvd/0.2/tutorials/advanced/execution-order/</loc>
          <lastmod>2024-08-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://team-fireworks.github.io/ohmyprvd/0.2/tutorials/advanced/modding/</loc>
+         <lastmod>2024-08-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/tutorials/advanced/philosophies/</loc>
          <lastmod>2024-08-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
