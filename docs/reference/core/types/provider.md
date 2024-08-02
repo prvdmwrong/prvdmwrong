@@ -1,9 +1,9 @@
-<div class="ompdoc-api-breadcrumbs">
+<div class="ompdoc-reference-breadcrumbs">
 <a href="../../">Oh My Prvd</a>
 <a href="../">Core</a>
 </div>
 
-<div class="ompdoc-api-tags">
+<div class="ompdoc-reference-tags">
 <span>type</span>
 <span>since v0.1</span>
 </div>

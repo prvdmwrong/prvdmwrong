@@ -1,4 +1,4 @@
-<div class="ompdoc-api-breadcrumbs">
+<div class="ompdoc-reference-breadcrumbs">
 <a href="../">Reference</a>
 </div>
 

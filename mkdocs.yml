@@ -71,7 +71,7 @@ nav:
       - Modding: tutorials/advanced/modding.md
       - Execution Order: tutorials/advanced/execution-order.md
       - VSCode Snippets: tutorials/advanced/snippets.md
-      - Alternatives: tutorials/advanced/alternatives.md
+      - Philosophies: tutorials/advanced/philosophies.md
   - Examples:
     - examples/index.md
     - Projects:
@@ -85,10 +85,10 @@ nav:
         - reference/core/providers/index.md
         - awaitStart: reference/core/providers/await-start.md
         - onStart: reference/core/providers/on-start.md
-        - Provider: reference/core/providers/provider.md
         - preload: reference/core/providers/preload.md
-        - StartupStatus: reference/core/providers/startup-status.md
+        - Provider: reference/core/providers/provider.md
         - start: reference/core/providers/start.md
+        - StartupStatus: reference/core/providers/startup-status.md
         - use: reference/core/providers/use.md
       - Modding:
         - reference/core/modding/index.md
@@ -120,11 +120,11 @@ nav:
         - onPlayerRemoved: reference/lifecycles/players/on-player-removed.md
 extra_css:
   - assets/theme/404.css
-  - assets/theme/api.css
   - assets/theme/code.css
   - assets/theme/home.css
   - assets/theme/ompdoc.css
   - assets/theme/page.css
+  - assets/theme/reference.css
 
 extra:
   version:

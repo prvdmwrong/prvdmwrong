@@ -1,4 +1,4 @@
-<div class="ompdoc-api-breadcrumbs">
+<div class="ompdoc-reference-breadcrumbs">
 <a href="../">Reference</a>
 </div>
 
@@ -42,7 +42,7 @@ You attempted to start Oh My Prvd when it has already started.
 ## cannotRegister
 
 ```Md
-cannot register provider; `MyProvider.init` should be a function
+cannot register provider; `MyProvider.onStart` should be a function
 ```
 
 **Thrown by:** [`prvd.Provider`](core/providers/provider.md),
@@ -68,20 +68,6 @@ issue. Typically it is one of the following:
 **Thrown by:** [`prvd.use`](core/providers/use.md)
 
 You attempted to `use()` an object that was not registered as a provider.
-
----
-
-## initError
-
-**Thrown by:** [`prvd.ignite`](core/providers/start.md)
-
-```Md
-cannot initialize MyProvider; attempted to index nil with 'property'
-```
-
-Oh My Prvd could not finish its initialization lifecycle as a provider threw an
-error in it's `:init` method. The error includes a more specific message which
-can be used to diagnose the issue.
 
 ---
 
@@ -124,6 +110,20 @@ You attempted to register a provider after startup.
 
 Make sure you've preloaded all providers you will use prior to startup, and
 that no other module registers a provider after startup.
+
+---
+
+## onInitError
+
+**Thrown by:** [`prvd.start`](core/providers/start.md)
+
+```Md
+cannot initialize MyProvider; attempted to index nil with 'property'
+```
+
+Oh My Prvd could not finish its initialization lifecycle as a provider threw an
+error in it's `:init` method. The error includes a more specific message which
+can be used to diagnose the issue.
 
 ---
 

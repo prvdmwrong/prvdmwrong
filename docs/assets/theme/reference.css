@@ -1,4 +1,4 @@
-.ompdoc-api-tags {
+.ompdoc-reference-tags {
 	align-content: space-around;
 	align-items: baseline;
 	display: flex;
@@ -8,7 +8,7 @@
 	gap: 0.5em;
 }
 
-.ompdoc-api-tags > span {
+.ompdoc-reference-tags > span {
 	color: var(--md-default-fg-color);
 	height: 2.6em;
 	line-height: 2.6;
@@ -18,7 +18,7 @@
 	opacity: 50%;
 }
 
-.ompdoc-api-tags > span::before {
+.ompdoc-reference-tags > span::before {
 	background-color: var(--md-default-fg-color);
 	border-radius: 1.3em;
 	content: "";
@@ -30,4 +30,26 @@
 	position: absolute;
 	right: 0;
 	width: 100%;
+}
+
+.ompdoc-reference-breadcrumbs {
+	padding-bottom: 0.25em;
+}
+
+.ompdoc-reference-breadcrumbs > a {
+	color: var(--md-default-fg-color);
+	opacity: 70%;
+}
+
+.ompdoc-reference-breadcrumbs > a::after {
+	color: var(--md-default-fg-color--light);
+	content: "/";
+	display: inline;
+	opacity: 70%;
+	padding-left: 0.1em;
+}
+
+.ompdoc-reference-breadcrumbs > a:hover::after {
+	left: 0;
+	bottom: 0;
 }
