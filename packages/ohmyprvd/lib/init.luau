@@ -52,6 +52,8 @@ local prvd: Types.Prvd = table.freeze {
     defineMetadata = Reflect.defineMetadata,
     getMetadata = Reflect.getMetadata,
     deleteMetadata = Reflect.deleteMetadata,
+
+    registerDependency = Prvd.registerDependency,
   },
 }
 
