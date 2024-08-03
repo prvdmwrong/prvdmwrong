@@ -105,13 +105,13 @@ declare namespace ohmyprvd {
 	export const onStart: (callback: () => void) => void
 
 	/**
-	 * Constructs and returns a new provider within Oh My Prvd. Providers must be
-	 * created before calling prvd.start(options).
+	 * Returns a decorator for providers. Intended to be used by TypeScript
+	 * classes, where `prvd.new` may be unideal as a reserved keyword and subpar
+	 * syntax.
 	 */
-	export const Provider: <T extends object>(
-		name: string,
-		provider: Provider<T>,
-	) => Provider<T>
+	export const Provider: (options?: {
+		loadOrder?: number
+	}) => <T extends new () => InstanceType<T>>(provider: T) => void
 
 	/**
 	 * Uses a provider within Oh My Prvd. During ignition, Oh My Prvd will inject
