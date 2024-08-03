@@ -10,4 +10,4 @@
   exclude = ["DevPackages", "node_modules", "Packages"]
 
 [dependencies]
-  prvd = "znotfireman/ohmyprvd@0.1.1-alpha"
+  prvd = "znotfireman/ohmyprvd@0.2.0-dev.1"

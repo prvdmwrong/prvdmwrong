@@ -1,0 +1,9 @@
+{
+  "name": "ohmyprvd-lifecycles-packaged",
+  "tree": {
+    "$path": "Packages",
+    "ohmyprvd-lifecycles": {
+      "$path": "lib"
+    }
+  }
+}

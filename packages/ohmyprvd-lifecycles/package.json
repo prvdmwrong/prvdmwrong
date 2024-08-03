@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/ohmyprvd-lifecycles",
-  "version": "0.1.0-alpha",
+  "version": "0.2.0-dev.2",
   "description": "Implements a \"small\" amount of lifecycle events for providers.",
   "main": "out/init.luau",
   "keywords": [],
@@ -15,7 +15,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@rbxts/ohmyprvd": "0.1.1-alpha"
+    "@rbxts/ohmyprvd": "0.2.0-dev.1"
   },
   "devDependencies": {
     "@rbxts/compiler-types": "2.3.0-types.1",

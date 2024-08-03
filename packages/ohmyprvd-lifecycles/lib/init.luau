@@ -5,15 +5,25 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
-local prvd = require(script.Packages.prvd)
-local lifecycles = {}
+-- FIXME: please tell me theres a better way than this
+local prvd = require(script.Parent.prvd) :: Prvd
+local types = require(script.types)
 
+export type OnPreSimulation = types.OnPreSimulation
+export type OnPostSimulation = types.OnPostSimulation
+export type OnPreRender = types.OnPreRender
+export type OnShutdown = types.OnShutdown
+export type OnPlayerAdded = types.OnPlayerAdded
+export type OnPlayerRemoving = types.OnPlayerRemoving
 type Pack = { [number]: any, n: number }
-type Provider<T> = prvd.Provider<T>
-type Self = typeof(lifecycles)
+type Provider<T> = types.Provider<T>
+type Prvd = types.Prvd
 type Set<T> = { [T]: true }
 
 local freeThreads: { thread } = {}
+
+local Lifecycles = {}
+type Self = typeof(Lifecycles)
 
 local function yield()
   while true do
@@ -24,10 +34,6 @@ local function yield()
   end
 end
 
---[[
-  Spawns a thread immediately. This will pool and reuse threads when possible,
-  and thus is more efficient than `task.spawn`.
-]]
 local function spawn<Args...>(resume: (Args...) -> (), ...: Args...)
   local thread: thread
   if #freeThreads > 0 then
@@ -39,18 +45,15 @@ local function spawn<Args...>(resume: (Args...) -> (), ...: Args...)
   task.spawn(thread, resume, thread, ...)
 end
 
--- TODO: this doesnt profile lifecycle methods yet, ideally ohmyprvd would
--- expose an api for reading ignition config
+Lifecycles.loadOrder = 0
+function Lifecycles:onInit()
+  local postSimulation: Set<Provider<OnPostSimulation>> = {}
+  local preSimulation: Set<Provider<OnPreSimulation>> = {}
+  local preRender: Set<Provider<OnPreRender>> = {}
 
-lifecycles.loadOrder = 0
-function lifecycles:onInit()
-  local postSimulation: Set<Provider<{ onPostSimulation: (Provider<unknown>, number) -> () }>> = {}
-  local preSimulation: Set<Provider<{ onPreSimulation: (Provider<unknown>, number) -> () }>> = {}
-  local preRender: Set<Provider<{ onPreRender: (Provider<unknown>, number) -> () }>> = {}
-
-  local playerAdded: Set<Provider<{ onPlayerAdded: (Provider<unknown>, Player) -> () }>> = {}
-  local playerLeaving: Set<Provider<{ onPlayerLeaving: (Provider<unknown>, Player) -> () }>> = {}
-  local shutdown: Set<Provider<{ onShutdown: (Provider<unknown>) -> () }>> = {}
+  local playerAdded: Set<Provider<OnPlayerAdded>> = {}
+  local playerRemoving: Set<Provider<OnPlayerRemoving>> = {}
+  local shutdown: Set<Provider<OnShutdown>> = {}
 
   local function implementMethod(watchlist: { [unknown]: true }, method: string)
     prvd.onMethodImplemented(method, function(provider)
@@ -101,12 +104,12 @@ function lifecycles:onInit()
     end)
   )
 
-  implementMethod(playerLeaving, "onPlayerLeaving")
+  implementMethod(playerRemoving, "onPlayerRemoving")
   table.insert(
     connections,
     Players.PlayerRemoving:Connect(function(player)
-      for provider in pairs(playerLeaving) do
-        spawn(provider.onPlayerLeaving, provider, player)
+      for provider in pairs(playerRemoving) do
+        spawn(provider.onPlayerRemoving, provider, player)
       end
     end)
   )
@@ -134,4 +137,5 @@ function lifecycles:onInit()
   end
 end
 
-return prvd.new("ohmyprvd-lifecycles", lifecycles)
+prvd.new("ohmyprvd@Lifecycles", Lifecycles)
+return nil
