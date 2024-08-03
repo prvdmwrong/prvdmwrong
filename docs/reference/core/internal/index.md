@@ -8,8 +8,17 @@
 Lower level primitives for library authors.
 
 !!! danger "Beware"
-    Internal APIs are made for library authors. Do not touch this unless you
+    These are internal APIs are made for library authors. Do not touch this unless you
     know what you're doing, unless you'd like to be fired.
 
-!!! warning "Under construction"
-    This page is under construction - information may be incomplete or missing.
+---
+
+## Members
+
+- [:octicons-code-16: defineMetadata](define-metadata.md)
+- [:octicons-code-16: deleteMetadata](delete-metadata.md)
+- [:octicons-code-16: getMetadata](get-metadata.md)
+- [:octicons-code-16: registerAll](register-all.md)
+- [:octicons-code-16: registerDependency](register-dependency.md)
+- [:octicons-code-16: registerMethod](register-method.md)
+- [:octicons-code-16: unregisterMethod](unregister-method.md)
