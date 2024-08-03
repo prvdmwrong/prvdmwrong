@@ -94,7 +94,7 @@ export type Prvd = {
   },
   new: <T>(name: string, provider: T) -> Provider<T>,
   onStart: (callback: () -> ()) -> (),
-  Provider: <T>(name: string, provider: T) -> Provider<T>,
+  Provider: (options: { loadOrder: number? }?) -> <T>(provider: T) -> (),
   use: <T>(provider: Provider<T>) -> T,
 
   onMethodImplemented: (method: string, handler: (Provider<unknown>) -> ()) -> (),

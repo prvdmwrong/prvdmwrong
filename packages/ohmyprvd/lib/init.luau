@@ -40,9 +40,8 @@ local prvd: types.Prvd = table.freeze {
 
   -- Core API
   awaitStart = prvd.awaitStart,
-  new = prvd.Provider,
+  new = prvd.new,
   onStart = prvd.onStart,
-  Provider = prvd.Provider,
   StartupStatus = prvd.StartupStatus,
   start = prvd.start,
   use = prvd.use,
@@ -62,6 +61,9 @@ local prvd: types.Prvd = table.freeze {
 
   -- Utility APIs
   preload = utils.preload,
+
+  -- TypeScript APIs
+  Provider = prvd.Provider,
 }
 
 return prvd

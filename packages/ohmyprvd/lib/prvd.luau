@@ -37,12 +37,17 @@ local expect = log.expect
 local parseError = log.parseError
 local throw = log.throw
 
-export type Error = types.Error
-export type OnInit = types.OnInit
-export type OnStart = types.OnStart
-export type Options = types.Options
-export type Provider<T> = types.Provider<T>
-export type StartupStatus = types.StartupStatus
+type Error = types.Error
+type OnInit = types.OnInit
+type OnStart = types.OnStart
+type Options = types.Options
+type Provider<T> = types.Provider<T>
+type StartupStatus = types.StartupStatus
+
+local PROVIDER_DECORATOR = newproxy(true)
+getmetatable(PROVIDER_DECORATOR).__tostring = function()
+  return "prvd.PROVIDER_DECORATOR"
+end
 
 local WEAK_KEYS_METATABLE = { __mode = "k" }
 
@@ -132,7 +137,7 @@ end
   Constructs and returns a new provider within Oh My Prvd. Providers must be
   created before calling `Prvd.start()`.
 ]]
-function prvd.Provider<T>(name: string, provider: T): Provider<T>
+function prvd.new<T>(name: string, provider: T): Provider<T>
   expect(status == StartupStatus.Pending, "registerAfterStarted")
   expect(typeof(name) == "string", "cannotRegister", nil, "`name` must be a string")
   expect(name:len() > 0, "cannotRegister", nil, "`name` cannot be empty")
@@ -155,6 +160,34 @@ function prvd.Provider<T>(name: string, provider: T): Provider<T>
   providers[name] = provider
   modding.doProviderConstructed(provider)
   return provider
+end
+
+--[[
+  Returns a decorator for providers. Intended to be used by TypeScript classes,
+  where `prvd.new` may be unideal as a reserved keyword and subpar syntax.
+]]
+function prvd.Provider(options: { loadOrder: number? }?)
+  local options = options or {}
+  return function<T>(provider: T)
+    expect(typeof(provider) == "table", "cannotRegister", nil, "provider must be a table")
+    expect(not table.isfrozen(provider :: any), "cannotRegister", nil, "provider cannot be frozen")
+    expect(typeof(provider.new) == "function", "cannotRegister", nil, "must use TypeScript decorator on a class")
+    expect(typeof(provider.__tostring) == "function", "cannotRegister", nil, "must use TypeScript decorator on a class")
+
+    local newProvider = provider.new()
+
+    local name = provider:__tostring()
+    expect(typeof(name) == "string", "cannotRegister", nil, `expected provider class tostring to return a string`)
+    expect(typeof(name) == "string", "cannotRegister", nil, "`name` must be a string")
+    expect(name:len() > 0, "cannotRegister", nil, "`name` cannot be empty")
+
+    reflect.defineMetadata(newProvider, "ohmyprvd:provider", true)
+    reflect.defineMetadata(newProvider, "identifier", name)
+    reflect.defineMetadata(newProvider, "ohmyprvd:loadOrder", options.loadOrder)
+
+    providers[name] = newProvider
+    modding.doProviderConstructed(newProvider)
+  end
 end
 
 --[[
