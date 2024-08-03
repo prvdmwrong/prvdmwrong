@@ -135,6 +135,7 @@ end
 function prvd.Provider<T>(provider: T): Provider<T>
   expect(status == StartupStatus.Pending, "registerAfterStarted")
   expect(typeof(provider) == "table", "cannotRegister", nil, "provider must be a table")
+  expect(not providers[provider], "cannotRegister", nil, "already registered provider")
   expect(not table.isfrozen(provider :: any), "cannotRegister", nil, "provider cannot be frozen")
 
   local source: string = debug.info(2, "s")
@@ -156,8 +157,8 @@ function prvd.Provider<T>(provider: T): Provider<T>
 end
 
 --[[
-  Uses a provider within Oh My Prvd. During startup, Oh My Prvd will inject
-  the dependencies your provider uses.
+  Uses a provider within Oh My Prvd. During startup, Oh My Prvd will inject the
+  dependencies your provider uses.
 ]]
 function prvd.use<T>(provider: Provider<T>): T
   expect(status == StartupStatus.Pending, "useAfterStarted")
