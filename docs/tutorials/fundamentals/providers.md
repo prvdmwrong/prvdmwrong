@@ -18,7 +18,7 @@ lifecycle events:
     local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 
     local PointsProvider = {}
-    return prvd.Provider("PointsProvider", PointsProvider)
+    return prvd.Provider(PointsProvider)
     ```
 
 === "TypeScript"
@@ -26,7 +26,7 @@ lifecycle events:
     ```TypeScript
     import { Provider } from "@rbxts/ohmyprvd"
 
-    export = Provider("PointsProvider", {})
+    export = Provider({})
     ```
 
 ??? tip "Too verbose?"
@@ -39,7 +39,7 @@ lifecycle events:
     local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 
     local PointsProvider = {}
-    return prvd.new("PointsProvider", PointsProvider)
+    return prvd.new(PointsProvider)
     ```
 
     For consistency, we recommend using `Provider` when favorable.
@@ -72,7 +72,7 @@ a `Player` and their points:
     local PointsProvider = {}
     PointsProvider.points = {}
 
-    return prvd.Provider("PointsProvider", PointsProvider)
+    return prvd.Provider(PointsProvider)
     ```
 
 === "TypeScript"
@@ -80,7 +80,7 @@ a `Player` and their points:
     ```TypeScript hl_lines="4"
     import { Provider } from "@rbxts/ohmyprvd"
 
-    export = Provider("PointsProvider", {
+    export = Provider({
       points: Map<Player, number> = {}
     })
     ```
@@ -107,7 +107,7 @@ for convenience:
       self.points[player] = 10
     end
 
-    return prvd.Provider("PointsProvider", PointsProvider)
+    return prvd.Provider(PointsProvider)
     ```
 
 === "TypeScript"
@@ -115,7 +115,7 @@ for convenience:
     ```TypeScript hl_lines="6-8"
     import { Provider } from "@rbxts/ohmyprvd"
 
-    export = Provider("PointsProvider", {
+    export = Provider({
       points: Map<Player, number> = {}
 
       setDefaultPoints(player: Player) {
@@ -243,7 +243,7 @@ every player that joins:
       end
     end
 
-    return prvd.Provider("PointsProvider", PointsProvider)
+    return prvd.Provider(PointsProvider)
     ```
 
 === "TypeScript"
@@ -252,7 +252,7 @@ every player that joins:
     import { Provider } from "@rbxts/ohmyprvd"
     import { Players } from "@rbxts/services"
 
-    export = Provider("PointsProvider", {
+    export = Provider({
       points: Map<Player, number> = {},
 
       setDefaultPoints(player: Player) {
@@ -316,7 +316,7 @@ function PointsProvider.start(
   end)
 end
 
-return prvd.Provider("PointsProvider", PointsProvider)
+return prvd.Provider(PointsProvider)
 ```
 
 ---
@@ -347,7 +347,7 @@ First, create a file for a new `MathProvider` with the following:
       return a + b
     end
 
-    return prvd.Provider("MathProvider", MathProvider)
+    return prvd.Provider(MathProvider)
     ```
 
 === "TypeScript"
@@ -355,7 +355,7 @@ First, create a file for a new `MathProvider` with the following:
     ```TypeScript
     import { Provider } from "@rbxts/ohmyprvd"
 
-    export = Provider("MathProvider", {
+    export = Provider({
       add(a: number, b: number) {
         // this method is very expensive!
         task.wait(5)
@@ -417,7 +417,7 @@ function PointsProvider.addPoints(
   )
 end
 
-return prvd.Provider("PointsProvider", PointsProvider)
+return prvd.Provider(PointsProvider)
 ```
 
 ??? danger "Do not use dependencies outside of lifecycle methods!"

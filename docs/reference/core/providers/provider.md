@@ -18,7 +18,6 @@ created before calling `prvd.start(options)`.
 
     ```Lua
     function prvd.Provider<T>(
-      name: string,
       provider: T
     ): Provider<T>
     ```
@@ -32,7 +31,7 @@ created before calling `prvd.start(options)`.
         local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 
         local PointsProvider = {}
-        return prvd.new("PointsProvider", PointsProvider)
+        return prvd.new(PointsProvider)
         ```
 
         For consistency, we recommend using `Provider` when favorable, as
@@ -42,7 +41,6 @@ created before calling `prvd.start(options)`.
 
     ```TypeScript
     export const Provider: <T extends object>(
-      name: string,
       provider: T
     ) => Provider<T>
     ```
@@ -50,10 +48,6 @@ created before calling `prvd.start(options)`.
 ---
 
 ## Parameters
-
-### name `#!lua : string`
-
-A unique name to identify the provider with. This will be used for debugging.
 
 ### provider `#!lua : T`
 

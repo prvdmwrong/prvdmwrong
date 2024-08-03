@@ -52,10 +52,9 @@ You attempted to register a new provider, but Oh My Prvd caught something wrong.
 The error includes a more specific message which can be used to diagnose the
 issue. Typically it is one of the following:
 
-- A provider of the same name was already registered
+- This provider has already been registered
 - You have frozen the provider table, which prevents dependency injection
 - You provided a mismatched type for a built-in method/property
-- You forgot to include a non-empty string as a `name`
 
 ---
 
