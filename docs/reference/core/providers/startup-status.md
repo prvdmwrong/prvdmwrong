@@ -5,11 +5,11 @@
 </div>
 
 <div class="ompdoc-reference-tags">
-<span>enumeration</span>
-<span>since v0.1</span>
+<span class="ompdoc-reference-highlight">enumeration</span>
+<span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-# StartupStatus
+# :octicons-list-ordered-16: StartupStatus
 
 An enumeration of all defined startup status Oh My Prvd will be in.
 

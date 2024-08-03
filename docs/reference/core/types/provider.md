@@ -4,11 +4,11 @@
 </div>
 
 <div class="ompdoc-reference-tags">
-<span>type</span>
-<span>since v0.1</span>
+<span class="ompdoc-reference-highlight">type</span>
+<span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-# Provider
+# :octicons-checklist-16: Provider
 
 Provides a specific functionality for a game. This type is not useful outside of
 Oh My Prvd itself; prefer to use [`use(provider)`](../providers/use.md) for
@@ -16,10 +16,9 @@ more precise types.
 
 === "Luau"
 
-    ```Lua
+    ```TypeScript
     export type Provider<T> = T & {
       loadOrder: number?,
-
       onInit: ((self: Provider<T>) -> Promise?)?,
       onStart: (self: Provider<T>) -> ()?
     }

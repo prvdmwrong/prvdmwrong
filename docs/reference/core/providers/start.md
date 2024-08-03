@@ -5,11 +5,11 @@
 </div>
 
 <div class="ompdoc-reference-tags">
-<span>function</span>
-<span>since v0.1</span>
+<span class="ompdoc-reference-highlight">function</span>
+<span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-# start
+# :octicons-code-16: start
 
 Starts Oh My Prvd. Expected to be called once in an environment, e.g. once on
 the server and once on the client.

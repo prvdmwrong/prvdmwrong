@@ -5,11 +5,11 @@
 </div>
 
 <div class="ompdoc-reference-tags">
-<span>function</span>
-<span>since v0.1</span>
+<span class="ompdoc-reference-highlight">function</span>
+<span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-# deleteMetadata
+# :octicons-code-16: deleteMetadata
 
 !!! warning "Under construction"
     This page is under construction - information may be incomplete or missing.

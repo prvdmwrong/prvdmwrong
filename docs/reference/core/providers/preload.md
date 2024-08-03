@@ -5,11 +5,11 @@
 </div>
 
 <div class="ompdoc-reference-tags">
-<span>function</span>
-<span>since v0.1</span>
+<span class="ompdoc-reference-highlight">function</span>
+<span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-# preload
+# :octicons-code-16: preload
 
 Preload the specified parent by requiring all `ModuleScripts` within it. An
 optional `predicate` function can be provided to filter modules.

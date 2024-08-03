@@ -3,7 +3,9 @@
 <a href="../">Core</a>
 </div>
 
-# Modding
+# :octicons-list-unordered-16: Modding
+
+Hooks and utilities for extending the core Oh My Prvd package.
 
 !!! warning "Under construction"
     This page is under construction - information may be incomplete or missing.

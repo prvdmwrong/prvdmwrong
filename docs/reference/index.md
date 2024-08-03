@@ -1,7 +1,8 @@
 # Reference
 
-This section provides detailed reference documentation for working with React.
-For an introduction to Oh My Prvd, see the [Learn section.](../tutorials/index.md)
+This section provides detailed reference documentation for working with Oh My
+Prvd. For an introduction to Oh My Prvd, see the [Learn
+section.](../tutorials/index.md)
 
 The reference is broken down into functional packages.
 

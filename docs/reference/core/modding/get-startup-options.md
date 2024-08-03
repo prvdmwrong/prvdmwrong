@@ -5,11 +5,11 @@
 </div>
 
 <div class="ompdoc-reference-tags">
-<span>function</span>
-<span>since v0.1</span>
+<span class="ompdoc-reference-highlight">function</span>
+<span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-# getIgnitionOptions
+# :octicons-package-16: getIgnitionOptions
 
 Returns the startup configuration options. Options are reconciled with
 default values.

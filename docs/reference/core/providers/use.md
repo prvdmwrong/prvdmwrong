@@ -5,11 +5,11 @@
 </div>
 
 <div class="ompdoc-reference-tags">
-<span>function</span>
-<span>since v0.1</span>
+<span class="ompdoc-reference-highlight">function</span>
+<span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-# use
+# :octicons-code-16: use
 
 Uses a provider within Oh My Prvd. During startup, Oh My Prvd will inject the
 dependencies your provider uses.

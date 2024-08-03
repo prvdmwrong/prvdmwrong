@@ -5,11 +5,11 @@
 </div>
 
 <div class="ompdoc-reference-tags">
-<span>function</span>
-<span>since v0.1</span>
+<span class="ompdoc-reference-highlight">function</span>
+<span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-# Provider
+# :octicons-package-16: Provider
 
 Constructs and returns a new [provider](../types/provider.md) within Oh My Prvd. Providers must be
 created before calling `prvd.start(options)`.

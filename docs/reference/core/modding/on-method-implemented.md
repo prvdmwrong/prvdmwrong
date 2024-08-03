@@ -5,11 +5,11 @@
 </div>
 
 <div class="ompdoc-reference-tags">
-<span>function</span>
-<span>since v0.1</span>
+<span class="ompdoc-reference-highlight">function</span>
+<span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-# onMethodImplemented
+# :octicons-package-16: onMethodImplemented
 
 Called when a provider implements a method. Handlers are expected to be
 infallible and non-yielding. The handler receives the constructed provider.

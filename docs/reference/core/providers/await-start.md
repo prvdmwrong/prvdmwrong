@@ -5,11 +5,11 @@
 </div>
 
 <div class="ompdoc-reference-tags">
-<span>function</span>
-<span>since v0.1</span>
+<span class="ompdoc-reference-highlight">function</span>
+<span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-# awaitStart
+# :octicons-code-16: awaitStart
 
 Yields the calling thread just before startup finishes. If Oh My Prvd has
 already started, the thread will continue.

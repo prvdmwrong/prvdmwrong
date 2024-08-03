@@ -2,7 +2,7 @@
 <a href="../">Reference</a>
 </div>
 
-# Error Messages
+# :octicons-x-circle-16: Error Messages
 
 Oh My Prvd attaches an error ID with every console log message. This is used to
 uniquely identify what kind of error or message you're seeing.

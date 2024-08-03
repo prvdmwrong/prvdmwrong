@@ -87,22 +87,20 @@ Oh My Prvd introduces providers for your game logic. These *provide* specific
 functions within your game, e.g. you might create a `SaveDataProvider` to manage
 save files or a `CameraProvider` to handle player camera movement.
 
----
-
 Create providers to handle the top level logic of your game:
 
 === "Luau"
 
     ```Lua
     local CoinsProvider = {}
-    return prvd.Provider("CoinsProvider", CoinsProvider)
+    return prvd.new("CoinsProvider", CoinsProvider)
     ```
 
 === "TypeScript"
 
     ```TypeScript
-    export const CoinsProvider = prvd.Provider("CoinsProvider", {
-    })
+    @Provider({})
+    export class CoinsProvider {}
     ```
 
 At the end of the day, providers are just plain tables. It's easy to implement
@@ -122,13 +120,14 @@ more methods, properties, and the likes into a provider:
       self.coins[person] += coins
     end
 
-    return prvd.Provider("CoinsProvider", CoinsProvider)
+    return prvd.new("CoinsProvider", CoinsProvider)
     ```
 
 === "TypeScript"
 
     ```TypeScript
-    export const CoinsProvider = Provider("CoinsProvider", {
+    @Provider({})
+    export class CoinsProvider {
       balance: Map<Player, number> = {},
 
       addCoins(
@@ -138,8 +137,6 @@ more methods, properties, and the likes into a provider:
         this.coins[person] += coins
       }
     })
-
-    export = CoinsProvider
     ```
 
 Providers can `use()` other providers. Oh My Prvd will provide its types and
@@ -158,13 +155,14 @@ figure out a corresponding load order for you:
       self.coinsProvider:addCoins(player, 30)
     end
 
-    return prvd.Provider("RewardsProvider", RewardsProvider)
+    return prvd.new("RewardsProvider", RewardsProvider)
     ```
 
 === "TypeScript"
 
     ```TypeScript
-    export const RewardsProvider = Provider("RewardsProvider", {
+    @Provider({})
+    export class RewardsProvider {
       coinsProvider = use(CoinsProvider)
 
       addCoins(
@@ -172,24 +170,89 @@ figure out a corresponding load order for you:
       ) {
         this.coinsProvider:addCoins(player, coins)
       }
-    })
-
-    export = RewardsProvider
+    }
     ```
 
 Finally, preload your providers, then ignite Oh My Prvd, and you're off to the races:
 
 ```TypeScript
-prvd.loadDescendants(ServerScriptService.Providers)
+prvd.preload(ServerScriptService.Providers:GetDescendants())
 prvd.start(options)
 ```
 
 ---
 
-## :material-numeric-2-circle-outline: Networking
+## :material-numeric-2-circle-outline: Mixins
 
 ---
 
-## :material-numeric-3-circle-outline: Modding
+## :material-numeric-3-circle-outline: Extensible
+
+Oh My Prvd brings comprehensive APIs for extending the framework. Here's one of
+the common ones, `Lifecycle` to implement your own lifecycle methods:
+
+=== "Luau"
+
+    ```Lua
+    type OnCharacterAdded = {
+      onCharacterAdded: (self: unknown, character: Model) -> ()
+    }
+
+    local characterAdded = Lifecycle("onCharacterAdded")
+
+    if (LocalPlayer.Character) then
+      characterAdded.fire(LocalPlayer.Character)
+    end
+    LocalPlayer.CharacterAdded:Connect(function(character)
+      characterAdded.fire(character)
+    end)
+    ```
+
+=== "TypeScript"
+
+    ```TypeScript
+    interface OnCharacterAdded {
+      onCharacterAdded: (self: unknown, character: Model) -> ()
+    }
+
+    const characterAdded = Lifecycle("onCharacterAdded")
+    if (LocalPlayer.Character) {
+      characterAdded.fire(LocalPlayer.Character)
+    }
+    LocalPlayer.CharacterAdded.Connect((character) => {
+      characterAdded.fire(character)
+    })
+    ```
+
+A provider can then hook onto the lifecycle:
+
+=== "Luau"
+
+    ```Lua
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+
+    local CombatProvider = {}
+    function CombatProvider:onCharacterAdded(character: Model)
+      local rootPart: BasePart = assert(character:FindFirstChild("HumanoidRootPart"))
+      -- do something with rootPart
+    end
+
+    return prvd.new(CombatProvider)
+    ```
+
+=== "TypeScript"
+
+    ```TypeScript
+    import { Provider } from "@rbxts/ohmyprvd"
+
+    @Provider({})
+    export class CombatProvider implements OnCharacterAdded {
+      onCharacterAdded(character) {
+        const rootPart: BasePart = assert(character:FindFirstChild("HumanoidRootPart"))
+        // do something with rootPart
+      }
+    }
+    ```
 
 </section>

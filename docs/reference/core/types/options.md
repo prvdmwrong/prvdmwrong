@@ -4,11 +4,11 @@
 </div>
 
 <div class="ompdoc-reference-tags">
-<span>type</span>
-<span>since v0.1</span>
+<span class="ompdoc-reference-highlight">type</span>
+<span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-# Options
+# :octicons-checklist-16: Options
 
 Configures how Oh My Prvd will ignite. The following are the available
 configuration options: This type is not useful outside of Oh My Prvd itself;

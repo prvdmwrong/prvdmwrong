@@ -5,11 +5,11 @@
 </div>
 
 <div class="ompdoc-reference-tags">
-<span>function</span>
-<span>since v0.1</span>
+<span class="ompdoc-reference-highlight">function</span>
+<span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-# onProviderConstructed
+# :octicons-package-16: onProviderConstructed
 
 Called just before Oh My Prvd returns a newly constructed
 [provider](../types/provider.md). Handlers are expected to be infallible and
