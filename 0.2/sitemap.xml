@@ -31,6 +31,76 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/internal/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/internal/define-metadata/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/internal/delete-metadata/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/internal/get-metadata/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/internal/register-all/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/internal/register-dependency/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/internal/register-method/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/internal/unregister-method/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/lifecycles/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/lifecycles/fire-concurrent/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/lifecycles/fire-sequential/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/lifecycles/lifecycle/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/lifecycles/on-method-registered/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/lifecycles/on-method-unregistered/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/modding/</loc>
          <lastmod>2024-08-03</lastmod>
          <changefreq>daily</changefreq>
@@ -42,11 +112,6 @@
     </url>
     <url>
          <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/modding/get-startup-status/</loc>
-         <lastmod>2024-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/modding/on-method-implemented/</loc>
          <lastmod>2024-08-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -101,27 +166,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/reflection/</loc>
-         <lastmod>2024-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/reflection/define-metadata/</loc>
-         <lastmod>2024-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/reflection/delete-metadata/</loc>
-         <lastmod>2024-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/reflection/get-metadata/</loc>
-         <lastmod>2024-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/types/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/types/lifecycle/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/types/on-init/</loc>
+         <lastmod>2024-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/types/on-start/</loc>
          <lastmod>2024-08-03</lastmod>
          <changefreq>daily</changefreq>
     </url>

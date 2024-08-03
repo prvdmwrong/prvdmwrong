@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/modding/on-method-implemented/">
+        <link rel="canonical" href="https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/internal/get-metadata/">
       
       
-        <link rel="prev" href="../get-startup-status/">
+        <link rel="prev" href="../define-metadata/">
       
       
-        <link rel="next" href="../on-provider-constructed/">
+        <link rel="next" href="../delete-metadata/">
       
       
       <link rel="icon" href="../../../../assets/logo.svg">
@@ -22,7 +22,7 @@
     
     
       
-        <title>onMethodImplemented - Oh My Prvd</title>
+        <title>getMetadata - Oh My Prvd</title>
       
     
     
@@ -127,7 +127,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#onmethodimplemented" class="md-skip">
+        <a href="#getmetadata" class="md-skip">
           Skip to content
         </a>
       
@@ -164,7 +164,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              onMethodImplemented
+              getMetadata
             
           </span>
         </div>
@@ -1341,6 +1341,8 @@
       
         
       
+        
+      
     
     
       
@@ -1464,6 +1466,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../../providers/provider/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Provider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/startup-status/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StartupStatus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../providers/await-start/" class="md-nav__link">
         
   
@@ -1527,53 +1571,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/provider/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Provider
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../providers/start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     start
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../providers/startup-status/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    StartupStatus
   </span>
   
 
@@ -1616,6 +1618,341 @@
                 
   
   
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../lifecycles/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Lifecycles
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3_3" id="__nav_4_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Lifecycles
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lifecycles/lifecycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lifecycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lifecycles/fire-concurrent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    fireConcurrent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lifecycles/fire-sequential/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    fireSequential
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lifecycles/on-method-registered/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    onMethodRegistered
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lifecycles/on-method-unregistered/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    onMethodUnregistered
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modding/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Modding
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Modding
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modding/get-startup-options/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    getStartupOptions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modding/get-startup-status/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    getStartupStatus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modding/on-provider-constructed/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    onProviderConstructed
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modding/on-provider-used/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    onProviderUsed
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1625,6 +1962,10 @@
       
         
           
+        
+      
+        
+      
         
       
         
@@ -1649,7 +1990,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_5" checked>
         
           
           
@@ -1658,23 +1999,23 @@
               
   
   <span class="md-ellipsis">
-    Modding
+    Internal
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_3_3" id="__nav_4_3_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_3_5" id="__nav_4_3_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4_3_3">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3_5">
             <span class="md-nav__icon md-icon"></span>
-            Modding
+            Internal
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1687,32 +2028,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-startup-options/" class="md-nav__link">
+      <a href="../define-metadata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    getStartupOptions
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../get-startup-status/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    getStartupStatus
+    defineMetadata
   </span>
   
 
@@ -1742,7 +2062,7 @@
           
   
   <span class="md-ellipsis">
-    onMethodImplemented
+    getMetadata
   </span>
   
 
@@ -1753,7 +2073,7 @@
         
   
   <span class="md-ellipsis">
-    onMethodImplemented
+    getMetadata
   </span>
   
 
@@ -1787,18 +2107,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#method-string" class="md-nav__link">
+  <a href="#object-unknown" class="md-nav__link">
     <span class="md-ellipsis">
-      method : string
+      object : unknown
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#handler-providerunknown-void" class="md-nav__link">
+  <a href="#key-string" class="md-nav__link">
     <span class="md-ellipsis">
-      handler : (Provider&lt;unknown&gt;) -&gt; void
+      key : string
     </span>
   </a>
   
@@ -1806,6 +2126,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returns
+    </span>
+  </a>
   
 </li>
       
@@ -1825,161 +2154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../on-provider-constructed/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    onProviderConstructed
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../on-provider-used/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    onProviderUsed
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_4" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../reflection/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Reflection
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_3_4">
-            <span class="md-nav__icon md-icon"></span>
-            Reflection
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reflection/define-metadata/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    defineMetadata
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reflection/get-metadata/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    getMetadata
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reflection/delete-metadata/" class="md-nav__link">
+      <a href="../delete-metadata/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1993,6 +2168,90 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../register-all/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    registerAll
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../register-method/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    registerMethod
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unregister-method/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    unregisterMethod
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../register-dependency/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    registerDependency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2018,6 +2277,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -2030,7 +2295,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_6" >
         
           
           
@@ -2046,19 +2311,82 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_3_5" id="__nav_4_3_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_3_6" id="__nav_4_3_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_3_5">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_6">
             <span class="md-nav__icon md-icon"></span>
             Types
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/lifecycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lifecycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/on-init/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OnInit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/on-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OnStart
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -2257,7 +2585,7 @@
         
   
   <span class="md-ellipsis">
-    OnPostSimulation
+    onPostSimulation
   </span>
   
 
@@ -2278,7 +2606,7 @@
         
   
   <span class="md-ellipsis">
-    OnPreSimulation
+    onPreSimulation
   </span>
   
 
@@ -2299,7 +2627,7 @@
         
   
   <span class="md-ellipsis">
-    OnPreRender
+    onPreRender
   </span>
   
 
@@ -2320,7 +2648,7 @@
         
   
   <span class="md-ellipsis">
-    OnShutdown
+    onShutdown
   </span>
   
 
@@ -2409,7 +2737,7 @@
         
   
   <span class="md-ellipsis">
-    OnPlayerAdded
+    onPlayerAdded
   </span>
   
 
@@ -2430,7 +2758,7 @@
         
   
   <span class="md-ellipsis">
-    OnPlayerRemoved
+    onPlayerRemoved
   </span>
   
 
@@ -2502,18 +2830,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#method-string" class="md-nav__link">
+  <a href="#object-unknown" class="md-nav__link">
     <span class="md-ellipsis">
-      method : string
+      object : unknown
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#handler-providerunknown-void" class="md-nav__link">
+  <a href="#key-string" class="md-nav__link">
     <span class="md-ellipsis">
-      handler : (Provider&lt;unknown&gt;) -&gt; void
+      key : string
     </span>
   </a>
   
@@ -2521,6 +2849,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returns
+    </span>
+  </a>
   
 </li>
       
@@ -2545,47 +2882,48 @@
 <div class="ompdoc-reference-breadcrumbs">
 <a href="../../../">Reference</a>
 <a href="../../">Core</a>
-<a href="../">Modding</a>
+<a href="../">Internal</a>
 </div>
-
 <div class="ompdoc-reference-tags">
 <span class="ompdoc-reference-highlight">function</span>
 <span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-<h1 id="onmethodimplemented"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"/></svg></span> onMethodImplemented<a class="headerlink" href="#onmethodimplemented" title="Permanent link">&para;</a></h1>
-<p>Called when a provider implements a method. Handlers are expected to be
-infallible and non-yielding. The handler receives the constructed provider.
-Commonly used to implement custom lifecycles by adding providers to a
-"watchlist" which will have its methods fired.</p>
+<h1 id="getmetadata"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg></span> getMetadata<a class="headerlink" href="#getmetadata" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Under construction</p>
+<p>This page is under construction - information may be incomplete or missing.</p>
+</div>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Luau</label><label for="__tabbed_1_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span> <span class="nc">prvd</span><span class="p">.</span><span class="nf">onMethodImplemented</span><span class="p">(</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="n">method</span><span class="p">:</span> <span class="n">string</span><span class="p">,</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  <span class="n">handler</span><span class="p">:</span> <span class="p">(</span><span class="n">Provider</span><span class="o">&lt;</span><span class="n">unknown</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">()</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">):</span> <span class="p">()</span>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span> <span class="nc">prvd</span><span class="p">.</span><span class="nf">getMetadata</span><span class="p">(</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="n">object</span><span class="p">:</span> <span class="n">unknown</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  <span class="n">key</span><span class="p">:</span> <span class="n">string</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">):</span> <span class="n">unknown</span><span class="err">?</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">onMethodImplemented</span><span class="o">:</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">Provider</span><span class="o">&lt;</span><span class="nx">unknown</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">getMetadata</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nx">object</span><span class="o">:</span><span class="w"> </span><span class="kt">unknown</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">T</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">deleteMetadata</span><span class="o">:</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nx">object</span><span class="o">:</span><span class="w"> </span><span class="kt">unknown</span><span class="p">,</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nx">property?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span>
 </span></code></pre></div>
 </div>
 </div>
 </div>
 <hr />
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
-<h3 id="method-string">method <code class="language-lua highlight"><span class="p">:</span> <span class="n">string</span></code><a class="headerlink" href="#method-string" title="Permanent link">&para;</a></h3>
-<p>The method to implement. During startup, all providers that specify this method
-will have its handler be called.</p>
-<h3 id="handler-providerunknown-void">handler <code class="language-lua highlight"><span class="p">:</span> <span class="p">(</span><span class="n">Provider</span><span class="o">&lt;</span><span class="n">unknown</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">void</span></code><a class="headerlink" href="#handler-providerunknown-void" title="Permanent link">&para;</a></h3>
-<p>A handler for providers that implement the specified methods. It receives the
-provider which implements the method. Commonly used to implement custom
-lifecycles by adding providers to a "watchlist" which will have its methods
-fired.</p>
+<h3 id="object-unknown">object <code class="language-lua highlight"><span class="p">:</span> <span class="n">unknown</span></code><a class="headerlink" href="#object-unknown" title="Permanent link">&para;</a></h3>
+<h3 id="key-string">key <code class="language-lua highlight"><span class="p">:</span> <span class="n">string</span></code><a class="headerlink" href="#key-string" title="Permanent link">&para;</a></h3>
+<hr />
+<h2 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h2>
+<p>The metadata value.</p>
 
 
 
@@ -2653,9 +2991,9 @@ fired.</p>
         
           
           <a
-            href="../get-startup-status/"
+            href="../define-metadata/"
             class="md-footer__link md-footer__link--prev"
-            aria-label="Previous: getStartupStatus"
+            aria-label="Previous: defineMetadata"
           >
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.78 19.03a.75.75 0 0 1-1.06 0l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L5.81 11.5h14.44a.75.75 0 0 1 0 1.5H5.81l4.97 4.97a.75.75 0 0 1 0 1.06Z"/></svg>
@@ -2665,7 +3003,7 @@ fired.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                getStartupStatus
+                defineMetadata
               </div>
             </div>
           </a>
@@ -2675,16 +3013,16 @@ fired.</p>
         
           
           <a
-            href="../on-provider-constructed/"
+            href="../delete-metadata/"
             class="md-footer__link md-footer__link--next"
-            aria-label="Next: onProviderConstructed"
+            aria-label="Next: deleteMetadata"
           >
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                onProviderConstructed
+                deleteMetadata
               </div>
             </div>
             <div class="md-footer__button md-icon">
