@@ -37,7 +37,7 @@ local MESSAGES = table.freeze {
   alreadyStarted = "cannot ignite more than once",
   cannotRegister = "cannot register provider; %s",
   cannotUseNonProvider = "`prvd.use(provider)` must be given a provider",
-  invalidLoadParent = "loadX must be given an instance",
+  invalidLoadParent = "preload must be given an instance",
   invalidOnStartCallback = "`prvd.onStart(callback)` expects a callback",
   onInitError = "cannot initialize %s; %s",
   registerAfterStartup = "cannot register providers after startup",
@@ -48,7 +48,7 @@ local MESSAGES = table.freeze {
 }
 local TIPS = table.freeze {
   unknownError = "this indicates ohmyprvd isn't reporting errors correctly, please file an issue",
-  usedBeforeIgnition = "ohmyprvd will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method",
+  usedBeforeStartup = "ohmyprvd will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method",
 }
 
 local log = {}
