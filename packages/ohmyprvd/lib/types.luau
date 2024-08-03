@@ -46,6 +46,7 @@ export type OnInit = { onInit: (self: unknown) -> Promise? }
 export type OnStart = { onStart: (self: unknown) -> () }
 export type Lifecycle<Interface = { [any]: any }> = {
   listeners: { Interface },
+  method: string,
 
   fire: (self: Lifecycle<Interface>, ...unknown) -> (),
   register: (self: Lifecycle<Interface>, object: Interface) -> (),
@@ -86,6 +87,8 @@ export type Prvd = {
   use: <T>(provider: Provider<T>) -> T,
 
   Lifecycle: (method: string, fire: (self: Lifecycle, ...unknown) -> ()) -> Lifecycle,
+  fireConcurrent: (self: Lifecycle, ...unknown) -> (),
+  fireSequential: (self: Lifecycle, ...unknown) -> (),
   onMethodRegistered: (method: string, handler: (Object) -> ()) -> (),
   onMethodUnregistered: (method: string, handler: (Object) -> ()) -> (),
 
@@ -101,6 +104,8 @@ export type Prvd = {
     defineMetadata: (object: unknown, key: string, value: unknown) -> (),
     getMetadata: (object: unknown, key: string) -> unknown?,
     deleteMetadata: (object: unknown, key: string, property: string?) -> (),
+
+    registerDependency: (identifier: string, dependency: Object) -> (),
   },
 }
 

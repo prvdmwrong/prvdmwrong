@@ -46,8 +46,8 @@ local status: StartupStatus = StartupStatus.Pending
 local providers: { [string]: Provider<any> } = {}
 local startupOptions: Options? = nil
 
-local prvd = {}
-prvd.StartupStatus = StartupStatus
+local Prvd = {}
+Prvd.StartupStatus = StartupStatus
 
 local function topologicalSort(objects: { string }): { [string]: number }
   local currentSize = 0
@@ -97,7 +97,7 @@ end
   Constructs and returns a new provider within Oh My Prvd. Providers must be
   created before calling `Prvd.start()`.
 ]]
-function prvd.Provider<T>(name: string, provider: T): Provider<T>
+function Prvd.Provider<T>(name: string, provider: T): Provider<T>
   expect(status == StartupStatus.Pending, "registerAfterStarted")
   expect(typeof(name) == "string", "cannotRegister", nil, "`name` must be a string")
   expect(name:len() > 0, "cannotRegister", nil, "`name` cannot be empty")
@@ -121,7 +121,7 @@ end
   Uses a provider within Oh My Prvd. During startup, Oh My Prvd will inject
   the dependencies your provider uses.
 ]]
-function prvd.use<T>(provider: Provider<T>): T
+function Prvd.use<T>(provider: Provider<T>): T
   expect(status == StartupStatus.Pending, "useAfterStarted")
   expect(providers[Reflect.getIdentifier(provider)] ~= nil, "cannotUseNonProvider")
   local identifier = Reflect.getIdentifier(provider)
@@ -146,7 +146,7 @@ end
   All necessary providers should be preloaded before calling this as newly
   created providers will not run its lifecycle methods.
 ]]
-function prvd.start(options: {
+function Prvd.start(options: {
   logLevel: "none" | "verbose" | nil,
   profiling: boolean?,
 }?)
@@ -289,7 +289,7 @@ end
   Yields the calling thread just before ignition finishes. If Oh My Prvd has
   already started, the thread will continue.
 ]]
-function prvd.awaitStart()
+function Prvd.awaitStart()
   if status ~= StartupStatus.Pending then
     return
   end
@@ -301,7 +301,7 @@ end
   Queues a callback to be called just before ignition finishes. If Oh My Prvd
   has already started, the callback will be spawned immediately.
 ]]
-function prvd.onStart(callback: () -> ())
+function Prvd.onStart(callback: () -> ())
   if status ~= StartupStatus.Pending then
     Utils.spawn(callback)
     return
@@ -314,14 +314,14 @@ end
   Returns the start configuration options. Options are reconciled with
   default values.
 ]]
-function prvd.getStartupOptions(): Options
+function Prvd.getStartupOptions(): Options
   return reconcileOptions(startupOptions or {})
 end
 
 --[[
   Returns the current startup status of Oh My Prvd.
 ]]
-function prvd.getStartupStatus(): StartupStatus
+function Prvd.getStartupStatus(): StartupStatus
   return status
 end
 
@@ -329,7 +329,7 @@ end
   Preload the specified parent by requiring all ModuleScripts within it. An
   optional `predicate` function can be provided to filter modules.
 ]]
-function prvd.preload(instances: { Instance }, predicate: ((ModuleScript) -> boolean)?)
+function Prvd.preload(instances: { Instance }, predicate: ((ModuleScript) -> boolean)?)
   local exports: { unknown } = {}
   for _, module in ipairs(instances) do
     if not module:IsA("ModuleScript") then
@@ -345,5 +345,20 @@ function prvd.preload(instances: { Instance }, predicate: ((ModuleScript) -> boo
   return exports
 end
 
-table.freeze(prvd)
-return prvd
+--[[
+  Adds the given object as a dependency that Oh My Prvd will instantiate
+  during startup.
+
+  @internal
+]]
+function Prvd.registerDependency(identifier: string, dependency: Types.Object)
+  expect(typeof(identifier) == "string", "cannotRegister", nil, "`identifier` must be a string")
+  expect(identifier:len() > 0, "cannotRegister", nil, "`identifier` cannot be empty")
+  expect(typeof(dependency) == "table", "cannotRegister", nil, "must be a table")
+  expect(not table.isfrozen(dependency :: any), "cannotRegister", nil, "cannot be frozen")
+  expect(providers[identifier] == nil, "cannotRegister", nil, `already registered "{identifier}"`)
+  providers[identifier] = dependency :: any
+end
+
+table.freeze(Prvd)
+return Prvd

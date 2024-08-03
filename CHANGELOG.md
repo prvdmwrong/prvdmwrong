@@ -12,6 +12,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `prvd.getStartupStatus` for retrieving the status of `prvd.start`
 - Added `prvd.preload(instances, predicate)` utility API in favor of
   `prvd.loadX` functions
+- First class support for custom lifecycle methods:
+  - Added `prvd.Lifecycle` and `Lifecycle<Interface>` primitives for lifecycle
+    methods
+  - Added `prvd.onMethodRegistered` and `prvd.onMethodUnregistered`
+  - Added `prvd.fireConcurrent` and `prvd.fireSequential` handlers for lifecycle
+    methods, the former spawns all listeners, the latter runs all listeners
+    sequentially
+- Added type exports for `ohmyprvd-lifecycles`
+- Added `internal` field to exports for lower level primitives
+  - Added `prvd.registerDependency` utility for injecting your own dependencies
 - Initial release of `ohmyprvd-components`
 - Initial release of `ohmyprvd-net`
 
@@ -27,6 +37,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `prvd.getIgnitionOptions` has been renamed to `prvd.getStartupOptions`
 
 - Changed error logging internally
+
+### Deprecated
+
+- Deprecated `prvd.onMethodImplemented`, use `prvd.onMethodRegistered` for
+  observing lifecycle methods or `prvd.Lifecycle` to implement a lifecycle
+  method
 
 ### Removed
 
