@@ -110,13 +110,10 @@ more methods, properties, and the likes into a provider:
 
     ```Lua
     local CoinsProvider = {}
+    type Self = typeof(CoinsProvider)
     CoinsProvider.balance = {}
 
-    function CoinsProvider.addCoins(
-      self: typeof(CoinsProvider),
-      player: Player,
-      coins: number
-    )
+    function CoinsProvider.addCoins(self: Self, player: Player, coins: number)
       self.coins[person] += coins
     end
 
@@ -130,10 +127,7 @@ more methods, properties, and the likes into a provider:
     export class CoinsProvider {
       balance: Map<Player, number> = {},
 
-      addCoins(
-        player: Player,
-        coins: number
-      ) {
+      addCoins(player: Player, coins: number) {
         this.coins[person] += coins
       }
     })
@@ -146,12 +140,10 @@ figure out a corresponding load order for you:
 
     ```Lua
     local RewardsProvider = {}
+    type Self = typeof(CoinsProvider)
     RewardsProvider.coinsProvider = prvd.use(CoinsProvider)
 
-    function RewardsProvider.addWinRewards(
-      self: typeof(CoinsProvider),
-      player: Player,
-    )
+    function RewardsProvider.addWinRewards(self: Self, player: Player)
       self.coinsProvider:addCoins(player, 30)
     end
 
@@ -165,20 +157,27 @@ figure out a corresponding load order for you:
     export class RewardsProvider {
       coinsProvider = use(CoinsProvider)
 
-      addCoins(
-        person: Player
-      ) {
+      addCoins(person: Player) {
         this.coinsProvider:addCoins(player, coins)
       }
     }
     ```
 
-Finally, preload your providers, then ignite Oh My Prvd, and you're off to the races:
+Finally, preload your providers, then start Oh My Prvd, and you're off to the races:
 
-```TypeScript
-prvd.preload(ServerScriptService.Providers:GetDescendants())
-prvd.start(options)
-```
+=== "Luau"
+
+    ```Lua
+    prvd.preload(ServerScriptService.Providers:GetDescendants())
+    prvd.start(options)
+    ```
+
+=== "TypeScript"
+
+    ```TypeScript
+    preload(ServerScriptService.Providers.GetDescendants())
+    start(options)
+    ```
 
 ---
 
@@ -194,28 +193,35 @@ the common ones, `Lifecycle` to implement your own lifecycle methods:
 === "Luau"
 
     ```Lua
+    -- this interface satisfies our method
     type OnCharacterAdded = {
-      onCharacterAdded: (self: unknown, character: Model) -> ()
+      onCharacterAdded(self: unknown, character: Model) -> ()
     }
 
-    local characterAdded = Lifecycle("onCharacterAdded")
+    -- `fireConcurrent` is a built-in lifecycle handler that spawns listeners
+    local characterAdded = Lifecycle("onCharacterAdded", fireConcurrent)
 
+    -- now fire the lifecycle method!
     if (LocalPlayer.Character) then
-      characterAdded.fire(LocalPlayer.Character)
+      characterAdded:fire(LocalPlayer.Character)
     end
     LocalPlayer.CharacterAdded:Connect(function(character)
-      characterAdded.fire(character)
+      characterAdded:fire(character)
     end)
     ```
 
 === "TypeScript"
 
     ```TypeScript
+    // this interface satisfies our method
     interface OnCharacterAdded {
-      onCharacterAdded: (self: unknown, character: Model) -> ()
+      onCharacterAdded(character: Model): void
     }
 
-    const characterAdded = Lifecycle("onCharacterAdded")
+    // `fireConcurrent` is a built-in lifecycle handler that spawns listeners
+    const characterAdded = Lifecycle("onCharacterAdded", fireConcurrent)
+
+    // now fire the lifecycle method!
     if (LocalPlayer.Character) {
       characterAdded.fire(LocalPlayer.Character)
     }
