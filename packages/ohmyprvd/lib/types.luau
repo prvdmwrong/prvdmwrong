@@ -1,8 +1,9 @@
 --!strict
---!nolint LocalShadow
--- Oh My Prvd code licensed under MIT
-
-export type UnknownProvider = Provider<unknown>
+--[[
+  Copyright (c) Team Fireworks 2024.
+  This source code is licensed under the MIT license found in the LICENSE file
+  in the root directory of this source tree.
+]]
 
 export type Error = {
   type: "Error",
@@ -10,9 +11,6 @@ export type Error = {
   message: string,
   trace: string,
 }
-
-export type OnInit = { onInit: (self: unknown) -> Promise? }
-export type OnStart = { onStart: (self: unknown) -> () }
 
 export type PromiseStatus = "Started" | "Resolved" | "Rejected" | "Cancelled"
 export type Promise = {
@@ -40,7 +38,19 @@ export type Promise = {
   tap: (self: Promise, tapHandler: (...any) -> ...any) -> Promise,
   timeout: (self: Promise, seconds: number, rejectionValue: any?) -> Promise,
 }
+
+export type Object = { [unknown]: unknown }
 export type Pack = { [number]: any, n: number }
+
+export type OnInit = { onInit: (self: unknown) -> Promise? }
+export type OnStart = { onStart: (self: unknown) -> () }
+export type Lifecycle<Interface = { [any]: any }> = {
+  listeners: { Interface },
+
+  fire: (self: Lifecycle<Interface>, ...unknown) -> (),
+  register: (self: Lifecycle<Interface>, object: Interface) -> (),
+  unregister: (self: Lifecycle<Interface>, object: Interface) -> (),
+}
 
 export type StartupStatus = "StartupStatus.Pending" | "StartupStatus.Starting" | "StartupStatus.Started"
 
@@ -60,30 +70,38 @@ export type Prvd = {
   version: string,
 
   awaitStart: () -> (),
+  new: <T>(name: string, provider: T) -> Provider<T>,
+  onStart: (callback: () -> ()) -> (),
+  Provider: <T>(name: string, provider: T) -> Provider<T>,
+  preload: (instances: { Instance }, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
+  StartupStatus: {
+    Pending: "StartupStatus.Pending",
+    Starting: "StartupStatus.Starting",
+    Started: "StartupStatus.Started",
+  },
   start: (options: {
     logLevel: "none" | "verbose" | nil,
     profiling: boolean?,
   }?) -> (),
-  StartupStatus: {
-    Pending: "StartupStatus.Pending",
-    Starting: "StartupStatus.Starting",
-    Startup: "StartupStatus.Started",
-  },
-  new: <T>(name: string, provider: T) -> Provider<T>,
-  onStart: (callback: () -> ()) -> (),
-  Provider: <T>(name: string, provider: T) -> Provider<T>,
   use: <T>(provider: Provider<T>) -> T,
 
-  onMethodImplemented: (method: string, handler: (Provider<unknown>) -> ()) -> (),
+  Lifecycle: (method: string, fire: (self: Lifecycle, ...unknown) -> ()) -> Lifecycle,
+  onMethodRegistered: (method: string, handler: (Object) -> ()) -> (),
+  onMethodUnregistered: (method: string, handler: (Object) -> ()) -> (),
+
+  getStartupOptions: () -> Options,
+  getStartupStatus: () -> StartupStatus,
   onProviderConstructed: (handler: (Provider<unknown>) -> ()) -> (),
   onProviderUsed: (handler: (Provider<unknown>) -> ()) -> (),
-  getIgnitionOptions: () -> Options,
+  internal: {
+    registerAll: (object: Object) -> (),
+    registerMethod: (object: Object, method: string) -> (),
+    unregisterMethod: (object: Object, method: string) -> (),
 
-  defineMetadata: (object: unknown, key: string, value: unknown) -> (),
-  getMetadata: (object: unknown, key: string) -> unknown?,
-  deleteMetadata: (object: unknown, key: string, property: string?) -> (),
-
-  preload: (parent: Instance, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
+    defineMetadata: (object: unknown, key: string, value: unknown) -> (),
+    getMetadata: (object: unknown, key: string) -> unknown?,
+    deleteMetadata: (object: unknown, key: string, property: string?) -> (),
+  },
 }
 
 return nil

@@ -1,12 +1,9 @@
 --!strict
---!nolint LocalShadow
--- Oh My Prvd code licensed under MIT
-
-local package = script.Parent
-local log = require(package.log)
-local types = require(package.types)
-local expect = log.expect
-local parseError = log.parseError
+--[[
+  Copyright (c) Team Fireworks 2024.
+  This source code is licensed under the MIT license found in the LICENSE file
+  in the root directory of this source tree.
+]]
 
 local freeThreads: { thread } = {}
 local utils = {}
@@ -56,40 +53,18 @@ end
   Checks whether the given object is a Promise via duck typing. This only checks
   if the object is a table and has an `andThen` method.
 ]]
-function utils.isPromise(x: unknown): boolean
-  if typeof(x) ~= "table" then
+function utils.isPromise(promise: unknown): boolean
+  if typeof(promise) ~= "table" then
     return false
   end
 
-  local x = x :: { [any]: any }
-
-  local metatable = getmetatable(x :: any)
+  local metatable = getmetatable(promise :: any)
   if metatable == nil then
-    return isCallable(x.andThen) and isCallable(x.awaitStatus)
+    return isCallable((promise :: { [any]: any }).andThen) and isCallable((promise :: { [any]: any }).awaitStatus)
   end
 
-  local hasMetatable = type(metatable) == "table" and type(metatable.__index) == "table"
+  local hasMetatable = typeof(metatable) == "table" and typeof(metatable.__index) == "table"
   return hasMetatable and isCallable(metatable.__index.andThen) and isCallable(metatable.__index.awaitStatus)
-end
-
---[[
-  Preload the specified parent by requiring all ModuleScripts within it. An
-  optional `predicate` function can be provided to filter modules.
-]]
-function utils.preload(instances: { Instance }, predicate: ((ModuleScript) -> boolean)?)
-  local exports: { unknown } = {}
-  for _, module in ipairs(instances) do
-    if not module:IsA("ModuleScript") then
-      continue
-    end
-    if predicate and not predicate(module) then
-      continue
-    end
-    local ok, result: types.Error = xpcall(require, parseError, module)
-    expect(ok, "requireError", result.trace, module:GetFullName(), result.message)
-    table.insert(exports, result)
-  end
-  return exports
 end
 
 table.freeze(utils)

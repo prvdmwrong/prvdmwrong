@@ -1,44 +1,53 @@
 --!strict
---!nolint LocalShadow
--- Oh My Prvd code licensed under MIT
+-- This source code is licensed under the MIT license found in the LICENSE file
+-- in the root directory of this source tree.
 
-local modding = require(script.mods)
-local prvd = require(script.prvd)
-local reflect = require(script.reflect)
-local types = require(script.types)
-local utils = require(script.utils)
+local Lifecycles = require(script.lifecycles)
+local Modding = require(script.modding)
+local Prvd = require(script.prvd)
+local Reflect = require(script.reflect)
+local Types = require(script.types)
 
-export type IgnitionStatus = types.IgnitionStatus
-export type Options = types.Options
-export type Provider<T> = types.Provider<T>
+export type Lifecycle<Interface = { [any]: any }> = Types.Lifecycle<Interface>
+export type OnInit = Types.OnInit
+export type OnStart = Types.OnStart
+export type Options = Types.Options
+export type Provider<T> = Types.Provider<T>
+export type StartupStatus = Types.StartupStatus
 
-local prvd: types.Prvd = table.freeze {
+local prvd: Types.Prvd = table.freeze {
   version = "0.2.0-dev.2",
 
-  -- Core API
-  awaitStart = prvd.awaitStart,
-  new = prvd.Provider,
-  onStart = prvd.onStart,
-  Provider = prvd.Provider,
-  StartupStatus = prvd.StartupStatus,
-  start = prvd.start,
-  use = prvd.use,
+  -- Providers API
+  awaitStart = Prvd.awaitStart,
+  new = Prvd.Provider,
+  onStart = Prvd.onStart,
+  Provider = Prvd.Provider,
+  StartupStatus = Prvd.StartupStatus,
+  start = Prvd.start,
+  preload = Prvd.preload,
+  use = Prvd.use,
+
+  -- Lifecycles API
+  Lifecycle = Lifecycles.Lifecycle,
+  onMethodRegistered = Lifecycles.onMethodRegistered,
+  onMethodUnregistered = Lifecycles.onMethodUnregistered,
+  onMethodImplemented = Lifecycles.onMethodImplemented,
 
   -- Modding API
-  getStartupOptions = prvd.getStartupOptions,
-  getStartupStatus = prvd.getStartupStatus,
-  implementAllMethods = modding.implementAllMethods,
-  onMethodImplemented = modding.onMethodImplemented,
-  onProviderConstructed = modding.onProviderConstructed,
-  onProviderUsed = modding.onProviderUsed,
+  getStartupOptions = Prvd.getStartupOptions,
+  getStartupStatus = Prvd.getStartupStatus,
+  onProviderConstructed = Modding.onProviderConstructed,
+  onProviderUsed = Modding.onProviderUsed,
+  internal = table.freeze {
+    registerAll = Lifecycles.registerAll,
+    registerMethod = Lifecycles.registerMethod,
+    unregisterMethod = Lifecycles.unregisterMethod,
 
-  -- Reflection API
-  defineMetadata = reflect.defineMetadata,
-  getMetadata = reflect.getMetadata,
-  deleteMetadata = reflect.deleteMetadata,
-
-  -- Utility APIs
-  preload = utils.preload,
+    defineMetadata = Reflect.defineMetadata,
+    getMetadata = Reflect.getMetadata,
+    deleteMetadata = Reflect.deleteMetadata,
+  },
 }
 
 return prvd

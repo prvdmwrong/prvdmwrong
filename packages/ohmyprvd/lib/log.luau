@@ -1,34 +1,38 @@
 --!strict
---!nolint LocalShadow
--- Oh My Prvd code licensed under MIT
+--[[
+  Copyright (c) Team Fireworks 2024.
+  This source code is licensed under the MIT license found in the LICENSE file
+  in the root directory of this source tree.
+]]
 
 local RunService = game:GetService("RunService")
-
-local package = script.Parent
-local types = require(package.types)
-
-type Error = types.Error
+local Types = require(script.Parent.types)
 
 local ERROR_MESSAGES_URL = "team-fireworks.github.io/ohmyprvd/latest/reference/error-messages#"
+
 local MESSAGES = table.freeze {
   alreadyStarted = "cannot ignite more than once",
   cannotRegister = "cannot register provider; %s",
+  cannotRegisterLifecycle = "cannot register lifecycle %s; %s",
   cannotUseNonProvider = "`prvd.use(provider)` must be given a provider",
   invalidLoadParent = "preload must be given an instance",
   invalidOnStartCallback = "`prvd.onStart(callback)` expects a callback",
   onInitError = "cannot initialize %s; %s",
+  onMethodImplementedWasDeprecated = "`onMethodImplemented` was deprecated, use `onMethodAdded` for observing lifecycles or `Lifecycle` for implementing lifecycles",
   registerAfterStartup = "cannot register providers after startup",
   requireError = "cannot require %s; %s",
   unknownError = "unknown error: %s",
   useAfterStartup = "cannot use other providers after startup",
   usedBeforeStartup = 'cannot use provider "%s" prior to startup',
 }
+
 local TIPS = table.freeze {
   unknownError = "this indicates ohmyprvd isn't reporting errors correctly, please file an issue",
   usedBeforeStartup = "ohmyprvd will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method",
+  onMethodImplementedWasDeprecated = "this will be an error in future versions of oh my prvd",
 }
 
-local log = {}
+local Log = {}
 
 local function formatError(id: string, trace: string?, ...: unknown)
   local message = MESSAGES[id]
@@ -56,13 +60,17 @@ local function formatError(id: string, trace: string?, ...: unknown)
   return (formatted:gsub("\n", "\n    "))
 end
 
-function log.throw(id: string, trace: string?, ...: unknown): never
-  task.spawn(error, formatError(id, trace or debug.traceback(nil, 3), ...), 0)
-  task.defer(coroutine.close, coroutine.running())
-  return coroutine.yield()
+--[[
+  Throws an error, halting further execution.
+]]
+function Log.throw(id: string, trace: string?, ...: unknown): never
+  error(formatError(id, trace or debug.traceback(nil, 3), ...), 0)
 end
 
-function log.warn(id: string, ...: unknown)
+--[[
+  Logs a warning message to the output.
+]]
+function Log.warn(id: string, ...: unknown)
   warn(formatError(id, nil, ...))
 end
 
@@ -70,7 +78,7 @@ end
   An `xpcall` handler used to extract useful information such as stack traces
   and messages.
 ]]
-function log.parseError(err: string): Error
+function Log.parseError(err: string): Types.Error
   return {
     type = "Error",
     raw = err,
@@ -80,15 +88,15 @@ function log.parseError(err: string): Error
 end
 
 --[[
-  Passes the condition if it is truthy, otherwise throws an error with the log
+  Passes the condition if it is truthy, otherwise throws an error with the Log
   module. Behaves like a modified `assert`.
 ]]
-function log.expect<T>(condition: T, id: string, trace: string?, ...: unknown): T
+function Log.expect<T>(condition: T, id: string, trace: string?, ...: unknown): T
   if condition then
     return condition
   end
-  return log.throw(id, trace, ...)
+  return Log.throw(id, trace, ...)
 end
 
-table.freeze(log)
-return log
+table.freeze(Log)
+return Log

@@ -1,37 +1,34 @@
 --!strict
---!nolint LocalShadow
--- Oh My Prvd code licensed under MIT
+--[[
+  Copyright (c) Team Fireworks 2024.
+  This source code is licensed under the MIT license found in the LICENSE file
+  in the root directory of this source tree.
+]]
 
 local RunService = game:GetService("RunService")
 
-local package = script.Parent
-local log = require(package.log)
-local modding = require(package.modding)
-local reflect = require(package.reflect)
-local types = require(package.types)
-local utils = require(package.utils)
-local expect = log.expect
-local parseError = log.parseError
-local throw = log.throw
+local Lifecycles = require(script.Parent.lifecycles)
+local Log = require(script.Parent.log)
+local Modding = require(script.Parent.modding)
+local Reflect = require(script.Parent.reflect)
+local Types = require(script.Parent.types)
+local Utils = require(script.Parent.utils)
+local expect = Log.expect
+local parseError = Log.parseError
+local throw = Log.throw
 
-export type Error = types.Error
-export type OnInit = types.OnInit
-export type OnStart = types.OnStart
-export type Options = types.Options
-export type Provider<T> = types.Provider<T>
-export type StartupStatus = types.StartupStatus
+type Lifecycle<Interface = { [any]: any }> = Types.Lifecycle<Interface>
+type OnInit = Types.OnInit
+type OnStart = Types.OnStart
+type Options = Types.Options
+type Provider<T> = Types.Provider<T>
+type StartupStatus = Types.StartupStatus
 
 local WEAK_KEYS_METATABLE = { __mode = "k" }
 
 local DEFAULT_OPTIONS: Options = {
   logLevel = "none",
   profiling = RunService:IsStudio(),
-}
-
-local EXPECTED_METHOD_TYPES = {
-  loadOrder = "number",
-  onInit = "function",
-  onStart = "function",
 }
 
 local StartupStatus = table.freeze {
@@ -63,12 +60,12 @@ local function topologicalSort(objects: { string }): { [string]: number }
     end
     visited[node] = true
 
-    local object = reflect.idToObject[node]
+    local object = Reflect.idToObject[node]
     if object == nil then
       return
     end
 
-    local dependencies = reflect.getMetadata(object, "ohmyprvd:dependencies") :: { string }
+    local dependencies = Reflect.getMetadata(object, "ohmyprvd:dependencies") :: { string }
     for _, dependency in pairs(dependencies or {}) do
       visitor(dependency)
     end
@@ -82,15 +79,6 @@ local function topologicalSort(objects: { string }): { [string]: number }
   end
 
   return sorted
-end
-
-local function getIdentifier(object: unknown, suffix: string?): string
-  local suffix = suffix or ""
-  local identifier = reflect.getMetadata(object, "identifier")
-  if typeof(identifier) == "string" then
-    return identifier .. suffix
-  end
-  return "unknownProvider" .. suffix
 end
 
 local function reconcileOptions(options: { [any]: any }): Options
@@ -117,21 +105,16 @@ function prvd.Provider<T>(name: string, provider: T): Provider<T>
   expect(not table.isfrozen(provider :: any), "cannotRegister", nil, "provider cannot be frozen")
   expect(providers[name] == nil, "cannotRegister", nil, `already registered "{name}"`)
 
-  local provider = table.clone(provider :: Provider<T>) :: Provider<T>
-  for method, expectedType in pairs(EXPECTED_METHOD_TYPES) do
-    if (provider :: any)[method] == nil then
-      continue
-    end
-    local realType = typeof((provider :: any)[method])
-    expect(expectedType == realType, "cannotRegister", `\`{name}.{method}\` should be a {expectedType}`)
-  end
+  local newProvider = table.clone(provider :: Provider<T>) :: Provider<T>
+  expect(newProvider.loadOrder == nil or tonumber(newProvider), "cannotRegister", nil, `loadOrder must be a number`)
 
-  reflect.defineMetadata(provider, "ohmyprvd:provider", true)
-  reflect.defineMetadata(provider, "identifier", name)
-  reflect.defineMetadata(provider, "ohmyprvd:loadOrder", provider.loadOrder)
-  providers[name] = provider
-  modding.doProviderConstructed(provider)
-  return provider
+  Reflect.defineMetadata(newProvider, "ohmyprvd:provider", true)
+  Reflect.defineMetadata(newProvider, "identifier", name)
+  Reflect.defineMetadata(newProvider, "ohmyprvd:loadOrder", newProvider.loadOrder)
+
+  providers[name] = newProvider
+  Modding.doProviderConstructed(newProvider)
+  return newProvider
 end
 
 --[[
@@ -140,9 +123,9 @@ end
 ]]
 function prvd.use<T>(provider: Provider<T>): T
   expect(status == StartupStatus.Pending, "useAfterStarted")
-  expect(providers[getIdentifier(provider)] ~= nil, "cannotUseNonProvider")
-  local identifier = getIdentifier(provider)
-  modding.doProviderUsed(provider)
+  expect(providers[Reflect.getIdentifier(provider)] ~= nil, "cannotUseNonProvider")
+  local identifier = Reflect.getIdentifier(provider)
+  Modding.doProviderUsed(provider)
   return setmetatable(
     {
       __prvdRequired__ = provider,
@@ -170,15 +153,17 @@ function prvd.start(options: {
   expect(status == StartupStatus.Pending, "alreadyStarted")
   status = StartupStatus.Starting
 
-  local options = reconcileOptions(options or {})
-  startupOptions = options
-  local isVerbose = options.logLevel == "verbose"
+  local reconciledOptions = reconcileOptions(options or {})
+  startupOptions = reconciledOptions
+
+  local isVerbose = reconciledOptions.logLevel == "verbose"
   local function verbose(...: unknown)
     if isVerbose then
       print("[OMP(verbose)]:", ...)
     end
   end
-  local isProfiling = options.profiling == true
+
+  local isProfiling = reconciledOptions.profiling == true
   local function profileCallback<Args...>(callback: (Args...) -> (), label: string)
     if isProfiling then
       return callback
@@ -206,13 +191,13 @@ function prvd.start(options: {
     table.insert(dependencies, {
       instance = provider,
       loadOrder = provider.loadOrder or 1,
-      identifier = getIdentifier(provider),
+      identifier = Reflect.getIdentifier(provider),
     })
-    if not reflect.getMetadata(provider, "ohmyprvd:provider") then
+    if not Reflect.getMetadata(provider, "ohmyprvd:provider") then
       continue
     end
     local encountered = {}
-    local dependencies = {}
+    local usedDependencies = {}
     local function resolveUsedDependencies(target: unknown, key: unknown, parent: { [unknown]: unknown })
       if encountered[target] then
         return
@@ -221,23 +206,22 @@ function prvd.start(options: {
       if typeof(target) ~= "table" then
         return
       end
-      local target = target :: { [any]: any }
-      if not table.isfrozen(target) then
-        local required = target.__prvdRequired__
+      if not table.isfrozen(target :: Types.Object) then
+        local required = (target :: Types.Object).__prvdRequired__
         if required ~= nil then
           -- We've found a dependency. Add it to this provider dependencies,
           -- then return as to not iterate further.
           parent[key] = required
-          table.insert(dependencies, getIdentifier(required))
+          table.insert(usedDependencies, Reflect.getIdentifier(required))
           return
         end
       end
-      for key, value in pairs(target) do
-        resolveUsedDependencies(value, key, target)
+      for key, value in pairs(target :: Types.Object) do
+        resolveUsedDependencies(value, key, target :: Types.Object)
       end
     end
     resolveUsedDependencies(provider, nil, provider)
-    reflect.defineMetadata(provider, "ohmyprvd:dependencies", dependencies)
+    Reflect.defineMetadata(provider, "ohmyprvd:dependencies", usedDependencies)
   end
 
   local identifiers = {}
@@ -254,49 +238,48 @@ function prvd.start(options: {
     return aIndex < bIndex
   end)
 
-  local init: { Provider<OnInit> } = {}
-  modding.onMethodImplemented("onInit", function(provider: any)
-    table.insert(init, provider)
-  end)
-  local start: { Provider<OnStart> } = {}
-  modding.onMethodImplemented("onStart", function(provider: any)
-    table.insert(start, provider)
-  end)
-  for _, provider: any in ipairs(dependencies) do
-    modding.implementAllMethods(provider)
-  end
+  local onInit: Lifecycle<OnInit> = Lifecycles.Lifecycle("onInit", function(self)
+    for _, provider in ipairs(self.listeners) do
+      local identifier = Reflect.getIdentifier(provider, ":onInit")
+      if reconciledOptions.profiling then
+        debug.setmemorycategory(identifier)
+      end
 
-  for _, provider in ipairs(init) do
-    local identifier = getIdentifier(provider, ":onInit")
-    if options.profiling then
-      debug.setmemorycategory(identifier)
-    end
-    verbose("running lifecycle method", identifier)
-    local ok, result: any = xpcall(provider.onInit, parseError, provider)
-    if not ok then
-      local error: Error = result
-      throw("onInitError", error.trace, getIdentifier(provider), error.message)
-    elseif utils.isPromise(result) then
-      local promise: utils.Promise = result
-      local status, value = promise:awaitStatus()
-      if status == "Rejected" then
-        throw("initError", nil, getIdentifier(provider), value)
+      verbose("running lifecycle method", identifier)
+
+      local ok, result: any = xpcall(provider.onInit, parseError, provider)
+      if not ok then
+        local error: Types.Error = result
+        throw("onInitError", error.trace, identifier, error.message)
+      elseif Utils.isPromise(result) then
+        local promise: Types.Promise = result
+        local status, value = promise:awaitStatus()
+        expect(status ~= "Rejected", "initError", nil, identifier, value)
       end
     end
+  end)
+
+  local onStart: Lifecycle<OnStart> = Lifecycles.Lifecycle("onStart", function(self)
+    for _, provider in ipairs(self.listeners) do
+      local identifier = Reflect.getIdentifier(provider, ":onStart")
+      verbose("running lifecycle method", Reflect.getIdentifier(provider, ":onStart"))
+      Utils.spawn(profileCallback(provider.onStart, identifier), provider)
+    end
+  end)
+
+  for _, provider in ipairs(dependencies) do
+    Lifecycles.registerAll(provider)
   end
 
+  onInit:fire()
   debug.resetmemorycategory()
+  onStart:fire()
 
-  for _, provider in ipairs(start) do
-    local identifier = getIdentifier(provider, ":onStart")
-    verbose("running lifecycle method", getIdentifier(provider, ":onStart"))
-    utils.spawn(profileCallback(provider.onStart, identifier), provider)
-  end
   for thread in pairs(awaitingThreads) do
     task.spawn(thread)
   end
   for _, callback in pairs(awaitingCallbacks) do
-    utils.spawn(callback)
+    Utils.spawn(callback)
   end
 
   status = StartupStatus.Started
@@ -320,7 +303,7 @@ end
 ]]
 function prvd.onStart(callback: () -> ())
   if status ~= StartupStatus.Pending then
-    utils.spawn(callback)
+    Utils.spawn(callback)
     return
   end
   expect(typeof(callback) == "function", "invalidOnIgnitionCallback")
@@ -340,6 +323,26 @@ end
 ]]
 function prvd.getStartupStatus(): StartupStatus
   return status
+end
+
+--[[
+  Preload the specified parent by requiring all ModuleScripts within it. An
+  optional `predicate` function can be provided to filter modules.
+]]
+function prvd.preload(instances: { Instance }, predicate: ((ModuleScript) -> boolean)?)
+  local exports: { unknown } = {}
+  for _, module in ipairs(instances) do
+    if not module:IsA("ModuleScript") then
+      continue
+    end
+    if predicate and not predicate(module) then
+      continue
+    end
+    local ok, result: Types.Error = xpcall(require, parseError, module)
+    expect(ok, "requireError", result.trace, module:GetFullName(), result.message)
+    table.insert(exports, result)
+  end
+  return exports
 end
 
 table.freeze(prvd)

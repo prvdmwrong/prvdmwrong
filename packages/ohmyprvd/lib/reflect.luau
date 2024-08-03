@@ -1,6 +1,10 @@
 --!strict
---!nolint LocalShadow
--- Oh My Prvd code licensed under MIT
+--[[
+  Copyright (c) Team Fireworks 2024.
+  This source code is licensed under the MIT license found in the LICENSE file
+  in the root directory of this source tree.
+]]
+
 local WEAK_KEYS_METATABLE = { __mode = "k" }
 
 local metadata = setmetatable({} :: any, WEAK_KEYS_METATABLE) :: {
@@ -9,18 +13,33 @@ local metadata = setmetatable({} :: any, WEAK_KEYS_METATABLE) :: {
   },
 }
 
-local reflect = {}
-reflect.idToObject = {} :: { [string]: unknown }
-reflect.objectToId = {} :: { [unknown]: string }
+local Reflect = {}
+Reflect.idToObject = {} :: { [string]: unknown }
+Reflect.objectToId = {} :: { [unknown]: string }
 
-function reflect.defineMetadata(object: unknown, key: string, value: unknown)
+--[[
+  Returns the identifier of an object, suffixed by an optional string.
+]]
+function Reflect.getIdentifier(object: unknown, suffix: string?): string
+  local identifier = Reflect.getMetadata(object, "identifier")
+  if typeof(identifier) == "string" then
+    return identifier .. (suffix or "")
+  end
+  return "unidentifiedProvider" .. (suffix or "")
+end
+
+--[[
+  Defines a piece of metadata. Use the "identifier" key to set a custom
+  identifier which Oh My Prvd will respect.
+]]
+function Reflect.defineMetadata(object: unknown, key: string, value: unknown)
   if key == "identifier" then
     assert(typeof(value) == "string", "identifier must be a string.")
-    assert(not reflect.objectToId[object], "obj is already registered.")
-    assert(not reflect.idToObject[value], "id is already registered.")
+    assert(not Reflect.objectToId[object], "obj is already registered.")
+    assert(not Reflect.idToObject[value], "id is already registered.")
 
-    reflect.objectToId[object] = value
-    reflect.idToObject[value] = object
+    Reflect.objectToId[object] = value
+    Reflect.idToObject[value] = object
   end
 
   if not metadata[object] then
@@ -29,16 +48,22 @@ function reflect.defineMetadata(object: unknown, key: string, value: unknown)
   metadata[object][key] = value
 end
 
-function reflect.getMetadata(object: unknown, key: string): unknown?
+--[[
+  Retrieves a piece of metadata from an object.
+]]
+function Reflect.getMetadata(object: unknown, key: string): unknown?
   local result = metadata[object] and metadata[object][key]
   return result
 end
 
-function reflect.deleteMetadata(object: unknown, key: string)
+--[[
+  Deletes a piece of metadata from an object.
+]]
+function Reflect.deleteMetadata(object: unknown, key: string)
   if metadata[object] then
     metadata[object][key] = nil
   end
 end
 
-table.freeze(reflect)
-return reflect
+table.freeze(Reflect)
+return Reflect

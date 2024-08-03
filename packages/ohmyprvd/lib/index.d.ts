@@ -27,6 +27,7 @@ export as namespace ohmyprvd
  * Oh My Prvd is a delightful framework for next-generation Roblox game
  * development.
  */
+// TODO: work on this
 declare namespace ohmyprvd {
 	/**
 	 * Configures how Oh My Prvd will ignite. The following are the available

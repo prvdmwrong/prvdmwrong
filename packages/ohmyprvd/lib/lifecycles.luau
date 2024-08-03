@@ -1,24 +1,28 @@
 --!strict
---!nolint LocalShadow
--- Oh My Prvd code licensed under MIT
+--[[
+  Copyright (c) Team Fireworks 2024.
+  This source code is licensed under the MIT license found in the LICENSE file
+  in the root directory of this source tree.
+]]
 
-local Package = script.Parent
-local Types = require(Package.types)
+local Log = require(script.Parent.log)
+local Types = require(script.Parent.types)
+local expect = Log.expect
 
 type Lifecycle<Interface = { [any]: any }> = Types.Lifecycle
 type Object = { [unknown]: unknown }
 
-local lifecycles = {}
-lifecycles.methodRegistered = {} :: { [string]: { [{}]: (Object) -> () } }
-lifecycles.methodUnregistered = {} :: { [string]: { [{}]: (Object) -> () } }
-lifecycles.lifecycleMethods = {} :: { [string]: { [Lifecycle]: true } }
+local Lifecycles = {}
+Lifecycles.methodRegistered = {} :: { [string]: { [{}]: (Object) -> () } }
+Lifecycles.methodUnregistered = {} :: { [string]: { [{}]: (Object) -> () } }
+Lifecycles.lifecycleMethods = {} :: { [string]: { [Lifecycle]: true } }
 
 --[[
   Registers lifecycle methods for an object.
   @internal
 ]]
-function lifecycles.registerMethod(object: Object, method: string)
-  local methodRegistered = lifecycles.methodRegistered[method]
+function Lifecycles.registerMethod(object: Object, method: string)
+  local methodRegistered = Lifecycles.methodRegistered[method]
   if not methodRegistered then
     return
   end
@@ -32,12 +36,12 @@ end
   Unregister lifecycle methods from an object.
   @internal
 ]]
-function lifecycles.unregisterMethod(object: Object, method: string)
+function Lifecycles.unregisterMethod(object: Object, method: string)
   if not object or not object[method] then
     return
   end
 
-  local methodUnregistered = lifecycles.methodUnregistered[method]
+  local methodUnregistered = Lifecycles.methodUnregistered[method]
   if not methodUnregistered then
     return
   end
@@ -51,12 +55,12 @@ end
   Registers all lifecycle methods on an object.
   @internal
 ]]
-function lifecycles.registerAll(object: Object)
-  for method, lifecycles in pairs(lifecycles.lifecycleMethods) do
+function Lifecycles.registerAll(object: Object)
+  for method, Lifecycles in pairs(Lifecycles.lifecycleMethods) do
     if typeof(object[method]) ~= "function" then
       continue
     end
-    for lifecycle in pairs(lifecycles) do
+    for lifecycle in pairs(Lifecycles) do
       lifecycle:register(object)
     end
   end
@@ -65,15 +69,15 @@ end
 --[[
   Constructs and returns a lifecycle method.
 ]]
-function lifecycles.Lifecycle(method: string, fire: (self: Lifecycle, ...unknown) -> ()): Lifecycle
+function Lifecycles.Lifecycle(method: string, fire: (self: Lifecycle, ...unknown) -> ()): Lifecycle
   local self = {} :: Lifecycle
   self.listeners = {}
   self.fire = fire
 
   function self:register(object)
-    assert(typeof(object[method] == "function"), "invalid lifecycle listener")
-    assert(not table.find(self.listeners, object), "already registered this object")
-    lifecycles.registerMethod(object, method)
+    expect(typeof(object[method]) == "function", "cannotRegisterLifecycle", nil, `{method} must be a method`)
+    expect(not table.find(self.listeners, object), "cannotRegisterLifecycle", nil, `already registered this lifecycle`)
+    Lifecycles.registerMethod(object, method)
     table.insert(self.listeners, object)
   end
 
@@ -81,14 +85,14 @@ function lifecycles.Lifecycle(method: string, fire: (self: Lifecycle, ...unknown
     local index = table.find(self.listeners, object)
     if table.find(self.listeners, object) then
       table.remove(self.listeners, index)
-      lifecycles.unregisterMethod(object, method)
+      Lifecycles.unregisterMethod(object, method)
     end
   end
 
-  local lifecycleMethods = lifecycles.lifecycleMethods[method]
+  local lifecycleMethods = Lifecycles.lifecycleMethods[method]
   if not lifecycleMethods then
     local methods = {}
-    lifecycles.lifecycleMethods[method] = methods
+    Lifecycles.lifecycleMethods[method] = methods
     lifecycleMethods = methods
   end
   lifecycleMethods[self] = true
@@ -101,11 +105,11 @@ end
   Called when an object registers a method. Handlers are expected to be
   infallible and non-yielding. The handler receives the implementing object.
 ]]
-function lifecycles.onMethodRegistered(method: string, handler: (Object) -> ())
-  local methodRegistered = lifecycles.methodRegistered[method]
+function Lifecycles.onMethodRegistered(method: string, handler: (Object) -> ())
+  local methodRegistered = Lifecycles.methodRegistered[method]
   if not methodRegistered then
     local ref = {}
-    lifecycles.methodRegistered[method] = ref
+    Lifecycles.methodRegistered[method] = ref
     methodRegistered = ref
   end
   local identifier = table.freeze {}
@@ -116,16 +120,24 @@ end
   Called when an object unregister a method. Handlers are expected to be
   infallible and non-yielding. The handler receives the implementing object.
 ]]
-function lifecycles.onMethodUnregistered(method: string, handler: (Object) -> ())
-  local methodUnregistered = lifecycles.methodUnregistered[method]
+function Lifecycles.onMethodUnregistered(method: string, handler: (Object) -> ())
+  local methodUnregistered = Lifecycles.methodUnregistered[method]
   if not methodUnregistered then
     local ref = {}
-    lifecycles.methodUnregistered[method] = ref
+    Lifecycles.methodUnregistered[method] = ref
     methodUnregistered = ref
   end
   local identifier = table.freeze {}
   methodUnregistered[identifier] = handler
 end
 
-table.freeze(lifecycles)
-return lifecycles
+--[[
+  @deprecated use `onMethodRegistered` instead
+]]
+function Lifecycles.onMethodImplemented(method: string, handler: (Object) -> ())
+  Log.warn("onMethodImplementedWasDeprecated", method)
+  Lifecycles.onMethodRegistered(method, handler)
+end
+
+table.freeze(Lifecycles)
+return Lifecycles
