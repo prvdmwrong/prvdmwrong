@@ -44,34 +44,48 @@ Install this through your preferred package manager:
 
 - [:octicons-package-16: Provider](providers/provider.md)
 - [:octicons-list-ordered-16: StartupStatus](providers/startup-status.md)
-- [:octicons-code-16: awaitStart](providers/await-start.md)
-- [:octicons-code-16: onStart](providers/on-start.md)
 - [:octicons-code-16: preload](providers/preload.md)
 - [:octicons-code-16: start](providers/start.md)
 - [:octicons-code-16: use](providers/use.md)
+- [:octicons-workflow-16: awaitStart](providers/await-start.md)
+- [:octicons-workflow-16: onStart](providers/on-start.md)
 
-## Reflection
+## Types
 
-- [:octicons-code-16: defineMetadata](reflection/define-metadata.md)
-- [:octicons-code-16: deleteMetadata](reflection/define-metadata.md)
-- [:octicons-code-16: getMetadata](reflection/define-metadata.md)
+- [:octicons-checklist-16: Lifecycle](types/lifecycle.md)
+- [:octicons-checklist-16: OnInit](types/on-init.md)
+- [:octicons-checklist-16: OnStart](types/on-start.md)
+- [:octicons-checklist-16: Options](types/options.md)
+- [:octicons-checklist-16: Provider](types/provider.md)
 
 </section>
 
 <section markdown>
 
+## Lifecycles
+
+- [:octicons-package-16: Lifecycle](lifecycles/lifecycle.md)
+- [:octicons-code-16: fireConcurrent](lifecycles/fire-concurrent.md)
+- [:octicons-code-16: fireSequential](lifecycles/fire-sequential.md)
+- [:octicons-workflow-16: onMethodRegistered](lifecycles/on-method-registered.md)
+- [:octicons-workflow-16: onMethodUnregistered](lifecycles/on-method-unregistered.md)
+
 ## Modding
 
 - [:octicons-code-16: getStartupOptions](modding/get-startup-options.md)
 - [:octicons-code-16: getStartupStatus](modding/get-startup-status.md)
-- [:octicons-code-16: onMethodImplemented](modding/on-method-implemented.md)
-- [:octicons-code-16: onProviderConstructed](modding/on-provider-constructed.md)
-- [:octicons-code-16: onProviderUsed](modding/on-provider-used.md)
+- [:octicons-workflow-16: onProviderConstructed](modding/on-provider-constructed.md)
+- [:octicons-workflow-16: onProviderUsed](modding/on-provider-used.md)
 
-## Types
+## Internal
 
-- [:octicons-checklist-16: Options](types/options.md)
-- [:octicons-checklist-16: Provider](types/provider.md)
+- [:octicons-code-16: defineMetadata](internal/define-metadata.md)
+- [:octicons-code-16: deleteMetadata](internal/delete-metadata.md)
+- [:octicons-code-16: getMetadata](internal/get-metadata.md)
+- [:octicons-code-16: registerAll](internal/register-all.md)
+- [:octicons-code-16: registerDependency](internal/register-dependency.md)
+- [:octicons-code-16: registerMethod](internal/register-method.md)
+- [:octicons-code-16: unregisterMethod](internal/unregister-method.md)
 
 </section>
 

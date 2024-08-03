@@ -83,27 +83,40 @@ nav:
       - reference/core/index.md
       - Providers:
         - reference/core/providers/index.md
+        - Provider: reference/core/providers/provider.md
+        - StartupStatus: reference/core/providers/startup-status.md
         - awaitStart: reference/core/providers/await-start.md
         - onStart: reference/core/providers/on-start.md
         - preload: reference/core/providers/preload.md
-        - Provider: reference/core/providers/provider.md
         - start: reference/core/providers/start.md
-        - StartupStatus: reference/core/providers/startup-status.md
         - use: reference/core/providers/use.md
+      - Lifecycles:
+        - reference/core/lifecycles/index.md
+        - Lifecycle: reference/core/lifecycles/lifecycle.md
+        - fireConcurrent: reference/core/lifecycles/fire-concurrent.md
+        - fireSequential: reference/core/lifecycles/fire-sequential.md
+        - onMethodRegistered: reference/core/lifecycles/on-method-registered.md
+        - onMethodUnregistered: reference/core/lifecycles/on-method-unregistered.md
       - Modding:
         - reference/core/modding/index.md
         - getStartupOptions: reference/core/modding/get-startup-options.md
         - getStartupStatus: reference/core/modding/get-startup-status.md
-        - onMethodImplemented: reference/core/modding/on-method-implemented.md
         - onProviderConstructed: reference/core/modding/on-provider-constructed.md
         - onProviderUsed: reference/core/modding/on-provider-used.md
-      - Reflection:
-        - reference/core/reflection/index.md
-        - defineMetadata: reference/core/reflection/define-metadata.md
-        - getMetadata: reference/core/reflection/get-metadata.md
-        - deleteMetadata: reference/core/reflection/delete-metadata.md
+      - Internal:
+        - reference/core/internal/index.md
+        - defineMetadata: reference/core/internal/define-metadata.md
+        - getMetadata: reference/core/internal/get-metadata.md
+        - deleteMetadata: reference/core/internal/delete-metadata.md
+        - registerAll: reference/core/internal/register-all.md
+        - registerMethod: reference/core/internal/register-method.md
+        - unregisterMethod: reference/core/internal/unregister-method.md
+        - registerDependency: reference/core/internal/register-dependency.md
       - Types:
         - reference/core/types/index.md
+        - Lifecycle: reference/core/types/lifecycle.md
+        - OnInit: reference/core/types/on-init.md
+        - OnStart: reference/core/types/on-start.md
         - Options: reference/core/types/options.md
         - Provider: reference/core/types/provider.md
     - Lifecycles:

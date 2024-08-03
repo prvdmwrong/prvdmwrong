@@ -3,9 +3,9 @@
 <a href="../">Core</a>
 </div>
 
-# :octicons-list-unordered-16: Reflection
+# :octicons-list-unordered-16: Lifecycles
 
-Reflection metadata exposed by the core Oh My Prvd package.
+Primitives for implementing lifecycle methods and events.
 
 !!! warning "Under construction"
     This page is under construction - information may be incomplete or missing.

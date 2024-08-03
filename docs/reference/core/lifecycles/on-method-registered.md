@@ -1,25 +1,23 @@
 <div class="ompdoc-reference-breadcrumbs">
 <a href="../../../">Reference</a>
 <a href="../../">Core</a>
-<a href="../">Modding</a>
+<a href="../">Lifecycles</a>
 </div>
 
 <div class="ompdoc-reference-tags">
-<span class="ompdoc-reference-highlight">function</span>
+<span class="ompdoc-reference-highlight">hook</span>
 <span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-# :octicons-package-16: onMethodImplemented
+# :octicons-workflow-16: onMethodRegistered
 
-Called when a provider implements a method. Handlers are expected to be
+Called when an object registers a lifecycle method. Handlers are expected to be
 infallible and non-yielding. The handler receives the constructed provider.
-Commonly used to implement custom lifecycles by adding providers to a
-"watchlist" which will have its methods fired.
 
 === "Luau"
 
     ```Lua
-    function prvd.onMethodImplemented(
+    function prvd.onMethodRegistered(
       method: string,
       handler: (Provider<unknown>) -> ()
     ): ()
@@ -28,7 +26,7 @@ Commonly used to implement custom lifecycles by adding providers to a
 === "TypeScript"
 
     ```TypeScript
-    export const onMethodImplemented: (
+    export const onMethodRegistered: (
       method: string,
       handler: (Provider<unknown>) => void
     ) => void

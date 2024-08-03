@@ -5,11 +5,11 @@
 </div>
 
 <div class="ompdoc-reference-tags">
-<span class="ompdoc-reference-highlight">function</span>
+<span class="ompdoc-reference-highlight">hook</span>
 <span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-# :octicons-package-16: onProviderUsed
+# :octicons-workflow-16: onProviderUsed
 
 Called just before Oh My Prvd returns a used
 [provider](../types/provider.md). Handlers are expected to be infallible and
