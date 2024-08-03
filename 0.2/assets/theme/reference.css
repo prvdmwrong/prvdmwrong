@@ -8,30 +8,6 @@
 	gap: 0.5em;
 }
 
-.ompdoc-reference-tags > span {
-	color: var(--md-default-fg-color);
-	height: 2.6em;
-	line-height: 2.6;
-	padding: 0 1em;
-	position: relative;
-	vertical-align: middle;
-	opacity: 50%;
-}
-
-.ompdoc-reference-tags > span::before {
-	background-color: var(--md-default-fg-color);
-	border-radius: 1.3em;
-	content: "";
-	display: block;
-	height: 100%;
-	line-height: 2.6;
-	opacity: 10%;
-	padding: 0 1em;
-	position: absolute;
-	right: 0;
-	width: 100%;
-}
-
 .ompdoc-reference-breadcrumbs {
 	padding-bottom: 0.25em;
 }
@@ -43,7 +19,7 @@
 
 .ompdoc-reference-breadcrumbs > a::after {
 	color: var(--md-default-fg-color--light);
-	content: "/";
+	content: "›";
 	display: inline;
 	opacity: 70%;
 	padding-left: 0.1em;
@@ -52,4 +28,39 @@
 .ompdoc-reference-breadcrumbs > a:hover::after {
 	left: 0;
 	bottom: 0;
+}
+
+.ompdoc-reference-tags > span.ompdoc-reference-highlight,
+.ompdoc-reference-tags > span.ompdoc-reference-since {
+	color: var(--md-default-fg-color);
+	height: 2.4em;
+	line-height: 2.4;
+	padding: 0 0.8em;
+	position: relative;
+	vertical-align: middle;
+	opacity: 50%;
+}
+
+.ompdoc-reference-tags > span.ompdoc-reference-highlight::before,
+.ompdoc-reference-tags > span.ompdoc-reference-since::before {
+	background-color: var(--md-default-fg-color);
+	border-radius: 1.2em;
+	content: "";
+	display: block;
+	height: 100%;
+	line-height: 2.6;
+	opacity: 10%;
+	padding: 0 1em;
+	position: absolute;
+	right: 0;
+	width: 100%;
+}
+
+.ompdoc-reference-tags > span.ompdoc-reference-highlight {
+	color: var(--md-primary-fg-color);
+	opacity: 100%;
+}
+
+.ompdoc-reference-tags > span.ompdoc-reference-highlight::before {
+	background-color: var(--md-primary-fg-color);
 }

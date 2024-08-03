@@ -1,6 +1,7 @@
 .md-typeset h1 {
 	font-weight: 700;
 	letter-spacing: -0.02em;
+	margin: 0;
 }
 
 .md-typeset h2 {
@@ -168,7 +169,7 @@ h6 > .twemoji:first-child {
 }
 
 .ompdoc-icons-luau {
-	color: oklch(0.6 0.15 210);
+	color: oklch(0.6 0.15 230);
 }
 
 .md-typeset .md-button {
@@ -196,6 +197,10 @@ h6 > .twemoji:first-child {
 
 a.headerlink::after,
 .md-typeset .md-button::after {
+	content: "";
+}
+
+.md-typeset .tabbed-labels > label > [href]::after {
 	content: "";
 }
 
