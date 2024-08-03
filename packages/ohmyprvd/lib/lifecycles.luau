@@ -72,6 +72,7 @@ end
 function Lifecycles.Lifecycle(method: string, fire: (self: Lifecycle, ...unknown) -> ()): Lifecycle
   local self = {} :: Lifecycle
   self.listeners = {}
+  self.method = method
   self.fire = fire
 
   function self:register(object)
@@ -129,6 +130,24 @@ function Lifecycles.onMethodUnregistered(method: string, handler: (Object) -> ()
   end
   local identifier = table.freeze {}
   methodUnregistered[identifier] = handler
+end
+
+--[[
+  A handler for lifecycle methods that spawns all listeners concurrently.
+]]
+function Lifecycles.fireConcurrent(self: Lifecycle, ...: unknown)
+  for _, listener in ipairs(self.listeners) do
+    task.spawn(listener[self.method], listener, ...)
+  end
+end
+
+--[[
+  A handler for lifecycle methods that runs all listeners sequentially.
+]]
+function Lifecycles.fireSequential(self: Lifecycle, ...: unknown)
+  for _, listener in ipairs(self.listeners) do
+    listener[self.method](listener, ...)
+  end
 end
 
 --[[

@@ -1,6 +1,9 @@
 --!strict
--- This source code is licensed under the MIT license found in the LICENSE file
--- in the root directory of this source tree.
+--[[
+  Copyright (c) Team Fireworks 2024.
+  This source code is licensed under the MIT license found in the LICENSE file
+  in the root directory of this source tree.
+]]
 
 local Lifecycles = require(script.lifecycles)
 local Modding = require(script.modding)
@@ -30,6 +33,8 @@ local prvd: Types.Prvd = table.freeze {
 
   -- Lifecycles API
   Lifecycle = Lifecycles.Lifecycle,
+  fireConcurrent = Lifecycles.fireConcurrent,
+  fireSequential = Lifecycles.fireSequential,
   onMethodRegistered = Lifecycles.onMethodRegistered,
   onMethodUnregistered = Lifecycles.onMethodUnregistered,
   onMethodImplemented = Lifecycles.onMethodImplemented,
