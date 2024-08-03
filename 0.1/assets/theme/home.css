@@ -26,6 +26,24 @@
 	opacity: 0.15;
 }
 
+.ompdoc-home-hero::after {
+	background-image: linear-gradient(
+		to bottom,
+		transparent 50%,
+		var(--md-default-bg-color)
+	);
+	background-repeat: no-repeat;
+	background-size: auto;
+	content: "";
+	display: block;
+	height: 80vh;
+	left: 0;
+	position: absolute;
+	width: 80vh;
+	top: 20vh;
+	z-index: -98;
+}
+
 .ompdoc-home-hero-inner {
 	font-size: 1.2em;
 	margin: auto;
