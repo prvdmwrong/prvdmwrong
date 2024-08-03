@@ -5,74 +5,49 @@
 </div>
 
 <div class="ompdoc-reference-tags">
-<span>function</span>
-<span>since v0.1</span>
+<span>decorator</span>
+<span>since v0.2</span>
 </div>
 
-# Provider
+# prvd.Provider
 
-Constructs and returns a new [provider](../types/provider.md) within Oh My Prvd. Providers must be
-created before calling `prvd.start(options)`.
+Constructs and returns a new class decorator that registers a
+[provider](../types/provider.md) within Oh My Prvd. Providers must be created
+before calling `prvd.start(options)`.
 
-=== "Luau"
+```TypeScript
+export const Provider: (options?: {
+  loadOrder?: number
+}) => <T extends new () => InstanceType<T>>(provider: T) => void
+```
 
-    ```Lua
-    function prvd.Provider<T>(
-      name: string,
-      provider: T
-    ): Provider<T>
-    ```
+!!! warning "Know the difference"
 
-    ??? tip "Too verbose?"
-
-        If writing `#!lua prvd.Provider` sounds verbose for you, Oh My Prvd
-        aliases the `Provider` constructor with `new`:
-
-        ```Lua
-        local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
-
-        local PointsProvider = {}
-        return prvd.new("PointsProvider", PointsProvider)
-        ```
-
-        For consistency, we recommend using `Provider` when favorable, as
-        `new` is a reserved keyword in TypeScript.
-
-=== "TypeScript"
-
-    ```TypeScript
-    export const Provider: <T extends object>(
-      name: string,
-      provider: T
-    ) => Provider<T>
-    ```
+    This and [`prvd.new(name, provider)`](new.md) seems to serve the same
+    purpose. This is used as a class decorator, ideal for Roblox TypeScript.
+    Contrast to [`prvd.new(name, provider)`](new.md), which ideal to be used as
+    a function for Luau.
 
 ---
 
 ## Parameters
 
-### name `#!lua : string`
+### options `#!TypeScript : string`
 
-A unique name to identify the provider with. This will be used for debugging.
+Options to instantiate the provider with:
 
-### provider `#!lua : T`
-
-The methods and properties of the provider. Oh My Prvd provides two lifecycle
-methods out of the box which may be specified:
-
-- `:onInit` runs sequentially before any other lifecycle methods, methods are
-  expected to be infallible and preferably non-yielding.
-- `:onStart` runs concurrently *after* all other lifecycle methods have been
-  registered. This means failures and yields do not affect other providers.
-
-In addition, the provider may also specify a `loadOrder` property which
-dictates when the provider is loaded, defaults to one.
+- `#!TypeScript loadOrder : number` can be specified as a shorthand for adding a
+  loadOrder field.
 
 ---
 
-## Returns `#!lua : Provider<T>`
+## Returns `#!TypeScript : <...>(provider: T) => void`
 
-A freshly registered provider.
+A decorator that, when used on a class, registers it as a
+[provider](../types/provider.md) within Oh My Prvd.
+
+Note that the identifier is inferred from it's `__tostring` metamethod, which
+should be appended by the Roblox TypeScript compiler.
 
 ---
 

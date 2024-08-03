@@ -46,7 +46,7 @@ cannot register provider; `MyProvider.onStart` should be a function
 ```
 
 **Thrown by:** [`prvd.Provider`](core/providers/provider.md),
-[`prvd.new`](core/providers/provider.md)
+[`prvd.new`](core/providers/new.md)
 
 You attempted to register a new provider, but Oh My Prvd caught something wrong.
 The error includes a more specific message which can be used to diagnose the
@@ -104,7 +104,7 @@ cannot register providers after startup
 ```
 
 **Thrown by:** [`prvd.Provider`](core/providers/provider.md),
-[`prvd.new`](core/providers/provider.md)
+[`prvd.new`](core/providers/new.md)
 
 You attempted to register a provider after startup.
 

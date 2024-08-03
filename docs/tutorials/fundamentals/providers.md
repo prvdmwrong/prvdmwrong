@@ -18,7 +18,7 @@ lifecycle events:
     local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
 
     local PointsProvider = {}
-    return prvd.Provider("PointsProvider", PointsProvider)
+    return prvd.new("PointsProvider", PointsProvider)
     ```
 
 === "TypeScript"
@@ -26,23 +26,18 @@ lifecycle events:
     ```TypeScript
     import { Provider } from "@rbxts/ohmyprvd"
 
-    export = Provider("PointsProvider", {})
+    @Provider({})
+    export class PointsProvider {}
     ```
 
-??? tip "Too verbose?"
+!!! warning "Know the difference"
 
-    If writing `prvd.Provider` sounds verbose for you, Oh My Prvd aliases the
-    `Provider` constructor with `.new`.
+    Both `prvd.new(name, provider)` and `@Provider(options)` seems to serve the
+    same purpose. The former is used as a function, ideal for Luau. Contrast to
+    the latter, used as a class decorator for Roblox TypeScript.
 
-    ```Lua
-    local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
-
-    local PointsProvider = {}
-    return prvd.new("PointsProvider", PointsProvider)
-    ```
-
-    For consistency, we recommend using `Provider` when favorable.
+    If you're writing TypeScript, you should use the `@Provider(options)`
+    decorator. Otherwise, prefer to use `prvd.new(name, provider)`.
 
 The `name` argument signifies what to identify your provider as. This name must
 be unique from all other providers. Ideally, you should name your variable the
@@ -80,9 +75,10 @@ a `Player` and their points:
     ```TypeScript hl_lines="4"
     import { Provider } from "@rbxts/ohmyprvd"
 
-    export = Provider("PointsProvider", {
-      points: Map<Player, number> = {}
-    })
+    @Provider({})
+    export class PointsProvider {
+      public readonly points: Map<Player, number> = {}
+    }
     ```
 
 To instantiate our `points`, let's also implement a `setDefaultPoints` method
@@ -112,16 +108,17 @@ for convenience:
 
 === "TypeScript"
 
-    ```TypeScript hl_lines="6-8"
+    ```TypeScript hl_lines="7-9"
     import { Provider } from "@rbxts/ohmyprvd"
 
-    export = Provider("PointsProvider", {
-      points: Map<Player, number> = {}
+    @Provider({})
+    export class PointsProvider {
+      public readonly points: Map<Player, number> = {}
 
       setDefaultPoints(player: Player) {
         this.points.get(player)?.set(10)
       }
-    })
+    }
     ```
 
 Take a step back, and review what we wrote.
@@ -248,11 +245,12 @@ every player that joins:
 
 === "TypeScript"
 
-    ```TypeScript hl_lines="2 11-18"
-    import { Provider } from "@rbxts/ohmyprvd"
+    ```TypeScript hl_lines="2 5 11-18"
+    import { Provider, type OnStart } from "@rbxts/ohmyprvd"
     import { Players } from "@rbxts/services"
 
-    export = Provider("PointsProvider", {
+    @Provider({})
+    export class PointsProvider implements OnStart {
       points: Map<Player, number> = {},
 
       setDefaultPoints(player: Player) {
@@ -267,7 +265,7 @@ every player that joins:
           this.setDefaultPoints(existingPlayer)
         }
       }
-    })
+    }
     ```
 
 ---
@@ -355,7 +353,8 @@ First, create a file for a new `MathProvider` with the following:
     ```TypeScript
     import { Provider } from "@rbxts/ohmyprvd"
 
-    export = Provider("MathProvider", {
+    @Provider({})
+    export class MathProvider {
       add(a: number, b: number) {
         // this method is very expensive!
         task.wait(5)
@@ -420,7 +419,7 @@ end
 return prvd.Provider("PointsProvider", PointsProvider)
 ```
 
-??? danger "Do not use dependencies outside of lifecycle methods!"
+!!! danger "Do not use dependencies outside of lifecycle methods!"
 
     Oh My Prvd only returns a shadow of the `use()`d provider. You *cannot* use
     it outside of lifecycle methods.
