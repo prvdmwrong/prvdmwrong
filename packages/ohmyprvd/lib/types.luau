@@ -92,9 +92,9 @@ export type Prvd = {
     Starting: "StartupStatus.Starting",
     Startup: "StartupStatus.Started",
   },
-  new: <T>(name: string, provider: T) -> Provider<T>,
+  new: <T>(provider: T) -> Provider<T>,
   onStart: (callback: () -> ()) -> (),
-  Provider: <T>(name: string, provider: T) -> Provider<T>,
+  Provider: <T>(provider: T) -> Provider<T>,
   use: <T>(provider: Provider<T>) -> T,
 
   onMethodImplemented: (method: string, handler: (Provider<unknown>) -> ()) -> (),
