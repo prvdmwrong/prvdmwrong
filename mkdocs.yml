@@ -123,14 +123,14 @@ nav:
       - reference/lifecycles/index.md
       - Runtime:
         - reference/lifecycles/runtime/index.md
-        - onPostSimulation: reference/lifecycles/runtime/on-post-simulation.md
-        - onPreSimulation: reference/lifecycles/runtime/on-pre-simulation.md
-        - onPreRender: reference/lifecycles/runtime/on-pre-render.md
-        - onShutdown: reference/lifecycles/runtime/on-shutdown.md
+        - OnPostSimulation: reference/lifecycles/runtime/on-post-simulation.md
+        - OnPreSimulation: reference/lifecycles/runtime/on-pre-simulation.md
+        - OnPreRender: reference/lifecycles/runtime/on-pre-render.md
+        - OnShutdown: reference/lifecycles/runtime/on-shutdown.md
       - Players:
         - reference/lifecycles/players/index.md
-        - onPlayerAdded: reference/lifecycles/players/on-player-added.md
-        - onPlayerRemoved: reference/lifecycles/players/on-player-removed.md
+        - OnPlayerAdded: reference/lifecycles/players/on-player-added.md
+        - OnPlayerRemoved: reference/lifecycles/players/on-player-removed.md
 extra_css:
   - assets/theme/404.css
   - assets/theme/code.css

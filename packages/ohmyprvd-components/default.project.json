@@ -1,9 +1,6 @@
 {
   "name": "ohmyprvd-components",
   "tree": {
-    "$path": "lib",
-    "Packages": {
-      "$path": "Packages",
-    }
+    "$path": "lib"
   }
 }
