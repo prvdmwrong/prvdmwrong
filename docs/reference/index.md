@@ -11,6 +11,39 @@ section.](../tutorials/index.md)
 
 ---
 
+## Types
+
+For convenience, API pages will have it's corresponding type member annotated
+in both Luau and TypeScript.
+
+=== "Luau"
+
+    ```Lua
+    function prvd.start(
+      options: {
+        logLevel: "none" | "verbose" | nil,
+        profiling: boolean?,
+      }?
+    ): ()
+    ```
+
+=== "TypeScript"
+
+    ```TypeScript
+    export const start: (
+      options: Partial<Options> = {
+        logLevel: "none",
+        profiling: RunService.IsStudio(),
+      }
+    ) => void
+    ```
+
+While these type annotations are kept to be accurate, it is ultimately
+psuedo-code included as developer aid. For fully accurate and syntactically
+valid type information, please refer to the source code directly.
+
+---
+
 ## Conventions
 
 The reference uses several conventions, explained below:
