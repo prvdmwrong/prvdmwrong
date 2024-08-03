@@ -14,7 +14,7 @@ section.](../tutorials/index.md)
 ## Types
 
 For convenience, API pages will have it's corresponding type member annotated
-in both Luau and TypeScript.
+in both Luau and TypeScript:
 
 === "Luau"
 
