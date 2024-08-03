@@ -44,7 +44,7 @@ export type Builder = {
   unreliable: (self: Builder) -> Builder,
 }
 
-export type NetEvent<Args... = ...unknown> = ClientToServer<Args...> & ServerToClient<Args...>
+export type NetEvent<Args... = ...unknown> = ToServer<Args...> & ToClient<Args...>
 export type NetAsync<Args... = ...unknown, Returns... = ...unknown> =
   ClientAsync<Args..., Returns...>
   & ServerAsync<Args..., Returns...>
@@ -52,31 +52,31 @@ export type NetAsync<Args... = ...unknown, Returns... = ...unknown> =
 --[[
   A network event that is called on the client and processed on the server.
 ]]
-export type ClientToServer<Args... = ...unknown> = {
+export type ToServer<Args... = ...unknown> = {
   type: "NetEvent",
   name: string,
 
-  connect: (self: ClientToServer<Args...>, callback: (player: Player, Args...) -> ()) -> RBXScriptConnection,
-  disconnectAll: (self: ClientToServer<Args...>) -> (),
+  connect: (self: ToServer<Args...>, callback: (player: Player, Args...) -> ()) -> RBXScriptConnection,
+  disconnectAll: (self: ToServer<Args...>) -> (),
 
-  fire: (self: ClientToServer<Args...>, Args...) -> (),
-  destroy: (self: ClientToServer<Args...>) -> (),
+  fire: (self: ToServer<Args...>, Args...) -> (),
+  destroy: (self: ToServer<Args...>) -> (),
 }
 
 --[[
   A network event that is called on the server and processed on the client.
 ]]
-export type ServerToClient<Args... = ...unknown> = {
+export type ToClient<Args... = ...unknown> = {
   type: "NetEvent",
   name: string,
 
-  connect: (self: ServerToClient<Args...>, callback: (Args...) -> ()) -> RBXScriptConnection,
-  destroy: (self: ServerToClient<Args...>) -> (),
-  disconnectAll: (self: ServerToClient<Args...>) -> (),
+  connect: (self: ToClient<Args...>, callback: (Args...) -> ()) -> RBXScriptConnection,
+  destroy: (self: ToClient<Args...>) -> (),
+  disconnectAll: (self: ToClient<Args...>) -> (),
 
-  fire: (self: ServerToClient<Args...>, player: Player, Args...) -> (),
-  firePlayers: (self: ServerToClient<Args...>, players: { Player }, Args...) -> (),
-  fireAll: (self: ServerToClient<Args...>, Args...) -> (),
+  fire: (self: ToClient<Args...>, player: Player, Args...) -> (),
+  firePlayers: (self: ToClient<Args...>, players: { Player }, Args...) -> (),
+  fireAll: (self: ToClient<Args...>, Args...) -> (),
 }
 
 --[[
@@ -89,9 +89,9 @@ export type ClientAsync<Args... = ...unknown, Returns... = ...unknown> = {
   type: "NetFunction",
   name: string,
 
-  onInvoke: (self: ServerToClient<Args...>, callback: (Args...) -> Returns...) -> (),
-  invoke: (self: ServerToClient<Args...>, player: Player, Args...) -> Returns...,
-  destroy: (self: ServerToClient<Args...>) -> (),
+  onInvoke: (self: ClientAsync<Args..., Returns...>, callback: (Args...) -> Returns...) -> (),
+  invoke: (self: ClientAsync<Args..., Returns...>, player: Player, Args...) -> Returns...,
+  destroy: (self: ClientAsync<Args..., Returns...>) -> (),
 }
 
 --[[
@@ -101,9 +101,9 @@ export type ServerAsync<Args... = ...unknown, Returns... = ...unknown> = {
   type: "NetFunction",
   name: string,
 
-  onInvoke: (self: ServerToClient<Args...>, callback: (player: Player, Args...) -> Returns...) -> (),
-  invoke: (self: ServerToClient<Args...>, Args...) -> Returns...,
-  destroy: (self: ServerToClient<Args...>) -> (),
+  onInvoke: (self: ServerAsync<Args..., Returns...>, callback: (player: Player, Args...) -> Returns...) -> (),
+  invoke: (self: ServerAsync<Args..., Returns...>, Args...) -> Returns...,
+  destroy: (self: ServerAsync<Args..., Returns...>) -> (),
 }
 
 export type LuauTypes =
