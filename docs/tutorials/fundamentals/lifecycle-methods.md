@@ -109,7 +109,7 @@ Now, other providers can hook onto our lifecycle method. We can refactor our
 === "Luau"
 
     ```Lua
-    function PointsProvider.onPlayerAdded(self: typeof(PointsProvider), player: Player)
+    function PointsProvider.onPlayerAdded(self: Self, player: Player)
       self:setDefaultPoints(player)
     end
     ```
@@ -138,7 +138,7 @@ Once installed, import the package, preferably within your startup script:
     ```Lua
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
     -- this assumes you've aliased the package as `lifecycles`
-    local lifecycles = require(ReplicatedStorage.Packages.lifecycles)
+    require(ReplicatedStorage.Packages.lifecycles)
     ```
 
 === "TypeScript"
