@@ -632,11 +632,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/fundamentals/lifecycle-methods/" class="md-nav__link">
+      <a href="../../../../tutorials/fundamentals/lifecycles/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Lifecycle Methods
+    Lifecycles
   </span>
   
 
@@ -1698,6 +1698,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lifecycle
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1707,6 +1718,78 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      method : string
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fire-self-lifecycle-unknown-" class="md-nav__link">
+    <span class="md-ellipsis">
+      fire : (self: Lifecycle, ...unknown) -&gt; ()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learn More
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1762,11 +1845,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../on-method-registered/" class="md-nav__link">
+      <a href="../on-lifecycle-registered/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    onMethodRegistered
+    onLifecycleRegistered
   </span>
   
 
@@ -1783,11 +1866,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../on-method-unregistered/" class="md-nav__link">
+      <a href="../on-lifecycle-unregistered/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    onMethodUnregistered
+    onLifecycleUnregistered
   </span>
   
 
@@ -2739,6 +2822,65 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      method : string
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fire-self-lifecycle-unknown-" class="md-nav__link">
+    <span class="md-ellipsis">
+      fire : (self: Lifecycle, ...unknown) -&gt; ()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learn More
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2766,10 +2908,49 @@
 </div>
 
 <h1 id="lifecycle"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"/></svg></span> Lifecycle<a class="headerlink" href="#lifecycle" title="Permanent link">&para;</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Under construction</p>
-<p>This page is under construction - information may be incomplete or missing.</p>
+<p>Constructs and returns a new <a href="../../types/lifecycle/">lifecycle</a> within Oh My
+Prvd. Lifecycles are special event dispatchers that can hook onto a provider's
+method.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Luau</label><label for="__tabbed_1_2">TypeScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span> <span class="nc">prvd</span><span class="p">.</span><span class="nf">Lifecycle</span><span class="p">(</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="n">method</span><span class="p">:</span> <span class="n">string</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  <span class="n">fire</span><span class="p">:</span> <span class="p">(</span><span class="n">self</span><span class="p">:</span> <span class="n">Lifecycle</span><span class="p">,</span> <span class="p">...</span><span class="n">unknown</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">()</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">):</span> <span class="n">Lifecycle</span>
+</span></code></pre></div>
 </div>
+<div class="tabbed-block">
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">Lifecycle</span><span class="o">:</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nx">fire</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">lifecycle</span><span class="o">:</span><span class="w"> </span><span class="kt">Lifecycle</span><span class="p">,</span><span class="w"> </span><span class="nx">...args</span><span class="o">:</span><span class="w"> </span><span class="kt">unknown</span><span class="p">[])</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">Lifecycle</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
+<h3 id="method-string">method <code class="language-lua highlight"><span class="p">:</span> <span class="n">string</span></code><a class="headerlink" href="#method-string" title="Permanent link">&para;</a></h3>
+<p>The provider method that this lifecycle should hook onto. During startup, Oh My
+Prvd will register all lifecycles on a provider.</p>
+<h3 id="fire-self-lifecycle-unknown-">fire <code class="language-lua highlight"><span class="p">:</span> <span class="p">(</span><span class="n">self</span><span class="p">:</span> <span class="n">Lifecycle</span><span class="p">,</span> <span class="p">...</span><span class="n">unknown</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">()</span></code><a class="headerlink" href="#fire-self-lifecycle-unknown-" title="Permanent link">&para;</a></h3>
+<p>A method to fire the lifecycle method. It receives itself and the arguments
+passed to it. For convenience, Oh My Prvd provides two methods you can use:</p>
+<ul>
+<li><a href="../fire-concurrent/"><code>fireConcurrent(self, ...)</code></a> which spawns all listeners
+  concurrently</li>
+<li><a href="../fire-sequential/"><code>fireSequential(self, ...)</code></a> which runs all listeners
+  sequentially</li>
+</ul>
+<hr />
+<h2 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h2>
+<p><a href="../../types/lifecycle/">A freshly constructed lifecycle.</a></p>
+<hr />
+<h2 id="learn-more">Learn More<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../../tutorials/fundamentals/lifecycles/">Lifecycles tutorial</a></li>
+</ul>
 
 
 

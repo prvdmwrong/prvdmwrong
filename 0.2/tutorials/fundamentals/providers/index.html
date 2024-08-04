@@ -738,11 +738,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../lifecycle-methods/" class="md-nav__link">
+      <a href="../lifecycles/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Lifecycle Methods
+    Lifecycles
   </span>
   
 
@@ -1855,11 +1855,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/core/lifecycles/on-method-registered/" class="md-nav__link">
+      <a href="../../../reference/core/lifecycles/on-lifecycle-registered/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    onMethodRegistered
+    onLifecycleRegistered
   </span>
   
 
@@ -1876,11 +1876,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/core/lifecycles/on-method-unregistered/" class="md-nav__link">
+      <a href="../../../reference/core/lifecycles/on-lifecycle-unregistered/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    onMethodUnregistered
+    onLifecycleUnregistered
   </span>
   
 
@@ -2991,7 +2991,7 @@ for convenience:</p>
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">PointsProvider</span><span class="p">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">{}</span>
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
 </span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="hll"><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">setDefaultPoints</span><span class="p">(</span>
-</span></span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="hll">  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
+</span></span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="hll">  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">),</span>
 </span></span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="hll">  <span class="n">player</span><span class="p">:</span> <span class="n">Player</span>
 </span></span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="hll"><span class="p">)</span>
 </span></span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="hll">  <span class="kr">if</span> <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
@@ -3096,7 +3096,7 @@ every player that joins:</p>
 </span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="n">PointsProvider</span><span class="p">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">{}</span>
 </span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
 </span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">setDefaultPoints</span><span class="p">(</span>
-</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">Self</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">Self</span><span class="p">,</span>
 </span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>  <span class="n">player</span><span class="p">:</span> <span class="n">Player</span>
 </span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="p">)</span>
 </span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>  <span class="kr">if</span> <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
@@ -3160,7 +3160,7 @@ with the <code>Players.PlayerRemoving</code> event and remove their points:</p>
 </span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="n">PointsProvider</span><span class="p">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">{}</span>
 </span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
 </span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">setDefaultPoints</span><span class="p">(</span>
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">),</span>
 </span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>  <span class="n">player</span><span class="p">:</span> <span class="n">Player</span>
 </span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="p">)</span>
 </span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>  <span class="kr">if</span> <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
@@ -3173,7 +3173,7 @@ with the <code>Players.PlayerRemoving</code> event and remove their points:</p>
 </span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
 </span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="p">)</span>
 </span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>  <span class="n">Players</span><span class="p">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">newPlayer</span><span class="p">)</span>
-</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">newPlayer</span><span class="p">)</span>
 </span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>  <span class="kr">end</span><span class="p">)</span>
 </span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>  <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">existingPlayer</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">Players</span><span class="p">:</span><span class="n">GetPlayers</span><span class="p">())</span> <span class="kr">do</span>
 </span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">existingPlayer</span><span class="p">)</span>
@@ -3200,7 +3200,7 @@ through dependency injection.</p>
 </span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="kd">local</span> <span class="n">MathProvider</span> <span class="o">=</span> <span class="p">{}</span>
 </span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
 </span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="kr">function</span> <span class="nc">MathProvider</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span>
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">),</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">MathProvider</span><span class="p">),</span>
 </span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>  <span class="n">a</span><span class="p">:</span> <span class="n">number</span><span class="p">,</span>
 </span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>  <span class="n">b</span><span class="p">:</span> <span class="n">number</span>
 </span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="p">):</span> <span class="n">number</span>
@@ -3240,7 +3240,7 @@ through dependency injection.</p>
 </span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="hll"><span class="n">PointsProvider</span><span class="p">.</span><span class="n">mathProvider</span> <span class="o">=</span> <span class="n">prvd</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="n">MathProvider</span><span class="p">)</span>
 </span></span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>
 </span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="kr">function</span> <span class="nc">PointsProvider</span><span class="p">.</span><span class="nf">setDefaultPoints</span><span class="p">(</span>
-</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">),</span>
 </span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>  <span class="n">player</span><span class="p">:</span> <span class="n">Player</span>
 </span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="p">)</span>
 </span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>  <span class="kr">if</span> <span class="n">self</span><span class="p">.</span><span class="n">points</span><span class="p">[</span><span class="n">player</span><span class="p">]</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
@@ -3253,7 +3253,7 @@ through dependency injection.</p>
 </span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>  <span class="n">self</span><span class="p">:</span> <span class="n">typeof</span><span class="p">(</span><span class="n">PointsProvider</span><span class="p">)</span>
 </span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="p">)</span>
 </span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>  <span class="n">Players</span><span class="p">.</span><span class="n">PlayerAdded</span><span class="p">:</span><span class="n">Connect</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">newPlayer</span><span class="p">)</span>
-</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">newPlayer</span><span class="p">)</span>
 </span><span id="__span-18-25"><a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a>  <span class="kr">end</span><span class="p">)</span>
 </span><span id="__span-18-26"><a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a>  <span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">existingPlayer</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">Players</span><span class="p">:</span><span class="n">GetPlayers</span><span class="p">())</span> <span class="kr">do</span>
 </span><span id="__span-18-27"><a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a>    <span class="n">self</span><span class="p">:</span><span class="n">setDefaultPoints</span><span class="p">(</span><span class="n">existingPlayer</span><span class="p">)</span>

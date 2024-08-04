@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/lifecycles/on-method-unregistered/">
+        <link rel="canonical" href="https://team-fireworks.github.io/ohmyprvd/0.2/reference/core/lifecycles/on-lifecycle-registered/">
       
       
-        <link rel="prev" href="../on-method-registered/">
+        <link rel="prev" href="../fire-sequential/">
       
       
-        <link rel="next" href="../../modding/">
+        <link rel="next" href="../on-lifecycle-unregistered/">
       
       
       <link rel="icon" href="../../../../assets/logo.svg">
@@ -22,7 +22,7 @@
     
     
       
-        <title>onMethodUnregistered - Oh My Prvd</title>
+        <title>onLifecycleRegistered - Oh My Prvd</title>
       
     
     
@@ -127,7 +127,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#octicons-hook-16-onmethodunregistered" class="md-skip">
+        <a href="#onlifecycleregistered" class="md-skip">
           Skip to content
         </a>
       
@@ -164,7 +164,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              onMethodUnregistered
+              onLifecycleRegistered
             
           </span>
         </div>
@@ -632,11 +632,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/fundamentals/lifecycle-methods/" class="md-nav__link">
+      <a href="../../../../tutorials/fundamentals/lifecycles/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Lifecycle Methods
+    Lifecycles
   </span>
   
 
@@ -1749,27 +1749,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../on-method-registered/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    onMethodRegistered
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1782,16 +1761,102 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    onLifecycleRegistered
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    onMethodUnregistered
+    onLifecycleRegistered
   </span>
   
 
       </a>
       
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      method : string
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handler-providerunknown-void" class="md-nav__link">
+    <span class="md-ellipsis">
+      handler : (Provider&lt;unknown&gt;) -&gt; void
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../on-lifecycle-unregistered/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    onLifecycleUnregistered
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2739,6 +2804,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      method : string
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handler-providerunknown-void" class="md-nav__link">
+    <span class="md-ellipsis">
+      handler : (Provider&lt;unknown&gt;) -&gt; void
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2760,16 +2866,41 @@
 <a href="../../">Core</a>
 <a href="../">Lifecycles</a>
 </div>
+
 <div class="ompdoc-reference-tags">
-<span class="ompdoc-reference-highlight">workflow</span>
-<span class="ompdoc-reference-since">since v0.2</span>
+<span class="ompdoc-reference-highlight">hook</span>
+<span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-<h1 id="octicons-hook-16-onmethodunregistered">:octicons-hook-16: onMethodUnregistered<a class="headerlink" href="#octicons-hook-16-onmethodunregistered" title="Permanent link">&para;</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Under construction</p>
-<p>This page is under construction - information may be incomplete or missing.</p>
+<h1 id="onlifecycleregistered"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"/></svg></span> onLifecycleRegistered<a class="headerlink" href="#onlifecycleregistered" title="Permanent link">&para;</a></h1>
+<p>Called when an object registers a lifecycle method. Handlers are expected to be
+infallible and non-yielding. The handler receives the constructed provider.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Luau</label><label for="__tabbed_1_2">TypeScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span> <span class="nc">prvd</span><span class="p">.</span><span class="nf">onLifecycleRegistered</span><span class="p">(</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="n">method</span><span class="p">:</span> <span class="n">string</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  <span class="n">handler</span><span class="p">:</span> <span class="p">(</span><span class="n">Provider</span><span class="o">&lt;</span><span class="n">unknown</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">()</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">):</span> <span class="p">()</span>
+</span></code></pre></div>
 </div>
+<div class="tabbed-block">
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">onLifecycleRegistered</span><span class="o">:</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">provider</span><span class="o">:</span><span class="w"> </span><span class="kt">Provider</span><span class="o">&lt;</span><span class="nx">unknown</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
+<h3 id="method-string">method <code class="language-lua highlight"><span class="p">:</span> <span class="n">string</span></code><a class="headerlink" href="#method-string" title="Permanent link">&para;</a></h3>
+<p>The method that is registered. During startup, all providers will have its
+lifecycles registered.</p>
+<h3 id="handler-providerunknown-void">handler <code class="language-lua highlight"><span class="p">:</span> <span class="p">(</span><span class="n">Provider</span><span class="o">&lt;</span><span class="n">unknown</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">void</span></code><a class="headerlink" href="#handler-providerunknown-void" title="Permanent link">&para;</a></h3>
+<p>A handler for providers that register the specified method. It receives the
+provider which implements the method.</p>
 
 
 
@@ -2837,9 +2968,9 @@
         
           
           <a
-            href="../on-method-registered/"
+            href="../fire-sequential/"
             class="md-footer__link md-footer__link--prev"
-            aria-label="Previous: onMethodRegistered"
+            aria-label="Previous: fireSequential"
           >
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.78 19.03a.75.75 0 0 1-1.06 0l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L5.81 11.5h14.44a.75.75 0 0 1 0 1.5H5.81l4.97 4.97a.75.75 0 0 1 0 1.06Z"/></svg>
@@ -2849,7 +2980,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                onMethodRegistered
+                fireSequential
               </div>
             </div>
           </a>
@@ -2859,16 +2990,16 @@
         
           
           <a
-            href="../../modding/"
+            href="../on-lifecycle-unregistered/"
             class="md-footer__link md-footer__link--next"
-            aria-label="Next: Index"
+            aria-label="Next: onLifecycleUnregistered"
           >
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Index
+                onLifecycleUnregistered
               </div>
             </div>
             <div class="md-footer__button md-icon">

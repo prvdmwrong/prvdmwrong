@@ -632,11 +632,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/fundamentals/lifecycle-methods/" class="md-nav__link">
+      <a href="../../../../tutorials/fundamentals/lifecycles/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Lifecycle Methods
+    Lifecycles
   </span>
   
 
@@ -1845,11 +1845,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lifecycles/on-method-registered/" class="md-nav__link">
+      <a href="../../lifecycles/on-lifecycle-registered/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    onMethodRegistered
+    onLifecycleRegistered
   </span>
   
 
@@ -1866,11 +1866,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lifecycles/on-method-unregistered/" class="md-nav__link">
+      <a href="../../lifecycles/on-lifecycle-unregistered/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    onMethodUnregistered
+    onLifecycleUnregistered
   </span>
   
 
@@ -2904,13 +2904,13 @@
 </div>
 
 <div class="ompdoc-reference-tags">
-<span class="ompdoc-reference-highlight">function</span>
+<span class="ompdoc-reference-highlight">constructor</span>
 <span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
 <h1 id="provider"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"/></svg></span> Provider<a class="headerlink" href="#provider" title="Permanent link">&para;</a></h1>
-<p>Constructs and returns a new <a href="../../types/provider/">provider</a> within Oh My Prvd. Providers must be
-created before calling <code>prvd.start(options)</code>.</p>
+<p>Constructs and returns a new <a href="../../types/provider/">provider</a> within Oh My Prvd.
+Providers must be created before calling <code>prvd.start(options)</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Luau</label><label for="__tabbed_1_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2946,19 +2946,12 @@ aliases the <code>Provider</code> constructor with <code>new</code>:</p>
 <h3 id="name-string">name <code class="language-lua highlight"><span class="p">:</span> <span class="n">string</span></code><a class="headerlink" href="#name-string" title="Permanent link">&para;</a></h3>
 <p>A unique name to identify the provider with. This will be used for debugging.</p>
 <h3 id="provider-t">provider <code class="language-lua highlight"><span class="p">:</span> <span class="n">T</span></code><a class="headerlink" href="#provider-t" title="Permanent link">&para;</a></h3>
-<p>The methods and properties of the provider. Oh My Prvd provides two lifecycle
-methods out of the box which may be specified:</p>
-<ul>
-<li><code>:onInit</code> runs sequentially before any other lifecycle methods, methods are
-  expected to be infallible and preferably non-yielding.</li>
-<li><code>:onStart</code> runs concurrently <em>after</em> all other lifecycle methods have been
-  registered. This means failures and yields do not affect other providers.</li>
-</ul>
-<p>In addition, the provider may also specify a <code>loadOrder</code> property which
-dictates when the provider is loaded, defaults to one.</p>
+<p>The methods and properties of the provider. All lifecycle methods will be
+registered during startup. The provider may also specify a <code>loadOrder</code> property
+which dictates when the provider is loaded, and defaults to one.</p>
 <hr />
 <h2 id="returns-providert">Returns <code class="language-lua highlight"><span class="p">:</span> <span class="n">Provider</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span></code><a class="headerlink" href="#returns-providert" title="Permanent link">&para;</a></h2>
-<p>A freshly registered provider.</p>
+<p><a href="../../types/provider/">A freshly registered provider.</a></p>
 <hr />
 <h2 id="learn-more">Learn More<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h2>
 <ul>
