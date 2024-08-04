@@ -19,7 +19,7 @@ export type Provider<T> = Types.Provider<T>
 export type StartupStatus = Types.StartupStatus
 
 local prvd: Types.Prvd = table.freeze {
-  version = "0.2.0-dev.3",
+  version = "0.2.0-dev.4",
 
   -- Providers API
   awaitStart = Prvd.awaitStart,
@@ -44,6 +44,8 @@ local prvd: Types.Prvd = table.freeze {
   getStartupStatus = Prvd.getStartupStatus,
   onProviderConstructed = Modding.onProviderConstructed,
   onProviderUsed = Modding.onProviderUsed,
+
+  -- Internal API
   internal = table.freeze {
     registerAll = Lifecycles.registerAll,
     registerMethod = Lifecycles.registerMethod,

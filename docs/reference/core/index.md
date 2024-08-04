@@ -13,7 +13,7 @@ Install this through your preferred package manager:
 === "Wally"
 
     ```toml
-    ohmyprvd = "znotfireman/ohmyprvd@0.2.0-dev.2"
+    ohmyprvd = "znotfireman/ohmyprvd@0.2.0-dev.3"
     ```
 
 === "NPM"
