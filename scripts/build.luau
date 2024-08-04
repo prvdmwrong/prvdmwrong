@@ -159,7 +159,7 @@ do
     print(`Processing {package}`)
     spawnCommand("darklua", "process", `{cwd}/packages/{package}`, `{cwd}/dist/{package}`, "-c", darkluaConfig, "-v")
 
-    print(`Reformatting {package} because Darklua does weird things`)
+    print(`=> Reformatting {package} because Darklua does weird things`)
     spawnCommand("stylua", `{cwd}/dist/{package}`)
 
     print(`=> Writing default.project.json for {package}`)
