@@ -55,10 +55,10 @@ passed to it. For convenience, Oh My Prvd provides two methods you can use:
 
 ## Returns
 
-A freshly constructed [lifecycle](../types/lifecycle.md) object.
+[A freshly constructed lifecycle.](../types/lifecycle.md)
 
 ---
 
 ## Learn More
 
-- [Lifecycles tutorial](../../../tutorials/fundamentals/lifecycle.md)
+- [Lifecycles tutorial](../../../tutorials/fundamentals/lifecycles.md)

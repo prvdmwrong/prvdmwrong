@@ -3,12 +3,44 @@
 <a href="../../">Core</a>
 <a href="../">Lifecycles</a>
 </div>
+
 <div class="ompdoc-reference-tags">
-<span class="ompdoc-reference-highlight">workflow</span>
-<span class="ompdoc-reference-since">since v0.2</span>
+<span class="ompdoc-reference-highlight">hook</span>
+<span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
-# :octicons-hook-16: onMethodUnregistered
+# :octicons-workflow-16: onLifecycleUnregistered
 
-!!! warning "Under construction"
-    This page is under construction - information may be incomplete or missing.
+Called when an object unregisters a lifecycle method. Handlers are expected to be
+infallible and non-yielding. The handler receives the constructed provider.
+
+=== "Luau"
+
+    ```Lua
+    function prvd.onLifecycleUnregistered(
+      method: string,
+      handler: (Provider<unknown>) -> ()
+    ): ()
+    ```
+
+=== "TypeScript"
+
+    ```TypeScript
+    export const onLifecycleUnregistered: (
+      method: string,
+      handler: (provider: Provider<unknown>) => void
+    ) => void
+    ```
+
+---
+
+## Parameters
+
+### method `#!lua : string`
+
+The method that is unregistered.
+
+### handler `#!lua : (Provider<unknown>) -> void`
+
+A handler for providers that unregisters the specified method. It receives the
+provider which unregistered the method.

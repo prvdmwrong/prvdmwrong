@@ -57,22 +57,15 @@ A unique name to identify the provider with. This will be used for debugging.
 
 ### provider `#!lua : T`
 
-The methods and properties of the provider. Oh My Prvd provides two lifecycle
-methods out of the box which may be specified:
-
-- `:onInit` runs sequentially before any other lifecycle methods, methods are
-  expected to be infallible and preferably non-yielding.
-- `:onStart` runs concurrently *after* all other lifecycle methods have been
-  registered. This means failures and yields do not affect other providers.
-
-In addition, the provider may also specify a `loadOrder` property which
-dictates when the provider is loaded, defaults to one.
+The methods and properties of the provider. All lifecycle methods will be
+registered during startup. The provider may also specify a `loadOrder` property
+which dictates when the provider is loaded, and defaults to one.
 
 ---
 
 ## Returns `#!lua : Provider<T>`
 
-A freshly registered provider.
+[A freshly registered provider.](../types/provider.md)
 
 ---
 

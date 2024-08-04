@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 <div class="ompdoc-reference-breadcrumbs">
 <a href="../">Reference</a>
 </div>
@@ -40,7 +45,7 @@ Install this through your preferred package manager:
 
 <section markdown>
 
-## Providers
+## [Providers](providers/index.md)
 
 - [:octicons-package-16: Provider](providers/provider.md)
 - [:octicons-list-ordered-16: StartupStatus](providers/startup-status.md)
@@ -50,7 +55,7 @@ Install this through your preferred package manager:
 - [:octicons-workflow-16: awaitStart](providers/await-start.md)
 - [:octicons-workflow-16: onStart](providers/on-start.md)
 
-## Types
+## [Types](types/index.md)
 
 - [:octicons-checklist-16: Lifecycle](types/lifecycle.md)
 - [:octicons-checklist-16: OnInit](types/on-init.md)
@@ -62,7 +67,7 @@ Install this through your preferred package manager:
 
 <section markdown>
 
-## Lifecycles
+## [Lifecycles](lifecycles/index.md)
 
 - [:octicons-package-16: Lifecycle](lifecycles/lifecycle.md)
 - [:octicons-code-16: fireConcurrent](lifecycles/fire-concurrent.md)
@@ -70,14 +75,14 @@ Install this through your preferred package manager:
 - [:octicons-workflow-16: onLifecycleRegistered](lifecycles/on-lifecycle-registered.md)
 - [:octicons-workflow-16: onLifecycleUnregistered](lifecycles/on-lifecycle-unregistered.md)
 
-## Modding
+## [Modding](modding/index.md)
 
 - [:octicons-code-16: getStartupOptions](modding/get-startup-options.md)
 - [:octicons-code-16: getStartupStatus](modding/get-startup-status.md)
 - [:octicons-workflow-16: onProviderConstructed](modding/on-provider-constructed.md)
 - [:octicons-workflow-16: onProviderUsed](modding/on-provider-used.md)
 
-## Internal
+## [Internal](internal/index.md)
 
 - [:octicons-code-16: defineMetadata](internal/define-metadata.md)
 - [:octicons-code-16: deleteMetadata](internal/delete-metadata.md)
