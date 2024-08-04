@@ -2,3 +2,4 @@
   name = "ohmyprvd-lifecycles"
   display = "Oh My Prvd Lifecycles"
   description = 'Implements a "small" amount of lifecycles for providers.'
+  dependencies = ["ohmyprvd"]

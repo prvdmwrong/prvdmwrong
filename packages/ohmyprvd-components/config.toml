@@ -2,3 +2,4 @@
   name = "ohmyprvd-components"
   display = "Oh My Prvd Components"
   description = "Implements a component system for providers."
+  dependencies = ["ohmyprvd"]

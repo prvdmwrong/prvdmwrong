@@ -2,3 +2,4 @@
   name = "ohmyprvd-net"
   display = "Oh My Prvd Net"
   description = "Implements networking primtives for providers."
+  dependencies = ["ohmyprvd"]

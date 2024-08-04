@@ -2,3 +2,4 @@
   name = "ohmyprvd-debugger"
   display = "Oh My Prvd Debugger"
   description = "Implements a quality of life debuggers for providers."
+  dependencies = ["ohmyprvd"]

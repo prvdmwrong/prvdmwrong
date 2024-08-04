@@ -8,8 +8,7 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
--- FIXME: please tell me theres a better way than this
-local prvd = require(script.Parent.prvd) :: Prvd
+local prvd = assert(_G.__ohmyprvd__, "Cannot acquire core package") :: Prvd
 local types = require(script.types)
 
 export type OnPreSimulation = types.OnPreSimulation
