@@ -5,7 +5,7 @@
 </div>
 
 <div class="ompdoc-reference-tags">
-<span class="ompdoc-reference-highlight">function</span>
+<span class="ompdoc-reference-highlight">constructor</span>
 <span class="ompdoc-reference-since">since v0.1</span>
 </div>
 
