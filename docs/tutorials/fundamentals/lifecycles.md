@@ -25,7 +25,7 @@ package, so that you can refer to it by name:
 === "TypeScript"
 
     ```TypeScript
-    import { Lifecycle } from "@rbxts/ohmyprvd"
+    import { Lifecycle, type Lifecycle } from "@rbxts/ohmyprvd"
     ```
 
 Let's define an interface that will sastify our lifecycle:
