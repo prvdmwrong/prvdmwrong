@@ -1,8 +1,7 @@
 # Lifecycles
 
-Oh My Prvd provides the `:onInit()` and `:onStart()` lifecycle methods. To
-tailor your needs, you implement custom lifecycle methods or import additional
-lifecycle methods.
+Oh My Prvd comes with the `:onInit()` and `:onStart()` lifecycles. To tailor
+your needs, custom lifecycles can be implemented or imported.
 
 ---
 
