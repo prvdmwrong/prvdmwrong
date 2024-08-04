@@ -56,11 +56,11 @@ end
   @internal
 ]]
 function Lifecycles.registerAll(object: Object)
-  for method, Lifecycles in pairs(Lifecycles.lifecycleMethods) do
+  for method, lifecycles in pairs(Lifecycles.lifecycleMethods) do
     if typeof(object[method]) ~= "function" then
       continue
     end
-    for lifecycle in pairs(Lifecycles) do
+    for lifecycle in pairs(lifecycles) do
       lifecycle:register(object)
     end
   end

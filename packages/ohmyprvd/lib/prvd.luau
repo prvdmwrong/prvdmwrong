@@ -262,13 +262,13 @@ function Prvd.start(options: {
   local onStart: Lifecycle<OnStart> = Lifecycles.Lifecycle("onStart", function(self)
     for _, provider in ipairs(self.listeners) do
       local identifier = Reflect.getIdentifier(provider, ":onStart")
-      verbose("running lifecycle method", Reflect.getIdentifier(provider, ":onStart"))
+      verbose("running lifecycle method", identifier)
       Utils.spawn(profileCallback(provider.onStart, identifier), provider)
     end
   end)
 
   for _, provider in ipairs(dependencies) do
-    Lifecycles.registerAll(provider)
+    Lifecycles.registerAll(provider.instance)
   end
 
   onInit:fire()
