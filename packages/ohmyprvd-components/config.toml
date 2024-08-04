@@ -1,3 +1,4 @@
 [config]
-  name = "ohmyprvd"
-  description = "Oh My Prvd is a delightful framework for Roblox games."
+  name = "ohmyprvd-components"
+  display = "Oh My Prvd Components"
+  description = "Implements a component system for providers."

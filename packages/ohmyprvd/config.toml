@@ -1,3 +1,4 @@
 [config]
   name = "ohmyprvd"
+  display = "Oh My Prvd"
   description = "Oh My Prvd is a delightful framework for Roblox games."

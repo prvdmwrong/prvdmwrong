@@ -1,3 +1,4 @@
 [config]
-  name = "ohmyprvd"
-  description = "Oh My Prvd is a delightful framework for Roblox games."
+  name = "ohmyprvd-debugger"
+  display = "Oh My Prvd Debugger"
+  description = "Implements a quality of life debuggers for providers."
