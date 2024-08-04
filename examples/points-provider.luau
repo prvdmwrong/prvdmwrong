@@ -1,7 +1,8 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+
 local MathProvider = require(script.Parent.MathProvider)
 local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
-local Players = game:GetService("Players")
 
 local PointsProvider = {}
 PointsProvider.points = {}
@@ -14,7 +15,7 @@ function PointsProvider.setDefaultPoints(self: typeof(PointsProvider), player: P
   self.points[player] = 10
 end
 
-function PointsProvider.start(self: typeof(PointsProvider))
+function PointsProvider.onStart(self: typeof(PointsProvider))
   Players.PlayerAdded:Connect(function(newPlayer)
     self:setDefaultPoints(newPlayer)
   end)

@@ -17,6 +17,7 @@ method:
 === "Luau"
 
     ```Lua
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local prvd = require(ReplicatedStorage.Packages.prvd)
 
     prvd.onMethodImplemented("onPlayerAdded", function(provider)
@@ -40,6 +41,7 @@ will fire the lifecycle methods later:
 === "Luau"
 
     ```Lua
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local prvd = require(ReplicatedStorage.Packages.prvd)
 
     -- This interface satisfies our lifecycle method!
@@ -134,6 +136,7 @@ Once installed, import the package, preferably within your startup script:
 === "Luau"
 
     ```Lua
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
     -- this assumes you've aliased the package as `lifecycles`
     require(ReplicatedStorage.Packages.lifecycles)
     ```

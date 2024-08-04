@@ -1,9 +1,6 @@
 {
   "name": "ohmyprvd-net",
   "tree": {
-    "$path": "Packages",
-    "ohmyprvd-net": {
-      "$path": "lib"
-    }
+    "$path": "lib"
   }
 }

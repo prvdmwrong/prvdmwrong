@@ -98,7 +98,7 @@ for convenience:
     PointsProvider.points = {}
 
     function PointsProvider.setDefaultPoints(
-      self: typeof(PointsProvider)
+      self: typeof(PointsProvider),
       player: Player
     )
       if self.points[player] ~= nil then
@@ -223,7 +223,7 @@ every player that joins:
     PointsProvider.points = {}
 
     function PointsProvider.setDefaultPoints(
-      self: Self
+      self: Self,
       player: Player
     )
       if self.points[player] ~= nil then
@@ -293,7 +293,7 @@ local PointsProvider = {}
 PointsProvider.points = {}
 
 function PointsProvider.setDefaultPoints(
-  self: typeof(PointsProvider)
+  self: typeof(PointsProvider),
   player: Player
 )
   if self.points[player] ~= nil then
@@ -306,7 +306,7 @@ function PointsProvider.start(
   self: typeof(PointsProvider)
 )
   Players.PlayerAdded:Connect(function(newPlayer)
-    self:setDefaultPoints(player)
+    self:setDefaultPoints(newPlayer)
   end)
   for _, existingPlayer in pairs(Players:GetPlayers()) do
     self:setDefaultPoints(existingPlayer)
@@ -338,7 +338,7 @@ First, create a file for a new `MathProvider` with the following:
     local MathProvider = {}
 
     function MathProvider.add(
-      self: typeof(PointsProvider),
+      self: typeof(MathProvider),
       a: number,
       b: number
     ): number
@@ -383,7 +383,7 @@ PointsProvider.points = {}
 PointsProvider.mathProvider = prvd.use(MathProvider)
 
 function PointsProvider.setDefaultPoints(
-  self: typeof(PointsProvider)
+  self: typeof(PointsProvider),
   player: Player
 )
   if self.points[player] ~= nil then
@@ -396,7 +396,7 @@ function PointsProvider.start(
   self: typeof(PointsProvider)
 )
   Players.PlayerAdded:Connect(function(newPlayer)
-    self:setDefaultPoints(player)
+    self:setDefaultPoints(newPlayer)
   end)
   for _, existingPlayer in pairs(Players:GetPlayers()) do
     self:setDefaultPoints(existingPlayer)

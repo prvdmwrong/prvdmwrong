@@ -11,7 +11,9 @@ which will load all modules given an array of instances:
 === "Luau"
 
     ```lua
-    local prvd = require("@pkg/ohmyprvd")
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+
     prvd.preload(script.Providers:GetChildren())
     ```
 
@@ -26,8 +28,10 @@ You can also pass a predicate function to filter the target modules:
 
 === "Luau"
 
-    ```lua hl_lines="4-6"
-    local prvd = require("@pkg/ohmyprvd")
+    ```lua hl_lines="6-8"
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+
     prvd.preload(
       script.Providers.GetChildren(),
       function(module: ModuleScript)
