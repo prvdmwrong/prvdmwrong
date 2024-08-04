@@ -6,6 +6,7 @@
 ]]
 
 local Lifecycles = require(script.lifecycles)
+local Log = require(script.log)
 local Modding = require(script.modding)
 local Prvd = require(script.prvd)
 local Reflect = require(script.reflect)
@@ -17,6 +18,11 @@ export type OnStart = Types.OnStart
 export type Options = Types.Options
 export type Provider<T> = Types.Provider<T>
 export type StartupStatus = Types.StartupStatus
+
+if _G.__ohmyprvd__ ~= nil then
+  Log.warn("multipleInstalls")
+  return _G.__ohmyprvd__
+end
 
 local prvd: Types.Prvd = table.freeze {
   version = "VERSION",
@@ -59,4 +65,5 @@ local prvd: Types.Prvd = table.freeze {
   },
 }
 
+_G.__ohmyprvd__ = prvd
 return prvd

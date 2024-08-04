@@ -17,6 +17,7 @@ local MESSAGES = table.freeze {
   cannotUseNonProvider = "`prvd.use(provider)` must be given a provider",
   invalidLoadParent = "preload must be given an instance",
   invalidOnStartCallback = "`prvd.onStart(callback)` expects a callback",
+  multipleInstalls = "there are multiple installations of ohmyprvd, this can lead to unexpected behavior",
   onInitError = "cannot initialize %s; %s",
   onMethodImplementedWasDeprecated = "`onMethodImplemented` was deprecated, use `onMethodAdded` for observing lifecycles or `Lifecycle` for implementing lifecycles",
   registerAfterStartup = "cannot register providers after startup",
