@@ -55,7 +55,7 @@ nav:
     - Fundamentals:
       - Providers: tutorials/fundamentals/providers.md
       - Startup: tutorials/fundamentals/startup.md
-      - Lifecycle Methods: tutorials/fundamentals/lifecycle-methods.md
+      - Lifecycles: tutorials/fundamentals/lifecycles.md
     - Net:
       - Net: tutorials/net/index.md
       - Events: tutorials/net/events.md
@@ -95,8 +95,8 @@ nav:
         - Lifecycle: reference/core/lifecycles/lifecycle.md
         - fireConcurrent: reference/core/lifecycles/fire-concurrent.md
         - fireSequential: reference/core/lifecycles/fire-sequential.md
-        - onMethodRegistered: reference/core/lifecycles/on-method-registered.md
-        - onMethodUnregistered: reference/core/lifecycles/on-method-unregistered.md
+        - onLifecycleRegistered: reference/core/lifecycles/on-lifecycle-registered.md
+        - onLifecycleUnregistered: reference/core/lifecycles/on-lifecycle-unregistered.md
       - Modding:
         - reference/core/modding/index.md
         - getStartupOptions: reference/core/modding/get-startup-options.md

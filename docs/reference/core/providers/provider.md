@@ -11,8 +11,8 @@
 
 # :octicons-package-16: Provider
 
-Constructs and returns a new [provider](../types/provider.md) within Oh My Prvd. Providers must be
-created before calling `prvd.start(options)`.
+Constructs and returns a new [provider](../types/provider.md) within Oh My Prvd.
+Providers must be created before calling `prvd.start(options)`.
 
 === "Luau"
 

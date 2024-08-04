@@ -67,8 +67,8 @@ Install this through your preferred package manager:
 - [:octicons-package-16: Lifecycle](lifecycles/lifecycle.md)
 - [:octicons-code-16: fireConcurrent](lifecycles/fire-concurrent.md)
 - [:octicons-code-16: fireSequential](lifecycles/fire-sequential.md)
-- [:octicons-workflow-16: onMethodRegistered](lifecycles/on-method-registered.md)
-- [:octicons-workflow-16: onMethodUnregistered](lifecycles/on-method-unregistered.md)
+- [:octicons-workflow-16: onLifecycleRegistered](lifecycles/on-lifecycle-registered.md)
+- [:octicons-workflow-16: onLifecycleUnregistered](lifecycles/on-lifecycle-unregistered.md)
 
 ## Modding
 
