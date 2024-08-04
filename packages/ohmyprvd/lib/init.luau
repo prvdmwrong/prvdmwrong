@@ -19,7 +19,7 @@ export type Provider<T> = Types.Provider<T>
 export type StartupStatus = Types.StartupStatus
 
 local prvd: Types.Prvd = table.freeze {
-  version = "0.2.0-dev.4",
+  version = "VERSION",
 
   -- Providers API
   awaitStart = Prvd.awaitStart,

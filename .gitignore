@@ -17,4 +17,6 @@ globalTypes.d.luau
 /*.d.luau
 **/roblox.yml
 
+dist/
+out/
 site/

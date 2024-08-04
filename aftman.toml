@@ -6,3 +6,5 @@
   lune = "lune-org/lune@0.8.6"
   rojo = "rojo-rbx/rojo@7.4.2"
   selene = "Kampfkarren/selene@0.27.1"
+darklua = "seaofvoices/darklua@0.13.1"
+pesde = "daimond113/pesde@0.4.7"

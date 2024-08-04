@@ -4,7 +4,7 @@
 
 ![CI](https://github.com/team-fireworks/ohmyprvd/actions/workflows/ci.yml/badge.svg)
 
-Oh My Prvd is a delightful framework modern Roblox game development.
+Oh My Prvd is a delightful framework for Roblox games.
 
 Boring. Do it again.
 
