@@ -89,8 +89,8 @@ export type Prvd = {
   Lifecycle: (method: string, fire: (self: Lifecycle, ...unknown) -> ()) -> Lifecycle,
   fireConcurrent: (self: Lifecycle, ...unknown) -> (),
   fireSequential: (self: Lifecycle, ...unknown) -> (),
-  onMethodRegistered: (method: string, handler: (Object) -> ()) -> (),
-  onMethodUnregistered: (method: string, handler: (Object) -> ()) -> (),
+  onLifecycleRegistered: (method: string, handler: (Object) -> ()) -> (),
+  onLifecycleUnregistered: (method: string, handler: (Object) -> ()) -> (),
 
   getStartupOptions: () -> Options,
   getStartupStatus: () -> StartupStatus,

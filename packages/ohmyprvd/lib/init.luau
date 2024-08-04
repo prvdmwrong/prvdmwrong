@@ -35,8 +35,8 @@ local prvd: Types.Prvd = table.freeze {
   Lifecycle = Lifecycles.Lifecycle,
   fireConcurrent = Lifecycles.fireConcurrent,
   fireSequential = Lifecycles.fireSequential,
-  onMethodRegistered = Lifecycles.onMethodRegistered,
-  onMethodUnregistered = Lifecycles.onMethodUnregistered,
+  onLifecycleRegistered = Lifecycles.onLifecycleRegistered,
+  onLifecycleUnregistered = Lifecycles.onLifecycleUnregistered,
   onMethodImplemented = Lifecycles.onMethodImplemented,
 
   -- Modding API

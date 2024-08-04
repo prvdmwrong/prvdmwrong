@@ -106,7 +106,7 @@ end
   Called when an object registers a method. Handlers are expected to be
   infallible and non-yielding. The handler receives the implementing object.
 ]]
-function Lifecycles.onMethodRegistered(method: string, handler: (Object) -> ())
+function Lifecycles.onLifecycleRegistered(method: string, handler: (Object) -> ())
   local methodRegistered = Lifecycles.methodRegistered[method]
   if not methodRegistered then
     local ref = {}
@@ -121,7 +121,7 @@ end
   Called when an object unregister a method. Handlers are expected to be
   infallible and non-yielding. The handler receives the implementing object.
 ]]
-function Lifecycles.onMethodUnregistered(method: string, handler: (Object) -> ())
+function Lifecycles.onLifecycleUnregistered(method: string, handler: (Object) -> ())
   local methodUnregistered = Lifecycles.methodUnregistered[method]
   if not methodUnregistered then
     local ref = {}
@@ -151,11 +151,11 @@ function Lifecycles.fireSequential(self: Lifecycle, ...: unknown)
 end
 
 --[[
-  @deprecated use `onMethodRegistered` instead
+  @deprecated use either `onLifecycleRegistered` or `Lifecycle` instead
 ]]
 function Lifecycles.onMethodImplemented(method: string, handler: (Object) -> ())
   Log.warn("onMethodImplementedWasDeprecated", method)
-  Lifecycles.onMethodRegistered(method, handler)
+  Lifecycles.onLifecycleRegistered(method, handler)
 end
 
 table.freeze(Lifecycles)
