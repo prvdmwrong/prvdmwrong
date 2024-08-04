@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/ohmyprvd-net",
-  "version": "0.2.0-dev.2",
+  "version": "0.2.0-dev.3",
   "description": "Implements a networking system for the Oh My Prvd Roblox framework.",
   "main": "out/init.luau",
   "keywords": [],

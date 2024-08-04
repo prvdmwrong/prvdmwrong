@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/ohmyprvd-lifecycles",
-  "version": "0.2.0-dev.2",
+  "version": "0.2.0-dev.3",
   "description": "Implements a \"small\" amount of lifecycle events for providers.",
   "main": "out/init.luau",
   "keywords": [],
