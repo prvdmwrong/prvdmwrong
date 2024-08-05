@@ -10,7 +10,7 @@
       "current": {
         "name": "path",
         "sources": {
-          "@pkg": "packages"
+          "@core": "packages/ohmyprvd/lib"
         }
       },
       "target": {
