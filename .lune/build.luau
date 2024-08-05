@@ -160,7 +160,16 @@ do
     end
 
     print(`Processing {package}`)
-    spawnCommand("darklua", "process", `{cwd}/packages/{package}`, `{cwd}/dist/{package}`, "-c", darkluaConfig, "-v")
+    fs.writeDir(`{cwd}/packages/{package}`)
+    spawnCommand(
+      "darklua",
+      "process",
+      `{cwd}/packages/{package}/lib`,
+      `{cwd}/dist/{package}/lib`,
+      "-c",
+      darkluaConfig,
+      "-v"
+    )
 
     print(`=> Reformatting {package} because Darklua does weird things`)
     spawnCommand("stylua", `{cwd}/dist/{package}`)
@@ -260,18 +269,18 @@ do
         shell = true,
         cwd = `{cwd}/dist/{package}`,
       })
+    end
 
-      if shouldBuildRbxms then
-        print("=> Building .rbxm model")
+    if shouldBuildRbxms then
+      print("=> Building .rbxm model")
 
-        local rbxmPath = `{cwd}/dist/{package}.rbxm`
-        spawnCommand("rojo", "build", `{cwd}/dist/{package}/default.project.json`, "-o", rbxmPath)
+      local rbxmPath = `{cwd}/dist/{package}.rbxm`
+      spawnCommand("rojo", "build", `{cwd}/dist/{package}/default.project.json`, "-o", rbxmPath)
 
-        print("=> Adding to bundled .rbxm")
-        local instances = roblox.deserializeModel(fs.readFile(rbxmPath))
-        for _, instance in ipairs(instances) do
-          instance.Parent = bundle
-        end
+      print("=> Adding to bundled .rbxm")
+      local instances = roblox.deserializeModel(fs.readFile(rbxmPath))
+      for _, instance in ipairs(instances) do
+        instance.Parent = bundle
       end
     end
   end
