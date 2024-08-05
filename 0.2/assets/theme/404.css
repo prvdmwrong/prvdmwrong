@@ -1,10 +1,10 @@
-.ompdoc-404 {
+.pmwdoc-404 {
 	max-width: max-content;
 	position: relative;
 	width: auto;
 }
 
-.ompdoc-404 .graphic {
+.pmwdoc-404 .graphic {
 	background-image: url(../static/wompwomp.png);
 	background-position: top right;
 	background-repeat: no-repeat;
@@ -16,13 +16,13 @@
 	width: 10em;
 }
 
-.ompdoc-404-hero {
+.pmwdoc-404-hero {
 	font-size: 3em;
 	font-weight: 600;
 	margin-bottom: 0em;
 }
 
-.ompdoc-404-header {
+.pmwdoc-404-header {
 	font-size: 1.5em;
 	font-weight: 400;
 	margin-bottom: 1em;

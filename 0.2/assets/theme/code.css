@@ -5,40 +5,40 @@
 	font-variant-ligatures: normal;
 }
 
-[data-md-color-scheme="ompdoc-light"] {
-	--md-code-fg-color: var(--ompdoc-gray-8);
-	--md-code-bg-color: var(--ompdoc-gray-3);
+[data-md-color-scheme="pmwdoc-light"] {
+	--md-code-fg-color: var(--pmwdoc-gray-8);
+	--md-code-bg-color: var(--pmwdoc-gray-3);
 
-	--md-code-hl-number-color: oklch(from var(--ompdoc-accent) 0.65 c 40);
-	--md-code-hl-special-color: oklch(from var(--ompdoc-accent) 0.65 c 40);
-	--md-code-hl-function-color: var(--ompdoc-gray-8);
-	--md-code-hl-constant-color: oklch(from var(--ompdoc-accent) 0.65 c 40);
-	--md-code-hl-keyword-color: var(--ompdoc-accent-lighter);
-	--md-code-hl-string-color: oklch(from var(--ompdoc-accent) 0.9 c h);
-	--md-code-hl-name-color: var(--ompdoc-gray-8);
+	--md-code-hl-number-color: oklch(from var(--pmwdoc-accent) 0.65 c 40);
+	--md-code-hl-special-color: oklch(from var(--pmwdoc-accent) 0.65 c 40);
+	--md-code-hl-function-color: var(--pmwdoc-gray-8);
+	--md-code-hl-constant-color: oklch(from var(--pmwdoc-accent) 0.65 c 40);
+	--md-code-hl-keyword-color: var(--pmwdoc-accent-lighter);
+	--md-code-hl-string-color: oklch(from var(--pmwdoc-accent) 0.9 c h);
+	--md-code-hl-name-color: var(--pmwdoc-gray-8);
 	--md-code-hl-operator-color: oklch(from var(--md-default-fg-color) 0.6 c h);
 	--md-code-hl-punctuation-color: oklch(from var(--md-default-fg-color) 0.6 c h);
 	--md-code-hl-comment-color: oklch(from var(--md-default-fg-color) 0.6 c h);
-	--md-code-hl-generic-color: var(--ompdoc-gray-5);
-	--md-code-hl-variable-color: var(--ompdoc-gray-6);
+	--md-code-hl-generic-color: var(--pmwdoc-gray-5);
+	--md-code-hl-variable-color: var(--pmwdoc-gray-6);
 }
 
-[data-md-color-scheme="ompdoc-dark"] {
-	--md-code-fg-color: var(--ompdoc-gray-8);
-	--md-code-bg-color: var(--ompdoc-gray-3);
+[data-md-color-scheme="pmwdoc-dark"] {
+	--md-code-fg-color: var(--pmwdoc-gray-8);
+	--md-code-bg-color: var(--pmwdoc-gray-3);
 
-	--md-code-hl-number-color: oklch(from var(--ompdoc-accent) 0.65 c 40);
-	--md-code-hl-special-color: oklch(from var(--ompdoc-accent) 0.65 c 40);
-	--md-code-hl-function-color: var(--ompdoc-gray-8);
-	--md-code-hl-constant-color: oklch(from var(--ompdoc-accent) 0.65 c 40);
-	--md-code-hl-keyword-color: var(--ompdoc-accent-lighter);
-	--md-code-hl-string-color: oklch(from var(--ompdoc-accent) 0.9 c h);
-	--md-code-hl-name-color: var(--ompdoc-gray-8);
+	--md-code-hl-number-color: oklch(from var(--pmwdoc-accent) 0.65 c 40);
+	--md-code-hl-special-color: oklch(from var(--pmwdoc-accent) 0.65 c 40);
+	--md-code-hl-function-color: var(--pmwdoc-gray-8);
+	--md-code-hl-constant-color: oklch(from var(--pmwdoc-accent) 0.65 c 40);
+	--md-code-hl-keyword-color: var(--pmwdoc-accent-lighter);
+	--md-code-hl-string-color: oklch(from var(--pmwdoc-accent) 0.9 c h);
+	--md-code-hl-name-color: var(--pmwdoc-gray-8);
 	--md-code-hl-operator-color: oklch(from var(--md-default-fg-color) 0.6 c h);
 	--md-code-hl-punctuation-color: oklch(from var(--md-default-fg-color) 0.6 c h);
 	--md-code-hl-comment-color: oklch(from var(--md-default-fg-color) 0.6 c h);
-	--md-code-hl-generic-color: var(--ompdoc-gray-5);
-	--md-code-hl-variable-color: var(--ompdoc-gray-6);
+	--md-code-hl-generic-color: var(--pmwdoc-gray-5);
+	--md-code-hl-variable-color: var(--pmwdoc-gray-6);
 }
 
 .md-typeset code {
@@ -55,22 +55,22 @@
 }
 
 .highlighttable .linenos {
-	box-shadow: inset -0.05rem 0 var(--ompdoc-gray-3);
+	box-shadow: inset -0.05rem 0 var(--pmwdoc-gray-3);
 }
 
 .highlight .hll {
 	box-shadow:
-		inset 0.125rem 0 var(--ompdoc-accent),
+		inset 0.125rem 0 var(--pmwdoc-accent),
 		320px 0 var(--md-code-hl-color);
 	background: linear-gradient(
 		to left,
-		oklch(from var(--ompdoc-accent) l c h / 0.05) 0%,
-		oklch(from var(--ompdoc-accent) l c h / 0.1) 100%
+		oklch(from var(--pmwdoc-accent) l c h / 0.05) 0%,
+		oklch(from var(--pmwdoc-accent) l c h / 0.1) 100%
 	);
 }
 
 .highlighttable .linenodiv pre {
-	color: var(--ompdoc-gray-6);
+	color: var(--pmwdoc-gray-6);
 }
 
 .highlight .md-clipboard {
