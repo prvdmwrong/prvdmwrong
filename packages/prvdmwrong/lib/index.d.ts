@@ -1,172 +1,80 @@
 /*
- * Copyright 2024 Team Fireworks
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the “Software”), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
+  Copyright (c) Team Fireworks 2024.
+  This source code is licensed under the MIT license found in the LICENSE file
+  in the root directory of this source tree.
  */
 
 export = prvdmwrong
 export as namespace prvdmwrong
 
-/**
- * Prvd 'M Wrong is a delightful framework for next-generation Roblox game
- * development.
- */
-// TODO: work on this
+// TODO: doc comments
 declare namespace prvdmwrong {
-	/**
-	 * Configures how Prvd 'M Wrong will ignite. The following are the available
-	 * configuration options: This type is not useful outside of Prvd 'M Wrong
-	 * itself; prefer to specify ignition options as a parameter of
-	 * `prvd.ignite(options)`
-	 */
+	export enum StartupStatus {
+		Pending = "StartupStatus.Pending",
+		Starting = "StartupStatus.Starting",
+		Started = "StartupStatus.Started",
+	}
+
 	export type Options = {
-		loglevel: "none" | "verbose"
+		logLevel: "none" | "verbose"
 		profiling: boolean
 	}
 
-	/**
-	 * Provides a specific functionality for a game. This type is not useful
-	 * outside of Prvd 'M Wrong itself; prefer to use `prvd.use(provider)` for more
-	 * precise types.
-	 */
-	export type Provider<T extends object> = T & {
-		readonly load?: number
-		onInit?(): void | Promise<void>
+	export type Provider<T> = T & {
+		loadOrder?: number
+		name?: string
+
+		onInit?(): void
 		onStart?(): void
 	}
 
-	/**
-	 * An enumeration of all defined ignition status Prvd 'M Wrong will be in.
-	 *
-	 * This enum is not useful outside of Prvd 'M Wrong itself; prefer to work with
-	 * `awaitStart()` and `onStart(callback)`
-	 */
-	export enum IgnitionStatus {
-		/**
-		 * Indicates that `prvd.start(options)` has not been called yet. Calls to
-		 * prvd.use() and prvd.Provider() are safe.
-		 */
-		Pending = "IgnitionStatus.Pending",
+	export interface OnInit {
+		onInit(): void
+	}
 
-		/**
-		 * Indicates that `prvd.start(options)` has been called, but the ignition process
-		 * has not finished. Calls to `prvd.use()` and `prvd.Provider()` will throw
-		 * an error.
-		 */
-		Ignition = "IgnitionStatus.Ignition",
-
-		/**
-		 * Indicates that the ignition process has finished. Calls to `prvd.use()`
-		 * and `prvd.Provider()` will throw an error.
-		 *
-		 * Awaiting threads from `prvd.awaitStart()` and queued callbacks from
-		 * `prvd.onStart(callback)` will be spawned just before the ignition status is
-		 * set to this.
-		 */
-		Ignited = "IgnitionStatus.Ignited",
+	export interface OnInit {
+		onStart(): void
 	}
 
 	export const version: string
-
-	/**
-	 * Yields the calling thread just before ignition finishes. If Prvd 'M Wrong has
-	 * already started, the thread will continue.
-	 */
 	export const awaitStart: () => void
-
-	/**
-	 * Ignites Prvd 'M Wrong. Expected to be called once in an environment, e.g. once
-	 * on the server and once on the client.
-	 *
-	 * All necessary providers should be preloaded before calling this as newly
-	 * created providers will not run its lifecycle events.
-	 */
-	export const ignite: (options?: Partial<Options>) => void
-
-	/**
-	 * Queues a callback to be called just before ignition finishes. If Prvd 'M Wrong
-	 * has already started, the callback will be spawned immediately.
-	 */
 	export const onStart: (callback: () => void) => void
+	export const preload: (instances: Instance[], predicate?: (module: ModuleScript) => boolean) => unknown[]
+	export const Provider: (options?: {
+		loadOrder?: number
+	}) => <T extends new () => InstanceType<T>>(provider: T) => void
+	export const start: (options?: Partial<Options>) => void
+	export const use: <T extends new () => InstanceType<T>>(provider: T) => InstanceType<T>
 
-	/**
-	 * Constructs and returns a new provider within Prvd 'M Wrong. Providers must be
-	 * created before calling prvd.start(options).
-	 */
-	export const Provider: <T extends object>(name: string, provider: Provider<T>) => Provider<T>
+	export class Lifecycle<Interface extends object = object> {
+		constructor(method: string, fire: (lifecycle: Lifecycle, ...args: unknown[]) => void)
 
-	/**
-	 * Uses a provider within Prvd 'M Wrong. During ignition, Prvd 'M Wrong will inject
-	 * the dependencies your provider uses.
-	 */
-	export const use: <T extends object>(provider: Provider<T>) => T
+		public listeners: Interface[]
+		readonly method: string
 
-	/**
-	 * Called when a provider implements a method. Handlers are expected to be
-	 * infallible and non-yielding. The handler receives the constructed
-	 * provider. Commonly used to implement custom lifecycles by adding providers
-	 * to a "watchlist" which will have its methods fired.
-	 */
-	export const onMethodImplemented: (method: string, handler: (provider: Provider<object>) => void) => void
+		public fire(...args: unknown[]): void
+		public register(object: Interface): void
+		public unregister(object: Interface): void
+	}
+	export const fireConcurrent: (lifecycle: Lifecycle, ...args: unknown[]) => void
+	export const fireSequential: (lifecycle: Lifecycle, ...args: unknown[]) => void
+	export const onLifecycleRegistered: (method: string, handler: (listener: object) => void) => void
+	export const onLifecycleUnregistered: (method: string, handler: (listener: object) => void) => void
 
-	/**
-	 * Called just before Prvd 'M Wrong returns a newly constructed provider.
-	 * Handlers are expected to be infallible and non-yielding. The handler
-	 * receives the constructed provider.
-	 */
-	export const onProviderConstructed: (handler: (provider: Provider<object>) => void) => void
+	export const getStartupOptions: () => Options
+	export const getStartupStatus: () => StartupStatus
+	export const onProviderConstructed: (handler: Provider<object>) => void
+	export const onProviderUsed: (handler: Provider<object>) => void
 
-	/**
-	 * Called just before Prvd 'M Wrong returns a used Provider. Handlers are
-	 * expected to be infallible and non-yielding. The handler receives the used
-	 * provider.
-	 */
-	export const onProviderUsed: (handler: (provider: Provider<object>) => void) => void
+	export namespace internal {
+		export const registerAll: (object: object) => void
+		export const registerMethod: (object: object, method: string) => void
+		export const unregisterMethod: (object: object, method: string) => void
 
-	/**
-	 * Returns the ignition configuration options. Options are reconciled with
-	 * default values.
-	 */
-	export const getIgnitionOptions: () => Options
+		export const defineMetadata: (object: unknown, key: string, value: unknown) => void
+		export const getMetadata: (object: unknown, key: string) => unknown | undefined
+		export const deleteMetadata: (object: unknown, key: string) => void
 
-	// TODO: write documentation for this
-	export const defineMetadata: (object: unknown, key: string, value: unknown) => void
-	export const getMetadata: <T>(object: unknown, key: string) => T | undefined
-	export const deleteMetadata: (object: unknown, key: string) => void
-
-	/**
-	 * Preload the specified parent by requiring all ModuleScripts within it. An
-	 * optional predicate function can be provided to filter modules.
-	 */
-	export const loadChildren: (parent: Instance, predicate?: (module: ModuleScript) => boolean) => unknown[]
-
-	/**
-	 * Preload the specified parent by requiring all ModuleScripts within it
-	 * recursively. An optional predicate function can be provided to filter
-	 * modules.
-	 */
-	export const loadDescendants: (parent: Instance, predicate?: (module: ModuleScript) => boolean) => unknown[]
-
-	/**
-	 * Constructs and returns a function that filters ModuleScript if it matches a
-	 * given name. Often paired with `loadChildren` and `loadDescendants` as you
-	 * will frequently filter by name.
-	 */
-	export const matchesName: (name: string) => (module: ModuleScript) => boolean
+		export const registerDependency: (identifier: string, dependency: object) => void
+	}
 }
