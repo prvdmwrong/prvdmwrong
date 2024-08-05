@@ -6,10 +6,9 @@
 ]]
 
 local RunService = game:GetService("RunService")
-local Types = require(script.Parent.types)
+local Types = require("@core/types")
 
 local ERROR_MESSAGES_URL = "team-fireworks.github.io/ohmyprvd/latest/reference/error-messages#"
-
 local MESSAGES = table.freeze {
   alreadyStarted = "cannot ignite more than once",
   cannotRegister = "cannot register provider; %s",
@@ -19,18 +18,12 @@ local MESSAGES = table.freeze {
   invalidOnStartCallback = "`prvd.onStart(callback)` expects a callback",
   multipleInstalls = "there are multiple installations of ohmyprvd, this can lead to unexpected behavior",
   onInitError = "cannot initialize %s; %s",
-  onMethodImplementedWasDeprecated = "`onMethodImplemented` was deprecated, use `onMethodAdded` for observing lifecycles or `Lifecycle` for implementing lifecycles",
+  onMethodImplementedWasDeprecated = "`onMethodImplemented` was deprecated, use `onMethodAdded` for observing lifecycles or create a `Lifecycle`. this will be an error in future versions of oh my prvd",
   registerAfterStartup = "cannot register providers after startup",
   requireError = "cannot require %s; %s",
-  unknownError = "unknown error: %s",
+  unknownError = "unknown error: %s. this indicates ohmyprvd isn't reporting errors correctly, please file an issue",
   useAfterStartup = "cannot use other providers after startup",
-  usedBeforeStartup = 'cannot use provider "%s" prior to startup',
-}
-
-local TIPS = table.freeze {
-  unknownError = "this indicates ohmyprvd isn't reporting errors correctly, please file an issue",
-  usedBeforeStartup = "ohmyprvd will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method",
-  onMethodImplementedWasDeprecated = "this will be an error in future versions of oh my prvd",
+  usedBeforeStartup = 'cannot use provider "%s" prior to startup. ohmyprvd will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method',
 }
 
 local Log = {}
@@ -47,9 +40,6 @@ local function formatError(id: string, trace: string?, ...: unknown)
   local formatted = `[OMP({id})]: {message}`
   if select("#", ...) > 0 then
     formatted = formatted:format(...)
-  end
-  if TIPS[id] then
-    formatted ..= `\nhelp: {TIPS[id]}`
   end
   if RunService:IsStudio() then
     formatted ..= `\nlearn more: {ERROR_MESSAGES_URL}{id:lower()}`

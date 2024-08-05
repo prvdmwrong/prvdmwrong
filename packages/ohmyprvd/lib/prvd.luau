@@ -7,12 +7,12 @@
 
 local RunService = game:GetService("RunService")
 
-local Lifecycles = require(script.Parent.lifecycles)
-local Log = require(script.Parent.log)
-local Modding = require(script.Parent.modding)
-local Reflect = require(script.Parent.reflect)
-local Types = require(script.Parent.types)
-local Utils = require(script.Parent.utils)
+local Lifecycles = require("@core/lifecycles")
+local Log = require("@core/log")
+local Modding = require("@core/modding")
+local Reflection = require("@core/reflection")
+local Types = require("@core/types")
+local Utils = require("@core/utils")
 local expect = Log.expect
 local parseError = Log.parseError
 local throw = Log.throw
@@ -23,6 +23,11 @@ type OnStart = Types.OnStart
 type Options = Types.Options
 type Provider<T> = Types.Provider<T>
 type StartupStatus = Types.StartupStatus
+
+local PROVIDER_KEY = newproxy(true) :: { __PROVIDER_KEY__: never? }
+getmetatable(PROVIDER_KEY :: any).__tostring = function()
+  return "prvd.PROVIDER_KEY"
+end
 
 local WEAK_KEYS_METATABLE = { __mode = "k" }
 
@@ -43,7 +48,7 @@ local awaitingThreads: { [thread]: true } = setmetatable({} :: any, WEAK_KEYS_ME
 local awaitingCallbacks: { () -> () } = {}
 local status: StartupStatus = StartupStatus.Pending
 
-local providers: { [string]: Provider<any> } = {}
+local providers: { [Provider<unknown>]: string } = {}
 local startupOptions: Options? = nil
 
 local Prvd = {}
@@ -60,12 +65,12 @@ local function topologicalSort(objects: { string }): { [string]: number }
     end
     visited[node] = true
 
-    local object = Reflect.idToObject[node]
+    local object = Reflection.idToObject[node]
     if object == nil then
       return
     end
 
-    local dependencies = Reflect.getMetadata(object, "ohmyprvd:dependencies") :: { string }
+    local dependencies = Reflection.getMetadata(object, "ohmyprvd:dependencies") :: { string }
     for _, dependency in pairs(dependencies or {}) do
       visitor(dependency)
     end
@@ -97,24 +102,75 @@ end
   Constructs and returns a new provider within Oh My Prvd. Providers must be
   created before calling `Prvd.start()`.
 ]]
-function Prvd.Provider<T>(name: string, provider: T): Provider<T>
+function Prvd.new<T>(provider: T): Provider<T>
   expect(status == StartupStatus.Pending, "registerAfterStarted")
-  expect(typeof(name) == "string", "cannotRegister", nil, "`name` must be a string")
-  expect(name:len() > 0, "cannotRegister", nil, "`name` cannot be empty")
   expect(typeof(provider) == "table", "cannotRegister", nil, "provider must be a table")
   expect(not table.isfrozen(provider :: any), "cannotRegister", nil, "provider cannot be frozen")
-  expect(providers[name] == nil, "cannotRegister", nil, `already registered "{name}"`)
 
-  local newProvider = table.clone(provider :: Provider<T>) :: Provider<T>
-  expect(newProvider.loadOrder == nil or tonumber(newProvider), "cannotRegister", nil, `loadOrder must be a number`)
+  local newProvider = provider :: Provider<T>
+  expect(
+    newProvider.loadOrder == nil or tonumber(newProvider.loadOrder),
+    "cannotRegister",
+    "`loadOrder` should be a number"
+  )
 
-  Reflect.defineMetadata(newProvider, "ohmyprvd:provider", true)
-  Reflect.defineMetadata(newProvider, "identifier", name)
-  Reflect.defineMetadata(newProvider, "ohmyprvd:loadOrder", newProvider.loadOrder)
+  do
+    -- This has to be in a do ... end block or else we get ambiguous syntax
+    (newProvider :: any)[PROVIDER_KEY] = newProvider
+  end
 
-  providers[name] = newProvider
+  local source = debug.info(3, "s")
+  Reflection.defineMetadata(provider, "identifier", source)
+  Reflection.defineMetadata(provider, "ohmyprvd:provider", true)
+  Reflection.defineMetadata(provider, "ohmyprvd:loadOrder", newProvider.loadOrder)
+
+  providers[newProvider] = source
   Modding.doProviderConstructed(newProvider)
   return newProvider
+end
+
+--[[
+  Returns a decorator for providers. Intended to be used by TypeScript classes,
+  where `prvd(provider)` may be unideal as a reserved keyword and subpar syntax.
+]]
+function Prvd.TSProvider(options: { loadOrder: number? }?)
+  local reconciledOptions: { loadOrder: number? } = options or {}
+  return function<T>(provider: T)
+    expect(typeof(provider) == "table", "cannotRegister", nil, "provider must be a table")
+    expect(not table.isfrozen(provider :: any), "cannotRegister", nil, "provider cannot be frozen")
+
+    expect(
+      typeof((provider :: any).new) == "function",
+      "cannotRegister",
+      nil,
+      "must use TypeScript decorator on a class"
+    )
+    expect(
+      typeof((provider :: any).__tostring) == "function",
+      "cannotRegister",
+      nil,
+      "must use TypeScript decorator on a class"
+    )
+
+    local newProvider = (provider :: any).new()
+    local name = newProvider:__tostring()
+
+    expect(typeof(name) == "string", "cannotRegister", nil, `expected provider class __tostring to return a string`)
+    expect(typeof(name) == "string", "cannotRegister", nil, "`name` must be a string")
+    expect(name:len() > 0, "cannotRegister", nil, "`name` cannot be empty")
+
+    do
+      -- This has to be in a do ... end block or else we get ambiguous syntax
+      (provider :: any)[PROVIDER_KEY] = newProvider
+    end
+
+    Reflection.defineMetadata(newProvider, "identifier", name)
+    Reflection.defineMetadata(newProvider, "ohmyprvd:provider", true)
+    Reflection.defineMetadata(newProvider, "ohmyprvd:loadOrder", reconciledOptions.loadOrder)
+
+    providers[name] = newProvider
+    Modding.doProviderConstructed(newProvider)
+  end
 end
 
 --[[
@@ -123,8 +179,7 @@ end
 ]]
 function Prvd.use<T>(provider: Provider<T>): T
   expect(status == StartupStatus.Pending, "useAfterStarted")
-  expect(providers[Reflect.getIdentifier(provider)] ~= nil, "cannotUseNonProvider")
-  local identifier = Reflect.getIdentifier(provider)
+  local identifier = expect(providers[provider], "cannotUseNonProvider")
   Modding.doProviderUsed(provider)
   return setmetatable(
     {
@@ -187,13 +242,13 @@ function Prvd.start(options: {
     }
   } = {}
 
-  for _, provider in pairs(providers) do
+  for provider, identifier in pairs(providers) do
     table.insert(dependencies, {
       instance = provider,
       loadOrder = provider.loadOrder or 1,
-      identifier = Reflect.getIdentifier(provider),
+      identifier = identifier,
     })
-    if not Reflect.getMetadata(provider, "ohmyprvd:provider") then
+    if not Reflection.getMetadata(provider, "ohmyprvd:provider") then
       continue
     end
     local encountered = {}
@@ -211,8 +266,8 @@ function Prvd.start(options: {
         if required ~= nil then
           -- We've found a dependency. Add it to this provider dependencies,
           -- then return as to not iterate further.
-          parent[key] = required
-          table.insert(usedDependencies, Reflect.getIdentifier(required))
+          parent[key] = (required :: any)[PROVIDER_KEY] or required
+          table.insert(usedDependencies, Reflection.getIdentifier(required))
           return
         end
       end
@@ -221,7 +276,7 @@ function Prvd.start(options: {
       end
     end
     resolveUsedDependencies(provider, nil, provider)
-    Reflect.defineMetadata(provider, "ohmyprvd:dependencies", usedDependencies)
+    Reflection.defineMetadata(provider, "ohmyprvd:dependencies", usedDependencies)
   end
 
   local identifiers = {}
@@ -240,7 +295,7 @@ function Prvd.start(options: {
 
   local onInit: Lifecycle<OnInit> = Lifecycles.Lifecycle("onInit", function(self)
     for _, provider in ipairs(self.listeners) do
-      local identifier = Reflect.getIdentifier(provider, ":onInit")
+      local identifier = Reflection.getIdentifier(provider, ":onInit")
       if reconciledOptions.profiling then
         debug.setmemorycategory(identifier)
       end
@@ -251,17 +306,13 @@ function Prvd.start(options: {
       if not ok then
         local error: Types.Error = result
         throw("onInitError", error.trace, identifier, error.message)
-      elseif Utils.isPromise(result) then
-        local promise: Types.Promise = result
-        local status, value = promise:awaitStatus()
-        expect(status ~= "Rejected", "initError", nil, identifier, value)
       end
     end
   end)
 
   local onStart: Lifecycle<OnStart> = Lifecycles.Lifecycle("onStart", function(self)
     for _, provider in ipairs(self.listeners) do
-      local identifier = Reflect.getIdentifier(provider, ":onStart")
+      local identifier = Reflection.getIdentifier(provider, ":onStart")
       verbose("running lifecycle method", identifier)
       Utils.spawn(profileCallback(provider.onStart, identifier), provider)
     end
@@ -356,8 +407,9 @@ function Prvd.registerDependency(identifier: string, dependency: Types.Object)
   expect(identifier:len() > 0, "cannotRegister", nil, "`identifier` cannot be empty")
   expect(typeof(dependency) == "table", "cannotRegister", nil, "must be a table")
   expect(not table.isfrozen(dependency :: any), "cannotRegister", nil, "cannot be frozen")
-  expect(providers[identifier] == nil, "cannotRegister", nil, `already registered "{identifier}"`)
-  providers[identifier] = dependency :: any
+  expect(providers[dependency :: any] == nil, "cannotRegister", nil, `already registered "{identifier}"`)
+  providers[dependency :: any] = identifier
+  Reflection.defineMetadata(dependency, "identifier", identifier)
 end
 
 table.freeze(Prvd)

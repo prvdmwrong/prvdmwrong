@@ -5,9 +5,10 @@
   in the root directory of this source tree.
 ]]
 
-local Log = require(script.Parent.log)
-local Types = require(script.Parent.types)
+local Log = require("@core/log")
+local Types = require("@core/types")
 local expect = Log.expect
+local warn = Log.warn
 
 type Lifecycle<Interface = { [any]: any }> = Types.Lifecycle
 type Object = { [unknown]: unknown }
@@ -154,7 +155,7 @@ end
   @deprecated use either `onLifecycleRegistered` or `Lifecycle` instead
 ]]
 function Lifecycles.onMethodImplemented(method: string, handler: (Object) -> ())
-  Log.warn("onMethodImplementedWasDeprecated", method)
+  warn("onMethodImplementedWasDeprecated", method)
   Lifecycles.onLifecycleRegistered(method, handler)
 end
 

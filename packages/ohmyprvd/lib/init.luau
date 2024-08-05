@@ -5,12 +5,12 @@
   in the root directory of this source tree.
 ]]
 
-local Lifecycles = require(script.lifecycles)
-local Log = require(script.log)
-local Modding = require(script.modding)
-local Prvd = require(script.prvd)
-local Reflect = require(script.reflect)
-local Types = require(script.types)
+local Lifecycles = require("@core/lifecycles")
+local Log = require("@core/log")
+local Modding = require("@core/modding")
+local Prvd = require("@core/prvd")
+local Reflection = require("@core/reflection")
+local Types = require("@core/types")
 
 export type Lifecycle<Interface = { [any]: any }> = Types.Lifecycle<Interface>
 export type OnInit = Types.OnInit
@@ -19,23 +19,22 @@ export type Options = Types.Options
 export type Provider<T> = Types.Provider<T>
 export type StartupStatus = Types.StartupStatus
 
-if _G.__ohmyprvd__ ~= nil then
+if _G.ohmyprvd ~= nil then
   Log.warn("multipleInstalls")
-  return _G.__ohmyprvd__
+  return _G.ohmyprvd :: Types.Prvd
 end
 
-local prvd: Types.Prvd = table.freeze {
+local ohmyprvd: Types.PrvdNamespace = table.freeze {
   version = "VERSION",
 
   -- Providers API
   awaitStart = Prvd.awaitStart,
-  new = Prvd.Provider,
   onStart = Prvd.onStart,
-  Provider = Prvd.Provider,
   StartupStatus = Prvd.StartupStatus,
   start = Prvd.start,
   preload = Prvd.preload,
   use = Prvd.use,
+  TSProvider = Prvd.TSProvider,
 
   -- Lifecycles API
   Lifecycle = Lifecycles.Lifecycle,
@@ -57,13 +56,19 @@ local prvd: Types.Prvd = table.freeze {
     registerMethod = Lifecycles.registerMethod,
     unregisterMethod = Lifecycles.unregisterMethod,
 
-    defineMetadata = Reflect.defineMetadata,
-    getMetadata = Reflect.getMetadata,
-    deleteMetadata = Reflect.deleteMetadata,
+    defineMetadata = Reflection.defineMetadata,
+    getMetadata = Reflection.getMetadata,
+    deleteMetadata = Reflection.deleteMetadata,
 
     registerDependency = Prvd.registerDependency,
   },
 }
 
-_G.__ohmyprvd__ = prvd
-return prvd
+setmetatable(ohmyprvd, {
+  __call = function<T>(_, provider: T): Provider<T>
+    return Prvd.new(provider)
+  end,
+})
+
+_G.ohmyprvd = ohmyprvd
+return ohmyprvd :: Types.Prvd
