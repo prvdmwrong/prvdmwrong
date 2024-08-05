@@ -133,7 +133,7 @@ end
   Returns a decorator for providers. Intended to be used by TypeScript classes,
   where `prvd(provider)` may be unideal as a reserved keyword and subpar syntax.
 ]]
-function Prvd.TSProvider(options: { loadOrder: number? }?)
+function Prvd.Provider(options: { loadOrder: number? }?)
   local reconciledOptions: { loadOrder: number? } = options or {}
   return function<T>(provider: T)
     expect(typeof(provider) == "table", "cannotRegister", nil, "provider must be a table")

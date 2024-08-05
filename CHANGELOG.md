@@ -27,10 +27,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   return prvd(MyProvider)
   ```
 
-- Added `@TSProvider(options)` decorator for TypeScript:
+- Added `@Provider(options)` decorator for TypeScript:
 
   ```TypeScript
-  import { TSProvider as Provider, type OnStart } from "@rbxts/prvdmwrong"
+  import { Provider, type OnStart } from "@rbxts/prvdmwrong"
 
   @Provider({ loadOrder: 0 })
   export class MyProvider implements OnStart {
