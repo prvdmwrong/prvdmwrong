@@ -12,6 +12,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `prvd.getStartupStatus` for retrieving the status of `prvd.start`
 - Added `prvd.preload(instances, predicate)` utility API in favor of
   `prvd.loadX` functions
+- Added `__call` shorthand for `prvd.new`:
+
+  ```Lua
+  local ReplicatedStorage = game:GetService("ReplicatedStorage")
+  local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+
+  local MyProvider = {}
+
+  function MyProvider:onStart()
+    print("Yo")
+  end
+
+  return prvd(MyProvider)
+  ```
+
+- Added `@TSProvider(options)` decorator for TypeScript:
+
+  ```TypeScript
+  import { TSProvider as Provider, type OnStart } from "@rbxts/ohmyprvd"
+
+  @Provider({ loadOrder: 0 })
+  export class MyProvider implements OnStart {
+    /** @hidden */
+    public onStart() {
+      print("Yo")
+    }
+  }
+  ```
+
 - First class support for custom lifecycle methods:
   - Added `prvd.Lifecycle` and `Lifecycle<Interface>` primitives for lifecycle
     methods
@@ -27,6 +56,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- `prvd.new` no longer needs a name field and resorts to using `debug.info`
 - Anything related to ignition has been renamed to startup:
 
   - `prvd.ignite` has been renamed to `prvd.start`
