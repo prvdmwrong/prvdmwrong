@@ -11,6 +11,7 @@
   width="500px"/>
 
 <br/>
+<br/>
 
 ![Continuous Integration](https://img.shields.io/github/actions/workflow/status/team-fireworks/prvdmwrong/ci.yml?style=flat-square&label=Continuous%20Integration)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/team-fireworks/prvdmwrong/docs.yml?style=flat-square&label=Documentation)
