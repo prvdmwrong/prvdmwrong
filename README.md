@@ -48,7 +48,7 @@ tutorial.](https://team-fireworks.github.io/prvdmwrong/latest/tutorials/)
 - Uses dependency injection for cleaner code organization
 - Made to be extendable through modding APIs
 - Non-intrusive first-class lifecycle events for flexibility
-- Designed for clarity
+- Pragmatic and sensible API that makes game development fun
 
 ## Code Sample
 
