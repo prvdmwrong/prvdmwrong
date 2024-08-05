@@ -8,7 +8,7 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
-local prvd = assert(_G.__ohmyprvd__, "Cannot acquire core package") :: Prvd
+local prvd = assert(_G.prvdmwrong, "Cannot acquire core package") :: Prvd
 local types = require(script.types)
 
 export type OnPreSimulation = types.OnPreSimulation
