@@ -121,11 +121,6 @@ jobs:
                   unzip rokit*.zip
                   ./rokit self-install
 
-                  - name: Add Rokit to PATH
-                  if: runner.os != 'Windows'
-                  run: echo "$HOME/.rokit/bin" >> $GITHUB_PATH
-                  shell: bash
-
             - name: Delete artifacts
               run: |
                   rm rokit*.zip
@@ -134,6 +129,11 @@ jobs:
                   else
                     rm rokit
                   fi
+              shell: bash
+
+            - name: Add Rokit to PATH
+              if: runner.os != 'Windows'
+              run: echo "$HOME/.rokit/bin" >> $GITHUB_PATH
               shell: bash
 
             - name: Add Rokit to PATH
@@ -167,6 +167,7 @@ jobs:
             - name: Install tools
               run: |
                   rokit install --no-trust-check
+              shell: bash
               shell: bash
             - name: Run Stylua
               uses: JohnnyMorganz/stylua-action@v2
