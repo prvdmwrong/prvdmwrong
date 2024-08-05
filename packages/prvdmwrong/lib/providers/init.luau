@@ -7,12 +7,12 @@
 
 local RunService = game:GetService("RunService")
 
-local Lifecycles = require("@core/lifecycles")
+local Lifecycle = require("@core/lifecycle")
 local Log = require("@core/log")
 local Modding = require("@core/modding")
-local Reflection = require("@core/reflection")
+local Reflection = require("@core/modding/reflection")
+local Threads = require("@core/utils/threads")
 local Types = require("@core/types")
-local Utils = require("@core/utils")
 local expect = Log.expect
 local parseError = Log.parseError
 local throw = Log.throw
@@ -113,6 +113,7 @@ function Prvd.new<T>(provider: T): Provider<T>
     "cannotRegister",
     "`loadOrder` should be a number"
   )
+  expect(newProvider.name == nil or typeof(newProvider.name == "string"), "cannotRegister", "`name` should be a string")
 
   do
     -- This has to be in a do ... end block or else we get ambiguous syntax
@@ -120,7 +121,7 @@ function Prvd.new<T>(provider: T): Provider<T>
   end
 
   local source = debug.info(3, "s")
-  Reflection.defineMetadata(provider, "identifier", source)
+  Reflection.defineMetadata(provider, "identifier", newProvider.name or source)
   Reflection.defineMetadata(provider, "prvdmwrong:provider", true)
   Reflection.defineMetadata(provider, "prvdmwrong:loadOrder", newProvider.loadOrder)
 
@@ -293,7 +294,7 @@ function Prvd.start(options: {
     return aIndex < bIndex
   end)
 
-  local onInit: Lifecycle<OnInit> = Lifecycles.Lifecycle("onInit", function(self)
+  local onInit: Lifecycle<OnInit> = Lifecycle.Lifecycle("onInit", function(self)
     for _, provider in ipairs(self.listeners) do
       local identifier = Reflection.getIdentifier(provider, ":onInit")
       if reconciledOptions.profiling then
@@ -310,16 +311,16 @@ function Prvd.start(options: {
     end
   end)
 
-  local onStart: Lifecycle<OnStart> = Lifecycles.Lifecycle("onStart", function(self)
+  local onStart: Lifecycle<OnStart> = Lifecycle.Lifecycle("onStart", function(self)
     for _, provider in ipairs(self.listeners) do
       local identifier = Reflection.getIdentifier(provider, ":onStart")
       verbose("running lifecycle method", identifier)
-      Utils.spawn(profileCallback(provider.onStart, identifier), provider)
+      Threads.spawn(profileCallback(provider.onStart, identifier), provider)
     end
   end)
 
   for _, provider in ipairs(dependencies) do
-    Lifecycles.registerAll(provider.instance)
+    Lifecycle.registerAll(provider.instance)
   end
 
   onInit:fire()
@@ -330,7 +331,7 @@ function Prvd.start(options: {
     task.spawn(thread)
   end
   for _, callback in pairs(awaitingCallbacks) do
-    Utils.spawn(callback)
+    Threads.spawn(callback)
   end
 
   status = StartupStatus.Started
@@ -354,7 +355,7 @@ end
 ]]
 function Prvd.onStart(callback: () -> ())
   if status ~= StartupStatus.Pending then
-    Utils.spawn(callback)
+    Threads.spawn(callback)
     return
   end
   expect(typeof(callback) == "function", "invalidOnIgnitionCallback")

@@ -5,8 +5,6 @@
   in the root directory of this source tree.
 ]]
 
-export type Array<T> = { T }
-export type Set<T> = { [T]: true }
 export type Pack = { [number]: any, n: number }
 export type Object = { [unknown]: unknown }
 
@@ -19,13 +17,13 @@ export type Error = {
 
 export type OnInit = { onInit: (self: unknown) -> () }
 export type OnStart = { onStart: (self: unknown) -> () }
-export type Lifecycle<Interface = { [any]: any }, Args... = ...unknown> = {
-  listeners: Array<Interface>,
+export type Lifecycle<Interface = { [any]: any }> = {
+  listeners: { Interface },
   method: string,
 
-  fire: (self: Lifecycle<Interface, Args...>, Args...) -> (),
-  register: (self: Lifecycle<Interface, Args...>, object: Interface) -> (),
-  unregister: (self: Lifecycle<Interface, Args...>, object: Interface) -> (),
+  fire: (self: Lifecycle<Interface>, ...unknown) -> (),
+  register: (self: Lifecycle<Interface>, object: Interface) -> (),
+  unregister: (self: Lifecycle<Interface>, object: Interface) -> (),
 }
 
 export type StartupStatus = "StartupStatus.Pending" | "StartupStatus.Starting" | "StartupStatus.Started"
@@ -37,6 +35,7 @@ export type Options = {
 
 export type Provider<T> = T & {
   loadOrder: number?,
+  name: string?,
 
   onInit: (self: Provider<T>) -> ()?,
   onStart: (self: Provider<T>) -> ()?,
@@ -49,7 +48,8 @@ export type PrvdNamespace = {
   awaitStart: () -> (),
   onStart: (callback: () -> ()) -> (),
   new: <T>(provider: T) -> Provider<T>,
-  preload: (instances: Array<Instance>, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
+  preload: (instances: { Instance }, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
+  Provider: (options: { loadOrder: number? }?) -> <T>(provider: T) -> (),
   StartupStatus: {
     Pending: "StartupStatus.Pending",
     Starting: "StartupStatus.Starting",
@@ -60,7 +60,6 @@ export type PrvdNamespace = {
     profiling: boolean?,
   }?) -> (),
   use: <T>(provider: Provider<T>) -> T,
-  TSProvider: (options: { loadOrder: number? }?) -> <T>(provider: T) -> (),
 
   Lifecycle: (method: string, fire: (self: Lifecycle, ...unknown) -> ()) -> Lifecycle,
   fireConcurrent: (self: Lifecycle, ...unknown) -> (),
@@ -80,7 +79,7 @@ export type PrvdNamespace = {
 
     defineMetadata: (object: unknown, key: string, value: unknown) -> (),
     getMetadata: (object: unknown, key: string) -> unknown?,
-    deleteMetadata: (object: unknown, key: string, property: string?) -> (),
+    deleteMetadata: (object: unknown, key: string) -> (),
 
     registerDependency: (identifier: string, dependency: Object) -> (),
   },

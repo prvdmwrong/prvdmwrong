@@ -5,11 +5,11 @@
   in the root directory of this source tree.
 ]]
 
-local Lifecycles = require("@core/lifecycles")
+local Lifecycle = require("@core/lifecycle")
 local Log = require("@core/log")
 local Modding = require("@core/modding")
-local Prvd = require("@core/prvd")
-local Reflection = require("@core/reflection")
+local Providers = require("@core/providers")
+local Reflection = require("@core/modding/reflection")
 local Types = require("@core/types")
 
 export type Lifecycle<Interface = { [any]: any }> = Types.Lifecycle<Interface>
@@ -28,46 +28,46 @@ local prvdmwrong: Types.PrvdNamespace = table.freeze {
   version = "VERSION",
 
   -- Providers API
-  awaitStart = Prvd.awaitStart,
-  onStart = Prvd.onStart,
-  new = Prvd.new,
-  StartupStatus = Prvd.StartupStatus,
-  start = Prvd.start,
-  preload = Prvd.preload,
-  use = Prvd.use,
-  TSProvider = Prvd.TSProvider,
+  awaitStart = Providers.awaitStart,
+  new = Providers.new,
+  onStart = Providers.onStart,
+  Provider = Providers.Provider,
+  StartupStatus = Providers.StartupStatus,
+  start = Providers.start,
+  preload = Providers.preload,
+  use = Providers.use,
 
   -- Lifecycles API
-  Lifecycle = Lifecycles.Lifecycle,
-  fireConcurrent = Lifecycles.fireConcurrent,
-  fireSequential = Lifecycles.fireSequential,
-  onLifecycleRegistered = Lifecycles.onLifecycleRegistered,
-  onLifecycleUnregistered = Lifecycles.onLifecycleUnregistered,
-  onMethodImplemented = Lifecycles.onMethodImplemented,
+  Lifecycle = Lifecycle.Lifecycle,
+  fireConcurrent = Lifecycle.fireConcurrent,
+  fireSequential = Lifecycle.fireSequential,
+  onLifecycleRegistered = Lifecycle.onLifecycleRegistered,
+  onLifecycleUnregistered = Lifecycle.onLifecycleUnregistered,
+  onMethodImplemented = Lifecycle.onMethodImplemented,
 
   -- Modding API
-  getStartupOptions = Prvd.getStartupOptions,
-  getStartupStatus = Prvd.getStartupStatus,
+  getStartupOptions = Providers.getStartupOptions,
+  getStartupStatus = Providers.getStartupStatus,
   onProviderConstructed = Modding.onProviderConstructed,
   onProviderUsed = Modding.onProviderUsed,
 
   -- Internal API
   internal = table.freeze {
-    registerAll = Lifecycles.registerAll,
-    registerMethod = Lifecycles.registerMethod,
-    unregisterMethod = Lifecycles.unregisterMethod,
+    registerAll = Lifecycle.registerAll,
+    registerMethod = Lifecycle.registerMethod,
+    unregisterMethod = Lifecycle.unregisterMethod,
 
     defineMetadata = Reflection.defineMetadata,
     getMetadata = Reflection.getMetadata,
     deleteMetadata = Reflection.deleteMetadata,
 
-    registerDependency = Prvd.registerDependency,
+    registerDependency = Providers.registerDependency,
   },
 }
 
 setmetatable(prvdmwrong, {
   __call = function<T>(_, provider: T): Provider<T>
-    return Prvd.new(provider)
+    return Providers.new(provider)
   end,
 })
 
