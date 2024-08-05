@@ -1,4 +1,4 @@
-.ompdoc-home-hero {
+.pmwdoc-home-hero {
 	--vertical-padding: 0vh;
 	--target-size: 40vh;
 
@@ -11,7 +11,7 @@
 	margin-bottom: calc(var(--vertical-padding) / 2);
 }
 
-.ompdoc-home-hero::before {
+.pmwdoc-home-hero::before {
 	background-image: url(../womp.png);
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -26,12 +26,8 @@
 	opacity: 0.15;
 }
 
-.ompdoc-home-hero::after {
-	background-image: linear-gradient(
-		to bottom,
-		transparent 50%,
-		var(--md-default-bg-color)
-	);
+.pmwdoc-home-hero::after {
+	background-image: linear-gradient(to bottom, transparent 50%, var(--md-default-bg-color));
 	background-repeat: no-repeat;
 	background-size: auto;
 	content: "";
@@ -44,7 +40,7 @@
 	z-index: -98;
 }
 
-.ompdoc-home-hero-inner {
+.pmwdoc-home-hero-inner {
 	font-size: 1.2em;
 	margin: auto;
 	max-width: 60ch;
@@ -54,13 +50,13 @@
 	background-color: oklch(from var(--md-default-bg-color) / 0.5); */
 }
 
-.ompdoc-home-content {
+.pmwdoc-home-content {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 80ch;
 }
 
-.ompdoc-home-body {
+.pmwdoc-home-body {
 	font-size: 1.2em;
 	margin-left: auto;
 	margin-right: auto;
@@ -69,7 +65,7 @@
 	padding: 1em 0;
 }
 
-.ompdoc-home-aside::before {
+.pmwdoc-home-aside::before {
 	content: "↓";
 	display: inline-block;
 	margin-right: 0.5em;
@@ -85,7 +81,7 @@
 	}
 }
 
-.ompdoc-home-aside {
+.pmwdoc-home-aside {
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
@@ -101,4 +97,9 @@
 	/* font-size: 1.2em;
 	padding: 1rem;
 	text-align: center; */
+}
+
+.pmwdoc-home-underline {
+	text-decoration: underline;
+	text-decoration-color: var(--md-accent-fg-color);
 }

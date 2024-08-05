@@ -19,12 +19,12 @@ export type Options = Types.Options
 export type Provider<T> = Types.Provider<T>
 export type StartupStatus = Types.StartupStatus
 
-if _G.ohmyprvd ~= nil then
+if _G.prvdmwrong ~= nil then
   Log.warn("multipleInstalls")
-  return _G.ohmyprvd :: Types.Prvd
+  return _G.prvdmwrong :: Types.Prvd
 end
 
-local ohmyprvd: Types.PrvdNamespace = table.freeze {
+local prvdmwrong: Types.PrvdNamespace = table.freeze {
   version = "VERSION",
 
   -- Providers API
@@ -65,11 +65,11 @@ local ohmyprvd: Types.PrvdNamespace = table.freeze {
   },
 }
 
-setmetatable(ohmyprvd, {
+setmetatable(prvdmwrong, {
   __call = function<T>(_, provider: T): Provider<T>
     return Prvd.new(provider)
   end,
 })
 
-_G.ohmyprvd = ohmyprvd
-return ohmyprvd :: Types.Prvd
+_G.prvdmwrong = prvdmwrong
+return prvdmwrong :: Types.Prvd

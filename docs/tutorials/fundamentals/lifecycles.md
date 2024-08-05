@@ -1,6 +1,6 @@
 # Lifecycles
 
-Oh My Prvd comes with the `:onInit()` and `:onStart()` lifecycles. To tailor
+Prvd 'M Wrong comes with the `:onInit()` and `:onStart()` lifecycles. To tailor
 your needs, custom lifecycles can be implemented or imported.
 
 ---
@@ -24,7 +24,7 @@ package, so that you can refer to it by name:
 === "TypeScript"
 
     ```TypeScript
-    import { Lifecycle, type Lifecycle } from "@rbxts/ohmyprvd"
+    import { Lifecycle, type Lifecycle } from "@rbxts/prvdmwrong"
     ```
 
 Let's define an interface that will sastify our lifecycle:
@@ -90,7 +90,7 @@ its lifecycle method with:
     }
     ```
 
-Under the hood, Oh My Prvd will register all providers that specify an
+Under the hood, Prvd 'M Wrong will register all providers that specify an
 `onPlayerAdded` method.
 
 ### Firing The Lifecycle
@@ -147,7 +147,7 @@ Now, when a player joins the game, the lifecycle fires its listeners:
 
     ```Lua
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
     local MyProvider = {}
     function MyProvider:onPlayerAdded(player)
@@ -160,7 +160,7 @@ Now, when a player joins the game, the lifecycle fires its listeners:
 === "TypeScript"
 
     ```TypeScript
-    import { Provider } from "@rbxts/ohmyprvd"
+    import { Provider } from "@rbxts/prvdmwrong"
     export const MyProvider = Provider("MyProvider", {
       onPlayerAdded(player) {
         print("Greetings", player)
@@ -208,7 +208,7 @@ The PointsProvider from earlier can be rewritten to use it:
 
 ### Preset Handlers
 
-For convenience, Oh My Prvd exports two handlers you can use while constructing
+For convenience, Prvd 'M Wrong exports two handlers you can use while constructing
 lifecycles.
 
 For lifecycles that do not depend on execution order, you can pass
@@ -225,7 +225,7 @@ listeners as threads:
 === "TypeScript"
 
     ```TypeScript
-    import { Lifecycle, fireConcurrent } from "@rbxts/ohmyprvd"
+    import { Lifecycle, fireConcurrent } from "@rbxts/prvdmwrong"
     const playerAdded: Lifecycle<OnPlayerAdded> = Lifecycle("onPlayerAdded", fireConcurrent)
     ```
 
@@ -243,7 +243,7 @@ lifecycle listeners synchronously:
 === "TypeScript"
 
     ```TypeScript
-    import { Lifecycle, fireSequential } from "@rbxts/ohmyprvd"
+    import { Lifecycle, fireSequential } from "@rbxts/prvdmwrong"
     const playerAdded: Lifecycle<OnPlayerAdded> = Lifecycle("onPlayerAdded", fireSequential)
     ```
 
@@ -285,8 +285,8 @@ lifecycle listeners synchronously:
 ## Additional Lifecycles
 
 Creating additional lifecycle methods such as `:onPlayerAdded(player)` can be a
-hassle. For this, Oh My Prvd exports additional lifecycle methods through a
-separate `ohmyprvd-lifecycles` package, [which you will have to
+hassle. For this, Prvd 'M Wrong exports additional lifecycle methods through a
+separate `prvdmwrong-lifecycles` package, [which you will have to
 install.](../installation.md)
 
 Once installed, import the package, preferably within your startup script:
@@ -301,7 +301,7 @@ Once installed, import the package, preferably within your startup script:
 === "TypeScript"
 
     ```TypeScript
-    import "@rbxts/ohmyprvd-lifecycles"
+    import "@rbxts/prvdmwrong-lifecycles"
     ```
 
 This package exports nothing. Instead, it registers a separate provider that

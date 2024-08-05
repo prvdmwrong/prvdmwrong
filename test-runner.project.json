@@ -1,5 +1,5 @@
 {
-  "name": "ohmyprvd-test-runner",
+  "name": "prvdmwrong-test-runner",
   "tree": {
     "$className": "DataModel",
     "ServerScriptService": {

@@ -1,22 +1,22 @@
-<span class="ompdoc-examples-icons">
-:ompdoc-luau:{ .ompdoc-icons-luau }
+<span class="pmwdoc-examples-icons">
+:pmwdoc-luau:{ .pmwdoc-icons-luau }
 </span>
 
-# Oh My Prvd Obby
+# Prvd 'M Wrong Obby
 
-See how Oh My Prvd can be used to build a simple obby, decked with a JToH-esque
+See how Prvd 'M Wrong can be used to build a simple obby, decked with a JToH-esque
 client objects provider, a checkpoints provider, a networking provider, and a
 debug provider.
 
 ![Thumbnail](../thumbnail-obby.png)
-[:ompdoc-roblox: Play on Roblox](https://www.roblox.com/games/18703010727/Oh-My-Prvd-Obby){ .md-button }
-[:fontawesome-brands-github: Source code on GitHub](https://github.com/znotfireman/ohmyprvd-obby){ .md-button }
+[:pmwdoc-roblox: Play on Roblox](https://www.roblox.com/games/18703010727/Oh-My-Prvd-Obby){ .md-button }
+[:fontawesome-brands-github: Source code on GitHub](https://github.com/znotfireman/prvdmwrong-obby){ .md-button }
 
 ---
 
 ## Explanation
 
-This game serves as a feature complete example of the core Oh My Prvd package.
+This game serves as a feature complete example of the core Prvd 'M Wrong package.
 It serves as motivation for creating other games using the core package,
 utilizing a partially managed Rojo configuration to leverage Roblox Studio as a
 visual representation and external editors for code editing.
@@ -107,5 +107,5 @@ This game uses some other providers too:
   the players current checkpoint. It then observes that for firing confetti or
   toggling a win message.
 - The `NetProvider` wraps around RemoteEvents and eases using them. It serves as
-  a replacement for the planned `ohmyprvd-net` package, which has not been
+  a replacement for the planned `prvdmwrong-net` package, which has not been
   released. Other providers will use the `t` package to typecheck remote data.

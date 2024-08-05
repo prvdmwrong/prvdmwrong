@@ -8,7 +8,7 @@ importers:
 
   .:
     dependencies:
-      '@rbxts/ohmyprvd':
+      '@rbxts/prvdmwrong':
         specifier: 0.2.0-dev.1
         version: 0.2.0-dev.1
     devDependencies:
@@ -30,7 +30,7 @@ packages:
   '@rbxts/compiler-types@2.3.0-types.1':
     resolution: {integrity: sha512-NZWNo+fC4icfJte+NiDSDdWJo1KwzD0MDQ2iBi70YhNYlkA7+Xc+B1udbVqxLJuBur2JxG5bbKrpMAfHqfCtbw==}
 
-  '@rbxts/ohmyprvd@0.2.0-dev.1':
+  '@rbxts/prvdmwrong@0.2.0-dev.1':
     resolution: {integrity: sha512-LI1u27V2TZebojDGRHgAJ9mbL1zFoPltUBGCZwvH3Vu3YRhHJuSj3x9kGGmwBxJUihpKVOzsbWnMF8wEd32WeA==}
 
   '@rbxts/types@1.0.791':
@@ -242,7 +242,7 @@ snapshots:
 
   '@rbxts/compiler-types@2.3.0-types.1': {}
 
-  '@rbxts/ohmyprvd@0.2.0-dev.1': {}
+  '@rbxts/prvdmwrong@0.2.0-dev.1': {}
 
   '@rbxts/types@1.0.791': {}
 

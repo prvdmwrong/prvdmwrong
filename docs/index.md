@@ -4,31 +4,39 @@ hide:
   - toc
 ---
 
-<section class="ompdoc-home-hero" markdown>
+<section class="pmwdoc-home-hero" markdown>
 
-<section class="ompdoc-home-hero-inner" markdown>
+<section class="pmwdoc-home-hero-inner" markdown>
 
-<!-- <img src="./assets/logo.svg" width="150px"/> -->
-
-<h1 style="font-weight: 600;">The Roblox Developer's<br/>Secret Weapon</h1>
+<h1 style="display: none;">Prvd 'M Wrong</h1>
+<img
+  src="./assets/wordmark-dark.svg#only-dark"
+  alt="Prvd 'M Wrong"
+  width="500px"/>
+<img
+  src="./assets/wordmark-light.svg#only-light"
+  alt="Prvd 'M Wrong"
+  width="500px"/>
 
 <p>
-Oh My Prvd is a delightful framework for modern Roblox game development.
+Prvd 'M Wrong is a game framework for a next-generation Roblox.
 </p>
 
 <p>
-Oh My Prvd accelerates the process with providers, connecting the top-level
-design of your game. Choose to mix in networking and components as you need.
-Enjoy a development experience that fades into the background, freeing you to
-build faster and shout:
+Once installed, your game will become your money back. Prvd 'M Wrong accelerates
+the process with providers, connecting the top-level design of your game. Choose
+to mix in networking and components as you need.
 </p>
 
-<b style="font-size: 1.5em;" markdown>"Oh, My Prvd!"</b>
+<p>
+Cherish a development experience that fades into the background, freeing you to
+build faster and prove 'm wrong. It's the swaggest framework in town!
+</p>
 
 <nav markdown>
 
-<a href="./get-started/">Get Started</a> ·
-<a href="https://github.com/team-fireworks/ohmyprvd/releases">Download</a> ·
+<a href="./tutorials/">Tutorials</a> ·
+<a href="https://github.com/team-fireworks/prvdmwrong/releases">Download</a> ·
 :octicons-zap-24: Batteries included
 
 </nav>
@@ -37,53 +45,63 @@ build faster and shout:
 
 </section>
 
-<section class="ompdoc-home-content" markdown>
+<section class="pmwdoc-home-content" markdown>
 
 === "Luau"
 
     ```Lua
-    local prvd = require("@pkg/ohmyprvd")
-    local CalculusProvider = require("./calculus-provider")
+    local prvd = require("@pkg/prvdmwrong")
+    local CharacterProvider = require("./character-provider")
 
-    local MathProvider = {}
-    MathProvider.calculusProvider = prvd.use(CalculusProvider)
+    local CombatProvider = {}
+    CombatProvider.characterProvider = prvd.use(CharacterProvider)
 
-    function MathProvider.add(self: typeof(MathProvider), a: number, b: number)
-      return self.calculusProvider.add(a, b)
+    function CombatProvider:onStart()
+      print("Hello, Prvd 'M Wrong!")
     end
 
-    return prvd.Provider("MathProvider", MathProvider)
+    function CombatProvider.performMove(self: typeof(CombatController), move: CombatMove)
+      local character = self.characterProvider:awaitCharacter()
+      -- do something with the character
+    end
+
+    return prvd(CombatProvider)
     ```
 
 === "TypeScript"
 
     ```TypeScript
-    import { Provider, use } from "@rbxts/ohmyprvd"
-    import CalculusProvider from "./calculus-provider"
+    import { Provider, use, type OnStart } from "@rbxts/prvdmwrong"
+    import { CharacterProvider } from "./character-provider"
 
-    export const MathProvider = Provider("MathProvider", {
-      calculusProvider = use(CalculusProvider)
+    @Provider()
+    export class CombatProvider implements OnStart {
+      public characterProvider: use(CharacterProvider)
 
-      add(a: number, b: number) {
-        return this.CalculusProvider.add(a, b)
+      public onStart() {
+        print("Hello, Prvd 'M Wrong!")
       }
-    })
-    export = MathProvider
+
+      public performMove(move: CombatMove) {
+        const character = this.characterProvider.awaitCharacter()
+        // do something with the character
+      }
+    }
     ```
 
 </section>
 
-<aside class="ompdoc-home-aside">
+<aside class="pmwdoc-home-aside">
 
 Scroll down for a quick look at the three main highlights
 
 </aside>
 
-<section class="ompdoc-home-body" markdown>
+<section class="pmwdoc-home-body" markdown>
 
-## :material-numeric-1-circle-outline: Providers
+## ① Providers
 
-Oh My Prvd introduces providers for your game logic. These *provide* specific
+Prvd 'M Wrong introduces providers for your game logic. These *provide* specific
 functions within your game, e.g. you might create a `SaveDataProvider` to manage
 save files or a `CameraProvider` to handle player camera movement.
 
@@ -133,7 +151,7 @@ more methods, properties, and the likes into a provider:
     })
     ```
 
-Providers can `use()` other providers. Oh My Prvd will provide its types and
+Providers can `use()` other providers. Prvd 'M Wrong will provide its types and
 figure out a corresponding load order for you:
 
 === "Luau"
@@ -163,7 +181,7 @@ figure out a corresponding load order for you:
     }
     ```
 
-Finally, preload your providers, then start Oh My Prvd, and you're off to the races:
+Finally, preload your providers, then start Prvd 'M Wrong, and you're off to the races:
 
 === "Luau"
 
@@ -181,13 +199,13 @@ Finally, preload your providers, then start Oh My Prvd, and you're off to the ra
 
 ---
 
-## :material-numeric-2-circle-outline: Mixins
+## ② Mixins
 
 ---
 
-## :material-numeric-3-circle-outline: Extensible
+## ③ Extensible
 
-Oh My Prvd brings comprehensive APIs for extending the framework. Here's one of
+Prvd 'M Wrong brings comprehensive APIs for extending the framework. Here's one of
 the common ones, `Lifecycle` to implement your own lifecycle methods:
 
 === "Luau"
@@ -236,7 +254,7 @@ A provider can then hook onto the lifecycle:
 
     ```Lua
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
     local CombatProvider = {}
     function CombatProvider:onCharacterAdded(character: Model)
@@ -250,7 +268,7 @@ A provider can then hook onto the lifecycle:
 === "TypeScript"
 
     ```TypeScript
-    import { Provider } from "@rbxts/ohmyprvd"
+    import { Provider } from "@rbxts/prvdmwrong"
 
     @Provider({})
     export class CombatProvider implements OnCharacterAdded {

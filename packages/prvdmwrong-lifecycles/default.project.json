@@ -1,8 +1,8 @@
 {
-  "name": "ohmyprvd-lifecycles",
+  "name": "prvdmwrong-lifecycles",
   "tree": {
     "$path": "Packages",
-    "ohmyprvd-lifecycles": {
+    "prvdmwrong-lifecycles": {
       "$path": "lib"
     }
   }

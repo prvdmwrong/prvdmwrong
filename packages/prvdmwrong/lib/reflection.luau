@@ -30,7 +30,7 @@ end
 
 --[[
   Defines a piece of metadata. Use the "identifier" key to set a custom
-  identifier which Oh My Prvd will respect.
+  identifier which Prvd 'M Wrong will respect.
 ]]
 function Reflect.defineMetadata(object: unknown, key: string, value: unknown)
   if key == "identifier" then

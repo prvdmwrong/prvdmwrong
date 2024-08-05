@@ -1,8 +1,8 @@
 {
-  "name": "ohmyprvd-debugger",
+  "name": "prvdmwrong-debugger",
   "tree": {
     "$path": "Packages",
-    "ohmyprvd-debugger": {
+    "prvdmwrong-debugger": {
       "$path": "lib"
     }
   }

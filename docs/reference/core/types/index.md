@@ -1,11 +1,11 @@
-<div class="ompdoc-reference-breadcrumbs">
+<div class="pmwdoc-reference-breadcrumbs">
 <a href="../../">Reference</a>
 <a href="../">Core</a>
 </div>
 
 # :octicons-list-unordered-16: Types
 
-Types exported by the core Oh My Prvd package.
+Types exported by the core Prvd 'M Wrong package.
 
 ---
 

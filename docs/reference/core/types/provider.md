@@ -1,17 +1,17 @@
-<div class="ompdoc-reference-breadcrumbs">
-<a href="../../">Oh My Prvd</a>
+<div class="pmwdoc-reference-breadcrumbs">
+<a href="../../">Prvd 'M Wrong</a>
 <a href="../">Core</a>
 </div>
 
-<div class="ompdoc-reference-tags">
-<span class="ompdoc-reference-highlight">type</span>
-<span class="ompdoc-reference-since">since v0.1</span>
+<div class="pmwdoc-reference-tags">
+<span class="pmwdoc-reference-highlight">type</span>
+<span class="pmwdoc-reference-since">since v0.1</span>
 </div>
 
 # :octicons-checklist-16: Provider
 
 Provides a specific functionality for a game. This type is not useful outside of
-Oh My Prvd itself; prefer to use [`use(provider)`](../providers/use.md) for
+Prvd 'M Wrong itself; prefer to use [`use(provider)`](../providers/use.md) for
 more precise types.
 
 === "Luau"
@@ -41,7 +41,7 @@ more precise types.
 ### loadOrder `#!lua : number`
 
 Determines when to initialize the provider. Defaults to one. This member is not
-generally useful, as Oh My Prvd will figure out a load order with dependency
+generally useful, as Prvd 'M Wrong will figure out a load order with dependency
 injection.
 
 ### onInit `#!lua : (self: Provider<T>) -> Promise?`
@@ -49,7 +49,7 @@ injection.
 Runs sequentially before any other lifecycle methods, methods are expected to be
 infallible and preferably non-yielding.
 
-If it returns a promise, Oh My Prvd will await for the promise to resolve.
+If it returns a promise, Prvd 'M Wrong will await for the promise to resolve.
 
 ### onStart `#!lua : (self: Provider<T>) -> ()`
 

@@ -5,8 +5,8 @@
 
 ## Alternatives
 
-Oh My Prvd is not the first Roblox game framework. In fact, there are several
-existing game frameworks for Roblox. Besides Oh My Prvd, you might consider:
+Prvd 'M Wrong is not the first Roblox game framework. In fact, there are several
+existing game frameworks for Roblox. Besides Prvd 'M Wrong, you might consider:
 
 - [Knit by sleitnick](https://github.com/Sleitnick/Knit)
 - [Flamework by fireboltofdeath](https://github.com/rbxts-flamework)
@@ -16,10 +16,10 @@ existing game frameworks for Roblox. Besides Oh My Prvd, you might consider:
 - [Lazy Modules by NightLapse Studios](https://github.com/NightLapse-Studios/LazyModules/)
 - [Lumin Framework by Lumin Labs](https://github.com/lumin-dev/LuminFramework)
 
-So, why did we make Oh My Prvd?
+So, why did we make Prvd 'M Wrong?
 
 Each of these frameworks solve the same problem in multiple angles. The goal of
-Oh My Prvd is to take all of the lessons and ideas learned from these projects
+Prvd 'M Wrong is to take all of the lessons and ideas learned from these projects
 and build a framework that can solve this problem for good. In addition, all of
 these frameworks have major drawbacks:
 
@@ -45,6 +45,6 @@ Finally:
   sub-optimal.
 - We have a good enough understanding of the problem to develop something
   robust.
-- We think Oh My Prvd should be able to do more than just connect providers.
+- We think Prvd 'M Wrong should be able to do more than just connect providers.
 
-This is not to say Oh My Prvd is superior, at least not yet:
+This is not to say Prvd 'M Wrong is superior, at least not yet:

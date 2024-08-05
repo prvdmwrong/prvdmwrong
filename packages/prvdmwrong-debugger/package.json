@@ -1,7 +1,7 @@
 {
-  "name": "@rbxts/ohmyprvd-devtools",
+  "name": "@rbxts/prvdmwrong-devtools",
   "version": "0.1.1-alpha",
-  "description": "Implements developer tools for the Oh My Prvd Roblox framework.",
+  "description": "Implements developer tools for the Prvd 'M Wrong Roblox framework.",
   "main": "out/init.luau",
   "keywords": [],
   "author": "",

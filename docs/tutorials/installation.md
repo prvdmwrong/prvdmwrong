@@ -1,6 +1,6 @@
 # Installation
 
-Oh My Prvd is broken down into functional packages, which you will need to
+Prvd 'M Wrong is broken down into functional packages, which you will need to
 import into your game. This page will walk you through installing a package.
 
 ---
@@ -10,11 +10,11 @@ import into your game. This page will walk you through installing a package.
 ### Install via Roblox
 
 If you edit directly inside Roblox Studio, then you can import a Roblox model
-file containing Oh My Prvd.
+file containing Prvd 'M Wrong.
 
-1. Head over to [Oh My Prvd's "Releases" page.](https://github.com/team-fireworks/ohmyprvd/releases)
+1. Head over to [Prvd 'M Wrong's "Releases" page.](https://github.com/team-fireworks/prvdmwrong/releases)
 2. Find the package you will install, if you are just following the tutorials,
-  you can install the `ohmyprvd` core package.
+  you can install the `prvdmwrong` core package.
 3. Click the "Assets" dropdown to view the downloadable files:
    ![Releases](../assets/static/github-releases.png)
 4. Click on the package you would like to import, which should end in `.rbxm`:
@@ -23,22 +23,22 @@ file containing Oh My Prvd.
   tutorials, just an empty baseplate will do.
 6. Right-click on `ReplicatedStorage`, and select "Insert from File":
    ![Insert from File](../assets/static/insert-from-file.png)
-7. You should see an `ohmyprvd` module script appear in ReplicatedStorage!
+7. You should see an `prvdmwrong` module script appear in ReplicatedStorage!
 
 ---
 
 ### Install via a Package Manager
 
 If you use [Wally](https://wally.run/) for Luau or [NPM](https://www.npmjs.com/)
-for TypeScript, Oh My Prvd has packages for both package managers.
+for TypeScript, Prvd 'M Wrong has packages for both package managers.
 
 === "Wally"
 
     1. Head over to one of these packages you will import:
 
-          - [`@znotfireman/ohmyprvd`](https://wally.run/package/znotfireman/ohmyprvd)
+          - [`@znotfireman/prvdmwrong`](https://wally.run/package/znotfireman/prvdmwrong)
             for the core package
-          - [`@znotfireman/ohmyprvd-lifecycles`](https://wally.run/package/znotfireman/ohmyprvd-lifecycles)
+          - [`@znotfireman/prvdmwrong-lifecycles`](https://wally.run/package/znotfireman/prvdmwrong-lifecycles)
             for additional lifecycle methods
 
     2. Copy the metadata below "Install", and append it below `[dependencies]` in
@@ -46,12 +46,12 @@ for TypeScript, Oh My Prvd has packages for both package managers.
 
         ![Install](../assets/static/wally-install.png)
 
-        It will look something as such, with `ohmyprvd` renamed to `prvd` for
+        It will look something as such, with `prvdmwrong` renamed to `prvd` for
         brevity:
 
         ```TOML
         [dependencies]
-          prvd = "znotfireman/ohmyprvd@0.1.1-alpha"
+          prvd = "znotfireman/prvdmwrong@0.1.1-alpha"
         ```
 
     3. Then, install your packages:
@@ -60,7 +60,7 @@ for TypeScript, Oh My Prvd has packages for both package managers.
         $ wally install
         ```
 
-        This will install Oh My Prvd under the `Packages` directory, which is
+        This will install Prvd 'M Wrong under the `Packages` directory, which is
         usually located in `ReplicatedStorage`:
 
         ```Lua
@@ -79,28 +79,28 @@ for TypeScript, Oh My Prvd has packages for both package managers.
 
     1. Head over to one of these packages you will import:
 
-          - [`@rbxts/ohmyprvd`](https://www.npmjs.com/package/@rbxts/ohmyprvd)
+          - [`@rbxts/prvdmwrong`](https://www.npmjs.com/package/@rbxts/prvdmwrong)
             for the core package
 
     2. Copy the command below "Install", and run it on a terminal:
 
         ![Install](../assets/static/npm-install.png)
 
-    3. This will install Oh My Prvd under `node_modules`, which can be imported
+    3. This will install Prvd 'M Wrong under `node_modules`, which can be imported
     directly:
 
         ```TypeScript
-        import ohmyprvd from "@rbxts/ohmyprvd"
+        import prvdmwrong from "@rbxts/prvdmwrong"
         ```
 
 ---
 
 ### Install via Source
 
-If you are synchronizing external files into Roblox Studio, Oh My Prvd can be
+If you are synchronizing external files into Roblox Studio, Prvd 'M Wrong can be
 imported as source code.
 
-1. Head over to [Oh My Prvd's 'Releases' page.](https://github.com/team-fireworks/ohmyprvd/releases)
+1. Head over to [Prvd 'M Wrong's 'Releases' page.](https://github.com/team-fireworks/prvdmwrong/releases)
 2. Click the "Assets" dropdown to view the downloadable files:
    ![Releases](../assets/static/github-releases.png)
 3. Under "Assets", download `Source code (zip)`. Inside is a copy of the Oh My
@@ -108,7 +108,7 @@ imported as source code.
    ![Releases](../assets/static/github-releases-src.png)
 4. Inside the zip, open `packages`, then the package you'd like to import,
   and copy it's `lib` folder; it may be inside another folder.
-5. Create a new folder inside your project named "ohmyprvd", place it wherever
+5. Create a new folder inside your project named "prvdmwrong", place it wherever
   you keep your libraries.
    - For example, you might paste it inside a `shared` or a `packages` folder.
 6. Paste the contents of the `lib` folder into the newly created folder.
@@ -120,32 +120,20 @@ imported as source code.
 Now, you can create a script for testing:
 
 1. Create a `Script` under `ServerScriptService`.
-2. Remove the following code, and paste this in depending on your installation:
+2. Remove the following code, and paste this in. Tweak the require/import
+   to point at `prvdmwrong` depending on your installation:
 
-    === "Roblox"
-
-        ```Lua
-        local ReplicatedStorage = game:GetService("ReplicatedStorage")
-        local prvd = require(ReplicatedStorage.ohmyprvd)
-        ```
-
-    === "Wally"
+    === "Luau"
 
         ```Lua
         local ReplicatedStorage = game:GetService("ReplicatedStorage")
-        local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+        local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
         ```
 
-    === "NPM"
+    === "TypeScript"
 
         ```TypeScript
-        import ohmyprvd from "@rbxts/ohmyprvd"
-        ```
-
-    === "Darklua"
-
-        ```Lua
-        local prvd = require("@pkg/ohmyprvd")
+        import prvdmwrong from "@rbxts/prvdmwrong"
         ```
 
 3. Playtest your game - if there are no errors, everything was set up correctly!
@@ -153,14 +141,14 @@ Now, you can create a script for testing:
 ??? failure "My script didn't work!"
 
     ```
-    ohmyprvd is not a valid member of ReplicatedStorage "ReplicatedStorage"
+    prvdmwrong is not a valid member of ReplicatedStorage "ReplicatedStorage"
     ```
-    If you're seeing this error, then your script can't find Oh My Prvd.
+    If you're seeing this error, then your script can't find Prvd 'M Wrong.
 
-    This code assumes you've placed Oh My Prvd under ReplicatedStorage. If
+    This code assumes you've placed Prvd 'M Wrong under ReplicatedStorage. If
     you've installed both elsewhere, you'll need to the `require()` to point
     towards the correct location.
 
     If both looks like it points to the correct location, refer back to the
     previous section and double-check you've set everything up properly. Make
-    sure under ReplicatedStorage, there's a ModuleScript named `ohmyprvd`.
+    sure under ReplicatedStorage, there's a ModuleScript named `prvdmwrong`.

@@ -40,7 +40,7 @@ local WALLY_PACKAGE = {
     license = "MIT",
     authors = { "znotfireman" },
     realm = "shared",
-    repository = "https://github.com/team-fireworks/ohmyprvd",
+    repository = "https://github.com/team-fireworks/prvdmwrong",
     registry = "https://github.com/UpliftGames/wally-index",
     include = { "./lib", "./default.project.json" },
     exclude = { "node_modules" },
@@ -52,7 +52,7 @@ local PESDE_PACKAGE = {
   license = "MIT",
   authors = { "znotfireman <znotfireman@gmail.com>" },
   realm = "shared",
-  repository = "https://github.com/team-fireworks/ohmyprvd",
+  repository = "https://github.com/team-fireworks/prvdmwrong",
   indices = {
     default = "https://github.com/daimond113/pesde-index",
   },
@@ -150,7 +150,7 @@ do
   spawnCommand("rojo", "sourcemap", `{cwd}/default.project.json`, "-o", `{cwd}/sourcemap.json`)
 
   local bundle = roblox.Instance.new("Folder")
-  bundle.Name = "ohmyprvd"
+  bundle.Name = "prvdmwrong"
 
   local darkluaConfig = `{cwd}/{shouldRelease and ".darklua.json" or ".darklua-dev.json"}`
   fs.writeDir(`{cwd}/dist`)
@@ -253,7 +253,7 @@ do
         readme ..= "\n\n"
         readme ..= packageConfig.config.description
         readme ..= "\n\n"
-        readme ..= `This package is part of [Oh My Prvd](https://team-fireworks.github.io/ohmyprvd/latest).`
+        readme ..= `This package is part of [Prvd 'M Wrong](https://team-fireworks.github.io/prvdmwrong/latest).`
         fs.writeFile(`{cwd}/dist/{package}/README.md`, readme)
       end
 

@@ -1,17 +1,17 @@
-<div class="ompdoc-reference-breadcrumbs">
-<a href="../../">Oh My Prvd</a>
+<div class="pmwdoc-reference-breadcrumbs">
+<a href="../../">Prvd 'M Wrong</a>
 <a href="../">Core</a>
 </div>
 
-<div class="ompdoc-reference-tags">
-<span class="ompdoc-reference-highlight">type</span>
-<span class="ompdoc-reference-since">since v0.1</span>
+<div class="pmwdoc-reference-tags">
+<span class="pmwdoc-reference-highlight">type</span>
+<span class="pmwdoc-reference-since">since v0.1</span>
 </div>
 
 # :octicons-checklist-16: Options
 
-Configures how Oh My Prvd will ignite. The following are the available
-configuration options: This type is not useful outside of Oh My Prvd itself;
+Configures how Prvd 'M Wrong will ignite. The following are the available
+configuration options: This type is not useful outside of Prvd 'M Wrong itself;
 prefer to specify startup options as a parameter of [`
 ignite(options)`](../providers/use.md).
 
@@ -39,7 +39,7 @@ ignite(options)`](../providers/use.md).
 
 ### logLevel `#!lua : "none" | "verbose"`
 
-Configures if Oh My Prvd should log trace information to the console, defaults
+Configures if Prvd 'M Wrong should log trace information to the console, defaults
 to `#!lua "none"`.
 
 ### profiling `#!lua : boolean`

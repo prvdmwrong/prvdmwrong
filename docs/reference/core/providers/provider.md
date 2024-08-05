@@ -1,17 +1,17 @@
-<div class="ompdoc-reference-breadcrumbs">
+<div class="pmwdoc-reference-breadcrumbs">
 <a href="../../../">Reference</a>
 <a href="../../">Core</a>
 <a href="../">Providers</a>
 </div>
 
-<div class="ompdoc-reference-tags">
-<span class="ompdoc-reference-highlight">constructor</span>
-<span class="ompdoc-reference-since">since v0.1</span>
+<div class="pmwdoc-reference-tags">
+<span class="pmwdoc-reference-highlight">constructor</span>
+<span class="pmwdoc-reference-since">since v0.1</span>
 </div>
 
 # :octicons-package-16: Provider
 
-Constructs and returns a new [provider](../types/provider.md) within Oh My Prvd.
+Constructs and returns a new [provider](../types/provider.md) within Prvd 'M Wrong.
 Providers must be created before calling `prvd.start(options)`.
 
 === "Luau"
@@ -25,11 +25,11 @@ Providers must be created before calling `prvd.start(options)`.
 
     ??? tip "Too verbose?"
 
-        If writing `#!lua prvd.Provider` sounds verbose for you, Oh My Prvd
+        If writing `#!lua prvd.Provider` sounds verbose for you, Prvd 'M Wrong
         aliases the `Provider` constructor with `new`:
 
         ```Lua
-        local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+        local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
         local PointsProvider = {}
         return prvd.new("PointsProvider", PointsProvider)

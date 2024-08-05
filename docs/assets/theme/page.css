@@ -31,6 +31,30 @@
 		0.2s ease;
 }
 
+.md-header__title .md-header__topic:first-child {
+	width: 0;
+	margin: 0;
+	opacity: 0;
+	padding: 0;
+}
+.md-header__title .md-header__topic:first-child::before {
+	background-repeat: no-repeat;
+	background-size: contain;
+	content: "";
+	display: inline-block;
+	height: 2rem;
+	margin: auto 0;
+	width: 9rem;
+}
+
+[data-md-color-scheme="pmwdoc-light"] .md-header__title .md-header__topic:first-child::before {
+	background-image: url(../wordmark-light.svg);
+}
+
+[data-md-color-scheme="pmwdoc-dark"] .md-header__title .md-header__topic:first-child::before {
+	background-image: url(../wordmark-dark.svg);
+}
+
 .md-typeset a:focus,
 .md-typeset a:hover {
 	opacity: 50%;
@@ -125,12 +149,11 @@ h6 > .twemoji:first-child {
 }
 
 .md-typeset .md-input {
-	border-bottom: 1rem solid
-		oklch(var(--md-default-bg-color--lighter) l c h / 0.1) !important;
+	border-bottom: 1rem solid oklch(var(--md-default-bg-color--lighter) l c h / 0.1) !important;
 }
 
 .md-input:focus {
-	--md-accent-fg-color: var(--ompdoc-accent);
+	--md-accent-fg-color: var(--pmwdoc-accent);
 }
 
 .md-input::placeholder {
@@ -146,7 +169,7 @@ h6 > .twemoji:first-child {
 	transform: translateX(1rem);
 }
 
-.ompdoc-examples-icons {
+.pmwdoc-examples-icons {
 	align-content: space-around;
 	align-items: baseline;
 	display: flex;
@@ -156,7 +179,7 @@ h6 > .twemoji:first-child {
 	gap: 0.5em;
 }
 
-.ompdoc-examples-icons > span {
+.pmwdoc-examples-icons > span {
 	height: 2.3em;
 	font-size: 2.3em;
 	line-height: 2.6;
@@ -164,11 +187,11 @@ h6 > .twemoji:first-child {
 	vertical-align: middle;
 }
 
-.ompdoc-icons-robloxts {
+.pmwdoc-icons-robloxts {
 	color: oklch(from #e2241a 0.6 0.15 h);
 }
 
-.ompdoc-icons-luau {
+.pmwdoc-icons-luau {
 	color: oklch(0.6 0.15 230);
 }
 
@@ -206,105 +229,25 @@ a.headerlink::after,
 
 /* FUCK YOU. */
 
-.md-typeset
-	.tabbed-set
-	> input:first-child:checked
-	~ .tabbed-labels
-	> :first-child,
-.md-typeset
-	.tabbed-set
-	> input:nth-child(2):checked
-	~ .tabbed-labels
-	> :nth-child(2),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(3):checked
-	~ .tabbed-labels
-	> :nth-child(3),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(4):checked
-	~ .tabbed-labels
-	> :nth-child(4),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(5):checked
-	~ .tabbed-labels
-	> :nth-child(5),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(6):checked
-	~ .tabbed-labels
-	> :nth-child(6),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(7):checked
-	~ .tabbed-labels
-	> :nth-child(7),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(8):checked
-	~ .tabbed-labels
-	> :nth-child(8),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(9):checked
-	~ .tabbed-labels
-	> :nth-child(9),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(10):checked
-	~ .tabbed-labels
-	> :nth-child(10),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(11):checked
-	~ .tabbed-labels
-	> :nth-child(11),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(12):checked
-	~ .tabbed-labels
-	> :nth-child(12),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(13):checked
-	~ .tabbed-labels
-	> :nth-child(13),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(14):checked
-	~ .tabbed-labels
-	> :nth-child(14),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(15):checked
-	~ .tabbed-labels
-	> :nth-child(15),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(16):checked
-	~ .tabbed-labels
-	> :nth-child(16),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(17):checked
-	~ .tabbed-labels
-	> :nth-child(17),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(18):checked
-	~ .tabbed-labels
-	> :nth-child(18),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(19):checked
-	~ .tabbed-labels
-	> :nth-child(19),
-.md-typeset
-	.tabbed-set
-	> input:nth-child(20):checked
-	~ .tabbed-labels
-	> :nth-child(20) {
+.md-typeset .tabbed-set > input:first-child:checked ~ .tabbed-labels > :first-child,
+.md-typeset .tabbed-set > input:nth-child(2):checked ~ .tabbed-labels > :nth-child(2),
+.md-typeset .tabbed-set > input:nth-child(3):checked ~ .tabbed-labels > :nth-child(3),
+.md-typeset .tabbed-set > input:nth-child(4):checked ~ .tabbed-labels > :nth-child(4),
+.md-typeset .tabbed-set > input:nth-child(5):checked ~ .tabbed-labels > :nth-child(5),
+.md-typeset .tabbed-set > input:nth-child(6):checked ~ .tabbed-labels > :nth-child(6),
+.md-typeset .tabbed-set > input:nth-child(7):checked ~ .tabbed-labels > :nth-child(7),
+.md-typeset .tabbed-set > input:nth-child(8):checked ~ .tabbed-labels > :nth-child(8),
+.md-typeset .tabbed-set > input:nth-child(9):checked ~ .tabbed-labels > :nth-child(9),
+.md-typeset .tabbed-set > input:nth-child(10):checked ~ .tabbed-labels > :nth-child(10),
+.md-typeset .tabbed-set > input:nth-child(11):checked ~ .tabbed-labels > :nth-child(11),
+.md-typeset .tabbed-set > input:nth-child(12):checked ~ .tabbed-labels > :nth-child(12),
+.md-typeset .tabbed-set > input:nth-child(13):checked ~ .tabbed-labels > :nth-child(13),
+.md-typeset .tabbed-set > input:nth-child(14):checked ~ .tabbed-labels > :nth-child(14),
+.md-typeset .tabbed-set > input:nth-child(15):checked ~ .tabbed-labels > :nth-child(15),
+.md-typeset .tabbed-set > input:nth-child(16):checked ~ .tabbed-labels > :nth-child(16),
+.md-typeset .tabbed-set > input:nth-child(17):checked ~ .tabbed-labels > :nth-child(17),
+.md-typeset .tabbed-set > input:nth-child(18):checked ~ .tabbed-labels > :nth-child(18),
+.md-typeset .tabbed-set > input:nth-child(19):checked ~ .tabbed-labels > :nth-child(19),
+.md-typeset .tabbed-set > input:nth-child(20):checked ~ .tabbed-labels > :nth-child(20) {
 	font-weight: 700;
 }

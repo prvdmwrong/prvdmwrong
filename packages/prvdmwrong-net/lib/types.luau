@@ -1,6 +1,6 @@
 --!strict
 --!nolint LocalShadow
--- Oh My Prvd code licensed under MIT
+-- Prvd 'M Wrong code licensed under MIT
 
 type CheckableType = LuauTypes | RobloxTypes
 export type Typeguard =

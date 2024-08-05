@@ -1,5 +1,5 @@
 [config]
-  name = "ohmyprvd-net"
-  display = "Oh My Prvd Net"
+  name = "prvdmwrong-net"
+  display = "Prvd 'M Wrong Net"
   description = "Implements networking primtives for providers."
-  dependencies = ["ohmyprvd"]
+  dependencies = ["prvdmwrong"]

@@ -139,5 +139,5 @@ function Lifecycles:onInit()
   end
 end
 
-prvd.new("ohmyprvd@Lifecycles", Lifecycles)
+prvd.new("prvdmwrong@Lifecycles", Lifecycles)
 return nil

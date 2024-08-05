@@ -22,20 +22,16 @@
 
 try {
 	const headers = []
-	document
-		.querySelectorAll(".md-main .md-content .md-typeset h2")
-		.forEach((element) => {
-			headers.push({
-				lowercase: element.firstChild.textContent.toLowerCase(),
-				element: element,
-			})
+	document.querySelectorAll(".md-main .md-content .md-typeset h2").forEach((element) => {
+		headers.push({
+			lowercase: element.firstChild.textContent.toLowerCase(),
+			element: element,
 		})
+	})
 
-	const paste_box = document.querySelector("#ompdoc-error-box")
+	const paste_box = document.querySelector("#pmwdoc-error-box")
 	paste_box.addEventListener("input", () => {
-		const matches = headers.filter((header) =>
-			paste_box.value.toLowerCase().includes(header.lowercase),
-		)
+		const matches = headers.filter((header) => paste_box.value.toLowerCase().includes(header.lowercase))
 
 		const match = matches.length == 1 ? matches[0] : null
 		if (match != null) {

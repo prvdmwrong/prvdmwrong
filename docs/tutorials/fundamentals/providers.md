@@ -1,6 +1,6 @@
 # Providers
 
-Oh My Prvd allows you to define providers for your game logic. These *provide*
+Prvd 'M Wrong allows you to define providers for your game logic. These *provide*
 specific functions within your game, e.g. you might create a `SaveDataProvider`
 to manage save files or a `CameraProvider` to handle player camera movement.
 
@@ -15,7 +15,7 @@ lifecycle events:
 
     ```Lua
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
     local PointsProvider = {}
     return prvd.Provider("PointsProvider", PointsProvider)
@@ -24,19 +24,19 @@ lifecycle events:
 === "TypeScript"
 
     ```TypeScript
-    import { Provider } from "@rbxts/ohmyprvd"
+    import { Provider } from "@rbxts/prvdmwrong"
 
     export = Provider("PointsProvider", {})
     ```
 
 ??? tip "Too verbose?"
 
-    If writing `prvd.Provider` sounds verbose for you, Oh My Prvd aliases the
+    If writing `prvd.Provider` sounds verbose for you, Prvd 'M Wrong aliases the
     `Provider` constructor with `.new`.
 
     ```Lua
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
     local PointsProvider = {}
     return prvd.new("PointsProvider", PointsProvider)
@@ -50,7 +50,7 @@ same as the service name, e.g. `#!lua local PointsProvider` would mean `#!lua
 prvd.new("PointsProvider", ...)`.
 
 Notice that you're creating the provider at the bottom of a file, and then
-returning it. This lets Oh My Prvd to strictly type your provider, something
+returning it. This lets Prvd 'M Wrong to strictly type your provider, something
 which will be important later.
 
 ---
@@ -67,7 +67,7 @@ a `Player` and their points:
 
     ```Lua hl_lines="5"
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
     local PointsProvider = {}
     PointsProvider.points = {}
@@ -78,7 +78,7 @@ a `Player` and their points:
 === "TypeScript"
 
     ```TypeScript hl_lines="4"
-    import { Provider } from "@rbxts/ohmyprvd"
+    import { Provider } from "@rbxts/prvdmwrong"
 
     export = Provider("PointsProvider", {
       points: Map<Player, number> = {}
@@ -92,7 +92,7 @@ for convenience:
 
     ```Lua hl_lines="7-15"
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
     local PointsProvider = {}
     PointsProvider.points = {}
@@ -113,7 +113,7 @@ for convenience:
 === "TypeScript"
 
     ```TypeScript hl_lines="6-8"
-    import { Provider } from "@rbxts/ohmyprvd"
+    import { Provider } from "@rbxts/prvdmwrong"
 
     export = Provider("PointsProvider", {
       points: Map<Player, number> = {}
@@ -197,13 +197,13 @@ PointsProvider:setDefaultPoints(player)
 Providers and the likes can implement lifecycle methods, by having a method
 that matches its lifecycle name.
 
-Oh My Prvd provides two lifecycle events out of the box:
+Prvd 'M Wrong provides two lifecycle events out of the box:
 
 - `:onInit()` runs sequentially before any other lifecycle methods, methods are
   expected to be infallible and preferably non-yielding.
-      - If you return a promise, Oh My Prvd will wait for the promise to resolve.
+      - If you return a promise, Prvd 'M Wrong will wait for the promise to resolve.
           Anything with an `:andThen` method and an `:awaitStatus` method will be
-          picked up by Oh My Prvd.
+          picked up by Prvd 'M Wrong.
 - In contrast, `:onStart()` runs concurrently *after* all other lifecycle
   methods have been registered. This means failures and yields do not affect
   other providers.
@@ -216,7 +216,7 @@ every player that joins:
     ```Lua hl_lines="2 19-28"
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local Players = game:GetService("Players")
-    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
     local PointsProvider = {}
     type Self = typeof(PointsProvider)
@@ -249,7 +249,7 @@ every player that joins:
 === "TypeScript"
 
     ```TypeScript hl_lines="2 11-18"
-    import { Provider } from "@rbxts/ohmyprvd"
+    import { Provider } from "@rbxts/prvdmwrong"
     import { Players } from "@rbxts/services"
 
     export = Provider("PointsProvider", {
@@ -286,7 +286,7 @@ with the `Players.PlayerRemoving` event and remove their points:
 
 ```Lua hl_lines="27-29"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 local Players = game:GetService("Players")
 
 local PointsProvider = {}
@@ -324,7 +324,7 @@ return prvd.Provider("PointsProvider", PointsProvider)
 ## Dependencies
 
 Often, providers may depend on other providers, such as a `CombatProvider`
-requiring the player's `CharacterProvider`. Oh my Prvd lets you use providers
+requiring the player's `CharacterProvider`. Prvd 'M Wrong lets you use providers
 through dependency injection.
 
 First, create a file for a new `MathProvider` with the following:
@@ -333,7 +333,7 @@ First, create a file for a new `MathProvider` with the following:
 
     ```Lua
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
     local MathProvider = {}
 
@@ -353,7 +353,7 @@ First, create a file for a new `MathProvider` with the following:
 === "TypeScript"
 
     ```TypeScript
-    import { Provider } from "@rbxts/ohmyprvd"
+    import { Provider } from "@rbxts/prvdmwrong"
 
     export = Provider("MathProvider", {
       add(a: number, b: number) {
@@ -376,7 +376,7 @@ Finally, just specify your provider `use()`s another provider:
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local MathProvider = require(script.Parent.MathProvider)
-local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
 local PointsProvider = {}
 PointsProvider.points = {}
@@ -422,28 +422,28 @@ return prvd.Provider("PointsProvider", PointsProvider)
 
 ??? danger "Do not use dependencies outside of lifecycle methods!"
 
-    Oh My Prvd only returns a shadow of the `use()`d provider. You *cannot* use
+    Prvd 'M Wrong only returns a shadow of the `use()`d provider. You *cannot* use
     it outside of lifecycle methods.
 
-    Behind the scenes, Oh My Prvd will keep track of what dependencies your
+    Behind the scenes, Prvd 'M Wrong will keep track of what dependencies your
     provider uses, figure out the correct load order for you, and inject your
     dependencies.
 
-    This is also why you can't freeze your provider tables - Oh My Prvd will
+    This is also why you can't freeze your provider tables - Prvd 'M Wrong will
     have to modify them.
 
 ---
 
 ## Congratulations
 
-You just successfully wrote your first provider using Oh My Prvd!
+You just successfully wrote your first provider using Prvd 'M Wrong!
 
-That was a taste of Oh My Prvd. Later on, you will learn how to register your
-own lifecycle methods, use Oh My Prvd networking primitives, and creating your
+That was a taste of Prvd 'M Wrong. Later on, you will learn how to register your
+own lifecycle methods, use Prvd 'M Wrong networking primitives, and creating your
 own components.
 
 You can find the completed modules for MathProvider and PointsProvider in [the
-`examples` directory.](https://github.com/team-fireworks/ohmyprvd/tree/main/examples)
+`examples` directory.](https://github.com/team-fireworks/prvdmwrong/tree/main/examples)
 
 Once you're comfortable writing providers, you are ready to take on the rest of
-what Oh My Prvd offers.
+what Prvd 'M Wrong offers.

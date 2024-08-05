@@ -3,7 +3,7 @@
 # the rest of eternity
 
 [package]
-  name = "znotfireman/ohmyprvd-test-runner"
+  name = "znotfireman/prvdmwrong-test-runner"
   version = "0.1.0"
   registry = "https://github.com/UpliftGames/wally-index"
   realm = "shared"
@@ -13,5 +13,5 @@
   Jest = "jsdotlua/jest@3.6.1-rc.2"
   JestGlobals = "jsdotlua/jest-globals@3.6.1-rc.2"
 
-  ohmyprvd = "znotfireman/ohmyprvd@0.2.0-dev.1"
-  ohmyprvdLifecycles = "znotfireman/ohmyprvd-lifecycles@0.2.0-dev.1"
+  prvdmwrong = "znotfireman/prvdmwrong@0.2.0-dev.1"
+  ohmyprvdLifecycles = "znotfireman/prvdmwrong-lifecycles@0.2.0-dev.1"

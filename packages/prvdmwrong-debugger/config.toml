@@ -1,5 +1,5 @@
 [config]
-  name = "ohmyprvd-debugger"
-  display = "Oh My Prvd Debugger"
+  name = "prvdmwrong-debugger"
+  display = "Prvd 'M Wrong Debugger"
   description = "Implements a quality of life debuggers for providers."
-  dependencies = ["ohmyprvd"]
+  dependencies = ["prvdmwrong"]

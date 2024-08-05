@@ -1,17 +1,17 @@
-<div class="ompdoc-reference-breadcrumbs">
+<div class="pmwdoc-reference-breadcrumbs">
 <a href="../../../">Reference</a>
 <a href="../../">Core</a>
 <a href="../">Providers</a>
 </div>
 
-<div class="ompdoc-reference-tags">
-<span class="ompdoc-reference-highlight">function</span>
-<span class="ompdoc-reference-since">since v0.1</span>
+<div class="pmwdoc-reference-tags">
+<span class="pmwdoc-reference-highlight">function</span>
+<span class="pmwdoc-reference-since">since v0.1</span>
 </div>
 
 # :octicons-code-16: start
 
-Starts Oh My Prvd. Expected to be called once in an environment, e.g. once on
+Starts Prvd 'M Wrong. Expected to be called once in an environment, e.g. once on
 the server and once on the client.
 
 All necessary providers should be preloaded before calling this as newly created
@@ -45,10 +45,10 @@ providers will not run its lifecycle events.
 
 ### options `#!lua : Partial<Options>`
 
-Configures how Oh My Prvd will start. The following are the available
+Configures how Prvd 'M Wrong will start. The following are the available
 configuration options:
 
-- `#!lua logLevel: "none" | "verbose"` configures if Oh My Prvd should log trace
+- `#!lua logLevel: "none" | "verbose"` configures if Prvd 'M Wrong should log trace
   information to the console, defaults to none.
 - `#!lua profiling: boolean` configures if built-in lifecycle events should be
   profiled with `debug.setmemorycategory` and `debug.profilebegin`, defaults to

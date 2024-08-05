@@ -1,12 +1,12 @@
-<div class="ompdoc-reference-breadcrumbs">
+<div class="pmwdoc-reference-breadcrumbs">
 <a href="../../../">Reference</a>
 <a href="../../">Core</a>
 <a href="../">Lifecycles</a>
 </div>
 
-<div class="ompdoc-reference-tags">
-<span class="ompdoc-reference-highlight">hook</span>
-<span class="ompdoc-reference-since">since v0.1</span>
+<div class="pmwdoc-reference-tags">
+<span class="pmwdoc-reference-highlight">hook</span>
+<span class="pmwdoc-reference-since">since v0.1</span>
 </div>
 
 # :octicons-workflow-16: onLifecycleUnregistered

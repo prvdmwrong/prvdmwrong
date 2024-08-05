@@ -1,17 +1,17 @@
-# Oh My Prvd
+# Prvd 'M Wrong
 
 <img src="../../assets/logo.svg" width="300px" align="right" alt="Logo"/>
 
-![CI](https://github.com/team-fireworks/ohmyprvd/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/team-fireworks/prvdmwrong/actions/workflows/ci.yml/badge.svg)
 
-Oh My Prvd is a delightful framework for Roblox games.
+Prvd 'M Wrong is a delightful framework for Roblox games.
 
 Boring. Do it again.
 
-***Oh My Prvd will not make you a front page developer, but you may feel like
+***Prvd 'M Wrong will not make you a front page developer, but you may feel like
 one.***
 
-Oh My Prvd accelerates the process with providers, connecting the top-level
+Prvd 'M Wrong accelerates the process with providers, connecting the top-level
 design of your game. Choose to mix in networking and components as you need.
 Enjoy a development experience that fades into the background, freeing you to
 build faster and shout: **Oh, My Prvd!**
@@ -26,15 +26,15 @@ build faster and shout: **Oh, My Prvd!**
 - Designed for clarity with syntax inspired by Rust
 
 Sparked your interest? [Get going in minutes with our on-rails
-tutorial](https://team-fireworks.github.io/ohmyprvd/latest/get-started/).
+tutorial](https://team-fireworks.github.io/prvdmwrong/latest/get-started/).
 
-> **Warning:** Oh My Prvd is in early development. Portions of the API may
+> **Warning:** Prvd 'M Wrong is in early development. Portions of the API may
 > break, be changed, or outright deleted. There will be dragons.
 
 ## Code Sample
 
 ```Lua
-local prvd = require("@pkg/ohmyprvd")
+local prvd = require("@pkg/prvdmwrong")
 local CharacterProvider = require("./character-provider")
 
 local CombatProvider = {
@@ -53,7 +53,7 @@ return prvd.Provider("CombatProvider", CombatProvider)
 ```
 
 ```TypeScript
-import { Provider, use } from "@rbxts/ohmyprvd"
+import { Provider, use } from "@rbxts/prvdmwrong"
 import { CharacterProvider } from "./character-provider"
 
 export const CombatProvider = Provider("CombatProvider", {
@@ -68,7 +68,7 @@ export const CombatProvider = Provider("CombatProvider", {
 
 ## FAQ
 
-### How do you say Oh My Prvd?
+### How do you say Prvd 'M Wrong?
 
 However you want:
 

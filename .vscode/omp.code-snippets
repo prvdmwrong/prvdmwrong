@@ -1,11 +1,11 @@
 {
-  "Oh My Prvd": {
+  "Prvd 'M Wrong": {
     "prefix": "prvd",
     "body": [
       "local ReplicatedStorage = game:GetService(\"ReplicatedStorage\")",
       "local prvd = require(ReplicatedStorage.Packages.prvd)"
     ],
-    "description": "Require the core Oh My Prvd module"
+    "description": "Require the core Prvd 'M Wrong module"
   },
   "Service": {
     "prefix": "service",

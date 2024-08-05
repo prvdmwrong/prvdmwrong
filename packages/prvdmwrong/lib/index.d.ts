@@ -20,18 +20,18 @@
  * SOFTWARE.
  */
 
-export = ohmyprvd
-export as namespace ohmyprvd
+export = prvdmwrong
+export as namespace prvdmwrong
 
 /**
- * Oh My Prvd is a delightful framework for next-generation Roblox game
+ * Prvd 'M Wrong is a delightful framework for next-generation Roblox game
  * development.
  */
 // TODO: work on this
-declare namespace ohmyprvd {
+declare namespace prvdmwrong {
 	/**
-	 * Configures how Oh My Prvd will ignite. The following are the available
-	 * configuration options: This type is not useful outside of Oh My Prvd
+	 * Configures how Prvd 'M Wrong will ignite. The following are the available
+	 * configuration options: This type is not useful outside of Prvd 'M Wrong
 	 * itself; prefer to specify ignition options as a parameter of
 	 * `prvd.ignite(options)`
 	 */
@@ -42,7 +42,7 @@ declare namespace ohmyprvd {
 
 	/**
 	 * Provides a specific functionality for a game. This type is not useful
-	 * outside of Oh My Prvd itself; prefer to use `prvd.use(provider)` for more
+	 * outside of Prvd 'M Wrong itself; prefer to use `prvd.use(provider)` for more
 	 * precise types.
 	 */
 	export type Provider<T extends object> = T & {
@@ -52,9 +52,9 @@ declare namespace ohmyprvd {
 	}
 
 	/**
-	 * An enumeration of all defined ignition status Oh My Prvd will be in.
+	 * An enumeration of all defined ignition status Prvd 'M Wrong will be in.
 	 *
-	 * This enum is not useful outside of Oh My Prvd itself; prefer to work with
+	 * This enum is not useful outside of Prvd 'M Wrong itself; prefer to work with
 	 * `awaitStart()` and `onStart(callback)`
 	 */
 	export enum IgnitionStatus {
@@ -85,13 +85,13 @@ declare namespace ohmyprvd {
 	export const version: string
 
 	/**
-	 * Yields the calling thread just before ignition finishes. If Oh My Prvd has
+	 * Yields the calling thread just before ignition finishes. If Prvd 'M Wrong has
 	 * already started, the thread will continue.
 	 */
 	export const awaitStart: () => void
 
 	/**
-	 * Ignites Oh My Prvd. Expected to be called once in an environment, e.g. once
+	 * Ignites Prvd 'M Wrong. Expected to be called once in an environment, e.g. once
 	 * on the server and once on the client.
 	 *
 	 * All necessary providers should be preloaded before calling this as newly
@@ -100,22 +100,19 @@ declare namespace ohmyprvd {
 	export const ignite: (options?: Partial<Options>) => void
 
 	/**
-	 * Queues a callback to be called just before ignition finishes. If Oh My Prvd
+	 * Queues a callback to be called just before ignition finishes. If Prvd 'M Wrong
 	 * has already started, the callback will be spawned immediately.
 	 */
 	export const onStart: (callback: () => void) => void
 
 	/**
-	 * Constructs and returns a new provider within Oh My Prvd. Providers must be
+	 * Constructs and returns a new provider within Prvd 'M Wrong. Providers must be
 	 * created before calling prvd.start(options).
 	 */
-	export const Provider: <T extends object>(
-		name: string,
-		provider: Provider<T>,
-	) => Provider<T>
+	export const Provider: <T extends object>(name: string, provider: Provider<T>) => Provider<T>
 
 	/**
-	 * Uses a provider within Oh My Prvd. During ignition, Oh My Prvd will inject
+	 * Uses a provider within Prvd 'M Wrong. During ignition, Prvd 'M Wrong will inject
 	 * the dependencies your provider uses.
 	 */
 	export const use: <T extends object>(provider: Provider<T>) => T
@@ -126,28 +123,21 @@ declare namespace ohmyprvd {
 	 * provider. Commonly used to implement custom lifecycles by adding providers
 	 * to a "watchlist" which will have its methods fired.
 	 */
-	export const onMethodImplemented: (
-		method: string,
-		handler: (provider: Provider<object>) => void,
-	) => void
+	export const onMethodImplemented: (method: string, handler: (provider: Provider<object>) => void) => void
 
 	/**
-	 * Called just before Oh My Prvd returns a newly constructed provider.
+	 * Called just before Prvd 'M Wrong returns a newly constructed provider.
 	 * Handlers are expected to be infallible and non-yielding. The handler
 	 * receives the constructed provider.
 	 */
-	export const onProviderConstructed: (
-		handler: (provider: Provider<object>) => void,
-	) => void
+	export const onProviderConstructed: (handler: (provider: Provider<object>) => void) => void
 
 	/**
-	 * Called just before Oh My Prvd returns a used Provider. Handlers are
+	 * Called just before Prvd 'M Wrong returns a used Provider. Handlers are
 	 * expected to be infallible and non-yielding. The handler receives the used
 	 * provider.
 	 */
-	export const onProviderUsed: (
-		handler: (provider: Provider<object>) => void,
-	) => void
+	export const onProviderUsed: (handler: (provider: Provider<object>) => void) => void
 
 	/**
 	 * Returns the ignition configuration options. Options are reconciled with
@@ -156,11 +146,7 @@ declare namespace ohmyprvd {
 	export const getIgnitionOptions: () => Options
 
 	// TODO: write documentation for this
-	export const defineMetadata: (
-		object: unknown,
-		key: string,
-		value: unknown,
-	) => void
+	export const defineMetadata: (object: unknown, key: string, value: unknown) => void
 	export const getMetadata: <T>(object: unknown, key: string) => T | undefined
 	export const deleteMetadata: (object: unknown, key: string) => void
 
@@ -168,27 +154,19 @@ declare namespace ohmyprvd {
 	 * Preload the specified parent by requiring all ModuleScripts within it. An
 	 * optional predicate function can be provided to filter modules.
 	 */
-	export const loadChildren: (
-		parent: Instance,
-		predicate?: (module: ModuleScript) => boolean,
-	) => unknown[]
+	export const loadChildren: (parent: Instance, predicate?: (module: ModuleScript) => boolean) => unknown[]
 
 	/**
 	 * Preload the specified parent by requiring all ModuleScripts within it
 	 * recursively. An optional predicate function can be provided to filter
 	 * modules.
 	 */
-	export const loadDescendants: (
-		parent: Instance,
-		predicate?: (module: ModuleScript) => boolean,
-	) => unknown[]
+	export const loadDescendants: (parent: Instance, predicate?: (module: ModuleScript) => boolean) => unknown[]
 
 	/**
 	 * Constructs and returns a function that filters ModuleScript if it matches a
 	 * given name. Often paired with `loadChildren` and `loadDescendants` as you
 	 * will frequently filter by name.
 	 */
-	export const matchesName: (
-		name: string,
-	) => (module: ModuleScript) => boolean
+	export const matchesName: (name: string) => (module: ModuleScript) => boolean
 }

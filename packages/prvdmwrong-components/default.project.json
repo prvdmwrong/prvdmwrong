@@ -1,8 +1,8 @@
 {
-  "name": "ohmyprvd-components",
+  "name": "prvdmwrong-components",
   "tree": {
     "$path": "Packages",
-    "ohmyprvd-components": {
+    "prvdmwrong-components": {
       "$path": "lib"
     }
   }

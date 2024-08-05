@@ -1,27 +1,27 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 site_name: Prvd 'M Wrong
-site_url: https://team-fireworks.github.io/prvd-m-wrong
-repo_url: https://github.com/team-fireworks/prvd-m-wrong
+site_url: https://team-fireworks.github.io/prvdmwrong
+repo_url: https://github.com/team-fireworks/prvdmwrong
 
 theme:
   name: material
   custom_dir: docs/overrides
   palette:
     - media: "(prefers-color-scheme: dark)"
-      scheme: ompdoc-dark
+      scheme: pmwdoc-dark
       toggle:
         icon: octicons/sun-24
         title: Switch to light theme
     - media: "(prefers-color-scheme: light)"
-      scheme: ompdoc-light
+      scheme: pmwdoc-light
       toggle:
         icon: octicons/moon-24
         title: Switch to dark theme
   font:
-    text: Inter
+    text: DM Sans
     code: JetBrains Mono
-  logo: assets/logo.svg
-  favicon: assets/logo.svg
+  logo: assets/wordmark-dark.svg
+  favicon: assets/logo-dark.svg
   icon:
     repo: fontawesome/brands/github
     admonition:
@@ -75,7 +75,7 @@ nav:
   - Examples:
     - examples/index.md
     - Projects:
-      - Oh My Prvd Obby: examples/projects/omp-obby.md
+      - Prvd 'M Wrong Obby: examples/projects/omp-obby.md
   - Reference:
     - reference/index.md
     - Error Messages: reference/error-messages.md
@@ -135,8 +135,8 @@ extra_css:
   - assets/theme/404.css
   - assets/theme/code.css
   - assets/theme/home.css
-  - assets/theme/ompdoc.css
   - assets/theme/page.css
+  - assets/theme/pmwdoc.css
   - assets/theme/reference.css
 
 extra:
@@ -157,7 +157,7 @@ plugins:
 markdown_extensions:
   - toc:
       title: On this page
-      permalink: true
+      # permalink: true
   - md_in_html
   - admonition
   - pymdownx.details

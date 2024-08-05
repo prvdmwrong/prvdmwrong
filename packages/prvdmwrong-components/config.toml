@@ -1,5 +1,5 @@
 [config]
-  name = "ohmyprvd-components"
-  display = "Oh My Prvd Components"
+  name = "prvdmwrong-components"
+  display = "Prvd 'M Wrong Components"
   description = "Implements a component system for providers."
-  dependencies = ["ohmyprvd"]
+  dependencies = ["prvdmwrong"]

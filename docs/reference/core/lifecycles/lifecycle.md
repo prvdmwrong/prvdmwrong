@@ -1,11 +1,11 @@
-<div class="ompdoc-reference-breadcrumbs">
+<div class="pmwdoc-reference-breadcrumbs">
 <a href="../../../">Reference</a>
 <a href="../../">Core</a>
 <a href="../">Lifecycles</a>
 </div>
-<div class="ompdoc-reference-tags">
-<span class="ompdoc-reference-highlight">constructor</span>
-<span class="ompdoc-reference-since">since v0.2</span>
+<div class="pmwdoc-reference-tags">
+<span class="pmwdoc-reference-highlight">constructor</span>
+<span class="pmwdoc-reference-since">since v0.2</span>
 </div>
 
 # :octicons-package-16: Lifecycle
@@ -44,7 +44,7 @@ Prvd will register all lifecycles on a provider.
 ### fire `#!lua : (self: Lifecycle, ...unknown) -> ()`
 
 A method to fire the lifecycle method. It receives itself and the arguments
-passed to it. For convenience, Oh My Prvd provides two methods you can use:
+passed to it. For convenience, Prvd 'M Wrong provides two methods you can use:
 
 - [`fireConcurrent(self, ...)`](fire-concurrent.md) which spawns all listeners
   concurrently

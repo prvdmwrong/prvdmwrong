@@ -1,19 +1,19 @@
-<div class="ompdoc-reference-breadcrumbs">
+<div class="pmwdoc-reference-breadcrumbs">
 <a href="../../../">Reference</a>
 <a href="../../">Core</a>
 <a href="../">Providers</a>
 </div>
 
-<div class="ompdoc-reference-tags">
-<span class="ompdoc-reference-highlight">enumeration</span>
-<span class="ompdoc-reference-since">since v0.1</span>
+<div class="pmwdoc-reference-tags">
+<span class="pmwdoc-reference-highlight">enumeration</span>
+<span class="pmwdoc-reference-since">since v0.1</span>
 </div>
 
 # :octicons-list-ordered-16: StartupStatus
 
-An enumeration of all defined startup status Oh My Prvd will be in.
+An enumeration of all defined startup status Prvd 'M Wrong will be in.
 
-This enum is not useful outside of Oh My Prvd itself; prefer to work with
+This enum is not useful outside of Prvd 'M Wrong itself; prefer to work with
 [`awaitStart()`](await-start.md) and [`
 onStart(callback)`](on-start.md)
 

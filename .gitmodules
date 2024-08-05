@@ -1,4 +1,4 @@
 [submodule "Fusion"]
-	path = packages/ohmyprvd-debugger/lib/include
+	path = packages/prvdmwrong-debugger/lib/include
 	url = git://dphfox/Fusion.git
   branch = push-pull-execution

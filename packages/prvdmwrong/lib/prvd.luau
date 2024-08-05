@@ -43,7 +43,7 @@ local StartupStatus = table.freeze {
 }
 
 -- If we held strong references to threads here, then if a thread was killed
--- before Oh My Prvd is ignited, it would be held strongly in this table forever
+-- before Prvd 'M Wrong is ignited, it would be held strongly in this table forever
 local awaitingThreads: { [thread]: true } = setmetatable({} :: any, WEAK_KEYS_METATABLE)
 local awaitingCallbacks: { () -> () } = {}
 local status: StartupStatus = StartupStatus.Pending
@@ -70,7 +70,7 @@ local function topologicalSort(objects: { string }): { [string]: number }
       return
     end
 
-    local dependencies = Reflection.getMetadata(object, "ohmyprvd:dependencies") :: { string }
+    local dependencies = Reflection.getMetadata(object, "prvdmwrong:dependencies") :: { string }
     for _, dependency in pairs(dependencies or {}) do
       visitor(dependency)
     end
@@ -99,7 +99,7 @@ local function reconcileOptions(options: { [any]: any }): Options
 end
 
 --[[
-  Constructs and returns a new provider within Oh My Prvd. Providers must be
+  Constructs and returns a new provider within Prvd 'M Wrong. Providers must be
   created before calling `Prvd.start()`.
 ]]
 function Prvd.new<T>(provider: T): Provider<T>
@@ -121,8 +121,8 @@ function Prvd.new<T>(provider: T): Provider<T>
 
   local source = debug.info(3, "s")
   Reflection.defineMetadata(provider, "identifier", source)
-  Reflection.defineMetadata(provider, "ohmyprvd:provider", true)
-  Reflection.defineMetadata(provider, "ohmyprvd:loadOrder", newProvider.loadOrder)
+  Reflection.defineMetadata(provider, "prvdmwrong:provider", true)
+  Reflection.defineMetadata(provider, "prvdmwrong:loadOrder", newProvider.loadOrder)
 
   providers[newProvider] = source
   Modding.doProviderConstructed(newProvider)
@@ -165,8 +165,8 @@ function Prvd.TSProvider(options: { loadOrder: number? }?)
     end
 
     Reflection.defineMetadata(newProvider, "identifier", name)
-    Reflection.defineMetadata(newProvider, "ohmyprvd:provider", true)
-    Reflection.defineMetadata(newProvider, "ohmyprvd:loadOrder", reconciledOptions.loadOrder)
+    Reflection.defineMetadata(newProvider, "prvdmwrong:provider", true)
+    Reflection.defineMetadata(newProvider, "prvdmwrong:loadOrder", reconciledOptions.loadOrder)
 
     providers[name] = newProvider
     Modding.doProviderConstructed(newProvider)
@@ -174,7 +174,7 @@ function Prvd.TSProvider(options: { loadOrder: number? }?)
 end
 
 --[[
-  Uses a provider within Oh My Prvd. During startup, Oh My Prvd will inject
+  Uses a provider within Prvd 'M Wrong. During startup, Prvd 'M Wrong will inject
   the dependencies your provider uses.
 ]]
 function Prvd.use<T>(provider: Provider<T>): T
@@ -195,7 +195,7 @@ function Prvd.use<T>(provider: Provider<T>): T
 end
 
 --[[
-  Starts Oh My Prvd. Expected to be called once in an environment, e.g. once on
+  Starts Prvd 'M Wrong. Expected to be called once in an environment, e.g. once on
   the server and once on the client.
 
   All necessary providers should be preloaded before calling this as newly
@@ -248,7 +248,7 @@ function Prvd.start(options: {
       loadOrder = provider.loadOrder or 1,
       identifier = identifier,
     })
-    if not Reflection.getMetadata(provider, "ohmyprvd:provider") then
+    if not Reflection.getMetadata(provider, "prvdmwrong:provider") then
       continue
     end
     local encountered = {}
@@ -276,7 +276,7 @@ function Prvd.start(options: {
       end
     end
     resolveUsedDependencies(provider, nil, provider)
-    Reflection.defineMetadata(provider, "ohmyprvd:dependencies", usedDependencies)
+    Reflection.defineMetadata(provider, "prvdmwrong:dependencies", usedDependencies)
   end
 
   local identifiers = {}
@@ -337,7 +337,7 @@ function Prvd.start(options: {
 end
 
 --[[
-  Yields the calling thread just before ignition finishes. If Oh My Prvd has
+  Yields the calling thread just before ignition finishes. If Prvd 'M Wrong has
   already started, the thread will continue.
 ]]
 function Prvd.awaitStart()
@@ -349,7 +349,7 @@ function Prvd.awaitStart()
 end
 
 --[[
-  Queues a callback to be called just before ignition finishes. If Oh My Prvd
+  Queues a callback to be called just before ignition finishes. If Prvd 'M Wrong
   has already started, the callback will be spawned immediately.
 ]]
 function Prvd.onStart(callback: () -> ())
@@ -370,7 +370,7 @@ function Prvd.getStartupOptions(): Options
 end
 
 --[[
-  Returns the current startup status of Oh My Prvd.
+  Returns the current startup status of Prvd 'M Wrong.
 ]]
 function Prvd.getStartupStatus(): StartupStatus
   return status
@@ -397,7 +397,7 @@ function Prvd.preload(instances: { Instance }, predicate: ((ModuleScript) -> boo
 end
 
 --[[
-  Adds the given object as a dependency that Oh My Prvd will instantiate
+  Adds the given object as a dependency that Prvd 'M Wrong will instantiate
   during startup.
 
   @internal

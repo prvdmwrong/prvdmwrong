@@ -1,9 +1,9 @@
-# Oh My Prvd Style Guide
+# Prvd 'M Wrong Style Guide
 
 TODO: Finish this
 
 This style guide lists the coding conventions used in all Luau and TypeScript
-code within the Oh My Prvd monorepo.
+code within the Prvd 'M Wrong monorepo.
 
 It does not claim to be the best style guide, but it optimizes for consistency
 rather than perfection, so we can get to work, and we do provide rationale for
@@ -21,7 +21,7 @@ There's no one right answer to how to format code, but consistency is important,
 so we agree to accept this one, somewhat arbitrary standard so we can spend more
 time writing code and less time arguing about formatting details in the review.
 
-The Oh My Prvd monorepo needs to be minimal, concise, and understandable. Code
+The Prvd 'M Wrong monorepo needs to be minimal, concise, and understandable. Code
 will be edited by several developers. Thus, ease of reading and understanding
 code is of great concern. Complexity above basic levels is either justified or
 removed.

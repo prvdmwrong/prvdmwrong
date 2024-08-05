@@ -1,7 +1,7 @@
 {
-  "name": "@rbxts/ohmyprvd-components",
+  "name": "@rbxts/prvdmwrong-components",
   "version": "0.2.0-dev.4",
-  "description": "Implements a components system for the Oh My Prvd Roblox framework.",
+  "description": "Implements a components system for the Prvd 'M Wrong Roblox framework.",
   "main": "lib/init.luau",
   "keywords": [],
   "author": "",

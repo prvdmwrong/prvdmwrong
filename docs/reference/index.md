@@ -1,7 +1,7 @@
 # Reference
 
 This section provides detailed reference documentation for working with Oh My
-Prvd. For an introduction to Oh My Prvd, see the [Learn
+Prvd. For an introduction to Prvd 'M Wrong, see the [Learn
 section.](../tutorials/index.md)
 
 !!! warning "Under construction"
@@ -65,7 +65,7 @@ encapsulates a specific task or calculation.
 ### :octicons-workflow-16:Hooks
 
 The branch icon denotes a hook, a special type of function that allows you to
-"hook into" Oh My Prvd to perform side effects.
+"hook into" Prvd 'M Wrong to perform side effects.
 
 ### :octicons-checklist-16:Types
 
@@ -80,19 +80,19 @@ The reference is broken down into functional packages.
 
 ### Core
 
-Details the `ohmyprvd` package, which implements provider primitives and
+Details the `prvdmwrong` package, which implements provider primitives and
 everything needed to bootstrap a game:
 
 - [Providers](core/providers/index.md) · Create and use game providers
 - [Lifecycles](core/lifecycles/index.md) · Create lifecycle methods and events
-- [Modding](core/modding/index.md) · Extend Oh My Prvd's core functionality
+- [Modding](core/modding/index.md) · Extend Prvd 'M Wrong's core functionality
 - [Internal](core/internal/index.md) · Lower level primitives for library
   authors
 - [Types](core/types/index.md) · Types exported by the core package
 
 ### Lifecycles
 
-Details the `ohmyprvd-lifecycles` package, which implements a "small" amount of
+Details the `prvdmwrong-lifecycles` package, which implements a "small" amount of
 lifecycle events.
 
 - [Runtime](lifecycles/runtime/index.md) · Lifecycle methods for the Roblox
@@ -102,7 +102,7 @@ lifecycle events.
 
 ### Net
 
-Details the `ohmyprvd-net` package, which implements networking primitives for
+Details the `prvdmwrong-net` package, which implements networking primitives for
 providers.
 
 ??? warning "Unreleased"
@@ -112,7 +112,7 @@ providers.
 
 ### Components
 
-Details the `ohmyprvd-components` package, which implements a component system
+Details the `prvdmwrong-components` package, which implements a component system
 for providers.
 
 ??? warning "Unreleased"
@@ -122,8 +122,8 @@ for providers.
 
 ### Debugger
 
-Details the `ohmyprvd-debugger` package, which implements a quality of life
-debugger for working with Oh My Prvd.
+Details the `prvdmwrong-debugger` package, which implements a quality of life
+debugger for working with Prvd 'M Wrong.
 
 ??? warning "Unreleased"
 

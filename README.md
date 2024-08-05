@@ -30,7 +30,7 @@ experience that fades into the background, freeing you to build faster and prove
 'm wrong. It's the swaggest framework in town!
 
 Sparked your interest? [Get going in minutes with our on-rails
-tutorial.](https://team-fireworks.github.io/ohmyprvd/latest/tutorials/)
+tutorial.](https://team-fireworks.github.io/prvdmwrong/latest/tutorials/)
 
 ## Highlights
 
@@ -64,7 +64,7 @@ return prvd(CombatProvider)
 ```
 
 ```TypeScript
-import { Provider, use } from "@rbxts/ohmyprvd"
+import { Provider, use } from "@rbxts/prvdmwrong"
 import { CharacterProvider } from "./character-provider"
 
 @Provider()

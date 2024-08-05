@@ -1,4 +1,4 @@
-# Oh My Prvd Lifecycles
+# Prvd 'M Wrong Lifecycles
 
 This package implements a "small" amount of lifecycle events for providers.
 

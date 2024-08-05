@@ -1,4 +1,4 @@
-# Oh My Prvd Net
+# Prvd 'M Wrong Net
 
 This package implements networking primitives for providers.
 TODO: actually implement this pls

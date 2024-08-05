@@ -8,7 +8,7 @@
 local RunService = game:GetService("RunService")
 local Types = require("@core/types")
 
-local ERROR_MESSAGES_URL = "team-fireworks.github.io/ohmyprvd/latest/reference/error-messages#"
+local ERROR_MESSAGES_URL = "team-fireworks.github.io/prvdmwrong/latest/reference/error-messages#"
 local MESSAGES = table.freeze {
   alreadyStarted = "cannot ignite more than once",
   cannotRegister = "cannot register provider; %s",
@@ -16,14 +16,14 @@ local MESSAGES = table.freeze {
   cannotUseNonProvider = "`prvd.use(provider)` must be given a provider",
   invalidLoadParent = "preload must be given an instance",
   invalidOnStartCallback = "`prvd.onStart(callback)` expects a callback",
-  multipleInstalls = "there are multiple installations of ohmyprvd, this can lead to unexpected behavior",
+  multipleInstalls = "there are multiple installations of prvdmwrong, this can lead to unexpected behavior",
   onInitError = "cannot initialize %s; %s",
-  onMethodImplementedWasDeprecated = "`onMethodImplemented` was deprecated, use `onMethodAdded` for observing lifecycles or create a `Lifecycle`. this will be an error in future versions of oh my prvd",
+  onMethodImplementedWasDeprecated = "`onMethodImplemented` was deprecated, use `onMethodAdded` for observing lifecycles or create a `Lifecycle`. this will be an error in future versions of Prvd 'M Wrong",
   registerAfterStartup = "cannot register providers after startup",
   requireError = "cannot require %s; %s",
-  unknownError = "unknown error: %s. this indicates ohmyprvd isn't reporting errors correctly, please file an issue",
+  unknownError = "unknown error: %s. this indicates prvdmwrong isn't reporting errors correctly, please file an issue",
   useAfterStartup = "cannot use other providers after startup",
-  usedBeforeStartup = 'cannot use provider "%s" prior to startup. ohmyprvd will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method',
+  usedBeforeStartup = 'cannot use provider "%s" prior to startup. prvdmwrong will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method',
 }
 
 local Log = {}

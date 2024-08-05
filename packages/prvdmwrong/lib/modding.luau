@@ -5,7 +5,7 @@
   in the root directory of this source tree.
 ]]
 
-local Types = require(script.Parent.types)
+local Types = require("@core/types")
 
 type Provider<T> = Types.Provider<T>
 type Object = Types.Object
@@ -33,7 +33,7 @@ function Modding.doProviderUsed(provider: Provider<unknown>)
 end
 
 --[[
-  Called just before Oh My Prvd returns a newly constructed provider. Handlers
+  Called just before Prvd 'M Wrong returns a newly constructed provider. Handlers
   are expected to be infallible and non-yielding. The handler receives the
   constructed provider.
 ]]
@@ -43,7 +43,7 @@ function Modding.onProviderConstructed(handler: (Provider<unknown>) -> ())
 end
 
 --[[
-  Called just before Oh My Prvd returns a used Provider. Handlers are expected
+  Called just before Prvd 'M Wrong returns a used Provider. Handlers are expected
   to be infallible and non-yielding. The handler receives the used provider.
 ]]
 function Modding.onProviderUsed(handler: (Provider<unknown>) -> ())

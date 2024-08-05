@@ -1,17 +1,17 @@
-<div class="ompdoc-reference-breadcrumbs">
+<div class="pmwdoc-reference-breadcrumbs">
 <a href="../../../">Reference</a>
 <a href="../../">Core</a>
 <a href="../">Providers</a>
 </div>
 
-<div class="ompdoc-reference-tags">
-<span class="ompdoc-reference-highlight">function</span>
-<span class="ompdoc-reference-since">since v0.1</span>
+<div class="pmwdoc-reference-tags">
+<span class="pmwdoc-reference-highlight">function</span>
+<span class="pmwdoc-reference-since">since v0.1</span>
 </div>
 
 # :octicons-code-16: use
 
-Uses a provider within Oh My Prvd. During startup, Oh My Prvd will inject the
+Uses a provider within Prvd 'M Wrong. During startup, Prvd 'M Wrong will inject the
 dependencies your provider uses.
 
 === "Luau"
@@ -32,10 +32,10 @@ dependencies your provider uses.
 
 !!! danger "Do not use dependencies outside of lifecycle methods"
 
-    Oh My Prvd only returns a shadow of the `use()`d provider. You *cannot* use
+    Prvd 'M Wrong only returns a shadow of the `use()`d provider. You *cannot* use
     it outside of lifecycle methods
 
-    Behind the scenes, Oh My Prvd will keep track of what dependencies your
+    Behind the scenes, Prvd 'M Wrong will keep track of what dependencies your
     provider uses, figure out the correct load order for you, and inject your
     dependencies.
 

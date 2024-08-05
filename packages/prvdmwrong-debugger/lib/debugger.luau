@@ -17,4 +17,4 @@
 --   authorizePlayer = authorizePlayer
 -- end
 
--- return prvd.new("ohmyprvd-debugger", debugger)
+-- return prvd.new("prvdmwrong-debugger", debugger)

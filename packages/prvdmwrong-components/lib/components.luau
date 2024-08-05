@@ -77,4 +77,4 @@ prvd.onMethodImplemented("onComponentRemoved", function(provider: any)
   componentRemoved[provider] = true
 end)
 
-return prvd.new("ohmyprvd@ComponentsProvider", ComponentsProvider)
+return prvd.new("prvdmwrong@ComponentsProvider", ComponentsProvider)

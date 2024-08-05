@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-<div class="ompdoc-reference-breadcrumbs">
+<div class="pmwdoc-reference-breadcrumbs">
 <a href="../">Reference</a>
 </div>
 
@@ -11,32 +11,42 @@ hide:
 
 This package contains fundamental primitives for creating and using game
 providers. Contains everything needed to bootstrap a Roblox game and utilities
-for extending the core Oh My Prvd package.
+for extending the core Prvd 'M Wrong package.
 
 Install this through your preferred package manager:
 
 === "Wally"
 
     ```toml
-    ohmyprvd = "znotfireman/ohmyprvd@0.2.0-dev.3"
+    [dependencies]
+      prvd = "znotfireman/prvdmwrong@0.2.0-dev.5"
+    ```
+
+=== "Pesde"
+
+    ```yaml
+    dependencies:
+    - prvd:
+      - name: znotfireman/prvdmwrong
+      - version: 0.2.0-dev.5
     ```
 
 === "NPM"
 
     ```bash
-    npm i @rbxts/ohmyprvd
+    $ npm i @rbxts/prvdmwrong
     ```
 
 === "PNPM"
 
     ```bash
-    pnpm i @rbxts/ohmyprvd
+    $ pnpm i @rbxts/prvdmwrong
     ```
 
 === "Yarn"
 
     ```bash
-    yarn add @rbxts/ohmyprvd
+    $ yarn add @rbxts/prvdmwrong
     ```
 
 ---

@@ -1,7 +1,7 @@
 {
-  "name": "@rbxts/ohmyprvd",
+  "name": "@rbxts/prvdmwrong",
   "version": "0.2.0-dev.4",
-  "description": "Oh My Prvd is a delightful framework for next-generation Roblox game development.",
+  "description": "Prvd 'M Wrong is a delightful framework for next-generation Roblox game development.",
   "main": "lib/init.luau",
   "keywords": [],
   "author": "",

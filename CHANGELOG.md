@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
   ```Lua
   local ReplicatedStorage = game:GetService("ReplicatedStorage")
-  local prvd = require(ReplicatedStorage.Packages.ohmyprvd)
+  local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
   local MyProvider = {}
 
@@ -30,7 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `@TSProvider(options)` decorator for TypeScript:
 
   ```TypeScript
-  import { TSProvider as Provider, type OnStart } from "@rbxts/ohmyprvd"
+  import { TSProvider as Provider, type OnStart } from "@rbxts/prvdmwrong"
 
   @Provider({ loadOrder: 0 })
   export class MyProvider implements OnStart {
@@ -48,11 +48,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added `prvd.fireConcurrent` and `prvd.fireSequential` handlers for lifecycle
     methods, the former spawns all listeners, the latter runs all listeners
     sequentially
-- Added type exports for `ohmyprvd-lifecycles`
+- Added type exports for `prvdmwrong-lifecycles`
 - Added `internal` field to exports for lower level primitives
   - Added `prvd.registerDependency` utility for injecting your own dependencies
-- Initial release of `ohmyprvd-components`
-- Initial release of `ohmyprvd-net`
+- Initial release of `prvdmwrong-components`
+- Initial release of `prvdmwrong-net`
 
 ### Changed
 
@@ -83,20 +83,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Fixed onInit & onStart methods not being fired during startup
-- Oh My Prvd now respects frozen tables while resolving dependencies
+- Prvd 'M Wrong now respects frozen tables while resolving dependencies
 - Log messages now are formatted correctly
 
 ## 0.1.1-alpha
 
 ### Added
 
-- Added actual types for `@rbxts/ohmyprvd`
+- Added actual types for `@rbxts/prvdmwrong`
 - Added missing error messages
 - Added `onProviderConstructed` and `onProviderUsed` modding hooks
 - Added `matchesName` utility function as a predicate for `loadX` APIs
 - Exposed reflection API with `defineMetadata`, `deleteMetadata`, and
   `getMetadata`
-- Added `ohmyprvd-lifecycles` package which implements lifecycle events for the
+- Added `prvdmwrong-lifecycles` package which implements lifecycle events for the
   following:
 
   - `:onPostSimulation(dt: number)` runs every `RunService.PostSimulation`
@@ -117,7 +117,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - Removed `:heartbeat`, `:step`, `:render` from the core package to be extracted
-  as a new `ohmyprvd-lifecycles` package
+  as a new `prvdmwrong-lifecycles` package
   - These lifecycle events aren't necessary and can be considered bloat, and
     should preferably be extracted as a package for adding more built-in
     lifecycle events

@@ -1,21 +1,21 @@
 # Get Started
 
-Congratulations on choosing Oh My Prvd! You're finally making good choices.
+Congratulations on choosing Prvd 'M Wrong! You're finally making good choices.
 
-Oh My Prvd is a delightful framework for next-generation Roblox game
-development. Here, you will learn how to build great games with Oh My Prvd, even
-if you're a complete newcomer to the library.
+Prvd 'M Wrong is a game framework for a next-generation Roblox. Here, you will
+learn how to build great games with Prvd 'M Wrong, even if you're a complete
+newcomer to the library.
 
 !!! warning "But first, something important..."
 
     **<span style="font-size: 1.5em;">
-    Do not use Oh My Prvd in production unless you're *really, really, really, REALLY, really*
+    Do not use Prvd 'M Wrong in production unless you're *really, really, really, REALLY, really*
     willing and able to withstand large, sweeping changes.
     </span>**
 
     Yes, that was five-reallys important.
 
-    Oh My Prvd is in very early alpha right now! You *will* encounter:
+    Prvd 'M Wrong is in very early alpha right now! You *will* encounter:
 
     - nonexistent or broken features
     - changes in how things work between versions
@@ -46,7 +46,7 @@ These tutorials assume:
         is important when troubleshooting bugs – If you'd like to learn, see the
         [Roblox creator documentation](https://create.roblox.com/docs).
 
-Some tutorials might challenge you more than others. Remember, Oh My Prvd is
+Some tutorials might challenge you more than others. Remember, Prvd 'M Wrong is
 built with you in mind, but it may still take a bit of time to absorb some
 concepts. Take your time and explore at your own pace.
 
@@ -59,30 +59,30 @@ error, here are some resources which can help.
 
 ### Support with Errors
 
-Oh My Prvd attaches a link with every console log message. These links direct
+Prvd 'M Wrong attaches a link with every console log message. These links direct
 you to our comprehensive [Error Messages](../reference/error-messages.md)
 documentation.
 
 ```Txt hl_lines="2"
-[OMP(requireAfterIgnition)]: cannot require other providers after startup
-  more info: team-fireworks.github.io/ohmyprvd/latest/reference/general/error-messages#requireafterignition
+[PMW(requireAfterIgnition)]: cannot require other providers after startup
+  more info: team-fireworks.github.io/prvdmwrong/latest/reference/general/error-messages#requireafterignition
   stack trace:
-    ohmyprvd.log:118 function throw
-    ohmyprvd.prvd:181 function use
+    prvdmwrong.log:118 function throw
+    prvdmwrong.prvd:181 function use
     Main:42
 ```
 
-It explains the meaning of each message, its origin within Oh My Prvd, and
+It explains the meaning of each message, its origin within Prvd 'M Wrong, and
 relevant context. When you run into an error, that page is a great place to start!
 
 ### Additional Support
 
-Oh My Prvd is built with you in mind and our documentation aims to be as useful
+Prvd 'M Wrong is built with you in mind and our documentation aims to be as useful
 and comprehensive as possible. However, you might need specific advice on an
-issue, perhaps you may want to learn Oh My Prvd through other means, or you
+issue, perhaps you may want to learn Prvd 'M Wrong through other means, or you
 caught a showstopper bug.
 
 Whatever you're looking for, feel free to swing by [our dedicated
 thread](https://discord.com/channels/385151591524597761/1267055070374268969)
 over the [Roblox OSS Discord server](https://discord.gg/VaDCnesCXj). Maintainers
-drop in frequently alongside eager Oh My Prvd users.
+drop in frequently alongside eager Prvd 'M Wrong users.
