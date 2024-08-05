@@ -1,4 +1,3 @@
 [submodule "Fusion"]
-	path = packages/prvdmwrong-debugger/lib/include
-	url = git://dphfox/Fusion.git
-  branch = push-pull-execution
+  path = packages/prvdmwrong-debugger/lib/include
+  url = git://dphfox/Fusion.git
