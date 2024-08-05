@@ -1,85 +1,87 @@
-# Oh My Prvd
+<div align="center">
+<img
+  align="center"
+  src="./assets/wordmark-dark.svg#gh-dark-mode-only"
+  alt="Prvd 'M Wrong"
+  width="500px"/>
+<img
+  align="center"
+  src="./assets/wordmark-light.svg#gh-light-mode-only"
+  alt="Prvd 'M Wrong"
+  width="500px"/>
 
-<img src="assets/logo.svg" width="300px" align="right" alt="Logo"/>
+<a href="https://team-fireworks.github.io/prvdmwrong/latest/reference">Website</a> ·
+<a href="https://team-fireworks.github.io/prvdmwrong/latest/reference">Reference</a> ·
+<a href="CHANGELOG.md">Changelog</a> ·
+<a href="CONTRIBUTING.md">Contributing</a>
+</div>
 
-![CI](https://github.com/team-fireworks/ohmyprvd/actions/workflows/ci.yml/badge.svg)
+Prvd 'M Wrong is a game framework for a next-generation Roblox.
 
-Oh My Prvd is a delightful framework for modern Roblox game development.
+Sounds boring. Let's do that again.
 
-Boring. Do it again.
-
-***Oh My Prvd will not make you a front page developer, but you may feel like
+***Prvd 'M Wrong will not make you a front page developer, but you may feel like
 one.***
 
-Oh My Prvd accelerates the process with providers, connecting the top-level
-design of your game. Choose to mix in networking and components as you need.
-Enjoy a development experience that fades into the background, freeing you to
-build faster and shout: **Oh, My Prvd!**
+Once installed, your game will become your money back. Prvd 'M Wrong accelerates
+the process with providers, connecting the top-level design of your game. Choose
+to mix in networking and components as you need. Cherish a development
+experience that fades into the background, freeing you to build faster and prove
+'m wrong. It's the swaggest framework in town!
+
+Sparked your interest? [Get going in minutes with our on-rails
+tutorial.](https://team-fireworks.github.io/ohmyprvd/latest/tutorials/)
 
 ## Highlights
 
 - Type-safe APIs for both Luau and TypeScript
 - Featherlight, choose to mix in packages as you need
 - Uses dependency injection for cleaner code organization
-- Made to be extendable
-- Non-intrusive lifecycle events for flexibility
+- Made to be extendable through modding APIs
+- Non-intrusive first-class lifecycle events for flexibility
 - Designed for clarity
-
-Sparked your interest? [Get going in minutes with our on-rails
-tutorial.](https://team-fireworks.github.io/ohmyprvd/latest/tutorials/)
-
-> **Warning:** Oh My Prvd is in early development. Portions of the API may be
-> nonexistent, be broken, be changed, or be outright deleted. There will be
-> dragons.
 
 ## Code Sample
 
-```Lua
-local prvd = require("@pkg/ohmyprvd")
+```Luau
+local prvd = require("@pkg/prvdmwrong")
 local CharacterProvider = require("./character-provider")
 
-local CombatProvider = {
-  characterProvider = prvd.use(CharacterProvider)
-}
+local CombatProvider = {}
+type Self = typeof(CombatController)
+CombatProvider.characterProvider = prvd.use(CharacterProvider)
 
-function CombatController.performMove(
-  self: typeof(CombatController),
-  move: CombatMove
-)
+function CombatProvider:onStart()
+  print("Hello, Prvd 'M Wrong!")
+end
+
+function CombatProvider.performMove(self: Self, move: CombatMove)
   local character = self.characterProvider:awaitCharacter()
   -- do something with the character
 end
 
-return prvd.Provider("CombatProvider", CombatProvider)
+return prvd(CombatProvider)
 ```
 
 ```TypeScript
 import { Provider, use } from "@rbxts/ohmyprvd"
 import { CharacterProvider } from "./character-provider"
 
-export const CombatProvider = Provider("CombatProvider", {
-  characterProvider: use(CharacterProvider)
+@Provider()
+export class CombatProvider {
+  public characterProvider: use(CharacterProvider)
 
-  performMove(move: CombatMove) {
+  public onStart() {
+    print("Hello, Prvd 'M Wrong!")
+  }
+
+  public performMove(move: CombatMove) {
     const character = this.characterProvider.awaitCharacter()
     // do something with the character
   }
-})
+}
 ```
 
-## FAQ
+## License
 
-### How do you say Oh My Prvd?
-
-However you want:
-
-- *Oh, my prvd!* for excitement
-- *Oh, my providers!* for completeness
-- *O-m-p!* for brevity
-- *Ommp!* for power
-
-### Who's that handsome gentlemen on the home page?
-
-His name is Womp Womp:
-
-<img src="assets/womp.png" alt="Womp Womp" height="256px" />
+Prvd 'M Wrong is released under the MIT license. Go do cool stuff with it!

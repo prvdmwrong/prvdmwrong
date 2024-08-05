@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
-site_name: Oh My Prvd
-site_url: https://team-fireworks.github.io/ohmyprvd
-repo_url: https://github.com/team-fireworks/ohmyprvd
+site_name: Prvd 'M Wrong
+site_url: https://team-fireworks.github.io/prvd-m-wrong
+repo_url: https://github.com/team-fireworks/prvd-m-wrong
 
 theme:
   name: material
