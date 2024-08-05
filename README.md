@@ -26,8 +26,8 @@ one.***
 Once installed, your game will become your money back. Prvd 'M Wrong accelerates
 the process with providers, connecting the top-level design of your game. Choose
 to mix in networking and components as you need. Cherish a development
-experience that fades into the background, freeing you to build faster and prove
-'m wrong. It's the swaggest framework in town!
+experience that fades into the background, freeing you to build faster and
+**prvd 'm wrong.** It's the swaggest framework in town!
 
 Sparked your interest? [Get going in minutes with our on-rails
 tutorial.](https://team-fireworks.github.io/prvdmwrong/latest/tutorials/)
