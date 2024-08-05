@@ -1,6 +1,9 @@
 {
-  "name": "ohmyprvd-devtools",
+  "name": "ohmyprvd-debugger",
   "tree": {
-    "$path": "lib"
+    "$path": "Packages",
+    "ohmyprvd-debugger": {
+      "$path": "lib"
+    }
   }
 }
