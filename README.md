@@ -10,6 +10,14 @@
   alt="Prvd 'M Wrong"
   width="500px"/>
 
+<br/>
+
+![Continuous Integration](https://img.shields.io/github/actions/workflow/status/team-fireworks/prvdmwrong/ci.yml?style=flat-square&label=Continuous%20Integration)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/team-fireworks/prvdmwrong/docs.yml?style=flat-square&label=Documentation)
+</br>
+![GitHub License](https://img.shields.io/github/license/team-fireworks/prvdmwrong?style=flat-square)
+![Made with Prvd 'M Wrong](https://img.shields.io/badge/made_with-prvd_'m_wrong-orange?style=flat-square&color=%23E26600)
+</br>
 <a href="https://team-fireworks.github.io/prvdmwrong/latest/reference">Website</a> ·
 <a href="https://team-fireworks.github.io/prvdmwrong/latest/reference">Reference</a> ·
 <a href="CHANGELOG.md">Changelog</a> ·
