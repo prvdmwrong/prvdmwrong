@@ -146,6 +146,9 @@ do
     assertion(pcall(fs.removeDir, `{cwd}/dist`))
   end
 
+  print(`Generating bundle sourcemap`)
+  spawnCommand("rojo", "sourcemap", `{cwd}/default.project.json`, "-o", `{cwd}/sourcemap.json`)
+
   local bundle = roblox.Instance.new("Folder")
   bundle.Name = "ohmyprvd"
 
@@ -204,11 +207,13 @@ do
       local dependencies = packageConfig.config.dependencies
       if dependencies then
         local wallyDependencies = {}
+        local npmDependencies = {}
         local pesdeDependencies = {}
 
         for _, dependency in ipairs(dependencies) do
           print(`\t=> Writing dependency {dependency}`)
           wallyDependencies[dependency] = `{WALLY_SCOPE}/{dependency}@{version}`
+          npmDependencies[`@{NPM_SCOPE}/{dependency}`] = version
           pesdeDependencies[dependency] = {
             name = (`{WALLY_SCOPE}/{dependency}`):gsub("-", "_"),
             version = version,
@@ -216,6 +221,7 @@ do
         end
 
         wally.package.dependencies = wallyDependencies
+        npm.dependencies = npmDependencies
         pesde.dependencies = pesdeDependencies
       end
 
