@@ -24,13 +24,10 @@ jobs:
               run: pip install --upgrade setuptools
 
             - name: Install MkDocs
-              run: pip install mkdocs-material==8.2.13
+              run: pip install mkdocs-material
 
             - name: Install mike
-              run: pip install mike==1.1.2
-
-            - name: Install pymdown extensions (????)
-              run: pip install pymdown-extensions --force
+              run: pip install mike
 
             - name: Fetch gh-pages branch
               run: git fetch origin gh-pages --depth=1
