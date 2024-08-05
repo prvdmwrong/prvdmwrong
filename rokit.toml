@@ -5,9 +5,12 @@
 
 [tools]
   darklua = "seaofvoices/darklua@0.13.1"
-  lune = "lune-org/lune@0.8.6"
-  pesde = "daimond113/pesde@0.4.7"
   rojo = "rojo-rbx/rojo@7.4.2"
   selene = "Kampfkarren/selene@0.27.1"
   stylua = "johnnymorganz/stylua@0.20.0"
   wally = "UpliftGames/wally@0.3.2"
+
+
+  # Lune out of all things doenst work
+  # lune = "lune-org/lune@0.8.4"
+  # pesde = "daimond113/pesde@0.4.7"
