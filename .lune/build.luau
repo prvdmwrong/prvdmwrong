@@ -150,7 +150,7 @@ do
   spawnCommand("rojo", "sourcemap", `{cwd}/default.project.json`, "-o", `{cwd}/sourcemap.json`)
 
   local bundle = roblox.Instance.new("Folder")
-  bundle.Name = "prvdmwrong"
+  bundle.Name = "bundle"
 
   local darkluaConfig = `{cwd}/{shouldRelease and ".darklua.json" or ".darklua-dev.json"}`
   fs.writeDir(`{cwd}/dist`)
