@@ -1,3 +1,3 @@
-[submodule "packages/prvdmwrong-debugger/lib/include/Fusion"]
-  path = packages/prvdmwrong-debugger/lib/include/Fusion
-  url = git://github.com/dphfox/Fusion.git
+[submodule "packages/prvdmwrong-debugger/lib/vendor/Fusion"]
+	path = packages/prvdmwrong-debugger/lib/vendor/Fusion
+	url = https://github.com/dphfox/Fusion.git
