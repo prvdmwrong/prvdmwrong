@@ -30,6 +30,7 @@ local ohmyprvd: Types.PrvdNamespace = table.freeze {
   -- Providers API
   awaitStart = Prvd.awaitStart,
   onStart = Prvd.onStart,
+  new = Prvd.new,
   StartupStatus = Prvd.StartupStatus,
   start = Prvd.start,
   preload = Prvd.preload,
