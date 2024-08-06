@@ -15,9 +15,7 @@
 
 ![Continuous Integration](https://img.shields.io/github/actions/workflow/status/team-fireworks/prvdmwrong/ci.yml?style=flat-square&label=Continuous%20Integration)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/team-fireworks/prvdmwrong/docs.yml?style=flat-square&label=Documentation)
-</br>
-![GitHub License](https://img.shields.io/github/license/team-fireworks/prvdmwrong?style=flat-square)
-![Made with Prvd 'M Wrong](https://img.shields.io/badge/made_with-prvd_'m_wrong-orange?style=flat-square&color=%23E26600)
+![Prvd 'M Wrong is licensed under MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 </br>
 <a href="https://team-fireworks.github.io/prvdmwrong/latest/reference">Website</a> ·
 <a href="https://team-fireworks.github.io/prvdmwrong/latest/reference">Reference</a> ·
@@ -29,14 +27,16 @@ Prvd 'M Wrong is a game framework for a next-generation Roblox.
 
 Sounds boring. Let's do that again.
 
-***Prvd 'M Wrong will not make you a front page developer, but you may feel like
-one.***
+**Prvd 'M Wrong will not make you a front page Roblox developer... but you may
+feel like one.**
 
 Once installed, your game will become your money back. Prvd 'M Wrong accelerates
 the process with providers, connecting the top-level design of your game. Choose
-to mix in networking and components as you need. Cherish a development
-experience that fades into the background, freeing you to build faster and
-**prvd 'm wrong.** It's the swaggest framework in town!
+to mix in networking and components as you need. Randoms will approach you and
+ask, *"are you wealthy or do you make a six-figure salary?"*
+
+Cherish a development experience that fades into the background, freeing you to
+build faster and **prvd 'm wrong.** It's the swaggest framework in town!
 
 Sparked your interest? [Get going in minutes with our on-rails
 tutorial.](https://team-fireworks.github.io/prvdmwrong/latest/tutorials/)
@@ -48,7 +48,7 @@ tutorial.](https://team-fireworks.github.io/prvdmwrong/latest/tutorials/)
 - Uses dependency injection for cleaner code organization
 - Made to be extendable through modding APIs
 - Non-intrusive first-class lifecycle events for flexibility
-- Pragmatic and sensible API that makes game development fun
+- Pragmatic and sensible API that makes development fun
 
 ## Code Sample
 
@@ -90,7 +90,3 @@ export class CombatProvider {
   }
 }
 ```
-
-## License
-
-Prvd 'M Wrong is released under the MIT license. Go do cool stuff with it!
