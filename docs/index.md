@@ -8,7 +8,7 @@ hide:
 
 <section class="pmwdoc-home-hero-inner" markdown>
 
-<h1 style="display: none;">Prvd 'M Wrong</h1>
+<h1 style="font-size: 0; margin: 0; padding: 0;">Prvd 'M Wrong</h1>
 <img
   src="./assets/wordmark-dark.svg#only-dark"
   alt="Prvd 'M Wrong"
@@ -76,7 +76,7 @@ build faster and prove 'm wrong. It's the swaggest framework in town!
 
     @Provider()
     export class CombatProvider implements OnStart {
-      public characterProvider: use(CharacterProvider)
+      public characterProvider = use(CharacterProvider)
 
       public onStart() {
         print("Hello, Prvd 'M Wrong!")
@@ -110,13 +110,15 @@ Create providers to handle the top level logic of your game:
 === "Luau"
 
     ```Lua
+    -- Create Luau providers by calling the package itself.
     local CoinsProvider = {}
-    return prvd.new("CoinsProvider", CoinsProvider)
+    return prvd(CoinsProvider)
     ```
 
 === "TypeScript"
 
     ```TypeScript
+    // Create TypeScript providers by using the Provider decorator on a class.
     @Provider({})
     export class CoinsProvider {}
     ```
@@ -128,14 +130,18 @@ more methods, properties, and the likes into a provider:
 
     ```Lua
     local CoinsProvider = {}
+    -- Alias our provider's type for complete type-safety
     type Self = typeof(CoinsProvider)
+    -- Providers can have properties...
     CoinsProvider.balance = {}
 
+    -- ...and methods...
     function CoinsProvider.addCoins(self: Self, player: Player, coins: number)
+      -- ...all properties are accessible through `self`!
       self.coins[person] += coins
     end
 
-    return prvd.new("CoinsProvider", CoinsProvider)
+    return prvd(CoinsProvider)
     ```
 
 === "TypeScript"
@@ -143,39 +149,48 @@ more methods, properties, and the likes into a provider:
     ```TypeScript
     @Provider({})
     export class CoinsProvider {
+      // Providers can have properties...
       balance: Map<Player, number> = {},
 
+      // ...and methods...
       addCoins(player: Player, coins: number) {
+        // ...all properties are accessible through `this`!
         this.coins[person] += coins
       }
     })
     ```
 
-Providers can `use()` other providers. Prvd 'M Wrong will provide its types and
-figure out a corresponding load order for you:
+Providers can `use()` other providers. Prvd 'M Wrong will provide type-safety,
+autocomplete, and figure out a corresponding load order for you:
 
 === "Luau"
 
     ```Lua
+    -- For example, say this rewards provider requires the coins provider.
     local RewardsProvider = {}
     type Self = typeof(CoinsProvider)
+    -- Just specify this provider `use()`-s the coins provider...
     RewardsProvider.coinsProvider = prvd.use(CoinsProvider)
 
     function RewardsProvider.addWinRewards(self: Self, player: Player)
+      -- ...and enjoy complete type-safety!
       self.coinsProvider:addCoins(player, 30)
     end
 
-    return prvd.new("RewardsProvider", RewardsProvider)
+    return prvd.new(RewardsProvider)
     ```
 
 === "TypeScript"
 
     ```TypeScript
+    // For example, say this rewards provider requires the coins provider.
     @Provider({})
     export class RewardsProvider {
+      // Just specify this provider `use()`-s the coins provider...
       coinsProvider = use(CoinsProvider)
 
       addCoins(person: Player) {
+        // ...and enjoy complete type-safety!
         this.coinsProvider:addCoins(player, coins)
       }
     }
@@ -186,14 +201,20 @@ Finally, preload your providers, then start Prvd 'M Wrong, and you're off to the
 === "Luau"
 
     ```Lua
+    -- `preload` loads all ModuleScript instances from an array.
+    -- This lets Prvd 'M Wrong register providers.
     prvd.preload(ServerScriptService.Providers:GetDescendants())
+    -- Now, Prvd 'M Wrong can be started!
     prvd.start(options)
     ```
 
 === "TypeScript"
 
     ```TypeScript
+    // `preload` loads all ModuleScript instances from an array.
+    // This lets Prvd 'M Wrong register providers.
     preload(ServerScriptService.Providers.GetDescendants())
+    // Now, Prvd 'M Wrong can be started!
     start(options)
     ```
 
@@ -201,25 +222,30 @@ Finally, preload your providers, then start Prvd 'M Wrong, and you're off to the
 
 ## ② Mixins
 
+Prvd 'M Wrong is featherlight by design, and provides best-in-class packages to
+mix-in whenever needed.
+
 ---
 
 ## ③ Extensible
 
-Prvd 'M Wrong brings comprehensive APIs for extending the framework. Here's one of
-the common ones, `Lifecycle` to implement your own lifecycle methods:
+Prvd 'M Wrong brings comprehensive APIs for extending the framework.
+
+Here's one of the common ones, `Lifecycle` to implement your own lifecycle
+methods:
 
 === "Luau"
 
     ```Lua
-    -- this interface satisfies our method
+    -- This interface satisfies our method!
     type OnCharacterAdded = {
       onCharacterAdded(self: unknown, character: Model) -> ()
     }
 
-    -- `fireConcurrent` is a built-in lifecycle handler that spawns listeners
+    -- `fireConcurrent` is a built-in lifecycle handler that spawns listeners.
     local characterAdded = Lifecycle("onCharacterAdded", fireConcurrent)
 
-    -- now fire the lifecycle method!
+    -- Now fire the lifecycle method!
     if (LocalPlayer.Character) then
       characterAdded:fire(LocalPlayer.Character)
     end
@@ -231,15 +257,15 @@ the common ones, `Lifecycle` to implement your own lifecycle methods:
 === "TypeScript"
 
     ```TypeScript
-    // this interface satisfies our method
+    // This interface satisfies our method!
     interface OnCharacterAdded {
       onCharacterAdded(character: Model): void
     }
 
-    // `fireConcurrent` is a built-in lifecycle handler that spawns listeners
+    // `fireConcurrent` is a built-in lifecycle handler that spawns listeners.
     const characterAdded = Lifecycle("onCharacterAdded", fireConcurrent)
 
-    // now fire the lifecycle method!
+    // Now fire the lifecycle method!
     if (LocalPlayer.Character) {
       characterAdded.fire(LocalPlayer.Character)
     }
@@ -253,16 +279,14 @@ A provider can then hook onto the lifecycle:
 === "Luau"
 
     ```Lua
-    local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
-
     local CombatProvider = {}
+
     function CombatProvider:onCharacterAdded(character: Model)
       local rootPart: BasePart = assert(character:FindFirstChild("HumanoidRootPart"))
       -- do something with rootPart
     end
 
-    return prvd.new(CombatProvider)
+    return prvd(CombatProvider)
     ```
 
 === "TypeScript"
@@ -277,6 +301,44 @@ A provider can then hook onto the lifecycle:
         // do something with rootPart
       }
     }
+    ```
+
+Scripts can also use Prvd 'M Wrong's assortments of hooks. You often use either
+`onStart` or `awaitStart` if another script requires Prvd 'M Wrong to be
+started:
+
+=== "Luau"
+
+    ```Lua
+    -- Let's track if Prvd 'M Wrong has started.
+    local hasStarted = false
+
+    -- This function is spawned when Prvd 'M Wrong starts.
+    prvd.onStart(function()
+      print("Prvd 'M Wrong has started!")
+      hasStarted = true
+    end)
+
+    -- This yields until Prvd 'M Wrong starts.
+    prvd.awaitStart()
+    assert(hasStarted == true)
+    ```
+
+=== "TypeScript"
+
+    ```TypeScript
+    // Let's track if Prvd 'M Wrong has started.
+    let hasStarted = false
+
+    // This function is spawned when Prvd 'M Wrong starts.
+    onStart(() => {
+      print("Prvd 'M Wrong has started!")
+      hasStarted = true
+    })
+
+    // This yields until Prvd 'M Wrong starts.
+    awaitStart()
+    assert(hasStarted == true)
     ```
 
 </section>
