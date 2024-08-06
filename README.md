@@ -17,10 +17,10 @@
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/team-fireworks/prvdmwrong/docs.yml?style=flat-square&label=Documentation)
 ![Prvd 'M Wrong is licensed under MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 </br>
+<a href="https://github.com/team-fireworks/prvdmwrong/releases">Download</a> ·
 <a href="https://team-fireworks.github.io/prvdmwrong/latest/reference">Website</a> ·
 <a href="https://team-fireworks.github.io/prvdmwrong/latest/reference">Reference</a> ·
-<a href="CHANGELOG.md">Changelog</a> ·
-<a href="CONTRIBUTING.md">Contributing</a>
+<a href="CHANGELOG.md">Changelog</a>
 </div>
 
 Prvd 'M Wrong is a game framework for a next-generation Roblox.
