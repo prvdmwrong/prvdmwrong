@@ -1,7 +1,8 @@
 **.env
 
+node_modules
+include
 **/node_modules
-**/out
 **/include
 **.tsbuildinfo
 
@@ -17,6 +18,9 @@ globalTypes.d.luau
 /*.d.luau
 **/roblox.yml
 
-dist/
-out/
-site/
+**/dist
+**/out
+**/site
+dist
+out
+site
