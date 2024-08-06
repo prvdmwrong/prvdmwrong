@@ -2838,7 +2838,7 @@
 
 <section class="pmwdoc-home-hero">
 <section class="pmwdoc-home-hero-inner">
-<h1 id="prvd-m-wrong" style="display: none;">Prvd 'M Wrong</h1>
+<h1 id="prvd-m-wrong" style="font-size: 0; margin: 0; padding: 0;">Prvd 'M Wrong</h1>
 <p><img
   src="./assets/wordmark-dark.svg#only-dark"
   alt="Prvd 'M Wrong"
@@ -2894,7 +2894,7 @@ build faster and prove 'm wrong. It's the swaggest framework in town!
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kd">@Provider</span><span class="p">()</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">CombatProvider</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">OnStart</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">characterProvider</span><span class="o">:</span><span class="w"> </span><span class="kt">use</span><span class="p">(</span><span class="nx">CharacterProvider</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">characterProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">use</span><span class="p">(</span><span class="nx">CharacterProvider</span><span class="p">)</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">onStart</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;Hello, Prvd &#39;M Wrong!&quot;</span><span class="p">)</span>
@@ -2925,13 +2925,15 @@ save files or a <code>CameraProvider</code> to handle player camera movement.</p
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Luau</label><label for="__tabbed_2_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">local</span> <span class="n">CoinsProvider</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;CoinsProvider&quot;</span><span class="p">,</span> <span class="n">CoinsProvider</span><span class="p">)</span>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">-- Create Luau providers by calling the package itself.</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">local</span> <span class="n">CoinsProvider</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">(</span><span class="n">CoinsProvider</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">@Provider</span><span class="p">({})</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">CoinsProvider</span><span class="w"> </span><span class="p">{}</span>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Create TypeScript providers by using the Provider decorator on a class.</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">@Provider</span><span class="p">({})</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">CoinsProvider</span><span class="w"> </span><span class="p">{}</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -2942,54 +2944,67 @@ more methods, properties, and the likes into a provider:</p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-Lua highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">local</span> <span class="n">CoinsProvider</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">type</span> <span class="n">Self</span> <span class="o">=</span> <span class="n">typeof</span><span class="p">(</span><span class="n">CoinsProvider</span><span class="p">)</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">CoinsProvider</span><span class="p">.</span><span class="n">balance</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kr">function</span> <span class="nc">CoinsProvider</span><span class="p">.</span><span class="nf">addCoins</span><span class="p">(</span><span class="n">self</span><span class="p">:</span> <span class="n">Self</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span> <span class="n">Player</span><span class="p">,</span> <span class="n">coins</span><span class="p">:</span> <span class="n">number</span><span class="p">)</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  <span class="n">self</span><span class="p">.</span><span class="n">coins</span><span class="p">[</span><span class="n">person</span><span class="p">]</span> <span class="o">+=</span> <span class="n">coins</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="kr">end</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;CoinsProvider&quot;</span><span class="p">,</span> <span class="n">CoinsProvider</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">-- Alias our provider&#39;s type for complete type-safety</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">type</span> <span class="n">Self</span> <span class="o">=</span> <span class="n">typeof</span><span class="p">(</span><span class="n">CoinsProvider</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">-- Providers can have properties...</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">CoinsProvider</span><span class="p">.</span><span class="n">balance</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">-- ...and methods...</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kr">function</span> <span class="nc">CoinsProvider</span><span class="p">.</span><span class="nf">addCoins</span><span class="p">(</span><span class="n">self</span><span class="p">:</span> <span class="n">Self</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span> <span class="n">Player</span><span class="p">,</span> <span class="n">coins</span><span class="p">:</span> <span class="n">number</span><span class="p">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  <span class="c1">-- ...all properties are accessible through `self`!</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  <span class="n">self</span><span class="p">.</span><span class="n">coins</span><span class="p">[</span><span class="n">person</span><span class="p">]</span> <span class="o">+=</span> <span class="n">coins</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="kr">end</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">(</span><span class="n">CoinsProvider</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">@Provider</span><span class="p">({})</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">CoinsProvider</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nx">balance</span><span class="o">:</span><span class="w"> </span><span class="kt">Map</span><span class="o">&lt;</span><span class="nx">Player</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nx">addCoins</span><span class="p">(</span><span class="nx">player</span><span class="o">:</span><span class="w"> </span><span class="kt">Player</span><span class="p">,</span><span class="w"> </span><span class="nx">coins</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">coins</span><span class="p">[</span><span class="nx">person</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">coins</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">})</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="c1">// Providers can have properties...</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nx">balance</span><span class="o">:</span><span class="w"> </span><span class="kt">Map</span><span class="o">&lt;</span><span class="nx">Player</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="c1">// ...and methods...</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="nx">addCoins</span><span class="p">(</span><span class="nx">player</span><span class="o">:</span><span class="w"> </span><span class="kt">Player</span><span class="p">,</span><span class="w"> </span><span class="nx">coins</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="c1">// ...all properties are accessible through `this`!</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">coins</span><span class="p">[</span><span class="nx">person</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">coins</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">})</span>
 </span></code></pre></div>
 </div>
 </div>
 </div>
-<p>Providers can <code>use()</code> other providers. Prvd 'M Wrong will provide its types and
-figure out a corresponding load order for you:</p>
+<p>Providers can <code>use()</code> other providers. Prvd 'M Wrong will provide type-safety,
+autocomplete, and figure out a corresponding load order for you:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Luau</label><label for="__tabbed_4_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">local</span> <span class="n">RewardsProvider</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">type</span> <span class="n">Self</span> <span class="o">=</span> <span class="n">typeof</span><span class="p">(</span><span class="n">CoinsProvider</span><span class="p">)</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">RewardsProvider</span><span class="p">.</span><span class="n">coinsProvider</span> <span class="o">=</span> <span class="n">prvd</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="n">CoinsProvider</span><span class="p">)</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="kr">function</span> <span class="nc">RewardsProvider</span><span class="p">.</span><span class="nf">addWinRewards</span><span class="p">(</span><span class="n">self</span><span class="p">:</span> <span class="n">Self</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span> <span class="n">Player</span><span class="p">)</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  <span class="n">self</span><span class="p">.</span><span class="n">coinsProvider</span><span class="p">:</span><span class="n">addCoins</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="kr">end</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RewardsProvider&quot;</span><span class="p">,</span> <span class="n">RewardsProvider</span><span class="p">)</span>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">-- For example, say this rewards provider requires the coins provider.</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">local</span> <span class="n">RewardsProvider</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">type</span> <span class="n">Self</span> <span class="o">=</span> <span class="n">typeof</span><span class="p">(</span><span class="n">CoinsProvider</span><span class="p">)</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1">-- Just specify this provider `use()`-s the coins provider...</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">RewardsProvider</span><span class="p">.</span><span class="n">coinsProvider</span> <span class="o">=</span> <span class="n">prvd</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="n">CoinsProvider</span><span class="p">)</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="kr">function</span> <span class="nc">RewardsProvider</span><span class="p">.</span><span class="nf">addWinRewards</span><span class="p">(</span><span class="n">self</span><span class="p">:</span> <span class="n">Self</span><span class="p">,</span> <span class="n">player</span><span class="p">:</span> <span class="n">Player</span><span class="p">)</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  <span class="c1">-- ...and enjoy complete type-safety!</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  <span class="n">self</span><span class="p">.</span><span class="n">coinsProvider</span><span class="p">:</span><span class="n">addCoins</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="kr">end</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">RewardsProvider</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">@Provider</span><span class="p">({})</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">RewardsProvider</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nx">coinsProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">use</span><span class="p">(</span><span class="nx">CoinsProvider</span><span class="p">)</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nx">addCoins</span><span class="p">(</span><span class="nx">person</span><span class="o">:</span><span class="w"> </span><span class="kt">Player</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nx">this.coinsProvider</span><span class="o">:</span><span class="kt">addCoins</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span><span class="w"> </span><span class="nx">coins</span><span class="p">)</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p">}</span>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// For example, say this rewards provider requires the coins provider.</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">@Provider</span><span class="p">({})</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">RewardsProvider</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="c1">// Just specify this provider `use()`-s the coins provider...</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nx">coinsProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">use</span><span class="p">(</span><span class="nx">CoinsProvider</span><span class="p">)</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="nx">addCoins</span><span class="p">(</span><span class="nx">person</span><span class="o">:</span><span class="w"> </span><span class="kt">Player</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="c1">// ...and enjoy complete type-safety!</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="nx">this.coinsProvider</span><span class="o">:</span><span class="kt">addCoins</span><span class="p">(</span><span class="nx">player</span><span class="p">,</span><span class="w"> </span><span class="nx">coins</span><span class="p">)</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">}</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -2998,35 +3013,44 @@ figure out a corresponding load order for you:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Luau</label><label for="__tabbed_5_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">prvd</span><span class="p">.</span><span class="n">preload</span><span class="p">(</span><span class="n">ServerScriptService</span><span class="p">.</span><span class="n">Providers</span><span class="p">:</span><span class="n">GetDescendants</span><span class="p">())</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">prvd</span><span class="p">.</span><span class="n">start</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">-- `preload` loads all ModuleScript instances from an array.</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1">-- This lets Prvd &#39;M Wrong register providers.</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">prvd</span><span class="p">.</span><span class="n">preload</span><span class="p">(</span><span class="n">ServerScriptService</span><span class="p">.</span><span class="n">Providers</span><span class="p">:</span><span class="n">GetDescendants</span><span class="p">())</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1">-- Now, Prvd &#39;M Wrong can be started!</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">prvd</span><span class="p">.</span><span class="n">start</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nx">preload</span><span class="p">(</span><span class="nx">ServerScriptService</span><span class="p">.</span><span class="nx">Providers</span><span class="p">.</span><span class="nx">GetDescendants</span><span class="p">())</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nx">start</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// `preload` loads all ModuleScript instances from an array.</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1">// This lets Prvd &#39;M Wrong register providers.</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nx">preload</span><span class="p">(</span><span class="nx">ServerScriptService</span><span class="p">.</span><span class="nx">Providers</span><span class="p">.</span><span class="nx">GetDescendants</span><span class="p">())</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1">// Now, Prvd &#39;M Wrong can be started!</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nx">start</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </div>
 </div>
 <hr />
 <h2 id="2-mixins">② Mixins</h2>
+<p>Prvd 'M Wrong is featherlight by design, and provides best-in-class packages to
+mix-in whenever needed.</p>
 <hr />
 <h2 id="3-extensible">③ Extensible</h2>
-<p>Prvd 'M Wrong brings comprehensive APIs for extending the framework. Here's one of
-the common ones, <code>Lifecycle</code> to implement your own lifecycle methods:</p>
+<p>Prvd 'M Wrong brings comprehensive APIs for extending the framework.</p>
+<p>Here's one of the common ones, <code>Lifecycle</code> to implement your own lifecycle
+methods:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Luau</label><label for="__tabbed_6_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">-- this interface satisfies our method</span>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">-- This interface satisfies our method!</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">type</span> <span class="n">OnCharacterAdded</span> <span class="o">=</span> <span class="p">{</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  <span class="n">onCharacterAdded</span><span class="p">(</span><span class="n">self</span><span class="p">:</span> <span class="n">unknown</span><span class="p">,</span> <span class="n">character</span><span class="p">:</span> <span class="n">Model</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">()</span>
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">}</span>
 </span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1">-- `fireConcurrent` is a built-in lifecycle handler that spawns listeners</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1">-- `fireConcurrent` is a built-in lifecycle handler that spawns listeners.</span>
 </span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="kd">local</span> <span class="n">characterAdded</span> <span class="o">=</span> <span class="n">Lifecycle</span><span class="p">(</span><span class="s2">&quot;onCharacterAdded&quot;</span><span class="p">,</span> <span class="n">fireConcurrent</span><span class="p">)</span>
 </span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1">-- now fire the lifecycle method!</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1">-- Now fire the lifecycle method!</span>
 </span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="kr">if</span> <span class="p">(</span><span class="n">LocalPlayer</span><span class="p">.</span><span class="n">Character</span><span class="p">)</span> <span class="kr">then</span>
 </span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>  <span class="n">characterAdded</span><span class="p">:</span><span class="n">fire</span><span class="p">(</span><span class="n">LocalPlayer</span><span class="p">.</span><span class="n">Character</span><span class="p">)</span>
 </span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="kr">end</span>
@@ -3036,15 +3060,15 @@ the common ones, <code>Lifecycle</code> to implement your own lifecycle methods:
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// this interface satisfies our method</span>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// This interface satisfies our method!</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">interface</span><span class="w"> </span><span class="nx">OnCharacterAdded</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nx">onCharacterAdded</span><span class="p">(</span><span class="nx">character</span><span class="o">:</span><span class="w"> </span><span class="kt">Model</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">}</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1">// `fireConcurrent` is a built-in lifecycle handler that spawns listeners</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1">// `fireConcurrent` is a built-in lifecycle handler that spawns listeners.</span>
 </span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="kd">const</span><span class="w"> </span><span class="nx">characterAdded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Lifecycle</span><span class="p">(</span><span class="s2">&quot;onCharacterAdded&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">fireConcurrent</span><span class="p">)</span>
 </span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="c1">// now fire the lifecycle method!</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="c1">// Now fire the lifecycle method!</span>
 </span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">LocalPlayer</span><span class="p">.</span><span class="nx">Character</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">  </span><span class="nx">characterAdded</span><span class="p">.</span><span class="nx">fire</span><span class="p">(</span><span class="nx">LocalPlayer</span><span class="p">.</span><span class="nx">Character</span><span class="p">)</span>
 </span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="p">}</span>
@@ -3059,16 +3083,14 @@ the common ones, <code>Lifecycle</code> to implement your own lifecycle methods:
 <div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Luau</label><label for="__tabbed_7_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">prvdmwrong</span><span class="p">)</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="kd">local</span> <span class="n">CombatProvider</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="kr">function</span> <span class="nc">CombatProvider</span><span class="p">:</span><span class="nf">onCharacterAdded</span><span class="p">(</span><span class="n">character</span><span class="p">:</span> <span class="n">Model</span><span class="p">)</span>
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>  <span class="kd">local</span> <span class="n">rootPart</span><span class="p">:</span> <span class="n">BasePart</span> <span class="o">=</span> <span class="nb">assert</span><span class="p">(</span><span class="n">character</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&quot;HumanoidRootPart&quot;</span><span class="p">))</span>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>  <span class="c1">-- do something with rootPart</span>
-</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="kr">end</span>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
-</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">CombatProvider</span><span class="p">)</span>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">local</span> <span class="n">CombatProvider</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kr">function</span> <span class="nc">CombatProvider</span><span class="p">:</span><span class="nf">onCharacterAdded</span><span class="p">(</span><span class="n">character</span><span class="p">:</span> <span class="n">Model</span><span class="p">)</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>  <span class="kd">local</span> <span class="n">rootPart</span><span class="p">:</span> <span class="n">BasePart</span> <span class="o">=</span> <span class="nb">assert</span><span class="p">(</span><span class="n">character</span><span class="p">:</span><span class="n">FindFirstChild</span><span class="p">(</span><span class="s2">&quot;HumanoidRootPart&quot;</span><span class="p">))</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>  <span class="c1">-- do something with rootPart</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="kr">end</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">(</span><span class="n">CombatProvider</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3081,6 +3103,43 @@ the common ones, <code>Lifecycle</code> to implement your own lifecycle methods:
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="c1">// do something with rootPart</span>
 </span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>Scripts can also use Prvd 'M Wrong's assortments of hooks. You often use either
+<code>onStart</code> or <code>awaitStart</code> if another script requires Prvd 'M Wrong to be
+started:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Luau</label><label for="__tabbed_8_2">TypeScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">-- Let&#39;s track if Prvd &#39;M Wrong has started.</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">local</span> <span class="n">hasStarted</span> <span class="o">=</span> <span class="kc">false</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1">-- This function is spawned when Prvd &#39;M Wrong starts.</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">prvd</span><span class="p">.</span><span class="n">onStart</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prvd &#39;M Wrong has started!&quot;</span><span class="p">)</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>  <span class="n">hasStarted</span> <span class="o">=</span> <span class="kc">true</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="kr">end</span><span class="p">)</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="c1">-- This yields until Prvd &#39;M Wrong starts.</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="n">prvd</span><span class="p">.</span><span class="n">awaitStart</span><span class="p">()</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="nb">assert</span><span class="p">(</span><span class="n">hasStarted</span> <span class="o">==</span> <span class="kc">true</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">// Let&#39;s track if Prvd &#39;M Wrong has started.</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">hasStarted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1">// This function is spawned when Prvd &#39;M Wrong starts.</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="nx">onStart</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;Prvd &#39;M Wrong has started!&quot;</span><span class="p">)</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">  </span><span class="nx">hasStarted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="p">})</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="c1">// This yields until Prvd &#39;M Wrong starts.</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="nx">awaitStart</span><span class="p">()</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="nx">assert</span><span class="p">(</span><span class="nx">hasStarted</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </div>
