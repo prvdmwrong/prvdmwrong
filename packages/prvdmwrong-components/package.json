@@ -1,19 +1,8 @@
 {
-  "name": "@rbxts/prvdmwrong-components",
-  "version": "0.2.0-dev.4",
-  "description": "Implements a components system for the Prvd 'M Wrong Roblox framework.",
-  "main": "lib/init.luau",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "types": "lib/index.d.ts",
+  "private": true,
   "files": [
-    "lib",
-    "!**/*.tsbuildinfo"
+    "lib"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "devDependencies": {
     "@rbxts/compiler-types": "2.3.0-types.1",
     "@rbxts/types": "^1.0.790",

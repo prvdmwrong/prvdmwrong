@@ -1,22 +1,8 @@
 {
-  "name": "@rbxts/prvdmwrong-lifecycles",
-  "version": "0.2.0-dev.4",
-  "description": "Implements a \"small\" amount of lifecycle events for providers.",
-  "main": "out/init.luau",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "types": "out/index.d.ts",
+  "private": true,
   "files": [
-    "out",
-    "!**/*.tsbuildinfo"
+    "lib"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "@rbxts/prvdmwrong": "0.2.0-dev.1"
-  },
   "devDependencies": {
     "@rbxts/compiler-types": "2.3.0-types.1",
     "@rbxts/types": "^1.0.790",
