@@ -15,5 +15,10 @@
     "@lune/": "~/.lune/.typedefs/0.8.6/",
     "@core/": "packages/prvdmwrong/lib"
   },
+  "luau-lsp.ignoreGlobs": [
+    "**/_Index/**",
+    "examples/**",
+    "dist/**",
+  ],
   "eslint.run": "onType"
 }
