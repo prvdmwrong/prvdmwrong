@@ -1,12 +1,12 @@
+local prvd = -- Import Prvd 'M Wrong however you'd like!
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
 local MathProvider = {}
 
-function MathProvider.add(self: typeof(MathProvider), a: number, b: number): number
-  -- this method is very expensive!
+function MathProvider:add(a: number, b: number): number
+  -- this method is very expensive! takes a lot of time!
   task.wait(5)
   return a + b
 end
 
-return prvd.Provider("MathProvider", MathProvider)
+return prvd(MathProvider)

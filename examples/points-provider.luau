@@ -1,21 +1,24 @@
-local Players = game:GetService("Players")
+local prvd = -- Import Prvd 'M Wrong however you'd like!
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
 
+-- Tweak this based on where you placed the MathProvider
 local MathProvider = require(script.Parent.MathProvider)
-local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
 local PointsProvider = {}
+type Self = typeof(PointsProvider)
+PointsProvider.name = "PointsProvider"
 PointsProvider.points = {}
-PointsProvider.mathProvider = prvd.use(MathProvider)
+PointsProvider.mathProvider = prvd.use(PointsProvider)
 
-function PointsProvider.setDefaultPoints(self: typeof(PointsProvider), player: Player)
+function PointsProvider.setDefaultPoints(self: Self, player: Player)
   if self.points[player] ~= nil then
     return
   end
   self.points[player] = 10
 end
 
-function PointsProvider.onStart(self: typeof(PointsProvider))
+function PointsProvider.onStart(self: Self)
   Players.PlayerAdded:Connect(function(newPlayer)
     self:setDefaultPoints(newPlayer)
   end)
@@ -27,8 +30,10 @@ function PointsProvider.onStart(self: typeof(PointsProvider))
   end)
 end
 
-function PointsProvider.addPoints(self: typeof(PointsProvider), player: Player, points: number)
-  self.points[player] = self.mathProvider:add(self.points[player], points)
+function PointsProvider.addPoints(self: Self, player: Player, amount: number)
+  local currentPoints = self.points[player]
+  local newPoints = self.mathProvider.add(currentPoints, amount)
+  self.points[player] = newPoints
 end
 
-return prvd.Provider("PointsProvider", PointsProvider)
+return prvd(PointsProvider)
