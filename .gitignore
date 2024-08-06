@@ -24,3 +24,8 @@ globalTypes.d.luau
 dist
 out
 site
+
+package-lock.json
+pnpm-lock.yaml
+wally.lock
+*.lock
