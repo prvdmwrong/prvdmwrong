@@ -10,7 +10,8 @@
       "current": {
         "name": "path",
         "sources": {
-          "@core": "packages/prvdmwrong/lib"
+          "@core": "packages/prvdmwrong/lib",
+          "@components": "packages/prvdmwrong-components/lib"
         }
       },
       "target": {
