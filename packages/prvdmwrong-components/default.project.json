@@ -1,9 +1,6 @@
 {
   "name": "prvdmwrong-components",
   "tree": {
-    "$path": "Packages",
-    "prvdmwrong-components": {
-      "$path": "lib"
-    }
+    "$path": "lib"
   }
 }

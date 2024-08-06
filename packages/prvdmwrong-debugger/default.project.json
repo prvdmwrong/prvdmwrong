@@ -1,9 +1,6 @@
 {
   "name": "prvdmwrong-debugger",
   "tree": {
-    "$path": "Packages",
-    "prvdmwrong-debugger": {
-      "$path": "lib"
-    }
+    "$path": "lib"
   }
 }

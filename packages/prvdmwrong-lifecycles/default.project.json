@@ -1,9 +1,6 @@
 {
   "name": "prvdmwrong-lifecycles",
   "tree": {
-    "$path": "Packages",
-    "prvdmwrong-lifecycles": {
-      "$path": "lib"
-    }
+    "$path": "lib"
   }
 }

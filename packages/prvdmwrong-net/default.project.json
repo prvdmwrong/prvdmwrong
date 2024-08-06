@@ -1,9 +1,6 @@
 {
   "name": "prvdmwrong-net",
   "tree": {
-    "$path": "Packages",
-    "prvdmwrong-net": {
-      "$path": "lib"
-    }
+    "$path": "lib"
   }
 }
