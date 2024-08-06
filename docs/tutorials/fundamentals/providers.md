@@ -14,11 +14,10 @@ lifecycle events:
 === "Luau"
 
     ```Lua
-    local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
+    local prvd = -- Import Prvd 'M Wrong however you'd like!
 
     local PointsProvider = {}
-    return prvd.Provider("PointsProvider", PointsProvider)
+    return prvd(PointsProvider)
     ```
 
 === "TypeScript"
@@ -26,28 +25,25 @@ lifecycle events:
     ```TypeScript
     import { Provider } from "@rbxts/prvdmwrong"
 
-    export = Provider("PointsProvider", {})
+    @Provider()
+    export class Provider {}
     ```
 
-??? tip "Too verbose?"
+!!! warning "Beware the difference"
 
-    If writing `prvd.Provider` sounds verbose for you, Prvd 'M Wrong aliases the
-    `Provider` constructor with `.new`.
+    Both `prvd` and `@Provider()` appeal for different environments. `prvd()`
+    is used as a function to construct Luau providers. Contrast to
+    `@Provider()`, which is used as a class decorator to construct TypeScript
+    decorators.
 
-    ```Lua
-    local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
+For Luau providers, a `name` property can be specified which will be used for
+memory profiling, and falls back to the current script running. Names are
+inferred for TypeScript providers.
 
-    local PointsProvider = {}
-    return prvd.new("PointsProvider", PointsProvider)
-    ```
-
-    For consistency, we recommend using `Provider` when favorable.
-
-The `name` argument signifies what to identify your provider as. This name must
-be unique from all other providers. Ideally, you should name your variable the
-same as the service name, e.g. `#!lua local PointsProvider` would mean `#!lua
-prvd.new("PointsProvider", ...)`.
+```Lua
+local PointsProvider = {}
+PointsProvider.name = "PointsProvider"
+```
 
 Notice that you're creating the provider at the bottom of a file, and then
 returning it. This lets Prvd 'M Wrong to strictly type your provider, something
@@ -65,14 +61,15 @@ a `Player` and their points:
 
 === "Luau"
 
-    ```Lua hl_lines="5"
+    ```Lua hl_lines="6"
+    local prvd = -- Import Prvd 'M Wrong however you'd like!
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
     local PointsProvider = {}
+    PointsProvider.name = "PointsProvider"
     PointsProvider.points = {}
 
-    return prvd.Provider("PointsProvider", PointsProvider)
+    return prvd(PointsProvider)
     ```
 
 === "TypeScript"
@@ -80,9 +77,10 @@ a `Player` and their points:
     ```TypeScript hl_lines="4"
     import { Provider } from "@rbxts/prvdmwrong"
 
-    export = Provider("PointsProvider", {
-      points: Map<Player, number> = {}
-    })
+    @Provider()
+    export class Provider {
+      public readonly points = new Map<Player, number>()
+    }
     ```
 
 To instantiate our `points`, let's also implement a `setDefaultPoints` method
@@ -90,11 +88,12 @@ for convenience:
 
 === "Luau"
 
-    ```Lua hl_lines="7-15"
+    ```Lua hl_lines="8-16"
+    local prvd = -- Import Prvd 'M Wrong however you'd like!
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
     local PointsProvider = {}
+    PointsProvider.name = "PointsProvider"
     PointsProvider.points = {}
 
     function PointsProvider.setDefaultPoints(
@@ -115,13 +114,14 @@ for convenience:
     ```TypeScript hl_lines="6-8"
     import { Provider } from "@rbxts/prvdmwrong"
 
-    export = Provider("PointsProvider", {
-      points: Map<Player, number> = {}
+    @Provider()
+    export class Provider {
+      public readonly points = new Map<Player, number>()
 
       setDefaultPoints(player: Player) {
-        this.points.get(player)?.set(10)
+        this.points.set(player, 10)
       }
-    })
+    }
     ```
 
 Take a step back, and review what we wrote.
@@ -151,7 +151,7 @@ function PointsProvider.setDefaultPoints(
   self: typeof(PointsProvider),
   player: Player
 )
-  -- self.points is helpfully typed as `{| [Player]: number |}`!
+  -- Now, self.points is helpfully typed as `{ [Player]: number }`!
   if self.points[player] ~= nil then
     return
   end
@@ -174,10 +174,7 @@ Both types are good, pick your poison and run with it.
 We could then easily type `self` as such:
 
 ```Lua hl_lines="2"
-function PointsProvider.setDefaultPoints(
-  self: Self,
-  player: Player
-)
+function PointsProvider.setDefaultPoints(self: Self, player: Player)
 ```
 
 Now, our code can use `self` as a shorthand for the `PointsProvider`, while
@@ -197,44 +194,37 @@ PointsProvider:setDefaultPoints(player)
 Providers and the likes can implement lifecycle methods, by having a method
 that matches its lifecycle name.
 
-Prvd 'M Wrong provides two lifecycle events out of the box:
+Prvd 'M Wrong provides two lifecycles out of the box. `onInit` runs
+sequentially before any other lifecycle methods, methods are expected to be
+infallible and preferably non-yielding.
 
-- `:onInit()` runs sequentially before any other lifecycle methods, methods are
-  expected to be infallible and preferably non-yielding.
-      - If you return a promise, Prvd 'M Wrong will wait for the promise to resolve.
-          Anything with an `:andThen` method and an `:awaitStatus` method will be
-          picked up by Prvd 'M Wrong.
-- In contrast, `:onStart()` runs concurrently *after* all other lifecycle
-  methods have been registered. This means failures and yields do not affect
-  other providers.
+In contrast, `onStart` runs concurrently *after* all other lifecycle
+methods have been registered. This means failures and yields do not affect
+other providers.
 
-Let's implement the `:onStart()` lifecycle, where we will set default points for
+Let's implement the `onStart` lifecycle, where we will set default points for
 every player that joins:
 
 === "Luau"
 
-    ```Lua hl_lines="2 19-28"
+    ```Lua hl_lines="3 17-24"
+    local prvd = -- Import Prvd 'M Wrong however you'd like!
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local Players = game:GetService("Players")
-    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
     local PointsProvider = {}
     type Self = typeof(PointsProvider)
+    PointsProvider.name = "PointsProvider"
     PointsProvider.points = {}
 
-    function PointsProvider.setDefaultPoints(
-      self: Self,
-      player: Player
-    )
+    function PointsProvider.setDefaultPoints(self: Self, player: Player)
       if self.points[player] ~= nil then
         return
       end
       self.points[player] = 10
     end
 
-    function PointsProvider.onStart(
-      self: Self
-    )
+    function PointsProvider.onStart(self: Self)
       Players.PlayerAdded:Connect(function(newPlayer)
         self:setDefaultPoints(newPlayer)
       end)
@@ -243,23 +233,24 @@ every player that joins:
       end
     end
 
-    return prvd.Provider("PointsProvider", PointsProvider)
+    return prvd(PointsProvider)
     ```
 
 === "TypeScript"
 
-    ```TypeScript hl_lines="2 11-18"
-    import { Provider } from "@rbxts/prvdmwrong"
+    ```TypeScript hl_lines="1 2 12-19"
+    import { Provider, type OnStart } from "@rbxts/prvdmwrong"
     import { Players } from "@rbxts/services"
 
-    export = Provider("PointsProvider", {
-      points: Map<Player, number> = {},
+    @Provider()
+    export class Provider implements OnStart {
+      public readonly points = new Map<Player, number>()
 
       setDefaultPoints(player: Player) {
-        this.points.get(player)?.set(10)
+        this.points.set(player, 10)
       }
 
-      start() {
+      onStart() {
         Players.PlayerAdded.Connect((newPlayer) => {
           this.setDefaultPoints(newPlayer)
         })
@@ -267,57 +258,84 @@ every player that joins:
           this.setDefaultPoints(existingPlayer)
         }
       }
-    })
+    }
     ```
 
 ---
 
 ## Memory
 
-Now we have a problem: theres a [memory
-leak](https://en.wikipedia.org/wiki/Memory_leak).
+Now we have a problem: [theres a memory
+leak.](https://en.wikipedia.org/wiki/Memory_leak)
 
 When we set points for a player, we add the player to the table. What happens
 when the player leaves? Nothing. Which is an issue.
 
 That player's data is forever held onto within the `points` table. We need to
-clear out that data when the player leaves. Let's hook up our `:start` method
-with the `Players.PlayerRemoving` event and remove their points:
+clear out that data when the player leaves. Let's hook up our `onStart`
+lifecycle with the `Players.PlayerRemoving` event and remove a players points:
 
-```Lua hl_lines="27-29"
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
-local Players = game:GetService("Players")
+=== "Luau"
 
-local PointsProvider = {}
-PointsProvider.points = {}
+    ```Lua hl_lines="24-26"
+    local prvd = -- Import Prvd 'M Wrong however you'd like!
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local Players = game:GetService("Players")
 
-function PointsProvider.setDefaultPoints(
-  self: typeof(PointsProvider),
-  player: Player
-)
-  if self.points[player] ~= nil then
-    return
-  end
-  self.points[player] = 10
-end
+    local PointsProvider = {}
+    type Self = typeof(PointsProvider)
+    PointsProvider.name = "PointsProvider"
+    PointsProvider.points = {}
 
-function PointsProvider.start(
-  self: typeof(PointsProvider)
-)
-  Players.PlayerAdded:Connect(function(newPlayer)
-    self:setDefaultPoints(newPlayer)
-  end)
-  for _, existingPlayer in pairs(Players:GetPlayers()) do
-    self:setDefaultPoints(existingPlayer)
-  end
-  Players.PlayerRemoving:Connect(function(player)
-    self.points[player] = nil
-  end)
-end
+    function PointsProvider.setDefaultPoints(self: Self, player: Player)
+      if self.points[player] ~= nil then
+        return
+      end
+      self.points[player] = 10
+    end
 
-return prvd.Provider("PointsProvider", PointsProvider)
-```
+    function PointsProvider.onStart(self: Self)
+      Players.PlayerAdded:Connect(function(newPlayer)
+        self:setDefaultPoints(newPlayer)
+      end)
+      for _, existingPlayer in pairs(Players:GetPlayers()) do
+        self:setDefaultPoints(existingPlayer)
+      end
+      Players.PlayerRemoving:Connect(function(player)
+        self.points[player] = nil
+      end)
+    end
+
+    return prvd(PointsProvider)
+    ```
+
+=== "TypeScript"
+
+    ```TypeScript hl_lines="19-21"
+    import { Provider, type OnStart } from "@rbxts/prvdmwrong"
+    import { Players } from "@rbxts/services"
+
+    @Provider()
+    export class Provider implements OnStart {
+      readonly points = new Map<Player, number>()
+
+      setDefaultPoints(player: Player) {
+        this.points.set(player, 10)
+      }
+
+      onStart() {
+        Players.PlayerAdded.Connect((newPlayer) => {
+          this.setDefaultPoints(newPlayer)
+        })
+        for (const existingPlayer in Players.GetPlayers()) {
+          this.setDefaultPoints(existingPlayer)
+        }
+        Players.PlayerRemoving.Connect((newPlayer) => {
+          this.points.delete(newPlayer)
+        })
+      }
+    }
+    ```
 
 ---
 
@@ -332,22 +350,18 @@ First, create a file for a new `MathProvider` with the following:
 === "Luau"
 
     ```Lua
+    local prvd = -- Import Prvd 'M Wrong however you'd like!
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
     local MathProvider = {}
 
-    function MathProvider.add(
-      self: typeof(MathProvider),
-      a: number,
-      b: number
-    ): number
-      -- this method is very expensive!
+    function MathProvider:add(a: number, b: number): number
+      -- this method is very expensive! takes a lot of time!
       task.wait(5)
       return a + b
     end
 
-    return prvd.Provider("MathProvider", MathProvider)
+    return prvd(MathProvider)
     ```
 
 === "TypeScript"
@@ -355,82 +369,127 @@ First, create a file for a new `MathProvider` with the following:
     ```TypeScript
     import { Provider } from "@rbxts/prvdmwrong"
 
-    export = Provider("MathProvider", {
+    @Provider()
+    export class MathProvider {
       add(a: number, b: number) {
-        // this method is very expensive!
+        // this method is very expensive! takes a lot of time!
         task.wait(5)
         return a + b
       }
-    })
+    }
     ```
 
 Then, from `PointsProvider`, import your newly created `MathProvider`:
 
-```Lua
-local MathProvider = require(script.Parent.MathProvider)
-```
+=== "Lua"
+
+    ```Lua
+    -- Tweak this based on where you placed the MathProvider
+    local MathProvider = require(script.Parent.MathProvider)
+    ```
+
+=== "TypeScript"
+
+    ```TypeScript
+    // Tweak this based on where you placed the MathProvider
+    import { MathProvider } from "./math-provider"
+    ```
 
 Finally, just specify your provider `use()`s another provider:
 
-```Lua hl_lines="3 8 34-43"
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Players = game:GetService("Players")
-local MathProvider = require(script.Parent.MathProvider)
-local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
+=== "Luau"
 
-local PointsProvider = {}
-PointsProvider.points = {}
-PointsProvider.mathProvider = prvd.use(MathProvider)
+    ```Lua hl_lines="6 12 33-37"
+    local prvd = -- Import Prvd 'M Wrong however you'd like!
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local Players = game:GetService("Players")
 
-function PointsProvider.setDefaultPoints(
-  self: typeof(PointsProvider),
-  player: Player
-)
-  if self.points[player] ~= nil then
-    return
-  end
-  self.points[player] = 10
-end
+    -- Tweak this based on where you placed the MathProvider
+    local MathProvider = require(script.Parent.MathProvider)
 
-function PointsProvider.start(
-  self: typeof(PointsProvider)
-)
-  Players.PlayerAdded:Connect(function(newPlayer)
-    self:setDefaultPoints(newPlayer)
-  end)
-  for _, existingPlayer in pairs(Players:GetPlayers()) do
-    self:setDefaultPoints(existingPlayer)
-  end
-  Players.PlayerRemoving:Connect(function(player)
-    self.points[player] = nil
-  end)
-end
+    local PointsProvider = {}
+    type Self = typeof(PointsProvider)
+    PointsProvider.name = "PointsProvider"
+    PointsProvider.points = {}
+    PointsProvider.mathProvider = prvd.use(PointsProvider)
 
-function PointsProvider.addPoints(
-  self: typeof(PointsProvider),
-  player: Player,
-  points: number
-)
-  self.points[player] = self.mathProvider:add(
-    self.points[player],
-    points
-  )
-end
+    function PointsProvider.setDefaultPoints(self: Self, player: Player)
+      if self.points[player] ~= nil then
+        return
+      end
+      self.points[player] = 10
+    end
 
-return prvd.Provider("PointsProvider", PointsProvider)
-```
+    function PointsProvider.onStart(self: Self)
+      Players.PlayerAdded:Connect(function(newPlayer)
+        self:setDefaultPoints(newPlayer)
+      end)
+      for _, existingPlayer in pairs(Players:GetPlayers()) do
+        self:setDefaultPoints(existingPlayer)
+      end
+      Players.PlayerRemoving:Connect(function(player)
+        self.points[player] = nil
+      end)
+    end
 
-??? danger "Do not use dependencies outside of lifecycle methods!"
+    function PointsProvider.addPoints(self: Self, player: Player, amount: number)
+      local currentPoints = self.points[player]
+      local newPoints = self.mathProvider.add(currentPoints, amount)
+      self.points[player] = newPoints
+    end
 
-    Prvd 'M Wrong only returns a shadow of the `use()`d provider. You *cannot* use
-    it outside of lifecycle methods.
+    return prvd(PointsProvider)
+    ```
+
+=== "TypeScript"
+
+    ```TypeScript hl_lines="1 5 10 28-32"
+    import { Provider, use, type OnStart } from "@rbxts/prvdmwrong"
+    import { Players } from "@rbxts/services"
+
+    // Tweak this based on where you placed the MathProvider
+    import { MathProvider } from "./math-provider"
+
+    @Provider()
+    export class Provider implements OnStart {
+      readonly points = new Map<Player, number>()
+      mathProvider = use(MathProvider)
+
+      setDefaultPoints(player: Player) {
+        this.points.set(player, 10)
+      }
+
+      onStart() {
+        Players.PlayerAdded.Connect((newPlayer) => {
+          this.setDefaultPoints(newPlayer)
+        })
+        for (const existingPlayer in Players.GetPlayers()) {
+          this.setDefaultPoints(existingPlayer)
+        }
+        Players.PlayerRemoving.Connect((newPlayer) => {
+          this.points.delete(newPlayer)
+        })
+      }
+
+      add(player: Player, amount: number) {
+        const currentPoints = this.points.get(player)
+        const newPoints = this.mathProvider.add(currentPoints, amount)
+        this.points.set(player, newPoints)
+      }
+    }
+    ```
+
+!!! danger "Do not use dependencies outside of lifecycle methods!"
+
+    Prvd 'M Wrong only returns a shadow of the `use()`-d provider. **You cannot
+    use it outside of lifecycle methods.**
 
     Behind the scenes, Prvd 'M Wrong will keep track of what dependencies your
     provider uses, figure out the correct load order for you, and inject your
     dependencies.
 
-    This is also why you can't freeze your provider tables - Prvd 'M Wrong will
-    have to modify them.
+    This is also why you can't freeze your provider tables - this prevents Prvd
+    'M Wrong from modifying them.
 
 ---
 
