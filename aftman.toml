@@ -3,4 +3,5 @@
 
 # To add a new tool, add an entry to this table.
 [tools]
+  pesde = "daimond113/pesde@0.4.7"
   lune = "lune-org/lune@0.8.6"
