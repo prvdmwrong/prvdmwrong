@@ -7,7 +7,7 @@
 
 local RunService = game:GetService("RunService")
 
-local Lifecycle = require("@core/lifecycle")
+local Lifecycles = require("@core/lifecycles")
 local Log = require("@core/log")
 local Modding = require("@core/modding")
 local Reflection = require("@core/modding/reflection")
@@ -200,7 +200,7 @@ end
   the server and once on the client.
 
   All necessary providers should be preloaded before calling this as newly
-  created providers will not run its lifecycle methods.
+  created providers will not run its lifecycles methods.
 ]]
 function Prvd.start(options: {
   logLevel: "none" | "verbose" | nil,
@@ -294,14 +294,14 @@ function Prvd.start(options: {
     return aIndex < bIndex
   end)
 
-  local onInit: Lifecycle<OnInit> = Lifecycle.Lifecycle("onInit", function(self)
+  local onInit: Lifecycle<OnInit> = Lifecycles.Lifecycle("onInit", function(self)
     for _, provider in ipairs(self.listeners) do
       local identifier = Reflection.getIdentifier(provider, ":onInit")
       if reconciledOptions.profiling then
         debug.setmemorycategory(identifier)
       end
 
-      verbose("running lifecycle method", identifier)
+      verbose("running lifecycle", identifier)
 
       local ok, result: any = xpcall(provider.onInit, parseError, provider)
       if not ok then
@@ -311,16 +311,16 @@ function Prvd.start(options: {
     end
   end)
 
-  local onStart: Lifecycle<OnStart> = Lifecycle.Lifecycle("onStart", function(self)
+  local onStart: Lifecycle<OnStart> = Lifecycles.Lifecycle("onStart", function(self)
     for _, provider in ipairs(self.listeners) do
       local identifier = Reflection.getIdentifier(provider, ":onStart")
-      verbose("running lifecycle method", identifier)
+      verbose("running lifecycle", identifier)
       Threads.spawn(profileCallback(provider.onStart, identifier), provider)
     end
   end)
 
   for _, provider in ipairs(dependencies) do
-    Lifecycle.registerAll(provider.instance)
+    Lifecycles.registerAll(provider.instance)
   end
 
   onInit:fire()

@@ -5,7 +5,7 @@
   in the root directory of this source tree.
 ]]
 
-local Lifecycle = require("@core/lifecycle")
+local Lifecycles = require("@core/lifecycles")
 local Log = require("@core/log")
 local Modding = require("@core/modding")
 local Providers = require("@core/providers")
@@ -24,7 +24,7 @@ if _G.prvdmwrong ~= nil then
   return _G.prvdmwrong :: Types.Prvd
 end
 
-local prvdmwrong: Types.PrvdNamespace = table.freeze {
+local prvd: Types.PrvdNamespace = table.freeze {
   version = "VERSION",
 
   -- Providers API
@@ -38,12 +38,12 @@ local prvdmwrong: Types.PrvdNamespace = table.freeze {
   use = Providers.use,
 
   -- Lifecycles API
-  Lifecycle = Lifecycle.Lifecycle,
-  fireConcurrent = Lifecycle.fireConcurrent,
-  fireSequential = Lifecycle.fireSequential,
-  onLifecycleRegistered = Lifecycle.onLifecycleRegistered,
-  onLifecycleUnregistered = Lifecycle.onLifecycleUnregistered,
-  onMethodImplemented = Lifecycle.onMethodImplemented,
+  Lifecycle = Lifecycles.Lifecycle,
+  fireConcurrent = Lifecycles.fireConcurrent,
+  fireSequential = Lifecycles.fireSequential,
+  onLifecycleRegistered = Lifecycles.onLifecycleRegistered,
+  onLifecycleUnregistered = Lifecycles.onLifecycleUnregistered,
+  onMethodImplemented = Lifecycles.onMethodImplemented,
 
   -- Modding API
   getStartupOptions = Providers.getStartupOptions,
@@ -53,9 +53,9 @@ local prvdmwrong: Types.PrvdNamespace = table.freeze {
 
   -- Internal API
   internal = table.freeze {
-    registerAll = Lifecycle.registerAll,
-    registerMethod = Lifecycle.registerMethod,
-    unregisterMethod = Lifecycle.unregisterMethod,
+    registerAll = Lifecycles.registerAll,
+    registerMethod = Lifecycles.registerMethod,
+    unregisterMethod = Lifecycles.unregisterMethod,
 
     defineMetadata = Reflection.defineMetadata,
     getMetadata = Reflection.getMetadata,
@@ -65,11 +65,11 @@ local prvdmwrong: Types.PrvdNamespace = table.freeze {
   },
 }
 
-setmetatable(prvdmwrong, {
+setmetatable(prvd, {
   __call = function<T>(_, provider: T): Provider<T>
     return Providers.new(provider)
   end,
 })
 
-_G.prvdmwrong = prvdmwrong
-return prvdmwrong :: Types.Prvd
+_G.prvdmwrong = prvd
+return prvd :: Types.Prvd
