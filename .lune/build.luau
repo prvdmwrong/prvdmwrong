@@ -7,7 +7,6 @@ local stdio = require("@lune/stdio")
 type Config = {
   config: {
     name: string,
-    display: string,
     description: string,
     dependencies: { string }?,
   },
@@ -249,11 +248,11 @@ do
       else
         print(`=> Writing new README.md`)
         local readme = ""
-        readme ..= `# {packageConfig.config.display}`
+        readme ..= `# {packageConfig.config.name}`
         readme ..= "\n\n"
-        readme ..= packageConfig.config.description
+        readme ..= packageConfig.config.description:gsub("\n[^\n]*$", "")
         readme ..= "\n\n"
-        readme ..= `This package is part of [Prvd 'M Wrong](https://team-fireworks.github.io/prvdmwrong/latest).`
+        readme ..= `This package is part of [Prvd 'M Wrong.](https://team-fireworks.github.io/prvdmwrong/latest)`
         fs.writeFile(`{cwd}/dist/{package}/README.md`, readme)
       end
 

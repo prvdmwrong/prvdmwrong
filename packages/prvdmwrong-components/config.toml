@@ -1,5 +1,4 @@
 [config]
-  name = "prvdmwrong-components"
-  display = "Prvd 'M Wrong Components"
+  name = "Components for Prvd 'M Wrong"
   description = "Implements a component system for providers."
   dependencies = ["prvdmwrong"]

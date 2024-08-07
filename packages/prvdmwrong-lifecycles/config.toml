@@ -1,6 +1,5 @@
 [config]
-  name = "prvdmwrong-lifecycles"
-  display = "Lifecycles for Prvd 'M Wrong"
+  name = "Lifecycles for Prvd 'M Wrong"
   description = """
 Implements a "small" amount of lifecycle events for providers.
 
