@@ -2838,7 +2838,7 @@
 
 <section class="pmwdoc-home-hero">
 <section class="pmwdoc-home-hero-inner">
-<h1 id="prvd-m-wrong" style="font-size: 0; margin: 0; padding: 0;">Prvd 'M Wrong</h1>
+<h1 id="prvd-m-wrong" style="font-size: 0; margin: 0; padding: 0; opacity: 0;">Prvd 'M Wrong</h1>
 <p><img
   src="./assets/wordmark-dark.svg#only-dark"
   alt="Prvd 'M Wrong"
@@ -2853,7 +2853,8 @@ Prvd 'M Wrong is a game framework for a next-generation Roblox.
 <p>
 Once installed, your game will become your money back. Prvd 'M Wrong accelerates
 the process with providers, connecting the top-level design of your game. Choose
-to mix in networking and components as you need.
+to mix in networking and components as you need. Randoms will approach you and
+ask, <i>"are you wealthy or do you make a six-figure salary?"</i>
 </p>
 <p>
 Cherish a development experience that fades into the background, freeing you to
@@ -2922,26 +2923,24 @@ Scroll down for a quick look at the three main highlights
 functions within your game, e.g. you might create a <code>SaveDataProvider</code> to manage
 save files or a <code>CameraProvider</code> to handle player camera movement.</p>
 <p>Create providers to handle the top level logic of your game:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Luau</label><label for="__tabbed_2_2">TypeScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Luau</label><label for="__tabbed_2_2">TypeScript</label><label for="__tabbed_2_3">Luau</label><label for="__tabbed_2_4">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-Lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">-- Create Luau providers by calling the package itself.</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">local</span> <span class="n">CoinsProvider</span> <span class="o">=</span> <span class="p">{}</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">(</span><span class="n">CoinsProvider</span><span class="p">)</span>
 </span></code></pre></div>
+<p>Providers are just plain modules. It's easy to implement more methods,
+properties, and the likes into a provider:</p>
 </div>
 <div class="tabbed-block">
 <div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Create TypeScript providers by using the Provider decorator on a class.</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">@Provider</span><span class="p">({})</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">@Provider</span><span class="p">()</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">CoinsProvider</span><span class="w"> </span><span class="p">{}</span>
 </span></code></pre></div>
+<p>Providers are just plain classes. It's easy to implement more methods,
+properties, and the likes into a provider:</p>
 </div>
-</div>
-</div>
-<p>At the end of the day, providers are just plain tables. It's easy to implement
-more methods, properties, and the likes into a provider:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Luau</label><label for="__tabbed_3_2">TypeScript</label></div>
-<div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-Lua highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">local</span> <span class="n">CoinsProvider</span> <span class="o">=</span> <span class="p">{}</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">-- Alias our provider&#39;s type for complete type-safety</span>
@@ -2959,7 +2958,7 @@ more methods, properties, and the likes into a provider:</p>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">@Provider</span><span class="p">({})</span>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">@Provider</span><span class="p">()</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">CoinsProvider</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="c1">// Providers can have properties...</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nx">balance</span><span class="o">:</span><span class="w"> </span><span class="kt">Map</span><span class="o">&lt;</span><span class="nx">Player</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
@@ -2976,7 +2975,7 @@ more methods, properties, and the likes into a provider:</p>
 </div>
 <p>Providers can <code>use()</code> other providers. Prvd 'M Wrong will provide type-safety,
 autocomplete, and figure out a corresponding load order for you:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Luau</label><label for="__tabbed_4_2">TypeScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Luau</label><label for="__tabbed_3_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-Lua highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">-- For example, say this rewards provider requires the coins provider.</span>
@@ -2995,7 +2994,7 @@ autocomplete, and figure out a corresponding load order for you:</p>
 </div>
 <div class="tabbed-block">
 <div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// For example, say this rewards provider requires the coins provider.</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">@Provider</span><span class="p">({})</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">@Provider</span><span class="p">()</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">RewardsProvider</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="c1">// Just specify this provider `use()`-s the coins provider...</span>
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nx">coinsProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">use</span><span class="p">(</span><span class="nx">CoinsProvider</span><span class="p">)</span>
@@ -3010,7 +3009,7 @@ autocomplete, and figure out a corresponding load order for you:</p>
 </div>
 </div>
 <p>Finally, preload your providers, then start Prvd 'M Wrong, and you're off to the races:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Luau</label><label for="__tabbed_5_2">TypeScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Luau</label><label for="__tabbed_4_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-Lua highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">-- `preload` loads all ModuleScript instances from an array.</span>
@@ -3039,7 +3038,7 @@ mix-in whenever needed.</p>
 <p>Prvd 'M Wrong brings comprehensive APIs for extending the framework.</p>
 <p>Here's one of the common ones, <code>Lifecycle</code> to implement your own lifecycle
 methods:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Luau</label><label for="__tabbed_6_2">TypeScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Luau</label><label for="__tabbed_5_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-Lua highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">-- This interface satisfies our method!</span>
@@ -3080,7 +3079,7 @@ methods:</p>
 </div>
 </div>
 <p>A provider can then hook onto the lifecycle:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Luau</label><label for="__tabbed_7_2">TypeScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Luau</label><label for="__tabbed_6_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-Lua highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">local</span> <span class="n">CombatProvider</span> <span class="o">=</span> <span class="p">{}</span>
@@ -3096,7 +3095,7 @@ methods:</p>
 <div class="tabbed-block">
 <div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Provider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/prvdmwrong&quot;</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kd">@Provider</span><span class="p">({})</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kd">@Provider</span><span class="p">()</span>
 </span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">CombatProvider</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">OnCharacterAdded</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="nx">onCharacterAdded</span><span class="p">(</span><span class="nx">character</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">rootPart</span><span class="o">:</span><span class="w"> </span><span class="kt">BasePart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">assert</span><span class="p">(</span><span class="nx">character</span><span class="o">:</span><span class="kt">FindFirstChild</span><span class="p">(</span><span class="s2">&quot;HumanoidRootPart&quot;</span><span class="p">))</span>
@@ -3110,7 +3109,7 @@ methods:</p>
 <p>Scripts can also use Prvd 'M Wrong's assortments of hooks. You often use either
 <code>onStart</code> or <code>awaitStart</code> if another script requires Prvd 'M Wrong to be
 started:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Luau</label><label for="__tabbed_8_2">TypeScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Luau</label><label for="__tabbed_7_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-Lua highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">-- Let&#39;s track if Prvd &#39;M Wrong has started.</span>
@@ -3139,7 +3138,7 @@ started:</p>
 </span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
 </span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="c1">// This yields until Prvd &#39;M Wrong starts.</span>
 </span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="nx">awaitStart</span><span class="p">()</span>
-</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="nx">assert</span><span class="p">(</span><span class="nx">hasStarted</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="nx">assert</span><span class="p">(</span><span class="nx">hasStarted</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 </div>

@@ -37,6 +37,7 @@
 	opacity: 0;
 	padding: 0;
 }
+
 .md-header__title .md-header__topic:first-child::before {
 	background-repeat: no-repeat;
 	background-size: contain;
