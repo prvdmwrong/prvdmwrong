@@ -2956,7 +2956,10 @@
 <p>Returns a decorator that when applied to a TypeScript class registers it as a
 <a href="../../types/provider/">provider</a> within Prvd 'M Wrong. Providers must be created
 before calling <code>prvd.start(options)</code>.</p>
-<div class="language-TypeScript highlight"><span class="filename">TypeScript</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">Provider</span><span class="o">:</span><span class="w"> </span><span class="p">(</span>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">TypeScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">Provider</span><span class="o">:</span><span class="w"> </span><span class="p">(</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nx">options</span><span class="o">?:</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nx">loadOrder?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p">}</span>
@@ -2966,15 +2969,18 @@ before calling <code>prvd.start(options)</code>.</p>
 </span></code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Name is inferred</p>
-<p>Prvd 'M Wrong will infer the name of the class provider for you and use it
-for debug profiling.</p>
+<p>Prvd 'M Wrong will infer the name of the class provider for memory
+profiling.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Beware the difference</p>
 <p>Both <code>prvd.new</code> and <code>@Provider()</code> appeal for different environments.
-<code>prvd.new()</code> is used as a function to construct Luau providers. Contrast to
-<code>@Provider()</code>, which is used as a class decorator to construct TypeScript
-decorators.</p>
+<code>prvd.new()</code> is used as a function to construct Luau providers. Contrast
+to <code>@Provider()</code>, which is used as a class decorator to construct
+TypeScript decorators.</p>
+</div>
+</div>
+</div>
 </div>
 <hr />
 <h2 id="parameters">Parameters</h2>

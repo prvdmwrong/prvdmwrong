@@ -2953,9 +2953,12 @@
 </div>
 
 <h1 id="new"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"/></svg></span> new</h1>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Luau</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p>Constructs and returns a new Luau <a href="../../types/provider/">provider</a> within Prvd
 'M Wrong. Providers must be created before calling <code>prvd.start(options)</code>.</p>
-<div class="language-Lua highlight"><span class="filename">Luau</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span> <span class="nc">prvd</span><span class="p">.</span><span class="nf">new</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span> <span class="nc">prvd</span><span class="p">.</span><span class="nf">new</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="n">provider</span><span class="p">:</span> <span class="n">T</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">):</span> <span class="n">Provider</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
 </span></code></pre></div>
@@ -2970,9 +2973,12 @@
 <div class="admonition warning">
 <p class="admonition-title">Beware the difference</p>
 <p>Both <code>prvd.new</code> and <code>@Provider()</code> appeal for different environments.
-<code>prvd.new()</code> is used as a function to construct Luau providers. Contrast to
-<code>@Provider()</code>, which is used as a class decorator to construct TypeScript
-decorators.</p>
+<code>prvd.new()</code> is used as a function to construct Luau providers. Contrast
+to <code>@Provider()</code>, which is used as a class decorator to construct
+TypeScript decorators.</p>
+</div>
+</div>
+</div>
 </div>
 <hr />
 <h2 id="parameters">Parameters</h2>
