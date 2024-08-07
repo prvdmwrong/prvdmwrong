@@ -11,7 +11,9 @@ Fundamental primitives for creating and using game providers.
 
 ## Members
 
-- [:octicons-package-16: Provider](provider.md) · Construct providers within Oh
+- [:octicons-package-16: Provider](provider.md) · Construct TypeScript providers
+  within Oh My Prvd
+- [:octicons-package-16: new](provider.md) · Construct Luau providers within Oh
   My Prvd
 - [:octicons-list-ordered-16: StartupStatus](startup-status.md) · All startup
   phases Prvd 'M Wrong will be in

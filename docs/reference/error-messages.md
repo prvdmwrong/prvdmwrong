@@ -96,8 +96,8 @@ startup finishes, but you gave it something else.
 cannot register providers after startup
 ```
 
-**Thrown by:** [`prvd.Provider`](core/providers/provider.md),
-[`prvd.new`](core/providers/provider.md)
+**Thrown by:** [`@Provider`](core/providers/provider.md),
+[`prvd.new`](core/providers/new.md)
 
 You attempted to register a provider after startup.
 

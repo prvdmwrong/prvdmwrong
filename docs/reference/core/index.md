@@ -58,6 +58,7 @@ Install this through your preferred package manager:
 ## [Providers](providers/index.md)
 
 - [:octicons-package-16: Provider](providers/provider.md)
+- [:octicons-package-16: new](providers/new.md)
 - [:octicons-list-ordered-16: StartupStatus](providers/startup-status.md)
 - [:octicons-code-16: preload](providers/preload.md)
 - [:octicons-code-16: start](providers/start.md)

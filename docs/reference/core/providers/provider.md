@@ -11,61 +11,47 @@
 
 # :octicons-package-16: Provider
 
-Constructs and returns a new [provider](../types/provider.md) within Prvd 'M Wrong.
-Providers must be created before calling `prvd.start(options)`.
+Returns a decorator that when applied to a TypeScript class registers it as a
+[provider](../types/provider.md) within Prvd 'M Wrong. Providers must be created
+before calling `prvd.start(options)`.
 
-=== "Luau"
+```TypeScript title="TypeScript"
+export const Provider: (
+  options?: {
+    loadOrder?: number
+  }
+) => <T extends new () => InstanceType<T>>(
+  provider: T
+) => void
+```
 
-    ```Lua
-    function prvd.Provider<T>(
-      name: string,
-      provider: T
-    ): Provider<T>
-    ```
+!!! tip "Name is inferred"
 
-    ??? tip "Too verbose?"
+    Prvd 'M Wrong will infer the name of the class provider for you and use it
+    for debug profiling.
 
-        If writing `#!lua prvd.Provider` sounds verbose for you, Prvd 'M Wrong
-        aliases the `Provider` constructor with `new`:
+!!! warning "Beware the difference"
 
-        ```Lua
-        local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
-
-        local PointsProvider = {}
-        return prvd.new("PointsProvider", PointsProvider)
-        ```
-
-        For consistency, we recommend using `Provider` when favorable, as
-        `new` is a reserved keyword in TypeScript.
-
-=== "TypeScript"
-
-    ```TypeScript
-    export const Provider: <T extends object>(
-      name: string,
-      provider: T
-    ) => Provider<T>
-    ```
+    Both `prvd.new` and `@Provider()` appeal for different environments.
+    `prvd.new()` is used as a function to construct Luau providers. Contrast to
+    `@Provider()`, which is used as a class decorator to construct TypeScript
+    decorators.
 
 ---
 
 ## Parameters
 
-### name `#!lua : string`
+### options `#!ts : { loadOrder?: number }`
 
-A unique name to identify the provider with. This will be used for debugging.
-
-### provider `#!lua : T`
-
-The methods and properties of the provider. All lifecycle methods will be
-registered during startup. The provider may also specify a `loadOrder` property
-which dictates when the provider is loaded, and defaults to one.
+Additional options that will be applied onto the provider. It is recommended to
+specify `loadOrder` through this argument.
 
 ---
 
-## Returns `#!lua : Provider<T>`
+## Returns `#!ts : <T extends new () => InstanceType<T>>(provider: T) => void`
 
-[A freshly registered provider.](../types/provider.md)
+A decorator that when used on a TypeScript class registers [a freshly
+constructed provider.](../types/provider.md)
 
 ---
 

@@ -48,29 +48,34 @@ valid type information, please refer to the source code directly.
 
 The reference uses several conventions, explained below:
 
-### :octicons-package-16:Constructors
+<div class="grid cards" markdown>
 
-The cube icon is utilized to signify a constructor, a special type of function
-responsible for creating and initializing objects.
+- :octicons-package-16: **Constructors**
 
-### :octicons-list-ordered-16:Enumerations
+    The cube icon is utilized to signify a constructor, a special type of
+    function responsible for creating and initializing objects.
 
-The list icon denotes an enumerations, which represent a set of named constants.
+- :octicons-list-ordered-16: **Enumerations**
 
-### :octicons-code-16:Functions
+      The list icon denotes an enumerations, which represent a set of named
+      constants.
 
-The code icon represents a function, a fundamental building block of code that
-encapsulates a specific task or calculation.
+- :octicons-code-16: **Functions**
 
-### :octicons-workflow-16:Hooks
+    The code icon represents a function, a fundamental building block of code
+    that encapsulates a specific task or calculation.
 
-The branch icon denotes a hook, a special type of function that allows you to
-"hook into" Prvd 'M Wrong to perform side effects.
+- :octicons-workflow-16: **Hooks**
 
-### :octicons-checklist-16:Types
+    The branch icon denotes a hook, a special type of function that allows you
+    to "hook into" Prvd 'M Wrong to perform side effects.
 
-The checklist icon is used to indicate a type, which defines the interface and
-possible values of an object.
+- :octicons-checklist-16: **Types**
+
+    The checklist icon is used to indicate a type, which defines the interface
+    and possible values of an object.
+
+</div>
 
 ---
 
