@@ -6,17 +6,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://team-fireworks.github.io/prvdmwrong/0.2/examples/</loc>
-         <lastmod>2024-08-07</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://team-fireworks.github.io/prvdmwrong/0.2/examples/projects/omp-obby/</loc>
+         <loc>https://team-fireworks.github.io/prvdmwrong/0.2/extras/</loc>
          <lastmod>2024-08-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://team-fireworks.github.io/prvdmwrong/0.2/extras/backgrounds/</loc>
+         <lastmod>2024-08-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/prvdmwrong/0.2/extras/projects/</loc>
+         <lastmod>2024-08-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/prvdmwrong/0.2/extras/projects/obby/</loc>
          <lastmod>2024-08-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -137,6 +142,11 @@
     </url>
     <url>
          <loc>https://team-fireworks.github.io/prvdmwrong/0.2/reference/core/providers/await-start/</loc>
+         <lastmod>2024-08-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://team-fireworks.github.io/prvdmwrong/0.2/reference/core/providers/new/</loc>
          <lastmod>2024-08-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
