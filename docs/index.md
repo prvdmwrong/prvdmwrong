@@ -116,9 +116,6 @@ Create providers to handle the top level logic of your game:
     return prvd(CoinsProvider)
     ```
 
-    Providers are just plain modules. It's easy to implement more methods,
-    properties, and the likes into a provider:
-
 === "TypeScript"
 
     ```TypeScript
@@ -127,8 +124,8 @@ Create providers to handle the top level logic of your game:
     export class CoinsProvider {}
     ```
 
-    Providers are just plain classes. It's easy to implement more methods,
-    properties, and the likes into a provider:
+Providers are just plain modules. It's easy to implement more methods,
+properties, and the likes into a provider:
 
 === "Luau"
 
@@ -188,7 +185,7 @@ autocomplete, and figure out a corresponding load order for you:
 
     ```TypeScript
     // For example, say this rewards provider requires the coins provider.
-    @Provider()
+    @Provider({})
     export class RewardsProvider {
       // Just specify this provider `use()`-s the coins provider...
       coinsProvider = use(CoinsProvider)
@@ -298,7 +295,7 @@ A provider can then hook onto the lifecycle:
     ```TypeScript
     import { Provider } from "@rbxts/prvdmwrong"
 
-    @Provider()
+    @Provider({})
     export class CombatProvider implements OnCharacterAdded {
       onCharacterAdded(character) {
         const rootPart: BasePart = assert(character:FindFirstChild("HumanoidRootPart"))
