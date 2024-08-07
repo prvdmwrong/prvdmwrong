@@ -25,3 +25,39 @@ The Prvd 'M Wrong monorepo needs to be minimal, concise, and understandable. Cod
 will be edited by several developers. Thus, ease of reading and understanding
 code is of great concern. Complexity above basic levels is either justified or
 removed.
+
+## Metadata
+
+### Header
+
+```Luau
+--!strict
+--[[
+  Copyright (c) Team Fireworks 2024.
+  This source code is licensed under the MIT license found in the LICENSE file
+  in the root directory of this source tree.
+]]
+```
+
+## Imports
+
+```Luau
+local Lighting = game:GetService("Lighting")
+local RunService = game:GetService("RunService")
+local Workspace = game:GetService("Workspace")
+
+local Log = require("@core/log")
+local Modding = require("@core/modding")
+local Types = require("@core/types")
+local expect = Log.expect
+local parseError = Log.parseError
+local throw = Log.throw
+```
+
+## Typedefs
+
+```Luau
+type Options = Types.Options
+type Provider<T> = Types.Provider<T>
+type StartupStatus = Types.StartupStatus
+```
