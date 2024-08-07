@@ -8,7 +8,7 @@ hide:
 
 <section class="pmwdoc-home-hero-inner" markdown>
 
-<h1 style="font-size: 0; margin: 0; padding: 0;">Prvd 'M Wrong</h1>
+<h1 style="font-size: 0; margin: 0; padding: 0; opacity: 0;">Prvd 'M Wrong</h1>
 <img
   src="./assets/wordmark-dark.svg#only-dark"
   alt="Prvd 'M Wrong"
@@ -25,7 +25,8 @@ Prvd 'M Wrong is a game framework for a next-generation Roblox.
 <p>
 Once installed, your game will become your money back. Prvd 'M Wrong accelerates
 the process with providers, connecting the top-level design of your game. Choose
-to mix in networking and components as you need.
+to mix in networking and components as you need. Randoms will approach you and
+ask, <i>"are you wealthy or do you make a six-figure salary?"</i>
 </p>
 
 <p>
@@ -115,16 +116,19 @@ Create providers to handle the top level logic of your game:
     return prvd(CoinsProvider)
     ```
 
+    Providers are just plain modules. It's easy to implement more methods,
+    properties, and the likes into a provider:
+
 === "TypeScript"
 
     ```TypeScript
     // Create TypeScript providers by using the Provider decorator on a class.
-    @Provider({})
+    @Provider()
     export class CoinsProvider {}
     ```
 
-At the end of the day, providers are just plain tables. It's easy to implement
-more methods, properties, and the likes into a provider:
+    Providers are just plain classes. It's easy to implement more methods,
+    properties, and the likes into a provider:
 
 === "Luau"
 
@@ -147,7 +151,7 @@ more methods, properties, and the likes into a provider:
 === "TypeScript"
 
     ```TypeScript
-    @Provider({})
+    @Provider()
     export class CoinsProvider {
       // Providers can have properties...
       balance: Map<Player, number> = {},
@@ -184,7 +188,7 @@ autocomplete, and figure out a corresponding load order for you:
 
     ```TypeScript
     // For example, say this rewards provider requires the coins provider.
-    @Provider({})
+    @Provider()
     export class RewardsProvider {
       // Just specify this provider `use()`-s the coins provider...
       coinsProvider = use(CoinsProvider)
@@ -294,7 +298,7 @@ A provider can then hook onto the lifecycle:
     ```TypeScript
     import { Provider } from "@rbxts/prvdmwrong"
 
-    @Provider({})
+    @Provider()
     export class CombatProvider implements OnCharacterAdded {
       onCharacterAdded(character) {
         const rootPart: BasePart = assert(character:FindFirstChild("HumanoidRootPart"))
@@ -338,7 +342,7 @@ started:
 
     // This yields until Prvd 'M Wrong starts.
     awaitStart()
-    assert(hasStarted == true)
+    assert(hasStarted === true)
     ```
 
 </section>
