@@ -52,18 +52,18 @@ The reference uses several conventions, explained below:
 
 - :octicons-package-16: **Constructors**
 
-    The cube icon is utilized to signify a constructor, a special type of
-    function responsible for creating and initializing objects.
+    The cube icon is denotes a constructor, a special type of function for
+    creating and initializing objects.
 
 - :octicons-list-ordered-16: **Enumerations**
 
-      The list icon denotes an enumerations, which represent a set of named
+      The list icon denotes an enumeration, which represent a set of named
       constants.
 
 - :octicons-code-16: **Functions**
 
-    The code icon represents a function, a fundamental building block of code
-    that encapsulates a specific task or calculation.
+    The code icon denotes a function, fundamental primitives that runs a
+    specific task.
 
 - :octicons-workflow-16: **Hooks**
 
@@ -72,8 +72,8 @@ The reference uses several conventions, explained below:
 
 - :octicons-checklist-16: **Types**
 
-    The checklist icon is used to indicate a type, which defines the interface
-    and possible values of an object.
+    The checklist icon denotes a type, which defines the interface and possible
+    values of an object.
 
 </div>
 

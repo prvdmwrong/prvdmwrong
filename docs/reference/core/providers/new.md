@@ -11,31 +11,33 @@
 
 # :octicons-package-16: new
 
-Constructs and returns a new Luau [provider](../types/provider.md) within Prvd
-'M Wrong. Providers must be created before calling `prvd.start(options)`.
+=== "Luau"
 
-```Lua title="Luau"
-function prvd.new<T>(
-  provider: T
-): Provider<T>
-```
-
-!!! success "Shorthand syntax"
-
-    It's recommended to call the package as a shorthand for `prvd.new`:
+    Constructs and returns a new Luau [provider](../types/provider.md) within Prvd
+    'M Wrong. Providers must be created before calling `prvd.start(options)`.
 
     ```Lua
-    local prvd = -- Import Prvd 'M Wrong however you'd like!
-    local MyProvider = {}
-    return prvd(MyProvider)
+    function prvd.new<T>(
+      provider: T
+    ): Provider<T>
     ```
 
-!!! warning "Beware the difference"
+    !!! success "Shorthand syntax"
 
-    Both `prvd.new` and `@Provider()` appeal for different environments.
-    `prvd.new()` is used as a function to construct Luau providers. Contrast to
-    `@Provider()`, which is used as a class decorator to construct TypeScript
-    decorators.
+        It's recommended to call the package as a shorthand for `prvd.new`:
+
+        ```Lua
+        local prvd = -- Import Prvd 'M Wrong however you'd like!
+        local MyProvider = {}
+        return prvd(MyProvider)
+        ```
+
+    !!! warning "Beware the difference"
+
+        Both `prvd.new` and `@Provider()` appeal for different environments.
+        `prvd.new()` is used as a function to construct Luau providers. Contrast
+        to `@Provider()`, which is used as a class decorator to construct
+        TypeScript decorators.
 
 ---
 

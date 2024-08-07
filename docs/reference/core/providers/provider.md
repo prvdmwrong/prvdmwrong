@@ -15,27 +15,29 @@ Returns a decorator that when applied to a TypeScript class registers it as a
 [provider](../types/provider.md) within Prvd 'M Wrong. Providers must be created
 before calling `prvd.start(options)`.
 
-```TypeScript title="TypeScript"
-export const Provider: (
-  options?: {
-    loadOrder?: number
-  }
-) => <T extends new () => InstanceType<T>>(
-  provider: T
-) => void
-```
+=== "TypeScript"
 
-!!! tip "Name is inferred"
+    ```TypeScript
+    export const Provider: (
+      options?: {
+        loadOrder?: number
+      }
+    ) => <T extends new () => InstanceType<T>>(
+      provider: T
+    ) => void
+    ```
 
-    Prvd 'M Wrong will infer the name of the class provider for you and use it
-    for debug profiling.
+    !!! tip "Name is inferred"
 
-!!! warning "Beware the difference"
+        Prvd 'M Wrong will infer the name of the class provider for memory
+        profiling.
 
-    Both `prvd.new` and `@Provider()` appeal for different environments.
-    `prvd.new()` is used as a function to construct Luau providers. Contrast to
-    `@Provider()`, which is used as a class decorator to construct TypeScript
-    decorators.
+    !!! warning "Beware the difference"
+
+        Both `prvd.new` and `@Provider()` appeal for different environments.
+        `prvd.new()` is used as a function to construct Luau providers. Contrast
+        to `@Provider()`, which is used as a class decorator to construct
+        TypeScript decorators.
 
 ---
 

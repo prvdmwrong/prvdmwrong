@@ -9,7 +9,7 @@
 <span class="pmwdoc-reference-since">since v0.1</span>
 </div>
 
-# :octicons-hook-16: onStart
+# :octicons-workflow-16: onStart
 
 Queues a callback to be called just before startup finishes. If Prvd 'M Wrong has
 already started, the callback will be spawned immediately.
