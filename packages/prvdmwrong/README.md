@@ -1,84 +1,94 @@
-# Prvd 'M Wrong
+<div align="center">
+<img
+  align="center"
+  src="https://raw.githubusercontent.com/team-fireworks/prvdmwrong/main/assets/wordmark-dark.svg#gh-dark-mode-only"
+  alt="Prvd 'M Wrong"
+  width="500px"/>
+<img
+  align="center"
+  src="https://raw.githubusercontent.com/team-fireworks/prvdmwrong/main/assets/wordmark-light.svg#gh-light-mode-only"
+  alt="Prvd 'M Wrong"
+  width="500px"/>
 
-<img src="../../assets/logo.svg" width="300px" align="right" alt="Logo"/>
+<br/>
+<br/>
 
-![CI](https://github.com/team-fireworks/prvdmwrong/actions/workflows/ci.yml/badge.svg)
+![Continuous Integration](https://img.shields.io/github/actions/workflow/status/team-fireworks/prvdmwrong/ci.yml?style=flat-square&label=Continuous%20Integration)
+![Documentation Status](https://img.shields.io/github/actions/workflow/status/team-fireworks/prvdmwrong/docs.yml?style=flat-square&label=Documentation)<br/>
+![Prvd 'M Wrong is licensed under MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
+![Github Start](https://img.shields.io/github/stars/team-fireworks/prvdmwrong.svg?style=flat-square)
+![NPM Version](https://img.shields.io/npm/v/%40rbxts%2Fprvdmwrong?style=flat-square)
+</br>
+<a href="https://github.com/team-fireworks/prvdmwrong/releases">Download</a> ·
+<a href="https://team-fireworks.github.io/prvdmwrong/latest/reference">Website</a> ·
+<a href="https://team-fireworks.github.io/prvdmwrong/latest/reference">Reference</a> ·
+<a href="CHANGELOG.md">Changelog</a>
+</div>
 
-Prvd 'M Wrong is a delightful framework for Roblox games.
+Prvd 'M Wrong is a game framework for a next-generation Roblox.
 
-Boring. Do it again.
+Sounds boring. Let's do that again.
 
-***Prvd 'M Wrong will not make you a front page developer, but you may feel like
-one.***
+**Prvd 'M Wrong will not make you a front page Roblox developer... but you may
+feel like one.**
 
-Prvd 'M Wrong accelerates the process with providers, connecting the top-level
-design of your game. Choose to mix in networking and components as you need.
-Enjoy a development experience that fades into the background, freeing you to
-build faster and shout: **Oh, My Prvd!**
+Once installed, your game will become your money back. Prvd 'M Wrong accelerates
+the process with providers, connecting the top-level design of your game. Choose
+to mix in networking and components as you need. Randoms will approach you and
+ask, *"are you wealthy or do you make a six-figure salary?"*
+
+Cherish a development experience that fades into the background, freeing you to
+build faster and **prvd 'm wrong.** It's the swaggest framework in town!
+
+Sparked your interest? [Get going in minutes with our on-rails
+tutorial.](https://team-fireworks.github.io/prvdmwrong/latest/tutorials/)
 
 ## Highlights
 
 - Type-safe APIs for both Luau and TypeScript
 - Featherlight, choose to mix in packages as you need
 - Uses dependency injection for cleaner code organization
-- Made to be extendable
-- Non-intrusive lifecycle events for flexibility
-- Designed for clarity with syntax inspired by Rust
-
-Sparked your interest? [Get going in minutes with our on-rails
-tutorial](https://team-fireworks.github.io/prvdmwrong/latest/get-started/).
-
-> **Warning:** Prvd 'M Wrong is in early development. Portions of the API may
-> break, be changed, or outright deleted. There will be dragons.
+- Made to be extendable through modding APIs
+- Non-intrusive first-class lifecycle events for flexibility
+- Pragmatic and sensible API that makes development fun
 
 ## Code Sample
 
-```Lua
+```Luau
 local prvd = require("@pkg/prvdmwrong")
 local CharacterProvider = require("./character-provider")
 
-local CombatProvider = {
-  characterProvider = prvd.use(CharacterProvider)
-}
+local CombatProvider = {}
+type Self = typeof(CombatController)
+CombatProvider.characterProvider = prvd.use(CharacterProvider)
 
-function CombatController.performMove(
-  self: typeof(CombatController),
-  move: CombatMove
-)
+function CombatProvider:onStart()
+  print("Hello, Prvd 'M Wrong!")
+end
+
+function CombatProvider.performMove(self: Self, move: CombatMove)
   local character = self.characterProvider:awaitCharacter()
   -- do something with the character
 end
 
-return prvd.Provider("CombatProvider", CombatProvider)
+return prvd(CombatProvider)
 ```
 
 ```TypeScript
 import { Provider, use } from "@rbxts/prvdmwrong"
 import { CharacterProvider } from "./character-provider"
 
-export const CombatProvider = Provider("CombatProvider", {
-  characterProvider: use(CharacterProvider)
+@Provider()
+export class CombatProvider {
+  public characterProvider: use(CharacterProvider)
 
-  performMove(move: CombatMove) {
+  public onStart() {
+    print("Hello, Prvd 'M Wrong!")
+  }
+
+  public performMove(move: CombatMove) {
     const character = this.characterProvider.awaitCharacter()
     // do something with the character
   }
-})
+}
 ```
-
-## FAQ
-
-### How do you say Prvd 'M Wrong?
-
-However you want:
-
-- *Oh, my prvd!* for excitement
-- *Oh, my providers!* for completeness
-- *O-m-p!* for brevity
-- *Ommp!* for power
-
-### Who's that handsome gentlemen on the home page?
-
-His name is Womp Womp:
-
-<img src="../../assets/womp.png" alt="Womp Womp" height="256px" />
