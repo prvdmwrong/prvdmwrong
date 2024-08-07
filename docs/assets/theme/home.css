@@ -12,18 +12,29 @@
 }
 
 .pmwdoc-home-hero::before {
-	background-image: url(../womp.png);
-	background-repeat: no-repeat;
+	background-image: url(../machinery.svg);
+	background-size: contain;
 	background-size: contain;
 	content: "";
 	display: block;
-	height: 80vh;
+	height: 60ch;
 	left: 0;
 	position: absolute;
-	width: 80vh;
-	top: 20vh;
+	width: 100vw;
+	margin-top: auto;
+	margin-bottom: auto;
 	z-index: -99;
 	opacity: 0.15;
+	animation: machinery-scroll 60s linear infinite;
+}
+
+@keyframes machinery-scroll {
+	from {
+		background-position: 0;
+	}
+	to {
+		background-position: calc(60ch * 16 / 9);
+	}
 }
 
 .pmwdoc-home-hero::after {
@@ -32,11 +43,12 @@
 	background-size: auto;
 	content: "";
 	display: block;
-	height: 80vh;
+	height: 60ch;
 	left: 0;
 	position: absolute;
-	width: 80vh;
-	top: 20vh;
+	width: 100vw;
+	margin-top: -40ch;
+	opacity: 100%;
 	z-index: -98;
 }
 
