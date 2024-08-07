@@ -16,7 +16,7 @@
 ![Continuous Integration](https://img.shields.io/github/actions/workflow/status/team-fireworks/prvdmwrong/ci.yml?style=flat-square&label=Continuous%20Integration)
 ![Documentation Status](https://img.shields.io/github/actions/workflow/status/team-fireworks/prvdmwrong/docs.yml?style=flat-square&label=Documentation)<br/>
 ![Prvd 'M Wrong is licensed under MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
-![Github Start](https://img.shields.io/github/stars/team-fireworks/prvdmwrong.svg?style=flat-square)
+![Version](https://img.shields.io/github/v/tag/team-fireworks/prvdmwrong?&style=flat-square)
 ![NPM Version](https://img.shields.io/npm/v/%40rbxts%2Fprvdmwrong?style=flat-square)
 </br>
 <a href="https://github.com/team-fireworks/prvdmwrong/releases">Download</a> ·
@@ -27,7 +27,7 @@
 
 Prvd 'M Wrong is a game framework for a next-generation Roblox.
 
-Sounds boring. Let's do that again.
+Sounds boring. Let's try again.
 
 **Prvd 'M Wrong will not make you a front page Roblox developer... but you may
 feel like one.**
