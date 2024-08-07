@@ -72,10 +72,6 @@ nav:
       - Execution Order: tutorials/advanced/execution-order.md
       - VSCode Snippets: tutorials/advanced/snippets.md
       - Philosophies: tutorials/advanced/philosophies.md
-  - Examples:
-    - examples/index.md
-    - Projects:
-      - Prvd 'M Wrong Obby: examples/projects/omp-obby.md
   - Reference:
     - reference/index.md
     - Error Messages: reference/error-messages.md
@@ -84,6 +80,7 @@ nav:
       - Providers:
         - reference/core/providers/index.md
         - Provider: reference/core/providers/provider.md
+        - new: reference/core/providers/new.md
         - StartupStatus: reference/core/providers/startup-status.md
         - awaitStart: reference/core/providers/await-start.md
         - onStart: reference/core/providers/on-start.md
@@ -131,6 +128,12 @@ nav:
         - reference/lifecycles/players/index.md
         - OnPlayerAdded: reference/lifecycles/players/on-player-added.md
         - OnPlayerRemoved: reference/lifecycles/players/on-player-removed.md
+  - Extras:
+    - extras/index.md
+    - Backgrounds: extras/backgrounds/index.md
+    - Projects:
+      - extras/projects/index.md
+      - Prvd 'M Wrong Obby: extras/projects/obby.md
 extra_css:
   - assets/theme/404.css
   - assets/theme/code.css
