@@ -32,8 +32,7 @@ these frameworks have major drawbacks:
 - Pronghorn does not implement dependency injection, minimal extensibility and
   introduces some bloat;
 - Lazy Modules has subpar syntax, somewhat couples code;
-- Lumin Framework only focuses on networking and provides no primitives for
-  singletons/providers;
+- Lumin Framework provides minimal primitives for singletons/providers;
 
 Finally:
 
