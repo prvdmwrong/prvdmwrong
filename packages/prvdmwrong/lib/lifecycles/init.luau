@@ -5,8 +5,8 @@
   in the root directory of this source tree.
 ]]
 
-local Log = require("@core/log")
-local Types = require("@core/types")
+local Log = require("prvdmwrong/log")
+local Types = require("prvdmwrong/types")
 local expect = Log.expect
 local warn = Log.warn
 

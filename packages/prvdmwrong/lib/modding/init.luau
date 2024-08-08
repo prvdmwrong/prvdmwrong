@@ -5,7 +5,7 @@
   in the root directory of this source tree.
 ]]
 
-local Types = require("@core/types")
+local Types = require("prvdmwrong/types")
 
 type Provider<T> = Types.Provider<T>
 type Object = Types.Object

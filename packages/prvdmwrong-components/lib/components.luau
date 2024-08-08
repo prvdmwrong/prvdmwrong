@@ -11,8 +11,8 @@
 
 local CollectionService = game:GetService("CollectionService")
 
-local prvd = require("@components/prvd")
-local types = require("@components/types")
+local prvd = require("prvdmwrong-components/prvd")
+local types = require("prvdmwrong-components/types")
 local Lifecycle = prvd.Lifecycle
 
 -- stylua: ignore
