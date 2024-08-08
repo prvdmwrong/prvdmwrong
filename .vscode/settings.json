@@ -14,7 +14,8 @@
   "luau-lsp.require.directoryAliases": {
     "@lune/": "~/.lune/.typedefs/0.8.6/",
     "@core/": "packages/prvdmwrong/lib",
-    "@components/": "packages/prvdmwrong-components/lib"
+    "@components/": "packages/prvdmwrong-components/lib",
+    "@net/": "packages/prvdmwrong-net/lib"
   },
   "luau-lsp.ignoreGlobs": [
     "**/_Index/**",

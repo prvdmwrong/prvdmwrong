@@ -2,10 +2,9 @@
 --!nolint LocalShadow
 -- Prvd 'M Wrong code licensed under MIT
 
-type CheckableType = LuauTypes | RobloxTypes
 export type Typeguard =
   -- literal type strings
-  CheckableType
+  string
   -- t-style typeguard
   | (unknown) -> (boolean, ...unknown)
 
@@ -82,63 +81,5 @@ export type ServerAsync<Args... = ...unknown, Returns... = ...unknown> = {
   invoke: (self: ServerAsync<Args..., Returns...>, Args...) -> Returns...,
   destroy: (self: ServerAsync<Args..., Returns...>) -> (),
 }
-
-export type LuauTypes =
-  "any"
-  | "boolean"
-  | "buffer"
-  | "function"
-  | "nil"
-  | "number"
-  | "string"
-  | "table"
-  | "thread"
-  | "unknown"
-  | "userdata"
-
-export type RobloxTypes =
-  "Axes"
-  | "BinaryString"
-  | "BrickColor"
-  | "CFrame"
-  | "CatalogSearchParams"
-  | "ClipEvaluator"
-  | "Color3"
-  | "ColorSequence"
-  | "DateTime"
-  | "DockWidgetPluginGuiInfo"
-  | "Enum"
-  | "EnumItem"
-  | "Enums"
-  | "Faces"
-  | "FloatCurveKey"
-  | "Font"
-  | "Instance"
-  | "NumberRange"
-  | "NumberSequence"
-  | "NumberSequenceKeypoint"
-  | "OverlapParams"
-  | "Path2DControlPoint"
-  | "PathWaypoint"
-  | "PhysicalProperties"
-  | "Random"
-  | "Ray"
-  | "RaycastParams"
-  | "RaycastResult"
-  | "RBXScriptConnection"
-  | "RBXScriptSignal"
-  | "Rect"
-  | "Region3"
-  | "Region3int16"
-  | "RotationCurveKey"
-  | "Secret"
-  | "SharedTable"
-  | "TweenInfo"
-  | "UDim"
-  | "UDim2"
-  | "Vector2"
-  | "Vector2int16"
-  | "Vector3"
-  | "Vector3int16"
 
 return nil
