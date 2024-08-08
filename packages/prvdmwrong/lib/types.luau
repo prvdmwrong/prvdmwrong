@@ -49,7 +49,6 @@ export type PrvdNamespace = {
   onStart: (callback: () -> ()) -> (),
   new: <T>(provider: T) -> Provider<T>,
   preload: (instances: { Instance }, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
-  Provider: (options: { loadOrder: number? }?) -> <T>(provider: T) -> (),
   StartupStatus: {
     Pending: "StartupStatus.Pending",
     Starting: "StartupStatus.Starting",
