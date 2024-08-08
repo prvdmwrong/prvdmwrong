@@ -10,7 +10,7 @@ debug provider.
 
 ![Thumbnail](thumbnail-obby.png)
 [:pmwdoc-roblox: Play on Roblox](https://www.roblox.com/games/18703010727/Oh-My-Prvd-Obby){ .md-button }
-[:fontawesome-brands-github: Source code on GitHub](https://github.com/znotfireman/prvdmwrong-obby){ .md-button }
+[:fontawesome-brands-github: Source code on GitHub](https://github.com/znotfireman/ohmyprvd-obby){ .md-button }
 
 ---
 

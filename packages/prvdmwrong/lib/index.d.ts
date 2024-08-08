@@ -44,7 +44,8 @@ declare namespace prvdmwrong {
 		loadOrder?: number
 	}) => <T extends new () => InstanceType<T>>(provider: T) => void
 	export const start: (options?: Partial<Options>) => void
-	export const use: <T extends new () => InstanceType<T>>(provider: T) => InstanceType<T>
+	export function use<T extends new () => InstanceType<T>>(this: void, provider: T): InstanceType<T>
+	export function use<T extends object>(this: void, provider: Provider<T>): T
 
 	export class Lifecycle<Interface extends object = object> {
 		constructor(method: string, fire: (lifecycle: Lifecycle, ...args: unknown[]) => void)
