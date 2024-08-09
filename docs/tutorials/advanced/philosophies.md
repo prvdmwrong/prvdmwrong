@@ -23,8 +23,8 @@ Prvd 'M Wrong is to take all of the lessons and ideas learned from these project
 and build a framework that can solve this problem for good. In addition, all of
 these frameworks have major drawbacks:
 
-- Knit is under long term support with sparse updates and nearing an archive, in
-  addition it introduces a hefty level of bloat, has subpar types;
+- Knit is has been archived, it introduces a hefty level of bloat and has subpar
+  types;
 - Flamework requires TypeScript and is tightly coupled with its transformer;
 - Nevermore introduces an outrageous level of bloat and also harder to use,
   being geared primarily just for Quenty;
