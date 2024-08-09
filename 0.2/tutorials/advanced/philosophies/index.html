@@ -2904,30 +2904,36 @@ Prvd 'M Wrong is to take all of the lessons and ideas learned from these project
 and build a framework that can solve this problem for good. In addition, all of
 these frameworks have major drawbacks:</p>
 <ul>
-<li>Knit is under long term support with sparse updates and nearing an archive, in
-  addition it introduces a hefty level of bloat, has subpar types;</li>
+<li>Knit is unmaintained, it introduces a hefty level of bloat and has subpar
+  types;</li>
 <li>Flamework requires TypeScript and is tightly coupled with its transformer;</li>
 <li>Nevermore introduces an outrageous level of bloat and also harder to use,
   being geared primarily just for Quenty;</li>
-<li>Proton is under development and requires TypeScript;</li>
+<li>Proton is under development and requires TypeScript, practically unmaintained;</li>
 <li>Pronghorn does not implement dependency injection, minimal extensibility and
   introduces some bloat;</li>
 <li>Lazy Modules has subpar syntax, somewhat couples code;</li>
-<li>Lumin Framework provides minimal primitives for singletons/providers;</li>
+<li>Lumin Framework provides minimal primitives for singletons in the form of
+  controllers, does not implement dependency injection;</li>
 </ul>
 <p>Finally:</p>
 <ul>
 <li>We think a framework should be distributed as a single module, for decoupling
   and extensibility.</li>
-<li>We think a framework should be designed for both Luau and TypeScript.</li>
+<li>We think a framework should be designed for both Luau and TypeScript, e.g.
+  Luau and TypeScript providers can be used simultaneously.</li>
 <li>We think the conventions promoted by other frameworks (e.g. splitting between
-  services and controllers, forcing games to follow a structure) are
-  sub-optimal.</li>
+  services and controllers) are sub-optimal.</li>
 <li>We have a good enough understanding of the problem to develop something
   robust.</li>
 <li>We think Prvd 'M Wrong should be able to do more than just connect providers.</li>
 </ul>
 <p>This is not to say Prvd 'M Wrong is superior, at least not yet:</p>
+<ul>
+<li>Components and networking packages are under development, an external
+  networking/component library is required with Prvd 'M Wrong</li>
+<li>We strive to keep Prvd 'M Wrong bug-free, but there is blemishes</li>
+</ul>
 
 
 
