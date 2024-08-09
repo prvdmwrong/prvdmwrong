@@ -8,8 +8,8 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
-local prvd = require(script.prvd)
-local types = require(script.types)
+local prvd = require("prvdmwrong-lifecycles/prvd")
+local types = require("prvdmwrong-lifecycles/types")
 local Lifecycle = prvd.Lifecycle
 local fireConcurrent = prvd.fireConcurrent
 local fireSequential = prvd.fireSequential

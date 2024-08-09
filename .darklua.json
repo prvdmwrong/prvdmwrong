@@ -12,7 +12,8 @@
         "sources": {
           "prvdmwrong": "packages/prvdmwrong/lib",
           "prvdmwrong-components": "packages/prvdmwrong-components/lib",
-          "prvdmwrong-net": "packages/prvdmwrong-net/lib"
+          "prvdmwrong-net": "packages/prvdmwrong-net/lib",
+          "prvdmwrong-lifecycles": "packages/prvdmwrong-lifecycles/lib"
         }
       },
       "target": {
