@@ -23,27 +23,32 @@ Prvd 'M Wrong is to take all of the lessons and ideas learned from these project
 and build a framework that can solve this problem for good. In addition, all of
 these frameworks have major drawbacks:
 
-- Knit is has been archived, it introduces a hefty level of bloat and has subpar
+- Knit is unmaintained, it introduces a hefty level of bloat and has subpar
   types;
 - Flamework requires TypeScript and is tightly coupled with its transformer;
 - Nevermore introduces an outrageous level of bloat and also harder to use,
   being geared primarily just for Quenty;
-- Proton is under development and requires TypeScript;
+- Proton is under development and requires TypeScript, practically unmaintained;
 - Pronghorn does not implement dependency injection, minimal extensibility and
   introduces some bloat;
 - Lazy Modules has subpar syntax, somewhat couples code;
-- Lumin Framework provides minimal primitives for singletons/providers;
+- Lumin Framework provides minimal primitives for singletons in the form of
+  controllers, does not implement dependency injection;
 
 Finally:
 
 - We think a framework should be distributed as a single module, for decoupling
   and extensibility.
-- We think a framework should be designed for both Luau and TypeScript.
+- We think a framework should be designed for both Luau and TypeScript, e.g.
+  Luau and TypeScript providers can be used simultaneously.
 - We think the conventions promoted by other frameworks (e.g. splitting between
-  services and controllers, forcing games to follow a structure) are
-  sub-optimal.
+  services and controllers) are sub-optimal.
 - We have a good enough understanding of the problem to develop something
   robust.
 - We think Prvd 'M Wrong should be able to do more than just connect providers.
 
 This is not to say Prvd 'M Wrong is superior, at least not yet:
+
+- Components and networking packages are under development, an external
+  networking/component library is required with Prvd 'M Wrong
+- We strive to keep Prvd 'M Wrong bug-free, but there is blemishes
