@@ -1051,6 +1051,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Execution Order
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1060,6 +1071,45 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prior-to-startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prior to Startup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Startup
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1077,7 +1127,7 @@
         
   
   <span class="md-ellipsis">
-    VSCode Snippets
+    Code Snippets
   </span>
   
 
@@ -2807,6 +2857,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prior-to-startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prior to Startup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Startup
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2824,16 +2900,82 @@
 
 
 <h1 id="execution-order">Execution Order</h1>
-<div class="admonition warning">
-<p class="admonition-title">Under construction</p>
-<p>This page is under construction - information may be incomplete or missing.</p>
-</div>
-<pre class="mermaid"><code>graph LR
-  A[Start] --&gt; B{Error?};
-  B --&gt;|Yes| C[Hmm...];
-  C --&gt; D[Debug];
-  D --&gt; B;
-  B ----&gt;|No| E[Yay!];</code></pre>
+<p>Prvd 'M Wrong initializes providers following a predefined execution order
+outlined below.</p>
+<p>Libraries that interacts with Prvd 'M Wrong should understand the exact sequence
+in which providers are initialized, ensuring correct functionality and prevent
+potential conflicts or unexpected behaviors.</p>
+<section style="text-align: center;">
+
+<pre class="mermaid"><code>flowchart TB
+    providers_created--&gt;start
+    providers_created{{"`
+        **Providers created**
+        prvd() @Provider()
+    `"}}
+    subgraph start["`
+        **Startup**
+        prvd.start()
+    `"]
+        use_dependencies["`
+            **Dependencies used**
+            prvd.use()
+        `"]
+        lifecycles_registered["`
+            **Lifecycles registered**
+            prvd.Lifecycle()
+        `"]
+        lifecycles_on_init["`
+            **Providers initialized**
+            MyProvider:onInit()
+        `"]
+        lifecycles_on_start["`
+            **Providers started**
+            MyProvider:onStart()
+        `"]
+        on_start["`
+            **Callbacks spawned**
+            prvd.onStart()
+        `"]
+        await_start["`
+            **Threads spawned**
+            prvd.awaitStart()
+        `"]
+
+        use_dependencies--&gt;lifecycles_registered
+        lifecycles_registered--&gt;lifecycles_on_init
+        lifecycles_on_init--&gt;lifecycles_on_start
+        lifecycles_on_start--&gt;on_start
+        lifecycles_on_start--&gt;await_start
+    end</code></pre>
+
+</section>
+
+<hr />
+<h2 id="prior-to-startup">Prior to Startup</h2>
+<p>Providers are registered through <code>prvd()</code> for Luau and <code>@Provider()</code> for
+TypeScript. Providers must be created prior to startup, or Prvd 'M Wrong will
+throw an error.</p>
+<p>Lifecycle objects must be created prior to startup for providers to register it.
+It's recommended to register a lifecycle object inside a provider module.</p>
+<hr />
+<h2 id="startup">Startup</h2>
+<p><code>prvd.start()</code> instantiates the startup procedure. After it has been called, no
+more providers will be registered and existing providers will not register newer
+lifecycle objects.</p>
+<p>Prvd 'M Wrong will first resolve all dependencies. Providers with <code>use()</code>d
+dependencies will have it injected. Prvd 'M Wrong will topologically sort
+providers so dependents run after dependencies.</p>
+<p>Afterwards, all providers will register itself to all appropriate lifecycle
+objects. The initialization and start lifecycles are registered beforehand.</p>
+<p>Providers that implement the <code>onInit</code> lifecycle will be initialized
+sequentially based on the topological sort done earlier. <code>onInit</code> methods are
+expected to never throw, and preferably non-yielding. Use this stage to set up a
+provider.</p>
+<p>Once initialization is complete, providers that implement the <code>onStart</code>
+lifecycle will be started concurrently regardless of order. As all providers
+have been initialized, it is safe to use other providers. Finally, all callbacks
+queued with <code>onStart()</code> and all threads from <code>awaitStart()</code> are spawned.</p>
 
 
 
@@ -2925,14 +3067,14 @@
           <a
             href="../snippets/"
             class="md-footer__link md-footer__link--next"
-            aria-label="Next: VSCode Snippets"
+            aria-label="Next: Code Snippets"
           >
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                VSCode Snippets
+                Code Snippets
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -61,6 +61,8 @@
 	--md-footer-fg-color--lighter: var(--pmwdoc-gray-6);
 	--md-footer-bg-color: var(--pmwdoc-gray-4);
 	--md-footer-bg-color--dark: var(--pmwdoc-gray-3);
+
+	--md-mermaid-node-bg-color: oklch(from var(--md-accent-fg-color) l c h / 0.25);
 }
 
 [data-md-color-scheme="pmwdoc-light"] {
