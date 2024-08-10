@@ -1,4 +1,5 @@
 {
+  "generator": "dense",
   "process": [
     {
       "identifier": "__DEV__",
