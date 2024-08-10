@@ -33,7 +33,7 @@ You can also pass a predicate function to filter the target modules:
     local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
     prvd.preload(
-      script.Providers.GetChildren(),
+      script.Providers:GetChildren(),
       function(module: ModuleScript)
         return module.Name:find("Provider$") ~= nil
       end
