@@ -49,6 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     methods, the former spawns all listeners, the latter runs all listeners
     sequentially
 - Added type exports for `prvdmwrong-lifecycles`
+- Added `onPreAnimation` lifecycle for `prvdmwrong-lifecycles`
 - Added `internal` field to exports for lower level primitives
   - Added `prvd.registerDependency` utility for injecting your own dependencies
 - Initial release of `prvdmwrong-components`

@@ -15,6 +15,10 @@ export type OnPostSimulation = {
   onPostSimulation: (self: prvd.Provider<unknown>, number) -> (),
 }
 
+export type OnPreAnimation = {
+  onPreAnimation: (self: prvd.Provider<unknown>, number) -> (),
+}
+
 export type OnPreRender = {
   onPreRender: (self: prvd.Provider<unknown>, number) -> (),
 }

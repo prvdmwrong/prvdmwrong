@@ -43,6 +43,18 @@ export interface OnPostSimulation {
 }
 
 /**
+ * Hook onto the onPreAnimation lifecycle method. Equivalent to the
+ * RunService.PreAnimation event.
+ */
+export interface OnPreAnimation {
+	/**
+	 * Runs every prior to the physics simulation but after rendering. Only runs
+	 * on the client.
+	 */
+	onPreAnimation(dt: number): void
+}
+
+/**
  * Hook onto the onPreRender lifecycle method. Equivalent to the
  * RunService.PreRender event.
  */

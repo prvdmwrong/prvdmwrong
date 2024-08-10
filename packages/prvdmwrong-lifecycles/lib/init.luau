@@ -16,16 +16,17 @@ local fireSequential = prvd.fireSequential
 
 export type OnPreSimulation = types.OnPreSimulation
 export type OnPostSimulation = types.OnPostSimulation
+export type OnPreAnimation = types.OnPreAnimation
 export type OnPreRender = types.OnPreRender
 export type OnShutdown = types.OnShutdown
 export type OnPlayerAdded = types.OnPlayerAdded
 export type OnPlayerRemoving = types.OnPlayerRemoving
 type Lifecycle<Interface = { [any]: any }> = prvd.Lifecycle<Interface>
-type Provider<T> = types.Provider<T>
 type Set<T> = { [T]: true }
 
 local preSimulation: Lifecycle<OnPreSimulation> = Lifecycle("onPreSimulation", fireConcurrent)
 local postSimulation: Lifecycle<OnPostSimulation> = Lifecycle("onPostSimulation", fireConcurrent)
+local preAnimation: Lifecycle<OnPreAnimation> = Lifecycle("onPreAnimation", fireConcurrent)
 local preRender: Lifecycle<OnPreRender> = Lifecycle("onPreRender", fireConcurrent)
 local shutdown: Lifecycle<OnShutdown> = Lifecycle("onShutdown", fireSequential)
 local playerAdded: Lifecycle<OnPlayerAdded> = Lifecycle("onPlayerAdded", fireConcurrent)
@@ -58,6 +59,7 @@ do
   addConnection(RunService.PostSimulation:Connect(bindLifecycle(postSimulation)))
   if RunService:IsClient() then
     addConnection(RunService.PreRender:Connect(bindLifecycle(preRender)))
+    addConnection(RunService.PreAnimation:Connect(bindLifecycle(preAnimation)))
   end
 
   local plugin: Plugin? = plugin or script:FindFirstAncestorWhichIsA("Plugin")
