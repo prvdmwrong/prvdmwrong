@@ -5,8 +5,8 @@
 
 ## Alternatives
 
-Prvd 'M Wrong is not the first Roblox game framework. In fact, there are several
-existing game frameworks for Roblox. Besides Prvd 'M Wrong, you might consider:
+Prvd 'M Wrong is not the first Roblox game framework. There are several existing
+game frameworks for Roblox. Besides Prvd 'M Wrong, you might consider:
 
 - [Knit by sleitnick](https://github.com/Sleitnick/Knit)
 - [Flamework by fireboltofdeath](https://github.com/rbxts-flamework)
@@ -51,4 +51,5 @@ This is not to say Prvd 'M Wrong is superior, at least not yet:
 
 - Components and networking packages are under development, an external
   networking/component library is required with Prvd 'M Wrong
-- We strive to keep Prvd 'M Wrong bug-free, but there is blemishes
+- We strive to keep Prvd 'M Wrong bug-free, but there are blemishes and
+  imperfection, and is not as battle-tested as other frameworks

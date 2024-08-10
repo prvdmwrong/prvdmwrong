@@ -127,7 +127,7 @@ nav:
     - Advanced:
       - Modding: tutorials/advanced/modding.md
       - Execution Order: tutorials/advanced/execution-order.md
-      - VSCode Snippets: tutorials/advanced/snippets.md
+      - Code Snippets: tutorials/advanced/snippets.md
       - Philosophies: tutorials/advanced/philosophies.md
   - Reference:
     - reference/index.md
