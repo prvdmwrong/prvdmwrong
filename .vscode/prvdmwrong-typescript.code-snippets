@@ -1,0 +1,20 @@
+{
+  "Provider": {
+    "prefix": "provider",
+    "body": [
+      "import { Provider, type OnInit, type OnStart } from \"@rbxts/prvdmwrong\"",
+      "",
+      "@Provider()",
+      "export class ${0:$TM_FILENAME_BASE} implements OnInit, OnStart {",
+      "  onInit(): void {",
+      "",
+      "  }",
+      "",
+      "  onStart(): void {",
+      "",
+      "  }",
+      "}"
+    ],
+    "description": "Create a new TypeScript provider"
+  }
+}

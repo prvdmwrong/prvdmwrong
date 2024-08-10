@@ -1,0 +1,20 @@
+{
+  "Provider": {
+    "prefix": "provider",
+    "body": [
+      "local ${0:$TM_FILENAME_BASE} = {}",
+      "type Self = typeof(${0:$TM_FILENAME_BASE})",
+      "",
+      "function ${0:$TM_FILENAME_BASE}.onInit(self: Self)",
+      "",
+      "end",
+      "",
+      "function ${0:$TM_FILENAME_BASE}.onStart(self: Self)",
+      "",
+      "end",
+      "",
+      "return prvd(\"${0:$TM_FILENAME_BASE}\", ${0:$TM_FILENAME_BASE})"
+    ],
+    "description": "Create a new Luau provider"
+  }
+}
