@@ -13,23 +13,11 @@ local NetDirection = table.freeze {
 local net = {}
 net.NetDirection = NetDirection
 
-local function awaitSeed(): number
-  local seed = script:GetAttribute("s")
-  while seed == nil do
-    RunService.Heartbeat:Wait()
-    seed = script:GetAttribute("s")
-  end
-  script:SetAttribute("s", nil)
-  return seed :: number
-end
-
-local seed: number = IS_SERVER and DateTime.now().UnixTimestampMillis or awaitSeed()
 local container: Configuration
 if IS_SERVER then
   container = Instance.new("Configuration")
   container.Name = "__container__"
   container.Parent = script
-  script:SetAttribute("s", seed)
 else
   container = script:WaitForChild("__container__")
 end
