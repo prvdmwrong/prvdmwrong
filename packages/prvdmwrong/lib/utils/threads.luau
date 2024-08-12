@@ -6,7 +6,7 @@
 ]]
 
 local freeThreads: { thread } = {}
-local Threads = {}
+local threads = {}
 
 local function resume<Args...>(resume: (Args...) -> (), thread: thread, ...)
   resume(...)
@@ -23,7 +23,7 @@ end
   Spawns a thread immediately. This will pool and reuse threads when possible,
   and thus is more efficient than `task.spawn`.
 ]]
-function Threads.spawn<Args...>(resume: (Args...) -> (), ...: Args...)
+function threads.spawn<Args...>(resume: (Args...) -> (), ...: Args...)
   local thread: thread
   if #freeThreads > 0 then
     thread = assert(table.remove(freeThreads, #freeThreads), "Luau")
@@ -34,5 +34,5 @@ function Threads.spawn<Args...>(resume: (Args...) -> (), ...: Args...)
   task.spawn(thread, resume, thread, ...)
 end
 
-table.freeze(Threads)
-return Threads
+table.freeze(threads)
+return threads

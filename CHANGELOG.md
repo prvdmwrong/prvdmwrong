@@ -57,7 +57,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- `prvd.new` no longer needs a name field and uses `debug.info`
+- `prvd.new` no longer needs a name field and falls back to a random hash
   - Providers can be named by specifying a `name` field
 - Anything related to ignition has been renamed to startup:
 

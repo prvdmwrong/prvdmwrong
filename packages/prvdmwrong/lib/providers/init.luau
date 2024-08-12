@@ -11,8 +11,9 @@ local Lifecycles = require("prvdmwrong/lifecycles")
 local Log = require("prvdmwrong/log")
 local Modding = require("prvdmwrong/modding")
 local Reflection = require("prvdmwrong/modding/reflection")
-local Threads = require("prvdmwrong/utils/threads")
 local Types = require("prvdmwrong/types")
+local threads = require("prvdmwrong/utils/threads")
+local unique = require("prvdmwrong/utils/unique")
 local expect = Log.expect
 local parseError = Log.parseError
 local throw = Log.throw
@@ -315,7 +316,7 @@ function Prvd.start(options: {
     for _, provider in ipairs(self.listeners) do
       local identifier = Reflection.getIdentifier(provider, ":onStart")
       verbose("running lifecycle", identifier)
-      Threads.spawn(profileCallback(provider.onStart, identifier), provider)
+      threads.spawn(profileCallback(provider.onStart, identifier), provider)
     end
   end)
 
@@ -331,7 +332,7 @@ function Prvd.start(options: {
     task.spawn(thread)
   end
   for _, callback in pairs(awaitingCallbacks) do
-    Threads.spawn(callback)
+    threads.spawn(callback)
   end
 
   status = StartupStatus.Started
@@ -355,7 +356,7 @@ end
 ]]
 function Prvd.onStart(callback: () -> ())
   if status ~= StartupStatus.Pending then
-    Threads.spawn(callback)
+    threads.spawn(callback)
     return
   end
   expect(typeof(callback) == "function", "invalidOnIgnitionCallback")
