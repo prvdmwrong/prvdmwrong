@@ -12,7 +12,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: Install Rokit
               uses: CompeyDev/setup-rokit@v0.1.1
               with:
@@ -25,7 +25,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: Install Rokit
               uses: CompeyDev/setup-rokit@v0.1.1
               with:
