@@ -5,7 +5,7 @@
 
 ## Alternatives
 
-Prvd 'M Wrong is not the first Roblox game framework. There are several existing
+Prvd 'M Wrong is not the first Roblox service provider framework. There are several existing
 game frameworks for Roblox. Besides Prvd 'M Wrong, you might consider:
 
 - [Knit by sleitnick](https://github.com/Sleitnick/Knit)

@@ -19,7 +19,7 @@ hide:
   width="500px"/>
 
 <p>
-Prvd 'M Wrong is a game framework for a next-generation Roblox.
+Prvd 'M Wrong is a service provider framework for a next-generation Roblox.
 </p>
 
 <p>

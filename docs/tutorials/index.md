@@ -2,7 +2,7 @@
 
 Congratulations on choosing Prvd 'M Wrong! You're finally making good choices.
 
-Prvd 'M Wrong is a game framework for a next-generation Roblox. Here, you will
+Prvd 'M Wrong is a service provider framework for a next-generation Roblox. Here, you will
 learn how to build great games with Prvd 'M Wrong, even if you're a complete
 newcomer to the library.
 

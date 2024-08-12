@@ -25,7 +25,7 @@
 <a href="CHANGELOG.md">Changelog</a>
 </div>
 
-Prvd 'M Wrong is a game framework for a next-generation Roblox.
+Prvd 'M Wrong is a service provider framework for a next-generation Roblox.
 
 Sounds boring. Let's try again.
 
