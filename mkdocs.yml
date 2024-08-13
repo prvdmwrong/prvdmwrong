@@ -3,12 +3,12 @@
 # in the root directory of this source tree.
 
 site_name: Prvd 'M Wrong
-site_url: https://team-fireworks.github.io/prvdmwrong
+site_url: https://prvdmwrong.github.io/
 site_description: >-
   Prvd 'M Wrong is a service provider framework for a next-generation Roblox.
 
-repo_name: team-fireworks/prvdmwrong
-repo_url: https://github.com/team-fireworks/prvdmwrong
+repo_name: prvdmwrong/prvdmwrong
+repo_url: https://github.com/prvdmwrong/prvdmwrong
 
 plugins:
   - search
