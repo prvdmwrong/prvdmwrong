@@ -5,7 +5,18 @@ import into your game. This page will walk you through installing a package.
 
 ---
 
-## Methods
+## Templates
+
+For new projects, Prvd 'M Wrong has batteries-included templates to be used.
+
+!!! warning "Under construction"
+    This page is under construction - information may be incomplete or missing.
+
+---
+
+## Manual Installation
+
+For existing projects, Prvd 'M Wrong must be imported as individual packages.
 
 ### Install via Roblox
 
@@ -46,8 +57,8 @@ for Luau, Prvd 'M Wrong has packages for both package managers.
 
         ![Install](../assets/static/wally-install.png)
 
-        It will look something as such, with the core package aliased to `prvd`
-        for brevity:
+        It will look like below, with the core package aliased to `prvd` for
+        brevity:
 
         ```TOML
         [dependencies]
@@ -77,10 +88,18 @@ for Luau, Prvd 'M Wrong has packages for both package managers.
 
 === "Pesde"
 
-    !!! warning "Coming soon™️"
+    1. Head over to one of these packages you will import:
 
-        Pesde packages are planned but have not been published yet. For now,
-        refer to alternative installation methods.
+          - [`@prvdmwrong/core`](https://pesde.daimond113.com/packages/prvdmwrong/core/0.2.0-dev.8)
+            for the core package
+          - [`@prvdmwrong/lifecycles`](https://pesde.daimond113.com/packages/prvdmwrong/lifecycles/0.2.0-dev.8)
+            for additional lifecycle methods
+
+    2. Run the command below "Installation", which will look like below:
+
+        ```Sh
+        $ pesde add prvdmwrong/lifecycles@0.2.0-dev.8
+        ```
 
 ---
 

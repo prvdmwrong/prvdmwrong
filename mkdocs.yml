@@ -125,9 +125,10 @@ nav:
       - Attributes: tutorials/components/attributes.md
       - Inheritance: tutorials/components/inheritance.md
     - Advanced:
+      - Migration: tutorials/advanced/migration.md
       - Modding: tutorials/advanced/modding.md
-      - Execution Order: tutorials/advanced/execution-order.md
       - Code Snippets: tutorials/advanced/snippets.md
+      - Execution Order: tutorials/advanced/execution-order.md
       - Philosophies: tutorials/advanced/philosophies.md
   - Reference:
     - reference/index.md
