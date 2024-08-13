@@ -3035,7 +3035,7 @@ usually located in <code>ReplicatedStorage</code>:</p>
 <li>
 <p>Head over to one of these packages you will import:</p>
 <ul>
-<li><a href="https://www.npmjs.com/package/@rbxts/prvdmwrong"><code>@rbxts/prvdmwrong</code></a>
+<li><a href="https://www.npmjs.com/package/@rbxts/prvdmwrong"><code>@prvdmwrong/core</code></a>
     for the core package</li>
 </ul>
 </li>
@@ -3044,9 +3044,30 @@ usually located in <code>ReplicatedStorage</code>:</p>
 <p><img alt="Install" src="../../assets/static/npm-install.png" /></p>
 </li>
 <li>
-<p>This will install Prvd 'M Wrong under <code>node_modules</code>, which can be imported
-directly:</p>
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">prvdmwrong</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/prvdmwrong&quot;</span>
+<p>Roblox TypeScript does not include Prvd 'M Wrong. Find the following
+   JSON in your project file, it may be nested behind several levels:</p>
+</li>
+</ol>
+<div class="language-JSON highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&quot;node_modules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;@rbxts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&quot;$path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node_modules/@rbxts&quot;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Add the <code>@prvdmwrong</code> scope next to <code>@rbxts</code>:</p>
+<div class="language-JSON highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&quot;node_modules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;@rbxts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;$path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node_modules/@rbxts&quot;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nt">&quot;@prvdmwrong&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">&quot;$path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node_modules/@prvdmwrong&quot;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<ol>
+<li>
+<p>Prvd' M Wrong can imported directly:</p>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">prvdmwrong</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@prvdmwrong/core&quot;</span>
 </span></code></pre></div>
 </li>
 </ol>
@@ -3082,12 +3103,12 @@ imported as source code.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Luau</label><label for="__tabbed_2_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">prvdmwrong</span><span class="p">)</span>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">prvdmwrong</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">prvdmwrong</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/prvdmwrong&quot;</span>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">prvdmwrong</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/prvdmwrong&quot;</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -3099,7 +3120,7 @@ imported as source code.</p>
 </ol>
 <details class="failure">
 <summary>My script didn't work!</summary>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>prvdmwrong is not a valid member of ReplicatedStorage &quot;ReplicatedStorage&quot;
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>prvdmwrong is not a valid member of ReplicatedStorage &quot;ReplicatedStorage&quot;
 </span></code></pre></div>
 If you're seeing this error, then your script can't find Prvd 'M Wrong.</p>
 <p>This code assumes you've placed Prvd 'M Wrong under ReplicatedStorage. If
