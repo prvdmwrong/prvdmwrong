@@ -21,8 +21,8 @@
     "net/": "packages/net/lib",
     "components/": "packages/components/lib",
     "lifecycles/": "packages/lifecycles/lib",
-    "prvdmwrong-knit/": "packages/prvdmwrong-knit/lib",
-    "prvdmwrong-lumin/": "packages/prvdmwrong-lumin/lib",
+    "knit-compat/": "packages/knit-compat/lib",
+    "lumin-compat/": "packages/lumin-compat/lib",
   },
   "luau-lsp.require.mode": "relativeToFile",
   "typescript.tsdk": "node_modules/typescript/lib"
