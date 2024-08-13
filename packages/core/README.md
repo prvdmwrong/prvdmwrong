@@ -13,10 +13,10 @@
 <br/>
 <br/>
 
-![Continuous Integration](https://img.shields.io/github/actions/workflow/status/team-fireworks/prvdmwrong/ci.yml?style=flat-square&label=Continuous%20Integration)
-![Documentation Status](https://img.shields.io/github/actions/workflow/status/team-fireworks/prvdmwrong/docs.yml?style=flat-square&label=Documentation)<br/>
+![Continuous Integration](https://img.shields.io/github/actions/workflow/status/prvdmwrong/prvdmwrong/ci.yml?style=flat-square&label=Continuous%20Integration)
+![Documentation Status](https://img.shields.io/github/actions/workflow/status/prvdmwrong/prvdmwrong/docs.yml?style=flat-square&label=Documentation)<br/>
 ![Prvd 'M Wrong is licensed under MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
-![Github Start](https://img.shields.io/github/stars/team-fireworks/prvdmwrong.svg?style=flat-square)
+![Version](https://img.shields.io/github/v/tag/prvdmwrong/prvdmwrong?&style=flat-square)
 ![NPM Version](https://img.shields.io/npm/v/%40rbxts%2Fprvdmwrong?style=flat-square)
 </br>
 <a href="https://github.com/team-fireworks/prvdmwrong/releases">Download</a> ·
