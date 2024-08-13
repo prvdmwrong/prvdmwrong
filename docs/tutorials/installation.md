@@ -79,18 +79,42 @@ for TypeScript, Prvd 'M Wrong has packages for both package managers.
 
     1. Head over to one of these packages you will import:
 
-          - [`@rbxts/prvdmwrong`](https://www.npmjs.com/package/@rbxts/prvdmwrong)
+          - [`@prvdmwrong/core`](https://www.npmjs.com/package/@rbxts/prvdmwrong)
             for the core package
 
     2. Copy the command below "Install", and run it on a terminal:
 
         ![Install](../assets/static/npm-install.png)
 
-    3. This will install Prvd 'M Wrong under `node_modules`, which can be imported
-    directly:
+    3. Roblox TypeScript does not include Prvd 'M Wrong. Find the following
+       JSON in your project file, it may be nested behind several levels:
+
+       ```JSON
+       "node_modules": {
+         "@rbxts": {
+           "$path": "node_modules/@rbxts"
+         }
+       }
+       ```
+
+       Add the `@prvdmwrong` scope next to `@rbxts`:
+
+
+       ```JSON
+       "node_modules": {
+         "@rbxts": {
+           "$path": "node_modules/@rbxts"
+         },
+         "@prvdmwrong": {
+           "$path": "node_modules/@prvdmwrong"
+         }
+       }
+       ```
+
+    4. Prvd' M Wrong can imported directly:
 
         ```TypeScript
-        import prvdmwrong from "@rbxts/prvdmwrong"
+        import prvdmwrong from "@prvdmwrong/core"
         ```
 
 ---
