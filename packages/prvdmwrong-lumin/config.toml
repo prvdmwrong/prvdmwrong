@@ -1,0 +1,4 @@
+[config]
+  name = "Lumin Framework compatibility for Prvd 'M Wrong"
+  description = "Implements a thin compatibility layer between Lumin Framework and Prvd 'M Wrong. It serves to ease transitioning to use Prvd 'M Wrong."
+  dependencies = ["core"]

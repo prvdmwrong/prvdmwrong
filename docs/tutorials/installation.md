@@ -27,10 +27,10 @@ file containing Prvd 'M Wrong.
 
 ---
 
-### Install via a Package Manager
+### Install via Wally/Pesde
 
-If you use [Wally](https://wally.run/) for Luau or [NPM](https://www.npmjs.com/)
-for TypeScript, Prvd 'M Wrong has packages for both package managers.
+If you use [Wally](https://wally.run/) or [Pesde](https://pesde.daimond113.com/)
+for Luau, Prvd 'M Wrong has packages for both package managers.
 
 === "Wally"
 
@@ -46,12 +46,12 @@ for TypeScript, Prvd 'M Wrong has packages for both package managers.
 
         ![Install](../assets/static/wally-install.png)
 
-        It will look something as such, with `prvdmwrong` renamed to `prvd` for
-        brevity:
+        It will look something as such, with the core package aliased to `prvd`
+        for brevity:
 
         ```TOML
         [dependencies]
-          prvd = "znotfireman/prvdmwrong@0.1.1-alpha"
+          prvd = "prvdmwrong/core@0.2.0"
         ```
 
     3. Then, install your packages:
@@ -75,47 +75,60 @@ for TypeScript, Prvd 'M Wrong has packages for both package managers.
         $ wally-package-types --sourcemap sourcemap.json Packages/
         ```
 
-=== "NPM"
+=== "Pesde"
 
-    1. Head over to one of these packages you will import:
+    !!! warning "Coming soon™️"
 
-          - [`@prvdmwrong/core`](https://www.npmjs.com/package/@rbxts/prvdmwrong)
-            for the core package
+        Pesde packages are planned but have not been published yet. For now,
+        refer to alternative installation methods.
 
-    2. Copy the command below "Install", and run it on a terminal:
+---
 
-        ![Install](../assets/static/npm-install.png)
+### Install via NPM
 
-    3. Roblox TypeScript does not include Prvd 'M Wrong. Find the following
-       JSON in your project file, it may be nested behind several levels:
+If you use Roblox TypeScript, Prvd 'M Wrong has type definitions and packages
+for [NPM](https://www.npmjs.com/).
 
-       ```JSON
-       "node_modules": {
-         "@rbxts": {
-           "$path": "node_modules/@rbxts"
-         }
-       }
-       ```
+1. Head over to one of these packages you will import:
 
-       Add the `@prvdmwrong` scope next to `@rbxts`:
+      - [`@prvdmwrong/core`](https://www.npmjs.com/package/@prvdmwrong/core)
+        for the core package
+      - [`@prvdmwrong/lifecycles`](https://www.npmjs.com/package/@prvdmwrong/lifecycles)
+        for additional lifecycle methods
 
+2. Copy the command below "Install", and run it on a terminal:
 
-       ```JSON
-       "node_modules": {
-         "@rbxts": {
-           "$path": "node_modules/@rbxts"
-         },
-         "@prvdmwrong": {
-           "$path": "node_modules/@prvdmwrong"
-         }
-       }
-       ```
+    ![Install](../assets/static/npm-install.png)
 
-    4. Prvd' M Wrong can imported directly:
+3. Roblox TypeScript does not include Prvd 'M Wrong. Find the following
+    JSON in your project file, it may be nested behind several levels:
 
-        ```TypeScript
-        import prvdmwrong from "@prvdmwrong/core"
-        ```
+    ```JSON
+    "node_modules": {
+      "@rbxts": {
+        "$path": "node_modules/@rbxts"
+      }
+    }
+    ```
+
+    Add the `@prvdmwrong` scope next to `@rbxts`:
+
+    ```JSON
+    "node_modules": {
+      "@rbxts": {
+        "$path": "node_modules/@rbxts"
+      },
+      "@prvdmwrong": {
+        "$path": "node_modules/@prvdmwrong"
+      }
+    }
+    ```
+
+4. Prvd' M Wrong can imported directly:
+
+    ```TypeScript
+    import prvdmwrong from "@prvdmwrong/core"
+    ```
 
 ---
 
