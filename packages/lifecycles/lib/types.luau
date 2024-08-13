@@ -5,7 +5,7 @@
   in the root directory of this source tree.
 ]]
 
-local prvd = require("prvdmwrong-lifecycles/prvd")
+local prvd = require("lifecycles/prvd")
 
 export type OnPreSimulation = {
   onPreSimulation: (self: prvd.Provider<unknown>, number) -> (),

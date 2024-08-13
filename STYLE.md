@@ -46,9 +46,9 @@ local Lighting = game:GetService("Lighting")
 local RunService = game:GetService("RunService")
 local Workspace = game:GetService("Workspace")
 
-local Log = require("prvdmwrong/log")
-local Modding = require("prvdmwrong/modding")
-local Types = require("prvdmwrong/types")
+local Log = require("core/log")
+local Modding = require("core/modding")
+local Types = require("core/types")
 local expect = Log.expect
 local parseError = Log.parseError
 local throw = Log.throw

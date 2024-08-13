@@ -6,7 +6,7 @@
 ]]
 
 local RunService = game:GetService("RunService")
-local Types = require("prvdmwrong/types")
+local Types = require("core/types")
 
 local ERROR_MESSAGES_URL = "prvdmwrong.github.io/prvdmwrong/latest/reference/error-messages#"
 local MESSAGES = table.freeze {

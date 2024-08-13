@@ -7,13 +7,13 @@
 
 local RunService = game:GetService("RunService")
 
-local Lifecycles = require("prvdmwrong/lifecycles")
-local Log = require("prvdmwrong/log")
-local Modding = require("prvdmwrong/modding")
-local Reflection = require("prvdmwrong/modding/reflection")
-local Types = require("prvdmwrong/types")
-local threads = require("prvdmwrong/utils/threads")
-local unique = require("prvdmwrong/utils/unique")
+local Lifecycles = require("core/lifecycles")
+local Log = require("core/log")
+local Modding = require("core/modding")
+local Reflection = require("core/modding/reflection")
+local Types = require("core/types")
+local threads = require("core/utils/threads")
+local unique = require("core/utils/unique")
 local expect = Log.expect
 local parseError = Log.parseError
 local throw = Log.throw

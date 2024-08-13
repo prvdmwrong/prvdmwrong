@@ -5,12 +5,12 @@
   in the root directory of this source tree.
 ]]
 
-local Lifecycles = require("prvdmwrong/lifecycles")
-local Log = require("prvdmwrong/log")
-local Modding = require("prvdmwrong/modding")
-local Providers = require("prvdmwrong/providers")
-local Reflection = require("prvdmwrong/modding/reflection")
-local Types = require("prvdmwrong/types")
+local Lifecycles = require("core/lifecycles")
+local Log = require("core/log")
+local Modding = require("core/modding")
+local Providers = require("core/providers")
+local Reflection = require("core/modding/reflection")
+local Types = require("core/types")
 
 export type Lifecycle<Interface = { [any]: any }> = Types.Lifecycle<Interface>
 export type OnInit = Types.OnInit
