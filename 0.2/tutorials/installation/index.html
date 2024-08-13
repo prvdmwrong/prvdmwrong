@@ -576,13 +576,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#methods" class="md-nav__link">
+  <a href="#templates" class="md-nav__link">
     <span class="md-ellipsis">
-      Methods
+      Templates
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Methods">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Installation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Installation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1078,6 +1087,8 @@
       
         
       
+        
+      
     
     
       
@@ -1121,6 +1132,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../advanced/migration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../advanced/modding/" class="md-nav__link">
         
   
@@ -1142,11 +1174,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/execution-order/" class="md-nav__link">
+      <a href="../advanced/snippets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Execution Order
+    Code Snippets
   </span>
   
 
@@ -1163,11 +1195,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/snippets/" class="md-nav__link">
+      <a href="../advanced/execution-order/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Code Snippets
+    Execution Order
   </span>
   
 
@@ -2904,13 +2936,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#methods" class="md-nav__link">
+  <a href="#templates" class="md-nav__link">
     <span class="md-ellipsis">
-      Methods
+      Templates
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Methods">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Installation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Installation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2985,7 +3026,15 @@
 <p>Prvd 'M Wrong is broken down into functional packages, which you will need to
 import into your game. This page will walk you through installing a package.</p>
 <hr />
-<h2 id="methods">Methods</h2>
+<h2 id="templates">Templates</h2>
+<p>For new projects, Prvd 'M Wrong has batteries-included templates to be used.</p>
+<div class="admonition warning">
+<p class="admonition-title">Under construction</p>
+<p>This page is under construction - information may be incomplete or missing.</p>
+</div>
+<hr />
+<h2 id="manual-installation">Manual Installation</h2>
+<p>For existing projects, Prvd 'M Wrong must be imported as individual packages.</p>
 <h3 id="install-via-roblox">Install via Roblox</h3>
 <p>If you edit directly inside Roblox Studio, then you can import a Roblox model
 file containing Prvd 'M Wrong.</p>
@@ -3024,8 +3073,8 @@ for Luau, Prvd 'M Wrong has packages for both package managers.</p>
 <p>Copy the metadata below "Install", and append it below <code>[dependencies]</code> in
 your <code>wally.toml</code>:</p>
 <p><img alt="Install" src="../../assets/static/wally-install.png" /></p>
-<p>It will look something as such, with the core package aliased to <code>prvd</code>
-for brevity:</p>
+<p>It will look like below, with the core package aliased to <code>prvd</code> for
+brevity:</p>
 <div class="language-TOML highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[dependencies]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="n">prvd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;prvdmwrong/core@0.2.0&quot;</span>
 </span></code></pre></div>
@@ -3049,11 +3098,22 @@ usually located in <code>ReplicatedStorage</code>:</p>
 </ol>
 </div>
 <div class="tabbed-block">
-<div class="admonition warning">
-<p class="admonition-title">Coming soon™️</p>
-<p>Pesde packages are planned but have not been published yet. For now,
-refer to alternative installation methods.</p>
-</div>
+<ol>
+<li>
+<p>Head over to one of these packages you will import:</p>
+<ul>
+<li><a href="https://pesde.daimond113.com/packages/prvdmwrong/core/0.2.0-dev.8"><code>@prvdmwrong/core</code></a>
+    for the core package</li>
+<li><a href="https://pesde.daimond113.com/packages/prvdmwrong/lifecycles/0.2.0-dev.8"><code>@prvdmwrong/lifecycles</code></a>
+    for additional lifecycle methods</li>
+</ul>
+</li>
+<li>
+<p>Run the command below "Installation", which will look like below:</p>
+<div class="language-Sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>pesde<span class="w"> </span>add<span class="w"> </span>prvdmwrong/lifecycles@0.2.0-dev.8
+</span></code></pre></div>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -3078,26 +3138,26 @@ for <a href="https://www.npmjs.com/">NPM</a>.</p>
 <li>
 <p>Roblox TypeScript does not include Prvd 'M Wrong. Find the following
     JSON in your project file, it may be nested behind several levels:</p>
-<div class="language-JSON highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&quot;node_modules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;@rbxts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&quot;$path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node_modules/@rbxts&quot;</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>Add the <code>@prvdmwrong</code> scope next to <code>@rbxts</code>:</p>
 <div class="language-JSON highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&quot;node_modules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;@rbxts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;$path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node_modules/@rbxts&quot;</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="p">},</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nt">&quot;@prvdmwrong&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">&quot;$path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node_modules/@prvdmwrong&quot;</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Add the <code>@prvdmwrong</code> scope next to <code>@rbxts</code>:</p>
+<div class="language-JSON highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">&quot;node_modules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;@rbxts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nt">&quot;$path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node_modules/@rbxts&quot;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="nt">&quot;@prvdmwrong&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nt">&quot;$path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node_modules/@prvdmwrong&quot;</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
 </span></code></pre></div>
 </li>
 <li>
 <p>Prvd' M Wrong can imported directly:</p>
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">prvdmwrong</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@prvdmwrong/core&quot;</span>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">prvdmwrong</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@prvdmwrong/core&quot;</span>
 </span></code></pre></div>
 </li>
 </ol>
@@ -3130,12 +3190,12 @@ imported as source code.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Luau</label><label for="__tabbed_2_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">prvdmwrong</span><span class="p">)</span>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">prvdmwrong</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">prvdmwrong</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/prvdmwrong&quot;</span>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">prvdmwrong</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/prvdmwrong&quot;</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -3147,7 +3207,7 @@ imported as source code.</p>
 </ol>
 <details class="failure">
 <summary>My script didn't work!</summary>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>prvdmwrong is not a valid member of ReplicatedStorage &quot;ReplicatedStorage&quot;
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>prvdmwrong is not a valid member of ReplicatedStorage &quot;ReplicatedStorage&quot;
 </span></code></pre></div>
 If you're seeing this error, then your script can't find Prvd 'M Wrong.</p>
 <p>This code assumes you've placed Prvd 'M Wrong under ReplicatedStorage. If
