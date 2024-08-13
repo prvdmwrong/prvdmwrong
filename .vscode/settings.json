@@ -11,9 +11,9 @@
   "eslint.run": "onType",
   "files.eol": "\n",
   "luau-lsp.ignoreGlobs": [
-    "**/_Index/**",
-    "examples/**",
-    "dist/**"
+    "**\\_Index\\**",
+    "examples\\**",
+    "dist\\**"
   ],
   "luau-lsp.require.directoryAliases": {
     "@lune/": "~/.lune/.typedefs/0.8.6/",
