@@ -121,12 +121,12 @@ function Prvd.new<T>(provider: T): Provider<T>
     (newProvider :: any)[PROVIDER_KEY] = newProvider
   end
 
-  local source = debug.info(3, "s")
-  Reflection.defineMetadata(provider, "identifier", newProvider.name or source)
+  local name = newProvider.name or `Provider_{unique()}`
+  Reflection.defineMetadata(provider, "identifier", name)
   Reflection.defineMetadata(provider, "prvdmwrong:provider", true)
   Reflection.defineMetadata(provider, "prvdmwrong:loadOrder", newProvider.loadOrder)
 
-  providers[newProvider] = source
+  providers[newProvider] = name
   Modding.doProviderConstructed(newProvider)
   return newProvider
 end
