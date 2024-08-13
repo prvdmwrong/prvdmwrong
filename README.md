@@ -19,9 +19,9 @@
 ![Version](https://img.shields.io/github/v/tag/team-fireworks/prvdmwrong?&style=flat-square)
 ![NPM Version](https://img.shields.io/npm/v/%40rbxts%2Fprvdmwrong?style=flat-square)
 </br>
-<a href="https://github.com/team-fireworks/prvdmwrong/releases">Download</a> ·
-<a href="https://team-fireworks.github.io/prvdmwrong/latest">Website</a> ·
-<a href="https://team-fireworks.github.io/prvdmwrong/latest/reference">Reference</a> ·
+<a href="https://github.com/prvdmwrong/prvdmwrong/releases">Download</a> ·
+<a href="https://prvdmwrong.github.io/latest">Documentation</a> ·
+<a href="https://prvdmwrong.github.io/latest/reference">Reference</a> ·
 <a href="CHANGELOG.md">Changelog</a>
 </div>
 

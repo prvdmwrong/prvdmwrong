@@ -36,9 +36,9 @@ for TypeScript, Prvd 'M Wrong has packages for both package managers.
 
     1. Head over to one of these packages you will import:
 
-          - [`@znotfireman/prvdmwrong`](https://wally.run/package/znotfireman/prvdmwrong)
+          - [`@prvdmwrong/core`](https://wally.run/package/prvdmwrong/prvdmwrong)
             for the core package
-          - [`@znotfireman/prvdmwrong-lifecycles`](https://wally.run/package/znotfireman/prvdmwrong-lifecycles)
+          - [`@prvdmwrong/lifecycles`](https://wally.run/package/prvdmwrong/lifecycles)
             for additional lifecycle methods
 
     2. Copy the metadata below "Install", and append it below `[dependencies]` in

@@ -19,7 +19,7 @@ Install this through your preferred package manager:
 
     ```toml
     [dependencies]
-      prvd = "znotfireman/prvdmwrong@0.2.0-dev.5"
+      prvd = "prvdmwrong/core@0.2.0-dev.5"
     ```
 
 === "Pesde"
@@ -27,26 +27,26 @@ Install this through your preferred package manager:
     ```yaml
     dependencies:
     - prvd:
-      - name: znotfireman/prvdmwrong
+      - name: prvdmwrong/core
       - version: 0.2.0-dev.5
     ```
 
 === "NPM"
 
     ```bash
-    $ npm i @rbxts/prvdmwrong
+    $ npm i @prvdmwrong/core
     ```
 
 === "PNPM"
 
     ```bash
-    $ pnpm i @rbxts/prvdmwrong
+    $ pnpm i @prvdmwrong/core
     ```
 
 === "Yarn"
 
     ```bash
-    $ yarn add @rbxts/prvdmwrong
+    $ yarn add @prvdmwrong/core
     ```
 
 ---

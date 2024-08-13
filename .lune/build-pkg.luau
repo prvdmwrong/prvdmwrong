@@ -12,7 +12,7 @@ type Config = {
   },
 }
 
-local NPM_SCOPE = "rbxts"
+local NPM_SCOPE = "prvdmwrong"
 local NPM_PACKAGE = {
   main = "lib/init.luau",
   author = "znotfireman <znotfireman+hello@gmail.com>",
@@ -33,25 +33,25 @@ local NPM_PACKAGE = {
   },
 }
 
-local WALLY_SCOPE = "znotfireman"
+local WALLY_SCOPE = "prvdmwrong"
 local WALLY_PACKAGE = {
   package = {
     license = "MIT",
     authors = { "znotfireman <znotfireman+hello@gmail.com>" },
     realm = "shared",
-    repository = "https://github.com/team-fireworks/prvdmwrong",
+    repository = "https://github.com/prvdmwrong/prvdmwrong",
     registry = "https://github.com/UpliftGames/wally-index",
     include = { "./lib", "./default.project.json" },
     exclude = { "node_modules" },
   },
 }
 
-local PESDE_SCOPE = "znotfireman"
+local PESDE_SCOPE = "prvdmwrong"
 local PESDE_PACKAGE = {
   license = "MIT",
   authors = { "znotfireman <znotfireman+hello@gmail.com>" },
   realm = "shared",
-  repository = "https://github.com/team-fireworks/prvdmwrong",
+  repository = "https://github.com/prvdmwrong/prvdmwrong",
   indices = {
     default = "https://github.com/daimond113/pesde-index",
   },
