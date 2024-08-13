@@ -252,7 +252,7 @@ do
         readme ..= "\n\n"
         readme ..= packageConfig.config.description:gsub("\n[^\n]*$", "")
         readme ..= "\n\n"
-        readme ..= `This package is part of [Prvd 'M Wrong.](https://team-fireworks.github.io/prvdmwrong/latest)`
+        readme ..= `This package is part of [Prvd 'M Wrong.](https://prvdmwrong.github.io/prvdmwrong/latest)`
         fs.writeFile(`{cwd}/dist/{package}/README.md`, readme)
       end
 

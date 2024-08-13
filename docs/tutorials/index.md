@@ -65,7 +65,7 @@ documentation.
 
 ```Txt hl_lines="2"
 [PMW(requireAfterIgnition)]: cannot require other providers after startup
-  more info: team-fireworks.github.io/prvdmwrong/latest/reference/general/error-messages#requireafterignition
+  more info: prvdmwrong.github.io/prvdmwrong/latest/reference/general/error-messages#requireafterignition
   stack trace:
     prvdmwrong.log:118 function throw
     prvdmwrong.prvd:181 function use

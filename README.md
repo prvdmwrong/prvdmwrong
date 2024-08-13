@@ -41,7 +41,7 @@ Cherish a development experience that fades into the background, freeing you to
 build faster and **prvd 'm wrong.** It's the swaggest framework in town!
 
 Sparked your interest? [Get going in minutes with our on-rails
-tutorial.](https://team-fireworks.github.io/prvdmwrong/latest/tutorials/)
+tutorial.](https://prvdmwrong.github.io/prvdmwrong/latest/tutorials/)
 
 ## Highlights
 

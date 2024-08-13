@@ -8,7 +8,7 @@
 local RunService = game:GetService("RunService")
 local Types = require("prvdmwrong/types")
 
-local ERROR_MESSAGES_URL = "team-fireworks.github.io/prvdmwrong/latest/reference/error-messages#"
+local ERROR_MESSAGES_URL = "prvdmwrong.github.io/prvdmwrong/latest/reference/error-messages#"
 local MESSAGES = table.freeze {
   alreadyStarted = "cannot ignite more than once",
   cannotRegister = "cannot register provider; %s",
