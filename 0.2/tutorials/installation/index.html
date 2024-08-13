@@ -595,9 +595,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-via-a-package-manager" class="md-nav__link">
+  <a href="#install-via-wallypesde" class="md-nav__link">
     <span class="md-ellipsis">
-      Install via a Package Manager
+      Install via Wally/Pesde
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-via-npm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install via NPM
     </span>
   </a>
   
@@ -2914,9 +2923,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-via-a-package-manager" class="md-nav__link">
+  <a href="#install-via-wallypesde" class="md-nav__link">
     <span class="md-ellipsis">
-      Install via a Package Manager
+      Install via Wally/Pesde
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-via-npm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install via NPM
     </span>
   </a>
   
@@ -2986,10 +3004,10 @@ file containing Prvd 'M Wrong.</p>
 <li>You should see an <code>prvdmwrong</code> module script appear in ReplicatedStorage!</li>
 </ol>
 <hr />
-<h3 id="install-via-a-package-manager">Install via a Package Manager</h3>
-<p>If you use <a href="https://wally.run/">Wally</a> for Luau or <a href="https://www.npmjs.com/">NPM</a>
-for TypeScript, Prvd 'M Wrong has packages for both package managers.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Wally</label><label for="__tabbed_1_2">NPM</label></div>
+<h3 id="install-via-wallypesde">Install via Wally/Pesde</h3>
+<p>If you use <a href="https://wally.run/">Wally</a> or <a href="https://pesde.daimond113.com/">Pesde</a>
+for Luau, Prvd 'M Wrong has packages for both package managers.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Wally</label><label for="__tabbed_1_2">Pesde</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
@@ -3006,10 +3024,10 @@ for TypeScript, Prvd 'M Wrong has packages for both package managers.</p>
 <p>Copy the metadata below "Install", and append it below <code>[dependencies]</code> in
 your <code>wally.toml</code>:</p>
 <p><img alt="Install" src="../../assets/static/wally-install.png" /></p>
-<p>It will look something as such, with <code>prvdmwrong</code> renamed to <code>prvd</code> for
-brevity:</p>
+<p>It will look something as such, with the core package aliased to <code>prvd</code>
+for brevity:</p>
 <div class="language-TOML highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[dependencies]</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="n">prvd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;znotfireman/prvdmwrong@0.1.1-alpha&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="n">prvd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;prvdmwrong/core@0.2.0&quot;</span>
 </span></code></pre></div>
 </li>
 <li>
@@ -3031,12 +3049,26 @@ usually located in <code>ReplicatedStorage</code>:</p>
 </ol>
 </div>
 <div class="tabbed-block">
+<div class="admonition warning">
+<p class="admonition-title">Coming soon™️</p>
+<p>Pesde packages are planned but have not been published yet. For now,
+refer to alternative installation methods.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h3 id="install-via-npm">Install via NPM</h3>
+<p>If you use Roblox TypeScript, Prvd 'M Wrong has type definitions and packages
+for <a href="https://www.npmjs.com/">NPM</a>.</p>
 <ol>
 <li>
 <p>Head over to one of these packages you will import:</p>
 <ul>
-<li><a href="https://www.npmjs.com/package/@rbxts/prvdmwrong"><code>@prvdmwrong/core</code></a>
+<li><a href="https://www.npmjs.com/package/@prvdmwrong/core"><code>@prvdmwrong/core</code></a>
     for the core package</li>
+<li><a href="https://www.npmjs.com/package/@prvdmwrong/lifecycles"><code>@prvdmwrong/lifecycles</code></a>
+    for additional lifecycle methods</li>
 </ul>
 </li>
 <li>
@@ -3045,9 +3077,7 @@ usually located in <code>ReplicatedStorage</code>:</p>
 </li>
 <li>
 <p>Roblox TypeScript does not include Prvd 'M Wrong. Find the following
-   JSON in your project file, it may be nested behind several levels:</p>
-</li>
-</ol>
+    JSON in your project file, it may be nested behind several levels:</p>
 <div class="language-JSON highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&quot;node_modules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;@rbxts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&quot;$path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node_modules/@rbxts&quot;</span>
@@ -3064,16 +3094,13 @@ usually located in <code>ReplicatedStorage</code>:</p>
 </span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<ol>
+</li>
 <li>
 <p>Prvd' M Wrong can imported directly:</p>
 <div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">prvdmwrong</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@prvdmwrong/core&quot;</span>
 </span></code></pre></div>
 </li>
 </ol>
-</div>
-</div>
-</div>
 <hr />
 <h3 id="install-via-source">Install via Source</h3>
 <p>If you are synchronizing external files into Roblox Studio, Prvd 'M Wrong can be
