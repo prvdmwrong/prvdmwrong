@@ -7,10 +7,36 @@ import into your game. This page will walk you through installing a package.
 
 ## Templates
 
-For new projects, Prvd 'M Wrong has batteries-included templates to be used.
+If preferred, Prvd 'M Wrong has batteries-included projects to be used as
+templates found under the [`prvdmwrong/templates` repository.](https://github.com/prvdmwrong/templates)
 
-!!! warning "Under construction"
-    This page is under construction - information may be incomplete or missing.
+1. Clone the templates repository:
+      - On the web, head over to the [`prvdmwrong/templates` repository.](https://github.com/prvdmwrong/templates)
+        and click the "Code" dropdown, then click "Download ZIP". Inside is a
+        copy of the templates repository:
+
+        ![Download ZIP](../assets/static/github-download-zip.png)
+
+      - Alternatively, in a terminal, run the following command:
+
+        ```Sh
+        git clone https://github.com/prvdmwrong/templates.git
+        cd templates
+        ```
+
+2. Use one of the following templates inside the repository:
+      - For Luau projects:
+        - Use the [`luau-barebones` template](https://github.com/prvdmwrong/templates/tree/main/luau-barebones)
+          for a pre-configured barebones prelude.
+        - Use the [`luau-comprehensive` template](https://github.com/prvdmwrong/templates/tree/main/luau-barebones)
+          for a comprehensive prelude including Darklua string requires, Wally
+          with types, and plenty of goodies.
+      - For Roblox TypeScript projects:
+        - Use the [`rbxts-barebones` template](https://github.com/prvdmwrong/templates/tree/main/rbxts-barebones)
+          for a pre-configured barebones prelude.
+        - Use the [`rbxts-comprehensive` template](https://github.com/prvdmwrong/templates/tree/main/luau-barebones)
+          for a comprehensive prelude including ESLint and Prettier
+          pre-configured.
 
 ---
 
@@ -18,7 +44,7 @@ For new projects, Prvd 'M Wrong has batteries-included templates to be used.
 
 For existing projects, Prvd 'M Wrong must be imported as individual packages.
 
-### Install via Roblox
+### From Roblox
 
 If you edit directly inside Roblox Studio, then you can import a Roblox model
 file containing Prvd 'M Wrong.
@@ -38,7 +64,7 @@ file containing Prvd 'M Wrong.
 
 ---
 
-### Install via Wally/Pesde
+### From Wally/Pesde
 
 If you use [Wally](https://wally.run/) or [Pesde](https://pesde.daimond113.com/)
 for Luau, Prvd 'M Wrong has packages for both package managers.
@@ -55,20 +81,15 @@ for Luau, Prvd 'M Wrong has packages for both package managers.
     2. Copy the metadata below "Install", and append it below `[dependencies]` in
     your `wally.toml`:
 
-        ![Install](../assets/static/wally-install.png)
-
-        It will look like below, with the core package aliased to `prvd` for
-        brevity:
-
         ```TOML
         [dependencies]
-          prvd = "prvdmwrong/core@0.2.0"
+          prvd = "prvdmwrong/core@0.2.0-dev.8"
         ```
 
-    3. Then, install your packages:
+    3. Install your packages:
 
-        ```Bash
-        $ wally install
+        ```Sh
+        wally install
         ```
 
         This will install Prvd 'M Wrong under the `Packages` directory, which is
@@ -78,12 +99,12 @@ for Luau, Prvd 'M Wrong has packages for both package managers.
         local prvd = require(ReplicatedStorage.Packages.prvd)
         ```
 
-    4. If you'd want the linker modules to also export types, you can use the
+        If you'd want the linker modules to also export types, you can use the
         [Wally Package Types](https://github.com/JohnnyMorganz/wally-package-types)
         tool:
 
-        ```Bash
-        $ wally-package-types --sourcemap sourcemap.json Packages/
+        ```Sh
+        wally-package-types --sourcemap sourcemap.json Packages/
         ```
 
 === "Pesde"
@@ -103,7 +124,7 @@ for Luau, Prvd 'M Wrong has packages for both package managers.
 
 ---
 
-### Install via NPM
+### From NPM
 
 If you use Roblox TypeScript, Prvd 'M Wrong has type definitions and packages
 for [NPM](https://www.npmjs.com/).
@@ -117,7 +138,9 @@ for [NPM](https://www.npmjs.com/).
 
 2. Copy the command below "Install", and run it on a terminal:
 
-    ![Install](../assets/static/npm-install.png)
+    ```Sh
+    npm i prvdmwrong/core
+    ```
 
 3. Roblox TypeScript does not include Prvd 'M Wrong. Find the following
     JSON in your project file, it may be nested behind several levels:
@@ -151,7 +174,7 @@ for [NPM](https://www.npmjs.com/).
 
 ---
 
-### Install via Source
+### From Source
 
 If you are synchronizing external files into Roblox Studio, Prvd 'M Wrong can be
 imported as source code.
@@ -159,15 +182,27 @@ imported as source code.
 1. Head over to [Prvd 'M Wrong's 'Releases' page.](https://github.com/team-fireworks/prvdmwrong/releases)
 2. Click the "Assets" dropdown to view the downloadable files:
    ![Releases](../assets/static/github-releases.png)
-3. Under "Assets", download `Source code (zip)`. Inside is a copy of the Oh My
-  Prvd GitHub repository.:
+3. Under "Assets", download `Source code (zip)`. Inside is a copy of the Prvd 'M
+  Wrong GitHub repository:
    ![Releases](../assets/static/github-releases-src.png)
-4. Inside the zip, open `packages`, then the package you'd like to import,
-  and copy it's `lib` folder; it may be inside another folder.
-5. Create a new folder inside your project named "prvdmwrong", place it wherever
-  you keep your libraries.
-   - For example, you might paste it inside a `shared` or a `packages` folder.
-6. Paste the contents of the `lib` folder into the newly created folder.
+4. You need to build the packages itself to use it. Prvd 'M Wrong uses
+   [Rokit](https://github.com/rojo-rbx/rokit) for tooling:
+
+      ```Sh
+      rokit install
+      ```
+
+5. Run the build script and follow the prompts to build a package:
+
+      ```Sh
+      $ lune run build-pkg
+      ✔ Select packages to build, or none to build all packages · core, lifecycles
+      ✔ Build .rbxm models? · yes
+      ✔ Publish these packages to NPM and Wally? · no
+      ```
+
+6. The build script will create a `dist` with the built distributables. You can
+   copy the created distributables and place it next to your libraries.
 
 ---
 
@@ -177,7 +212,7 @@ Now, you can create a script for testing:
 
 1. Create a `Script` under `ServerScriptService`.
 2. Remove the following code, and paste this in. Tweak the require/import
-   to point at `prvdmwrong` depending on your installation:
+   statement to point at the installed package depending on your installation:
 
     === "Luau"
 

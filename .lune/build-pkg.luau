@@ -219,7 +219,7 @@ do
         local pesdeDependencies = {}
 
         for _, dependency in ipairs(dependencies) do
-          print(`\t=> Writing dependency {dependency}`)
+          print(`  => Writing dependency {dependency}`)
           wallyDependencies[dependency] = `{WALLY_SCOPE}/{dependency}@{version}`
           npmDependencies[`@{NPM_SCOPE}/{dependency}`] = version
           pesdeDependencies[dependency] = {

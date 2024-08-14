@@ -5,6 +5,8 @@
   in the root directory of this source tree.
 ]]
 
+local log = require("knit-compat/log")
+
 type Pack = { [number]: any, n: number }
 type Object = { [unknown]: unknown }
 
@@ -93,5 +95,7 @@ type Prvd = typeof(setmetatable(
 ))
 
 local prvd = _G.prvdmwrong
-assert(prvd ~= nil, "cannot find core prvdmwrong package")
+if prvd == nil then
+  log.noPrvd()
+end
 return prvd :: Prvd
