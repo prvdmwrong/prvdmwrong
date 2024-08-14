@@ -26,8 +26,8 @@ newcomer to the library.
     ideas and features, and build a solid foundation for the future.
 
     Don't be discouraged though, feel free to follow along with our development
-    and try using the library in your own time. We hope you enjoy using Oh My
-    Prvd!
+    and try using the library in your own time. We hope you enjoy using Prvd 'M
+    Wrong!
 
 ---
 
