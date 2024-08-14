@@ -142,8 +142,8 @@ for [NPM](https://www.npmjs.com/).
     npm i prvdmwrong/core
     ```
 
-3. Roblox TypeScript does not include Prvd 'M Wrong. Find the following
-    JSON in your project file, it may be nested behind several levels:
+3. Roblox TypeScript does not include Prvd 'M Wrong in the project. Find
+    `node_modules` in your project file, it may be nested behind several levels:
 
     ```JSON
     "node_modules": {
@@ -166,7 +166,7 @@ for [NPM](https://www.npmjs.com/).
     }
     ```
 
-4. Prvd' M Wrong can imported directly:
+4. Now Prvd 'M Wrong can imported directly:
 
     ```TypeScript
     import prvdmwrong from "@prvdmwrong/core"
