@@ -17,7 +17,7 @@
 ![Documentation Status](https://img.shields.io/github/actions/workflow/status/prvdmwrong/prvdmwrong/docs.yml?style=flat-square&label=Documentation)<br/>
 ![Prvd 'M Wrong is licensed under MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 ![Version](https://img.shields.io/github/v/tag/prvdmwrong/prvdmwrong?&style=flat-square)
-![NPM Version](https://img.shields.io/npm/v/%40rbxts%2Fprvdmwrong?style=flat-square)
+![NPM Version](https://img.shields.io/npm/v/%40prvdmwrong%2Fcore?style=flat-square)
 </br>
 <a href="https://github.com/prvdmwrong/prvdmwrong/releases">Download</a> ·
 <a href="https://prvdmwrong.github.io/prvdmwrong/latest">Documentation</a> ·
@@ -55,7 +55,7 @@ tutorial.](https://prvdmwrong.github.io/prvdmwrong/latest/tutorials/)
 ## Code Sample
 
 ```Luau
-local prvd = require("@pkg/prvdmwrong")
+local prvd = require("pkg/prvdmwrong")
 local CharacterProvider = require("./character-provider")
 
 local CombatProvider = {}
@@ -75,7 +75,7 @@ return prvd(CombatProvider)
 ```
 
 ```TypeScript
-import { Provider, use } from "@rbxts/prvdmwrong"
+import { Provider, use } from "@prvdmwrong/core"
 import { CharacterProvider } from "./character-provider"
 
 @Provider()
