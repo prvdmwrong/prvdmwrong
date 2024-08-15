@@ -7,7 +7,7 @@
 	margin-right: auto;
 	max-width: 120ch;
 	min-height: calc(var(--target-size) - var(--top-padding));
-	margin-top: calc(var(--vertical-padding) / 2);
+	margin-top: -6vh;
 	margin-bottom: calc(var(--vertical-padding) / 2);
 }
 
