@@ -1,194 +1,194 @@
-# Copyright (c) Team Fireworks 2024.
+# Copyright (c) znotfireman 2024.
 # This source code is licensed under the MIT license found in the LICENSE file
 # in the root directory of this source tree.
 
 site_name: Prvd 'M Wrong
 site_url: https://prvdmwrong.github.io/prvdmwrong
 site_description: >-
-  Prvd 'M Wrong is a service provider framework for a next-generation Roblox.
+    Prvd 'M Wrong is a service provider framework for a next-generation Roblox.
 
 repo_name: prvdmwrong/prvdmwrong
 repo_url: https://github.com/prvdmwrong/prvdmwrong
 
 plugins:
-  - search
-  - mike:
-      alias_type: symlink
-      canonical_version: null
-      css_dir: css
-      deploy_prefix: ''
-      javascript_dir: js
-      redirect_template: null
-      version_selector: true
+    - search
+    - mike:
+          alias_type: symlink
+          canonical_version: null
+          css_dir: css
+          deploy_prefix: ""
+          javascript_dir: js
+          redirect_template: null
+          version_selector: true
 
 extra:
-  version:
-    provider: mike
+    version:
+        provider: mike
 
 markdown_extensions:
-  - admonition
-  - attr_list
-  - md_in_html
-  - toc:
-      title: On this page
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-      options:
-        custom_icons:
-          - docs/overrides/.icons
-  - pymdownx.details
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed:
-      alternate_style: true
+    - admonition
+    - attr_list
+    - md_in_html
+    - toc:
+          title: On this page
+    - pymdownx.emoji:
+          emoji_index: !!python/name:material.extensions.emoji.twemoji
+          emoji_generator: !!python/name:material.extensions.emoji.to_svg
+          options:
+              custom_icons:
+                  - docs/overrides/.icons
+    - pymdownx.details
+    - pymdownx.highlight:
+          anchor_linenums: true
+          line_spans: __span
+          pygments_lang_class: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences:
+          custom_fences:
+              - name: mermaid
+                class: mermaid
+                format: !!python/name:pymdownx.superfences.fence_code_format
+    - pymdownx.tabbed:
+          alternate_style: true
 
 extra_css:
-  - assets/theme/404.css
-  - assets/theme/code.css
-  - assets/theme/home.css
-  - assets/theme/page.css
-  - assets/theme/pmwdoc.css
-  - assets/theme/reference.css
+    - assets/theme/404.css
+    - assets/theme/code.css
+    - assets/theme/home.css
+    - assets/theme/page.css
+    - assets/theme/pmwdoc.css
+    - assets/theme/reference.css
 
 theme:
-  name: material
-  custom_dir: docs/overrides
-  palette:
-    - media: "(prefers-color-scheme: dark)"
-      scheme: pmwdoc-dark
-      toggle:
-        icon: octicons/sun-24
-        title: Switch to light theme
-    - media: "(prefers-color-scheme: light)"
-      scheme: pmwdoc-light
-      toggle:
-        icon: octicons/moon-24
-        title: Switch to dark theme
-  font:
-    text: DM Sans
-    code: JetBrains Mono
-  logo: assets/wordmark-dark.svg
-  favicon: assets/logo-dark.svg
-  icon:
-    repo: fontawesome/brands/github
-    admonition:
-      note: octicons/tag-16
-      abstract: octicons/checklist-16
-      info: octicons/info-16
-      tip: octicons/flame-16
-      success: octicons/check-16
-      question: octicons/question-16
-      warning: octicons/alert-16
-      failure: octicons/x-circle-16
-      danger: octicons/zap-16
-      bug: octicons/bug-16
-      example: octicons/beaker-16
-      quote: octicons/quote-16
-  features:
-    - navigation.footer
-    - navigation.indexes
-    - navigation.instant
-    - navigation.instant.progress
-    - navigation.sections
-    - navigation.tabs
-    - navigation.top
-    - search.suggest
+    name: material
+    custom_dir: docs/overrides
+    palette:
+        - media: "(prefers-color-scheme: dark)"
+          scheme: pmwdoc-dark
+          toggle:
+              icon: octicons/sun-24
+              title: Switch to light theme
+        - media: "(prefers-color-scheme: light)"
+          scheme: pmwdoc-light
+          toggle:
+              icon: octicons/moon-24
+              title: Switch to dark theme
+    font:
+        text: DM Sans
+        code: JetBrains Mono
+    logo: assets/wordmark-dark.svg
+    favicon: assets/logo-dark.svg
+    icon:
+        repo: fontawesome/brands/github
+        admonition:
+            note: octicons/tag-16
+            abstract: octicons/checklist-16
+            info: octicons/info-16
+            tip: octicons/flame-16
+            success: octicons/check-16
+            question: octicons/question-16
+            warning: octicons/alert-16
+            failure: octicons/x-circle-16
+            danger: octicons/zap-16
+            bug: octicons/bug-16
+            example: octicons/beaker-16
+            quote: octicons/quote-16
+    features:
+        - navigation.footer
+        - navigation.indexes
+        - navigation.instant
+        - navigation.instant.progress
+        - navigation.sections
+        - navigation.tabs
+        - navigation.top
+        - search.suggest
 
 nav:
-  - Home: index.md
-  - Tutorials:
-    - tutorials/index.md
-    - Installation: tutorials/installation.md
-    - Fundamentals:
-      - Providers: tutorials/fundamentals/providers.md
-      - Startup: tutorials/fundamentals/startup.md
-      - Lifecycles: tutorials/fundamentals/lifecycles.md
-    - Net:
-      - Net: tutorials/net/index.md
-      - Events: tutorials/net/events.md
-      - Functions: tutorials/net/functions.md
-      - Middlewares: tutorials/net/middlewares.md
-      - Namespaces: tutorials/net/namespaces.md
-    - Components:
-      - Components: tutorials/components/index.md
-      - Usage: tutorials/components/usage.md
-      - Attributes: tutorials/components/attributes.md
-      - Inheritance: tutorials/components/inheritance.md
-    - Advanced:
-      - Migration: tutorials/advanced/migration.md
-      - Modding: tutorials/advanced/modding.md
-      - Code Snippets: tutorials/advanced/snippets.md
-      - Execution Order: tutorials/advanced/execution-order.md
-      - Philosophies: tutorials/advanced/philosophies.md
-  - Reference:
-    - reference/index.md
-    - Error Messages: reference/error-messages.md
-    - Core:
-      - reference/core/index.md
-      - Providers:
-        - reference/core/providers/index.md
-        - Provider: reference/core/providers/provider.md
-        - new: reference/core/providers/new.md
-        - StartupStatus: reference/core/providers/startup-status.md
-        - awaitStart: reference/core/providers/await-start.md
-        - onStart: reference/core/providers/on-start.md
-        - preload: reference/core/providers/preload.md
-        - start: reference/core/providers/start.md
-        - use: reference/core/providers/use.md
-      - Lifecycles:
-        - reference/core/lifecycles/index.md
-        - Lifecycle: reference/core/lifecycles/lifecycle.md
-        - fireConcurrent: reference/core/lifecycles/fire-concurrent.md
-        - fireSequential: reference/core/lifecycles/fire-sequential.md
-        - onLifecycleRegistered: reference/core/lifecycles/on-lifecycle-registered.md
-        - onLifecycleUnregistered: reference/core/lifecycles/on-lifecycle-unregistered.md
-      - Modding:
-        - reference/core/modding/index.md
-        - getStartupOptions: reference/core/modding/get-startup-options.md
-        - getStartupStatus: reference/core/modding/get-startup-status.md
-        - onProviderConstructed: reference/core/modding/on-provider-constructed.md
-        - onProviderUsed: reference/core/modding/on-provider-used.md
-      - Internal:
-        - reference/core/internal/index.md
-        - defineMetadata: reference/core/internal/define-metadata.md
-        - getMetadata: reference/core/internal/get-metadata.md
-        - deleteMetadata: reference/core/internal/delete-metadata.md
-        - registerAll: reference/core/internal/register-all.md
-        - registerMethod: reference/core/internal/register-method.md
-        - unregisterMethod: reference/core/internal/unregister-method.md
-        - registerDependency: reference/core/internal/register-dependency.md
-      - Types:
-        - reference/core/types/index.md
-        - Lifecycle: reference/core/types/lifecycle.md
-        - OnInit: reference/core/types/on-init.md
-        - OnStart: reference/core/types/on-start.md
-        - Options: reference/core/types/options.md
-        - Provider: reference/core/types/provider.md
-    - Lifecycles:
-      - reference/lifecycles/index.md
-      - Runtime:
-        - reference/lifecycles/runtime/index.md
-        - OnPostSimulation: reference/lifecycles/runtime/on-post-simulation.md
-        - OnPreSimulation: reference/lifecycles/runtime/on-pre-simulation.md
-        - OnPreRender: reference/lifecycles/runtime/on-pre-render.md
-        - OnShutdown: reference/lifecycles/runtime/on-shutdown.md
-      - Players:
-        - reference/lifecycles/players/index.md
-        - OnPlayerAdded: reference/lifecycles/players/on-player-added.md
-        - OnPlayerRemoved: reference/lifecycles/players/on-player-removed.md
-  - Extras:
-    - extras/index.md
-    - Backgrounds: extras/backgrounds/index.md
-    - Projects:
-      - extras/projects/index.md
-      - Prvd 'M Wrong Obby: extras/projects/obby.md
+    - Home: index.md
+    - Tutorials:
+          - tutorials/index.md
+          - Installation: tutorials/installation.md
+          - Fundamentals:
+                - Providers: tutorials/fundamentals/providers.md
+                - Startup: tutorials/fundamentals/startup.md
+                - Lifecycles: tutorials/fundamentals/lifecycles.md
+          - Net:
+                - Net: tutorials/net/index.md
+                - Events: tutorials/net/events.md
+                - Functions: tutorials/net/functions.md
+                - Middlewares: tutorials/net/middlewares.md
+                - Namespaces: tutorials/net/namespaces.md
+          - Components:
+                - Components: tutorials/components/index.md
+                - Usage: tutorials/components/usage.md
+                - Attributes: tutorials/components/attributes.md
+                - Inheritance: tutorials/components/inheritance.md
+          - Advanced:
+                - Migration: tutorials/advanced/migration.md
+                - Modding: tutorials/advanced/modding.md
+                - Code Snippets: tutorials/advanced/snippets.md
+                - Execution Order: tutorials/advanced/execution-order.md
+                - Philosophies: tutorials/advanced/philosophies.md
+    - Reference:
+          - reference/index.md
+          - Error Messages: reference/error-messages.md
+          - Core:
+                - reference/core/index.md
+                - Providers:
+                      - reference/core/providers/index.md
+                      - Provider: reference/core/providers/provider.md
+                      - new: reference/core/providers/new.md
+                      - StartupStatus: reference/core/providers/startup-status.md
+                      - awaitStart: reference/core/providers/await-start.md
+                      - onStart: reference/core/providers/on-start.md
+                      - preload: reference/core/providers/preload.md
+                      - start: reference/core/providers/start.md
+                      - use: reference/core/providers/use.md
+                - Lifecycles:
+                      - reference/core/lifecycles/index.md
+                      - Lifecycle: reference/core/lifecycles/lifecycle.md
+                      - fireConcurrent: reference/core/lifecycles/fire-concurrent.md
+                      - fireSequential: reference/core/lifecycles/fire-sequential.md
+                      - onLifecycleRegistered: reference/core/lifecycles/on-lifecycle-registered.md
+                      - onLifecycleUnregistered: reference/core/lifecycles/on-lifecycle-unregistered.md
+                - Modding:
+                      - reference/core/modding/index.md
+                      - getStartupOptions: reference/core/modding/get-startup-options.md
+                      - getStartupStatus: reference/core/modding/get-startup-status.md
+                      - onProviderConstructed: reference/core/modding/on-provider-constructed.md
+                      - onProviderUsed: reference/core/modding/on-provider-used.md
+                - Internal:
+                      - reference/core/internal/index.md
+                      - defineMetadata: reference/core/internal/define-metadata.md
+                      - getMetadata: reference/core/internal/get-metadata.md
+                      - deleteMetadata: reference/core/internal/delete-metadata.md
+                      - registerAll: reference/core/internal/register-all.md
+                      - registerMethod: reference/core/internal/register-method.md
+                      - unregisterMethod: reference/core/internal/unregister-method.md
+                      - registerDependency: reference/core/internal/register-dependency.md
+                - Types:
+                      - reference/core/types/index.md
+                      - Lifecycle: reference/core/types/lifecycle.md
+                      - OnInit: reference/core/types/on-init.md
+                      - OnStart: reference/core/types/on-start.md
+                      - Options: reference/core/types/options.md
+                      - Provider: reference/core/types/provider.md
+          - Lifecycles:
+                - reference/lifecycles/index.md
+                - Runtime:
+                      - reference/lifecycles/runtime/index.md
+                      - OnPostSimulation: reference/lifecycles/runtime/on-post-simulation.md
+                      - OnPreSimulation: reference/lifecycles/runtime/on-pre-simulation.md
+                      - OnPreRender: reference/lifecycles/runtime/on-pre-render.md
+                      - OnShutdown: reference/lifecycles/runtime/on-shutdown.md
+                - Players:
+                      - reference/lifecycles/players/index.md
+                      - OnPlayerAdded: reference/lifecycles/players/on-player-added.md
+                      - OnPlayerRemoved: reference/lifecycles/players/on-player-removed.md
+    - Extras:
+          - extras/index.md
+          - Backgrounds: extras/backgrounds/index.md
+          - Projects:
+                - extras/projects/index.md
+                - Prvd 'M Wrong Obby: extras/projects/obby.md
