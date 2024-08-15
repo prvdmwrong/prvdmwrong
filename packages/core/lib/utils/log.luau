@@ -18,7 +18,7 @@ local MESSAGES = table.freeze {
   invalidOnStartCallback = "`prvd.onStart(callback)` expects a callback",
   multipleInstalls = "there are multiple installations of prvdmwrong, this can lead to unexpected behavior",
   onInitError = "cannot initialize %s; %s",
-  onMethodImplementedWasDeprecated = "`onMethodImplemented` was deprecated, use `onMethodAdded` for observing lifecycles or create a `Lifecycle`. this will be an error in future versions of Prvd 'M Wrong",
+  onMethodImplementedWasDeprecated = "`onMethodImplemented` was deprecated, use `onMethodAdded` for observing lifecycles or create a `Lifecycle`. this will be an error in future versions of prvd 'm wrong",
   registerAfterStartup = "cannot register providers after startup",
   requireError = "cannot require %s; %s",
   unknownError = "unknown error: %s. this indicates prvdmwrong isn't reporting errors correctly, please file an issue",
@@ -37,7 +37,7 @@ local function formatError(id: string, trace: string?, ...: unknown)
     id = "unknownError"
   end
 
-  local formatted = `[OMP({id})]: {message}`
+  local formatted = `[Prvd 'M Wrong ({id})]: {message}`
   if select("#", ...) > 0 then
     formatted = formatted:format(...)
   end

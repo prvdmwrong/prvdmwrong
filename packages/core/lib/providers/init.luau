@@ -5,25 +5,15 @@
   in the root directory of this source tree.
 ]]
 
+local HttpService = game:GetService("HttpService")
 local RunService = game:GetService("RunService")
 
 local Lifecycles = require("core/lifecycles")
-local Log = require("core/log")
+local Log = require("core/utils/Log")
 local Modding = require("core/modding")
 local Reflection = require("core/modding/reflection")
+local Threads = require("core/utils/threads")
 local Types = require("core/types")
-local threads = require("core/utils/threads")
-local unique = require("core/utils/unique")
-local expect = Log.expect
-local parseError = Log.parseError
-local throw = Log.throw
-
-type Lifecycle<Interface = { [any]: any }> = Types.Lifecycle<Interface>
-type OnInit = Types.OnInit
-type OnStart = Types.OnStart
-type Options = Types.Options
-type Provider<T> = Types.Provider<T>
-type StartupStatus = Types.StartupStatus
 
 local PROVIDER_KEY = newproxy(true) :: { __PROVIDER_KEY__: never? }
 getmetatable(PROVIDER_KEY :: any).__tostring = function()
@@ -32,7 +22,7 @@ end
 
 local WEAK_KEYS_METATABLE = { __mode = "k" }
 
-local DEFAULT_OPTIONS: Options = {
+local DEFAULT_OPTIONS: Types.Options = {
   logLevel = "none",
   profiling = RunService:IsStudio(),
 }
@@ -43,19 +33,20 @@ local StartupStatus = table.freeze {
   Started = "StartupStatus.Started" :: "StartupStatus.Started",
 }
 
--- If we held strong references to threads here, then if a thread was killed
+-- If we held strong references to Threads here, then if a thread was killed
 -- before Prvd 'M Wrong is ignited, it would be held strongly in this table forever
 local awaitingThreads: { [thread]: true } = setmetatable({} :: any, WEAK_KEYS_METATABLE)
 local awaitingCallbacks: { () -> () } = {}
-local status: StartupStatus = StartupStatus.Pending
+local status: Types.StartupStatus = StartupStatus.Pending
 
-local providers: { [Provider<unknown>]: string } = {}
-local startupOptions: Options? = nil
+local providers: { [Types.Provider<unknown>]: true } = {}
+local startupOptions: Types.Options? = nil
 
 local Prvd = {}
 Prvd.StartupStatus = StartupStatus
 
-local function topologicalSort(objects: { string }): { [string]: number }
+-- This returns a map because table.sort is unstable.
+local function topoSort(objects: { string }): { [string]: number }
   local currentSize = 0
   local sorted: { [string]: number } = {}
   local visited: { [string]: true } = {}
@@ -87,7 +78,7 @@ local function topologicalSort(objects: { string }): { [string]: number }
   return sorted
 end
 
-local function reconcileOptions(options: { [any]: any }): Options
+local function reconcileOptions(options: { [any]: any }): Types.Options
   local reconciled = table.clone(DEFAULT_OPTIONS)
   for key, value in pairs(reconciled) do
     local givenValue = options[key]
@@ -103,30 +94,34 @@ end
   Constructs and returns a new provider within Prvd 'M Wrong. Providers must be
   created before calling `Prvd.start()`.
 ]]
-function Prvd.new<T>(provider: T): Provider<T>
-  expect(status == StartupStatus.Pending, "registerAfterStarted")
-  expect(typeof(provider) == "table", "cannotRegister", nil, "provider must be a table")
-  expect(not table.isfrozen(provider :: any), "cannotRegister", nil, "provider cannot be frozen")
+function Prvd.new<T>(provider: T): Types.Provider<T>
+  Log.expect(status == StartupStatus.Pending, "registerAfterStarted")
+  Log.expect(typeof(provider) == "table", "cannotRegister", nil, "provider must be a table")
+  Log.expect(not table.isfrozen(provider :: any), "cannotRegister", nil, "provider cannot be frozen")
 
-  local newProvider = provider :: Provider<T>
-  expect(
+  local newProvider = provider :: Types.Provider<T>
+  Log.expect(
     newProvider.loadOrder == nil or tonumber(newProvider.loadOrder),
     "cannotRegister",
     "`loadOrder` should be a number"
   )
-  expect(newProvider.name == nil or typeof(newProvider.name == "string"), "cannotRegister", "`name` should be a string")
+  Log.expect(
+    newProvider.name == nil or typeof(newProvider.name == "string"),
+    "cannotRegister",
+    "`name` should be a string"
+  )
 
   do
     -- This has to be in a do ... end block or else we get ambiguous syntax
     (newProvider :: any)[PROVIDER_KEY] = newProvider
   end
 
-  local name = newProvider.name or `Provider_{unique()}`
+  local name = newProvider.name or `Provider_{HttpService:GenerateGUID(false)}`
   Reflection.defineMetadata(provider, "identifier", name)
   Reflection.defineMetadata(provider, "prvdmwrong:provider", true)
   Reflection.defineMetadata(provider, "prvdmwrong:loadOrder", newProvider.loadOrder)
 
-  providers[newProvider] = name
+  providers[newProvider] = true
   Modding.doProviderConstructed(newProvider)
   return newProvider
 end
@@ -138,16 +133,16 @@ end
 function Prvd.Provider(options: { loadOrder: number? }?)
   local reconciledOptions: { loadOrder: number? } = options or {}
   return function<T>(provider: T)
-    expect(typeof(provider) == "table", "cannotRegister", nil, "provider must be a table")
-    expect(not table.isfrozen(provider :: any), "cannotRegister", nil, "provider cannot be frozen")
+    Log.expect(typeof(provider) == "table", "cannotRegister", nil, "provider must be a table")
+    Log.expect(not table.isfrozen(provider :: any), "cannotRegister", nil, "provider cannot be frozen")
 
-    expect(
+    Log.expect(
       typeof((provider :: any).new) == "function",
       "cannotRegister",
       nil,
       "must use TypeScript decorator on a class"
     )
-    expect(
+    Log.expect(
       typeof((provider :: any).__tostring) == "function",
       "cannotRegister",
       nil,
@@ -157,9 +152,8 @@ function Prvd.Provider(options: { loadOrder: number? }?)
     local newProvider = (provider :: any).new()
     local name = newProvider:__tostring()
 
-    expect(typeof(name) == "string", "cannotRegister", nil, `expected provider class __tostring to return a string`)
-    expect(typeof(name) == "string", "cannotRegister", nil, "`name` must be a string")
-    expect(name:len() > 0, "cannotRegister", nil, "`name` cannot be empty")
+    Log.expect(typeof(name) == "string", "cannotRegister", nil, "`name` must be a string")
+    Log.expect(name:len() > 0, "cannotRegister", nil, "`name` cannot be empty")
 
     do
       -- This has to be in a do ... end block or else we get ambiguous syntax
@@ -179,9 +173,13 @@ end
   Uses a provider within Prvd 'M Wrong. During startup, Prvd 'M Wrong will inject
   the dependencies your provider uses.
 ]]
-function Prvd.use<T>(provider: Provider<T>): T
-  expect(status == StartupStatus.Pending, "useAfterStarted")
-  local identifier = expect(providers[provider], "cannotUseNonProvider")
+
+-- TODO: why not use a proxy table for this? or even better, how about we let
+-- the user specify the required provider directly, and set a metatable on it
+-- to prevent indexing
+function Prvd.use<T>(provider: Types.Provider<T>): T
+  Log.expect(status == StartupStatus.Pending, "useAfterStarted")
+  local identifier = Log.expect(providers[provider], "cannotUseNonProvider")
   Modding.doProviderUsed(provider)
   return setmetatable(
     {
@@ -190,14 +188,14 @@ function Prvd.use<T>(provider: Provider<T>): T
     {
       __metatable = "This metatable is locked.",
       __index = function(_: unknown): never
-        return throw("usedBeforeStartup", nil, identifier)
+        return Log.throw("usedBeforeStartup", nil, identifier)
       end,
     }
   )
 end
 
 --[[
-  Starts Prvd 'M Wrong. Expected to be called once in an environment, e.g. once on
+  Starts Prvd 'M Wrong. Log.expected to be called once in an environment, e.g. once on
   the server and once on the client.
 
   All necessary providers should be preloaded before calling this as newly
@@ -207,7 +205,7 @@ function Prvd.start(options: {
   logLevel: "none" | "verbose" | nil,
   profiling: boolean?,
 }?)
-  expect(status == StartupStatus.Pending, "alreadyStarted")
+  Log.expect(status == StartupStatus.Pending, "alreadyStarted")
   status = StartupStatus.Starting
 
   local reconciledOptions = reconcileOptions(options or {})
@@ -216,7 +214,7 @@ function Prvd.start(options: {
   local isVerbose = reconciledOptions.logLevel == "verbose"
   local function verbose(...: unknown)
     if isVerbose then
-      print("[OMP(verbose)]:", ...)
+      print("[Prvd 'M Wrong (verbose)]:", ...)
     end
   end
 
@@ -238,21 +236,25 @@ function Prvd.start(options: {
   -- see https://github.com/JohnnyMorganz/StyLua/issues/881
   local dependencies: {
     {
-      instance: Provider<unknown>,
+      instance: Types.Provider<unknown>,
       loadOrder: number,
       identifier: string,
     }
   } = {}
 
-  for provider, identifier in pairs(providers) do
-    table.insert(dependencies, {
-      instance = provider,
-      loadOrder = provider.loadOrder or 1,
-      identifier = identifier,
-    })
+  -- First, iterate over all providers to figure out an appropriate load order.
+  -- To retrieve used dependencies this loop will deeply-iterate over providers
+  -- until it finds a used dependency.
+  for provider in pairs(providers) do
     if not Reflection.getMetadata(provider, "prvdmwrong:provider") then
       continue
     end
+    table.insert(dependencies, {
+      instance = provider,
+      loadOrder = provider.loadOrder or 1,
+      identifier = Reflection.getIdentifier(provider),
+    })
+
     local encountered = {}
     local usedDependencies = {}
     local function resolveUsedDependencies(target: unknown, key: unknown, parent: { [unknown]: unknown })
@@ -273,19 +275,24 @@ function Prvd.start(options: {
           return
         end
       end
+
       for key, value in pairs(target :: Types.Object) do
         resolveUsedDependencies(value, key, target :: Types.Object)
       end
     end
+
     resolveUsedDependencies(provider, nil, provider)
     Reflection.defineMetadata(provider, "prvdmwrong:dependencies", usedDependencies)
   end
 
+  -- Second, we can topologically sort the resolved dependencies so dependencies
+  -- appear before dependents. Afterwards initialization and startup is ready.
   local identifiers = {}
   for index, dependency in ipairs(dependencies) do
     identifiers[index] = dependency.identifier
   end
-  local sortedDependencies = topologicalSort(identifiers)
+
+  local sortedDependencies = topoSort(identifiers)
   table.sort(dependencies, function(a, b)
     if a.loadOrder ~= b.loadOrder then
       return a.loadOrder < b.loadOrder
@@ -295,7 +302,7 @@ function Prvd.start(options: {
     return aIndex < bIndex
   end)
 
-  local onInit: Lifecycle<OnInit> = Lifecycles.Lifecycle("onInit", function(self)
+  local onInit: Types.Lifecycle<Types.OnInit> = Lifecycles.Lifecycle("onInit", function(self)
     for _, provider in ipairs(self.listeners) do
       local identifier = Reflection.getIdentifier(provider, ":onInit")
       if reconciledOptions.profiling then
@@ -304,19 +311,19 @@ function Prvd.start(options: {
 
       verbose("running lifecycle", identifier)
 
-      local ok, result: any = xpcall(provider.onInit, parseError, provider)
+      local ok, result: any = xpcall(provider.onInit, Log.parseError, provider)
       if not ok then
         local error: Types.Error = result
-        throw("onInitError", error.trace, identifier, error.message)
+        Log.throw("onInitError", error.trace, identifier, error.message)
       end
     end
   end)
 
-  local onStart: Lifecycle<OnStart> = Lifecycles.Lifecycle("onStart", function(self)
+  local onStart: Types.Lifecycle<Types.OnStart> = Lifecycles.Lifecycle("onStart", function(self)
     for _, provider in ipairs(self.listeners) do
       local identifier = Reflection.getIdentifier(provider, ":onStart")
       verbose("running lifecycle", identifier)
-      threads.spawn(profileCallback(provider.onStart, identifier), provider)
+      Threads.spawn(profileCallback(provider.onStart, identifier), provider)
     end
   end)
 
@@ -328,14 +335,24 @@ function Prvd.start(options: {
   debug.resetmemorycategory()
   onStart:fire()
 
-  for thread in pairs(awaitingThreads) do
-    task.spawn(thread)
-  end
   for _, callback in pairs(awaitingCallbacks) do
-    threads.spawn(callback)
+    Threads.spawn(callback)
   end
 
   status = StartupStatus.Started
+end
+
+--[[
+  Queues a callback to be called just before ignition finishes. If Prvd 'M Wrong
+  has already started, the callback will be spawned immediately.
+]]
+function Prvd.onStart(callback: () -> ())
+  if status ~= StartupStatus.Pending then
+    Threads.spawn(callback)
+    return
+  end
+  Log.expect(typeof(callback) == "function", "invalidOnIgnitionCallback")
+  table.insert(awaitingCallbacks, callback)
 end
 
 --[[
@@ -350,33 +367,11 @@ function Prvd.awaitStart()
   coroutine.yield()
 end
 
---[[
-  Queues a callback to be called just before ignition finishes. If Prvd 'M Wrong
-  has already started, the callback will be spawned immediately.
-]]
-function Prvd.onStart(callback: () -> ())
-  if status ~= StartupStatus.Pending then
-    threads.spawn(callback)
-    return
+Prvd.onStart(function()
+  for thread in pairs(awaitingThreads) do
+    task.spawn(thread)
   end
-  expect(typeof(callback) == "function", "invalidOnIgnitionCallback")
-  table.insert(awaitingCallbacks, callback)
-end
-
---[[
-  Returns the start configuration options. Options are reconciled with
-  default values.
-]]
-function Prvd.getStartupOptions(): Options
-  return reconcileOptions(startupOptions or {})
-end
-
---[[
-  Returns the current startup status of Prvd 'M Wrong.
-]]
-function Prvd.getStartupStatus(): StartupStatus
-  return status
-end
+end)
 
 --[[
   Preload the specified parent by requiring all ModuleScripts within it. An
@@ -391,11 +386,26 @@ function Prvd.preload(instances: { Instance }, predicate: ((ModuleScript) -> boo
     if predicate and not predicate(module) then
       continue
     end
-    local ok, result: Types.Error = xpcall(require, parseError, module)
-    expect(ok, "requireError", result.trace, module:GetFullName(), result.message)
+    local ok, result: Types.Error = xpcall(require, Log.parseError, module)
+    Log.expect(ok, "requireError", result.trace, module:GetFullName(), result.message)
     table.insert(exports, result)
   end
   return exports
+end
+
+--[[
+  Returns the start configuration options. Options are reconciled with
+  default values.
+]]
+function Prvd.getStartupOptions(): Types.Options
+  return reconcileOptions(startupOptions or {})
+end
+
+--[[
+  Returns the current startup status of Prvd 'M Wrong.
+]]
+function Prvd.getStartupStatus(): Types.StartupStatus
+  return status
 end
 
 --[[
@@ -405,12 +415,12 @@ end
   @internal
 ]]
 function Prvd.registerDependency(identifier: string, dependency: Types.Object)
-  expect(typeof(identifier) == "string", "cannotRegister", nil, "`identifier` must be a string")
-  expect(identifier:len() > 0, "cannotRegister", nil, "`identifier` cannot be empty")
-  expect(typeof(dependency) == "table", "cannotRegister", nil, "must be a table")
-  expect(not table.isfrozen(dependency :: any), "cannotRegister", nil, "cannot be frozen")
-  expect(providers[dependency :: any] == nil, "cannotRegister", nil, `already registered "{identifier}"`)
-  providers[dependency :: any] = identifier
+  Log.expect(typeof(identifier) == "string", "cannotRegister", nil, "`identifier` must be a string")
+  Log.expect(identifier:len() > 0, "cannotRegister", nil, "`identifier` cannot be empty")
+  Log.expect(typeof(dependency) == "table", "cannotRegister", nil, "must be a table")
+  Log.expect(not table.isfrozen(dependency :: any), "cannotRegister", nil, "cannot be frozen")
+  Log.expect(providers[dependency :: any] == nil, "cannotRegister", nil, `already registered "{identifier}"`)
+  providers[dependency :: any] = true
   Reflection.defineMetadata(dependency, "identifier", identifier)
 end
 

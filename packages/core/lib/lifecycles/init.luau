@@ -5,10 +5,10 @@
   in the root directory of this source tree.
 ]]
 
-local Log = require("core/log")
 local Types = require("core/types")
-local expect = Log.expect
-local warn = Log.warn
+local log = require("core/utils/log")
+local expect = log.expect
+local warn = log.warn
 
 type Lifecycle<Interface = { [any]: any }> = Types.Lifecycle
 type Object = { [unknown]: unknown }
@@ -71,6 +71,9 @@ end
   Constructs and returns a lifecycle method.
 ]]
 function Lifecycles.Lifecycle(method: string, fire: (self: Lifecycle, ...unknown) -> ()): Lifecycle
+  expect(typeof(method) == "string", "cannotRegisterLifecycle", nil, "expected a method to register with")
+  expect(typeof(fire) == "function", "cannotRegisterLifecycle", nil, "expected a function for firing")
+
   local self = {} :: Lifecycle
   self.listeners = {}
   self.method = method
