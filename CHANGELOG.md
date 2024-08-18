@@ -75,6 +75,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Deprecated `prvd.onMethodImplemented`, use `prvd.onMethodRegistered` for
   observing lifecycle methods or `prvd.Lifecycle` to implement a lifecycle
   method
+- Deprecated `prvd.use`, specify providers directly instead
 
 ### Removed
 
