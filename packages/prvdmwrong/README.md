@@ -1,23 +1,23 @@
 <div align="center">
 <img
   align="center"
-  src="https://raw.githubusercontent.com/team-fireworks/prvdmwrong/main/assets/wordmark-dark.svg#gh-dark-mode-only"
+  src="https://raw.githubusercontent.com/prvdmwrong/prvdmwrong/main/assets/wordmark-dark.svg#gh-dark-mode-only"
   alt="Prvd 'M Wrong"
   width="500px"/>
 <img
   align="center"
-  src="https://raw.githubusercontent.com/team-fireworks/prvdmwrong/main/assets/wordmark-light.svg#gh-light-mode-only"
+  src="https://raw.githubusercontent.com/prvdmwrong/prvdmwrong/main/assets/wordmark-light.svg#gh-light-mode-only"
   alt="Prvd 'M Wrong"
   width="500px"/>
 
 <br/>
 <br/>
 
-![Continuous Integration](https://img.shields.io/github/actions/workflow/status/prvdmwrong/prvdmwrong/ci.yml?style=flat-square&label=Continuous%20Integration)
-![Documentation Status](https://img.shields.io/github/actions/workflow/status/prvdmwrong/prvdmwrong/docs.yml?style=flat-square&label=Documentation)<br/>
-![Prvd 'M Wrong is licensed under MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
-![Version](https://img.shields.io/github/v/tag/prvdmwrong/prvdmwrong?&style=flat-square)
-![NPM Version](https://img.shields.io/npm/v/%40rbxts%2Fprvdmwrong?style=flat-square)
+[![Continuous Integration](https://img.shields.io/github/actions/workflow/status/prvdmwrong/prvdmwrong/ci.yml?style=flat-square&label=Continuous%20Integration)](https://github.com/prvdmwrong/prvdmwrong/actions/workflows/ci.yml)
+[![Documentation Status](https://img.shields.io/github/actions/workflow/status/prvdmwrong/prvdmwrong/docs.yml?style=flat-square&label=Documentation)](https://github.com/prvdmwrong/prvdmwrong/actions/workflows/docs.yml)<br/>
+![Prvd 'M Wrong is dual-licensed under MIT](https://img.shields.io/badge/license-MIT%20or%20Apache%202.0-blue?style=flat-square)
+[![Releases](https://img.shields.io/github/v/tag/prvdmwrong/prvdmwrong?&style=flat-square)](https://github.com/prvdmwrong/prvdmwrong/releases)
+[![NPM Version](https://img.shields.io/npm/v/%40prvdmwrong%2Fcore?style=flat-square)](https://www.npmjs.com/package/@prvdmwrong/core)
 </br>
 <a href="https://github.com/prvdmwrong/prvdmwrong/releases">Download</a> ·
 <a href="https://prvdmwrong.github.io/prvdmwrong/latest">Documentation</a> ·
@@ -27,7 +27,7 @@
 
 Prvd 'M Wrong is a service provider framework for a next-generation Roblox.
 
-Sounds boring. Let's do that again.
+Sounds boring. Let's try again.
 
 **Prvd 'M Wrong will not make you a front page Roblox developer... but you may
 feel like one.**
@@ -55,7 +55,7 @@ tutorial.](https://prvdmwrong.github.io/prvdmwrong/latest/tutorials/)
 ## Code Sample
 
 ```Luau
-local prvd = require("@pkg/prvdmwrong")
+local prvd = require("pkg/prvdmwrong")
 local CharacterProvider = require("./character-provider")
 
 local CombatProvider = {}
