@@ -14,7 +14,7 @@ export type WorkerType = Types.WorkerType
 type PromiseLib = Types.PromiseLib
 type Signal = typeof(Signal.new())
 
-local EVENT_LOOKUP: { [string]: RBXScriptSignal } = {
+local WORKER_TYPES: { [string]: RBXScriptSignal } = {
   PostSimulation = RunService.PostSimulation,
   PreSimulation = RunService.PreSimulation,
   PreAnimation = RunService.PreAnimation,
@@ -58,7 +58,7 @@ function LuminCompat.Worker(type: WorkerType, callback: (...any) -> ())
     "lifecycles have furthered customizability and hook onto providers, with the lifecycles package already implementing all workers Lumin Framework offers as lifecycles"
   )
 
-  local signal = log.expect(EVENT_LOOKUP[type], "luminMissingWorker", type)
+  local signal = log.expect(WORKER_TYPES[type], "luminMissingWorker", type)
   signal:Connect(callback)
 
   local self = {}
