@@ -240,8 +240,9 @@ do
       fs.writeFile(`{cwd}/dist/{package}/package.json`, serde.encode("json", npm))
       print("=> Writing pesde.yaml")
       fs.writeFile(`{cwd}/dist/{package}/pesde.yaml`, serde.encode("yaml", pesde))
-      print("=> Copying LICENSE.md")
-      fs.copy(`{cwd}/LICENSE.md`, `{cwd}/dist/{package}/LICENSE.md`)
+      print("=> Copying license files")
+      fs.copy(`{cwd}/LICENSE-MIT.md`, `{cwd}/dist/{package}/LICENSE-MIT.md`)
+      fs.copy(`{cwd}/LICENSE-APACHE.md`, `{cwd}/dist/{package}/LICENSE-APACHE.md`)
 
       if fs.isFile(`{cwd}/packages/{package}/README.md`) then
         print(`=> Writing existing README.md`)
