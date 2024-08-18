@@ -58,6 +58,11 @@
 	background-image: url(../wordmark-dark.svg);
 }
 
+.md-typeset .grid.cards > ul > li:hover {
+	border-color: 0.05rem solid var(--md-default-fg-color--lightest);
+	box-shadow: none;
+}
+
 .md-typeset a:focus,
 .md-typeset a:hover {
 	opacity: 50%;
