@@ -58,11 +58,7 @@ local PROJECT = [[{
 }]]
 
 local BASE_LUAU = [[--!strict
---[[
-  Copyright (c) znotfireman 2024.
-  This source code is licensed under the MIT license found in the LICENSE file
-  in the root directory of this source tree.
-]]
+-- The Prvd 'M Wrong project is dual-licensed under Apache 2.0 and MIT terms.
 BASE_LUAU ..= "]]"
 
 local PRVD_LUAU = BASE_LUAU
