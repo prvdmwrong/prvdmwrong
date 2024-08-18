@@ -5,8 +5,8 @@
   in the root directory of this source tree.
 ]]
 
-local Types = require("prvdmwrong-core/types")
-local log = require("prvdmwrong-core/utils/log")
+local Types = require("prvdmwrong/types")
+local log = require("prvdmwrong/utils/log")
 
 do
   if _G.prvdmwrong ~= nil then
@@ -15,10 +15,10 @@ do
   end
 end
 
-local Lifecycles = require("prvdmwrong-core/lifecycles")
-local Modding = require("prvdmwrong-core/modding")
-local Providers = require("prvdmwrong-core/providers")
-local Reflection = require("prvdmwrong-core/modding/reflection")
+local Lifecycles = require("prvdmwrong/lifecycles")
+local Modding = require("prvdmwrong/modding")
+local Providers = require("prvdmwrong/providers")
+local Reflection = require("prvdmwrong/modding/reflection")
 
 export type Lifecycle<Interface = { [any]: any }> = Types.Lifecycle<Interface>
 export type OnInit = Types.OnInit

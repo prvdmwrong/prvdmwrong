@@ -5,8 +5,8 @@
   in the root directory of this source tree.
 ]]
 
-local Types = require("prvdmwrong-core/types")
-local log = require("prvdmwrong-core/utils/log")
+local Types = require("prvdmwrong/types")
+local log = require("prvdmwrong/utils/log")
 local expect = log.expect
 local warn = log.warn
 

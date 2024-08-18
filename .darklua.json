@@ -10,7 +10,7 @@
       "current": {
         "name": "path",
         "sources": {
-          "prvdmwrong-core": "packages/prvdmwrong-core/lib",
+          "prvdmwrong": "packages/prvdmwrong/lib",
           "prvdmwrong-net": "packages/prvdmwrong-net/lib",
           "prvdmwrong-components": "packages/prvdmwrong-components/lib",
           "prvdmwrong-lifecycles": "packages/prvdmwrong-lifecycles/lib",

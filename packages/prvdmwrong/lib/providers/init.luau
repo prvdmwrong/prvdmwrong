@@ -8,12 +8,12 @@
 local HttpService = game:GetService("HttpService")
 local RunService = game:GetService("RunService")
 
-local Lifecycles = require("prvdmwrong-core/lifecycles")
-local Log = require("prvdmwrong-core/utils/Log")
-local Modding = require("prvdmwrong-core/modding")
-local Reflection = require("prvdmwrong-core/modding/reflection")
-local Threads = require("prvdmwrong-core/utils/threads")
-local Types = require("prvdmwrong-core/types")
+local Lifecycles = require("prvdmwrong/lifecycles")
+local Log = require("prvdmwrong/utils/Log")
+local Modding = require("prvdmwrong/modding")
+local Reflection = require("prvdmwrong/modding/reflection")
+local Threads = require("prvdmwrong/utils/threads")
+local Types = require("prvdmwrong/types")
 
 local PROVIDER_KEY = newproxy(true) :: { __PROVIDER_KEY__: never? }
 getmetatable(PROVIDER_KEY :: any).__tostring = function()
