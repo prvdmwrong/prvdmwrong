@@ -47,7 +47,7 @@ function LuminCompat.Controller<T>(name: string, members: T & {}): prvd.Provider
   prvd.internal.registerDependency(name, controller :: any)
   prvd.internal.defineMetadata(controller, "prvdmwrong:provider", true)
   prvd.internal.defineMetadata(controller, "prvdmwrong:luminProvider", true)
-  return members :: any
+  return controller :: any
 end
 
 function LuminCompat.Worker(type: WorkerType, callback: (...any) -> ())
