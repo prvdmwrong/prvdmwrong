@@ -5,8 +5,8 @@
   in the root directory of this source tree.
 ]]
 
-local Types = require("core/types")
-local log = require("core/utils/log")
+local Types = require("prvdmwrong-core/types")
+local log = require("prvdmwrong-core/utils/log")
 local expect = log.expect
 local warn = log.warn
 
@@ -19,10 +19,10 @@ Lifecycles.methodUnregistered = {} :: { [string]: { [{}]: (Object) -> () } }
 Lifecycles.lifecycleMethods = {} :: { [string]: { [Lifecycle]: true } }
 
 --[[
-  Registers lifecycle methods for an object.
+  Implements lifecycle methods for an object.
   @internal
 ]]
-function Lifecycles.registerMethod(object: Object, method: string)
+function Lifecycles.implementMethod(method: string, object: Object)
   local methodRegistered = Lifecycles.methodRegistered[method]
   if not methodRegistered then
     return
@@ -34,10 +34,10 @@ function Lifecycles.registerMethod(object: Object, method: string)
 end
 
 --[[
-  Unregister lifecycle methods from an object.
+  Unimplements lifecycle methods from an object.
   @internal
 ]]
-function Lifecycles.unregisterMethod(object: Object, method: string)
+function Lifecycles.unimplementMethod(method: string, object: Object)
   if not object or not object[method] then
     return
   end
@@ -53,10 +53,10 @@ function Lifecycles.unregisterMethod(object: Object, method: string)
 end
 
 --[[
-  Registers all lifecycle methods on an object.
+  Implements all lifecycle methods on an object.
   @internal
 ]]
-function Lifecycles.registerAll(object: Object)
+function Lifecycles.implementAll(object: Object)
   for method, lifecycles in pairs(Lifecycles.lifecycleMethods) do
     if typeof(object[method]) ~= "function" then
       continue
@@ -82,7 +82,7 @@ function Lifecycles.Lifecycle(method: string, fire: (self: Lifecycle, ...unknown
   function self:register(object)
     expect(typeof(object[method]) == "function", "cannotRegisterLifecycle", nil, `{method} must be a method`)
     expect(not table.find(self.listeners, object), "cannotRegisterLifecycle", nil, `already registered this lifecycle`)
-    Lifecycles.registerMethod(object, method)
+    Lifecycles.implementMethod(method, object)
     table.insert(self.listeners, object)
   end
 
@@ -90,7 +90,7 @@ function Lifecycles.Lifecycle(method: string, fire: (self: Lifecycle, ...unknown
     local index = table.find(self.listeners, object)
     if table.find(self.listeners, object) then
       table.remove(self.listeners, index)
-      Lifecycles.unregisterMethod(object, method)
+      Lifecycles.unimplementMethod(method, object)
     end
   end
 

@@ -72,9 +72,9 @@ export type PrvdNamespace = {
   onProviderUsed: (handler: (Provider<unknown>) -> ()) -> (),
 
   internal: {
-    registerAll: (object: Object) -> (),
-    registerMethod: (object: Object, method: string) -> (),
-    unregisterMethod: (object: Object, method: string) -> (),
+    implementAll: (object: Object) -> (),
+    implementMethod: (method: string, object: Object) -> (),
+    unimplementMethod: (method: string, object: Object) -> (),
 
     defineMetadata: (object: unknown, key: string, value: unknown) -> (),
     getMetadata: (object: unknown, key: string) -> unknown?,

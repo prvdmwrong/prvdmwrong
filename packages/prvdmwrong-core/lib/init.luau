@@ -5,8 +5,8 @@
   in the root directory of this source tree.
 ]]
 
-local Types = require("core/types")
-local log = require("core/utils/log")
+local Types = require("prvdmwrong-core/types")
+local log = require("prvdmwrong-core/utils/log")
 
 do
   if _G.prvdmwrong ~= nil then
@@ -15,10 +15,10 @@ do
   end
 end
 
-local Lifecycles = require("core/lifecycles")
-local Modding = require("core/modding")
-local Providers = require("core/providers")
-local Reflection = require("core/modding/reflection")
+local Lifecycles = require("prvdmwrong-core/lifecycles")
+local Modding = require("prvdmwrong-core/modding")
+local Providers = require("prvdmwrong-core/providers")
+local Reflection = require("prvdmwrong-core/modding/reflection")
 
 export type Lifecycle<Interface = { [any]: any }> = Types.Lifecycle<Interface>
 export type OnInit = Types.OnInit
@@ -56,9 +56,9 @@ local prvd: Types.PrvdNamespace = table.freeze {
 
   -- Internal API
   internal = table.freeze {
-    registerAll = Lifecycles.registerAll,
-    registerMethod = Lifecycles.registerMethod,
-    unregisterMethod = Lifecycles.unregisterMethod,
+    implementAll = Lifecycles.implementAll,
+    implementMethod = Lifecycles.implementMethod,
+    unimplementMethod = Lifecycles.unimplementMethod,
 
     defineMetadata = Reflection.defineMetadata,
     getMetadata = Reflection.getMetadata,

@@ -9,10 +9,10 @@
       "current": {
         "name": "path",
         "sources": {
-          "core": "packages/core/lib",
-          "net": "packages/net/lib",
-          "components": "packages/components/lib",
-          "lifecycles": "packages/lifecycles/lib",
+          "prvdmwrong-core": "packages/prvdmwrong-core/lib",
+          "prvdmwrong-net": "packages/prvdmwrong-net/lib",
+          "prvdmwrong-components": "packages/prvdmwrong-components/lib",
+          "prvdmwrong-lifecycles": "packages/prvdmwrong-lifecycles/lib",
           "knit-compat": "packages/knit-compat/lib",
           "lumin-compat": "packages/lumin-compat/lib"
         }

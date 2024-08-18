@@ -5,7 +5,7 @@
   in the root directory of this source tree.
 ]]
 
-local prvd = require("components/prvd")
+local prvd = require("prvdmwrong-components/prvd")
 
 --[[
   Component types
