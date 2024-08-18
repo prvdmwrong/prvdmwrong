@@ -4,7 +4,7 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
-local Types = require("prvdmwrong-lifecycles/Types")
+local Types = require("prvdmwrong-lifecycles/types")
 local prvd = require("prvdmwrong-lifecycles/prvd")
 
 export type OnPreSimulation = Types.OnPreSimulation
