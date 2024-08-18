@@ -1,0 +1,5 @@
+[config]
+  name = "net"
+  display = "Networking for Prvd 'M Wrong"
+  description = "Implements networking primtives for providers."
+  dependencies = ["core"]

@@ -1,5 +1,6 @@
 [config]
-  name = "Lifecycles for Prvd 'M Wrong"
+  name = "lifecycles"
+  display = "Lifecycles for Prvd 'M Wrong"
   description = """
 Implements a "small" amount of lifecycle events for providers.
 
@@ -12,4 +13,4 @@ We'll admit. We've gotten a bit too lifecycle happy:
 - `:onPlayerLeaving(player: Player)` runs every `Player.PlayerLeaving`
 - `:onShutdown()` binds to `game:BindToClose` for games and `plugin.Unloading` for plugins
 """
-  dependencies = ["prvdmwrong"]
+  dependencies = ["core"]

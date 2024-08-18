@@ -1,4 +1,0 @@
-[config]
-  name = "Debugger for Prvd 'M Wrong"
-  description = "Implements a quality of life debuggers for providers."
-  dependencies = ["prvdmwrong"]

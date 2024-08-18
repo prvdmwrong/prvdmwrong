@@ -7,6 +7,7 @@ local stdio = require("@lune/stdio")
 type Config = {
   config: {
     name: string,
+    display: string,
     description: string,
     dependencies: { string }?,
   },
@@ -191,7 +192,7 @@ do
 
     if shouldRelease then
       local packageConfig: Config = serde.decode("toml", fs.readFile(`{cwd}/packages/{package}/config.toml`))
-      local wallyScope = `{WALLY_SCOPE}/{package}`
+      local wallyScope = `{WALLY_SCOPE}/{packageConfig.config.name}`
 
       print("=> Preparing wally.toml")
       local wally = table.clone(WALLY_PACKAGE)
@@ -201,13 +202,13 @@ do
 
       print("=> Preparing package.json")
       local npm = table.clone(NPM_PACKAGE)
-      npm.name = `@{NPM_SCOPE}/{package}`
+      npm.name = `@{NPM_SCOPE}/{packageConfig.config.name}`
       npm.description = packageConfig.config.description
       npm.version = version
 
       print("=> Preparing pesde.yaml")
       local pesde = table.clone(PESDE_PACKAGE)
-      pesde.name = (`{PESDE_SCOPE}/{package}`):gsub("-", "_")
+      pesde.name = (`{PESDE_SCOPE}/{packageConfig.config.name}`):gsub("-", "_")
       pesde.description = packageConfig.config.description
       pesde.version = version
 
@@ -248,7 +249,7 @@ do
       else
         print(`=> Writing new README.md`)
         local readme = ""
-        readme ..= `# {packageConfig.config.name}`
+        readme ..= `# {packageConfig.config.display}`
         readme ..= "\n\n"
         readme ..= packageConfig.config.description:gsub("\n[^\n]*$", "")
         readme ..= "\n\n"
