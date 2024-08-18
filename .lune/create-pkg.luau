@@ -13,7 +13,7 @@ local NPM = [[{
     "roblox-ts": "^2.3.0",
     "typescript": "^5.5.4"
   }
-}]]
+}]=]
 
 local TSCONFIG = [[{
   "compilerOptions": {
@@ -42,24 +42,24 @@ local TSCONFIG = [[{
     "tsBuildInfoFile": "out/tsconfig.tsbuildinfo",
     "declaration": true
   }
-}]]
+}]=]
 
 local BASE_TS = [[/*
   Copyright (c) znotfireman 2024.
   This source code is licensed under the MIT license found in the LICENSE file
   in the root directory of this source tree.
-*/]]
+*/]=]
 
 local PROJECT = [[{
   "name": "PACKAGE_NAME",
   "tree": {
     "$path": "lib"
   }
-}]]
+}]=]
 
 local BASE_LUAU = [[--!strict
 -- The Prvd 'M Wrong project is dual-licensed under Apache 2.0 and MIT terms.
-BASE_LUAU ..= "]]"
+BASE_LUAU ..= "]=]"
 
 local PRVD_LUAU = BASE_LUAU
   .. [[
@@ -153,7 +153,7 @@ type Prvd = typeof(setmetatable(
 local prvd = _G.prvdmwrong
 assert(prvd ~= nil, "cannot find core prvdmwrong package")
 return prvd :: Prvd
-]]
+]=]
 
 local cwd = process.cwd
 

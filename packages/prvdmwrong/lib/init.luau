@@ -1,20 +1,64 @@
 --!strict
 -- The Prvd 'M Wrong project is dual-licensed under Apache 2.0 and MIT terms.
 
+local Reference = require("prvdmwrong/prvd/ref")
 local Types = require("prvdmwrong/types")
 local log = require("prvdmwrong/utils/log")
 
 do
-  if _G.prvdmwrong ~= nil then
-    log.warn("multipleInstalls")
-    return _G.prvdmwrong :: Types.Prvd
+  -- Multiple core Prvd 'M Wrong packages may coexist at runtime, especially if
+  -- the developer mixes in other packages. This ensures the first known,
+  -- backwards compatible package becomes the dominant and only functioning
+  -- module.
+
+  local function parseVersion(version: string)
+    local trimmedVersion = version:gsub("^%s+", ""):gsub("%s+$", "")
+    local parsedMajor, parsedMinor, parsedPatch, metadata = trimmedVersion:match("^(%d+)%.(%d+)%.(%d+)(.*)$")
+
+    return {
+      major = log.expect(tonumber(parsedMajor), "invalidRefVersion", "major version"),
+      minor = log.expect(tonumber(parsedMinor), "invalidRefVersion", "minor version"),
+      patch = log.expect(tonumber(parsedPatch), "invalidRefVersion", "patch"),
+      metadata = metadata,
+    }
+  end
+
+  local function assertBackwardsCompatible(this: string, other: string)
+    local thisVersion, referenceVersion = parseVersion(this), parseVersion(other)
+    local isCompatible = thisVersion.major == referenceVersion.major and thisVersion.minor <= referenceVersion.minor
+    if isCompatible and thisVersion.metadata and referenceVersion.metadata then
+      isCompatible = thisVersion.metadata <= referenceVersion.metadata
+    end
+
+    log.expect(isCompatible, "incompatibleVersion", this, other)
+  end
+
+  local globalPackage: Types.Prvd? = _G.prvdmwrong
+  if globalPackage then
+    assertBackwardsCompatible("VERSION", globalPackage.version)
+    return globalPackage :: Types.Prvd
+  end
+
+  local leadReference = Reference.getReference()
+  if leadReference ~= nil and leadReference ~= script then
+    local version = leadReference:GetAttribute("version")
+    if typeof(version) == "string" then
+      assertBackwardsCompatible("VERSION", version)
+    end
+
+    return (require)(leadReference) :: Types.Prvd
+  else
+    local newReference = Reference.createReference(script)
+    newReference:SetAttribute("version", "VERSION")
   end
 end
 
 local Lifecycles = require("prvdmwrong/lifecycles")
 local Modding = require("prvdmwrong/modding")
-local Providers = require("prvdmwrong/providers")
 local Reflection = require("prvdmwrong/modding/reflection")
+local preload = require("prvdmwrong/prvd/preload")
+local providers = require("prvdmwrong/prvd/providers")
+local prvd = require("prvdmwrong/prvd")
 
 export type Lifecycle<Interface = { [any]: any }> = Types.Lifecycle<Interface>
 export type OnInit = Types.OnInit
@@ -23,18 +67,25 @@ export type Options = Types.Options
 export type Provider<T> = Types.Provider<T>
 export type StartupStatus = Types.StartupStatus
 
-local prvd: Types.PrvdNamespace = table.freeze {
+local function Prvd(x: Types.PrvdNamespace): Types.Prvd
+  return setmetatable(x :: any, {
+    __call = function<T>(_, provider: T): Provider<T>
+      return providers.new(provider)
+    end,
+  })
+end
+
+local exports = Prvd {
   version = "VERSION",
 
   -- Providers API
-  awaitStart = Providers.awaitStart,
-  new = Providers.new,
-  onStart = Providers.onStart,
-  Provider = Providers.Provider,
-  StartupStatus = Providers.StartupStatus,
-  start = Providers.start,
-  preload = Providers.preload,
-  use = Providers.use,
+  awaitStart = prvd.awaitStart,
+  new = providers.new,
+  onStart = prvd.onStart,
+  StartupStatus = prvd.StartupStatus,
+  start = prvd.start,
+  preload = preload,
+  use = prvd.use,
 
   -- Lifecycles API
   Lifecycle = Lifecycles.Lifecycle,
@@ -45,13 +96,15 @@ local prvd: Types.PrvdNamespace = table.freeze {
   onMethodImplemented = Lifecycles.onMethodImplemented,
 
   -- Modding API
-  getStartupOptions = Providers.getStartupOptions,
-  getStartupStatus = Providers.getStartupStatus,
+  getStartupOptions = prvd.getStartupOptions,
+  getStartupStatus = prvd.getStartupStatus,
   onProviderConstructed = Modding.onProviderConstructed,
   onProviderUsed = Modding.onProviderUsed,
 
   -- Internal API
   internal = table.freeze {
+    registerDependency = Modding.registerDependency,
+
     implementAll = Lifecycles.implementAll,
     implementMethod = Lifecycles.implementMethod,
     unimplementMethod = Lifecycles.unimplementMethod,
@@ -59,18 +112,7 @@ local prvd: Types.PrvdNamespace = table.freeze {
     defineMetadata = Reflection.defineMetadata,
     getMetadata = Reflection.getMetadata,
     deleteMetadata = Reflection.deleteMetadata,
-
-    registerDependency = Providers.registerDependency,
   },
 }
 
-do
-  _G.prvdmwrong = prvd
-  setmetatable(prvd, {
-    __call = function<T>(_, provider: T): Provider<T>
-      return Providers.new(provider)
-    end,
-  })
-end
-
-return prvd :: Types.Prvd
+return exports

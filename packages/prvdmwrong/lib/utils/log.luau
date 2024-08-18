@@ -2,70 +2,69 @@
 -- The Prvd 'M Wrong project is dual-licensed under Apache 2.0 and MIT terms.
 
 local RunService = game:GetService("RunService")
+
 local Types = require("prvdmwrong/types")
 
-local ERROR_MESSAGES_URL = "prvdmwrong.github.io/prvdmwrong/latest/reference/error-messages#"
-local MESSAGES = table.freeze {
-  alreadyStarted = "cannot ignite more than once",
-  cannotRegister = "cannot register provider; %s",
-  cannotRegisterLifecycle = "cannot register lifecycle %s; %s",
-  cannotUseNonProvider = "`prvd.use(provider)` must be given a provider",
-  invalidLoadParent = "preload must be given an instance",
-  invalidOnStartCallback = "`prvd.onStart(callback)` expects a callback",
-  multipleInstalls = "there are multiple installations of prvdmwrong, this can lead to unexpected behavior",
-  onInitError = "cannot initialize %s; %s",
-  onMethodImplementedWasDeprecated = "`onMethodImplemented` was deprecated, use `onMethodAdded` for observing lifecycles or create a `Lifecycle`. this will be an error in future versions of prvd 'm wrong",
-  registerAfterStartup = "cannot register providers after startup",
-  requireError = "cannot require %s; %s",
-  unknownError = "unknown error: %s. this indicates prvdmwrong isn't reporting errors correctly, please file an issue",
-  useAfterStartup = "cannot use other providers after startup",
-  usedBeforeStartup = 'cannot use provider "%s" prior to startup. prvdmwrong will inject the dependency for you during runtime, its safe to use the provider inside a lifecycle method',
+local ERROR_URL = "prvdmwrong.github.io/prvdmwrong/latest/reference/errors#"
+local ERRORS = table.freeze {
+  alreadyStarted = "Cannot ignite more than once.",
+  cannotRegister = "Cannot register provider; %s.",
+  cannotRegisterLifecycle = "Cannot register lifecycle %s; %s.",
+  incompatibleVersion = "An incompatible core Prvd 'M Wrong package was found. Currently version %s, found version %s. Consider updating your installation.",
+  invalidLoadParent = "`preload()` expects an instance.",
+  invalidOnStartCallback = "`onStart()` expects a callback.",
+  invalidRefVersion = "Cannot parse %s from the shared Prvd 'M Wrong reference, see if there is a corrupt installation.",
+  onInitError = "Cannot initialize %s; %s.",
+  onMethodImplementedWasDeprecated = "`onMethodImplemented` was deprecated, use `onMethodAdded` for observing lifecycles or create a `Lifecycle`. This will be an error in future versions of Prvd 'M Wrong.",
+  registerAfterStartup = "Cannot register providers after startup.",
+  requireError = "Cannot require %s; %s.",
+  unknownError = "Unknown error: %s. this indicates prvdmwrong isn't reporting errors correctly, please file an issue.",
+  useWasDeprecated = "`prvd.use(callback)` was deprecated, specify the provider directly instead.",
 }
 
-local Log = {}
+local log = {}
 
 local function formatError(id: string, trace: string?, ...: unknown)
-  local message = MESSAGES[id]
+  local message = ERRORS[id]
   if not message then
-    local unknownMessage = table.clone(MESSAGES.unknownError)
-    unknownMessage = unknownMessage:format(id)
-    message = unknownMessage
+    message = ERRORS.unknownError:format(id)
     id = "unknownError"
   end
 
-  local formatted = `[Prvd 'M Wrong ({id})]: {message}`
+  local formatted = `[Prvd 'M Wrong]: {message}`
+  formatted ..= `\nID: {id}`
   if select("#", ...) > 0 then
     formatted = formatted:format(...)
   end
   if RunService:IsStudio() then
-    formatted ..= `\nlearn more: {ERROR_MESSAGES_URL}{id:lower()}`
+    formatted ..= `\nLearn more: {ERROR_URL}{id:lower()}`
   end
   if trace then
-    formatted ..= `\nstack trace:\n{(trace:gsub("\n", "\n    "))}`
+    formatted ..= `\nStack trace:\n{(trace:gsub("\n", "\n    "))}`
   end
 
   return (formatted:gsub("\n", "\n    "))
 end
 
---[[
+--[=[
   Throws an error, halting further execution.
-]]
-function Log.throw(id: string, trace: string?, ...: unknown): never
-  error(formatError(id, trace or debug.traceback(nil, 3), ...), 0)
+]=]
+function log.throw(id: string, ...: unknown): never
+  error(formatError(id, debug.traceback(nil, 3), ...), 0)
 end
 
---[[
-  Logs a warning message to the output.
-]]
-function Log.warn(id: string, ...: unknown)
-  warn(formatError(id, nil, ...))
+--[=[
+  logs a warning message to the output.
+]=]
+function log.warn(id: string, ...: unknown)
+  warn(formatError(id, debug.traceback(nil, 2), ...))
 end
 
---[[
+--[=[
   An `xpcall` handler used to extract useful information such as stack traces
   and messages.
-]]
-function Log.parseError(err: string): Types.Error
+]=]
+function log.parseError(err: string): Types.Error
   return {
     type = "Error",
     raw = err,
@@ -74,16 +73,16 @@ function Log.parseError(err: string): Types.Error
   }
 end
 
---[[
-  Passes the condition if it is truthy, otherwise throws an error with the Log
+--[=[
+  Passes the condition if it is truthy, otherwise throws an error with the log
   module. Behaves like a modified `assert`.
-]]
-function Log.expect<T>(condition: T, id: string, trace: string?, ...: unknown): T
+]=]
+function log.expect<T>(condition: T, id: string, ...: unknown): T
   if condition then
     return condition
   end
-  return Log.throw(id, trace, ...)
+  return log.throw(id, debug.traceback(nil, 3), ...)
 end
 
-table.freeze(Log)
-return Log
+table.freeze(log)
+return log

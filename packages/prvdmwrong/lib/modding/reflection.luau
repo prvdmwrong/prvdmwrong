@@ -13,9 +13,9 @@ local Reflect = {}
 Reflect.idToObject = {} :: { [string]: unknown }
 Reflect.objectToId = {} :: { [unknown]: string }
 
---[[
+--[=[
   Returns the identifier of an object, suffixed by an optional string.
-]]
+]=]
 function Reflect.getIdentifier(object: unknown, suffix: string?): string
   local identifier = Reflect.getMetadata(object, "identifier")
   if typeof(identifier) == "string" then
@@ -24,10 +24,10 @@ function Reflect.getIdentifier(object: unknown, suffix: string?): string
   return "unidentifiedProvider" .. (suffix or "")
 end
 
---[[
+--[=[
   Defines a piece of metadata. Use the "identifier" key to set a custom
   identifier which Prvd 'M Wrong will respect.
-]]
+]=]
 function Reflect.defineMetadata(object: unknown, key: string, value: unknown)
   if key == "identifier" then
     assert(typeof(value) == "string", "identifier must be a string.")
@@ -44,17 +44,17 @@ function Reflect.defineMetadata(object: unknown, key: string, value: unknown)
   metadata[object][key] = value
 end
 
---[[
+--[=[
   Retrieves a piece of metadata from an object.
-]]
+]=]
 function Reflect.getMetadata(object: unknown, key: string): unknown?
   local result = metadata[object] and metadata[object][key]
   return result
 end
 
---[[
+--[=[
   Deletes a piece of metadata from an object.
-]]
+]=]
 function Reflect.deleteMetadata(object: unknown, key: string)
   if metadata[object] then
     metadata[object][key] = nil

@@ -76,6 +76,6 @@ declare namespace prvdmwrong {
 		export const getMetadata: (object: unknown, key: string) => unknown | undefined
 		export const deleteMetadata: (object: unknown, key: string) => void
 
-		export const registerDependency: (identifier: string, dependency: object) => void
+		export const registerDependency: (dependency: object) => void
 	}
 }

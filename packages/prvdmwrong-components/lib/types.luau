@@ -3,9 +3,9 @@
 
 local prvd = require("prvdmwrong-components/prvd")
 
---[[
+--[=[
   Component types
-]]
+]=]
 
 export type ComponentStreamingMode =
   "ComponentStreamingMode.Disabled"
@@ -44,9 +44,9 @@ export type OnComponentRemoved = {
   ) -> (),
 }
 
---[[
+--[=[
   Utility types
-]]
+]=]
 
 export type Typeguard =
   -- literal type string
