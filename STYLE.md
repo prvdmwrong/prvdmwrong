@@ -61,3 +61,12 @@ type Options = Types.Options
 type Provider<T> = Types.Provider<T>
 type StartupStatus = Types.StartupStatus
 ```
+
+### Diagnostics
+
+- 1XXX for core diagnostics
+- 2XXX for `prvdmwrong/net`
+- 3XXX for `prvdmwrong/components`
+- 4XXX for `prvdmwrong/lifecycles`
+- 5XXX for `prvdmwrong/knit-compat`
+- 6XXX for `prvdmwrong/lumin-compat`
