@@ -8,9 +8,8 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
-local Prvd = require("prvdmwrong-lifecycles/prvd")
 local Types = require("prvdmwrong-lifecycles/Types")
-local Lifecycle = Prvd.Lifecycle
+local prvd = require("prvdmwrong-lifecycles/prvd")
 
 export type OnPreSimulation = Types.OnPreSimulation
 export type OnPostSimulation = Types.OnPostSimulation
@@ -19,16 +18,16 @@ export type OnPreRender = Types.OnPreRender
 export type OnShutdown = Types.OnShutdown
 export type OnPlayerAdded = Types.OnPlayerAdded
 export type OnPlayerRemoving = Types.OnPlayerRemoving
-type Lifecycle<Interface = { [any]: any }> = Prvd.Lifecycle<Interface>
+type Lifecycle<Interface = { [any]: any }> = prvd.Lifecycle<Interface>
 
 local Lifecycles = {}
-Lifecycles.preSimulation = Lifecycle("onPreSimulation", Prvd.fireConcurrent) :: Lifecycle<OnPreSimulation>
-Lifecycles.postSimulation = Lifecycle("onPostSimulation", Prvd.fireConcurrent) :: Lifecycle<OnPostSimulation>
-Lifecycles.preAnimation = Lifecycle("onPreAnimation", Prvd.fireConcurrent) :: Lifecycle<OnPreAnimation>
-Lifecycles.preRender = Lifecycle("onPreRender", Prvd.fireConcurrent) :: Lifecycle<OnPreRender>
-Lifecycles.shutdown = Lifecycle("onShutdown", Prvd.fireSequential) :: Lifecycle<OnShutdown>
-Lifecycles.playerAdded = Lifecycle("onPlayerAdded", Prvd.fireConcurrent) :: Lifecycle<OnPlayerAdded>
-Lifecycles.playerRemoving = Lifecycle("onPlayerRemoving", Prvd.fireConcurrent) :: Lifecycle<OnPlayerRemoving>
+Lifecycles.preSimulation = prvd.Lifecycle("onPreSimulation", prvd.fireConcurrent) :: Lifecycle<OnPreSimulation>
+Lifecycles.postSimulation = prvd.Lifecycle("onPostSimulation", prvd.fireConcurrent) :: Lifecycle<OnPostSimulation>
+Lifecycles.preAnimation = prvd.Lifecycle("onPreAnimation", prvd.fireConcurrent) :: Lifecycle<OnPreAnimation>
+Lifecycles.preRender = prvd.Lifecycle("onPreRender", prvd.fireConcurrent) :: Lifecycle<OnPreRender>
+Lifecycles.shutdown = prvd.Lifecycle("onShutdown", prvd.fireSequential) :: Lifecycle<OnShutdown>
+Lifecycles.playerAdded = prvd.Lifecycle("onPlayerAdded", prvd.fireConcurrent) :: Lifecycle<OnPlayerAdded>
+Lifecycles.playerRemoving = prvd.Lifecycle("onPlayerRemoving", prvd.fireConcurrent) :: Lifecycle<OnPlayerRemoving>
 
 local function bindLifecycle(lifecycle: Lifecycle)
   return function(...: unknown)
