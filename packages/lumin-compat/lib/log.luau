@@ -7,19 +7,10 @@ local Types = require("prvdmwrong/types")
 
 local ERROR_URL = "prvdmwrong.github.io/prvdmwrong/latest/reference/errors#"
 local ERRORS = table.freeze {
-  alreadyStarted = "Cannot ignite more than once.",
-  cannotRegister = "Cannot register provider; %s.",
-  cannotRegisterLifecycle = "Cannot register lifecycle %s; %s.",
-  incompatibleVersion = "An incompatible core Prvd 'M Wrong package was found. Currently version %s, found version %s. Consider updating your installation.",
-  invalidLoadParent = "`preload()` expects an instance.",
-  invalidOnStartCallback = "`onStart()` expects a callback.",
-  invalidRefVersion = "Cannot parse %s from the shared Prvd 'M Wrong reference, see if there is a corrupt installation.",
-  onInitError = "Cannot initialize %s; %s.",
-  onMethodImplementedWasDeprecated = "`onMethodImplemented` was deprecated, use `onMethodAdded` for observing lifecycles or create a `Lifecycle`. This will be an error in future versions of Prvd 'M Wrong.",
-  registerAfterStartup = "Cannot register providers after startup.",
-  requireError = "Cannot require %s; %s.",
+  luminDeprecated = "Use %s instead of %s; %s.",
+  luminMissingWorker = "%s is not a Lumin Framework worker.",
+  noPrvd = "Cannot find the `@prvdmwrong/core` package, try requiring the core package earlier so other packages can reference it.",
   unknownError = "Unknown error: %s. this indicates Prvd 'M Wrong isn't reporting errors correctly, please file an issue.",
-  useWasDeprecated = "`prvd.use(callback)` was deprecated, specify the provider directly instead.",
 }
 
 local log = {}
