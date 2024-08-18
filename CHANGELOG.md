@@ -69,6 +69,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `prvd.getIgnitionOptions` has been renamed to `prvd.getStartupOptions`
 
 - Changed error logging internally
+- Prvd 'M Wrong now exposes itself as an ObjectValue in ReplicatedStorage
 
 ### Deprecated
 
