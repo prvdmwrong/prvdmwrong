@@ -1,8 +1,8 @@
 --!strict
 -- The Prvd 'M Wrong project is dual-licensed under Apache 2.0 and MIT terms.
 
-local Log = require("prvdmwrong/utils/log")
 local Types = require("prvdmwrong/types")
+local log = require("prvdmwrong/utils/log")
 
 local IGNORE_NO_RETURNS = true
 
@@ -20,12 +20,12 @@ local function preload(instances: { Instance }, predicate: ((ModuleScript) -> bo
       continue
     end
 
-    local ok, result: Types.Error = xpcall(require, Log.parseError, module)
+    local ok, result: Types.Error = xpcall(require, log.parseError, module)
     if not ok then
       if IGNORE_NO_RETURNS and result.message:find("Module code did not return exactly one value") then
-        Log.warn("requireError", module:GetFullName(), result.message)
+        log.warn("requireError", module:GetFullName(), result.message)
       else
-        Log.throw("requireError", result.trace, module:GetFullName(), result.message)
+        log.throw("requireError", module:GetFullName(), result.message)
       end
     end
 

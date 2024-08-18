@@ -127,9 +127,6 @@ function prvd.start(options: {
     }
   } = {}
 
-  -- First, iterate over all providers to figure out an appropriate load order.
-  -- To retrieve used dependencies this loop will deeply-iterate over providers
-  -- until it finds a used dependency.
   for provider in pairs(Modding.providers) do
     if not Reflection.getMetadata(provider, "prvdmwrong:provider") then
       continue
@@ -165,8 +162,6 @@ function prvd.start(options: {
     Reflection.defineMetadata(provider, "prvdmwrong:dependencies", usedDependencies)
   end
 
-  -- Second, we can topologically sort the resolved dependencies so dependencies
-  -- appear before dependents. Afterwards initialization and startup is ready.
   local identifiers = {}
   for index, dependency in ipairs(dependencies) do
     identifiers[index] = dependency.identifier

@@ -153,7 +153,7 @@ end
   @deprecated use either `onLifecycleRegistered` or `Lifecycle` instead
 ]=]
 function Lifecycles.onMethodImplemented(method: string, handler: (Object) -> ())
-  warn("onMethodImplementedWasDeprecated", method)
+  log.warn("onMethodImplementedWasDeprecated", method)
   Lifecycles.onLifecycleRegistered(method, handler)
 end
 
