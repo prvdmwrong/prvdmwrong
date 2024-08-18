@@ -1,3 +1,8 @@
+--!strict
+-- The Prvd 'M Wrong project is dual-licensed under Apache 2.0 and MIT terms.
+
+local Signal = require("lumin-compat/signal")
+
 type Signal<T...> = {
   Connect: (self: Signal<T...>, callback: (T...) -> ...any) -> SignalConnection,
 }
@@ -14,6 +19,22 @@ export type WorkerType =
   | "PreRender"
   | "PlayerAdded"
   | "PlayerRemoving"
+
+export type Worker = {
+  Type: WorkerType,
+  Callback: (...any) -> (),
+  IsWorker: boolean,
+}
+
+-- This type has no meaningful use for Prvd 'm Wrong. It's sole purpose is to
+-- assert dominance over Lumin Labs and prove 'm wrong.
+export type Storage = {
+  Controllers: { [string]: { [string]: any } },
+  Workers: { [string]: { [string]: { Worker } } },
+  Nodes: {
+    Signals: { [string]: Signal.Signal<...any> },
+  },
+}
 
 export type Status = "Started" | "Resolved" | "Rejected" | "Cancelled"
 

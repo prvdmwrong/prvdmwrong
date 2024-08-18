@@ -11,8 +11,9 @@ local log = require("lumin-compat/log")
 local prvd = require("lumin-compat/prvd")
 
 export type WorkerType = Types.WorkerType
+export type Worker = Types.Worker
+export type Storage = Types.Storage
 type PromiseLib = Types.PromiseLib
-type Signal = typeof(Signal.new())
 
 local WORKER_TYPES: { [string]: RBXScriptSignal } = {
   PostSimulation = RunService.PostSimulation,
@@ -23,16 +24,24 @@ local WORKER_TYPES: { [string]: RBXScriptSignal } = {
   PlayerRemoving = Players.PlayerRemoving,
 }
 
-local signals: { [string]: Signal } = {}
+local signals: { [string]: Signal.Signal<...any> } = {}
 local start = Promise.promisify(prvd.start)
 
 local LuminCompat = {}
-LuminCompat.Started = prvd.getStartupStatus() ~= prvd.StartupStatus.Pending
 
+--[=[
+  @deprecated Use `getStartupStatus()` instead; it returns an Enum specific to
+  Prvd 'M Wrong.
+]=]
+LuminCompat.Started = prvd.getStartupStatus() ~= prvd.StartupStatus.Pending
 prvd.onStart(function()
   LuminCompat.Started = true
 end)
 
+--[=[
+  @deprecated Use `prvd()` instead of `Controller()`; the former is less verbose
+  and pragmatic
+]=]
 function LuminCompat.Controller<T>(name: string, members: T & {}): prvd.Provider<T>
   log.warn("luminDeprecated", "`prvd()`", "`Controller()`", "the former is less verbose and pragmatic")
 
@@ -50,6 +59,12 @@ function LuminCompat.Controller<T>(name: string, members: T & {}): prvd.Provider
   return controller :: any
 end
 
+--[=[
+  @deprecated Use the `Lifecycle` object or the `@prvdmwrong/lifecycles` package
+  instead of creating `Worker()`s; lifecycles have furthered customizability and
+  hook onto providers, with the lifecycles package already implementing all
+  workers Lumin Framework offers as lifecycles.
+]=]
 function LuminCompat.Worker(type: WorkerType, callback: (...any) -> ())
   log.warn(
     "luminDeprecated",
@@ -70,7 +85,12 @@ function LuminCompat.Worker(type: WorkerType, callback: (...any) -> ())
   return self
 end
 
-function LuminCompat.Signal(name: string?): Signal
+--[=[
+  @deprecated Use a dedicated signal package instead of `Signal()`; reactive
+  signals are out of scope for Prvd 'M Wrong and only provided as a
+  compatibility layer.
+]=]
+function LuminCompat.Signal(name: string?): Signal.Signal<...any>
   log.warn(
     "luminDeprecated",
     "a dedicated signal package",
@@ -89,8 +109,15 @@ function LuminCompat.Signal(name: string?): Signal
   return namedSignal
 end
 
-function LuminCompat.Start(): Types.Promise
-  log.warn("luminDeprecated", "`start()`", "`Start()`", "Prvd 'M Wrong is not promise based")
+--[=[
+  @deprecated Use `start()` and `preload()` instead of `Start()`; Prvd 'M Wrong
+  is not promise based.
+]=]
+function LuminCompat.Start(modules: { Instance }?): Types.Promise
+  log.warn("luminDeprecated", "`start()` and `preload()`", "`Start()`", "Prvd 'M Wrong is not promise based")
+  if modules then
+    prvd.preload(modules)
+  end
   return start()
 end
 
