@@ -191,6 +191,9 @@ do
     )
 
     if shouldRelease then
+      print("=> Minifying")
+      spawnCommand("darklua", "minify", `{cwd}/dist/{package}/lib`, `{cwd}/dist/{package}/lib`)
+
       local packageConfig: Config = serde.decode("toml", fs.readFile(`{cwd}/packages/{package}/config.toml`))
       local wallyScope = `{WALLY_SCOPE}/{packageConfig.config.name}`
 
