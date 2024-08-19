@@ -1,5 +1,6 @@
 {
-  "process": [
+  "generator": "retain_lines",
+  "rules": [
     {
       "identifier": "__DEV__",
       "rule": "inject_global_value",
