@@ -6,7 +6,7 @@ speed up development within Prvd 'M Wrong.
 
 All code snippets showcased are made for Luau and TypeScript and found under
 [`.vscode` in the Prvd 'M Wrong
-monorepo.](https://github.com/team-fireworks/prvdmwrong/tree/main/.vscode)
+monorepo.](https://github.com/prvdmwrong/prvdmwrong/tree/main/.vscode)
 
 !!! warning "Under construction"
     This page is under construction - information may be incomplete or missing.

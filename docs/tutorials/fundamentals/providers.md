@@ -502,7 +502,7 @@ own lifecycle methods, use Prvd 'M Wrong networking primitives, and creating you
 own components.
 
 You can find the completed modules for MathProvider and PointsProvider in [the
-`examples` directory.](https://github.com/team-fireworks/prvdmwrong/tree/main/examples)
+`examples` directory.](https://github.com/prvdmwrong/prvdmwrong/tree/main/examples)
 
 Once you're comfortable writing providers, you are ready to take on the rest of
 what Prvd 'M Wrong offers.

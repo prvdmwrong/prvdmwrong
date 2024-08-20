@@ -37,7 +37,7 @@ build faster and prove 'm wrong. It's the swaggest framework in town!
 <nav markdown>
 
 <a href="./tutorials/">Tutorials</a> ·
-<a href="https://github.com/team-fireworks/prvdmwrong/releases">Download</a> ·
+<a href="https://github.com/prvdmwrong/prvdmwrong/releases">Download</a> ·
 :octicons-zap-24: Batteries included
 
 </nav>

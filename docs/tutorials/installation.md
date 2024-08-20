@@ -49,7 +49,7 @@ For existing projects, Prvd 'M Wrong must be imported as individual packages.
 If you edit directly inside Roblox Studio, then you can import a Roblox model
 file containing Prvd 'M Wrong.
 
-1. Head over to [Prvd 'M Wrong's "Releases" page.](https://github.com/team-fireworks/prvdmwrong/releases)
+1. Head over to [Prvd 'M Wrong's "Releases" page.](https://github.com/prvdmwrong/prvdmwrong/releases)
 2. Find the package you will install, if you are just following the tutorials,
   you can install the `prvdmwrong` core package.
 3. Click the "Assets" dropdown to view the downloadable files:
@@ -179,7 +179,7 @@ for [NPM](https://www.npmjs.com/).
 If you are synchronizing external files into Roblox Studio, Prvd 'M Wrong can be
 imported as source code.
 
-1. Head over to [Prvd 'M Wrong's 'Releases' page.](https://github.com/team-fireworks/prvdmwrong/releases)
+1. Head over to [Prvd 'M Wrong's 'Releases' page.](https://github.com/prvdmwrong/prvdmwrong/releases)
 2. Click the "Assets" dropdown to view the downloadable files:
    ![Releases](../assets/static/github-releases.png)
 3. Under "Assets", download `Source code (zip)`. Inside is a copy of the Prvd 'M
