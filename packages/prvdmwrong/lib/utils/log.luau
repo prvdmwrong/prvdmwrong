@@ -18,7 +18,7 @@ local ERRORS = table.freeze {
   onMethodImplementedWasDeprecated = "`onMethodImplemented` was deprecated, use `onMethodAdded` for observing lifecycles or create a `Lifecycle`. This will be an error in future versions of Prvd 'M Wrong.",
   registerAfterStartup = "Cannot register providers after startup.",
   requireError = "Cannot require %s; %s.",
-  unknownError = "Unknown error: %s. this indicates Prvd 'M Wrong isn't reporting errors correctly, please file an issue.",
+  unknownError = "Unknown error: %s. This indicates Prvd 'M Wrong isn't reporting errors correctly, please file an issue.",
   useWasDeprecated = "`prvd.use(callback)` was deprecated, specify the provider directly instead.",
 }
 
