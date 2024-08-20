@@ -28,10 +28,6 @@
         "rojo_sourcemap": "./sourcemap.json"
       }
     },
-    {
-      "rule": "rename_variables",
-      "include_functions": false
-    },
     "compute_expression",
     "remove_unused_if_branch",
     "remove_unused_while",
