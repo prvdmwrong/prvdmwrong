@@ -73,7 +73,7 @@ for Luau, Prvd 'M Wrong has packages for both package managers.
 
     1. Head over to one of these packages you will import:
 
-          - [`@prvdmwrong/core`](https://wally.run/package/prvdmwrong/prvdmwrong)
+          - [`@prvdmwrong/core`](https://wally.run/package/prvdmwrong/core)
             for the core package
           - [`@prvdmwrong/lifecycles`](https://wally.run/package/prvdmwrong/lifecycles)
             for additional lifecycle methods
