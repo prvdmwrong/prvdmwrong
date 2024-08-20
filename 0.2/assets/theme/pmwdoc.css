@@ -114,7 +114,7 @@
 	padding: 0 0 0 0.4rem;
 }
 .md-header__button.md-logo > img {
-	height: 1.8rem;
+	height: 0;
 }
 
 [data-md-color-scheme="pmwdoc-light"] .pmwdoc-dark-theme-only,
