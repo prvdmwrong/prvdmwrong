@@ -17,6 +17,8 @@ export type OnPlayerRemoving = Types.OnPlayerRemoving
 type Lifecycle<Interface = { [any]: any }> = prvd.Lifecycle<Interface>
 
 local Lifecycles = {}
+Lifecycles.version = "VERSION"
+
 Lifecycles.preSimulation = prvd.Lifecycle("onPreSimulation", prvd.fireConcurrent) :: Lifecycle<OnPreSimulation>
 Lifecycles.postSimulation = prvd.Lifecycle("onPostSimulation", prvd.fireConcurrent) :: Lifecycle<OnPostSimulation>
 Lifecycles.preAnimation = prvd.Lifecycle("onPreAnimation", prvd.fireConcurrent) :: Lifecycle<OnPreAnimation>
@@ -61,6 +63,7 @@ do
   elseif RunService:IsServer() then
     game:BindToClose(bindLifecycle(Lifecycles.shutdown))
   end
+  game.Close:Connect(function() end)
 
   addConnection(Players.PlayerAdded:Connect(bindLifecycle(Lifecycles.playerAdded)))
   addConnection(Players.PlayerRemoving:Connect(bindLifecycle(Lifecycles.playerRemoving)))
