@@ -43,20 +43,18 @@ onStart(callback)`](on-start.md)
 
 ### Pending `#!lua : StartupStatus.Pending`
 
-Indicates that [`#!lua prvd.start()`](start.md) has not been called yet. Calls
-to [`#!lua prvd.use()`](use.md) and [`#!lua prvd.Provider()`](provider.md) are
-safe.
+Indicates that [`#!lua prvd.start()`](start.md) has not been called yet.
+Creating a provider is safe.
 
 ### startup `#!lua : StartupStatus.startup`
 
-Indicates that `#!lua prvd.start()` has been called, but the startup process
-has not finished. Calls to `#!lua prvd.use()` and `#!lua prvd.Provider()` will
-throw an error.
+Indicates that `#!lua prvd.start()` has been called, but the startup process has
+not finished. Attempting to create a provider will throw an error.
 
 ### Ignited `#!lua : StartupStatus.Ignited`
 
-Indicates that the startup process has finished. Calls to `#!lua prvd.use()`
-and `#!lua prvd.Provider()` will throw an error.
+Indicates that the startup process has finished. Attempting to create a provider
+will throw an error.
 
 Awaiting threads from [`#!lua prvd.awaitStart()`](await-start.md) and
 queued callbacks from [`#!lua prvd.onStart()`](on-start.md) will be

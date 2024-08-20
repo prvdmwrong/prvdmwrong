@@ -13,11 +13,11 @@
 Configures how Prvd 'M Wrong will ignite. The following are the available
 configuration options: This type is not useful outside of Prvd 'M Wrong itself;
 prefer to specify startup options as a parameter of [`
-ignite(options)`](../providers/use.md).
+start(options)`](../providers/start.md).
 
 === "Luau"
 
-    ```Lua
+    ```TypeScript
     export type Options = {
       logLevel: "none" | "verbose",
       profiling: boolean
@@ -27,7 +27,7 @@ ignite(options)`](../providers/use.md).
 === "TypeScript"
 
     ```TypeScript
-    export type Options = {
+    export interface Options {
       logLevel: "none" | "verbose"
       profiling: boolean
     }

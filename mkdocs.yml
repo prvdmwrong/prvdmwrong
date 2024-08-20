@@ -144,7 +144,6 @@ nav:
                       - onStart: reference/core/providers/on-start.md
                       - preload: reference/core/providers/preload.md
                       - start: reference/core/providers/start.md
-                      - use: reference/core/providers/use.md
                 - Lifecycles:
                       - reference/core/lifecycles/index.md
                       - Lifecycle: reference/core/lifecycles/lifecycle.md

@@ -62,7 +62,6 @@ Install this through your preferred package manager:
 - [:octicons-list-ordered-16: StartupStatus](providers/startup-status.md)
 - [:octicons-code-16: preload](providers/preload.md)
 - [:octicons-code-16: start](providers/start.md)
-- [:octicons-code-16: use](providers/use.md)
 - [:octicons-workflow-16: awaitStart](providers/await-start.md)
 - [:octicons-workflow-16: onStart](providers/on-start.md)
 

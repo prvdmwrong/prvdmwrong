@@ -55,7 +55,7 @@ build faster and prove 'm wrong. It's the swaggest framework in town!
     local CharacterProvider = require("./character-provider")
 
     local CombatProvider = {}
-    CombatProvider.characterProvider = prvd.use(CharacterProvider)
+    CombatProvider.characterProvider = CharacterProvider
 
     function CombatProvider:onStart()
       print("Hello, Prvd 'M Wrong!")
@@ -72,12 +72,12 @@ build faster and prove 'm wrong. It's the swaggest framework in town!
 === "TypeScript"
 
     ```TypeScript
-    import { Provider, use, type OnStart } from "@rbxts/prvdmwrong"
+    import { Provider, type OnStart } from "@rbxts/prvdmwrong"
     import { CharacterProvider } from "./character-provider"
 
     @Provider()
     export class CombatProvider implements OnStart {
-      public characterProvider = use(CharacterProvider)
+      public characterProvider = CharacterProvider
 
       public onStart() {
         print("Hello, Prvd 'M Wrong!")
@@ -161,7 +161,7 @@ properties, and the likes into a provider:
     })
     ```
 
-Providers can `use()` other providers. Prvd 'M Wrong will provide type-safety,
+Just specify another provider to use it. Prvd 'M Wrong will provide type-safety,
 autocomplete, and figure out a corresponding load order for you:
 
 === "Luau"
@@ -170,11 +170,11 @@ autocomplete, and figure out a corresponding load order for you:
     -- For example, say this rewards provider requires the coins provider.
     local RewardsProvider = {}
     type Self = typeof(CoinsProvider)
-    -- Just specify this provider `use()`-s the coins provider...
-    RewardsProvider.coinsProvider = prvd.use(CoinsProvider)
+    -- Just specify this provider uses the coins provider...
+    RewardsProvider.coinsProvider = CoinsProvider
 
     function RewardsProvider.addWinRewards(self: Self, player: Player)
-      -- ...and enjoy complete type-safety!
+      -- ...while enjoying complete type-safety!
       self.coinsProvider:addCoins(player, 30)
     end
 
@@ -187,11 +187,11 @@ autocomplete, and figure out a corresponding load order for you:
     // For example, say this rewards provider requires the coins provider.
     @Provider({})
     export class RewardsProvider {
-      // Just specify this provider `use()`-s the coins provider...
-      coinsProvider = use(CoinsProvider)
+      // Just specify this provider uses the coins provider...
+      coinsProvider = CoinsProvider
 
       addCoins(person: Player) {
-        // ...and enjoy complete type-safety!
+        // ...while enjoying complete type-safety!
         this.coinsProvider:addCoins(player, coins)
       }
     }

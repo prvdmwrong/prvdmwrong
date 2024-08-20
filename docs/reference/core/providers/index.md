@@ -19,7 +19,6 @@ Fundamental primitives for creating and using game providers.
   phases Prvd 'M Wrong will be in
 - [:octicons-code-16: preload](preload.md) · Preload an array of ModuleScripts
 - [:octicons-code-16: start](start.md) · Starts Prvd 'M Wrong
-- [:octicons-code-16: use](use.md) · Use a provider within Prvd 'M Wrong
 - [:octicons-workflow-16: awaitStart](await-start.md) · Yields until startup
   finishes
 - [:octicons-workflow-16: onStart](on-start.md) · Spawned when startup finishes

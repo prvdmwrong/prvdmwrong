@@ -11,8 +11,8 @@
 # :octicons-checklist-16: Provider
 
 Provides a specific functionality for a game. This type is not useful outside of
-Prvd 'M Wrong itself; prefer to use [`use(provider)`](../providers/use.md) for
-more precise types.
+Prvd 'M Wrong itself; prefer to import providers directly for more precise
+types.
 
 === "Luau"
 

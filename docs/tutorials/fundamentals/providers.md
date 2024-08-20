@@ -395,7 +395,7 @@ Then, from `PointsProvider`, import your newly created `MathProvider`:
     import { MathProvider } from "./math-provider"
     ```
 
-Finally, just specify your provider `use()`s another provider:
+Finally, just specify your provider uses another provider:
 
 === "Luau"
 
@@ -411,7 +411,7 @@ Finally, just specify your provider `use()`s another provider:
     type Self = typeof(PointsProvider)
     PointsProvider.name = "PointsProvider"
     PointsProvider.points = {}
-    PointsProvider.mathProvider = prvd.use(PointsProvider)
+    PointsProvider.mathProvider = MathProvider
 
     function PointsProvider.setDefaultPoints(self: Self, player: Player)
       if self.points[player] ~= nil then
@@ -443,8 +443,8 @@ Finally, just specify your provider `use()`s another provider:
 
 === "TypeScript"
 
-    ```TypeScript hl_lines="1 5 10 28-32"
-    import { Provider, use, type OnStart } from "@rbxts/prvdmwrong"
+    ```TypeScript hl_lines="5 10 28-32"
+    import { Provider, type OnStart } from "@rbxts/prvdmwrong"
     import { Players } from "@rbxts/services"
 
     // Tweak this based on where you placed the MathProvider
@@ -453,7 +453,7 @@ Finally, just specify your provider `use()`s another provider:
     @Provider()
     export class Provider implements OnStart {
       readonly points = new Map<Player, number>()
-      mathProvider = use(MathProvider)
+      mathProvider = MathProvider
 
       setDefaultPoints(player: Player) {
         this.points.set(player, 10)
