@@ -132,7 +132,7 @@ nav:
                 - Philosophies: tutorials/advanced/philosophies.md
     - Reference:
           - reference/index.md
-          - Error Messages: reference/error-messages.md
+          - Errors: reference/errors.md
           - Core:
                 - reference/core/index.md
                 - Providers:
