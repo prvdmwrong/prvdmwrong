@@ -3,8 +3,6 @@
 
 local RunService = game:GetService("RunService")
 
-local Types = require("prvdmwrong/types")
-
 local ERROR_URL = "prvdmwrong.github.io/prvdmwrong/latest/reference/errors#"
 local ERRORS = table.freeze {
   alreadyStarted = "Cannot ignite more than once.",
@@ -61,19 +59,6 @@ end
 ]=]
 function log.warn(id: string, ...: unknown)
   warn(formatError(id, debug.traceback(nil, 2), ...))
-end
-
---[=[
-  An `xpcall` handler used to extract useful information such as stack traces
-  and messages.
-]=]
-function log.parseError(err: string): Types.Error
-  return {
-    type = "Error",
-    raw = err,
-    message = err:gsub("^.+:%d+:%s*", ""),
-    trace = debug.traceback(nil, 3),
-  }
 end
 
 --[=[

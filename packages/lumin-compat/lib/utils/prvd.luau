@@ -2,16 +2,10 @@
 -- The Prvd 'M Wrong project is dual-licensed under Apache 2.0 and MIT terms.
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local log = require("lumin-compat/utils/log")
 
 type Pack = { [number]: any, n: number }
 type Object = { [unknown]: unknown }
-
-type Error = {
-  type: "Error",
-  raw: string,
-  message: string,
-  trace: string,
-}
 
 export type OnInit = { onInit: (self: unknown) -> () }
 export type OnStart = { onStart: (self: unknown) -> () }
@@ -94,6 +88,6 @@ do
     return (require)(reference.Value) :: Prvd
   end
   local prvd = _G.prvdmwrong
-  assert(prvd ~= nil, "cannot find core prvdmwrong package")
+  log.expect(prvd ~= nil, "noPrvd")
   return prvd :: Prvd
 end

@@ -4,6 +4,3 @@
 [submodule "packages/knit-compat/lib/promise"]
 	path = packages/knit-compat/lib/promise
 	url = https://github.com/evaera/roblox-lua-promise.git
-[submodule "packages/lumin-compat/lib/promise"]
-	path = packages/lumin-compat/lib/promise
-	url = https://github.com/evaera/roblox-lua-promise.git
