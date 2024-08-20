@@ -23,8 +23,7 @@ Prvd 'M Wrong is to take all of the lessons and ideas learned from these project
 and build a framework that can solve this problem for good. In addition, all of
 these frameworks have major drawbacks:
 
-- Knit is unmaintained, it introduces a hefty level of bloat and has subpar
-  types;
+- Knit is unmaintained, introduces a hefty level of bloat and has subpar types;
 - Flamework requires TypeScript and is tightly coupled with its transformer;
 - Nevermore introduces an outrageous level of bloat and also harder to use,
   being geared primarily just for Quenty;
@@ -32,8 +31,9 @@ these frameworks have major drawbacks:
 - Pronghorn does not implement dependency injection, minimal extensibility and
   introduces some bloat;
 - Lazy Modules has subpar syntax, somewhat couples code;
-- Lumin Framework provides minimal primitives for singletons in the form of
-  controllers, does not implement dependency injection;
+- Lumin Framework has a controller API that is inspired by Prvd 'M Wrong, to
+  which Prvd 'M Wrong excels it's implementation, and Lumin only features a
+  rudimentary dependency injection API.
 
 Finally:
 
