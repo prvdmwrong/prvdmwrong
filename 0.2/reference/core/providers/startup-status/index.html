@@ -1305,8 +1305,6 @@
       
         
       
-        
-      
     
     
       
@@ -1572,27 +1570,6 @@
   
   <span class="md-ellipsis">
     start
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../use/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    use
   </span>
   
 
@@ -3004,16 +2981,14 @@
 <hr />
 <h2 id="items">Items</h2>
 <h3 id="pending-startupstatuspending">Pending <code class="language-lua highlight"><span class="p">:</span> <span class="n">StartupStatus</span><span class="p">.</span><span class="n">Pending</span></code></h3>
-<p>Indicates that <a href="../start/"><code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">start</span><span class="p">()</span></code></a> has not been called yet. Calls
-to <a href="../use/"><code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">use</span><span class="p">()</span></code></a> and <a href="../provider/"><code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">()</span></code></a> are
-safe.</p>
+<p>Indicates that <a href="../start/"><code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">start</span><span class="p">()</span></code></a> has not been called yet.
+Creating a provider is safe.</p>
 <h3 id="startup-startupstatusstartup">startup <code class="language-lua highlight"><span class="p">:</span> <span class="n">StartupStatus</span><span class="p">.</span><span class="n">startup</span></code></h3>
-<p>Indicates that <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">start</span><span class="p">()</span></code> has been called, but the startup process
-has not finished. Calls to <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">use</span><span class="p">()</span></code> and <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">()</span></code> will
-throw an error.</p>
+<p>Indicates that <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">start</span><span class="p">()</span></code> has been called, but the startup process has
+not finished. Attempting to create a provider will throw an error.</p>
 <h3 id="ignited-startupstatusignited">Ignited <code class="language-lua highlight"><span class="p">:</span> <span class="n">StartupStatus</span><span class="p">.</span><span class="n">Ignited</span></code></h3>
-<p>Indicates that the startup process has finished. Calls to <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">use</span><span class="p">()</span></code>
-and <code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">Provider</span><span class="p">()</span></code> will throw an error.</p>
+<p>Indicates that the startup process has finished. Attempting to create a provider
+will throw an error.</p>
 <p>Awaiting threads from <a href="../await-start/"><code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">awaitStart</span><span class="p">()</span></code></a> and
 queued callbacks from <a href="../on-start/"><code class="language-lua highlight"><span class="n">prvd</span><span class="p">.</span><span class="n">onStart</span><span class="p">()</span></code></a> will be
 spawned just before the startup status is set to this.</p>
