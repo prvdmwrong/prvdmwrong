@@ -37,6 +37,7 @@ declare namespace prvdmwrong {
 	}
 
 	export const version: string
+
 	export const awaitStart: () => void
 	export const onStart: (callback: () => void) => void
 	export const preload: (instances: Instance[], predicate?: (module: ModuleScript) => boolean) => unknown[]
@@ -44,19 +45,24 @@ declare namespace prvdmwrong {
 		loadOrder?: number
 	}) => <T extends new () => InstanceType<T>>(provider: T) => void
 	export const start: (options?: Partial<Options>) => void
+
+	/** @deprecated specify providers as a direct member to use it */
 	export function use<T extends new () => InstanceType<T>>(this: void, provider: T): InstanceType<T>
 	export function use<T extends object>(this: void, provider: Provider<T>): T
 
-	export class Lifecycle<Interface extends object = object> {
-		constructor(method: string, fire: (lifecycle: Lifecycle, ...args: unknown[]) => void)
-
-		public listeners: Interface[]
+	export interface Lifecycle<Interface extends object = object> {
+		listeners: Interface[]
 		readonly method: string
 
-		public fire(...args: unknown[]): void
-		public register(object: Interface): void
-		public unregister(object: Interface): void
+		fire(...args: unknown[]): void
+		register(object: Interface): void
+		unregister(object: Interface): void
 	}
+
+	export const Lifecycle: <Interface extends object = object>(
+		method: string,
+		fire: (lifecycle: Lifecycle, ...args: unknown[]) => void,
+	) => Lifecycle<Interface>
 	export const fireConcurrent: (lifecycle: Lifecycle, ...args: unknown[]) => void
 	export const fireSequential: (lifecycle: Lifecycle, ...args: unknown[]) => void
 	export const onLifecycleRegistered: (method: string, handler: (listener: object) => void) => void
