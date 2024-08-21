@@ -1,5 +1,5 @@
 --!nocheck
--- The Prvd 'M Wrong project is dual-licensed under Apache 2.0 and MIT terms.
+-- (c) Prvd 'M Wrong, dual-licensed under Apache 2.0 and MIT terms.
 -- Vendored from stravant/goodsignal licensed under MIT terms.
 
 -- The currently idle thread to run the next handler on

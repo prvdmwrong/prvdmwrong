@@ -1,5 +1,5 @@
 --!strict
--- The Prvd 'M Wrong project is dual-licensed under Apache 2.0 and MIT terms.
+-- (c) Prvd 'M Wrong, dual-licensed under Apache 2.0 and MIT terms.
 
 local Types = require("prvdmwrong/types")
 local log = require("prvdmwrong/utils/log")

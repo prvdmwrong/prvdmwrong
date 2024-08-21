@@ -1,5 +1,5 @@
 --!nocheck
--- The Prvd 'M Wrong project is dual-licensed under Apache 2.0 and MIT terms.
+-- (c) Prvd 'M Wrong, dual-licensed under Apache 2.0 and MIT terms.
 -- Vendored from evaera/roblox-lua-promise licensed under MIT terms
 
 local ERROR_NON_PROMISE_IN_LIST = "Non-promise value passed into %s at index %s"
