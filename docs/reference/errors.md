@@ -94,7 +94,7 @@ version for an expanded featureset and improved developer experience.
 `preload` must be given an instance
 ```
 
-`prvd.preload(instances, predicate)` expected you to give it a parent instance
+`preload()` expects you to give it a parent instance
 to load from, but you gave it something else.
 
 ---
@@ -105,7 +105,7 @@ to load from, but you gave it something else.
 `onStart` must be given callbacks
 ```
 
-`prvd.onStart(callback)` expected you to give it a callback to spawn after
+`onStart()` expects a callback to spawn after
 startup finishes, but you gave it something else.
 
 ---
@@ -202,11 +202,11 @@ indicates that Prvd 'M Wrong is not reporting errors correctly.
 
 ---
 
-## usedWasDeprecated
+## useWasDeprecated
 
 ```Md
-`prvd.use(callback)` was deprecated, specify the provider directly instead.
+`use()` was deprecated, specify the provider directly instead.
 ```
 
-You attempted to `use` another provider in Prvd 'M Wrong 0.2, which deprecates
+You attempted to `use()` another provider in Prvd 'M Wrong 0.2, which deprecates
 it in favor of specifying the provider as a member.
