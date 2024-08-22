@@ -118,7 +118,7 @@ Create service providers to handle the top level logic of your game, baked with
 natural type-safety and intellisense, built-in dependency injection/inversion,
 first-class lifecycles, and pragmatic APIs.
 
-Readable? Efficient? Can your `Knit.CreateService` or `@Flamework.Service()` do
+Readable? Powerful? Can your `Knit.CreateService` or `@Flamework.Service()` do
 better?
 
 </section>
