@@ -1,8 +1,8 @@
 --!strict
 -- (c) Prvd 'M Wrong, dual-licensed under Apache 2.0 and MIT terms.
 
-local Types = require("prvdmwrong/types")
-local log = require("prvdmwrong/utils/log")
+local Types = require("prvdmwrong-core/types")
+local log = require("prvdmwrong-core/utils/log")
 
 local IGNORE_NO_RETURNS = true
 

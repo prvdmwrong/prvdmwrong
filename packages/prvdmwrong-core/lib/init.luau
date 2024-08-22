@@ -1,9 +1,9 @@
 --!strict
 -- (c) Prvd 'M Wrong, dual-licensed under Apache 2.0 and MIT terms.
 
-local Reference = require("prvdmwrong/prvd/ref")
-local Types = require("prvdmwrong/types")
-local log = require("prvdmwrong/utils/log")
+local Reference = require("prvdmwrong-core/prvd/ref")
+local Types = require("prvdmwrong-core/types")
+local log = require("prvdmwrong-core/utils/log")
 
 do
   -- Multiple core Prvd 'M Wrong packages may coexist at runtime, especially if
@@ -53,12 +53,12 @@ do
   end
 end
 
-local Lifecycles = require("prvdmwrong/lifecycles")
-local Modding = require("prvdmwrong/modding")
-local Reflection = require("prvdmwrong/modding/reflection")
-local preload = require("prvdmwrong/prvd/preload")
-local providers = require("prvdmwrong/prvd/providers")
-local prvd = require("prvdmwrong/prvd")
+local Lifecycles = require("prvdmwrong-core/lifecycles")
+local Modding = require("prvdmwrong-core/modding")
+local Reflection = require("prvdmwrong-core/modding/reflection")
+local preload = require("prvdmwrong-core/prvd/preload")
+local providers = require("prvdmwrong-core/prvd/providers")
+local prvd = require("prvdmwrong-core/prvd")
 
 export type Lifecycle<Interface = { [any]: any }> = Types.Lifecycle<Interface>
 export type OnInit = Types.OnInit

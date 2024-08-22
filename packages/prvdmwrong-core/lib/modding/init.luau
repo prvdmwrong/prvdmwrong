@@ -1,7 +1,7 @@
 --!strict
 -- (c) Prvd 'M Wrong, dual-licensed under Apache 2.0 and MIT terms.
 
-local Types = require("prvdmwrong/types")
+local Types = require("prvdmwrong-core/types")
 
 type Provider<T> = Types.Provider<T>
 type Object = Types.Object
