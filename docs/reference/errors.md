@@ -74,7 +74,7 @@ message.
 
 ---
 
-# incompatibleVersion
+## incompatibleVersion
 
 ```Md
 An incompatible core Prvd 'M Wrong package was found. Currently version 0.2.0-dev.9, found version 0.2.0-dev.12. Consider updating your installation.
