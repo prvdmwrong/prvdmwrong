@@ -1,31 +1,108 @@
 .pmwdoc-home-hero {
-	--vertical-padding: 0vh;
-	--target-size: 40vh;
-
 	box-sizing: border-box;
+	margin-bottom: calc(var(--vertical-padding) / 2);
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 120ch;
-	min-height: calc(var(--target-size) - var(--top-padding));
 	margin-top: -6vh;
-	margin-bottom: calc(var(--vertical-padding) / 2);
+	max-width: 140ch;
+	min-height: 40vh;
+	position: relative;
+	text-align: left;
 }
 
 .pmwdoc-home-hero::before {
+	animation: machinery-scroll 240s linear infinite;
 	background-image: url(../machinery.svg);
+	background-repeat: repeat-x;
 	background-size: contain;
 	background-size: contain;
 	content: "";
 	display: block;
-	height: 50ch;
-	left: 0;
-	position: absolute;
-	width: 100vw;
-	margin-top: auto;
+	height: 100%;
+	left: 50%;
 	margin-bottom: auto;
-	z-index: -99;
+	margin-top: auto;
 	opacity: 0.15;
-	animation: machinery-scroll 60s linear infinite;
+	position: absolute;
+	transform: translateX(-50%);
+	width: 100vw;
+	z-index: -99;
+}
+
+.prvdmwrong-home-features {
+	align-items: center;
+	display: flex !important;
+	flex-direction: column;
+	left: 50%;
+	margin: 0;
+	margin: auto;
+	max-width: 75rem;
+	overflow-x: hidden;
+	padding: 3em 0;
+	position: relative;
+	transform: translateX(-50%);
+	view-timeline-axis: block;
+	view-timeline-name: --features-scroll;
+	width: 100vw;
+}
+
+.prvdmwrong-home-features > ul {
+	box-sizing: border-box;
+	display: flex !important;
+	flex-direction: row;
+	font-size: 3em;
+	font-weight: bold;
+	gap: 0;
+	line-height: 100%;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	text-wrap: nowrap;
+	width: auto;
+}
+
+.prvdmwrong-home-features > ul > li:nth-child(1),
+.prvdmwrong-home-features > ul > li:nth-child(3) {
+	opacity: 0.4;
+}
+
+.prvdmwrong-home-features > ul > li:nth-child(2),
+.prvdmwrong-home-features > ul > li:nth-child(4) {
+	opacity: 0.2;
+}
+
+.prvdmwrong-home-features::after {
+	content: "";
+	position: absolute;
+	display: block;
+	inset: 0;
+	background: linear-gradient(
+		to right,
+		var(--md-default-bg-color) 0%,
+		transparent 10%,
+		transparent 90%,
+		var(--md-default-bg-color) 100%
+	);
+}
+
+@supports (animation-timeline: --features-scroll) {
+	@media (prefers-reduced-motion: no-preference) {
+		.prvdmwrong-home-features > ul {
+			animation: features-scroll linear both;
+			animation-timeline: --features-scroll;
+			animation-range: cover;
+		}
+	}
+}
+
+@keyframes features-scroll {
+	0% {
+		translate: calc(50% - min(100vw, 75rem) / 2) 0%;
+	}
+	100% {
+		translate: calc(-50% + min(100vw, 75rem) / 2) 0%;
+	}
 }
 
 @keyframes machinery-scroll {
@@ -33,7 +110,7 @@
 		background-position: 0;
 	}
 	to {
-		background-position: calc(60ch * 16 / 9);
+		background-position: calc(210ch * 16 / 9);
 	}
 }
 
@@ -72,9 +149,11 @@
 	font-size: 1.2em;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 2em;
-	max-width: 80ch;
 	padding: 1em 0;
+}
+
+.pmwdoc-home-body > .grid {
+	gap: 2em;
 }
 
 .pmwdoc-home-aside::before {

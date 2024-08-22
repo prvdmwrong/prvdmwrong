@@ -60,7 +60,7 @@ error, here are some resources which can help.
 ### Support with Errors
 
 Prvd 'M Wrong attaches a link with every console log message. These links direct
-you to our comprehensive [errors](../reference/error.md) documentation.
+you to our comprehensive [errors](../reference/errors.md) documentation.
 
 ```Txt hl_lines="2"
 [PMW(requireAfterIgnition)]: cannot require other providers after startup
