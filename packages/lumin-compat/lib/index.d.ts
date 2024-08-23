@@ -1,7 +1,5 @@
 /*
-  Copyright (c) znotfireman 2024.
-  This source code is licensed under the MIT license found in the LICENSE file
-  in the root directory of this source tree.
+  (c) Prvd 'M Wrong, dual-licensed under Apache 2.0 or MIT terms.
 */
 
 import { Provider } from "@prvdmwrong/core"
@@ -39,9 +37,9 @@ declare namespace LuminCompat {
 		| "PlayerAdded"
 		| "PlayerRemoving"
 
-	export interface Worker {
-		Type: WorkerType
-		Callback: (...args: any) => void
+	export interface Worker<Type extends WorkerType = any> {
+		Type: Type
+		Callback(...args: InferWorkerArgs<Type>): void
 		IsWorker: boolean
 	}
 
@@ -71,7 +69,10 @@ declare namespace LuminCompat {
 	export let Started: boolean
 	export const Start: (modules?: Instance[]) => Promise<void>
 	export const Controller: <Members extends object>(name: string, members: Members) => Provider<Members>
-	export const Worker: <T extends WorkerType>(type: T, callback: (...args: InferWorkerArgs<T>) => void) => Worker
+	export const Worker: <Type extends WorkerType>(
+		type: Type,
+		callback: (...args: InferWorkerArgs<Type>) => void,
+	) => Worker<Type>
 	export const Expect: <T extends object>(controller: Provider<T>) => Provider<T>
 	export const Signal: <Args extends unknown[] = unknown[]>(name: string) => Signal<Args>
 }
