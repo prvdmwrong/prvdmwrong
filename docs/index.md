@@ -43,7 +43,7 @@ town.
 
 <span class="pmwdoc-version" markdown>
 Version
-<span id="pmwdoc-version">(fetching latest release)</span>
+<code id="pmwdoc-version">(fetching)</code>
 from
 [NPM](https://www.npmjs.com/package/@prvdmwrong/core)
 [Wally](https://wally.run/package/prvdmwrong/core)
@@ -115,8 +115,6 @@ from
         character.PivotTo(character.Position.mul(move.startPosition))
       }
     }
-
-    ‎
     ```
 
 <section markdown>
