@@ -85,11 +85,10 @@ from
     -- Providers can have *anything*!
     function CombatProvider.performMove(self: Self, move: CombatMove)
       local character = self.characterProvider:awaitCharacter()
+      character:PivotTo(character.Position * move.startPosition)
     end
 
     return prvd(CombatProvider)
-
-    ‎
     ```
 
 === "TypeScript"
@@ -113,10 +112,9 @@ from
       // Providers can have *anything*!
       public performMove(move: CombatMove) {
         const character = this.characterProvider.awaitCharacter()
+        character.PivotTo(character.Position.mul(move.startPosition))
       }
     }
-
-
 
     ‎
     ```
