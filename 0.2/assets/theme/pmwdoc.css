@@ -1,15 +1,17 @@
 :root {
-	--pmwdoc-gray-0: oklch(0 0.03 240);
-	--pmwdoc-gray-1: oklch(0.05 0.03 240);
-	--pmwdoc-gray-2: oklch(0.1 0.03 240);
-	--pmwdoc-gray-3: oklch(0.15 0.03 240);
-	--pmwdoc-gray-4: oklch(0.2 0.03 240);
-	--pmwdoc-gray-5: oklch(0.4 0.03 240);
-	--pmwdoc-gray-6: oklch(0.8 0.03 240);
-	--pmwdoc-gray-7: oklch(0.85 0.03 240);
-	--pmwdoc-gray-8: oklch(0.9 0.03 240);
-	--pmwdoc-gray-9: oklch(0.95 0.03 240);
-	--pmwdoc-gray-10: oklch(1 0.03 240);
+	--pmwdoc-hue: 220;
+	--pmwdoc-chroma: 0.05;
+	--pmwdoc-gray-0: oklch(0 var(--pmwdoc-chroma) var(--pmwdoc-hue));
+	--pmwdoc-gray-1: oklch(0.05 var(--pmwdoc-chroma) var(--pmwdoc-hue));
+	--pmwdoc-gray-2: oklch(0.1 var(--pmwdoc-chroma) var(--pmwdoc-hue));
+	--pmwdoc-gray-3: oklch(0.15 var(--pmwdoc-chroma) var(--pmwdoc-hue));
+	--pmwdoc-gray-4: oklch(0.2 var(--pmwdoc-chroma) var(--pmwdoc-hue));
+	--pmwdoc-gray-5: oklch(0.4 var(--pmwdoc-chroma) var(--pmwdoc-hue));
+	--pmwdoc-gray-6: oklch(0.8 var(--pmwdoc-chroma) var(--pmwdoc-hue));
+	--pmwdoc-gray-7: oklch(0.85 var(--pmwdoc-chroma) var(--pmwdoc-hue));
+	--pmwdoc-gray-8: oklch(0.9 var(--pmwdoc-chroma) var(--pmwdoc-hue));
+	--pmwdoc-gray-9: oklch(0.95 var(--pmwdoc-chroma) var(--pmwdoc-hue));
+	--pmwdoc-gray-10: oklch(1 var(--pmwdoc-chroma) var(--pmwdoc-hue));
 
 	--pmwdoc-accent: oklch(0.6 0.186 52.985);
 	--pmwdoc-accent-dark: oklch(0.55 0.186 52.985);
