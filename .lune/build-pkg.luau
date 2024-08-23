@@ -17,7 +17,7 @@ local NPM_SCOPE = "prvdmwrong"
 local NPM_PACKAGE = {
   main = "lib/init.luau",
   author = "znotfireman <znotfireman+hello@gmail.com>",
-  license = "MIT",
+  license = "Apache-2.0 OR MIT",
   types = "lib/index.d.ts",
   files = {
     "lib",
@@ -37,7 +37,7 @@ local NPM_PACKAGE = {
 local WALLY_SCOPE = "prvdmwrong"
 local WALLY_PACKAGE = {
   package = {
-    license = "MIT",
+    license = "Apache-2.0 OR MIT",
     authors = { "znotfireman <znotfireman+hello@gmail.com>" },
     realm = "shared",
     repository = "https://github.com/prvdmwrong/prvdmwrong",
