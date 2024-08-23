@@ -10,8 +10,8 @@
 
 # :octicons-package-16: Lifecycle
 
-Constructs and returns a new [lifecycle](../types/lifecycle.md) within Oh My
-Prvd. Lifecycles are special event dispatchers that can hook onto a provider's
+Constructs and returns a new [lifecycle](../types/lifecycle.md) within Prvd 'M
+Wrong. Lifecycles are special event dispatchers that can hook onto a provider's
 method.
 
 === "Luau"
