@@ -2872,11 +2872,10 @@ from
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1">-- Providers can have *anything*!</span>
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="kr">function</span> <span class="nc">CombatProvider</span><span class="p">.</span><span class="nf">performMove</span><span class="p">(</span><span class="n">self</span><span class="p">:</span> <span class="n">Self</span><span class="p">,</span> <span class="n">move</span><span class="p">:</span> <span class="n">CombatMove</span><span class="p">)</span>
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>  <span class="kd">local</span> <span class="n">character</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">characterProvider</span><span class="p">:</span><span class="n">awaitCharacter</span><span class="p">()</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="kr">end</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">(</span><span class="n">CombatProvider</span><span class="p">)</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="err">‎</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>  <span class="n">character</span><span class="p">:</span><span class="n">PivotTo</span><span class="p">(</span><span class="n">character</span><span class="p">.</span><span class="n">Position</span> <span class="o">*</span> <span class="n">move</span><span class="p">.</span><span class="n">startPosition</span><span class="p">)</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="kr">end</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">(</span><span class="n">CombatProvider</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2898,12 +2897,11 @@ from
 </span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="c1">// Providers can have *anything*!</span>
 </span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">performMove</span><span class="p">(</span><span class="nx">move</span><span class="o">:</span><span class="w"> </span><span class="kt">CombatMove</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">character</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">characterProvider</span><span class="p">.</span><span class="nx">awaitCharacter</span><span class="p">()</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="p">}</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="nx">character</span><span class="p">.</span><span class="nx">PivotTo</span><span class="p">(</span><span class="nx">character</span><span class="p">.</span><span class="nx">Position</span><span class="p">.</span><span class="nx">mul</span><span class="p">(</span><span class="nx">move</span><span class="p">.</span><span class="nx">startPosition</span><span class="p">))</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="p">}</span>
 </span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="err">‎</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="err">‎</span>
 </span></code></pre></div>
 </div>
 </div>
