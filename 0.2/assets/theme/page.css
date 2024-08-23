@@ -204,26 +204,27 @@ h6 > .twemoji:first-child {
 }
 
 .md-typeset .md-button {
-	background-color: oklch(from var(--md-primary-fg-color) l c h / 0.25);
+	background-color: var(--md-default-fg-color--lightest);
+	color: var(--md-default-fg-color) !important;
 	border-radius: 0.25em;
 	border: none;
 	padding: 0.5em 1em;
+	opacity: 1 !important;
 }
 
 .md-typeset .md-button--primary {
-	background-color: var(--md-primary-fg-color);
+	background-color: var(--md-accent-fg-color);
+	color: var(--md-primary-fg-color);
 	border-radius: 0.25em;
 	border: none;
 	padding: 0.5em 1em;
-	transition: opacity 125ms;
+	opacity: 1 !important;
 }
 
-.md-typeset .md-button:hover {
-	opacity: 100%;
-}
-
+.md-typeset .md-button:hover,
 .md-typeset .md-button--primary:hover {
-	opacity: 75%;
+	background-color: var(--md-default-fg-color);
+	color: var(--md-default-bg-color) !important;
 }
 
 a.headerlink::after,
@@ -258,4 +259,24 @@ a.headerlink::after,
 .md-typeset .tabbed-set > input:nth-child(19):checked ~ .tabbed-labels > :nth-child(19),
 .md-typeset .tabbed-set > input:nth-child(20):checked ~ .tabbed-labels > :nth-child(20) {
 	font-weight: 700;
+}
+
+.heart {
+	animation: heart 1000ms infinite;
+}
+
+@keyframes heart {
+	0%,
+	40%,
+	80%,
+	100% {
+		transform: scale(1);
+	}
+	20%,
+	60% {
+		transform: scale(1.05);
+	}
+}
+.heart {
+	animation: heart 1000ms infinite;
 }

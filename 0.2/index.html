@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="assets/logo-dark.svg">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
     
     
       
@@ -2828,16 +2828,24 @@ ask, <i>"are you wealthy or do you make a six-figure salary?"</i>
 </p>
 <p>
 Cherish a development experience that fades into the background, freeing you to
-build faster and prove 'm wrong. It's the swaggest framework in town.
+build faster and prove 'm wrong. It's the swaggest Roblox game framework in
+town.
 </p>
 <nav>
 <p><a href="./tutorials/" class="md-button md-button--primary">Get Started</a>
 <a href="https://github.com/prvdmwrong/prvdmwrong/releases" class="md-button">Download</a>
 <a href="./reference/" class="md-button">API Reference</a></p>
+<p><span class="pmwdoc-version" markdown>
+v<span id="pmwdoc-version">(fetching latest release)</span>
+on
+<a href="https://www.npmjs.com/package/@prvdmwrong/core">NPM</a>
+<a href="https://wally.run/package/prvdmwrong/core">Wally</a>
+<a href="https://pesde.daimond113.com/packages/prvdmwrong/core/0.2.0-dev.12">Pesde</a>
+</span></p>
+<script defer="defer" src="assets/javascripts/latest-version.js"></script>
 </nav>
 </section>
 </section>
-<section class="pmwdoc-home-content"></section>
 <section class="pmwdoc-home-body">
 <!-- Familiar -->
 <section class="grid">
@@ -2867,24 +2875,26 @@ build faster and prove 'm wrong. It's the swaggest framework in town.
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Provider</span><span class="p">,</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">OnStart</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@prvdmwrong/core&quot;</span>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Provider</span><span class="p">,</span><span class="w"> </span><span class="nx">OnStart</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@prvdmwrong/core&quot;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">CharacterProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./character-provider&quot;</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kd">@Provider</span><span class="p">()</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">CombatProvider</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">OnStart</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="c1">// Just specify providers to use them!</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">characterProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">CharacterProvider</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="c1">// `onStart` is a built-in startup lifecycle.</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">onStart</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;Hello, Prvd &#39;M Wrong!&quot;</span><span class="p">)</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="c1">// Providers can have *anything*!</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">performMove</span><span class="p">(</span><span class="nx">move</span><span class="o">:</span><span class="w"> </span><span class="kt">CombatMove</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">character</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">characterProvider</span><span class="p">.</span><span class="nx">awaitCharacter</span><span class="p">()</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">// ...snip...</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kd">@Provider</span><span class="p">()</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">CombatProvider</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">OnStart</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="c1">// Just specify providers to use them!</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">characterProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">CharacterProvider</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="c1">// `onStart` is a built-in startup lifecycle.</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">onStart</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;Hello, Prvd &#39;M Wrong!&quot;</span><span class="p">)</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="c1">// Providers can have *anything*!</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">performMove</span><span class="p">(</span><span class="nx">move</span><span class="o">:</span><span class="w"> </span><span class="kt">CombatMove</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">character</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">characterProvider</span><span class="p">.</span><span class="nx">awaitCharacter</span><span class="p">()</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="p">}</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -2906,16 +2916,6 @@ better?</p>
 <hr />
 <p><br/></p>
 <!-- Batteries Included -->
-<p><span style="font-size: 3em; line-height: 0; margin: 0;" markdown><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg></span></span></p>
-<h1 id="batteries-included">Batteries Included</h1>
-<p>Prvd 'M Wrong brings all features expected by a framework and even improves some
-of them for you. Prvd 'M Wrong promises zero bloat, and is split into
-featherlight functional packages.</p>
-<p>Need more? Mix-in packages including networking, components, and premade
-lifecycles when needed. With compatibility packages, transitioning to Prvd 'M
-Wrong will feel like exiting a coal mine with dead canary birds littered around,
-entering a meadow of wildflowers and dancing gazelles, with a cool breeze and
-singing birds all around. It's refreshing.</p>
 <div class="prvdmwrong-home-features">
 <ul>
 <li>Providers</li>
@@ -2936,6 +2936,17 @@ singing birds all around. It's refreshing.</p>
 <li>Compatibility Layers</li>
 </ul>
 </div>
+<p><span style="font-size: 3em; line-height: 0; margin: 0;" markdown><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg></span></span></p>
+<h1 id="batteries-included">Batteries Included</h1>
+<p style="font-size: 1.25em;">
+Prvd 'M Wrong brings all core features expected by a framework and even improves some
+of them for you. Absolutely zero bloat, transformers, or extensions required.
+</p>
+<p>Need more? Mix in packages for networking, components, and pre-made lifecycles
+as needed. Tired of frameworks like Knit or Lumin? Switching to Prvd 'M Wrong is
+like exiting coal mine with dead canary birds littered around for a meadow of
+wildflowers and dancing gazelles, with a cool breeze and singing birds all
+around. It's refreshing.</p>
 <p><br/></p>
 <hr />
 <p><br/></p>
@@ -2948,8 +2959,9 @@ singing birds all around. It's refreshing.</p>
 <img
   src="./assets/wordmark-light.svg#only-light"
   alt="Prvd 'M Wrong"
-  width="500px"/></p>
-<p><a href="./tutorials/" class="md-button md-button--primary">Get Started</a>
+  width="500px"/>
+<br/>
+<a href="./tutorials/" class="md-button md-button--primary">Get Started</a>
 <a href="https://github.com/prvdmwrong/prvdmwrong/releases" class="md-button">Download</a>
 <a href="./reference/" class="md-button">API Reference</a></p>
 </section>
@@ -3082,7 +3094,7 @@ singing birds all around. It's refreshing.</p>
     <script id="__config" type="application/json">{"base": ".", "features": ["navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.top", "search.suggest"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.471ce7a9.min.js"></script>
+      <script src="assets/javascripts/bundle.af256bd8.min.js"></script>
       
     
   </body>
