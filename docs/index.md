@@ -42,8 +42,9 @@ town.
 <a href="./reference/" class="md-button">API Reference</a>
 
 <span class="pmwdoc-version" markdown>
-v<span id="pmwdoc-version">(fetching latest release)</span>
-on
+Version
+<span id="pmwdoc-version">(fetching latest release)</span>
+from
 [NPM](https://www.npmjs.com/package/@prvdmwrong/core)
 [Wally](https://wally.run/package/prvdmwrong/core)
 [Pesde](https://pesde.daimond113.com/packages/prvdmwrong/core/0.2.0-dev.12)
@@ -68,6 +69,8 @@ on
     local prvd = require("@pkg/prvdmwrong")
     local CharacterProvider = require("./character-provider")
 
+    -- ... snip ...
+
     local CombatProvider = {}
     type Self = typeof(CombatController)
 
@@ -85,6 +88,8 @@ on
     end
 
     return prvd(CombatProvider)
+
+    ‎
     ```
 
 === "TypeScript"
@@ -93,7 +98,7 @@ on
     import { Provider, OnStart } from "@prvdmwrong/core"
     import { CharacterProvider } from "./character-provider"
 
-    // ...snip...
+    // ... snip ...
 
     @Provider()
     export class CombatProvider implements OnStart {
@@ -110,6 +115,10 @@ on
         const character = this.characterProvider.awaitCharacter()
       }
     }
+
+
+
+    ‎
     ```
 
 <section markdown>
@@ -118,9 +127,11 @@ on
 
 # Familiar
 
+<p style="font-size: 1.25em;">
 Prvd 'M Wrong stands on the shoulders of giants, particularly Flamework and
 Knit. Built on a proven service provider architecture, cherish a development
 experience that fades into the background.
+</p>
 
 Create service providers to handle the top level logic of your game, baked with
 natural type-safety and intellisense, built-in dependency injection/inversion,
@@ -176,10 +187,10 @@ of them for you. Absolutely zero bloat, transformers, or extensions required.
 </p>
 
 Need more? Mix in packages for networking, components, and pre-made lifecycles
-as needed. Tired of frameworks like Knit or Lumin? Switching to Prvd 'M Wrong is
-like exiting coal mine with dead canary birds littered around for a meadow of
-wildflowers and dancing gazelles, with a cool breeze and singing birds all
-around. It's refreshing.
+as needed. Tired of frameworks like Knit or Lumin? Prvd 'M Wrong is the
+difference between a coal mine with dead canary birds littered around and a
+meadow of wildflowers and dancing gazelles, with a cool breeze and singing birds
+all around. It's refreshing.
 
 <br/>
 

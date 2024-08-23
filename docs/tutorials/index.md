@@ -67,12 +67,8 @@ Prvd 'M Wrong attaches a link with every console log message. These links direct
 you to our comprehensive [errors](../reference/errors.md) documentation.
 
 ```Txt hl_lines="2"
-[PMW(requireAfterIgnition)]: cannot require other providers after startup
-  more info: prvdmwrong.github.io/prvdmwrong/latest/reference/general/error-messages#requireafterignition
-  stack trace:
-    prvdmwrong.log:118 function throw
-    prvdmwrong.prvd:181 function use
-    Main:42
+[Prvd 'M Wrong (registerAfterIgnition)]: Cannot register other providers after startup.
+  More info: prvdmwrong.github.io/prvdmwrong/latest/reference/general/errors#registerafterignition
 ```
 
 It explains the meaning of each message, its origin within Prvd 'M Wrong, and

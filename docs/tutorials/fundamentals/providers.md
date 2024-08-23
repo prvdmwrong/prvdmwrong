@@ -29,12 +29,52 @@ lifecycle events:
     export class Provider {}
     ```
 
-!!! warning "Beware the difference"
+??? success "Return with `prvd()`"
+
+    Modules should return the constructed provider from `prvd()`. This allows
+    Luau to infer the full, complete type of the provider:
+
+    ```Lua
+    local PointsProvider = {}
+    return prvd(PointsProvider)
+    ```
+
+    Avoid creating a new provider earlier - Luau will not pick up additional
+    fields, and will throw a type error as you're adding into a sealed table:
+
+    ```Lua
+    -- Don't do this!
+    local PointsProvider = prvd({})
+
+    function PointsProvider:onStart()
+      -- ... snip ...
+    end
+
+    return PointsProvider
+    ```
+
+    Following this syntax, avoid constructing your provider inside the `prvd()`
+    call, as Luau can't infer `self` properly:
+
+    ```Lua
+    -- Don't do this!
+    return prvd {
+      onStart = function(self)
+        -- `self` is inferred as `a` here... not very useful!
+      end
+    }
+    ```
+
+??? tip "Know the difference"
 
     Both `prvd` and `@Provider()` appeal for different environments. `prvd()`
     is used as a function to construct Luau providers. Contrast to
     `@Provider()`, which is used as a class decorator to construct TypeScript
     decorators.
+
+    Prvd 'M Wrong only exports one or the other for both environments,
+    preventing you from using `prvd()` or `@Provider()` in the wrong
+    environment.
 
 For Luau providers, a `name` property can be specified which will be used for
 memory profiling, and falls back to the current script running. Names are

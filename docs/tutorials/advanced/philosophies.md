@@ -23,10 +23,13 @@ Prvd 'M Wrong is to take all of the lessons and ideas learned from these project
 and build a framework that can solve this problem for good. In addition, all of
 these frameworks have major drawbacks:
 
-- Knit is unmaintained, introduces a hefty level of bloat and has subpar types;
-- Flamework requires TypeScript and is tightly coupled with its transformer;
+- Knit is unmaintained, introduces a hefty level of bloat and has subpar types.
+  Prvd 'M Wrong backfills what discouraged Knit being dependency injection and
+  complete IntelliSense;
+- Flamework requires TypeScript and is tightly coupled with its transformer.
+  As such, type information is lost during compilation;
 - Nevermore introduces an outrageous level of bloat and also harder to use,
-  being geared primarily just for Quenty;
+  being geared primarily just for Quenty and has zero types;
 - Proton is under development and requires TypeScript, practically unmaintained;
 - Pronghorn does not implement dependency injection, minimal extensibility and
   introduces some bloat;
@@ -52,4 +55,10 @@ This is not to say Prvd 'M Wrong is superior, at least not yet:
 - Components and networking packages are under development, an external
   networking/component library is required with Prvd 'M Wrong
 - We strive to keep Prvd 'M Wrong bug-free, but there are blemishes and
-  imperfection, and is not as battle-tested as other frameworks
+  imperfections. Prvd 'M Wrong is not as battle-tested as other frameworks and
+  should not be used for production games.
+
+Prvd 'M Wrong also acknowledges that developers will not migrate from any of the
+existing frameworks managers without good reason, it needs to be substantially
+better and require virtually no effort to migrate. Prvd 'M Wrong solves this by
+providing compatibility modules for Knit and Lumin Framework.
