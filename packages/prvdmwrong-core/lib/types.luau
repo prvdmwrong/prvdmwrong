@@ -80,6 +80,11 @@ export type PrvdNamespace = {
   },
 }
 
-export type Prvd = PrvdNamespace & <T>(provider: T) -> Provider<T>
+export type Prvd = typeof(setmetatable(
+  {} :: PrvdNamespace,
+  {} :: {
+    __call: <T>(_: any, provider: T) -> Provider<T>,
+  }
+))
 
 return nil
