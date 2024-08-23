@@ -2836,8 +2836,9 @@ town.
 <a href="https://github.com/prvdmwrong/prvdmwrong/releases" class="md-button">Download</a>
 <a href="./reference/" class="md-button">API Reference</a></p>
 <p><span class="pmwdoc-version" markdown>
-v<span id="pmwdoc-version">(fetching latest release)</span>
-on
+Version
+<span id="pmwdoc-version">(fetching latest release)</span>
+from
 <a href="https://www.npmjs.com/package/@prvdmwrong/core">NPM</a>
 <a href="https://wally.run/package/prvdmwrong/core">Wally</a>
 <a href="https://pesde.daimond113.com/packages/prvdmwrong/core/0.2.0-dev.12">Pesde</a>
@@ -2855,30 +2856,34 @@ on
 <div class="language-Lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;@pkg/prvdmwrong&quot;</span><span class="p">)</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">local</span> <span class="n">CharacterProvider</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;./character-provider&quot;</span><span class="p">)</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kd">local</span> <span class="n">CombatProvider</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">type</span> <span class="n">Self</span> <span class="o">=</span> <span class="n">typeof</span><span class="p">(</span><span class="n">CombatController</span><span class="p">)</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1">-- Just specify providers to use them!</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">CombatProvider</span><span class="p">.</span><span class="n">characterProvider</span> <span class="o">=</span> <span class="n">CharacterProvider</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1">-- `onStart` is a built-in startup lifecycle.</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="kr">function</span> <span class="nc">CombatProvider</span><span class="p">:</span><span class="nf">onStart</span><span class="p">()</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, Prvd &#39;M Wrong!&quot;</span><span class="p">)</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="kr">end</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1">-- Providers can have *anything*!</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="kr">function</span> <span class="nc">CombatProvider</span><span class="p">.</span><span class="nf">performMove</span><span class="p">(</span><span class="n">self</span><span class="p">:</span> <span class="n">Self</span><span class="p">,</span> <span class="n">move</span><span class="p">:</span> <span class="n">CombatMove</span><span class="p">)</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  <span class="kd">local</span> <span class="n">character</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">characterProvider</span><span class="p">:</span><span class="n">awaitCharacter</span><span class="p">()</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="kr">end</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">(</span><span class="n">CombatProvider</span><span class="p">)</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">-- ... snip ...</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kd">local</span> <span class="n">CombatProvider</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">type</span> <span class="n">Self</span> <span class="o">=</span> <span class="n">typeof</span><span class="p">(</span><span class="n">CombatController</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1">-- Just specify providers to use them!</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">CombatProvider</span><span class="p">.</span><span class="n">characterProvider</span> <span class="o">=</span> <span class="n">CharacterProvider</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1">-- `onStart` is a built-in startup lifecycle.</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="kr">function</span> <span class="nc">CombatProvider</span><span class="p">:</span><span class="nf">onStart</span><span class="p">()</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, Prvd &#39;M Wrong!&quot;</span><span class="p">)</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="kr">end</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1">-- Providers can have *anything*!</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="kr">function</span> <span class="nc">CombatProvider</span><span class="p">.</span><span class="nf">performMove</span><span class="p">(</span><span class="n">self</span><span class="p">:</span> <span class="n">Self</span><span class="p">,</span> <span class="n">move</span><span class="p">:</span> <span class="n">CombatMove</span><span class="p">)</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>  <span class="kd">local</span> <span class="n">character</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">characterProvider</span><span class="p">:</span><span class="n">awaitCharacter</span><span class="p">()</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="kr">end</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">(</span><span class="n">CombatProvider</span><span class="p">)</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="err">‎</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Provider</span><span class="p">,</span><span class="w"> </span><span class="nx">OnStart</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@prvdmwrong/core&quot;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">CharacterProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./character-provider&quot;</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">// ...snip...</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">// ... snip ...</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kd">@Provider</span><span class="p">()</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">CombatProvider</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">OnStart</span><span class="w"> </span><span class="p">{</span>
@@ -2895,6 +2900,10 @@ on
 </span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">character</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">characterProvider</span><span class="p">.</span><span class="nx">awaitCharacter</span><span class="p">()</span>
 </span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="p">}</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="err">‎</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -2902,9 +2911,11 @@ on
 <section>
 <p><span style="font-size: 3em; line-height: 0; margin: 0;" markdown><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m8 14.25.345.666a.75.75 0 0 1-.69 0l-.008-.004-.018-.01a7.152 7.152 0 0 1-.31-.17 22.055 22.055 0 0 1-3.434-2.414C2.045 10.731 0 8.35 0 5.5 0 2.836 2.086 1 4.25 1 5.797 1 7.153 1.802 8 3.02 8.847 1.802 10.203 1 11.75 1 13.914 1 16 2.836 16 5.5c0 2.85-2.045 5.231-3.885 6.818a22.066 22.066 0 0 1-3.744 2.584l-.018.01-.006.003h-.002ZM4.25 2.5c-1.336 0-2.75 1.164-2.75 3 0 2.15 1.58 4.144 3.365 5.682A20.58 20.58 0 0 0 8 13.393a20.58 20.58 0 0 0 3.135-2.211C12.92 9.644 14.5 7.65 14.5 5.5c0-1.836-1.414-3-2.75-3-1.373 0-2.609.986-3.029 2.456a.749.749 0 0 1-1.442 0C6.859 3.486 5.623 2.5 4.25 2.5Z"/></svg></span></span></p>
 <h1 id="familiar">Familiar</h1>
-<p>Prvd 'M Wrong stands on the shoulders of giants, particularly Flamework and
+<p style="font-size: 1.25em;">
+Prvd 'M Wrong stands on the shoulders of giants, particularly Flamework and
 Knit. Built on a proven service provider architecture, cherish a development
-experience that fades into the background.</p>
+experience that fades into the background.
+</p>
 <p>Create service providers to handle the top level logic of your game, baked with
 natural type-safety and intellisense, built-in dependency injection/inversion,
 first-class lifecycles, and pragmatic APIs.</p>
@@ -2943,10 +2954,10 @@ Prvd 'M Wrong brings all core features expected by a framework and even improves
 of them for you. Absolutely zero bloat, transformers, or extensions required.
 </p>
 <p>Need more? Mix in packages for networking, components, and pre-made lifecycles
-as needed. Tired of frameworks like Knit or Lumin? Switching to Prvd 'M Wrong is
-like exiting coal mine with dead canary birds littered around for a meadow of
-wildflowers and dancing gazelles, with a cool breeze and singing birds all
-around. It's refreshing.</p>
+as needed. Tired of frameworks like Knit or Lumin? Prvd 'M Wrong is the
+difference between a coal mine with dead canary birds littered around and a
+meadow of wildflowers and dancing gazelles, with a cool breeze and singing birds
+all around. It's refreshing.</p>
 <p><br/></p>
 <hr />
 <p><br/></p>
