@@ -26,6 +26,7 @@ do
   local function assertBackwardsCompatible(this: string, other: string)
     local thisVersion, referenceVersion = parseVersion(this), parseVersion(other)
     local isCompatible = thisVersion.major == referenceVersion.major and thisVersion.minor <= referenceVersion.minor
+
     if isCompatible and thisVersion.metadata and referenceVersion.metadata then
       isCompatible = thisVersion.metadata <= referenceVersion.metadata
     end
@@ -34,6 +35,7 @@ do
   end
 
   local globalPackage: Types.Prvd? = _G.prvdmwrong
+
   if globalPackage then
     assertBackwardsCompatible("VERSION", globalPackage.version)
     return globalPackage :: Types.Prvd
@@ -42,6 +44,7 @@ do
   local leadReference = Reference.getReference()
   if leadReference ~= nil and leadReference ~= script then
     local version = leadReference:GetAttribute("version")
+
     if typeof(version) == "string" then
       assertBackwardsCompatible("VERSION", version)
     end
@@ -68,14 +71,17 @@ export type Provider<T> = Types.Provider<T>
 export type StartupStatus = Types.StartupStatus
 
 local function Prvd(x: Types.PrvdNamespace): Types.Prvd
-  return setmetatable(x :: any, {
-    __call = function<T>(_, provider: T): Provider<T>
-      return providers.new(provider)
-    end,
-  })
+  return table.freeze(setmetatable(
+    x,
+    table.freeze {
+      __call = function<T>(_, provider: T): Provider<T>
+        return providers.new(provider)
+      end,
+    }
+  )) :: any
 end
 
-local exports = Prvd {
+return Prvd {
   version = "VERSION",
 
   -- Providers API
@@ -114,5 +120,3 @@ local exports = Prvd {
     deleteMetadata = Reflection.deleteMetadata,
   },
 }
-
-return exports
