@@ -1,5 +1,5 @@
 --!strict
--- (c) Prvd 'M Wrong, dual-licensed under Apache 2.0 and MIT terms.
+-- (c) Prvd 'M Wrong, dual-licensed under Apache 2.0 or MIT terms.
 
 local Types = require("prvdmwrong-core/types")
 local log = require("prvdmwrong-core/utils/log")
