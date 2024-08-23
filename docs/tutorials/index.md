@@ -9,15 +9,19 @@ newcomer to the library.
 !!! warning "But first, something important..."
 
     **<span style="font-size: 1.5em;">
-    Do not use Prvd 'M Wrong in production unless you're *really, really, really, REALLY, really*
-    willing and able to withstand large, sweeping changes.
+    Do not use Prvd 'M Wrong in production unless you're *really, really,
+    really, REALLY, really* willing and able to withstand large, sweeping
+    changes.
     </span>**
 
     Yes, that was five-reallys important.
 
-    Prvd 'M Wrong is in very early alpha right now! You *will* encounter:
+    Prvd 'M Wrong is still under active development! Full backward compatibility
+    is not guaranteed before reaching version 1.0. Again, ___Do not use Prvd 'M
+    Wrong in production yet, unless you are willing and able to withstand large,
+    sweeping changes.___ You *will* encounter:
 
-    - nonexistent or broken features
+    - nonexistent or broken packages
     - changes in how things work between versions
     - updates that completely remove existing features
     - evolving recommendations on conventions and project structure

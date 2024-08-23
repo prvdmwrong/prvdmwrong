@@ -31,7 +31,8 @@ ask, <i>"are you wealthy or do you make a six-figure salary?"</i>
 
 <p>
 Cherish a development experience that fades into the background, freeing you to
-build faster and prove 'm wrong. It's the swaggest framework in town.
+build faster and prove 'm wrong. It's the swaggest Roblox game framework in
+town.
 </p>
 
 <nav markdown>
@@ -40,13 +41,18 @@ build faster and prove 'm wrong. It's the swaggest framework in town.
 <a href="https://github.com/prvdmwrong/prvdmwrong/releases" class="md-button">Download</a>
 <a href="./reference/" class="md-button">API Reference</a>
 
+<span class="pmwdoc-version" markdown>
+v<span id="pmwdoc-version">(fetching latest release)</span>
+on
+[NPM](https://www.npmjs.com/package/@prvdmwrong/core)
+[Wally](https://wally.run/package/prvdmwrong/core)
+[Pesde](https://pesde.daimond113.com/packages/prvdmwrong/core/0.2.0-dev.12)
+</span>
+<script src="assets/javascripts/latest-version.js" defer></script>
+
 </nav>
 
 </section>
-
-</section>
-
-<section class="pmwdoc-home-content" markdown>
 
 </section>
 
@@ -84,8 +90,10 @@ build faster and prove 'm wrong. It's the swaggest framework in town.
 === "TypeScript"
 
     ```TypeScript
-    import { Provider, type OnStart } from "@prvdmwrong/core"
+    import { Provider, OnStart } from "@prvdmwrong/core"
     import { CharacterProvider } from "./character-provider"
+
+    // ...snip...
 
     @Provider()
     export class CombatProvider implements OnStart {
@@ -133,20 +141,6 @@ better?
 
 <!-- Batteries Included -->
 
-<span style="font-size: 3em; line-height: 0; margin: 0;" markdown>:octicons-zap-16:</span>
-
-# Batteries Included
-
-Prvd 'M Wrong brings all features expected by a framework and even improves some
-of them for you. Prvd 'M Wrong promises zero bloat, and is split into
-featherlight functional packages.
-
-Need more? Mix-in packages including networking, components, and premade
-lifecycles when needed. With compatibility packages, transitioning to Prvd 'M
-Wrong will feel like exiting a coal mine with dead canary birds littered around,
-entering a meadow of wildflowers and dancing gazelles, with a cool breeze and
-singing birds all around. It's refreshing.
-
 <div class="prvdmwrong-home-features">
 
 <ul>
@@ -172,6 +166,21 @@ singing birds all around. It's refreshing.
 
 </div>
 
+<span style="font-size: 3em; line-height: 0; margin: 0;" markdown>:octicons-zap-16:</span>
+
+# Batteries Included
+
+<p style="font-size: 1.25em;">
+Prvd 'M Wrong brings all core features expected by a framework and even improves some
+of them for you. Absolutely zero bloat, transformers, or extensions required.
+</p>
+
+Need more? Mix in packages for networking, components, and pre-made lifecycles
+as needed. Tired of frameworks like Knit or Lumin? Switching to Prvd 'M Wrong is
+like exiting coal mine with dead canary birds littered around for a meadow of
+wildflowers and dancing gazelles, with a cool breeze and singing birds all
+around. It's refreshing.
+
 <br/>
 
 ---
@@ -190,7 +199,7 @@ singing birds all around. It's refreshing.
   src="./assets/wordmark-light.svg#only-light"
   alt="Prvd 'M Wrong"
   width="500px"/>
-
+<br/>
 <a href="./tutorials/" class="md-button md-button--primary">Get Started</a>
 <a href="https://github.com/prvdmwrong/prvdmwrong/releases" class="md-button">Download</a>
 <a href="./reference/" class="md-button">API Reference</a>
