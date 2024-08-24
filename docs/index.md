@@ -59,6 +59,23 @@ from
 
 <section class="pmwdoc-home-body" markdown>
 
+<ul class="pmwdoc-home-list">
+<li>
+<b>5kb</b>
+<p>Minified + Gzipped</p>
+</li>
+<li>
+<b>Luau & TypeScript</b>
+<p>Support</p>
+</li>
+<li>
+<b>Open Source</b>
+<p>Forever</p>
+</li>
+</ul>
+
+<br/>
+
 <!-- Familiar -->
 
 <section class="grid" markdown>
