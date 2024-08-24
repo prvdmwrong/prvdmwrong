@@ -1,5 +1,5 @@
 --!nocheck
--- (c) Prvd 'M Wrong, dual-licensed under Apache 2.0 or MIT terms.
+-- (c) Prvd 'M Wrong, dual-licensed under MIT or Apache 2.0 terms.
 -- Vendored from stravant/goodsignal licensed under MIT terms.
 
 -- The currently idle thread to run the next handler on

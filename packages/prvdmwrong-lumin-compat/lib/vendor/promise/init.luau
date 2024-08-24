@@ -1,5 +1,5 @@
 --!strict
--- (c) Prvd 'M Wrong, dual-licensed under Apache 2.0 or MIT terms.
+-- (c) Prvd 'M Wrong, dual-licensed under MIT or Apache 2.0 terms.
 -- Vendored from lukadev-0/rbx-typed-promise licensed under MIT terms.
 
 local Promise = require("./untyped") :: any

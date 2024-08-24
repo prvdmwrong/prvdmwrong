@@ -58,7 +58,7 @@ local PROJECT = [[{
 }]=]
 
 local BASE_LUAU = [[--!strict
--- (c) Prvd 'M Wrong, dual-licensed under Apache 2.0 or MIT terms.
+-- (c) Prvd 'M Wrong, dual-licensed under MIT or Apache 2.0 terms.
 BASE_LUAU ..= "]=]"
 
 local PRVD_LUAU = BASE_LUAU
