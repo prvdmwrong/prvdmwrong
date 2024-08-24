@@ -38,7 +38,7 @@ to mix in networking and components as you need. Randoms will approach you and
 ask, *"are you wealthy or do you make a six-figure salary?"*
 
 Cherish a development experience that fades into the background, freeing you to
-build faster and **prvd 'm wrong.** It's the swaggest framework in town!
+build faster and **prvd 'm wrong.** It's the swaggest Roblox framework in town.
 
 Sparked your interest? [Get going in minutes with our on-rails
 tutorial.](https://prvdmwrong.github.io/prvdmwrong/latest/tutorials/)
@@ -46,7 +46,7 @@ tutorial.](https://prvdmwrong.github.io/prvdmwrong/latest/tutorials/)
 ## Highlights
 
 - Type-safe APIs for both Luau and TypeScript
-- Featherlight, choose to mix in packages as you need
+- Featherlight (<6kb), choose to mix in packages as you need
 - Uses dependency injection for cleaner code organization
 - Made to be extendable through modding APIs
 - Non-intrusive first-class lifecycle events for flexibility

@@ -161,18 +161,27 @@ do
 
     print(`Processing {package}`)
     fs.writeDir(`{cwd}/packages/{package}`)
-    spawnCommand(
-      "darklua",
-      "process",
-      `{cwd}/packages/{package}/lib`,
-      `{cwd}/dist/{package}/lib`,
-      "-c",
-      darkluaConfig,
-      "-v"
-    )
-
-    print(`=> Reformatting {package} because Darklua does weird things`)
-    spawnCommand("stylua", `{cwd}/dist/{package}`)
+    if shouldRelease then
+      spawnCommand(
+        "darklua",
+        "process",
+        `{cwd}/packages/{package}/lib/init.luau`,
+        `{cwd}/dist/{package}/lib/init.luau`,
+        "-c",
+        darkluaConfig,
+        "-v"
+      )
+    else
+      spawnCommand(
+        "darklua",
+        "process",
+        `{cwd}/packages/{package}/lib`,
+        `{cwd}/dist/{package}/lib`,
+        "-c",
+        darkluaConfig,
+        "-v"
+      )
+    end
 
     print(`=> Writing default.project.json for {package}`)
     local project = table.clone(PROJECT_FILE)
@@ -192,7 +201,15 @@ do
 
     if shouldRelease then
       print("=> Minifying")
-      spawnCommand("darklua", "minify", `{cwd}/dist/{package}/lib`, `{cwd}/dist/{package}/lib`)
+      -- Fym when i have to specify column span twice
+      spawnCommand(
+        "darklua",
+        "minify",
+        `{cwd}/dist/{package}/lib`,
+        `{cwd}/dist/{package}/lib`,
+        "--column-span",
+        "9999999999"
+      )
 
       local packageConfig: Config = serde.decode("toml", fs.readFile(`{cwd}/packages/{package}/config.toml`))
       local wallyScope = `{WALLY_SCOPE}/{packageConfig.config.name}`
