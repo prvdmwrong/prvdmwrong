@@ -41,16 +41,6 @@ town.
 <a href="https://github.com/prvdmwrong/prvdmwrong/releases" class="md-button">Download</a>
 <a href="./reference/" class="md-button">API Reference</a>
 
-<span class="pmwdoc-version" markdown>
-Version
-<code id="pmwdoc-version">(fetching)</code>
-from
-[NPM](https://www.npmjs.com/package/@prvdmwrong/core)
-[Wally](https://wally.run/package/prvdmwrong/core)
-[Pesde](https://pesde.daimond113.com/packages/prvdmwrong/core/0.2.0-dev.12)
-</span>
-<script src="assets/javascripts/latest-version.js" defer></script>
-
 </nav>
 
 </section>
@@ -59,7 +49,7 @@ from
 
 <section class="pmwdoc-home-body" markdown>
 
-<ul class="pmwdoc-home-list">
+<!-- <ul class="pmwdoc-home-list">
 <li>
 <b>5kb</b>
 <p>Minified + Gzipped</p>
@@ -74,7 +64,7 @@ from
 </li>
 </ul>
 
-<br/>
+<br/> -->
 
 <!-- Familiar -->
 
@@ -224,6 +214,15 @@ all around. It's refreshing.
   alt="Prvd 'M Wrong"
   width="500px"/>
 <br/>
+<span class="pmwdoc-version" markdown>
+Version
+<code id="pmwdoc-version">(fetching)</code>
+from
+[NPM](https://www.npmjs.com/package/@prvdmwrong/core)
+[Wally](https://wally.run/package/prvdmwrong/core)
+[Pesde](https://pesde.daimond113.com/packages/prvdmwrong/core/0.2.0-dev.12)
+</span>
+<script src="assets/javascripts/latest-version.js" defer></script>
 <a href="./tutorials/" class="md-button md-button--primary">Get Started</a>
 <a href="https://github.com/prvdmwrong/prvdmwrong/releases" class="md-button">Download</a>
 <a href="./reference/" class="md-button">API Reference</a>

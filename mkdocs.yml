@@ -187,7 +187,10 @@ nav:
                       - OnPlayerRemoved: reference/lifecycles/players/on-player-removed.md
     - Extras:
           - extras/index.md
-          - Backgrounds: extras/backgrounds/index.md
+          - Branding:
+                - extras/branding/index.md
+                - Backgrounds: extras/branding/backgrounds/index.md
+                - Swag: extras/branding/swag.md
           - Projects:
                 - extras/projects/index.md
                 - Prvd 'M Wrong Obby: extras/projects/obby.md
