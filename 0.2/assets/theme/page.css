@@ -228,8 +228,9 @@ h6 > .twemoji:first-child {
 }
 
 a.headerlink::after,
+section.dearrow > p > a::after,
 .md-typeset .md-button::after {
-	content: "";
+	content: "" !important;
 }
 
 .md-typeset .tabbed-labels > label > [href]::after {
@@ -279,4 +280,21 @@ a.headerlink::after,
 }
 .heart {
 	animation: heart 1000ms infinite;
+}
+
+.pmwdoc-brand-colors section {
+	padding: 0em 0.75em;
+	margin: 0 !important;
+	box-sizing: border-box;
+	border-radius: 0.25em;
+	font-weight: bold;
+	font-size: 1.5em;
+	line-height: 100%;
+	border: 1px solid oklch(0 0 0 / 0.15);
+}
+
+.pmwdoc-brand-colors section .pmwdoc-brand-colors-codes {
+	font-weight: normal;
+	font-size: calc(2em / 3em);
+	line-height: 100%;
 }

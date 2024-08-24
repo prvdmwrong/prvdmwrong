@@ -11,7 +11,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/extras/backgrounds/</loc>
+         <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/extras/branding/</loc>
+         <lastmod>2024-08-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/extras/branding/swag/</loc>
+         <lastmod>2024-08-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/extras/branding/backgrounds/</loc>
          <lastmod>2024-08-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
