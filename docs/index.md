@@ -159,8 +159,8 @@ better?
 
 <ul style="animation-direction: reverse;">
 <li>Modding</li>
+<li>Referencing</li>
 <li>Lifecycles</li>
-<li>Global Referencing</li>
 <li>Reflection Metadata</li>
 </ul>
 

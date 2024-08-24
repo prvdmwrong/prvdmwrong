@@ -75,7 +75,7 @@ theme:
               icon: octicons/moon-24
               title: Switch to dark theme
     font:
-        text: DM Sans
+        text: Plus Jakarta Sans
         code: JetBrains Mono
     logo: assets/wordmark-dark.svg
     favicon: assets/logo-dark.svg
