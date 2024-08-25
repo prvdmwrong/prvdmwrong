@@ -15,12 +15,12 @@ export type Worker = Types.Worker
 export type Storage = Types.Storage
 
 local WORKER_TYPES: { [string]: RBXScriptSignal } = {
-  PostSimulation = RunService.PostSimulation,
-  PreSimulation = RunService.PreSimulation,
-  PreAnimation = RunService.PreAnimation,
-  PreRender = RunService.PreRender,
-  PlayerAdded = Players.PlayerAdded,
-  PlayerRemoving = Players.PlayerRemoving,
+	PostSimulation = RunService.PostSimulation,
+	PreSimulation = RunService.PreSimulation,
+	PreAnimation = RunService.PreAnimation,
+	PreRender = RunService.PreRender,
+	PlayerAdded = Players.PlayerAdded,
+	PlayerRemoving = Players.PlayerRemoving,
 }
 
 local alreadyWarned: { [string]: true } = {}
@@ -32,12 +32,12 @@ lumin.version = "VERSION"
 lumin.alignedVersion = "9.0.0-rc6"
 
 local function warnDeprecated(replacement: string, deprecated: string, reason: string)
-  if alreadyWarned[deprecated] then
-    return
-  end
+	if alreadyWarned[deprecated] then
+		return
+	end
 
-  alreadyWarned[deprecated] = true
-  log.warn("compatDeprecated", replacement, deprecated, reason)
+	alreadyWarned[deprecated] = true
+	log.warn("compatDeprecated", replacement, deprecated, reason)
 end
 
 --[=[
@@ -46,7 +46,7 @@ end
 ]=]
 lumin.Started = prvd.getStartupStatus() ~= prvd.StartupStatus.Pending
 prvd.onStart(function()
-  lumin.Started = true
+	lumin.Started = true
 end)
 
 --[=[
@@ -54,20 +54,20 @@ end)
   and pragmatic
 ]=]
 function lumin.Controller<T>(name: string, members: T & {}): prvd.Provider<T>
-  warnDeprecated("`prvd()`", "`Controller()`", "the former is less verbose and pragmatic")
+	warnDeprecated("`prvd()`", "`Controller()`", "the former is less verbose and pragmatic")
 
-  local controller = {}
-  controller.name = name
-  controller.onInit = (members :: any).Init
-  controller.onStart = (members :: any).Start
-  setmetatable(controller, {
-    __index = members,
-  })
+	local controller = {}
+	controller.name = name
+	controller.onInit = (members :: any).Init
+	controller.onStart = (members :: any).Start
+	setmetatable(controller, {
+		__index = members,
+	})
 
-  prvd.internal.registerDependency(name, controller :: any)
-  prvd.internal.defineMetadata(controller, "prvdmwrong:provider", true)
-  prvd.internal.defineMetadata(controller, "prvdmwrong:luminProvider", true)
-  return controller :: any
+	prvd.internal.registerDependency(name, controller :: any)
+	prvd.internal.defineMetadata(controller, "prvdmwrong:provider", true)
+	prvd.internal.defineMetadata(controller, "prvdmwrong:luminProvider", true)
+	return controller :: any
 end
 
 --[=[
@@ -77,22 +77,22 @@ end
   offers as lifecycles.
 ]=]
 function lumin.Worker(type: WorkerType, callback: (...any) -> ()): Worker
-  warnDeprecated(
-    "the `Lifecycle` object or the `@prvdmwrong/lifecycles` package",
-    "creating `Worker()`s",
-    "lifecycles have furthered customizability and hook onto providers, with the latter implementing all workers Lumin Framework offers as lifecycles"
-  )
+	warnDeprecated(
+		"the `Lifecycle` object or the `@prvdmwrong/lifecycles` package",
+		"creating `Worker()`s",
+		"lifecycles have furthered customizability and hook onto providers, with the latter implementing all workers Lumin Framework offers as lifecycles"
+	)
 
-  local signal = log.expect(WORKER_TYPES[type], "luminMissingWorker", type)
-  signal:Connect(callback)
+	local signal = log.expect(WORKER_TYPES[type], "luminMissingWorker", type)
+	signal:Connect(callback)
 
-  local self = {} :: Worker
-  self.Type = type
-  self.IsWorker = true
-  self.Callback = callback
+	local self = {} :: Worker
+	self.Type = type
+	self.IsWorker = true
+	self.Callback = callback
 
-  table.freeze(self)
-  return self
+	table.freeze(self)
+	return self
 end
 
 --[=[
@@ -101,21 +101,21 @@ end
   compatibility layer.
 ]=]
 function lumin.Signal(name: string?): Signal.Signal<...any>
-  warnDeprecated(
-    "a dedicated signal package",
-    "`Signal()`",
-    "reactive signals are out of scope for Prvd 'M Wrong and only offered as a compatibility layer"
-  )
+	warnDeprecated(
+		"a dedicated signal package",
+		"`Signal()`",
+		"reactive signals are out of scope for Prvd 'M Wrong and only offered as a compatibility layer"
+	)
 
-  if not name then
-    return Signal.new()
-  end
-  local namedSignal = signals[name]
-  if not namedSignal then
-    namedSignal = Signal.new()
-    signals[name] = namedSignal
-  end
-  return namedSignal
+	if not name then
+		return Signal.new()
+	end
+	local namedSignal = signals[name]
+	if not namedSignal then
+		namedSignal = Signal.new()
+		signals[name] = namedSignal
+	end
+	return namedSignal
 end
 
 --[=[
@@ -123,13 +123,13 @@ end
   is not promise based.
 ]=]
 function lumin.Start(modules: { Instance }?): Promise.TypedPromise<()>
-  warnDeprecated("`start()` and `preload()`", "`Start()`", "Prvd 'M Wrong is not promise based")
-  if modules then
-    for _, module in modules do
-      prvd.preload(module:GetChildren())
-    end
-  end
-  return start()
+	warnDeprecated("`start()` and `preload()`", "`Start()`", "Prvd 'M Wrong is not promise based")
+	if modules then
+		for _, module in modules do
+			prvd.preload(module:GetChildren())
+		end
+	end
+	return start()
 end
 
 --[=[
@@ -137,12 +137,12 @@ end
   figure out dependencies by specifying it directly.
 ]=]
 function lumin.Expect<T>(controller: T): T
-  warnDeprecated(
-    "the provider itself",
-    "`Expect()`",
-    "Prvd 'M Wrong can figure out dependencies by specifying it directly."
-  )
-  return controller
+	warnDeprecated(
+		"the provider itself",
+		"`Expect()`",
+		"Prvd 'M Wrong can figure out dependencies by specifying it directly."
+	)
+	return controller
 end
 
 return lumin

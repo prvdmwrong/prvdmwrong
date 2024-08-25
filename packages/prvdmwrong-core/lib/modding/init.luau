@@ -12,21 +12,21 @@ Modding.usedHandlers = {} :: { [{}]: (Provider<unknown>) -> () }
 Modding.providers = {} :: { [Types.Provider<unknown>]: true }
 
 function Modding.doProviderConstructed(provider: Provider<unknown>)
-  if next(Modding.constructedHandlers) == nil then
-    return
-  end
-  for _, handler in pairs(Modding.constructedHandlers) do
-    handler(provider)
-  end
+	if next(Modding.constructedHandlers) == nil then
+		return
+	end
+	for _, handler in pairs(Modding.constructedHandlers) do
+		handler(provider)
+	end
 end
 
 function Modding.doProviderUsed(provider: Provider<unknown>)
-  if next(Modding.usedHandlers) == nil then
-    return
-  end
-  for _, handler in pairs(Modding.usedHandlers) do
-    handler(provider)
-  end
+	if next(Modding.usedHandlers) == nil then
+		return
+	end
+	for _, handler in pairs(Modding.usedHandlers) do
+		handler(provider)
+	end
 end
 
 --[=[
@@ -34,7 +34,7 @@ end
   during startup.
 ]=]
 function Modding.registerDependency(dependency: Types.Object)
-  Modding.providers[dependency :: any] = true
+	Modding.providers[dependency :: any] = true
 end
 
 --[=[
@@ -43,8 +43,8 @@ end
   constructed provider.
 ]=]
 function Modding.onProviderConstructed(handler: (Provider<unknown>) -> ())
-  local identifier = table.freeze {}
-  Modding.constructedHandlers[identifier] = handler
+	local identifier = table.freeze {}
+	Modding.constructedHandlers[identifier] = handler
 end
 
 --[=[
@@ -52,8 +52,8 @@ end
   to be infallible and non-yielding. The handler receives the used provider.
 ]=]
 function Modding.onProviderUsed(handler: (Provider<unknown>) -> ())
-  local identifier = table.freeze {}
-  Modding.constructedHandlers[identifier] = handler
+	local identifier = table.freeze {}
+	Modding.constructedHandlers[identifier] = handler
 end
 
 table.freeze(Modding)

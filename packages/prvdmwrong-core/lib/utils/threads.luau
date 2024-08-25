@@ -5,14 +5,14 @@ local freeThreads: { thread } = {}
 local threads = {}
 
 local function resume<Args...>(resume: (Args...) -> (), thread: thread, ...)
-  resume(...)
-  table.insert(freeThreads, thread)
+	resume(...)
+	table.insert(freeThreads, thread)
 end
 
 local function yield()
-  while true do
-    resume(coroutine.yield())
-  end
+	while true do
+		resume(coroutine.yield())
+	end
 end
 
 --[=[
@@ -20,14 +20,14 @@ end
   and thus is more efficient than `task.spawn`.
 ]=]
 function threads.spawn<Args...>(resume: (Args...) -> (), ...: Args...)
-  local thread: thread
-  if #freeThreads > 0 then
-    thread = assert(table.remove(freeThreads, #freeThreads), "Luau")
-  else
-    thread = coroutine.create(yield)
-    coroutine.resume(thread)
-  end
-  task.spawn(thread, resume, thread, ...)
+	local thread: thread
+	if #freeThreads > 0 then
+		thread = assert(table.remove(freeThreads, #freeThreads), "Luau")
+	else
+		thread = coroutine.create(yield)
+		coroutine.resume(thread)
+	end
+	task.spawn(thread, resume, thread, ...)
 end
 
 table.freeze(threads)
