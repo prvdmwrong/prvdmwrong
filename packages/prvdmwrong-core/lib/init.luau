@@ -5,6 +5,85 @@ local Reference = require("prvdmwrong-core/prvd/ref")
 local Types = require("prvdmwrong-core/types")
 local log = require("prvdmwrong-core/utils/log")
 
+-- FIXME: Darklua can't bundle types as exported types appear in it's bundle
+-- definition, inline it directly for now.
+
+export type StartupStatus = "StartupStatus.Pending" | "StartupStatus.Starting" | "StartupStatus.Started"
+export type OnInit = { onInit: (self: unknown) -> () }
+export type OnStart = { onStart: (self: unknown) -> () }
+
+export type Lifecycle<Interface = { [any]: any }> = {
+  listeners: { Interface },
+  method: string,
+
+  fire: (self: Lifecycle<Interface>, ...unknown) -> (),
+  register: (self: Lifecycle<Interface>, object: Interface) -> (),
+  unregister: (self: Lifecycle<Interface>, object: Interface) -> (),
+}
+
+export type Options = {
+  logLevel: "none" | "verbose",
+  profiling: boolean,
+}
+
+export type Provider<T> = T & {
+  loadOrder: number?,
+  name: string?,
+
+  onInit: (self: Provider<T>) -> ()?,
+  onStart: (self: Provider<T>) -> ()?,
+  [{ __PROVIDER_KEY__: never? }]: Provider<T>,
+}
+
+export type PrvdNamespace = {
+  version: string,
+
+  awaitStart: () -> (),
+  onStart: (callback: () -> ()) -> (),
+  new: <T>(provider: T) -> Provider<T>,
+  preload: (instances: { Instance }, predicate: ((ModuleScript) -> boolean)?) -> { unknown },
+  StartupStatus: {
+    Pending: "StartupStatus.Pending",
+    Starting: "StartupStatus.Starting",
+    Started: "StartupStatus.Started",
+  },
+  start: (options: {
+    logLevel: "none" | "verbose" | nil,
+    profiling: boolean?,
+  }?) -> (),
+  use: <T>(provider: Provider<T>) -> T,
+
+  Lifecycle: (method: string, fire: (self: Lifecycle, ...unknown) -> ()) -> Lifecycle,
+  fireConcurrent: (self: Lifecycle, ...unknown) -> (),
+  fireSequential: (self: Lifecycle, ...unknown) -> (),
+  onLifecycleRegistered: (method: string, handler: ({ [unknown]: unknown }) -> ()) -> (),
+  onLifecycleUnregistered: (method: string, handler: ({ [unknown]: unknown }) -> ()) -> (),
+
+  getStartupOptions: () -> Options,
+  getStartupStatus: () -> StartupStatus,
+  onProviderConstructed: (handler: (Provider<unknown>) -> ()) -> (),
+  onProviderUsed: (handler: (Provider<unknown>) -> ()) -> (),
+
+  internal: {
+    registerDependency: (dependency: { [unknown]: unknown }) -> (),
+
+    implementAll: (object: { [unknown]: unknown }) -> (),
+    implementMethod: (method: string, object: { [unknown]: unknown }) -> (),
+    unimplementMethod: (method: string, object: { [unknown]: unknown }) -> (),
+
+    defineMetadata: (object: unknown, key: string, value: unknown) -> (),
+    getMetadata: (object: unknown, key: string) -> unknown?,
+    deleteMetadata: (object: unknown, key: string) -> (),
+  },
+}
+
+export type Prvd = typeof(setmetatable(
+  {} :: PrvdNamespace,
+  {} :: {
+    __call: <T>(_: any, provider: T) -> Provider<T>,
+  }
+))
+
 do
   -- Multiple core Prvd 'M Wrong packages may coexist at runtime, especially if
   -- the developer mixes in other packages. This ensures the first known,
@@ -63,22 +142,15 @@ local preload = require("prvdmwrong-core/prvd/preload")
 local providers = require("prvdmwrong-core/prvd/providers")
 local prvd = require("prvdmwrong-core/prvd")
 
-export type Lifecycle<Interface = { [any]: any }> = Types.Lifecycle<Interface>
-export type OnInit = Types.OnInit
-export type OnStart = Types.OnStart
-export type Options = Types.Options
-export type Provider<T> = Types.Provider<T>
-export type StartupStatus = Types.StartupStatus
-
 local function Prvd(x: Types.PrvdNamespace): Types.Prvd
   return table.freeze(setmetatable(
-    x,
+    x :: any,
     table.freeze {
       __call = function<T>(_, provider: T): Provider<T>
         return providers.new(provider)
       end,
     }
-  )) :: any
+  ))
 end
 
 return Prvd {
