@@ -23,25 +23,6 @@
       "rule": "inject_global_value",
       "value": false
     },
-    {
-      "rule": "convert_require",
-      "current": {
-        "name": "path",
-        "sources": {
-          "prvdmwrong-core": "packages/prvdmwrong-core/lib",
-          "prvdmwrong-net": "packages/prvdmwrong-net/lib",
-          "prvdmwrong-components": "packages/prvdmwrong-components/lib",
-          "prvdmwrong-lifecycles": "packages/prvdmwrong-lifecycles/lib",
-          "knit-compat": "packages/prvdmwrong-knit-compat/lib",
-          "lumin-compat": "packages/prvdmwrong-lumin-compat/lib"
-        }
-      },
-      "target": {
-        "indexing_style": "property",
-        "name": "roblox",
-        "rojo_sourcemap": "./sourcemap.json"
-      }
-    },
     "compute_expression",
     "remove_unused_if_branch",
     "remove_unused_while",
