@@ -1,34 +1,34 @@
 {
-  "generator": {
-    "name": "dense",
-    "column_span": 9999999999
-  },
-  "bundle": {
-    "modules_identifier": "__BUNDLE",
-    "require_mode": {
-      "name": "path",
-      "sources": {
-        "prvdmwrong-core": "packages/prvdmwrong-core/lib",
-        "prvdmwrong-net": "packages/prvdmwrong-net/lib",
-        "prvdmwrong-components": "packages/prvdmwrong-components/lib",
-        "prvdmwrong-lifecycles": "packages/prvdmwrong-lifecycles/lib",
-        "knit-compat": "packages/prvdmwrong-knit-compat/lib",
-        "lumin-compat": "packages/prvdmwrong-lumin-compat/lib"
-      }
-    }
-  },
-  "rules": [
-    {
-      "identifier": "__DEV__",
-      "rule": "inject_global_value",
-      "value": false
-    },
-    "compute_expression",
-    "remove_unused_if_branch",
-    "remove_unused_while",
-    "filter_after_early_return",
-    "remove_nil_declaration",
-    "remove_empty_do",
-    "remove_spaces"
-  ]
+	"generator": {
+		"name": "dense",
+		"column_span": 9999999999
+	},
+	"bundle": {
+		"modules_identifier": "__BUNDLE",
+		"require_mode": {
+			"name": "path",
+			"sources": {
+				"prvdmwrong-core": "packages/prvdmwrong-core/lib",
+				"prvdmwrong-net": "packages/prvdmwrong-net/lib",
+				"prvdmwrong-components": "packages/prvdmwrong-components/lib",
+				"prvdmwrong-lifecycles": "packages/prvdmwrong-lifecycles/lib",
+				"knit-compat": "packages/prvdmwrong-knit-compat/lib",
+				"lumin-compat": "packages/prvdmwrong-lumin-compat/lib"
+			}
+		}
+	},
+	"rules": [
+		{
+			"identifier": "__DEV__",
+			"rule": "inject_global_value",
+			"value": false
+		},
+		"compute_expression",
+		"remove_unused_if_branch",
+		"remove_unused_while",
+		"filter_after_early_return",
+		"remove_nil_declaration",
+		"remove_empty_do",
+		"remove_spaces"
+	]
 }
