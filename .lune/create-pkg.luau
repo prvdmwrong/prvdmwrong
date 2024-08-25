@@ -13,7 +13,7 @@ local NPM = [[{
     "roblox-ts": "^2.3.0",
     "typescript": "^5.5.4"
   }
-}]=]
+}]]
 
 local TSCONFIG = [[{
   "compilerOptions": {
@@ -42,27 +42,26 @@ local TSCONFIG = [[{
     "tsBuildInfoFile": "out/tsconfig.tsbuildinfo",
     "declaration": true
   }
-}]=]
+}]]
 
 local BASE_TS = [[/*
   Copyright (c) znotfireman 2024.
   This source code is licensed under the MIT license found in the LICENSE file
   in the root directory of this source tree.
-*/]=]
+*/]]
 
 local PROJECT = [[{
   "name": "PACKAGE_NAME",
   "tree": {
     "$path": "lib"
   }
-}]=]
+}]]
 
 local BASE_LUAU = [[--!strict
--- (c) Prvd 'M Wrong, dual-licensed under MIT or Apache 2.0 terms.
-BASE_LUAU ..= "]=]"
+-- (c) Prvd 'M Wrong, dual-licensed under MIT or Apache 2.0 terms.]]
 
 local PRVD_LUAU = BASE_LUAU
-  .. [[
+	.. [[
 type Pack = { [number]: any, n: number }
 type Object = { [unknown]: unknown }
 
@@ -153,7 +152,7 @@ type Prvd = typeof(setmetatable(
 local prvd = _G.prvdmwrong
 assert(prvd ~= nil, "cannot find core prvdmwrong package")
 return prvd :: Prvd
-]=]
+]]
 
 local cwd = process.cwd
 
@@ -181,105 +180,105 @@ local cwd = process.cwd
 -- end
 
 local function assertion<T>(condition: T, message: string): T
-  if condition then
-    return condition
-  end
-  stdio.ewrite(message)
-  return process.exit(1)
+	if condition then
+		return condition
+	end
+	stdio.ewrite(message)
+	return process.exit(1)
 end
 
 do
-  local existingPackages = fs.readDir(`{cwd}/packages`)
-  for index, package in ipairs(existingPackages) do
-    if fs.isDir(`{cwd}/packages/{package}`) then
-      continue
-    end
-    table.remove(existingPackages, index)
-  end
-  table.sort(existingPackages)
+	local existingPackages = fs.readDir(`{cwd}/packages`)
+	for index, package in ipairs(existingPackages) do
+		if fs.isDir(`{cwd}/packages/{package}`) then
+			continue
+		end
+		table.remove(existingPackages, index)
+	end
+	table.sort(existingPackages)
 
-  local name = stdio.prompt("text", "Name the package? (e.g. prvdmwrong-lifecycles)")
-  assertion(not table.find(existingPackages, name), `{name} already exists as a package`)
-  local display = stdio.prompt("text", "Display name? (e.g. Lifecycles for Prvd 'M Wrong)")
-  local description =
-    stdio.prompt("text", 'Description? (e.g. Implements a "small" amount of lifecycles for Prvd \'M Wrong)')
+	local name = stdio.prompt("text", "Name the package? (e.g. prvdmwrong-lifecycles)")
+	assertion(not table.find(existingPackages, name), `{name} already exists as a package`)
+	local display = stdio.prompt("text", "Display name? (e.g. Lifecycles for Prvd 'M Wrong)")
+	local description =
+		stdio.prompt("text", 'Description? (e.g. Implements a "small" amount of lifecycles for Prvd \'M Wrong)')
 
-  local promptedDependencies =
-    stdio.prompt("multiselect", "Which dependencies will this package depend on?", existingPackages)
-  local dependencies = {}
-  for _, index in ipairs(promptedDependencies) do
-    table.insert(dependencies, existingPackages[index])
-  end
+	local promptedDependencies =
+		stdio.prompt("multiselect", "Which dependencies will this package depend on?", existingPackages)
+	local dependencies = {}
+	for _, index in ipairs(promptedDependencies) do
+		table.insert(dependencies, existingPackages[index])
+	end
 
-  print(`Creating package {name}`)
-  local packageDirectory = `{cwd}/packages/{name}`
-  fs.writeDir(packageDirectory)
+	print(`Creating package {name}`)
+	local packageDirectory = `{cwd}/packages/{name}`
+	fs.writeDir(packageDirectory)
 
-  print("=> Writing project file")
-  fs.writeFile(`{packageDirectory}/default.project.json`, PROJECT:gsub("PACKAGE_NAME", name))
+	print("=> Writing project file")
+	fs.writeFile(`{packageDirectory}/default.project.json`, PROJECT:gsub("PACKAGE_NAME", name))
 
-  -- This has to be written by hand for formatting
-  print("=> Writing config.toml")
-  local config = "[config]"
-  config ..= `\n  name = "{display}"`
-  config ..= `\n  description = "{description}"`
-  if #dependencies > 0 then
-    config ..= `\n  dependencies = ["{table.concat(dependencies, '", "')}"]`
-  else
-    config ..= "\n  dependencies = []"
-  end
-  fs.writeFile(`{packageDirectory}/config.toml`, config)
+	-- This has to be written by hand for formatting
+	print("=> Writing config.toml")
+	local config = "[config]"
+	config ..= `\n  name = "{display}"`
+	config ..= `\n  description = "{description}"`
+	if #dependencies > 0 then
+		config ..= `\n  dependencies = ["{table.concat(dependencies, '", "')}"]`
+	else
+		config ..= "\n  dependencies = []"
+	end
+	fs.writeFile(`{packageDirectory}/config.toml`, config)
 
-  print("=> Writing package.json")
-  fs.writeFile(`{packageDirectory}/package.json`, NPM)
+	print("=> Writing package.json")
+	fs.writeFile(`{packageDirectory}/package.json`, NPM)
 
-  print("=> Writing tsconfig.json")
-  fs.writeFile(`{packageDirectory}/tsconfig.json`, TSCONFIG)
+	print("=> Writing tsconfig.json")
+	fs.writeFile(`{packageDirectory}/tsconfig.json`, TSCONFIG)
 
-  print("=> Writing lib")
-  local lib = `{packageDirectory}/lib`
-  fs.writeDir(lib)
-  fs.writeFile(`{lib}/init.luau`, BASE_LUAU)
-  fs.writeFile(`{lib}/index.d.ts`, BASE_TS)
-  if table.find(dependencies, "prvdmwrong") then
-    fs.writeFile(`{lib}/prvd.luau`, PRVD_LUAU)
-  end
+	print("=> Writing lib")
+	local lib = `{packageDirectory}/lib`
+	fs.writeDir(lib)
+	fs.writeFile(`{lib}/init.luau`, BASE_LUAU)
+	fs.writeFile(`{lib}/index.d.ts`, BASE_TS)
+	if table.find(dependencies, "prvdmwrong") then
+		fs.writeFile(`{lib}/prvd.luau`, PRVD_LUAU)
+	end
 
-  -- Just dont do it
-  -- print("=> Updating aliases")
-  -- local alias = `packages/{name}/lib`
-  -- local darklua = serde.decode("json", fs.readFile(`{cwd}/.darklua.json`))
-  -- local darkluaDev = serde.decode("json", fs.readFile(`{cwd}/.darklua-dev.json`))
+	-- Just dont do it
+	-- print("=> Updating aliases")
+	-- local alias = `packages/{name}/lib`
+	-- local darklua = serde.decode("json", fs.readFile(`{cwd}/.darklua.json`))
+	-- local darkluaDev = serde.decode("json", fs.readFile(`{cwd}/.darklua-dev.json`))
 
-  -- local baseRequires = getConvertRequire(darklua)
-  -- local devRequires = getConvertRequire(darkluaDev)
-  -- if baseRequires then
-  --   baseRequires[name] = alias
-  -- end
-  -- if devRequires then
-  --   devRequires[name] = alias
-  -- end
+	-- local baseRequires = getConvertRequire(darklua)
+	-- local devRequires = getConvertRequire(darkluaDev)
+	-- if baseRequires then
+	--   baseRequires[name] = alias
+	-- end
+	-- if devRequires then
+	--   devRequires[name] = alias
+	-- end
 
-  -- local vscodeSettings = serde.decode("json", fs.readFile(`{cwd}/.vscode/settings.json`))
-  -- vscodeSettings["luau-lsp.require.directoryAliases"][name] = alias
-  -- fs.writeFile(`{cwd}/.darklua.json`, serde.encode("json", darklua, true))
-  -- fs.writeFile(`{cwd}/.darklua-dev.json`, serde.encode("json", darkluaDev, true))
-  -- fs.writeFile(`{cwd}/.vscode/settings.json`, serde.encode("json", vscodeSettings, true))
+	-- local vscodeSettings = serde.decode("json", fs.readFile(`{cwd}/.vscode/settings.json`))
+	-- vscodeSettings["luau-lsp.require.directoryAliases"][name] = alias
+	-- fs.writeFile(`{cwd}/.darklua.json`, serde.encode("json", darklua, true))
+	-- fs.writeFile(`{cwd}/.darklua-dev.json`, serde.encode("json", darkluaDev, true))
+	-- fs.writeFile(`{cwd}/.vscode/settings.json`, serde.encode("json", vscodeSettings, true))
 
-  print("=> Installing (P)NPM packages")
-  process.spawn("pnpm", {
-    "install",
-  }, {
-    shell = true,
-    cwd = packageDirectory,
-  })
+	print("=> Installing (P)NPM packages")
+	process.spawn("pnpm", {
+		"install",
+	}, {
+		shell = true,
+		cwd = packageDirectory,
+	})
 
-  print("=> Opening VSCode")
-  process.spawn("code", {
-    `{packageDirectory}/lib/init.luau`,
-  }, {
-    shell = true,
-  })
+	print("=> Opening VSCode")
+	process.spawn("code", {
+		`{packageDirectory}/lib/init.luau`,
+	}, {
+		shell = true,
+	})
 
-  print("Creation finished 🎉")
+	print("Creation finished 🎉")
 end
