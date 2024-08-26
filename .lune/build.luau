@@ -88,27 +88,6 @@ local function spawnCommand(program: string, ...: string)
 end
 
 do
-	-- local args = process.args
-	-- local shouldRelease: boolean = nil
-	-- local shouldBuildRbxms: boolean = nil
-	-- local packages: { string } = nil
-	-- local version: string = nil
-	-- if #args ~= 0 then
-	--   if table.find(args, "release") then
-	--     shouldRelease = true
-	--   end
-
-	--   local versionSpecifier = table.find(args, "-v")
-	--   if versionSpecifier then
-	--     local specifiedVersion = assertion(args[versionSpecifier], "Must specify version if used -v")
-	--     version = specifiedVersion
-	--   end
-
-	--   if table.find(args, "--rbxm") then
-	--     shouldBuildRbxms = true
-	--   end
-	-- end
-
 	local packages = {}
 	for _, package in ipairs(fs.readDir(`{cwd}/packages`)) do
 		if fs.isFile(`{cwd}/packages/{package}`) then
