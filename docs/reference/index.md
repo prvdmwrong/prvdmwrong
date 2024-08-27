@@ -134,3 +134,19 @@ debugger for working with Prvd 'M Wrong.
 
     This package is unreleased, as such no documentation is available at this
     time.
+
+### Compatibility Packages
+
+To transition older codebases, Prvd 'M Wrong has compatibility packages for
+several frameworks.
+
+These are drop in replacements for entire frameworks that hook onto the Prvd 'M
+Wrong API. Just change where you require the original framework and let Prvd 'M
+Wrong handle the rest.
+
+- `prvdmwrong/knit-compat` · Knit compatibility layer
+- `prvdmwrong/lumin-compat` · Lumin Framework compatibility layer
+- `prvdmwrong/sapphire-compat` · Sapphire compatibility layer
+- `prvdmwrong/catwork-compat` · Catwork compatibility layer
+- `rbxts-prvdmwrong-flamework` · Transform Flamework v1 projects into Prvd 'M
+  Wrong
