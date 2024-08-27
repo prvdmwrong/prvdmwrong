@@ -1,9 +1,9 @@
 --!strict
 -- (c) Prvd 'M Wrong, dual-licensed under MIT or Apache 2.0 terms.
 
-local Reference = require("prvdmwrong-core/prvd/ref")
-local Types = require("prvdmwrong-core/types")
-local log = require("prvdmwrong-core/utils/log")
+local Reference = require("core/prvd/ref")
+local Types = require("core/types")
+local log = require("core/utils/log")
 
 -- FIXME: Darklua can't bundle types as exported types appear in it's bundle
 -- definition, inline it directly for now.
@@ -135,12 +135,12 @@ do
 	end
 end
 
-local Lifecycles = require("prvdmwrong-core/lifecycles")
-local Modding = require("prvdmwrong-core/modding")
-local Reflection = require("prvdmwrong-core/modding/reflection")
-local preload = require("prvdmwrong-core/prvd/preload")
-local providers = require("prvdmwrong-core/prvd/providers")
-local prvd = require("prvdmwrong-core/prvd")
+local Lifecycles = require("core/lifecycles")
+local Modding = require("core/modding")
+local Reflection = require("core/modding/reflection")
+local preload = require("core/prvd/preload")
+local providers = require("core/prvd/providers")
+local prvd = require("core/prvd")
 
 local function Prvd(x: Types.PrvdNamespace): Types.Prvd
 	return table.freeze(setmetatable(

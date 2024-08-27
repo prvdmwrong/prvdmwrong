@@ -1,7 +1,7 @@
 --!strict
 -- (c) Prvd 'M Wrong, dual-licensed under MIT or Apache 2.0 terms.
 
-local prvd = require("prvdmwrong-components/prvd")
+local prvd = require("components/prvd")
 
 --[=[
   Component types

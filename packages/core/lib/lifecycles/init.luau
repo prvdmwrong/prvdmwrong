@@ -1,8 +1,8 @@
 --!strict
 -- (c) Prvd 'M Wrong, dual-licensed under MIT or Apache 2.0 terms.
 
-local Types = require("prvdmwrong-core/types")
-local log = require("prvdmwrong-core/utils/log")
+local Types = require("core/types")
+local log = require("core/utils/log")
 
 type Lifecycle<Interface = { [any]: any }> = Types.Lifecycle
 type Object = { [unknown]: unknown }

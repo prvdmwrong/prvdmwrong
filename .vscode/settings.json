@@ -17,12 +17,15 @@
 	],
 	"luau-lsp.require.directoryAliases": {
 		"@lune/": "~/.lune/.typedefs/0.8.6/",
-		"prvdmwrong-core/": "packages/prvdmwrong-core/lib",
-		"prvdmwrong-net/": "packages/prvdmwrong-net/lib",
-		"prvdmwrong-components/": "packages/prvdmwrong-components/lib",
-		"prvdmwrong-lifecycles/": "packages/prvdmwrong-lifecycles/lib",
-		"knit-compat/": "packages/prvdmwrong-knit-compat/lib",
-		"lumin-compat/": "packages/prvdmwrong-lumin-compat/lib",
+		"core/": "packages/core/lib",
+		"net/": "packages/net/lib",
+		"components/": "packages/components/lib",
+		"lifecycles/": "packages/lifecycles/lib",
+		"debugger/": "packages/debugger/lib",
+		"jecs/": "packages/jecs/lib",
+		"knit-compat/": "packages/knit-compat/lib",
+		"lumin-compat/": "packages/lumin-compat/lib",
+		"sapphire-compat/": "packages/sapphire-compat/lib"
 	},
 	"luau-lsp.require.mode": "relativeToFile",
 	"typescript.tsdk": "node_modules/typescript/lib"

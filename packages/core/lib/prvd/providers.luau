@@ -3,10 +3,10 @@
 
 local HttpService = game:GetService("HttpService")
 
-local Log = require("prvdmwrong-core/utils/log")
-local Modding = require("prvdmwrong-core/modding")
-local Reflection = require("prvdmwrong-core/modding/reflection")
-local Types = require("prvdmwrong-core/types")
+local Log = require("core/utils/log")
+local Modding = require("core/modding")
+local Reflection = require("core/modding/reflection")
+local Types = require("core/types")
 
 local providers = {}
 providers.providerKey = newproxy(true)

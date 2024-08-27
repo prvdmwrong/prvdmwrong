@@ -3,13 +3,13 @@
 
 local RunService = game:GetService("RunService")
 
-local Lifecycles = require("prvdmwrong-core/lifecycles")
-local Modding = require("prvdmwrong-core/modding")
-local Reflection = require("prvdmwrong-core/modding/reflection")
-local Types = require("prvdmwrong-core/types")
-local log = require("prvdmwrong-core/utils/log")
-local providers = require("prvdmwrong-core/prvd/providers")
-local threads = require("prvdmwrong-core/utils/threads")
+local Lifecycles = require("core/lifecycles")
+local Modding = require("core/modding")
+local Reflection = require("core/modding/reflection")
+local Types = require("core/types")
+local log = require("core/utils/log")
+local providers = require("core/prvd/providers")
+local threads = require("core/utils/threads")
 
 local WEAK_KEYS_METATABLE = { __mode = "k" }
 local DEFAULT_OPTIONS: Types.Options = {
