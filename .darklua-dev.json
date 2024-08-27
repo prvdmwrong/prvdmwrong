@@ -1,38 +1,39 @@
 {
-	"generator": "retain_lines",
-	"rules": [
-		{
-			"identifier": "__DEV__",
-			"rule": "inject_global_value",
-			"value": true
-		},
-		{
-			"current": {
-				"name": "path",
-				"sources": {
-					"core": "packages/core/lib",
-					"net": "packages/net/lib",
-					"components": "packages/components/lib",
-					"lifecycles": "packages/lifecycles/lib",
-					"debugger": "packages/debugger/lib",
-					"jecs": "packages/jecs/lib",
-					"knit-compat": "packages/knit-compat/lib",
-					"lumin-compat": "packages/lumin-compat/lib",
-					"sapphire-compat": "packages/sapphire-compat/lib"
-				}
-			},
-			"rule": "convert_require",
-			"target": {
-				"indexing_style": "property",
-				"name": "roblox",
-				"rojo_sourcemap": "./sourcemap.json"
-			}
-		},
-		"compute_expression",
-		"remove_unused_if_branch",
-		"remove_unused_while",
-		"filter_after_early_return",
-		"remove_nil_declaration",
-		"remove_empty_do"
-	]
+  "generator": "retain_lines",
+  "rules": [
+    {
+      "current": {
+        "name": "path",
+        "sources": {
+          "@lune/": "~/.lune/.typedefs/0.8.6/",
+          "components": "packages/components/lib",
+          "core": "packages/core/lib",
+          "debugger": "packages/debugger/lib",
+          "knit-compat": "packages/knit-compat/lib",
+          "lifecycles": "packages/lifecycles/lib",
+          "lumin-compat": "packages/lumin-compat/lib",
+          "net": "packages/net/lib",
+          "sapphire-compat": "packages/sapphire-compat/lib"
+        }
+      },
+      "rule": "convert_require",
+      "target": {
+        "indexing_style": "property",
+        "name": "roblox",
+        "rojo_sourcemap": "./sourcemap.json"
+      }
+    },
+    {
+      "identifier": "__DEV__",
+      "rule": "inject_global_value",
+      "value": false
+    },
+    "compute_expression",
+    "remove_unused_if_branch",
+    "remove_unused_while",
+    "filter_after_early_return",
+    "remove_nil_declaration",
+    "remove_empty_do",
+    "remove_spaces"
+  ]
 }

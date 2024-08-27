@@ -17,15 +17,14 @@
 	],
 	"luau-lsp.require.directoryAliases": {
 		"@lune/": "~/.lune/.typedefs/0.8.6/",
-		"core/": "packages/core/lib",
-		"net/": "packages/net/lib",
-		"components/": "packages/components/lib",
-		"lifecycles/": "packages/lifecycles/lib",
-		"debugger/": "packages/debugger/lib",
-		"jecs/": "packages/jecs/lib",
-		"knit-compat/": "packages/knit-compat/lib",
-		"lumin-compat/": "packages/lumin-compat/lib",
-		"sapphire-compat/": "packages/sapphire-compat/lib"
+		"components": "packages/components/lib",
+		"core": "packages/core/lib",
+		"debugger": "packages/debugger/lib",
+		"knit-compat": "packages/knit-compat/lib",
+		"lifecycles": "packages/lifecycles/lib",
+		"lumin-compat": "packages/lumin-compat/lib",
+		"net": "packages/net/lib",
+		"sapphire-compat": "packages/sapphire-compat/lib"
 	},
 	"luau-lsp.require.mode": "relativeToFile",
 	"typescript.tsdk": "node_modules/typescript/lib"
