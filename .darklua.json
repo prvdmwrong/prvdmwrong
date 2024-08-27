@@ -4,6 +4,7 @@
     "require_mode": {
       "sources": {
         "@lune/": "~/.lune/.typedefs/0.8.6/",
+        "catwork-compat": "packages/catwork-compat/lib",
         "components": "packages/components/lib",
         "core": "packages/core/lib",
         "debugger": "packages/debugger/lib",
