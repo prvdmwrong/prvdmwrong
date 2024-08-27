@@ -82,12 +82,10 @@ type Prvd = typeof(setmetatable(
 	}
 ))
 
-do
-	local reference = ReplicatedStorage:FindFirstChild("Prvd 'M Wrong Reference")
-	if reference and reference:IsA("ObjectValue") then
-		return (require)(reference.Value) :: Prvd
-	end
-	local prvd = _G.prvdmwrong
-	log.expect(prvd ~= nil, "noPrvd")
-	return prvd :: Prvd
+local reference = ReplicatedStorage:FindFirstChild("Prvd 'M Wrong Reference")
+if reference and reference:IsA("ObjectValue") then
+	return (require)(reference.Value) :: Prvd
 end
+local prvd = _G.prvdmwrong
+log.expect(prvd ~= nil, "noPrvd")
+return prvd :: Prvd
