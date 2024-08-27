@@ -6,6 +6,7 @@ return {
 	bundle = {
 		modules_identifier = "__BUNDLE",
 		require_mode = {
+			name = "path",
 			sources = {},
 		},
 	},
