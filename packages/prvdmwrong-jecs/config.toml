@@ -1,0 +1,5 @@
+[config]
+  name = "debugger"
+  display = "Jecs for Prvd 'M Wrong"
+  description = "Implements a quality of life debuggers for providers."
+  dependencies = ["core"]
