@@ -137,7 +137,7 @@ experience that fades into the background.
 </p>
 
 Create service providers to handle the top level logic of your game, baked with
-natural type-safety and intellisense, built-in dependency injection/inversion,
+natural type-safety and intellisense, built-in dependency resolution/inversion,
 first-class lifecycles, and pragmatic APIs.
 
 Readable? Powerful? Can your `Knit.CreateService` or `@Flamework.Service()` do

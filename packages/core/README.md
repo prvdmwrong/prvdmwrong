@@ -47,7 +47,7 @@ tutorial.](https://prvdmwrong.github.io/prvdmwrong/latest/tutorials/)
 
 - Type-safe APIs for both Luau and TypeScript
 - Featherlight (<6kb), choose to mix in packages as you need
-- Uses dependency injection for cleaner code organization
+- Uses dependency resolution for cleaner code organization
 - Made to be extendable through modding APIs
 - Non-intrusive first-class lifecycle events for flexibility
 - Pragmatic and sensible API that makes development fun

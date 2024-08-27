@@ -24,19 +24,19 @@ and build a framework that can solve this problem for good. In addition, all of
 these frameworks have major drawbacks:
 
 - Knit is unmaintained, introduces a hefty level of bloat and has subpar types.
-  Prvd 'M Wrong backfills what discouraged Knit being dependency injection and
+  Prvd 'M Wrong backfills what discouraged Knit being dependency resolution and
   complete IntelliSense;
 - Flamework requires TypeScript and is tightly coupled with its transformer.
   As such, type information is lost during compilation;
 - Nevermore introduces an outrageous level of bloat and also harder to use,
   being geared primarily just for Quenty and has zero types;
 - Proton is under development and requires TypeScript, practically unmaintained;
-- Pronghorn does not implement dependency injection, minimal extensibility and
+- Pronghorn does not implement dependency resolution, minimal extensibility and
   introduces some bloat;
 - Lazy Modules has subpar syntax, somewhat couples code;
 - Lumin Framework has a controller API that is inspired by Prvd 'M Wrong, to
   which Prvd 'M Wrong excels it's implementation, and Lumin only features a
-  rudimentary dependency injection API.
+  rudimentary dependency resolution API.
 
 Finally:
 

@@ -383,7 +383,7 @@ lifecycle with the `Players.PlayerRemoving` event and remove a players points:
 
 Often, providers may depend on other providers, such as a `CombatProvider`
 requiring the player's `CharacterProvider`. Prvd 'M Wrong lets you use providers
-through dependency injection.
+through dependency resolution.
 
 First, create a file for a new `MathProvider` with the following:
 

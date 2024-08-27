@@ -40,7 +40,7 @@ You attempted to register a new provider, but Prvd 'M Wrong caught something wro
 The error includes a more specific message which can be used to diagnose the
 issue. Typically it is one of the following:
 
-- You have frozen the provider table, which prevents dependency injection
+- You have frozen the provider table, which prevents dependency resolution
 - You provided a mismatched type for a built-in method/property
 
 ---
