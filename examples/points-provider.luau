@@ -9,7 +9,7 @@ local PointsProvider = {}
 type Self = typeof(PointsProvider)
 PointsProvider.name = "PointsProvider"
 PointsProvider.points = {}
-PointsProvider.mathProvider = prvd.use(PointsProvider)
+PointsProvider.mathProvider = PointsProvider
 
 function PointsProvider.setDefaultPoints(self: Self, player: Player)
   if self.points[player] ~= nil then
