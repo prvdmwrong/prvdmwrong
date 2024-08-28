@@ -62,6 +62,8 @@ local PESDE_PACKAGE = {
 	dependencies = {},
 }
 
+local WILL_PUBLISH = true
+
 local PROJECT_FILE = {
 	tree = {
 		["$path"] = "lib",
@@ -260,18 +262,20 @@ do
 				fs.writeFile(`{cwd}/dist/{package}/README.md`, readme)
 			end
 
-			print("=> Publishing to wally")
-			spawnCommand("wally", "publish", "-v", "--project-path", `{cwd}/dist/{package}`)
-			print("=> Publishing to NPM")
-			process.spawn("npm", { "publish" }, {
-				shell = true,
-				cwd = `{cwd}/dist/{package}`,
-			})
-			print("=> Publishing to pesde")
-			process.spawn("pesde", { "publish" }, {
-				shell = true,
-				cwd = `{cwd}/dist/{package}`,
-			})
+			if WILL_PUBLISH then
+				print("=> Publishing to wally")
+				spawnCommand("wally", "publish", "-v", "--project-path", `{cwd}/dist/{package}`)
+				print("=> Publishing to NPM")
+				process.spawn("npm", { "publish" }, {
+					shell = true,
+					cwd = `{cwd}/dist/{package}`,
+				})
+				print("=> Publishing to pesde")
+				process.spawn("pesde", { "publish" }, {
+					shell = true,
+					cwd = `{cwd}/dist/{package}`,
+				})
+			end
 		end
 
 		if shouldBuildRbxms then
