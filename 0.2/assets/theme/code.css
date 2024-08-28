@@ -6,33 +6,33 @@
 }
 
 [data-md-color-scheme="pmwdoc-light"] {
-	--md-code-fg-color: var(--pmwdoc-gray-8);
-	--md-code-bg-color: var(--pmwdoc-gray-3);
+	--md-code-fg-color: var(--pmwdoc-gray-3);
+	--md-code-bg-color: var(--pmwdoc-gray-9);
 
 	--md-code-hl-number-color: oklch(from var(--pmwdoc-accent) 0.65 c 40);
 	--md-code-hl-special-color: oklch(from var(--pmwdoc-accent) 0.65 c 40);
-	--md-code-hl-function-color: var(--pmwdoc-gray-8);
+	--md-code-hl-function-color: var(--pmwdoc-gray-2);
 	--md-code-hl-constant-color: oklch(from var(--pmwdoc-accent) 0.65 c 40);
 	--md-code-hl-keyword-color: var(--pmwdoc-accent-lighter);
-	--md-code-hl-string-color: oklch(from var(--pmwdoc-accent) 0.9 c h);
-	--md-code-hl-name-color: var(--pmwdoc-gray-8);
+	--md-code-hl-string-color: oklch(from var(--pmwdoc-accent) 0.35 c h);
+	--md-code-hl-name-color: var(--pmwdoc-gray-3);
 	--md-code-hl-operator-color: oklch(from var(--md-default-fg-color) 0.6 c h);
 	--md-code-hl-punctuation-color: oklch(from var(--md-default-fg-color) 0.6 c h);
 	--md-code-hl-comment-color: oklch(from var(--md-default-fg-color) 0.6 c h);
-	--md-code-hl-generic-color: var(--pmwdoc-gray-5);
-	--md-code-hl-variable-color: var(--pmwdoc-gray-6);
+	--md-code-hl-generic-color: var(--pmwdoc-gray-3);
+	--md-code-hl-variable-color: var(--pmwdoc-gray-3);
 }
 
 [data-md-color-scheme="pmwdoc-dark"] {
 	--md-code-fg-color: var(--pmwdoc-gray-8);
-	--md-code-bg-color: var(--pmwdoc-gray-3);
+	--md-code-bg-color: var(--pmwdoc-gray-2);
 
-	--md-code-hl-number-color: oklch(from var(--pmwdoc-accent) 0.65 c 40);
-	--md-code-hl-special-color: oklch(from var(--pmwdoc-accent) 0.65 c 40);
+	--md-code-hl-number-color: oklch(0.8 0.2 40);
+	--md-code-hl-special-color: oklch(0.75 0.2 40);
 	--md-code-hl-function-color: var(--pmwdoc-gray-8);
-	--md-code-hl-constant-color: oklch(from var(--pmwdoc-accent) 0.65 c 40);
-	--md-code-hl-keyword-color: var(--pmwdoc-accent-lighter);
-	--md-code-hl-string-color: oklch(from var(--pmwdoc-accent) 0.9 c h);
+	--md-code-hl-constant-color: oklch(0.65 0.2 40);
+	--md-code-hl-keyword-color: oklch(0.65 0.2 40);
+	--md-code-hl-string-color: oklch(from var(--pmwdoc-accent) 0.9 0.15 h);
 	--md-code-hl-name-color: var(--pmwdoc-gray-8);
 	--md-code-hl-operator-color: oklch(from var(--md-default-fg-color) 0.6 c h);
 	--md-code-hl-punctuation-color: oklch(from var(--md-default-fg-color) 0.6 c h);

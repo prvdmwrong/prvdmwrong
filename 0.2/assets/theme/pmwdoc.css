@@ -36,9 +36,9 @@
 	--md-default-fg-color--light: var(--pmwdoc-gray-7);
 	--md-default-fg-color--lighter: var(--pmwdoc-gray-6);
 	--md-default-fg-color--lightest: var(--pmwdoc-gray-5);
-	--md-default-bg-color: var(--pmwdoc-gray-4);
-	--md-default-bg-color--light: var(--pmwdoc-gray-3);
-	--md-default-bg-color--lighter: var(--pmwdoc-gray-2);
+	--md-default-bg-color: var(--pmwdoc-gray-3);
+	--md-default-bg-color--light: var(--pmwdoc-gray-2);
+	--md-default-bg-color--lighter: var(--pmwdoc-gray-1);
 	--md-default-bg-color--lightest: var(--pmwdoc-gray-0);
 
 	--md-typeset-color: var(--pmwdoc-gray-8);

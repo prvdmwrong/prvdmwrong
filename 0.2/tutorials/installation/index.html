@@ -82,14 +82,26 @@
       
     
     
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Plus Jakarta Sans";--md-code-font:"JetBrains Mono"}</style>
-      
-    
+	<!-- Load fonts from Google -->
+	
+		
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=fallback"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=JetBrains+Mono&display=fallback"
+		/>
+		<style>
+			:root {
+				--md-text-font: "Plus Jakarta Sans";
+				--md-code-font: "JetBrains Mono";
+			}
+		</style>
+	
+
     
       <link rel="stylesheet" href="../../assets/theme/404.css">
     
@@ -299,6 +311,9 @@
     
     <div class="md-container" data-md-component="container">
       
+	
+	
+
       
         
           
@@ -3255,8 +3270,23 @@ for <a href="https://www.npmjs.com/">NPM</a>.</p>
 </span></code></pre></div>
 </li>
 <li>
+<p>Roblox TypeScript needs Prvd 'M Wrong to be included as a type root. Find
+   <code>typeRoots</code> in your <code>tsconfig.json</code> file, it may be nested behind several
+   levels:</p>
+<div class="language-JSON highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">&quot;typeRoots&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="s2">&quot;node_modules/@rbxts&quot;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">],</span>
+</span></code></pre></div>
+<p>Add <code>node_modules/@prvdmwrong</code> next to <code>node_modules/@rbxts</code>:</p>
+<div class="language-JSON highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">&quot;typeRoots&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="s2">&quot;node_modules/@rbxts&quot;</span><span class="p">,</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="s2">&quot;node_modules/@prvdmwrong&quot;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">],</span>
+</span></code></pre></div>
+</li>
+<li>
 <p>Now Prvd 'M Wrong can imported directly:</p>
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">prvdmwrong</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@prvdmwrong/core&quot;</span>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">prvd</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@prvdmwrong/core&quot;</span>
 </span></code></pre></div>
 </li>
 </ol>
@@ -3274,15 +3304,15 @@ imported as source code.</p>
 <li>
 <p>You need to build the packages itself to use it. Prvd 'M Wrong uses
    <a href="https://github.com/rojo-rbx/rokit">Rokit</a> for tooling:</p>
-<div class="language-Sh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>rokit<span class="w"> </span>install
+<div class="language-Sh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>rokit<span class="w"> </span>install
 </span></code></pre></div>
 </li>
 <li>
 <p>Run the build script and follow the prompts to build a package:</p>
-<div class="language-Sh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$<span class="w"> </span>lune<span class="w"> </span>run<span class="w"> </span>build-pkg
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>✔<span class="w"> </span>Select<span class="w"> </span>packages<span class="w"> </span>to<span class="w"> </span>build,<span class="w"> </span>or<span class="w"> </span>none<span class="w"> </span>to<span class="w"> </span>build<span class="w"> </span>all<span class="w"> </span>packages<span class="w"> </span>·<span class="w"> </span>core,<span class="w"> </span>lifecycles
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>✔<span class="w"> </span>Build<span class="w"> </span>.rbxm<span class="w"> </span>models?<span class="w"> </span>·<span class="w"> </span>yes
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>✔<span class="w"> </span>Publish<span class="w"> </span>these<span class="w"> </span>packages<span class="w"> </span>to<span class="w"> </span>NPM<span class="w"> </span>and<span class="w"> </span>Wally?<span class="w"> </span>·<span class="w"> </span>no
+<div class="language-Sh highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span>lune<span class="w"> </span>run<span class="w"> </span>build-pkg
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>✔<span class="w"> </span>Select<span class="w"> </span>packages<span class="w"> </span>to<span class="w"> </span>build,<span class="w"> </span>or<span class="w"> </span>none<span class="w"> </span>to<span class="w"> </span>build<span class="w"> </span>all<span class="w"> </span>packages<span class="w"> </span>·<span class="w"> </span>core,<span class="w"> </span>lifecycles
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>✔<span class="w"> </span>Build<span class="w"> </span>.rbxm<span class="w"> </span>models?<span class="w"> </span>·<span class="w"> </span>yes
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>✔<span class="w"> </span>Publish<span class="w"> </span>these<span class="w"> </span>packages<span class="w"> </span>to<span class="w"> </span>NPM<span class="w"> </span>and<span class="w"> </span>Wally?<span class="w"> </span>·<span class="w"> </span>no
 </span></code></pre></div>
 </li>
 <li>
@@ -3301,12 +3331,12 @@ imported as source code.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Luau</label><label for="__tabbed_2_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">prvdmwrong</span><span class="p">)</span>
+<div class="language-Lua highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">local</span> <span class="n">ReplicatedStorage</span> <span class="o">=</span> <span class="n">game</span><span class="p">:</span><span class="n">GetService</span><span class="p">(</span><span class="s2">&quot;ReplicatedStorage&quot;</span><span class="p">)</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">ReplicatedStorage</span><span class="p">.</span><span class="n">Packages</span><span class="p">.</span><span class="n">prvdmwrong</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">prvdmwrong</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/prvdmwrong&quot;</span>
+<div class="language-TypeScript highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">prvdmwrong</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@rbxts/prvdmwrong&quot;</span>
 </span></code></pre></div>
 </div>
 </div>
@@ -3318,7 +3348,7 @@ imported as source code.</p>
 </ol>
 <details class="failure">
 <summary>My script didn't work!</summary>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>prvdmwrong is not a valid member of ReplicatedStorage &quot;ReplicatedStorage&quot;
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>prvdmwrong is not a valid member of ReplicatedStorage &quot;ReplicatedStorage&quot;
 </span></code></pre></div>
 If you're seeing this error, then your script can't find Prvd 'M Wrong.</p>
 <p>This code assumes you've placed Prvd 'M Wrong under ReplicatedStorage. If

@@ -80,14 +80,26 @@
       
     
     
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Plus Jakarta Sans";--md-code-font:"JetBrains Mono"}</style>
-      
-    
+	<!-- Load fonts from Google -->
+	
+		
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=fallback"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=JetBrains+Mono&display=fallback"
+		/>
+		<style>
+			:root {
+				--md-text-font: "Plus Jakarta Sans";
+				--md-code-font: "JetBrains Mono";
+			}
+		</style>
+	
+
     
       <link rel="stylesheet" href="assets/theme/404.css">
     
@@ -297,6 +309,9 @@
     
     <div class="md-container" data-md-component="container">
       
+	
+	
+
       
         
           
@@ -2889,6 +2904,8 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
+    <link rel="stylesheet" href="assets/theme/home.css" />
+    
                   
 
   
@@ -2907,18 +2924,20 @@
   alt="Prvd 'M Wrong"
   width="500px"/></p>
 <p>
-Prvd 'M Wrong is a service provider framework for a next-generation Roblox.
+Roblox games has become increasingly complex, with sprawling mazes of
+dependencies, incomplete frameworks, and a challenging development experience.
 </p>
 <p>
-Once installed, your game will become your money back. Prvd 'M Wrong accelerates
-the process with providers, connecting the top-level design of your game. Choose
-to mix in networking and components as you need. Randoms will approach you and
-ask, <i>"are you wealthy or do you make a six-figure salary?"</i>
+No longer. Built on a proven service provider architecture, cherish a
+development experience that fades into the background. Create service providers
+to handle the top level logic of your game, baked with natural type-safety,
+dependency resolution/inversion, and first-class lifecycles.
 </p>
 <p>
-Cherish a development experience that fades into the background, freeing you to
-build faster and prove 'm wrong. It's the swaggest Roblox game framework in
-town.
+From simple foundations, concepts naturally combine and expand with minimal
+learning. Even after year long hiatuses, you will find your code easy to
+navigate and understand. Randoms will approach you and ask, <i>"do you make a
+six-figure salary?"</i>
 </p>
 <nav>
 <p><a href="./tutorials/" class="md-button md-button--primary">Get Started</a>
@@ -2944,8 +2963,9 @@ town.
 </ul>
 
 <br/> -->
+<p><br/></p>
 <!-- Familiar -->
-<section class="grid">
+<section class="grid" style="grid-template-columns: auto 1fr;">
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Luau</label><label for="__tabbed_1_2">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3001,30 +3021,29 @@ town.
 </div>
 </div>
 <section>
-<p><span style="font-size: 3em; line-height: 0; margin: 0;" markdown><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m8 14.25.345.666a.75.75 0 0 1-.69 0l-.008-.004-.018-.01a7.152 7.152 0 0 1-.31-.17 22.055 22.055 0 0 1-3.434-2.414C2.045 10.731 0 8.35 0 5.5 0 2.836 2.086 1 4.25 1 5.797 1 7.153 1.802 8 3.02 8.847 1.802 10.203 1 11.75 1 13.914 1 16 2.836 16 5.5c0 2.85-2.045 5.231-3.885 6.818a22.066 22.066 0 0 1-3.744 2.584l-.018.01-.006.003h-.002ZM4.25 2.5c-1.336 0-2.75 1.164-2.75 3 0 2.15 1.58 4.144 3.365 5.682A20.58 20.58 0 0 0 8 13.393a20.58 20.58 0 0 0 3.135-2.211C12.92 9.644 14.5 7.65 14.5 5.5c0-1.836-1.414-3-2.75-3-1.373 0-2.609.986-3.029 2.456a.749.749 0 0 1-1.442 0C6.859 3.486 5.623 2.5 4.25 2.5Z"/></svg></span></span></p>
+<!-- <span style="font-size: 3em; line-height: 0; margin: 0;" markdown>:octicons-heart-16:</span> -->
 <h1 id="familiar">Familiar</h1>
-<p style="font-size: 1.25em;">
+<p style="font-size: 1.125em;">
 Prvd 'M Wrong stands on the shoulders of giants, particularly Flamework and
-Knit. Built on a proven service provider architecture, cherish a development
-experience that fades into the background.
+Knit, building on a proven service provider architecture.
 </p>
 <p>Create service providers to handle the top level logic of your game, baked with
 natural type-safety and intellisense, built-in dependency resolution/inversion,
 first-class lifecycles, and pragmatic APIs.</p>
-<p>Readable? Powerful? Can your <code>Knit.CreateService</code> or <code>@Flamework.Service()</code> do
-better?</p>
+<p>Transition your entire codebase with one of the many compatibility packages.
+Just change where you require the original framework, and let Prvd 'M Wrong do
+the heavy lifting.</p>
+<p>Can your <code>Knit.CreateService</code> or <code>@Service()</code> do better?</p>
 </section>
 </section>
-<p><br/></p>
-<hr />
 <p><br/></p>
 <!-- Batteries Included -->
 <div class="prvdmwrong-home-features">
 <ul>
 <li>Providers</li>
-<li>Dependencies</li>
-<li>Type-Safe APIs</li>
-<li>TypeScript Declarations</li>
+<li>Dependency Resolution</li>
+<li>Type Safety</li>
+<li>TypeScript</li>
 </ul>
 <ul style="animation-direction: reverse;">
 <li>Modding</li>
@@ -3039,17 +3058,13 @@ better?</p>
 <li>Compatibility Layers</li>
 </ul>
 </div>
-<p><span style="font-size: 3em; line-height: 0; margin: 0;" markdown><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg></span></span></p>
 <h1 id="batteries-included">Batteries Included</h1>
-<p style="font-size: 1.25em;">
-Prvd 'M Wrong brings all core features expected by a framework and even improves some
-of them for you. Absolutely zero bloat, transformers, or extensions required.
+<p style="font-size: 1.125em;">
+Prvd 'M Wrong brings all core features expected by a modern framework and even
+improves some of them for you. Mix in packages for networking, components, and
+pre-made lifecycles as needed. Absolutely zero bloat, transformers, or
+extensions required.
 </p>
-<p>Need more? Mix in packages for networking, components, and pre-made lifecycles
-as needed. Tired of frameworks like Knit or Lumin? Prvd 'M Wrong is the
-difference between a coal mine with dead canary birds littered around and a
-meadow of wildflowers and dancing gazelles, with a cool breeze and singing birds
-all around. It's refreshing.</p>
 <p><br/></p>
 <hr />
 <p><br/></p>
@@ -3062,17 +3077,17 @@ all around. It's refreshing.</p>
 <img
   src="./assets/wordmark-light.svg#only-light"
   alt="Prvd 'M Wrong"
-  width="500px"/>
-<br/>
+  width="500px"/></p>
+<!-- <br/>
 <span class="pmwdoc-version" markdown>
 Version
 <code id="pmwdoc-version">(fetching)</code>
 from
-<a href="https://www.npmjs.com/package/@prvdmwrong/core">NPM</a>
-<a href="https://wally.run/package/prvdmwrong/core">Wally</a>
-<a href="https://pesde.daimond113.com/packages/prvdmwrong/core/0.2.0-dev.12">Pesde</a>
-</span></p>
-<script defer="defer" src="assets/javascripts/latest-version.js"></script>
+[NPM](https://www.npmjs.com/package/@prvdmwrong/core)
+[Wally](https://wally.run/package/prvdmwrong/core)
+[Pesde](https://pesde.daimond113.com/packages/prvdmwrong/core/0.2.0-dev.12)
+</span> -->
+<!-- <script src="assets/javascripts/latest-version.js" defer></script> -->
 <p><a href="./tutorials/" class="md-button md-button--primary">Get Started</a>
 <a href="https://github.com/prvdmwrong/prvdmwrong/releases" class="md-button">Download</a>
 <a href="./reference/" class="md-button">API Reference</a></p>
@@ -3096,6 +3111,7 @@ from
 
 
                 
+
               </article>
             </div>
           
