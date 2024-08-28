@@ -69,20 +69,18 @@ function providers.Provider(options: { loadOrder: number? }?)
 			"must use TypeScript decorator on a class"
 		)
 		Log.expect(
-			typeof((provider :: any).__tostring) == "function",
+			typeof(getmetatable(provider :: any).__tostring) == "function",
 			"cannotRegister",
 			nil,
 			"must use TypeScript decorator on a class"
 		)
 
 		local newProvider = (provider :: any).new()
-		local name = newProvider:__tostring()
-
-		Log.expect(typeof(name) == "string", "cannotRegister", nil, "`name` must be a string")
-		Log.expect(name:len() > 0, "cannotRegister", nil, "`name` cannot be empty")
+		local name = tostring(newProvider)
 
 		do
-			-- This has to be in a do ... end block or else we get ambiguous syntax
+			-- This has to be in a do ... end block or else we get ambiguous
+			-- syntax
 			(provider :: any)[providers.providerKey] = newProvider
 		end
 
