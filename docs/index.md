@@ -1,4 +1,5 @@
 ---
+template: home.html
 hide:
   - navigation
   - toc
@@ -19,20 +20,22 @@ hide:
   width="500px"/>
 
 <p>
-Prvd 'M Wrong is a service provider framework for a next-generation Roblox.
+Roblox games has become increasingly complex, with sprawling mazes of
+dependencies, incomplete frameworks, and a challenging development experience.
 </p>
 
 <p>
-Once installed, your game will become your money back. Prvd 'M Wrong accelerates
-the process with providers, connecting the top-level design of your game. Choose
-to mix in networking and components as you need. Randoms will approach you and
-ask, <i>"are you wealthy or do you make a six-figure salary?"</i>
+No longer. Built on a proven service provider architecture, cherish a
+development experience that fades into the background. Create service providers
+to handle the top level logic of your game, baked with natural type-safety,
+dependency resolution/inversion, and first-class lifecycles.
 </p>
 
 <p>
-Cherish a development experience that fades into the background, freeing you to
-build faster and prove 'm wrong. It's the swaggest Roblox game framework in
-town.
+From simple foundations, concepts naturally combine and expand with minimal
+learning. Even after year long hiatuses, you will find your code easy to
+navigate and understand. Randoms will approach you and ask, <i>"do you make a
+six-figure salary?"</i>
 </p>
 
 <nav markdown>
@@ -66,9 +69,11 @@ town.
 
 <br/> -->
 
+<br/>
+
 <!-- Familiar -->
 
-<section class="grid" markdown>
+<section class="grid" style="grid-template-columns: auto 1fr;" markdown>
 
 === "Luau"
 
@@ -126,30 +131,28 @@ town.
 
 <section markdown>
 
-<span style="font-size: 3em; line-height: 0; margin: 0;" markdown>:octicons-heart-16:</span>
+<!-- <span style="font-size: 3em; line-height: 0; margin: 0;" markdown>:octicons-heart-16:</span> -->
 
 # Familiar
 
-<p style="font-size: 1.25em;">
+<p style="font-size: 1.125em;">
 Prvd 'M Wrong stands on the shoulders of giants, particularly Flamework and
-Knit. Built on a proven service provider architecture, cherish a development
-experience that fades into the background.
+Knit, building on a proven service provider architecture.
 </p>
 
 Create service providers to handle the top level logic of your game, baked with
 natural type-safety and intellisense, built-in dependency resolution/inversion,
 first-class lifecycles, and pragmatic APIs.
 
-Readable? Powerful? Can your `Knit.CreateService` or `@Flamework.Service()` do
-better?
+Transition your entire codebase with one of the many compatibility packages.
+Just change where you require the original framework, and let Prvd 'M Wrong do
+the heavy lifting.
+
+Can your `Knit.CreateService` or `@Service()` do better?
 
 </section>
 
 </section>
-
-<br/>
-
----
 
 <br/>
 
@@ -159,9 +162,9 @@ better?
 
 <ul>
 <li>Providers</li>
-<li>Dependencies</li>
-<li>Type-Safe APIs</li>
-<li>TypeScript Declarations</li>
+<li>Dependency Resolution</li>
+<li>Type Safety</li>
+<li>TypeScript</li>
 </ul>
 
 <ul style="animation-direction: reverse;">
@@ -180,20 +183,14 @@ better?
 
 </div>
 
-<span style="font-size: 3em; line-height: 0; margin: 0;" markdown>:octicons-zap-16:</span>
-
 # Batteries Included
 
-<p style="font-size: 1.25em;">
-Prvd 'M Wrong brings all core features expected by a framework and even improves some
-of them for you. Absolutely zero bloat, transformers, or extensions required.
+<p style="font-size: 1.125em;">
+Prvd 'M Wrong brings all core features expected by a modern framework and even
+improves some of them for you. Mix in packages for networking, components, and
+pre-made lifecycles as needed. Absolutely zero bloat, transformers, or
+extensions required.
 </p>
-
-Need more? Mix in packages for networking, components, and pre-made lifecycles
-as needed. Tired of frameworks like Knit or Lumin? Prvd 'M Wrong is the
-difference between a coal mine with dead canary birds littered around and a
-meadow of wildflowers and dancing gazelles, with a cool breeze and singing birds
-all around. It's refreshing.
 
 <br/>
 
@@ -213,7 +210,7 @@ all around. It's refreshing.
   src="./assets/wordmark-light.svg#only-light"
   alt="Prvd 'M Wrong"
   width="500px"/>
-<br/>
+<!-- <br/>
 <span class="pmwdoc-version" markdown>
 Version
 <code id="pmwdoc-version">(fetching)</code>
@@ -221,8 +218,8 @@ from
 [NPM](https://www.npmjs.com/package/@prvdmwrong/core)
 [Wally](https://wally.run/package/prvdmwrong/core)
 [Pesde](https://pesde.daimond113.com/packages/prvdmwrong/core/0.2.0-dev.12)
-</span>
-<script src="assets/javascripts/latest-version.js" defer></script>
+</span> -->
+<!-- <script src="assets/javascripts/latest-version.js" defer></script> -->
 <a href="./tutorials/" class="md-button md-button--primary">Get Started</a>
 <a href="https://github.com/prvdmwrong/prvdmwrong/releases" class="md-button">Download</a>
 <a href="./reference/" class="md-button">API Reference</a>
