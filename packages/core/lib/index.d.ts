@@ -6,6 +6,14 @@ export = prvdmwrong
 export as namespace prvdmwrong
 
 declare namespace prvdmwrong {
+	export interface OnInit {
+		onInit(): void
+	}
+
+	export interface OnStart {
+		onStart(): void
+	}
+
 	/**
 	 * An enumeration of all defined startup status Prvd 'M Wrong will be in.
 	 *
