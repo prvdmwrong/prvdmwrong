@@ -3,14 +3,23 @@
 
 local RunService = game:GetService("RunService")
 
-local log = require("knit-compat/log")
-local prvd = require("knit-compat/prvd")
+local Promise = require("knit-compat/vendor/promise")
+local log = require("knit-compat/utils/log")
+local prvd = require("knit-compat/utils/prvd")
 local types = require("knit-compat/types")
 local expect = log.expect
-local warnDeprecated = log.warnDeprecated
 
-local promise = require("knit-compat/promise") :: types.PromiseLib
-local Knit = {}
+local alreadyWarned: { [string]: true } = {}
+local knit = {}
+
+local function warnDeprecated(replacement: string, deprecated: string, reason: string)
+	if alreadyWarned[deprecated] then
+		return
+	end
+
+	alreadyWarned[deprecated] = true
+	log.warn("compatDeprecated", replacement, deprecated, reason)
+end
 
 local function intoProvider<Singleton>(singleton: Singleton & (types.ControllerDef | types.ServiceDef)): prvd.Provider<Singleton>
 	local name = singleton.Name
@@ -29,7 +38,7 @@ local function intoProvider<Singleton>(singleton: Singleton & (types.ControllerD
 	return singleton
 end
 
-function Knit.CreateService<Service>(serviceDef: Service & types.ServiceDef): prvd.Provider<Service>
+function knit.CreateService<Service>(serviceDef: Service & types.ServiceDef): prvd.Provider<Service>
 	expect(RunService:IsServer(), "cannot create services on the client")
 	expect(typeof(serviceDef) == "table", `service must be a table; got {typeof(serviceDef)}`)
 	expect(typeof(serviceDef.Name) == "string", `service.Name must be a string; got {typeof(serviceDef.Name)}`)
@@ -43,7 +52,7 @@ function Knit.CreateService<Service>(serviceDef: Service & types.ServiceDef): pr
 	return intoProvider(serviceDef)
 end
 
-function Knit.CreateController<Controller>(controllerDef: Controller & types.ControllerDef): prvd.Provider<Controller>
+function knit.CreateController<Controller>(controllerDef: Controller & types.ControllerDef): prvd.Provider<Controller>
 	expect(RunService:IsClient(), "cannot create controllers on the server")
 	expect(typeof(controllerDef) == "table", `service must be a table; got {typeof(controllerDef)}`)
 	expect(typeof(controllerDef.Name) == "string", `service.Name must be a string; got {typeof(controllerDef.Name)}`)
@@ -68,7 +77,7 @@ local function addImpl(modules: { Instance }): { any }
 	return addedModules
 end
 
-function Knit.AddServices(parent: Instance): { types.Service }
+function knit.AddServices(parent: Instance): { types.Service }
 	expect(RunService:IsServer(), `cannot add services from the client`)
 	expect(
 		prvd.getStartupStatus() == prvd.StartupStatus.Pending,
@@ -82,7 +91,7 @@ function Knit.AddServices(parent: Instance): { types.Service }
 	return addImpl(parent:GetChildren())
 end
 
-function Knit.AddServicesDeep(parent: Instance): { types.Service }
+function knit.AddServicesDeep(parent: Instance): { types.Service }
 	expect(RunService:IsServer(), `cannot add services from the client`)
 	expect(
 		prvd.getStartupStatus() == prvd.StartupStatus.Pending,
@@ -96,7 +105,7 @@ function Knit.AddServicesDeep(parent: Instance): { types.Service }
 	return addImpl(parent:GetDescendants())
 end
 
-function Knit.AddControllers(parent: Instance): { types.Service }
+function knit.AddControllers(parent: Instance): { types.Service }
 	expect(RunService:IsClient(), `cannot add controllers from the server`)
 	expect(
 		prvd.getStartupStatus() == prvd.StartupStatus.Pending,
@@ -110,7 +119,7 @@ function Knit.AddControllers(parent: Instance): { types.Service }
 	return addImpl(parent:GetChildren())
 end
 
-function Knit.AddControllersDeep(parent: Instance): { types.Service }
+function knit.AddControllersDeep(parent: Instance): { types.Service }
 	expect(RunService:IsClient(), `cannot add controllers from the server`)
 	expect(
 		prvd.getStartupStatus() == prvd.StartupStatus.Pending,
@@ -124,32 +133,32 @@ function Knit.AddControllersDeep(parent: Instance): { types.Service }
 	return addImpl(parent:GetDescendants())
 end
 
-function Knit.Start(_: types.KnitOptions)
+function knit.Start(_: types.KnitOptions)
 	expect(prvd.getStartupStatus() == prvd.StartupStatus.Pending, "attempted to start more than once")
 	warnDeprecated(
 		"prvd.start()",
 		"Knit.Start()",
-		"there is no compatibility with knit options and middleware, and that prvd 'm wrong is not promise based"
+		"there is no compatibility with knit options and middleware, and that prvd 'm wrong is not Promise based"
 	)
-	local start = promise.promisify(prvd.start)
+	local start = Promise.promisify(prvd.start)
 	return start()
 end
 
-function Knit.OnStart(): types.Promise
+function knit.OnStart(): types.Promise
 	warnDeprecated(
 		"prvd.onStart()",
 		"Knit.OnStart()",
-		"note that knit's OnStart is promise based while prvd 'm wrong is callback based. if a script needs prvd 'm wrong to start, use prvd.awaitStart() instead"
+		"note that knit's OnStart is Promise based while prvd 'm wrong is callback based. if a script needs prvd 'm wrong to start, use prvd.awaitStart() instead"
 	)
 	if prvd.getStartupStatus() ~= prvd.StartupStatus.Pending then
-		return promise.resolve()
+		return Promise.resolve()
 	end
-	return promise.new(function(resolve)
+	return Promise.new(function(resolve)
 		prvd.onStart(function()
 			resolve()
 		end)
 	end)
 end
 
-table.freeze(Knit)
-return Knit
+table.freeze(knit)
+return knit
