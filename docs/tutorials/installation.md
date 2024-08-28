@@ -166,10 +166,29 @@ for [NPM](https://www.npmjs.com/).
     }
     ```
 
-4. Now Prvd 'M Wrong can imported directly:
+4. Roblox TypeScript needs Prvd 'M Wrong to be included as a type root. Find
+   `typeRoots` in your `tsconfig.json` file, it may be nested behind several
+   levels:
+
+      ```JSON
+      "typeRoots": [
+        "node_modules/@rbxts"
+      ],
+      ```
+
+      Add `node_modules/@prvdmwrong` next to `node_modules/@rbxts`:
+
+      ```JSON
+      "typeRoots": [
+        "node_modules/@rbxts",
+        "node_modules/@prvdmwrong"
+      ],
+      ```
+
+5. Now Prvd 'M Wrong can imported directly:
 
     ```TypeScript
-    import prvdmwrong from "@prvdmwrong/core"
+    import prvd from "@prvdmwrong/core"
     ```
 
 ---
