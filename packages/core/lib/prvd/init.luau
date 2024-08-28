@@ -148,7 +148,8 @@ function prvd.start(options: {
 			if typeof(target) ~= "table" then
 				return
 			end
-			if Modding.providers[target :: any] then
+			-- FIXME: this is broken for ts providers
+			if Modding.providers[target :: any] and target ~= provider then
 				parent[key] = (target :: any)[providers.providerKey] or target
 				table.insert(usedDependencies, Reflection.getIdentifier(target))
 				return
