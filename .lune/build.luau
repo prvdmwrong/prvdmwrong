@@ -148,7 +148,7 @@ do
 				"darklua",
 				"process",
 				`{cwd}/packages/{package}/lib/init.luau`,
-				`{cwd}/dist/{package}/lib/init.luau`,
+				`{cwd}/dist/{package}/lib/init.lua`,
 				"-c",
 				darkluaConfig,
 				"-v"
