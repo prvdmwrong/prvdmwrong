@@ -4,16 +4,36 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
-local Types = require("lifecycles/types")
-local prvd = require("lifecycles/prvd")
+local prvd = require("lifecycles/utils/prvd")
 
-export type OnPreSimulation = Types.OnPreSimulation
-export type OnPostSimulation = Types.OnPostSimulation
-export type OnPreAnimation = Types.OnPreAnimation
-export type OnPreRender = Types.OnPreRender
-export type OnShutdown = Types.OnShutdown
-export type OnPlayerAdded = Types.OnPlayerAdded
-export type OnPlayerRemoving = Types.OnPlayerRemoving
+export type OnPreSimulation = {
+	onPreSimulation: (self: prvd.Provider<unknown>, number) -> (),
+}
+
+export type OnPostSimulation = {
+	onPostSimulation: (self: prvd.Provider<unknown>, number) -> (),
+}
+
+export type OnPreAnimation = {
+	onPreAnimation: (self: prvd.Provider<unknown>, number) -> (),
+}
+
+export type OnPreRender = {
+	onPreRender: (self: prvd.Provider<unknown>, number) -> (),
+}
+
+export type OnShutdown = {
+	onShutdown: (self: prvd.Provider<unknown>) -> (),
+}
+
+export type OnPlayerAdded = {
+	onPlayerAdded: (self: prvd.Provider<unknown>, Player) -> (),
+}
+
+export type OnPlayerRemoving = {
+	onPlayerRemoving: (self: prvd.Provider<unknown>, Player) -> (),
+}
+
 type Lifecycle<Interface = { [any]: any }> = prvd.Lifecycle<Interface>
 
 local Lifecycles = {}
