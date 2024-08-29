@@ -162,6 +162,7 @@ return Prvd {
 	onStart = prvd.onStart,
 	StartupStatus = prvd.StartupStatus,
 	start = prvd.start,
+	Provider = providers.Provider,
 	preload = preload,
 	use = prvd.use,
 
