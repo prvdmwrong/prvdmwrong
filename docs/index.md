@@ -20,7 +20,7 @@
   width="500px"/>
 
 <p>
-Roblox games has become increasingly complex, with sprawling mazes of
+Roblox games have become increasingly complex, with sprawling mazes of
 dependencies, incomplete frameworks, and a challenging development experience.
 </p>
 
