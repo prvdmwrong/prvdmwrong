@@ -1,8 +1,8 @@
 ---
-template: home.html
-hide:
-  - navigation
-  - toc
+  template: home.html
+  hide:
+    - navigation
+    - toc
 ---
 
 <section class="pmwdoc-home-hero" markdown>
@@ -42,7 +42,7 @@ six-figure salary?"</i>
 
 <a href="./tutorials/" class="md-button md-button--primary">Get Started</a>
 <a href="https://github.com/prvdmwrong/prvdmwrong/releases" class="md-button">Download</a>
-<a href="./reference/" class="md-button">API Reference</a>
+<a href="./api-reference/" class="md-button">API Reference</a>
 
 </nav>
 
@@ -222,7 +222,7 @@ from
 <!-- <script src="assets/javascripts/latest-version.js" defer></script> -->
 <a href="./tutorials/" class="md-button md-button--primary">Get Started</a>
 <a href="https://github.com/prvdmwrong/prvdmwrong/releases" class="md-button">Download</a>
-<a href="./reference/" class="md-button">API Reference</a>
+<a href="./api-reference/" class="md-button">API Reference</a>
 
 </section>
 
