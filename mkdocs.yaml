@@ -1,0 +1,213 @@
+# Copyright (c) znotfireman 2024.
+# This source code is licensed under the MIT license found in the LICENSE file
+# in the root directory of this source tree.
+
+site_name: Prvd 'M Wrong
+site_url: https://prvdmwrong.github.io/prvdmwrong
+site_description: >-
+  Prvd 'M Wrong is a service provider framework for a next-generation Roblox.
+
+repo_name: prvdmwrong/prvdmwrong
+repo_url: https://github.com/prvdmwrong/prvdmwrong
+
+plugins:
+  - search
+  - mike:
+      alias_type: symlink
+      canonical_version: null
+      css_dir: css
+      deploy_prefix: ""
+      javascript_dir: js
+      redirect_template: null
+      version_selector: true
+
+extra:
+  version:
+    provider: mike
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      title: On this page
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - docs/overrides/.icons
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_css:
+  - assets/theme/404.css
+  - assets/theme/code.css
+  - assets/theme/page.css
+  - assets/theme/pmwdoc.css
+  - assets/theme/reference.css
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: pmwdoc-dark
+      toggle:
+        icon: octicons/sun-24
+        title: Switch to light theme
+    - media: "(prefers-color-scheme: light)"
+      scheme: pmwdoc-light
+      toggle:
+        icon: octicons/moon-24
+        title: Switch to dark theme
+  font:
+    text: Plus Jakarta Sans
+    code: JetBrains Mono
+  logo: assets/wordmark-dark.svg
+  favicon: assets/logo-dark.svg
+  icon:
+    repo: fontawesome/brands/github
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/flame-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+  features:
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - search.suggest
+
+nav:
+  - Home: index.md
+  - Tutorials:
+      - tutorials/index.md
+      - Installation: tutorials/installation.md
+      - Fundamentals:
+          - Providers: tutorials/fundamentals/providers.md
+          - Startup: tutorials/fundamentals/startup.md
+          - Lifecycles: tutorials/fundamentals/lifecycles.md
+      - Net:
+          - Net: tutorials/net/index.md
+          - Events: tutorials/net/events.md
+          - Functions: tutorials/net/functions.md
+          - Middlewares: tutorials/net/middlewares.md
+          - Namespaces: tutorials/net/namespaces.md
+      - Components:
+          - Components: tutorials/components/index.md
+          - Usage: tutorials/components/usage.md
+          - Attributes: tutorials/components/attributes.md
+          - Inheritance: tutorials/components/inheritance.md
+      - Advanced:
+          - Migration: tutorials/advanced/migration.md
+          - Modding: tutorials/advanced/modding.md
+          - Code Snippets: tutorials/advanced/snippets.md
+          - Execution Order: tutorials/advanced/execution-order.md
+          - Philosophies: tutorials/advanced/philosophies.md
+  - API Reference:
+      - api-reference/index.md
+      - Errors: api-reference/errors.md
+      - Core:
+          - api-reference/core/index.md
+          - Providers:
+              - api-reference/core/providers/index.md
+              - Provider: api-reference/core/providers/provider.md
+              - new: api-reference/core/providers/new.md
+              - StartupStatus: api-reference/core/providers/startup-status.md
+              - awaitStart: api-reference/core/providers/await-start.md
+              - onStart: api-reference/core/providers/on-start.md
+              - preload: api-reference/core/providers/preload.md
+              - start: api-reference/core/providers/start.md
+          - Lifecycles:
+              - api-reference/core/lifecycles/index.md
+              - Lifecycle: api-reference/core/lifecycles/lifecycle.md
+              - fireConcurrent: api-reference/core/lifecycles/fire-concurrent.md
+              - fireSequential: api-reference/core/lifecycles/fire-sequential.md
+              - onLifecycleRegistered: api-reference/core/lifecycles/on-lifecycle-registered.md
+              - onLifecycleUnregistered: api-reference/core/lifecycles/on-lifecycle-unregistered.md
+          - Modding:
+              - api-reference/core/modding/index.md
+              - getStartupOptions: api-reference/core/modding/get-startup-options.md
+              - getStartupStatus: api-reference/core/modding/get-startup-status.md
+              - onProviderConstructed: api-reference/core/modding/on-provider-constructed.md
+              - onProviderUsed: api-reference/core/modding/on-provider-used.md
+          - Internal:
+              - api-reference/core/internal/index.md
+              - defineMetadata: api-reference/core/internal/define-metadata.md
+              - getMetadata: api-reference/core/internal/get-metadata.md
+              - deleteMetadata: api-reference/core/internal/delete-metadata.md
+              - registerAll: api-reference/core/internal/register-all.md
+              - registerMethod: api-reference/core/internal/register-method.md
+              - unregisterMethod: api-reference/core/internal/unregister-method.md
+              - registerDependency: api-reference/core/internal/register-dependency.md
+          - Types:
+              - api-reference/core/types/index.md
+              - Lifecycle: api-reference/core/types/lifecycle.md
+              - OnInit: api-reference/core/types/on-init.md
+              - OnStart: api-reference/core/types/on-start.md
+              - Options: api-reference/core/types/options.md
+              - Provider: api-reference/core/types/provider.md
+      - Lifecycles:
+          - api-reference/lifecycles/index.md
+          - Runtime:
+              - api-reference/lifecycles/runtime/index.md
+              - OnPostSimulation: api-reference/lifecycles/runtime/on-post-simulation.md
+              - OnPreSimulation: api-reference/lifecycles/runtime/on-pre-simulation.md
+              - OnPreRender: api-reference/lifecycles/runtime/on-pre-render.md
+              - OnShutdown: api-reference/lifecycles/runtime/on-shutdown.md
+          - Players:
+              - api-reference/lifecycles/players/index.md
+              - OnPlayerAdded: api-reference/lifecycles/players/on-player-added.md
+              - OnPlayerRemoved: api-reference/lifecycles/players/on-player-removed.md
+      - Knit:
+          - api-reference/knit-compat/index.md
+      - Lumin:
+          - Framework:
+              - Controller: api-reference/lumin-compat/framework/controller.md
+              - Expect: api-reference/lumin-compat/framework/expect.md
+              - Signal: api-reference/lumin-compat/framework/signal.md
+              - Start: api-reference/lumin-compat/framework/start.md
+              - Started: api-reference/lumin-compat/framework/started.md
+              - Worker: api-reference/lumin-compat/framework/worker.md
+          - Types:
+              - Storage: api-reference/lumin-compat/types/storage.md
+              - Worker: api-reference/lumin-compat/types/worker.md
+              - WorkerType: api-reference/lumin-compat/types/worker-type.md
+          - api-reference/lumin-compat/index.md
+      - Sapphire:
+          - api-reference/sapphire-compat/index.md
+  - Projects:
+      - projects/index.md
+      - Prvd 'M Wrong Obby: projects/obby.md
+      - Prvd 'M Wrong Swordfight: projects/swordfight.md
+  - Extras:
+      - extras/index.md
+      - Branding:
+          - extras/branding/index.md
+          - Backgrounds: extras/branding/backgrounds/index.md
+          - Swag: extras/branding/swag.md
