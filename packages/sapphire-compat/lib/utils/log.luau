@@ -3,7 +3,7 @@
 
 local RunService = game:GetService("RunService")
 
-local ERROR_URL = "prvdmwrong.github.io/prvdmwrong/latest/reference/errors#"
+local ERROR_URL = "prvdmwrong.github.io/prvdmwrong/latest/api-reference/errors#"
 local ERRORS = table.freeze {
 	alreadyStarted = "Cannot ignite more than once.",
 	cannotRegister = "Cannot register provider; %s.",
