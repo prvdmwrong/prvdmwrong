@@ -395,3 +395,8 @@ section.dearrow > p > a::after,
 	gap: 0.5em;
 	margin: 1em 0 0.64em;
 }
+
+.md-nav__link,
+.md-nav__title {
+	position: inherit !important;
+}
