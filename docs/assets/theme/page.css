@@ -73,10 +73,10 @@
 	left: 0.25em;
 	bottom: 0.25em;
 }
-
+/*
 .md-header {
 	box-shadow: none;
-}
+} */
 
 .md-typeset img {
 	border-radius: 0.25rem;
@@ -84,6 +84,36 @@
 
 .md-tabs,
 .md-header {
+	background-color: transparent;
+	transition:
+		transform 0.25s cubic-bezier(0.1, 0.7, 0.1, 1),
+		background 0.25s;
+}
+
+.md-header--shadow {
+	box-shadow: none;
+}
+
+.md-header[data-md-state="shadow"] {
+	box-shadow: 0 0 0.35rem 0.5rem var(--md-default-bg-color) !important;
+	background-color: var(--md-default-bg-color);
+}
+
+@media screen and (min-width: 160rem) {
+	.md-header[data-md-state="shadow"] {
+		box-shadow: none !important;
+		background-color: transparent;
+	}
+}
+
+.md-nav--secondary .md-nav__title,
+.md-source,
+.md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link {
+	background: none !important;
+	box-shadow: none !important;
+}
+
+.md-header.md-header--shadow {
 	background-color: var(--md-default-bg-color);
 }
 
@@ -100,8 +130,13 @@ h6 > .twemoji:first-child {
 	padding: 0 1.2rem 0.8rem;
 }
 
+.md-copyright {
+	opacity: calc(1 / 3);
+}
+
 .md-copyright::after {
-	content: "∙ Theme by znotfireman";
+	display: block;
+	content: "Prvd 'M Wrong made with ❤ by znotfireman";
 }
 
 ::selection {
@@ -112,6 +147,8 @@ h6 > .twemoji:first-child {
 .md-top {
 	border-radius: 0.25em;
 	background-color: var(--md-default-bg-color--light);
+	box-shadow: none !important;
+	z-index: 1000;
 }
 
 .md-search__form {
@@ -297,4 +334,64 @@ section.dearrow > p > a::after,
 	font-weight: normal;
 	font-size: calc(2em / 3em);
 	line-height: 100%;
+}
+
+.pmwdoc-hero {
+	display: block;
+	position: relative;
+	width: 100%;
+	margin-top: -5em;
+	margin-bottom: -5em;
+	height: 10em;
+	max-height: 30svh;
+}
+
+.pmwdoc-hero::before {
+	content: " ";
+	display: block;
+	position: absolute;
+	inset: 0;
+	bottom: -20em;
+	z-index: -1;
+	opacity: calc(1 / 3);
+	background: radial-gradient(farthest-corner at 50% 0%, transparent, var(--md-default-bg-color)), var(--hero-img);
+	background-position: center;
+	background-size: cover;
+	box-shadow: inset 0 -15em 15em -1em var(--md-default-bg-color);
+	filter: blur(0.5em);
+}
+
+.pmwdoc-examples-tags > span {
+	color: var(--md-default-fg-color);
+	height: 2.4em;
+	line-height: 2.4em;
+	padding: 0 0.8em;
+	position: relative;
+	vertical-align: middle;
+	opacity: 50%;
+}
+
+.pmwdoc-examples-tags > span::before {
+	background-color: var(--md-default-fg-color);
+	border-radius: 1.2em;
+	content: "";
+	display: block;
+	height: 100%;
+	line-height: 2.4em;
+	opacity: 10%;
+	padding: 0 1em;
+	position: absolute;
+	right: 0;
+	width: 100%;
+}
+
+.pmwdoc-examples-tags {
+	align-content: space-around;
+	align-items: baseline;
+	display: flex;
+	flex-wrap: wrap;
+	float: right;
+	height: 2.4em;
+	gap: 0.5em;
+	margin: 1em 0 0.64em;
 }
