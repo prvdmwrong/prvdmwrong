@@ -21,7 +21,7 @@
 </br>
 <a href="https://github.com/prvdmwrong/prvdmwrong/releases">Download</a> ·
 <a href="https://prvdmwrong.github.io/prvdmwrong/latest">Documentation</a> ·
-<a href="https://prvdmwrong.github.io/prvdmwrong/latest/reference">Reference</a> ·
+<a href="https://prvdmwrong.github.io/prvdmwrong/latest/api-reference">API Reference</a> ·
 <a href="CHANGELOG.md">Changelog</a>
 </div>
 
