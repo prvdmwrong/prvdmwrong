@@ -32,13 +32,15 @@ Sounds boring. Let's try again.
 **Prvd 'M Wrong will not make you a front page Roblox developer... but you may
 feel like one.**
 
-Once installed, your game will become your money back. Prvd 'M Wrong accelerates
-the process with providers, connecting the top-level design of your game. Choose
-to mix in networking and components as you need. Randoms will approach you and
-ask, *"are you wealthy or do you make a six-figure salary?"*
+Built on a proven service provider architecture, cherish a development
+experience that fades into the background. Create service providers to handle
+the top level logic of your game, baked with natural type-safety, dependency
+resolution/inversion, and first-class lifecycles.
 
-Cherish a development experience that fades into the background, freeing you to
-build faster and **prvd 'm wrong.** It's the swaggest framework in town!
+From simple foundations, concepts naturally combine and expand with minimal
+learning. Even after year long hiatuses, you will find your code easy to
+navigate and understand. Randoms will approach you and ask, "do you make a
+six-figure salary?"
 
 Sparked your interest? [Get going in minutes with our on-rails
 tutorial.](https://prvdmwrong.github.io/prvdmwrong/latest/tutorials/)
