@@ -73,8 +73,8 @@
 	left: 0.25em;
 	bottom: 0.25em;
 }
-/*
-.md-header {
+
+/* .md-header {
 	box-shadow: none;
 } */
 
@@ -396,7 +396,7 @@ section.dearrow > p > a::after,
 	margin: 1em 0 0.64em;
 }
 
-.md-nav__link,
+/* .md-nav__link,
 .md-nav__title {
 	position: inherit !important;
-}
+} */
