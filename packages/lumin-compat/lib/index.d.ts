@@ -37,7 +37,7 @@ declare namespace LuminCompat {
 		| "PlayerAdded"
 		| "PlayerRemoving"
 
-	export interface Worker<Type extends WorkerType = any> {
+	export interface Worker<Type extends WorkerType = WorkerType> {
 		Type: Type
 		Callback(...args: InferWorkerArgs<Type>): void
 		IsWorker: boolean
