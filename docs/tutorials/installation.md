@@ -119,18 +119,18 @@ Roblox models.
 
 2. Click the "Assets" dropdown to view the downloadable files:
 
-      ![Releases](assets/static/github-releases.png)
+      ![Releases](../assets/static/github-releases.png)
 
 3. Click on the package you would like to import, which should end in `.rbxm`:
 
-      ![Releases](assets/static/github-releases-rbxm.png)
+      ![Releases](../assets/static/github-releases-rbxm.png)
 
 4. Open Roblox Studio to import the model. If you are just following the
     tutorials, just an empty baseplate will do.
 
 5. Right-click on `ReplicatedStorage`, and select "Insert from File":
 
-      ![Insert from File](assets/static/insert-from-file.png)
+      ![Insert from File](../assets/static/insert-from-file.png)
 
 Now, a new ModuleScript should appear under ReplicatedStorage, which can be
 required:
