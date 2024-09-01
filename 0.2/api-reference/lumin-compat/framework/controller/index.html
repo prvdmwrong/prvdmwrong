@@ -138,6 +138,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#parameters" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2812,6 +2817,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Controller
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2821,6 +2837,67 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      name : string
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#members-members" class="md-nav__link">
+    <span class="md-ellipsis">
+      members : Members
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returns
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3444,6 +3521,56 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      name : string
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#members-members" class="md-nav__link">
+    <span class="md-ellipsis">
+      members : Members
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returns
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3460,9 +3587,44 @@
   
 
 
-  <h1>Controller</h1>
+<div class="pmwdoc-reference-header">
+<h1>Controller</h1>
+<span>available since <code>v0.2</code></span>
+</div>
 
-
+<p>Constructs and returns a new <a href="../../../core/types/provider/">provider</a> given a
+Lumin Framework controller. The <code>name</code> field is preserved as the provider's
+identifier.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Luau</label><label for="__tabbed_1_2">TypeScript</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">Controller</span><span class="o">&lt;</span><span class="nx">Members</span><span class="o">&gt;</span><span class="p">(</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nx">members</span><span class="o">:</span><span class="w"> </span><span class="kt">Members</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">prvd</span><span class="p">.</span><span class="nx">Provider</span><span class="o">&lt;</span><span class="nx">Members</span><span class="o">&gt;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">Controller</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Members</span><span class="o">&gt;</span><span class="p">(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nx">members</span><span class="o">:</span><span class="w"> </span><span class="kt">Members</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">prvd</span><span class="p">.</span><span class="nx">Provider</span><span class="o">&lt;</span><span class="nx">Members</span><span class="o">&gt;</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="parameters">Parameters</h2>
+<h3 id="name-string">name <code class="language-lua highlight"><span class="p">:</span> <span class="n">string</span></code></h3>
+<p>The identifier to be used for the provider.</p>
+<h3 id="members-members">members <code class="language-lua highlight"><span class="p">:</span> <span class="n">Members</span></code></h3>
+<p>The members of this provider.</p>
+<h2 id="returns">Returns</h2>
+<p>A newly constructed provider preserving the following:</p>
+<ul>
+<li>the <code>name</code> field of the constructor is used as the identifier</li>
+<li>the <code>Init</code> method is mapped to <code>onInit</code></li>
+<li>the <code>Start</code> method is mapped to <code>onStart</code></li>
+</ul>
 
 
 
