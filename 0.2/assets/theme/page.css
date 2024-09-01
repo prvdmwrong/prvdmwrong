@@ -21,17 +21,14 @@
 	transition: opacity 125ms;
 }
 
-.md-typeset a::after {
+.md-typeset a::before {
 	content: "↗";
 	display: inline-block;
-	margin-left: 0.125rem;
+	margin-right: 0.125rem;
 	position: relative;
 	left: 0;
 	bottom: 0;
-	transition:
-		top,
-		bottom,
-		0.2s ease;
+	transition: 0.2s ease;
 }
 
 .md-header__button.md-logo {
@@ -71,8 +68,9 @@
 	opacity: 50%;
 }
 
-.md-typeset a:focus::after,
-.md-typeset a:hover::after {
+.md-typeset a:focus::before,
+.md-typeset a:hover::before {
+	margin-right: 0.375rem;
 	left: 0.25em;
 	bottom: 0.25em;
 }
@@ -267,14 +265,13 @@ h6 > .twemoji:first-child {
 	color: var(--md-default-bg-color) !important;
 }
 
-a.headerlink::after,
-section.dearrow > p > a::after,
-.md-typeset .md-button::after {
+a.headerlink::before,
+section.dearrow > p > a::before,
+.md-typeset .md-button::before,
+.md-typeset .tabbed-labels > label > [href]::before {
 	content: "" !important;
-}
-
-.md-typeset .tabbed-labels > label > [href]::after {
-	content: "";
+	margin: 0 !important;
+	display: none;
 }
 
 /* FUCK YOU. */
