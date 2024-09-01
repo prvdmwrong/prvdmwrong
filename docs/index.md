@@ -38,7 +38,7 @@ navigate and understand. Randoms will approach you and ask, <i>"do you make a
 six-figure salary?"</i>
 </p>
 
-<nav markdown>
+<nav>
 
 <a href="./tutorials/" class="md-button md-button--primary">Tutorials</a>
 <a href="./tutorials/installation/" class="md-button">Installation</a>
