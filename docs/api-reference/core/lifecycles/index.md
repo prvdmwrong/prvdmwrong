@@ -7,8 +7,6 @@
 
 Primitives for implementing lifecycle methods and events.
 
----
-
 ## Members
 
 - [:octicons-package-16: Lifecycle](lifecycle.md) · Create lifecycle objects

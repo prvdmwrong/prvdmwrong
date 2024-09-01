@@ -8,23 +8,19 @@ Here, you can find various open-source projects to see Prvd 'M Wrong used in a
 real setting, accompanied by in-depth explanations that shows the ropes of the
 library.
 
----
-
 <div class="pmwdoc-examples-tags">
 <span>since v0.2</span>
 <span>uses TypeScript</span>
 </div>
 
-## Prvd 'M Wrong Swordfight
+## Prvd 'M Wrong Microgames
 
-See how Prvd 'M Wrong can be used to build a swordfighting game, decked with
-server validation, a round provider, a combat provider and more.
+See how Prvd 'M Wrong can be used to build a microgame, decked with server
+validation, a round provider, a shop provider and more.
 
 !!! warning "Unreleased"
 
-    The Prvd 'M Wrong Swordfight example is unreleased.
-
----
+    The Prvd 'M Wrong Microgames example is unreleased.
 
 <div class="pmwdoc-examples-tags">
 <span>since v0.1</span>

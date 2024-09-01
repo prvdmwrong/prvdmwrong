@@ -1,7 +1,7 @@
 ---
 hide:
-  - toc
----
+
+- toc
 
 <div class="pmwdoc-reference-breadcrumbs">
 <a href="../">API Reference</a>
@@ -48,8 +48,6 @@ Install this through your preferred package manager:
     ```bash
     $ yarn add @prvdmwrong/core
     ```
-
----
 
 <section class="grid" markdown>
 

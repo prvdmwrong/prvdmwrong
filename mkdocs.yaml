@@ -101,8 +101,8 @@ theme:
     - navigation.sections
     - navigation.tabs
     - navigation.top
+    - search
     - search.suggest
-
 nav:
   - Home: index.md
   - Tutorials:
@@ -201,10 +201,10 @@ nav:
           - api-reference/lumin-compat/index.md
       - Sapphire:
           - api-reference/sapphire-compat/index.md
-  - Projects:
-      - projects/index.md
-      - Prvd 'M Wrong Obby: projects/obby.md
-      - Prvd 'M Wrong Swordfight: projects/swordfight.md
+  - Examples:
+      - examples/index.md
+      - Prvd 'M Wrong Obby: examples/obby.md
+      - Prvd 'M Wrong Swordfight: examples/swordfight.md
   - Extras:
       - extras/index.md
       - Branding:

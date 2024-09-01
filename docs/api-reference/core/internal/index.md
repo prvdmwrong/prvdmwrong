@@ -11,8 +11,6 @@ Lower level primitives for library authors.
     These are internal APIs are made for library authors. Do not touch this unless you
     know what you're doing, unless you'd like to be fired.
 
----
-
 ## Members
 
 - [:octicons-code-16: defineMetadata](define-metadata.md)

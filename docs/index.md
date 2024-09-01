@@ -40,8 +40,8 @@ six-figure salary?"</i>
 
 <nav markdown>
 
-<a href="./tutorials/" class="md-button md-button--primary">Get Started</a>
-<a href="https://github.com/prvdmwrong/prvdmwrong/releases" class="md-button">Download</a>
+<a href="./tutorials/" class="md-button md-button--primary">Tutorials</a>
+<a href="./tutorials/installation/" class="md-button">Installation</a>
 <a href="./api-reference/" class="md-button">API Reference</a>
 
 </nav>
@@ -73,12 +73,12 @@ six-figure salary?"</i>
 
 <!-- Familiar -->
 
-<section class="grid" style="grid-template-columns: auto 1fr;" markdown>
+<section class="grid" markdown>
 
 === "Luau"
 
     ```Lua
-    local prvd = require("@pkg/prvdmwrong")
+    local prvd = require("@pkg/prvdmwrong-core")
     local CharacterProvider = require("./character-provider")
 
     -- ... snip ...
@@ -193,8 +193,6 @@ extensions required.
 </p>
 
 <br/>
-
----
 
 <br/>
 

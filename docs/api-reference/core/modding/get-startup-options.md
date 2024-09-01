@@ -26,8 +26,6 @@ default values.
     export const getIgnitionOptions: () => Options
     ```
 
----
-
 ## Returns
 
 The startup options, reconciled with default values.

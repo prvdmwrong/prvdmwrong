@@ -7,8 +7,6 @@
 
 Fundamental primitives for creating and using game providers.
 
----
-
 ## Members
 
 - [:octicons-package-16: Provider](provider.md) · Construct TypeScript providers

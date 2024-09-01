@@ -3,8 +3,6 @@
 Prvd 'M Wrong comes with the `:onInit()` and `:onStart()` lifecycles. To tailor
 your needs, custom lifecycles can be implemented or imported.
 
----
-
 ## Implement Your Own
 
 You can implement your own lifecycle method. For this example, we will create
@@ -279,8 +277,6 @@ lifecycle listeners synchronously:
           }
         })
         ```
-
----
 
 ## Additional Lifecycles
 

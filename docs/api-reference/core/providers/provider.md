@@ -39,8 +39,6 @@ before calling `prvd.start(options)`.
         to `@Provider()`, which is used as a class decorator to construct
         TypeScript decorators.
 
----
-
 ## Parameters
 
 ### options `#!ts : { loadOrder?: number }`
@@ -48,14 +46,10 @@ before calling `prvd.start(options)`.
 Additional options that will be applied onto the provider. It is recommended to
 specify `loadOrder` through this argument.
 
----
-
 ## Returns `#!ts : <T extends new () => InstanceType<T>>(provider: T) => void`
 
 A decorator that when used on a TypeScript class registers [a freshly
 constructed provider.](../types/provider.md)
-
----
 
 ## Learn More
 

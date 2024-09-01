@@ -33,8 +33,6 @@ start(options)`](../providers/start.md).
     }
     ```
 
----
-
 ## Members
 
 ### logLevel `#!lua : "none" | "verbose"`
@@ -47,8 +45,6 @@ to `#!lua "none"`.
 Configures if built-in lifecycle events should be profiled with
 `debug.setmemorycategory` and `debug.profilebegin`, defaults to whether the
 current session is running in Roblox Studio.
-
----
 
 ## Learn More
 

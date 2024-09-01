@@ -31,8 +31,6 @@ non-yielding. The handler receives the used provider.
     ) => void
     ```
 
----
-
 ## Parameters
 
 ### handler `#!lua : (Provider<unknown>) -> void`

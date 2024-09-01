@@ -10,8 +10,6 @@ These backgrounds are copyrighted by Team Fireworks and are intended for
 personal use only. You may not use these backgrounds for commercial use or
 distribution without explicit written consent.
 
----
-
 ## Machinery
 
 Detailed, sprawling illustration of Prvd 'M Wrong's underground machinery.

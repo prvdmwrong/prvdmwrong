@@ -36,15 +36,11 @@
     ) => void
     ```
 
----
-
 ## Parameters
 
 ### object `#!lua : unknown`
 
 ### key `#!lua : string`
-
----
 
 ## Returns
 

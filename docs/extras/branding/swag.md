@@ -1,7 +1,5 @@
 # Swag
 
----
-
 ## Badges
 
 Show the world your repository uses Prvd 'M Wrong! Again, your game will become

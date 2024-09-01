@@ -55,8 +55,6 @@ flowchart TB
 
 </section>
 
----
-
 ## Prior to Startup
 
 Providers are registered through `prvd()` for Luau and `@Provider()` for
@@ -65,8 +63,6 @@ throw an error.
 
 Lifecycle objects must be created prior to startup for providers to register it.
 It's recommended to register a lifecycle object inside a provider module.
-
----
 
 ## Startup
 

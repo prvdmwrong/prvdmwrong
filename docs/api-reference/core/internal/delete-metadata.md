@@ -32,8 +32,6 @@
     ) => void
     ```
 
----
-
 ## Parameters
 
 ### object `#!lua : unknown`

@@ -1,25 +1,24 @@
-# Get Started
+---
+  hero_img: ../heroes/tutorials.png
+---
 
-Congratulations on choosing Prvd 'M Wrong! You're finally making good choices.
+# Tutorials
 
-Prvd 'M Wrong is a service provider framework for a next-generation Roblox. Here, you will
-learn how to build great games with Prvd 'M Wrong, even if you're a complete
-newcomer to the library.
+Congratulations on choosing Prvd 'M Wrong as your framework — you’re finally
+making good decisions!
+
+Here, you will learn how to build great games with Prvd 'M Wrong, even if you're
+a complete newcomer to the framework.
 
 !!! warning "But first, something important..."
 
     **<span style="font-size: 1.5em;">
-    Do not use Prvd 'M Wrong in production unless you're *really, really,
-    really, REALLY, really* willing and able to withstand large, sweeping
-    changes.
+    Prvd 'M Wrong is unfinished.
     </span>**
 
-    Yes, that was five-reallys important.
-
-    Prvd 'M Wrong is still under active development! Full backward compatibility
-    is not guaranteed before reaching version 1.0. Again, ___Do not use Prvd 'M
-    Wrong in production yet, unless you are willing and able to withstand large,
-    sweeping changes.___ You *will* encounter:
+    Do not use Prvd 'M Wrong in production unless you're *really, really,
+    really, REALLY, really* willing and able to withstand large, sweeping
+    changes. Yes, that was five-reallys important. You *will* encounter:
 
     - nonexistent or broken packages
     - changes in how things work between versions
@@ -32,8 +31,6 @@ newcomer to the library.
     Don't be discouraged though, feel free to follow along with our development
     and try using the library in your own time. We hope you enjoy using Prvd 'M
     Wrong!
-
----
 
 ## Expectations
 
@@ -54,8 +51,6 @@ Some tutorials might challenge you more than others. Remember, Prvd 'M Wrong is
 built with you in mind, but it may still take a bit of time to absorb some
 concepts. Take your time and explore at your own pace.
 
----
-
 ## Support
 
 Should you be struggling to understand a concept, or need help debugging an
@@ -63,11 +58,12 @@ error, here are some resources which can help.
 
 ### Support with Errors
 
-Prvd 'M Wrong attaches a link with every console log message. These links direct
-you to our comprehensive [errors](../api-reference/errors.md) documentation.
+Prvd 'M Wrong attaches an ID with every log message, linking to the
+[API Reference's Errors page](../api-reference/errors.md).
 
-```Txt hl_lines="2"
-[Prvd 'M Wrong (registerAfterIgnition)]: Cannot register other providers after startup.
+```Txt
+[Prvd 'M Wrong]: Cannot register other providers after startup.
+  ID: registerAfterStartup
   More info: prvdmwrong.github.io/prvdmwrong/latest/api-reference/general/errors#registerafterignition
 ```
 

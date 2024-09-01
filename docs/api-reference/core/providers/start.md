@@ -39,8 +39,6 @@ providers will not run its lifecycle events.
     ) => void
     ```
 
----
-
 ## Parameters
 
 ### options `#!lua : Partial<Options>`
@@ -53,8 +51,6 @@ configuration options:
 - `#!lua profiling: boolean` configures if built-in lifecycle events should be
   profiled with `debug.setmemorycategory` and `debug.profilebegin`, defaults to
   whether the current session is running in Roblox Studio.
-
----
 
 ## Learn More
 

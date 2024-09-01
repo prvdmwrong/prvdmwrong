@@ -32,8 +32,6 @@ optional `predicate` function can be provided to filter modules.
     ) => unknown[]
     ```
 
----
-
 ## Parameters
 
 ### parent `#!lua : { Instance }`
@@ -45,8 +43,6 @@ An array of instances to load from. Often paired with `:GetChildren()` or
 
 An optional predicate function that will be called to filter the modules to load
 with.
-
----
 
 ## Learn More
 

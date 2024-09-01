@@ -4,8 +4,6 @@ Prvd 'M Wrong allows you to define providers for your game logic. These *provide
 specific functions within your game, e.g. you might create a `SaveDataProvider`
 to manage save files or a `CameraProvider` to handle player camera movement.
 
----
-
 ## Structure
 
 This is the minimum structure of a provider, which can be used and hook onto
@@ -29,7 +27,7 @@ lifecycle events:
     export class Provider {}
     ```
 
-??? success "Return with `prvd()`"
+!!! success "Wrap module returns with `prvd()`"
 
     Modules should return the constructed provider from `prvd()`. This allows
     Luau to infer the full, complete type of the provider:
@@ -65,17 +63,6 @@ lifecycle events:
     }
     ```
 
-??? tip "Know the difference"
-
-    Both `prvd` and `@Provider()` appeal for different environments. `prvd()`
-    is used as a function to construct Luau providers. Contrast to
-    `@Provider()`, which is used as a class decorator to construct TypeScript
-    decorators.
-
-    Prvd 'M Wrong only exports one or the other for both environments,
-    preventing you from using `prvd()` or `@Provider()` in the wrong
-    environment.
-
 For Luau providers, a `name` property can be specified which will be used for
 memory profiling, and falls back to the current script running. Names are
 inferred for TypeScript providers.
@@ -88,8 +75,6 @@ PointsProvider.name = "PointsProvider"
 Notice that you're creating the provider at the bottom of a file, and then
 returning it. This lets Prvd 'M Wrong to strictly type your provider, something
 which will be important later.
-
----
 
 ## Methods, Properties, The Likes
 
@@ -227,8 +212,6 @@ PointsProvider.setDefaultPoints(PointsProvider, player)
 PointsProvider:setDefaultPoints(player)
 ```
 
----
-
 ## Lifecycle Methods
 
 Providers and the likes can implement lifecycle methods, by having a method
@@ -300,8 +283,6 @@ every player that joins:
       }
     }
     ```
-
----
 
 ## Memory
 
@@ -376,8 +357,6 @@ lifecycle with the `Players.PlayerRemoving` event and remove a players points:
       }
     }
     ```
-
----
 
 ## Dependencies
 
@@ -530,8 +509,6 @@ Finally, just specify your provider uses another provider:
 
     This is also why you can't freeze your provider tables - this prevents Prvd
     'M Wrong from modifying them.
-
----
 
 ## Congratulations
 

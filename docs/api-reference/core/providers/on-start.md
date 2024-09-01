@@ -30,8 +30,6 @@ already started, the callback will be spawned immediately.
     ) => void
     ```
 
----
-
 ## Parameters
 
 ### callback `#!lua : () -> ()`

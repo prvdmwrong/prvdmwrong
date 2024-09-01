@@ -39,8 +39,6 @@
         to `@Provider()`, which is used as a class decorator to construct
         TypeScript decorators.
 
----
-
 ## Parameters
 
 ### provider `#!lua : T`
@@ -51,13 +49,9 @@ profiling, and falls back to using `debug.info`. The provider may also specify a
 `loadOrder` property which dictates when the provider is loaded, and defaults to
 one.
 
----
-
 ## Returns `#!lua : Provider<T>`
 
 [A freshly registered provider.](../types/provider.md)
-
----
 
 ## Learn More
 

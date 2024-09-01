@@ -7,16 +7,12 @@ tasteful and send it to us for approval.
 All assets are considered open-source contributions and should be used according
 to open standards and licensing rules.
 
----
-
 ## Logo
 
 Please do not edit, change, distort, recolor, or reconfigure the Prvd 'M Wrong
 logo.
 
 ![Wordmark](./wordmark.png)
-
----
 
 ## Colors
 

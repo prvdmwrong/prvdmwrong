@@ -37,8 +37,6 @@ onStart(callback)`](on-start.md)
     }
     ```
 
----
-
 ## Items
 
 ### Pending `#!lua : StartupStatus.Pending`

@@ -34,8 +34,6 @@ types.
     }
     ```
 
----
-
 ## Members
 
 ### loadOrder `#!lua : number`
@@ -55,8 +53,6 @@ If it returns a promise, Prvd 'M Wrong will await for the promise to resolve.
 
 Runs concurrently *after* all other lifecycle methods have been registered. This
 means failures and yields do not affect other providers.
-
----
 
 ## Learn More
 

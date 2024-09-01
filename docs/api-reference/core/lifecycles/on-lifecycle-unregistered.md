@@ -32,8 +32,6 @@ infallible and non-yielding. The handler receives the constructed provider.
     ) => void
     ```
 
----
-
 ## Parameters
 
 ### method `#!lua : string`

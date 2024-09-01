@@ -26,8 +26,6 @@ already started, the thread will continue.
     export const awaitStart: () => void
     ```
 
----
-
 ## Learn More
 
 - [startup tutorial](../../../tutorials/fundamentals/startup.md)

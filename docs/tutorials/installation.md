@@ -1,145 +1,161 @@
 # Installation
 
-Prvd 'M Wrong is broken down into functional packages, which you will need to
-import into your game. This page will walk you through installing a package.
+Prvd 'M Wrong is distributed as several packages, which you will need to install
+into your game. For Luau, either use a pre-built Roblox model, download from
+Wally, or download from Pesde. For TypeScript, use the NPM package. Otherwise,
+download from source.
 
----
+## From Templates
 
-## Templates
+Prvd 'M Wrong has batteries-included templates for both Luau and Roblox
+TypeScript under the `@prvdmwrong/templates` repository.
 
-If preferred, Prvd 'M Wrong has batteries-included projects to be used as
-templates found under the [`prvdmwrong/templates` repository.](https://github.com/prvdmwrong/templates)
+1. On the web, head over to the [`prvdmwrong/templates`
+    repository.](https://github.com/prvdmwrong/templates) and click the "Code"
+    dropdown, then click "Download ZIP". Inside is a copy of the templates
+    repository:
 
-1. Clone the templates repository:
-      - On the web, head over to the [`prvdmwrong/templates` repository.](https://github.com/prvdmwrong/templates)
-        and click the "Code" dropdown, then click "Download ZIP". Inside is a
-        copy of the templates repository:
+    ![Download ZIP](../assets/static/github-download-zip.png)
 
-        ![Download ZIP](../assets/static/github-download-zip.png)
+      Alternatively, in a terminal, run the following command:
 
-      - Alternatively, in a terminal, run the following command:
-
-        ```Sh
-        git clone https://github.com/prvdmwrong/templates.git
-        cd templates
-        ```
+      ```Bash
+      git clone https://github.com/prvdmwrong/templates.git
+      cd templates
+      ```
 
 2. Use one of the following templates inside the repository:
       - For Luau projects:
+
         - Use the [`luau-barebones` template](https://github.com/prvdmwrong/templates/tree/main/luau-barebones)
           for a pre-configured barebones prelude.
+
         - Use the [`luau-comprehensive` template](https://github.com/prvdmwrong/templates/tree/main/luau-barebones)
           for a comprehensive prelude including Darklua string requires, Wally
           with types, and plenty of goodies.
+
       - For Roblox TypeScript projects:
+
         - Use the [`rbxts-barebones` template](https://github.com/prvdmwrong/templates/tree/main/rbxts-barebones)
           for a pre-configured barebones prelude.
+
         - Use the [`rbxts-comprehensive` template](https://github.com/prvdmwrong/templates/tree/main/luau-barebones)
           for a comprehensive prelude including ESLint and Prettier
           pre-configured.
 
----
+## From Wally
 
-## Manual Installation
+For Luau projects synchronizing external files to Roblox Studio, Prvd 'M Wrong
+can be installed as Wally packages under the `@prvdmwrong` scope.
 
-For existing projects, Prvd 'M Wrong must be imported as individual packages.
+1. Visit one of the desired packages:
 
-### From Roblox
+      - [`@prvdmwrong/core`](https://wally.run/package/prvdmwrong/core)
+      - [`@prvdmwrong/lifecycles`](https://wally.run/package/prvdmwrong/lifecycles)
+      - [`@prvdmwrong/knit-compat`](https://wally.run/package/prvdmwrong/knit-compat)
+      - [`@prvdmwrong/lumin-compat`](https://wally.run/package/prvdmwrong/lumin-compat)
+      - [`@prvdmwrong/sapphire-compat`](https://wally.run/package/prvdmwrong/sapphire-compat)
 
-If you edit directly inside Roblox Studio, then you can import a Roblox model
-file containing Prvd 'M Wrong.
+2. Copy the metadata below "Install", and append it below your `[dependencies]`
+     in your `wally.toml` configuration:
 
-1. Head over to [Prvd 'M Wrong's "Releases" page.](https://github.com/prvdmwrong/prvdmwrong/releases)
-2. Find the package you will install, if you are just following the tutorials,
-  you can install the `prvdmwrong` core package.
-3. Click the "Assets" dropdown to view the downloadable files:
-   ![Releases](../assets/static/github-releases.png)
-4. Click on the package you would like to import, which should end in `.rbxm`:
-   ![Releases](../assets/static/github-releases-rbxm.png)
-5. Open Roblox Studio to import the model. If you are just following the
-  tutorials, just an empty baseplate will do.
-6. Right-click on `ReplicatedStorage`, and select "Insert from File":
-   ![Insert from File](../assets/static/insert-from-file.png)
-7. You should see an `prvdmwrong` module script appear in ReplicatedStorage!
+      ```TOML
+      [dependencies]
+      prvd = "prvdmwrong/core@0.2.0-dev.15"
+      ```
 
----
+3. Install your packages:
 
-### From Wally/Pesde
+      ```Bash
+      wally install
+      ```
 
-If you use [Wally](https://wally.run/) or [Pesde](https://pesde.daimond113.com/)
-for Luau, Prvd 'M Wrong has packages for both package managers.
+Now, Prvd 'M Wrong will be installed under the `Packages` directory, which can
+be required:
 
-=== "Wally"
+```Lua
+-- Tweak this depending on where the packages are
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local prvd = require(ReplicatedStorage.Packages.prvd)
+```
 
-    1. Head over to one of these packages you will import:
+If you'd want the linker modules to also export types, use the [Wally Package
+Types](https://github.com/JohnnyMorganz/wally-package-types) tool:
 
-          - [`@prvdmwrong/core`](https://wally.run/package/prvdmwrong/core)
-            for the core package
-          - [`@prvdmwrong/lifecycles`](https://wally.run/package/prvdmwrong/lifecycles)
-            for additional lifecycle methods
+```Bash
+wally-package-types --sourcemap sourcemap.json Packages/
+```
 
-    2. Copy the metadata below "Install", and append it below `[dependencies]` in
-    your `wally.toml`:
+## From Pesde
 
-        ```TOML
-        [dependencies]
-          prvd = "prvdmwrong/core@0.2.0-dev.8"
-        ```
+For Luau projects synchronizing external files to Roblox Studio, Prvd 'M Wrong
+can be installed as Pesde packages under the `@prvdmwrong` scope.
 
-    3. Install your packages:
+1. Visit the [Pesde registry](https://pesde.daimond113.com/) and search
+   `prvdmwrong` to find a desired package.
 
-        ```Sh
-        wally install
-        ```
+2. Install the desired package:
 
-        This will install Prvd 'M Wrong under the `Packages` directory, which is
-        usually located in `ReplicatedStorage`:
+    ```Bash
+    pesde add prvdmwrong/lifecycles@0.2.0-dev.8
+    ```
 
-        ```Lua
-        local prvd = require(ReplicatedStorage.Packages.prvd)
-        ```
+Now, Prvd 'M Wrong will be installed under the `packages` directory, which can
+be required:
 
-        If you'd want the linker modules to also export types, you can use the
-        [Wally Package Types](https://github.com/JohnnyMorganz/wally-package-types)
-        tool:
+```Lua
+-- Tweak this depending on where the packages are
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local prvd = require(ReplicatedStorage.packages.prvd)
+```
 
-        ```Sh
-        wally-package-types --sourcemap sourcemap.json Packages/
-        ```
+## From Roblox
 
-=== "Pesde"
+For projects exclusive to Roblox Studio, Prvd 'M Wrong can be installed as
+Roblox models.
 
-    1. Head over to one of these packages you will import:
+1. Visit the [releases" page](https://github.com/prvdmwrong/prvdmwrong/releases)
+   to find a desired package.
 
-          - [`@prvdmwrong/core`](https://pesde.daimond113.com/packages/prvdmwrong/core/0.2.0-dev.8)
-            for the core package
-          - [`@prvdmwrong/lifecycles`](https://pesde.daimond113.com/packages/prvdmwrong/lifecycles/0.2.0-dev.8)
-            for additional lifecycle methods
+2. Click the "Assets" dropdown to view the downloadable files:
 
-    2. Run the command below "Installation", which will look like below:
+      ![Releases](assets/static/github-releases.png)
 
-        ```Sh
-        $ pesde add prvdmwrong/lifecycles@0.2.0-dev.8
-        ```
+3. Click on the package you would like to import, which should end in `.rbxm`:
 
----
+      ![Releases](assets/static/github-releases-rbxm.png)
 
-### From NPM
+4. Open Roblox Studio to import the model. If you are just following the
+    tutorials, just an empty baseplate will do.
 
-If you use Roblox TypeScript, Prvd 'M Wrong has type definitions and packages
-for [NPM](https://www.npmjs.com/).
+5. Right-click on `ReplicatedStorage`, and select "Insert from File":
 
-1. Head over to one of these packages you will import:
+      ![Insert from File](assets/static/insert-from-file.png)
 
-      - [`@prvdmwrong/core`](https://www.npmjs.com/package/@prvdmwrong/core)
-        for the core package
-      - [`@prvdmwrong/lifecycles`](https://www.npmjs.com/package/@prvdmwrong/lifecycles)
-        for additional lifecycle methods
+Now, a new ModuleScript should appear under ReplicatedStorage, which can be
+required:
 
-2. Copy the command below "Install", and run it on a terminal:
+```Lua
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local prvd = require(ReplicatedStorage["prvdmwrong-core"])
+```
 
-    ```Sh
-    npm i prvdmwrong/core
+## From Node
+
+For TypeScript projects that compile using Roblox TypeScript, Prvd 'M Wrong can
+be installed as Node packages under the `@prvdmwrong` organization.
+
+1. Visit the [`@prvdmwrong` NPM organization](https://www.npmjs.com/org/prvdmwrong)
+   to find a desired package.
+2. Install the package through the preferred package manager:
+
+    ```Bash
+    # NPM
+    npm i @prvdmwrong/core
+    # PNPM
+    pnpm i @prvdmwrong/core
+    # Yarn
+    yarn add @prvdmwrong/core
     ```
 
 3. Roblox TypeScript does not include Prvd 'M Wrong in the project. Find
@@ -147,16 +163,18 @@ for [NPM](https://www.npmjs.com/).
 
     ```JSON
     "node_modules": {
+      "$className": "Folder",
       "@rbxts": {
         "$path": "node_modules/@rbxts"
       }
     }
     ```
 
-    Add the `@prvdmwrong` scope next to `@rbxts`:
+    Append the `@prvdmwrong` scope below `@rbxts`:
 
     ```JSON
     "node_modules": {
+      "$className": "Folder",
       "@rbxts": {
         "$path": "node_modules/@rbxts"
       },
@@ -176,7 +194,7 @@ for [NPM](https://www.npmjs.com/).
       ],
       ```
 
-      Add `node_modules/@prvdmwrong` next to `node_modules/@rbxts`:
+      Append `node_modules/@prvdmwrong` below `node_modules/@rbxts`:
 
       ```JSON
       "typeRoots": [
@@ -185,80 +203,82 @@ for [NPM](https://www.npmjs.com/).
       ],
       ```
 
-5. Now Prvd 'M Wrong can imported directly:
+Now, Prvd 'M Wrong can imported:
 
-    ```TypeScript
-    import prvd from "@prvdmwrong/core"
-    ```
+```TypeScript
+import prvd from "@prvdmwrong/core"
+```
 
----
+## From Source
 
-### From Source
+For synchronizing external files to Roblox Studio, or for developing the
+framework itself, Prvd 'M Wrong can be built from source.
 
-If you are synchronizing external files into Roblox Studio, Prvd 'M Wrong can be
-imported as source code.
+1. Visit the [releases" page](https://github.com/prvdmwrong/prvdmwrong/releases)
+   to find a desired package.
 
-1. Head over to [Prvd 'M Wrong's 'Releases' page.](https://github.com/prvdmwrong/prvdmwrong/releases)
 2. Click the "Assets" dropdown to view the downloadable files:
-   ![Releases](../assets/static/github-releases.png)
+
+    ![Releases](../assets/static/github-releases.png)
+
 3. Under "Assets", download `Source code (zip)`. Inside is a copy of the Prvd 'M
-  Wrong GitHub repository:
-   ![Releases](../assets/static/github-releases-src.png)
-4. You need to build the packages itself to use it. Prvd 'M Wrong uses
-   [Rokit](https://github.com/rojo-rbx/rokit) for tooling:
+    Wrong GitHub repository:
 
-      ```Sh
-      rokit install
-      ```
+    ![Releases](../assets/static/github-releases-src.png)
 
-5. Run the build script and follow the prompts to build a package:
+4. Prvd 'M Wrong uses [Rokit](https://github.com/rojo-rbx/rokit) for tooling,
+   which must be installed:
 
-      ```Sh
-      $ lune run build-pkg
-      ✔ Select packages to build, or none to build all packages · core, lifecycles
-      ✔ Build .rbxm models? · yes
-      ✔ Publish these packages to NPM and Wally? · no
-      ```
-
-6. The build script will create a `dist` with the built distributables. You can
-   copy the created distributables and place it next to your libraries.
-
----
-
-## Testing
-
-Now, you can create a script for testing:
-
-1. Create a `Script` under `ServerScriptService`.
-2. Remove the following code, and paste this in. Tweak the require/import
-   statement to point at the installed package depending on your installation:
-
-    === "Luau"
-
-        ```Lua
-        local ReplicatedStorage = game:GetService("ReplicatedStorage")
-        local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
-        ```
-
-    === "TypeScript"
-
-        ```TypeScript
-        import prvdmwrong from "@rbxts/prvdmwrong"
-        ```
-
-3. Playtest your game - if there are no errors, everything was set up correctly!
-
-??? failure "My script didn't work!"
-
+    ```Bash
+    rokit install
     ```
-    prvdmwrong is not a valid member of ReplicatedStorage "ReplicatedStorage"
+
+5. Run the build script; when prompted, do not publish the packages:
+
+    ```Bash
+    lune run build
+    ✔ Select packages to build, or none to build all packages · core
+    ✔ Build .rbxm models? · yes
+    ✔ Publish these packages to NPM and Wally? · no
     ```
-    If you're seeing this error, then your script can't find Prvd 'M Wrong.
 
-    This code assumes you've placed Prvd 'M Wrong under ReplicatedStorage. If
-    you've installed both elsewhere, you'll need to the `require()` to point
-    towards the correct location.
+Now, Prvd 'M Wrong distributables can be found under the `dist` directory, which
+can be used however you please.
 
-    If both looks like it points to the correct location, refer back to the
-    previous section and double-check you've set everything up properly. Make
-    sure under ReplicatedStorage, there's a ModuleScript named `prvdmwrong`.
+## Uninstalling Prvd 'M Wrong
+
+Prvd 'M Wrong isn't for everyone. We'll miss you, but we want to make this an
+easy breakup.
+
+1. Replace every mention of `prvd(` or `prvd.new(` with `(`; if you use a
+   formatter like [Stylua](https://github.com/JohnnyMorganz/StyLua/), it will
+   trim the remaining parentheses for you.
+2. Replace Prvd 'M Wrong's startup logic with a vanilla implementation. A
+   basic replacement might look like below:
+
+    ```Lua
+    local providersToLoad = script:GetChildren()
+    local providers = {}
+
+    for _, provider in providersToLoad do
+      if not provider:IsA("ModuleScript") or not provider.Name:match("$Provider") then
+        continue
+      end
+
+      table.insert(providers, require(provider))
+    end
+
+    for _, provider in providers do
+      if typeof(provider.onInit) == "function" then
+        provider:onInit()
+      end
+    end
+
+    for _, provider in providers do
+      if typeof(provider.onStart) == "function" then
+        task.spawn(function()
+          provider:onStart()
+        end)
+      end
+    end
+    ```

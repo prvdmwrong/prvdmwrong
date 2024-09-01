@@ -18,8 +18,6 @@ the details for you.
 
 <script src="../../assets/javascripts/error-msgs.js" defer></script>
 
----
-
 ## alreadyStarted
 
 ```Md
@@ -27,8 +25,6 @@ Cannot start more than once.
 ```
 
 You attempted to start Prvd 'M Wrong when it has already started.
-
----
 
 ## cannotRegister
 
@@ -42,8 +38,6 @@ issue. Typically it is one of the following:
 
 - You have frozen the provider table, which prevents dependency resolution
 - You provided a mismatched type for a built-in method/property
-
----
 
 ## cannotRegisterLifecycle
 
@@ -60,8 +54,6 @@ diagnose the issue. Typically it is one of the following:
 - A provider tried to register the same lifecycle twice
 - A provider has a mismatched type for the lifecycle
 
----
-
 ## compatDeprecated
 
 ```Md
@@ -72,8 +64,6 @@ You used a method from a compatibility package that has a Prvd 'M Wrong
 equivalent, which should be used instead. The warning includes a more specific
 message.
 
----
-
 ## incompatibleVersion
 
 ```Md
@@ -83,8 +73,6 @@ An incompatible core Prvd 'M Wrong package was found. Currently version 0.2.0-de
 A global reference to Prvd 'M Wrong was found, but the referenced package is
 not backwards-compatible with the current package. Consider updating to a newer
 version for an expanded featureset and improved developer experience.
-
----
 
 ## invalidLoadParent
 
@@ -97,8 +85,6 @@ version for an expanded featureset and improved developer experience.
 `preload()` expects you to give it a parent instance
 to load from, but you gave it something else.
 
----
-
 ## invalidOnStartCallback
 
 ```Md
@@ -107,8 +93,6 @@ to load from, but you gave it something else.
 
 `onStart()` expects a callback to spawn after
 startup finishes, but you gave it something else.
-
----
 
 ## invalidRefVersion
 
@@ -122,8 +106,6 @@ package is backwards compatible.
 
 You should not see this error unless you are using a fork of Prvd 'M Wrong.
 
----
-
 ## luminMissingWorker
 
 ```Md
@@ -135,8 +117,6 @@ layer, but Prvd 'M Wrong cannot determine what event to adapt.
 
 Consider migrating to Prvd 'M Wrong and use the `Lifecycle` object or the
 `@prvdmwrong/lifecycles` package for the same functionality as lifecycles.
-
----
 
 ## noPrvd
 
@@ -151,8 +131,6 @@ Wrong reference to use.
 Consider requiring the core package earlier so Prvd 'M Wrong can initialize
 itself.
 
----
-
 ## onInitError
 
 ```Md
@@ -162,8 +140,6 @@ Cannot initialize MyProvider; attempted to index nil with 'property'.
 Prvd 'M Wrong could not finish its initialization lifecycle as a provider threw an
 error in it's `:init` method. The error includes a more specific message which
 can be used to diagnose the issue.
-
----
 
 ## registerAfterStart
 
@@ -176,8 +152,6 @@ You attempted to register a provider after startup.
 Make sure you've preloaded all providers you will use prior to startup, and
 that no other module registers a provider after startup.
 
----
-
 ## requireError
 
 ```Md
@@ -188,8 +162,6 @@ You tried to preload a module which threw an error that Prvd 'M Wrong cannot
 handle. The error includes a more specific message which can be used to diagnose
 the issue.
 
----
-
 ## unknownError
 
 ```Md
@@ -199,8 +171,6 @@ Unknown error: attempt to call a nil value. This indicates Prvd 'M Wrong isn't r
 Prvd 'M Wrong ran into an error, but cannot associate it with an error message.
 This is a fallback error type which shouldn't be seen by end users, because it
 indicates that Prvd 'M Wrong is not reporting errors correctly.
-
----
 
 ## useWasDeprecated
 

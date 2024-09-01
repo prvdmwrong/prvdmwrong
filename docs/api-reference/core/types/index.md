@@ -7,8 +7,6 @@
 
 Types exported by the core Prvd 'M Wrong package.
 
----
-
 - [:octicons-checklist-16: Lifecycle](lifecycle.md)
 - [:octicons-checklist-16: OnInit](on-init.md)
 - [:octicons-checklist-16: OnStart](on-start.md)

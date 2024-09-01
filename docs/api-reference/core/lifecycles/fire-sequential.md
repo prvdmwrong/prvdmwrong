@@ -32,8 +32,6 @@ order synchronously. Intended to be used as the `fire` argument of the
     ) => void
     ```
 
----
-
 ## Parameters
 
 ### self `#!lua : Lifecycle`
@@ -43,8 +41,6 @@ The lifecycle object that should have its listeners ran.
 ### ... `#!lua : unknown`
 
 Arguments to call the listeners' method.
-
----
 
 ## Learn More
 

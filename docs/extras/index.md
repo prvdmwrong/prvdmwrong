@@ -4,8 +4,6 @@ Welcome to the Extras! It's a wealth of resources surrounding Prvd 'M Wrong.
 Explore open-source projects using Prvd 'M Wrong, download brand assets, and
 more.
 
----
-
 ## Commonly Used
 
 <div class="grid cards" markdown>

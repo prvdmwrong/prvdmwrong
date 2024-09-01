@@ -32,8 +32,6 @@ method.
     ) => Lifecycle
     ```
 
----
-
 ## Parameters
 
 ### method `#!lua : string`
@@ -51,13 +49,9 @@ passed to it. For convenience, Prvd 'M Wrong provides two methods you can use:
 - [`fireSequential(self, ...)`](fire-sequential.md) which runs all listeners
   sequentially
 
----
-
 ## Returns
 
 [A freshly constructed lifecycle.](../types/lifecycle.md)
-
----
 
 ## Learn More
 

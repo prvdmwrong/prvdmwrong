@@ -17,8 +17,6 @@ debug provider.
 [Play on Roblox](https://www.roblox.com/games/18703010727/Oh-My-Prvd-Obby){ .md-button }
 [Source code on GitHub](https://github.com/znotfireman/ohmyprvd-obby){ .md-button }
 
----
-
 ## Explanation
 
 This game serves as a feature complete example of the core Prvd 'M Wrong package.
