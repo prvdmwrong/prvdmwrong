@@ -114,7 +114,7 @@ local prvd = require(ReplicatedStorage.packages.prvd)
 For projects exclusive to Roblox Studio, Prvd 'M Wrong can be installed as
 Roblox models.
 
-1. Visit the [releases" page](https://github.com/prvdmwrong/prvdmwrong/releases)
+1. Visit the [releases page](https://github.com/prvdmwrong/prvdmwrong/releases)
    to find a desired package.
 
 2. Click the "Assets" dropdown to view the downloadable files:
