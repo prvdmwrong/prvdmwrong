@@ -25,9 +25,15 @@
 	padding-left: 0.1em;
 }
 
-.pmwdoc-reference-breadcrumbs > a:hover::after {
-	left: 0;
-	bottom: 0;
+.pmwdoc-reference-breadcrumbs > a::before {
+	content: "";
+	display: none;
+	margin: 0 !important;
+}
+
+.pmwdoc-reference-header > span {
+	opacity: 70%;
+	text-wrap: nowrap;
 }
 
 .pmwdoc-reference-tags > span.pmwdoc-reference-highlight,
