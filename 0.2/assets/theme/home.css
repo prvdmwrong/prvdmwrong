@@ -227,3 +227,7 @@
 	font-size: 0.75em;
 	vertical-align: super;
 }
+
+.md-content {
+	max-width: 70rem;
+}

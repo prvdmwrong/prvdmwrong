@@ -2,16 +2,19 @@
 	font-weight: 700;
 	letter-spacing: -0.02em;
 	margin: 0;
+	text-wrap: balance;
 }
 
 .md-typeset h2 {
 	font-weight: 700;
 	letter-spacing: -0.02em;
+	text-wrap: balance;
 }
 
 .md-typeset h3 {
 	font-weight: 600;
 	letter-spacing: -0.01em;
+	text-wrap: balance;
 }
 
 .md-typeset a {
@@ -400,3 +403,31 @@ section.dearrow > p > a::after,
 .md-nav__title {
 	position: inherit !important;
 } */
+
+@media screen and (min-width: 80rem) {
+	.md-grid {
+		margin-left: 2rem;
+		margin-right: 2rem;
+		max-width: none;
+	}
+
+	.md-content {
+		max-width: 40rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.md-sidebar:not([hidden]) + .md-content {
+		transform: translateX(-6.05rem);
+	}
+
+	.md-sidebar:not([hidden]) + .md-sidebar:not([hidden]) + .md-content {
+		transform: unset;
+	}
+
+	.md-footer__inner {
+		max-width: calc(40rem - 1rem);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
