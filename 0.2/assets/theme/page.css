@@ -268,7 +268,8 @@ h6 > .twemoji:first-child {
 a.headerlink::before,
 section.dearrow > p > a::before,
 .md-typeset .md-button::before,
-.md-typeset .tabbed-labels > label > [href]::before {
+.md-typeset .tabbed-labels > label > [href]::before,
+.linenodiv a::before {
 	content: "" !important;
 	margin: 0 !important;
 	display: none;
