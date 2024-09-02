@@ -17,7 +17,7 @@ non-yielding. The handler receives the constructed provider.
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     function prvd.onProviderConstructed(
       handler: (Provider<unknown>) -> ()
     ) -> (),

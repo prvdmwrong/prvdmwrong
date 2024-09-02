@@ -16,7 +16,7 @@ already started, the callback will be spawned immediately.
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     function prvd.onStart(
       callback: () -> ()
     ): ()

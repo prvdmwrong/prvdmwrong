@@ -16,7 +16,7 @@ infallible and non-yielding. The handler receives the constructed provider.
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     function prvd.onLifecycleUnregistered(
       method: string,
       handler: (Provider<unknown>) -> ()

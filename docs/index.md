@@ -77,7 +77,7 @@ six-figure salary?"</i>
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     local prvd = require("@pkg/prvdmwrong-core")
     local CharacterProvider = require("./character-provider")
 

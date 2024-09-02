@@ -16,7 +16,7 @@ asynchronously. Intended to be used as the `fire` argument of the
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     function prvd.fireConcurrent(
       self: Lifecycle,
       ...: unknown

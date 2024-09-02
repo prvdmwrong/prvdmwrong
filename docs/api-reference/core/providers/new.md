@@ -16,7 +16,7 @@
     Constructs and returns a new Luau [provider](../types/provider.md) within Prvd
     'M Wrong. Providers must be created before calling `prvd.start(options)`.
 
-    ```Lua
+    ```Luau
     function prvd.new<T>(
       provider: T
     ): Provider<T>
@@ -26,7 +26,7 @@
 
         It's recommended to call the package as a shorthand for `prvd.new`:
 
-        ```Lua
+        ```Luau
         local prvd = -- Import Prvd 'M Wrong however you'd like!
         local MyProvider = {}
         return prvd(MyProvider)

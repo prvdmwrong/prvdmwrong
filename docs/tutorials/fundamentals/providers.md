@@ -11,7 +11,7 @@ lifecycle events:
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     local prvd = -- Import Prvd 'M Wrong however you'd like!
 
     local PointsProvider = {}
@@ -32,7 +32,7 @@ lifecycle events:
     Modules should return the constructed provider from `prvd()`. This allows
     Luau to infer the full, complete type of the provider:
 
-    ```Lua
+    ```Luau
     local PointsProvider = {}
     return prvd(PointsProvider)
     ```
@@ -40,7 +40,7 @@ lifecycle events:
     Avoid creating a new provider earlier - Luau will not pick up additional
     fields, and will throw a type error as you're adding into a sealed table:
 
-    ```Lua
+    ```Luau
     -- Don't do this!
     local PointsProvider = prvd({})
 
@@ -54,7 +54,7 @@ lifecycle events:
     Following this syntax, avoid constructing your provider inside the `prvd()`
     call, as Luau can't infer `self` properly:
 
-    ```Lua
+    ```Luau
     -- Don't do this!
     return prvd {
       onStart = function(self)
@@ -67,7 +67,7 @@ For Luau providers, a `name` property can be specified which will be used for
 memory profiling, and falls back to the current script running. Names are
 inferred for TypeScript providers.
 
-```Lua
+```Luau
 local PointsProvider = {}
 PointsProvider.name = "PointsProvider"
 ```
@@ -86,7 +86,7 @@ a `Player` and their points:
 
 === "Luau"
 
-    ```Lua hl_lines="6"
+    ```Luau hl_lines="6"
     local prvd = -- Import Prvd 'M Wrong however you'd like!
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -113,7 +113,7 @@ for convenience:
 
 === "Luau"
 
-    ```Lua hl_lines="8-16"
+    ```Luau hl_lines="8-16"
     local prvd = -- Import Prvd 'M Wrong however you'd like!
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -157,7 +157,7 @@ which is `typeof` our `PointsProvider`.
 This allows Luau to provide useful type information. Notice how if we omit the
 `self` argument and use a colon `:` for our method, we lose typings for `self`:
 
-```Lua
+```Luau
 function PointsProvider:setDefaultPoints(
   player: Player
 )
@@ -171,7 +171,7 @@ end
 
 Contrast as to if we typed `self` as a parameter:
 
-```Lua hl_lines="2"
+```Luau hl_lines="2"
 function PointsProvider.setDefaultPoints(
   self: typeof(PointsProvider),
   player: Player
@@ -187,7 +187,7 @@ end
 `typeof(PointsProvider)` is not very concise. Let's make a type alias,
 appropriately named `Self`:
 
-```Lua
+```Luau
 -- use just typeof()...
 type Self = typeof(PointsProvider)
 -- ...or wrap it inside prvd.Provider
@@ -198,14 +198,14 @@ Both types are good, pick your poison and run with it.
 
 We could then easily type `self` as such:
 
-```Lua hl_lines="2"
+```Luau hl_lines="2"
 function PointsProvider.setDefaultPoints(self: Self, player: Player)
 ```
 
 Now, our code can use `self` as a shorthand for the `PointsProvider`, while
 other snippets of code could use our method through one of the following:
 
-```Lua
+```Luau
 -- pass self directly as an argument...
 PointsProvider.setDefaultPoints(PointsProvider, player)
 -- ...or let Luau pass self for us!
@@ -230,7 +230,7 @@ every player that joins:
 
 === "Luau"
 
-    ```Lua hl_lines="3 17-24"
+    ```Luau hl_lines="3 17-24"
     local prvd = -- Import Prvd 'M Wrong however you'd like!
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local Players = game:GetService("Players")
@@ -298,7 +298,7 @@ lifecycle with the `Players.PlayerRemoving` event and remove a players points:
 
 === "Luau"
 
-    ```Lua hl_lines="24-26"
+    ```Luau hl_lines="24-26"
     local prvd = -- Import Prvd 'M Wrong however you'd like!
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local Players = game:GetService("Players")
@@ -368,7 +368,7 @@ First, create a file for a new `MathProvider` with the following:
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     local prvd = -- Import Prvd 'M Wrong however you'd like!
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -402,7 +402,7 @@ Then, from `PointsProvider`, import your newly created `MathProvider`:
 
 === "Lua"
 
-    ```Lua
+    ```Luau
     -- Tweak this based on where you placed the MathProvider
     local MathProvider = require(script.Parent.MathProvider)
     ```
@@ -418,7 +418,7 @@ Finally, just specify your provider uses another provider:
 
 === "Luau"
 
-    ```Lua hl_lines="6 12 33-37"
+    ```Luau hl_lines="6 12 33-37"
     local prvd = -- Import Prvd 'M Wrong however you'd like!
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local Players = game:GetService("Players")

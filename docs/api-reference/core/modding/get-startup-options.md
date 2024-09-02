@@ -16,7 +16,7 @@ default values.
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     function prvd.getIgnitionOptions(): Options
     ```
 

@@ -19,7 +19,7 @@ onStart(callback)`](on-start.md)
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     prvd.StartupStatus = {
       Pending = "IgnitionStatus.Pending",
       startup = "IgnitionStatus.startup",

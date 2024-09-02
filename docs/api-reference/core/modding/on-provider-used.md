@@ -17,7 +17,7 @@ non-yielding. The handler receives the used provider.
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     function prvd.onProviderUsed(
       handler: (Provider<unknown>) -> ()
     ) -> (),

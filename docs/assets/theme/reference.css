@@ -95,8 +95,8 @@
 	margin: 0 !important;
 }
 
-.pmwdoc-reference-package::after,
-.pmwdoc-reference-package *::after {
+.pmwdoc-reference-package::before,
+.pmwdoc-reference-package *::before {
 	display: none !important;
 	content: none !important;
 }

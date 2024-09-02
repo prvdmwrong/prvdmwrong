@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `prvd.loadX` functions
 - Added `__call` shorthand for `prvd.new`:
 
-  ```Lua
+  ```Luau
   local ReplicatedStorage = game:GetService("ReplicatedStorage")
   local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 

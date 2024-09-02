@@ -15,7 +15,7 @@
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     function prvd.getMetadata(
       object: unknown,
       key: string,

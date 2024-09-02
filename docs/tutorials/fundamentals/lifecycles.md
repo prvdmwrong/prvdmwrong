@@ -14,7 +14,7 @@ package, so that you can refer to it by name:
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     local Lifecycle = prvd.Lifecycle
     type Lifecycle<Interface> = prvd.Lifecycle<Interface>
     ```
@@ -49,7 +49,7 @@ a variadic; for the first part of the tutorial, this will be unnamed:
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     local playerAdded: Lifecycle<OnPlayerAdded> = Lifecycle("onPlayerAdded", function(_, ...)
 
     end)
@@ -68,7 +68,7 @@ its lifecycle method with:
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     Players.PlayerAdded:Connect(function(newPlayer)
       playerAdded:fire(newPlayer)
     end)
@@ -98,7 +98,7 @@ itself as the first argument, to which you can access it's listeners:
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     local playerAdded: Lifecycle<OnPlayerAdded> = Lifecycle("onPlayerAdded", function(self, ...)
       for _, listener in ipairs(self.listeners) do
         task.spawn(listener.onPlayerAdded, listener)
@@ -121,7 +121,7 @@ asking for a `player` argument for this handler:
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     local playerAdded: Lifecycle<OnPlayerAdded> = Lifecycle("onPlayerAdded", function(self, player)
       for _, listener in ipairs(self.listeners) do
         task.spawn(listener.onPlayerAdded, listener, player)
@@ -143,7 +143,7 @@ Now, when a player joins the game, the lifecycle fires its listeners:
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
     local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
 
@@ -170,7 +170,7 @@ The PointsProvider from earlier can be rewritten to use it:
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     -- ...
 
     function PointsProvider.onStart(self: Self)
@@ -215,7 +215,7 @@ listeners as threads:
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     local fireConcurrent = prvd.fireConcurrent
     local playerAdded: Lifecycle<OnPlayerAdded> = Lifecycle("onPlayerAdded", fireConcurrent)
     ```
@@ -233,7 +233,7 @@ lifecycle listeners synchronously:
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     local fireSequential = prvd.fireSequential
     local playerAdded: Lifecycle<OnPlayerAdded> = Lifecycle("onPlayerAdded", fireSequential)
     ```
@@ -254,7 +254,7 @@ lifecycle listeners synchronously:
 
     === "Luau"
 
-        ```Lua
+        ```Luau
         local playerAdded: Lifecycle<OnPlayerAdded> = Lifecycle("onPlayerAdded", function(self, player)
           for _, listener in ipairs(self.listeners) do
             local ok, result = pcall(listener.onPlayerAdded, listener, player)
@@ -289,7 +289,7 @@ Once installed, import the package, preferably within your startup script:
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
     require(ReplicatedStorage.Packages.ohmyprvdLifecycles)
     ```

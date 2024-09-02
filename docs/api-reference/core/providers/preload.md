@@ -16,7 +16,7 @@ optional `predicate` function can be provided to filter modules.
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     function prvd.loadChildren(
       parent: { Instance },
       predicate: ((ModuleScript) -> boolean)?

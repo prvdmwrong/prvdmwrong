@@ -10,6 +10,8 @@ Like other compatibility packages, this package can be used as a drop-in
 replacement for Lumin Framework. Just change where you require the original
 framework, and let Prvd 'M Wrong do the heavy lifting.
 
+---
+
 <div class="grid" markdown>
 
 <section markdown>

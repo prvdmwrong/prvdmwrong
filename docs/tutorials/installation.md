@@ -73,7 +73,7 @@ can be installed as Wally packages under the `@prvdmwrong` scope.
 Now, Prvd 'M Wrong will be installed under the `Packages` directory, which can
 be required:
 
-```Lua
+```Luau
 -- Tweak this depending on where the packages are
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local prvd = require(ReplicatedStorage.Packages.prvd)
@@ -103,7 +103,7 @@ can be installed as Pesde packages under the `@prvdmwrong` scope.
 Now, Prvd 'M Wrong will be installed under the `packages` directory, which can
 be required:
 
-```Lua
+```Luau
 -- Tweak this depending on where the packages are
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local prvd = require(ReplicatedStorage.packages.prvd)
@@ -135,7 +135,7 @@ Roblox models.
 Now, a new ModuleScript should appear under ReplicatedStorage, which can be
 required:
 
-```Lua
+```Luau
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local prvd = require(ReplicatedStorage["prvdmwrong-core"])
 ```
@@ -256,7 +256,7 @@ easy breakup.
 2. Replace Prvd 'M Wrong's startup logic with a vanilla implementation. A
    basic replacement might look like below:
 
-    ```Lua
+    ```Luau
     local providersToLoad = script:GetChildren()
     local providers = {}
 

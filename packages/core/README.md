@@ -56,7 +56,7 @@ tutorial.](https://prvdmwrong.github.io/prvdmwrong/latest/tutorials/)
 
 ## Code Sample
 
-```Luau
+```Luauu
 local prvd = require("pkg/prvdmwrong")
 local CharacterProvider = require("./character-provider")
 

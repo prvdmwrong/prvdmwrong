@@ -16,7 +16,7 @@ method.
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     function prvd.Lifecycle(
       method: string,
       fire: (self: Lifecycle, ...unknown) -> ()

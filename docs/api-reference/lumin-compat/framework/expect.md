@@ -1,6 +1,6 @@
 <div class="pmwdoc-reference-header">
 <h1>Expect</h1>
-<span>available since <code>v0.2</code></span>
+<span>available since <code>0.2</code></span>
 </div>
 
 As Prvd 'M Wrong does not follow Lumin Framework's expectation model, this

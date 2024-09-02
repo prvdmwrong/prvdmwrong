@@ -19,7 +19,7 @@ providers will not run its lifecycle events.
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     function prvd.start(
       options: {
         logLevel: "none" | "verbose" | nil,

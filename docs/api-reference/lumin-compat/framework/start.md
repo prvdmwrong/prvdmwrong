@@ -1,16 +1,20 @@
 <div class="pmwdoc-reference-header">
 <h1>Start</h1>
-<span>available since <code>v0.2</code></span>
+<span>available since <code>0.2</code></span>
 </div>
 
 === "Luau"
 
-    ```ts
-    function Start(): ()
+    ```Luau
+    function Start(
+      modules: { Instance }?
+    ): Promise<()>
     ```
 
 === "TypeScript"
 
-    ```ts
-    export const Start: () => void
+    ```TypeScript
+    export const Start: (
+      modules?: Instance[]
+    ) => Promise<void>
     ```

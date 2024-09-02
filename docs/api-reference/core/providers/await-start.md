@@ -16,7 +16,7 @@ already started, the thread will continue.
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     function prvd.awaitStart(): ()
     ```
 

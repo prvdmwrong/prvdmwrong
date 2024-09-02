@@ -16,7 +16,7 @@
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     function prvd.deleteMetadata(
       object: unknown,
       key: string,

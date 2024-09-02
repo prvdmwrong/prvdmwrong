@@ -70,7 +70,7 @@ which will spawn the callback when Prvd 'M Wrong has fully ignited:
 
 === "Luau"
 
-    ```Lua
+    ```Luau
     prvd.onStart(function()
       print("ignited!")
     end)

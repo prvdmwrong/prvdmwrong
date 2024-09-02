@@ -64,7 +64,7 @@ lifecycles.
 
 === "Output"
 
-    ```Lua
+    ```Luau
     -- Luau
     local MyProvider = {}
     type Self = typeof(MyProvider)

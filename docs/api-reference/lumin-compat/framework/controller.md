@@ -1,6 +1,6 @@
 <div class="pmwdoc-reference-header">
 <h1>Controller</h1>
-<span>available since <code>v0.2</code></span>
+<span>available since <code>0.2</code></span>
 </div>
 
 Constructs and returns a new [provider](../../core/types/provider.md) given a
@@ -25,6 +25,8 @@ identifier.
     ) => prvd.Provider<Members>
     ```
 
+---
+
 ## Parameters
 
 ### name `#!lua : string`
@@ -34,6 +36,8 @@ The identifier to be used for the provider.
 ### members `#!lua : Members`
 
 The members of this provider.
+
+---
 
 ## Returns
 
