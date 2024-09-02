@@ -3610,16 +3610,16 @@
 <div class="tabbed-block">
 <p>Constructs and returns a new Luau <a href="../../types/provider/">provider</a> within Prvd
 'M Wrong. Providers must be created before calling <code>prvd.start(options)</code>.</p>
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span> <span class="nc">prvd</span><span class="p">.</span><span class="nf">new</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="n">provider</span><span class="p">:</span> <span class="n">T</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">):</span> <span class="n">Provider</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<div class="language-Luau highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">prvd</span><span class="p">.</span><span class="nf">new</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;(</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nv">provider</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">):</span><span class="w"> </span><span class="nc">Provider</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span>
 </span></code></pre></div>
 <div class="admonition success">
 <p class="admonition-title">Shorthand syntax</p>
 <p>It's recommended to call the package as a shorthand for <code>prvd.new</code>:</p>
-<div class="language-Lua highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">local</span> <span class="n">prvd</span> <span class="o">=</span> <span class="c1">-- Import Prvd &#39;M Wrong however you&#39;d like!</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">local</span> <span class="n">MyProvider</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kr">return</span> <span class="n">prvd</span><span class="p">(</span><span class="n">MyProvider</span><span class="p">)</span>
+<div class="language-Luau highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">prvd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="c1">-- Import Prvd &#39;M Wrong however you&#39;d like!</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">local</span><span class="w"> </span><span class="nv">MyProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kr">return</span><span class="w"> </span><span class="nf">prvd</span><span class="p">(</span><span class="nv">MyProvider</span><span class="p">)</span>
 </span></code></pre></div>
 </div>
 <div class="admonition warning">
