@@ -3,6 +3,10 @@
 
 return {
 	package = {
+		name = (nil :: any) :: string,
+		description = (nil :: any) :: string,
+		version = (nil :: any) :: string,
+		dependencies = (nil :: any) :: { [string]: string },
 		license = "Apache-2.0 OR MIT",
 		authors = { "znotfireman <znotfireman+hello@gmail.com>" },
 		realm = "shared",

@@ -2,7 +2,11 @@
 -- (c) Prvd 'M Wrong, dual-licensed under MIT or Apache 2.0 terms.
 
 return {
-	main = "lib/init.luau",
+	name = (nil :: any) :: string,
+	description = (nil :: any) :: string,
+	version = (nil :: any) :: string,
+	dependencies = (nil :: any) :: { [string]: string },
+	main = "lib/init.lua",
 	author = "znotfireman <znotfireman+hello@gmail.com>",
 	license = "Apache-2.0 OR MIT",
 	types = "lib/index.d.ts",

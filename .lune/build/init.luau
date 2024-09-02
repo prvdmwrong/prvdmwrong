@@ -1,3 +1,6 @@
+--!strict
+-- (c) Prvd 'M Wrong, dual-licensed under MIT or Apache 2.0 terms.
+
 local build = require("./build")
 local fs = require("@lune/fs")
 local path = require("../utils/path")
@@ -8,7 +11,7 @@ local CWD = process.cwd
 
 local packages = {}
 for _, package in fs.readDir(path(CWD, "packages")) do
-	if fs.isFile(path(CWD, "packages", "package")) then
+	if fs.isFile(path(CWD, "packages", package)) then
 		continue
 	end
 	table.insert(packages, package)
