@@ -3,6 +3,9 @@
 <span>available since <code>0.2</code></span>
 </div>
 
+This type has no meaningful use for Prvd 'm Wrong. It's sole purpose is to
+humiliate Lumin Labs and prove 'm wrong. It is only included for completeness.
+
 === "Luau"
 
     ```ts
