@@ -3509,16 +3509,25 @@
 making good decisions!</p>
 <p>Here, you will learn how to build great games with Prvd 'M Wrong, even if you're
 a complete newcomer to the framework.</p>
-<div class="admonition warning">
+<p>This is for low-level library authors only!</p>
+<p>DO NOT USE THIS UNDER ANY CIRCUMSTANCES. IT IS UNNECESSARILY DANGEROUS TO DO SO.</p>
+<p>You should never, ever access this in end user code. It doesn't matter if you think it'll save you from importing a function or typing a few characters. YOUR CODE WILL NOT WORK.</p>
+<p>If you choose to use it anyway, you give full permission for your employer to
+fire you immediately and personally defenestrate your laptop.</p>
+<div class="admonition danger">
 <p class="admonition-title">But first, something important...</p>
-<p><strong><span style="font-size: 1.5em;">
-Prvd 'M Wrong is unfinished.
-</span></strong></p>
-<p>Do not use Prvd 'M Wrong in production unless you're <em>really, really,
-really, REALLY, really</em> willing and able to withstand large, sweeping
-changes. Yes, that was five-reallys important. You <em>will</em> encounter:</p>
+<p><strong><em><span style="font-size: 1.5em;">
+DO NOT USE PRVD 'M WRONG IN PRODUCTION. IT IS UNFINISHED.
+</span></em></strong></p>
+<p>Prvd 'M Wrong is still under development. Unless you're <strong><em>really, really,
+really, REALLY, <span style="font-size: 1.25em">REALLY</span></em></strong> willing and
+able to withstand large, sweeping changes, as well bugfix and patch Prvd 'M
+Wrong itself, do not use Prvd 'M Wrong in production. Yes, that was
+five-reallys important.</p>
+<p>You <em>will</em> encounter:</p>
 <ul>
-<li>nonexistent or broken packages</li>
+<li>nonexistent or half-baked packages</li>
+<li>broken features that must be patched/fixed yourself</li>
 <li>changes in how things work between versions</li>
 <li>updates that completely remove existing features</li>
 <li>evolving recommendations on conventions and project structure</li>
