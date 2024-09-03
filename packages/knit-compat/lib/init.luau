@@ -38,7 +38,7 @@ local function intoProvider<Singleton>(singleton: Singleton & (types.ControllerD
 	return singleton
 end
 
-function knit.CreateService<Service>(serviceDef: Service & types.ServiceDef): prvd.Provider<Service>
+function knit.CreateService<Service>(serviceDef: Service & types.ServiceDef): Service
 	expect(RunService:IsServer(), "cannot create services on the client")
 	expect(typeof(serviceDef) == "table", `service must be a table; got {typeof(serviceDef)}`)
 	expect(typeof(serviceDef.Name) == "string", `service.Name must be a string; got {typeof(serviceDef.Name)}`)
@@ -52,7 +52,7 @@ function knit.CreateService<Service>(serviceDef: Service & types.ServiceDef): pr
 	return intoProvider(serviceDef)
 end
 
-function knit.CreateController<Controller>(controllerDef: Controller & types.ControllerDef): prvd.Provider<Controller>
+function knit.CreateController<Controller>(controllerDef: Controller & types.ControllerDef): Controller
 	expect(RunService:IsClient(), "cannot create controllers on the server")
 	expect(typeof(controllerDef) == "table", `service must be a table; got {typeof(controllerDef)}`)
 	expect(typeof(controllerDef.Name) == "string", `service.Name must be a string; got {typeof(controllerDef.Name)}`)
