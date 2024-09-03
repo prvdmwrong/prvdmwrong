@@ -10,15 +10,6 @@ making good decisions!
 Here, you will learn how to build great games with Prvd 'M Wrong, even if you're
 a complete newcomer to the framework.
 
-This is for low-level library authors only!
-
-DO NOT USE THIS UNDER ANY CIRCUMSTANCES. IT IS UNNECESSARILY DANGEROUS TO DO SO.
-
-You should never, ever access this in end user code. It doesn't matter if you think it'll save you from importing a function or typing a few characters. YOUR CODE WILL NOT WORK.
-
-If you choose to use it anyway, you give full permission for your employer to
-fire you immediately and personally defenestrate your laptop.
-
 !!! danger "But first, something important..."
 
     ***<span style="font-size: 1.5em;">
