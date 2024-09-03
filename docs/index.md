@@ -25,15 +25,14 @@ dependencies, incomplete frameworks, and a challenging development experience.
 </p>
 
 <p>
-No longer. Built on a proven service provider architecture, cherish a
-development experience that fades into the background. Create service providers
-to handle the top level logic of your game, baked with natural type-safety,
-dependency resolution/inversion, and first-class lifecycles.
+No longer. Prvd 'M Wrong builds upon the proven service provider architecture.
+Create service providers to handle the top level logic of your game, baked with
+natural type-safety, dependency resolution, and first-class lifecycles.
 </p>
 
 <p>
 From simple foundations, concepts naturally combine and expand with minimal
-learning. Even after year long hiatuses, you will find your code easy to
+learning. Even after year long hiatuses, you will find your game easy to
 navigate and understand. Randoms will approach you and ask, <i>"do you make a
 six-figure salary?"</i>
 </p>
@@ -141,8 +140,8 @@ Knit, building on a proven service provider architecture.
 </p>
 
 Create service providers to handle the top level logic of your game, baked with
-natural type-safety and intellisense, built-in dependency resolution/inversion,
-first-class lifecycles, and pragmatic APIs.
+natural type-safety and intellisense, built-in dependency resolution,
+first-class lifecycles, topped with pragmatic APIs.
 
 Transition your entire codebase with one of the many compatibility packages.
 Just change where you require the original framework, and let Prvd 'M Wrong do

@@ -25,22 +25,21 @@
 <a href="CHANGELOG.md">Changelog</a>
 </div>
 
-Prvd 'M Wrong is a service provider framework for a next-generation Roblox.
+Prvd 'M Wrong is a service provider framework for Roblox.
 
-Sounds boring. Let's try again.
+Sounds boring, let's try again.
 
-**Prvd 'M Wrong will not make you a front page Roblox developer... but you may
-feel like one.**
+***Prvd 'M Wrong will NOT make you a front-page developer, but you may feel lie
+one.***
 
-Built on a proven service provider architecture, cherish a development
-experience that fades into the background. Create service providers to handle
-the top level logic of your game, baked with natural type-safety, dependency
-resolution/inversion, and first-class lifecycles.
+Prvd 'M Wrong builds upon the proven service provider architecture. Create
+service providers to handle the top level logic of your game, baked with natural
+type-safety, dependency resolution, and first-class lifecycles.
 
 From simple foundations, concepts naturally combine and expand with minimal
-learning. Even after year long hiatuses, you will find your code easy to
-navigate and understand. Randoms will approach you and ask, "do you make a
-six-figure salary?"
+learning. Even after year long hiatuses, you will find your game easy to
+navigate and understand. Randoms will approach you and ask, *"do you make a
+six-figure salary?"*
 
 Sparked your interest? [Get going in minutes with our on-rails
 tutorial.](https://prvdmwrong.github.io/prvdmwrong/latest/tutorials/)
