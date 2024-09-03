@@ -12,12 +12,13 @@ a complete newcomer to the framework.
 
 !!! danger "But first, something important..."
 
-    ***<span style="font-size: 1.5em;">
-    DO NOT USE PRVD 'M WRONG IN PRODUCTION. IT IS UNFINISHED.
+    ***<span style="font-size: 1.75em;">
+    DO NOT USE PRVD 'M WRONG IN PRODUCTION.<br/>
+    PRVD 'M WRONG IS UNFINISHED.
     </span>***
 
     Prvd 'M Wrong is still under development. Unless you're ***really, really,
-    really, REALLY, <span style="font-size: 1.25em">REALLY</span>*** willing and
+    really, REALLY, <span style="font-size: 1.125em">REALLY</span>*** willing and
     able to withstand large, sweeping changes, as well bugfix and patch Prvd 'M
     Wrong itself, do not use Prvd 'M Wrong in production. Yes, that was
     five-reallys important.
