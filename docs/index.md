@@ -10,14 +10,15 @@
 <section class="pmwdoc-home-hero-inner" markdown>
 
 <h1 style="font-size: 0; margin: 0; padding: 0; opacity: 0;">Prvd 'M Wrong</h1>
-<img
+<!-- <img
   src="./assets/wordmark-dark.svg#only-dark"
   alt="Prvd 'M Wrong"
   width="500px"/>
 <img
   src="./assets/wordmark-light.svg#only-light"
   alt="Prvd 'M Wrong"
-  width="500px"/>
+  width="500px"/> -->
+<h1>The bleeding edge framework.</h1>
 
 <p>
 Roblox games have become increasingly complex, with sprawling mazes of

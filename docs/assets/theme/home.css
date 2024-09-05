@@ -3,8 +3,8 @@
 	margin-bottom: calc(var(--vertical-padding) / 2);
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: -6vh;
-	max-width: 140ch;
+	margin-top: 0;
+	/* max-width: 140ch; */
 	min-height: 40vh;
 	position: relative;
 	text-align: left;
@@ -164,6 +164,7 @@
 	font-size: 1.1em;
 	/* margin: auto; */
 	max-width: 60ch;
+	margin-left: 0;
 	/* text-align: center; */
 
 	/* background-color: oklch(from var(--md-default-bg-color) l c h / 0.75);
