@@ -18,6 +18,9 @@ local DIST_DIRECTORY = path(CWD, "dist")
 local SCOPE = "prvdmwrong"
 local WILL_PUBLISH = true
 
+local DARKLUA_DIST = path(CWD, ".lune", "build", "darklua.dist.json")
+local DARKLUA_DEV = path(CWD, ".lune", "build", "darklua.dev.json")
+
 local function createCycle<T>(functions: { T }): () -> T
 	local index = 1
 	local currentFunction = functions[index]
@@ -58,7 +61,7 @@ local function build(props: {
 	local bundle = roblox.Instance.new("Model")
 	bundle.Name = "prvdmwrong-bundle"
 
-	local darkluaConfig = path(CWD, shouldRelease and ".darklua.json" or ".darklua-dev.json")
+	local darkluaConfig = shouldRelease and DARKLUA_DIST or DARKLUA_DEV
 	fs.writeDir(DIST_DIRECTORY)
 
 	local cycleColor = createCycle { color.blue, color.red, color.purple }
