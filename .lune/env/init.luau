@@ -52,6 +52,6 @@ end
 local newSettings = table.clone(settings)
 newSettings["luau-lsp.require.directoryAliases"] = sources
 
-fs.writeFile(path(process.cwd, ".darklua.json"), serde.encode("json", newDarklua, true))
-fs.writeFile(path(process.cwd, ".darklua-dev.json"), serde.encode("json", newDarkluaDev, true))
-fs.writeFile(path(process.cwd, ".vscode", "settings.json"), serde.encode("json", newSettings, true))
+fs.writeFile(path(process.cwd, ".lune", "build", "darklua.dist.json"), serde.encode("json", newDarklua, true))
+fs.writeFile(path(process.cwd, ".lune", "build", "darklua.dev.json"), serde.encode("json", newDarkluaDev, true))
+fs.writeFile(path(process.cwd, "vscode", "settings.json"), serde.encode("json", newSettings, true))
