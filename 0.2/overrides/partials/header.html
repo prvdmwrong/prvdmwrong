@@ -69,6 +69,15 @@
       </div>
     </div>
 
+	  <!-- Prvd 'M Wrong code switcher -->
+	  <button id="pmwdoc-code-switcher">
+      Code for
+      <select name="code-lang" id="code-lang">
+        <option value="luau">Luau</option>
+        <option value="rbxts">TypeScript</option>
+      </select>
+    </button>
+
     <!-- Color palette -->
     {% if not config.theme.palette is mapping %}
       <form class="md-header__option" data-md-component="palette">
