@@ -9,7 +9,7 @@
 
 <section class="pmwdoc-home-hero-inner" markdown>
 
-<h1 style="font-size: 0; margin: 0; padding: 0; opacity: 0;">Prvd 'M Wrong</h1>
+<!-- <h1 style="font-size: 0; margin: 0; padding: 0; opacity: 0;">Prvd 'M Wrong</h1> -->
 <!-- <img
   src="./assets/wordmark-dark.svg#only-dark"
   alt="Prvd 'M Wrong"
@@ -18,7 +18,7 @@
   src="./assets/wordmark-light.svg#only-light"
   alt="Prvd 'M Wrong"
   width="500px"/> -->
-<h1>The bleeding edge framework.</h1>
+<h1>Built on modern standards,<br/>you're simply going to build better games.</h1>
 
 <p>
 Roblox games have become increasingly complex, with sprawling mazes of
@@ -26,16 +26,10 @@ dependencies, incomplete frameworks, and a challenging development experience.
 </p>
 
 <p>
-No longer. Prvd 'M Wrong builds upon the proven service provider architecture.
-Create service providers to handle the top level logic of your game, baked with
-natural type-safety, dependency resolution, and first-class lifecycles.
-</p>
-
-<p>
-From simple foundations, concepts naturally combine and expand with minimal
-learning. Even after year long hiatuses, you will find your game easy to
-navigate and understand. Randoms will approach you and ask, <i>"do you make a
-six-figure salary?"</i>
+No longer. Prvd 'M Wrong is a framework that leaves you with the fun stuff,
+delivering type-safe APIs and dependency resolution, along with comprehensive
+documentation, an ecosystem of packages, and unparalleled DX. Zero bloat,
+plugins, or lock-in required.
 </p>
 
 <nav>
@@ -75,65 +69,73 @@ six-figure salary?"</i>
 
 <section class="grid" markdown>
 
-=== "Luau"
+<section markdown>
 
-    ```Luau
-    local prvd = require("@pkg/prvdmwrong-core")
-    local CharacterProvider = require("./character-provider")
+<section class="only-luau" markdown>
 
-    -- ... snip ...
+```Luau
+local prvd = require("@pkg/prvdmwrong-core")
+local CharacterProvider = require("./character-provider")
 
-    local CombatProvider = {}
-    type Self = typeof(CombatController)
+-- ... snip ...
 
-    -- Just specify providers to use them!
-    CombatProvider.characterProvider = CharacterProvider
+local CombatProvider = {}
+type Self = typeof(CombatController)
 
-    -- `onStart` is a built-in startup lifecycle.
-    function CombatProvider:onStart()
-      print("Hello, Prvd 'M Wrong!")
-    end
+-- Just specify providers to use them!
+CombatProvider.characterProvider = CharacterProvider
 
-    -- Providers can have *anything*!
-    function CombatProvider.performMove(self: Self, move: CombatMove)
-      local character = self.characterProvider:awaitCharacter()
-      character:PivotTo(character.Position * move.startPosition)
-    end
+-- `onStart` is a built-in startup lifecycle.
+function CombatProvider:onStart()
+  print("Hello, Prvd 'M Wrong!")
+end
 
-    return prvd(CombatProvider)
-    ```
+-- Providers can have *anything*!
+function CombatProvider.performMove(self: Self, move: CombatMove)
+  local character = self.characterProvider:awaitCharacter()
+  character:PivotTo(character.Position * move.startPosition)
+end
 
-=== "TypeScript"
+return prvd(CombatProvider)
+```
 
-    ```TypeScript
-    import { Provider, OnStart } from "@prvdmwrong/core"
-    import { CharacterProvider } from "./character-provider"
+</section><section class="only-rbxts" markdown>
 
-    // ... snip ...
+```TypeScript
+import { Provider, OnStart } from "@prvdmwrong/core"
+import { CharacterProvider } from "./character-provider"
 
-    @Provider()
-    export class CombatProvider implements OnStart {
-      // Just specify providers to use them!
-      public characterProvider = CharacterProvider
+// ... snip ...
 
-      // `onStart` is a built-in startup lifecycle.
-      public onStart() {
-        print("Hello, Prvd 'M Wrong!")
-      }
+@Provider()
+export class CombatProvider implements OnStart {
+  // Just specify providers to use them!
+  public characterProvider = CharacterProvider
 
-      // Providers can have *anything*!
-      public performMove(move: CombatMove) {
-        const character = this.characterProvider.awaitCharacter()
-        character.PivotTo(character.Position.mul(move.startPosition))
-      }
-    }
-    ```
+  // `onStart` is a built-in startup lifecycle.
+  public onStart() {
+    print("Hello, Prvd 'M Wrong!")
+  }
+
+  // Providers can have *anything*!
+  public performMove(move: CombatMove) {
+    const character = this.characterProvider.awaitCharacter()
+    character.PivotTo(character.Position.mul(move.startPosition))
+  }
+}
+```
+
+</section>
+
+</section>
 
 <section markdown>
 
 <!-- <span style="font-size: 3em; line-height: 0; margin: 0;" markdown>:octicons-heart-16:</span> -->
 
-# Familiar
+<h2>
+Familiar
+</h2>
 
 <p style="font-size: 1.125em;">
 Prvd 'M Wrong stands on the shoulders of giants, particularly Flamework and
