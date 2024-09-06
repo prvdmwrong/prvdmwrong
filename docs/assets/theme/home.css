@@ -1,13 +1,26 @@
+.md-content {
+	max-width: none;
+	--distance-to-top-of-page: 4.8rem;
+}
+
+@media screen and (max-width: 76.25rem) {
+	.md-content {
+		--distance-to-top-of-page: 2.4rem;
+	}
+}
+
 .pmwdoc-home-hero {
 	box-sizing: border-box;
-	margin-bottom: calc(var(--vertical-padding) / 2);
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 0;
-	/* max-width: 140ch; */
-	min-height: 40vh;
+	margin-top: calc(var(--distance-to-top-of-page) * -1);
+	min-height: 70ch;
 	position: relative;
 	text-align: left;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .pmwdoc-home-hero::before {
@@ -28,6 +41,12 @@
 	z-index: -99;
 	animation: machinery-scroll 480s linear infinite;
 }
+
+.pmwdoc-home-hero-inner {
+	font-size: 1.5em;
+	margin-left: 0;
+}
+
 /*
 .pmwdoc-home-hero::after {
 	background-image: linear-gradient(to bottom, transparent 50%, var(--md-default-bg-color));
@@ -54,7 +73,7 @@
 	margin: auto;
 	max-width: 75rem;
 	overflow-x: hidden;
-	padding: 3em 0;
+	padding: 3em;
 	position: relative;
 	transform: translateX(-50%);
 	view-timeline-axis: block;
@@ -76,6 +95,11 @@
 	position: relative;
 	text-wrap: nowrap;
 	width: auto;
+}
+
+.pmwdoc-home-section {
+	font-size: 1.5em;
+	padding: 0 3em;
 }
 
 .prvdmwrong-home-features > ul > li:nth-child(1),
@@ -158,17 +182,6 @@
 	to {
 		background-position: calc(210ch * 16 / 9);
 	}
-}
-
-.pmwdoc-home-hero-inner {
-	font-size: 1.1em;
-	/* margin: auto; */
-	max-width: 60ch;
-	margin-left: 0;
-	/* text-align: center; */
-
-	/* background-color: oklch(from var(--md-default-bg-color) l c h / 0.75);
-	background-color: oklch(from var(--md-default-bg-color) / 0.5); */
 }
 
 .pmwdoc-home-content {

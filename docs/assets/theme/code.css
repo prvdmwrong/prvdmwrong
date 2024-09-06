@@ -91,3 +91,25 @@ code:not(pre code, .highlight) {
 	background-color: var(--md-code-bg-color) !important;
 	/* color: inherit !important; */
 }
+
+.pmwdoc-code-hidden {
+	display: none;
+}
+
+#pmwdoc-code-switcher {
+	font-size: 0.65rem;
+	color: var(--md-default-fg-color);
+	margin-right: 1em;
+}
+
+#pmwdoc-code-switcher select {
+	background-color: var(--md-default-bg-color--lighter);
+	color: var(--md-default-fg-color);
+	font-size: 100%;
+	font: inherit;
+	padding: 0.25em;
+	margin: 0;
+	border: 0;
+	vertical-align: baseline;
+	border-radius: 0.25em;
+}

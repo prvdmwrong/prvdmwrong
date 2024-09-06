@@ -59,6 +59,9 @@ extra_css:
   - assets/theme/pmwdoc.css
   - assets/theme/reference.css
 
+extra_javascript:
+  - assets/javascripts/code-switcher.js
+
 theme:
   name: material
   custom_dir: docs/overrides

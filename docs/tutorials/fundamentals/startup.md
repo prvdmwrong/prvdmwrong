@@ -8,78 +8,99 @@ It's necessary to preload your providers to for Prvd 'M Wrong to pick it up. For
 convenience, you can use the `prvd.preload(instances, predicate)` function,
 which will load all modules given an array of instances:
 
-=== "Luau"
+<section class="only-luau" markdown>
 
-    ```lua
-    local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
+```Luau
+local prvd = -- Import Prvd 'M Wrong however you wish!
 
-    prvd.preload(script.Providers:GetChildren())
-    ```
+prvd.preload(script.Providers:GetChildren())
+```
 
-=== "TypeScript"
+</section><section class="only-rbxts" markdown>
 
-    ```ts
-    import { preload } from "@rbxts/prvdmwrong"
-    preload(script.Providers.GetChildren())
-    ```
+```TypeScript
+import prvd from "@prvdmwrong/core"
+
+prvd.preload(script.Providers.GetChildren())
+```
+
+</section>
 
 You can also pass a predicate function to filter the target modules:
 
-=== "Luau"
+<section class="only-luau" markdown>
 
-    ```lua hl_lines="6-8"
-    local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local prvd = require(ReplicatedStorage.Packages.prvdmwrong)
+```Luau
+prvd.preload(
+  script.Providers:GetChildren(),
+  function(module: ModuleScript)
+    return module.Name:find("Provider$") ~= nil
+  end
+)
+```
 
-    prvd.preload(
-      script.Providers:GetChildren(),
-      function(module: ModuleScript)
-        return module.Name:find("Provider$") ~= nil
-      end
-    )
-    ```
+</section><section class="only-rbxts" markdown>
 
-=== "TypeScript"
+```TypeScript
+prvd.preload(script.Providers.GetChildren(), (module) => {
+  return module.Name.find("Provider$") !== undefined
+})
+```
 
-    ```ts hl_lines="4"
-    import { preload } from "@rbxts/prvdmwrong"
-    preload(
-      script.Providers.GetChildren(),
-      (module) => module.Name.find("Provider$") !== undefined
-    )
-    ```
+</section>
 
 ## Startup
 
 Finally, start Prvd 'M Wrong, and you're off to the races:
 
+<section class="only-luau" markdown>
+
+```Luau
+prvd.start()
+```
+
+</section><section class="only-rbxts" markdown>
+
 ```TypeScript
 prvd.start()
 ```
 
-If another script requires Prvd 'M Wrong to be ignited, `awaitStart()` can be used,
-which will yield until Prvd 'M Wrong is fully ignited:
+</section>
+
+If another script requires Prvd 'M Wrong to be ignited, `awaitStart()` can be
+used, which will yield until Prvd 'M Wrong has finished starting up:
+
+<section class="only-luau" markdown>
+
+```Luau
+prvd.awaitStart()
+```
+
+</section><section class="only-rbxts" markdown>
 
 ```TypeScript
 prvd.awaitStart()
 ```
 
+</section>
+
 Alternatively, if you need to bind to startup, `onStart(callback)` can be used,
 which will spawn the callback when Prvd 'M Wrong has fully ignited:
 
-=== "Luau"
+<section class="only-luau" markdown>
 
-    ```Luau
-    prvd.onStart(function()
-      print("ignited!")
-    end)
-    ```
+```Luau
+prvd.onStart(function()
+  print("started!")
+end)
+```
 
-=== "TypeScript"
+</section><section class="only-rbxts" markdown>
 
-    ```TypeScript
-    onStart(() => {
-      print("ignited!")
-    })
-    ```
+```TypeScript
+prvd.onStart(() => {
+  print("started!")
+})
+```
+
+</section>
