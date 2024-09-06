@@ -4,11 +4,8 @@
 
     This page is under construction - information may be incomplete or missing.
 
-Roblox games are composed of top level *service providers*, which provide a
-specific service for the game.
-
-Prvd 'M Wrong formalizes the concept of providers as singletons objects that
-provide some top level logic of a game.
+Prvd 'M Wrong games are composed of top level *service providers*, which provide
+a specific service for the game.
 
 ---
 
