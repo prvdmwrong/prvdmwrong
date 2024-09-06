@@ -5,15 +5,15 @@
 			"name": "path",
 			"sources": {
 				"@lune/": "~/.lune/.typedefs/0.8.6/",
-				"catwork-compat": "packages/catwork-compat/lib",
-				"components": "packages/components/lib",
-				"core": "packages/core/lib",
-				"debugger": "packages/debugger/lib",
-				"knit-compat": "packages/knit-compat/lib",
-				"lifecycles": "packages/lifecycles/lib",
-				"lumin-compat": "packages/lumin-compat/lib",
-				"net": "packages/net/lib",
-				"sapphire-compat": "packages/sapphire-compat/lib"
+				"catwork-compat": "../../packages/catwork-compat/lib",
+				"components": "../../packages/components/lib",
+				"core": "../../packages/core/lib",
+				"debugger": "../../packages/debugger/lib",
+				"knit-compat": "../../packages/knit-compat/lib",
+				"lifecycles": "../../packages/lifecycles/lib",
+				"lumin-compat": "../../packages/lumin-compat/lib",
+				"net": "../../packages/net/lib",
+				"sapphire-compat": "../../packages/sapphire-compat/lib"
 			}
 		}
 	},

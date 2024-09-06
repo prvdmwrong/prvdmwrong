@@ -20,13 +20,16 @@ end
 table.sort(packages)
 
 local sources = {}
+local darkluaSources = {}
 sources["@lune/"] = "~/.lune/.typedefs/0.8.6/"
 for _, package in packages do
 	sources[package] = path("packages", package, "lib")
+	-- Mf we store configs in .lune so
+	darkluaSources[package] = path("..", "..", "packages", package, "lib")
 end
 
 local newDarklua = table.clone(darklua)
-darklua.bundle.require_mode.sources = sources
+darklua.bundle.require_mode.sources = darkluaSources
 
 local newDarkluaDev = table.clone(darkluaDev)
 type ConvertRequire = {
@@ -45,7 +48,7 @@ type ConvertRequire = {
 for _, rule in newDarkluaDev.rules do
 	if typeof(rule) == "table" and rule.rule == "convert_require" then
 		local convertRequire = rule :: ConvertRequire
-		convertRequire.current.sources = sources
+		convertRequire.current.sources = darkluaSources
 	end
 end
 
