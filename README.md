@@ -20,29 +20,20 @@
 [![NPM Version](https://img.shields.io/npm/v/%40prvdmwrong%2Fcore?style=flat-square)](https://www.npmjs.com/package/@prvdmwrong/core)
 </br>
 <a href="https://github.com/prvdmwrong/prvdmwrong/releases">Download</a> ·
-<a href="https://prvdmwrong.github.io/prvdmwrong/latest">Documentation</a> ·
-<a href="https://prvdmwrong.github.io/prvdmwrong/latest/api-reference">API Reference</a> ·
+<a href="https://prvdmwrong.github.io/prvdmwrong/0.2">Documentation</a> ·
+<a href="https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference">API Reference</a> ·
 <a href="CHANGELOG.md">Changelog</a>
 </div>
 
-Prvd 'M Wrong is a service provider framework for Roblox.
+Roblox games have become increasingly complex, with sprawling mazes of
+dependencies, incomplete frameworks, and a challenging development experience.
 
-Sounds boring, let's try again.
+No longer. Prvd 'M Wrong is a framework that leaves you with the fun stuff,
+delivering type-safe APIs and dependency resolution, along with comprehensive
+documentation, an ecosystem of packages, and unparalleled DX. Zero bloat,
+plugins, or lock-in required.
 
-***Prvd 'M Wrong will NOT make you a front-page developer, but you may feel lie
-one.***
-
-Prvd 'M Wrong builds upon the proven service provider architecture. Create
-service providers to handle the top level logic of your game, baked with natural
-type-safety, dependency resolution, and first-class lifecycles.
-
-From simple foundations, concepts naturally combine and expand with minimal
-learning. Even after year long hiatuses, you will find your game easy to
-navigate and understand. Randoms will approach you and ask, *"do you make a
-six-figure salary?"*
-
-Sparked your interest? [Get going in minutes with our on-rails
-tutorial.](https://prvdmwrong.github.io/prvdmwrong/latest/tutorials/)
+[Get going in minutes with our on-rails tutorial.](https://prvdmwrong.github.io/prvdmwrong/latest/tutorials/)
 
 ## Highlights
 
