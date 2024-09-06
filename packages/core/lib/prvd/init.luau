@@ -149,13 +149,13 @@ function prvd.start(options: {
 				return
 			end
 			-- FIXME: this is broken for ts providers
-			if Modding.providers[target :: any] and target ~= provider then
+			if key ~= nil and target ~= provider and Modding.providers[target :: any] then
+				print(target, provider, Reflection.getIdentifier(target))
 				parent[key] = (target :: any)[providers.providerKey] or target
-				table.insert(usedDependencies, Reflection.getIdentifier(target))
-				return
+				return table.insert(usedDependencies, Reflection.getIdentifier(target))
 			end
-			for key, value in pairs(target :: Types.Object) do
-				resolveUsedDependencies(value, key, target :: Types.Object)
+			for key, value in target :: {} do
+				resolveUsedDependencies(value, key, target :: {})
 			end
 		end
 
