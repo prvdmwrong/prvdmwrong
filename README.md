@@ -38,8 +38,8 @@ plugins, or lock-in required.
 ## Highlights
 
 - Type-safe APIs for both Luau and TypeScript
-- Featherlight (<6kb), choose to mix in packages as you need
-- Uses dependency resolution for cleaner code organization
+- Featherlight (<6kb minified & gzipped), choose to mix in packages as you need
+- Uses dependency resolution for topological initialization
 - Made to be extendable through modding APIs
 - Non-intrusive first-class lifecycle events for flexibility
 - Pragmatic and sensible API that makes development fun
