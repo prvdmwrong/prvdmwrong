@@ -429,3 +429,9 @@ section.dearrow > p > a::before,
 		margin-right: auto;
 	}
 }
+
+@media screen and (min-width: 76.25em) {
+	[dir="ltr"] .md-header__source {
+		margin-left: 0;
+	}
+}

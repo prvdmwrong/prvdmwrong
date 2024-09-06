@@ -99,7 +99,7 @@ code:not(pre code, .highlight) {
 #pmwdoc-code-switcher {
 	font-size: 0.65rem;
 	color: var(--md-default-fg-color);
-	margin-right: 1em;
+	margin-right: 0.5em;
 }
 
 #pmwdoc-code-switcher select {
