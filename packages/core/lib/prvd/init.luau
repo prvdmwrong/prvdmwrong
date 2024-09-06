@@ -139,28 +139,27 @@ function prvd.start(options: {
 		})
 
 		local encountered = {}
-		local usedDependencies = {}
-		local function resolveUsedDependencies(target: unknown, key: unknown, parent: { [unknown]: unknown })
-			if encountered[target] then
+		local resolvedDependencies = {}
+
+		local function resolveDependencies(target: any, key: unknown, parent: { [unknown]: unknown })
+			if encountered[target] or typeof(target) ~= "table" then
 				return
 			end
+
 			encountered[target] = true
-			if typeof(target) ~= "table" then
-				return
-			end
-			-- FIXME: this is broken for ts providers
-			if key ~= nil and target ~= provider and Modding.providers[target :: any] then
-				print(target, provider, Reflection.getIdentifier(target))
+
+			if key ~= nil and target ~= provider and Modding.providers[target] then
 				parent[key] = (target :: any)[providers.providerKey] or target
-				return table.insert(usedDependencies, Reflection.getIdentifier(target))
+				return table.insert(resolvedDependencies, Reflection.getIdentifier(target))
 			end
+
 			for key, value in target :: {} do
-				resolveUsedDependencies(value, key, target :: {})
+				resolveDependencies(value, key, target :: {})
 			end
 		end
 
-		resolveUsedDependencies(provider, nil, provider)
-		Reflection.defineMetadata(provider, "prvdmwrong:dependencies", usedDependencies)
+		resolveDependencies(provider, nil, provider)
+		Reflection.defineMetadata(provider, "prvdmwrong:dependencies", resolvedDependencies)
 	end
 
 	local identifiers = {}
