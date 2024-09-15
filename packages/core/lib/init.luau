@@ -112,11 +112,11 @@ do
 		log.expect(isCompatible, "incompatibleVersion", this, other)
 	end
 
-	local globalPackage: Types.Prvd? = _G.prvdmwrong
+	local globalPackage: Prvd? = _G.prvdmwrong
 
 	if globalPackage then
 		assertBackwardsCompatible("VERSION", globalPackage.version)
-		return globalPackage :: Types.Prvd
+		return globalPackage :: Prvd
 	end
 
 	local leadReference = Reference.getReference()
@@ -127,7 +127,7 @@ do
 			assertBackwardsCompatible("VERSION", version)
 		end
 
-		return (require)(leadReference) :: Types.Prvd
+		return (require)(leadReference) :: Prvd
 	else
 		local newReference = Reference.createReference(script)
 		newReference:SetAttribute("version", "VERSION")
