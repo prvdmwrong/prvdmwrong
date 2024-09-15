@@ -2,7 +2,6 @@
 -- (c) Prvd 'M Wrong, dual-licensed under MIT or Apache 2.0 terms.
 
 local Reference = require("core/prvd/ref")
-local Types = require("core/types")
 local log = require("core/utils/log")
 
 -- FIXME: Darklua can't bundle types as exported types appear in it's bundle
@@ -142,7 +141,7 @@ local preload = require("core/prvd/preload")
 local providers = require("core/prvd/providers")
 local prvd = require("core/prvd")
 
-local function Prvd(x: Types.PrvdNamespace): Types.Prvd
+local function Prvd(x: PrvdNamespace): Prvd
 	return table.freeze(setmetatable(
 		x :: any,
 		table.freeze {
