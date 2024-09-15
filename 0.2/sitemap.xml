@@ -2,338 +2,338 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/errors/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/internal/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/internal/define-metadata/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/internal/delete-metadata/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/internal/get-metadata/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/internal/register-all/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/internal/register-dependency/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/internal/register-method/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/internal/unregister-method/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/lifecycles/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/lifecycles/fire-concurrent/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/lifecycles/fire-sequential/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/lifecycles/lifecycle/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/lifecycles/on-lifecycle-registered/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/lifecycles/on-lifecycle-unregistered/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/modding/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/modding/get-startup-options/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/modding/get-startup-status/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/modding/on-provider-constructed/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/modding/on-provider-used/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/providers/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/providers/await-start/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/providers/new/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/providers/on-start/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/providers/preload/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/providers/provider/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/providers/start/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/providers/startup-status/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/types/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/types/lifecycle/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/types/on-init/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/types/on-start/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/types/options/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/types/provider/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/knit-compat/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lifecycles/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lifecycles/players/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lifecycles/players/on-player-added/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lifecycles/players/on-player-removed/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lifecycles/runtime/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lifecycles/runtime/on-post-simulation/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lifecycles/runtime/on-pre-render/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lifecycles/runtime/on-pre-simulation/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lifecycles/runtime/on-shutdown/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lumin-compat/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lumin-compat/framework/controller/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lumin-compat/framework/expect/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lumin-compat/framework/signal/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lumin-compat/framework/start/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lumin-compat/framework/started/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lumin-compat/framework/worker/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lumin-compat/types/storage/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lumin-compat/types/worker-type/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lumin-compat/types/worker/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/sapphire-compat/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/examples/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/examples/obby/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/examples/swordfight/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/extras/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/extras/branding/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/extras/branding/swag/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/extras/branding/backgrounds/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/installation/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/advanced/execution-order/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/advanced/migration/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/advanced/modding/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/advanced/philosophies/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/advanced/snippets/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/components/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/components/attributes/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/components/inheritance/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/components/usage/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/fundamentals/lifecycles/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/fundamentals/providers/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/fundamentals/startup/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/net/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/net/events/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/net/functions/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/net/middlewares/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/tutorials/net/namespaces/</loc>
-         <lastmod>2024-09-06</lastmod>
+         <lastmod>2024-09-15</lastmod>
     </url>
 </urlset>
