@@ -25,6 +25,8 @@
 <a href="CHANGELOG.md">Changelog</a>
 </div>
 
+# This branch is for an ongoing rewrite of Prvd 'M Wrong to be more modular. See the main branch for the """stable""" version of 0.2
+
 Roblox games have become increasingly complex, with sprawling mazes of
 dependencies, incomplete frameworks, and a challenging development experience.
 
