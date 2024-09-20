@@ -144,8 +144,10 @@ local prvd = require("core/prvd")
 local function Prvd(x: PrvdNamespace): Prvd
 	return table.freeze(setmetatable(
 		x :: any,
+		-- If `self` isnt defined as a generic, the other generics dont get infered
+		-- correctly.
 		table.freeze {
-			__call = function<T>(_, provider: T): Provider<T>
+			__call = function<Self, T>(_: Self, provider: T): Provider<T>
 				return providers.new(provider)
 			end,
 		}
