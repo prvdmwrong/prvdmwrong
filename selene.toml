@@ -1,7 +1,0 @@
-std = "selene-std"
-
-[config]
-  global_usage = { ignore_pattern = "__DEV__|prvdmwrong" }
-
-[lints]
-  shadowing = "allow"

@@ -1,0 +1,45 @@
+import { CallMacro, ConstructorMacro, IdentifierMacro, PropertyCallMacro } from "../macros/types";
+import ts from "typescript";
+export declare const SYMBOL_NAMES: {
+    readonly globalThis: "globalThis";
+    readonly ArrayConstructor: "ArrayConstructor";
+    readonly SetConstructor: "SetConstructor";
+    readonly MapConstructor: "MapConstructor";
+    readonly WeakSetConstructor: "WeakSetConstructor";
+    readonly WeakMapConstructor: "WeakMapConstructor";
+    readonly ReadonlyMapConstructor: "ReadonlyMapConstructor";
+    readonly ReadonlySetConstructor: "ReadonlySetConstructor";
+    readonly Array: "Array";
+    readonly Generator: "Generator";
+    readonly IterableFunction: "IterableFunction";
+    readonly LuaTuple: "LuaTuple";
+    readonly Map: "Map";
+    readonly Object: "Object";
+    readonly ReadonlyArray: "ReadonlyArray";
+    readonly ReadonlyMap: "ReadonlyMap";
+    readonly ReadonlySet: "ReadonlySet";
+    readonly ReadVoxelsArray: "ReadVoxelsArray";
+    readonly Set: "Set";
+    readonly String: "String";
+    readonly TemplateStringsArray: "TemplateStringsArray";
+    readonly WeakMap: "WeakMap";
+    readonly WeakSet: "WeakSet";
+    readonly Iterable: "Iterable";
+    readonly $range: "$range";
+    readonly $tuple: "$tuple";
+};
+export declare const NOMINAL_LUA_TUPLE_NAME = "_nominal_LuaTuple";
+export declare class MacroManager {
+    private symbols;
+    private identifierMacros;
+    private callMacros;
+    private constructorMacros;
+    private propertyCallMacros;
+    constructor(typeChecker: ts.TypeChecker);
+    getSymbolOrThrow(name: string): ts.Symbol;
+    isMacroOnlyClass(symbol: ts.Symbol): boolean;
+    getIdentifierMacro(symbol: ts.Symbol): IdentifierMacro | undefined;
+    getCallMacro(symbol: ts.Symbol): CallMacro | undefined;
+    getConstructorMacro(symbol: ts.Symbol): ConstructorMacro | undefined;
+    getPropertyCallMacro(symbol: ts.Symbol): PropertyCallMacro | undefined;
+}

@@ -1,0 +1,128 @@
+:root {
+	--pmwdoc-gray-0: oklch(0 0.03 240);
+	--pmwdoc-gray-1: oklch(0.05 0.03 240);
+	--pmwdoc-gray-2: oklch(0.1 0.03 240);
+	--pmwdoc-gray-3: oklch(0.15 0.03 240);
+	--pmwdoc-gray-4: oklch(0.2 0.03 240);
+	--pmwdoc-gray-5: oklch(0.4 0.03 240);
+	--pmwdoc-gray-6: oklch(0.8 0.03 240);
+	--pmwdoc-gray-7: oklch(0.85 0.03 240);
+	--pmwdoc-gray-8: oklch(0.9 0.03 240);
+	--pmwdoc-gray-9: oklch(0.95 0.03 240);
+	--pmwdoc-gray-10: oklch(1 0.03 240);
+
+	--pmwdoc-accent: oklch(0.6 0.186 52.985);
+	--pmwdoc-accent-dark: oklch(0.55 0.186 52.985);
+	--pmwdoc-accent-darker: oklch(0.4 0.186 52.985);
+	--pmwdoc-accent-light: oklch(0.65 0.186 52.985);
+	--pmwdoc-accent-lighter: oklch(0.7 0.186 52.985);
+}
+
+[data-md-color-scheme="pmwdoc-dark"] {
+	--md-primary-fg-color: var(--pmwdoc-accent);
+	--md-primary-fg-color--light: var(--pmwdoc-accent-dark);
+	--md-primary-fg-color--dark: var(--pmwdoc-accent-light);
+	--md-primary-bg-color: var(--pmwdoc-gray-8);
+	--md-primary-bg-color--light: var(--pmwdoc-gray-6);
+
+	--md-accent-fg-color: var(--pmwdoc-accent);
+	--md-accent-fg-color--transparent: oklch(from var(--pmwdoc-accent), 0.9);
+	--md-accent-bg-color: var(--pmwdoc-gray-8);
+	--md-accent-bg-color--light: var(--pmwdoc-gray-6);
+
+	--md-default-fg-color: var(--pmwdoc-gray-8);
+	--md-default-fg-color--light: var(--pmwdoc-gray-7);
+	--md-default-fg-color--lighter: var(--pmwdoc-gray-6);
+	--md-default-fg-color--lightest: var(--pmwdoc-gray-5);
+	--md-default-bg-color: var(--pmwdoc-gray-4);
+	--md-default-bg-color--light: var(--pmwdoc-gray-3);
+	--md-default-bg-color--lighter: var(--pmwdoc-gray-2);
+	--md-default-bg-color--lightest: var(--pmwdoc-gray-0);
+
+	--md-typeset-color: var(--pmwdoc-gray-8);
+
+	--md-typeset-a-color: var(--md-primary-fg-color);
+
+	--md-typeset-del-color: oklch(75% 1 120 / 0.15);
+	--md-typeset-ins-color: oklch(75% 1 160 / 0.15);
+
+	--md-typeset-kbd-color: hsla(0, 0%, 98%, 1);
+	--md-typeset-kbd-accent-color: hsla(0, 100%, 100%, 1);
+	--md-typeset-kbd-border-color: hsla(0, 0%, 72%, 1);
+
+	--md-admonition-fg-color: var(--md-default-fg-color);
+	--md-admonition-bg-color: var(--md-default-bg-color);
+
+	--md-warning-fg-color: var(--pmwdoc-gray-8);
+	--md-warning-bg-color: var(--pmwdoc-accent);
+
+	--md-footer-fg-color: var(--pmwdoc-gray-8);
+	--md-footer-fg-color--light: var(--pmwdoc-gray-7);
+	--md-footer-fg-color--lighter: var(--pmwdoc-gray-6);
+	--md-footer-bg-color: var(--pmwdoc-gray-4);
+	--md-footer-bg-color--dark: var(--pmwdoc-gray-3);
+}
+
+[data-md-color-scheme="pmwdoc-light"] {
+	--md-primary-fg-color: var(--pmwdoc-accent);
+	--md-primary-fg-color--light: var(--pmwdoc-accent-light);
+	--md-primary-fg-color--dark: var(--pmwdoc-accent-dark);
+	--md-primary-bg-color: var(--pmwdoc-gray-4);
+	--md-primary-bg-color--light: var(--pmwdoc-gray-5);
+
+	--md-accent-fg-color: var(--pmwdoc-accent);
+	--md-accent-fg-color--transparent: oklch(from var(--pmwdoc-accent), 0.9);
+	--md-accent-bg-color: var(--pmwdoc-gray-8);
+	--md-accent-bg-color--light: var(--pmwdoc-gray-7);
+
+	--md-default-fg-color: var(--pmwdoc-gray-2);
+	--md-default-fg-color--light: var(--pmwdoc-gray-3);
+	--md-default-fg-color--lighter: var(--pmwdoc-gray-4);
+	--md-default-fg-color--lightest: var(--pmwdoc-gray-6);
+	--md-default-bg-color: var(--pmwdoc-gray-8);
+	--md-default-bg-color--light: var(--pmwdoc-gray-7);
+	--md-default-bg-color--lighter: var(--pmwdoc-gray-6);
+	--md-default-bg-color--lightest: var(--pmwdoc-gray-5);
+
+	--md-typeset-color: var(--pmwdoc-gray-4);
+
+	--md-typeset-a-color: var(--md-primary-fg-color);
+
+	--md-typeset-del-color: oklch(75% 1 120 / 0.15);
+	--md-typeset-ins-color: oklch(75% 1 160 / 0.15);
+
+	--md-typeset-kbd-color: hsla(0, 0%, 98%, 1);
+	--md-typeset-kbd-accent-color: hsla(0, 100%, 100%, 1);
+	--md-typeset-kbd-border-color: hsla(0, 0%, 72%, 1);
+
+	--md-admonition-fg-color: var(--md-default-fg-color);
+	--md-admonition-bg-color: var(--md-default-bg-color);
+
+	--md-warning-fg-color: var(--pmwdoc-gray-8);
+	--md-warning-bg-color: var(--pmwdoc-accent);
+
+	--md-footer-fg-color: var(--pmwdoc-gray-2);
+	--md-footer-fg-color--light: var(--pmwdoc-gray-3);
+	--md-footer-fg-color--lighter: var(--pmwdoc-gray-4);
+	--md-footer-bg-color: var(--pmwdoc-gray-7);
+	--md-footer-bg-color--dark: var(--pmwdoc-gray-8);
+}
+
+.md-header__button.md-logo {
+	padding: 0 0 0 0.4rem;
+}
+.md-header__button.md-logo > img {
+	height: 1.8rem;
+}
+
+[data-md-color-scheme="pmwdoc-light"] .pmwdoc-dark-theme-only,
+[data-md-color-scheme="pmwdoc-dark"] .pmwdoc-light-theme-only,
+[data-md-color-scheme="pmwdoc-light"] img[src$="#only-dark"],
+[data-md-color-scheme="pmwdoc-dark"] img[src$="#only-light"] {
+	display: none !important;
+}
+
+[data-md-color-scheme="pmwdoc-light"] img[src$="#only-light"],
+[data-md-color-scheme="pmwdoc-dark"] img[src$="#only-dark"] {
+	display: initial;
+}
