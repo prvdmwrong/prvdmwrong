@@ -1,1 +1,0 @@
-export declare function identity<T>(value: T): T;
