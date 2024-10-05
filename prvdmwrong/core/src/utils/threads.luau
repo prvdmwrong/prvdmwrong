@@ -23,5 +23,11 @@ function threads.spawn<Args...>(resume: (Args...) -> (), ...: Args...)
   task.spawn(thread, resume, thread, ...)
 end
 
+function threads.spawnCallbacks<Args...>(callbacks: { (Args...) -> () }, ...: Args...)
+  for _, callback in callbacks do
+    threads.spawn(callback, ...)
+  end
+end
+
 table.freeze(threads)
 return threads

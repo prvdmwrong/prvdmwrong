@@ -28,7 +28,7 @@ local function tiny_any(value)
   end
 end
 
-tiny.any = tiny_any() :: Checker<any>
+tiny.any = tiny_any :: Checker<any>
 
 tiny.boolean = tiny.typeof("boolean") :: Checker<boolean>
 tiny.buffer = tiny.typeof("buffer") :: Checker<buffer>
@@ -37,8 +37,8 @@ tiny.callback = tiny.typeof("function") :: Checker<(...unknown) -> ...unknown>
 tiny.none = tiny.typeof("nil") :: Checker<nil>
 tiny.string = tiny.typeof("string") :: Checker<string>
 tiny.table = tiny.typeof("table") :: Checker<{ [unknown]: unknown }>
-tiny.userdata = tiny.type("userdata") :: Checker<userdata>
-tiny.vector = tiny.type("vector") :: Checker<unknown>
+tiny.userdata = tiny.typeof("userdata") :: Checker<userdata>
+tiny.vector = tiny.typeof("vector") :: Checker<unknown>
 
 local function tiny_number(value)
   local valueType = typeof(value)

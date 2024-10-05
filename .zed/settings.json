@@ -1,13 +1,10 @@
-// Folder-specific settings
-//
-// For a full list of overridable settings, and general information on folder-specific settings,
-// see the documentation: https://zed.dev/docs/configuring-zed#settings-files
-// This file was @generated and is not intended for manual editing.
-// Run `lune run regen` to generate fresh workspace settings.
+// This file was @generated and should not be edited.
+// Run `lune run regen` to generate fresh Zed settings.
+
 {
   "languages": {
     "Luau": {
-      "formatter": {
+      "formmatter": {
         "external": {
           "arguments": [
             "-"
@@ -23,25 +20,28 @@
         "ext": {
           "fflags": {
             "enable_by_default": false,
-            "sync": true,
             "override": {
-              "LuauTypeSolverRelease": "644",
-              "LuauSolverV2": "True"
-            }
-          },
-          "prefer_worktree_binary": true,
-          "roblox": {
-            "enabled": true
+              "LuauSolverV2": "True",
+              "LuauTypeSolverRelease": "646",
+              "LuauUserDefinedTypeFunctions": "True",
+              "LuauUserDefinedTypeFunctionsSyntax": "True"
+            },
+            "sync": true
           }
         },
         "luau-lsp": {
           "require": {
             "directoryAliases": {
-              "@lune/": "~/.lune/.typedefs/0.8.8/",
-              "prvdmwrong/": "prvdmwrong/"
+              "@lune": "~/.lune/.typedefs/0.8.8/",
+              "core": "prvdmwrong/core/src",
+              "knit-compat": "prvdmwrong/knit-compat/src"
             },
             "mode": "relativeToFile"
           }
+        },
+        "prefer_worktree_binary": true,
+        "roblox": {
+          "enabled": true
         }
       }
     }
