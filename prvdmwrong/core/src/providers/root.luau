@@ -1,9 +1,9 @@
 local types = require("core/types")
 
-local function Root(): types.Root
+local function root(): types.Root
   local self = {} :: types.Root
 
   return self
 end
 
-return Root
+return root

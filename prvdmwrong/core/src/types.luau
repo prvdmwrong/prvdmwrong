@@ -36,31 +36,4 @@ export type Root = {
   useLifecycles: (self: Root, lifecycles: { Lifecycle<...unknown> }) -> Root,
 }
 
-export type PrvdNamespace = {
-  Root: () -> Root,
-  identifierOf: (object: unknown) -> string?,
-
-  Lifecycle: <Args...>(method: string, fireHandler: (self: Lifecycle<Args...>, Args...) -> ()) -> Lifecycle<Args...>,
-  fireConcurrent: <Args...>(self: Lifecycle<Args...>, Args...) -> (),
-  fireSequential: <Args...>(self: Lifecycle<Args...>, Args...) -> (),
-  providerInit: Lifecycle<Provider<unknown>>,
-  providerStart: Lifecycle<Provider<unknown>>,
-  providerStop: Lifecycle<Provider<unknown>>,
-
-  net: {
-    root: Root,
-  },
-
-  components: {
-    root: Root,
-  },
-}
-
-export type Prvd = typeof(setmetatable(
-  {} :: PrvdNamespace,
-  {} :: {
-    __call: <Self>(self: unknown, provider: Self) -> Provider<Self>,
-  }
-))
-
 return nil
