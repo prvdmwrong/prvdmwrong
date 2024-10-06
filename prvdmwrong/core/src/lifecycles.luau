@@ -20,6 +20,11 @@ local lifecycleRegistered = {}
 local lifecycleUnregistered = {}
 local lifecycleDestroying = {}
 
+--[=[
+  @class Lifecycles
+  @since 0.2
+  Custom lifecycle events for Prvd 'M Wrong providers. Providers with a lifecycle's specified method will register that lifecycle event.
+]=]
 local Lifecycles = {}
 Lifecycles.methodLifecycles = {} :: { [string]: { Lifecycle<...unknown> } }
 
@@ -30,6 +35,13 @@ local function findAndRemove<T>(from: { T }, toRemove: T)
   end
 end
 
+--[=[
+  Constructs and returns a new lifecycle object. Providers with the specified method will be registered.
+  @since 0.2
+  @param method string -- The provider method that this lifecycle should hook onto.
+  @param onFire (lifecycle: Lifecycle<Args...>, Args...) -> () -- A method to fire the lifecycle method. It receives itself and the arguments passed to it.
+  @return Lifecycle<Args...> -- A freshly constructed lifecycle object.
+]=]
 function Lifecycles.lifecycle<Args...>(
   method: string,
   onFire: (lifecycle: Lifecycle<Args...>, Args...) -> ()
@@ -111,16 +123,34 @@ function Lifecycles.lifecycle<Args...>(
   return self
 end
 
+--[=[
+  Spawns all callbacks of a lifecycle asynchronously.
+  @since 0.2
+  @param lifecycle Lifecycle<Args...> -- Lifecycle to spawn callbacks with.
+  @param ... Args... -- Arguments to call the callbacks with.
+]=]
 function Lifecycles.fireConcurrent<Args...>(lifecycle: Lifecycle<Args...>, ...: Args...)
   threads.spawnCallbacks(lifecycle.callbacks, ...)
 end
 
+--[=[
+  Calls all callbacks of a lifecycle sequentially.
+  @since 0.2
+  @param lifecycle Lifecycle<Args...> -- Lifecycle to call callbacks with.
+  @param ... Args... -- Arguments to call the callbacks with.
+]=]
 function Lifecycles.fireSequential<Args...>(lifecycle: Lifecycle<Args...>, ...: Args...)
   for _, callback in ipairs(lifecycle.callbacks) do
     callback(...)
   end
 end
 
+--[=[
+  Called when an object registers a lifecycle method. Listeners are expected to be infallible and non-yielding. The listener receives the callback.
+  @since 0.2
+  @param listener (lifecycle: Lifecycle<Args...>, callback: (Args...) -> () -- Called when any lifecycle registers a callback.
+  @return () -> () -- A callback that when called removes the listener.
+]=]
 function Lifecycles.onRegistered<Args...>(listener: (lifecycle: Lifecycle<Args...>, callback: (Args...) -> ()) -> ()): () -> ()
   if DISALLOW_MULTIPLE_LISTENERS then
     findAndRemove(lifecycleRegistered, listener)
@@ -133,6 +163,12 @@ function Lifecycles.onRegistered<Args...>(listener: (lifecycle: Lifecycle<Args..
   end
 end
 
+--[=[
+  Called when an object unregisters a lifecycle method. Listeners are expected to be infallible and non-yielding. The listener receives the callback.
+  @since 0.2
+  @param listener (lifecycle: Lifecycle<Args...>, callback: (Args...) -> ()) -> () -- Called when any lifecycle unregisters a callback.
+  @return () -> () -- A callback that when called removes the listener.
+]=]
 function Lifecycles.onUnregistered<Args...>(listener: (lifecycle: Lifecycle<Args...>, callback: (Args...) -> ()) -> ()): () -> ()
   if DISALLOW_MULTIPLE_LISTENERS then
     findAndRemove(lifecycleUnregistered, listener)
@@ -145,6 +181,12 @@ function Lifecycles.onUnregistered<Args...>(listener: (lifecycle: Lifecycle<Args
   end
 end
 
+--[=[
+  Called when a lifecycle is being destroyed. Listeners are expected to be infallible and non-yielding. The listener receives the lifecycle.
+  @since 0.2
+  @param listener (destroyedLifecycle: Lifecycle<Args...>) -> () -- Called when any lifecycle is being destroyed.
+  @return () -> () -- A callback that when called removes the listener.
+]=]
 function Lifecycles.onLifecycleDestroying<Args...>(listener: (destroyedLifecycle: Lifecycle<Args...>) -> ()): () -> ()
   if DISALLOW_MULTIPLE_LISTENERS then
     findAndRemove(lifecycleDestroying, listener)

@@ -1,0 +1,105 @@
+.prvdmwrong-api-top {
+  display: flex;
+  align-items: center;
+  margin: 0 !important;
+  flex-wrap: wrap;
+  margin-bottom: -0.33333em !important;
+
+  * {
+    font-size: 0.9em;
+  }
+
+  .prvdmwrong-api-kind {
+    font-weight: 500;
+    color: var(--md-code-hl-keyword-color);
+
+    &.prvdmwrong-api-functionkind {
+      color: var(--md-code-hl-function-color);
+    }
+  }
+
+  .prvdmwrong-api-header {
+    font-weight: 700;
+  }
+
+  .prvdmwrong-api-labels {
+    display: flex;
+    gap: 0.25em;
+    margin-left: auto;
+    font-size: 0.5em;
+
+    .prvdmwrong-api-since {
+      background-color: var(--md-default-fg-color);
+    }
+
+    .prvdmwrong-api-source {
+      background-color: var(--md-typeset-a-color);
+    }
+
+    * {
+      padding: 0.25em 0.5em;
+      border-radius: 0.25em;
+      color: var(--md-default-bg-color) !important;
+      transition: background-color 125ms;
+    }
+  }
+}
+
+.prvdmwrong-api-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+
+  .prvdmwrong-api-item {
+    display: flex;
+    gap: 0.5em;
+
+    .prvdmwrong-api-itemkind {
+      text-align: center;
+      vertical-align: middle;
+      user-select: none;
+      border-radius: 9999px;
+      flex-shrink: 0;
+      width: 1rem;
+      height: 1rem;
+      background-color: oklch(from var(--itemkind-color) l c h / 0.25);
+      color: var(--itemkind-color);
+      margin-top: 0.125rem;
+      font-size: 0.575rem;
+      font-family: var(--md-code-font-family);
+
+      &:has(.prvdmwrong-api-functionkind) {
+        --itemkind-color: var(--md-code-hl-function-color);
+      }
+    }
+
+    .prvdmwrong-api-iteminfo {
+      display: flex;
+      flex-direction: column;
+      color: var(--md-default-fg-color--light);
+      font-size: 0.875em;
+
+      a {
+        font-size: 1.25em;
+        color: var(--md-default-fg-color);
+      }
+    }
+  }
+}
+
+.prvdmwrong-api-param,
+.prvdmwrong-api-returns {
+  display: flex;
+  align-items: center;
+  gap: 0.125em;
+
+  & {
+    margin: 0 !important;
+  }
+}
+
+.prvdmwrong-api-type {
+  font-size: 0.666666em;
+  font-family: var(--md-code-font-family);
+  opacity: 0.75;
+}

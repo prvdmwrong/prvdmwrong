@@ -31,14 +31,14 @@ end
 
 for _, generatorFile in fs.readDir(PATH_GENERATORS) do
   local generatorPath = path(PATH_GENERATORS, generatorFile)
-  if not fs.isFile(path(PATH_GENERATORS, generatorFile)) or not generatorFile:find("%.luau$") then
-    continue
-  end
-
   local generator = require(generatorPath) :: any
   assert(types.Generator(generator))
   table.insert(generators, generator)
 end
+
+table.sort(generators, function(first: types.Generator, second: types.Generator)
+  return (first.loadOrder or 1) < (second.loadOrder or 1)
+end)
 
 for _, generator in generators do
   print("Generating", generator.of)

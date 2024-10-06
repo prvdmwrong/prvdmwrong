@@ -1,0 +1,69 @@
+site_name: Prvd 'M Wrong
+site_url: https://prvdmwrong.github.io/prvdmwrong
+site_description: Built on modern standards, you're simply going to build better Roblox games.
+repo_name: prvdmwrong/prvdmwrong
+repo_url: https://github.com/prvdmwrong/prvdmwrong
+
+theme:
+  name: material
+  font:
+    text: DM Sans
+    code: DM Mono
+
+plugins:
+  - search
+  - mike:
+      alias_type: symlink
+      canonical_version: null
+      css_dir: css
+      deploy_prefix: ""
+      javascript_dir: js
+      redirect_template: null
+      version_selector: true
+
+extra:
+  version:
+    provider: mike
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      title: On this page
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - docs/overrides/.icons
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_css:
+  - theme/api-reference.css
+
+nav:
+  - index.md
+  # TODO(znotfireman): Automate this... oh goodness
+  - API Reference:
+    - Core:
+      - Lifecycles:
+        - api-reference/core/lifecycles/index.md
+        - fireConcurrent: api-reference/core/lifecycles/functions/fireconcurrent.md
+        - fireSequential: api-reference/core/lifecycles/functions/firesequential.md
+        - lifecycle: api-reference/core/lifecycles/functions/lifecycle.md
+        - onRegistered: api-reference/core/lifecycles/functions/onregistered.md
+        - onUnregistered: api-reference/core/lifecycles/functions/onunregistered.md
