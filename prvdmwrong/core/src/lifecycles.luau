@@ -23,7 +23,7 @@ local lifecycleDestroying = {}
 --[=[
   @class Lifecycles
   @since 0.2
-  Custom lifecycle events for Prvd 'M Wrong providers. Providers with a lifecycle's specified method will register that lifecycle event.
+  APIs for creating custom provider lifecycle events. Providers with a lifecycle's specified method will register that lifecycle event.
 ]=]
 local Lifecycles = {}
 Lifecycles.methodLifecycles = {} :: { [string]: { Lifecycle<...unknown> } }
@@ -199,8 +199,9 @@ function Lifecycles.onLifecycleDestroying<Args...>(listener: (destroyedLifecycle
   end
 end
 
-Lifecycles.providerInit = Lifecycles.lifecycle("onInit", Lifecycles.fireSequential)
-Lifecycles.providerStart = Lifecycles.lifecycle("onStart", Lifecycles.fireConcurrent)
-Lifecycles.providerStop = Lifecycles.lifecycle("onStop", Lifecycles.fireConcurrent)
+-- NOTE(znotfireman): create "binder" functions for these with it`self`
+Lifecycles.providerInit = Lifecycles.lifecycle("onInit", Lifecycles.fireSequential) :: Lifecycle<()>
+Lifecycles.providerStart = Lifecycles.lifecycle("onStart", Lifecycles.fireConcurrent) :: Lifecycle<()>
+Lifecycles.providerStop = Lifecycles.lifecycle("onStop", Lifecycles.fireConcurrent) :: Lifecycle<()>
 
 return Lifecycles

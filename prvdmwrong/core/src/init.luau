@@ -1,18 +1,17 @@
 local Lifecycles = require("core/lifecycles")
+local Providers = require("core/providers")
 local nicknames = require("core/utils/nicknames")
-local root = require("core/providers/root")
-local types = require("core/types")
 
-export type Lifecycle<Args...> = types.Lifecycle<Args...>
-export type Provider<Self> = types.Provider<Self>
-export type Root = types.Root
-export type RootStatus = types.RootStatus
+export type Lifecycle<Args...> = Lifecycles.Lifecycle<Args...>
+export type Provider<Self> = Providers.Provider<Self>
+export type Root = Providers.Root
+export type RootStatus = Providers.RootStatus
 
 local prvd = table.freeze {
   version = _G.BUILD_VERSION,
 
   -- Core API
-  root = root,
+  root = Providers.root,
   nameOf = nicknames.nameOf,
 
   -- Lifecycle API
@@ -24,10 +23,10 @@ local prvd = table.freeze {
   providerStop = Lifecycles.providerStop,
 
   -- Net API
-  netRoot = root(),
+  netRoot = Providers.root(),
 
   -- Component API
-  componentRoot = root(),
+  componentRoot = Providers.root(),
 }
 
 setmetatable(prvd, {

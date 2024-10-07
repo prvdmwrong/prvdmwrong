@@ -56,7 +56,7 @@ end
 tiny.number = tiny_number :: Checker<number>
 
 local function tiny_integer(value)
-  local success, errMsg = t.number(value)
+  local success, errMsg = tiny.number(value)
   if not success then
     return false, errMsg or ""
   end

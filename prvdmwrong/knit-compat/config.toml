@@ -1,4 +1,10 @@
 [config]
 name = "Knit Compatibility for Prvd 'M Wrong"
 module = "Knit"
-description = "Prvd 'M Wrong drop in replacement for games made with Knit"
+
+[config.description]
+brief = "Build better games."
+technical = "Build better games."
+
+[config.docs]
+classes = []

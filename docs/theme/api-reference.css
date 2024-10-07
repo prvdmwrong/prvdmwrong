@@ -1,3 +1,55 @@
+.prvdmwrong-api-packagepage {
+  display: flex;
+  gap: 0.5em;
+
+  & .prvdmwrong-api-packagesidebar {
+    padding: 0;
+
+    .usage-instructions-hidden {
+      display: none !important;
+    }
+
+    .usage-instructions-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.25em;
+
+      font-size: 1.25em;
+      font-weight: 700;
+
+      #usage-instructions-select {
+        background-color: var(--md-default-fg-color);
+        color: var(--md-default-bg-color);
+        font: inherit;
+        font-size: 0.875em;
+        padding: 0.25em;
+        border-radius: 0.25em;
+      }
+    }
+
+    .usage-instructions-package {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.875em;
+      gap: 0.25em;
+
+      * {
+        margin: 0;
+      }
+
+      .usage-instructions-title {
+        margin-top: 1em;
+        font-size: 0.875em;
+        color: var(--md-default-fg-color--lighter);
+      }
+    }
+  }
+
+  h2 {
+    font-weight: 700;
+  }
+}
+
 .prvdmwrong-api-top {
   display: flex;
   align-items: center;
@@ -12,10 +64,6 @@
   .prvdmwrong-api-kind {
     font-weight: 500;
     color: var(--md-code-hl-keyword-color);
-
-    &.prvdmwrong-api-functionkind {
-      color: var(--md-code-hl-function-color);
-    }
   }
 
   .prvdmwrong-api-header {
@@ -27,13 +75,20 @@
     gap: 0.25em;
     margin-left: auto;
     font-size: 0.5em;
+    font-weight: 600;
 
     .prvdmwrong-api-since {
-      background-color: var(--md-default-fg-color);
+      background-color: var(--md-default-fg-color--lightest);
+      color: var(--md-default-fg-color--lighter) !important;
+      cursor: help;
     }
 
     .prvdmwrong-api-source {
-      background-color: var(--md-typeset-a-color);
+      background-color: var(--md-default-fg-color);
+
+      &:hover {
+        background-color: var(--md-typeset-a-color);
+      }
     }
 
     * {
@@ -62,14 +117,14 @@
       flex-shrink: 0;
       width: 1rem;
       height: 1rem;
-      background-color: oklch(from var(--itemkind-color) l c h / 0.25);
+      background-color: oklch(from var(--itemkind-color) l c h / 0.15);
       color: var(--itemkind-color);
-      margin-top: 0.125rem;
-      font-size: 0.575rem;
+      margin-top: 0.25rem;
+      font-size: 0.675rem;
       font-family: var(--md-code-font-family);
 
       &:has(.prvdmwrong-api-functionkind) {
-        --itemkind-color: var(--md-code-hl-function-color);
+        --itemkind-color: var(--md-code-hl-keyword-color);
       }
     }
 

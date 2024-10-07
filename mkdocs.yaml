@@ -7,8 +7,47 @@ repo_url: https://github.com/prvdmwrong/prvdmwrong
 theme:
   name: material
   font:
-    text: DM Sans
-    code: DM Mono
+    text: Jura
+    code: JetBrains Mono
+  custom_dir: docs/overrides
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: prvdmwrong-dark
+      toggle:
+        icon: octicons/sun-24
+        title: Switch to light theme
+    - media: "(prefers-color-scheme: light)"
+      scheme: prvdmwrong-light
+      toggle:
+        icon: octicons/moon-24
+        title: Switch to dark theme
+  icon:
+    repo: fontawesome/brands/github
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/flame-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+  features:
+    - content.tabs.link
+    - content.tooltips
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.expand
+    - search
+    - search.suggest
 
 plugins:
   - search
@@ -54,16 +93,26 @@ markdown_extensions:
 
 extra_css:
   - theme/api-reference.css
+  - theme/code.css
+  - theme/page.css
+  - theme/paragraph.css
+  - theme/prvdmwrong.css
 
 nav:
-  - index.md
+  - Home: index.md
   # TODO(znotfireman): Automate this... oh goodness
   - API Reference:
     - Core:
+      - api-reference/core/index.md
+      - Providers:
+        - api-reference/core/providers/index.md
+        - prvd: api-reference/core/providers/functions/prvd.md
+        - root: api-reference/core/providers/functions/root.md
       - Lifecycles:
         - api-reference/core/lifecycles/index.md
         - fireConcurrent: api-reference/core/lifecycles/functions/fireconcurrent.md
         - fireSequential: api-reference/core/lifecycles/functions/firesequential.md
         - lifecycle: api-reference/core/lifecycles/functions/lifecycle.md
+        - onLifecycleDestroying: api-reference/core/lifecycles/functions/onlifecycledestroying.md
         - onRegistered: api-reference/core/lifecycles/functions/onregistered.md
         - onUnregistered: api-reference/core/lifecycles/functions/onunregistered.md
