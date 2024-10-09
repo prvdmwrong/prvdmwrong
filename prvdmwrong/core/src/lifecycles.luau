@@ -1,6 +1,11 @@
 local assertion = require("core/utils/assertion")
 local threads = require("core/utils/threads")
 
+--[=[
+  @within Lifecycles
+  @interface Lifecycle<Args...>
+  Aye, Mustard on the beat ho
+]=]
 export type Lifecycle<Args...> = {
   callbacks: { (Args...) -> () },
   method: string,

@@ -1,107 +1,227 @@
 ---
 hide:
- - toc
+  - toc
 ---
 
 <!-- This file was @generated and should not be edited. -->
 <!-- Run `lune run regen` to generate fresh documentation. -->
 
 <section class="prvdmwrong-api-packagepage" markdown>
-
 <section markdown>
-
-<h1 class="prvdmwrong-api-top">
-<span class="prvdmwrong-api-header"> Prvd 'M Wrong </span>
+<h1 class="prvdmwrong-api-packageheader">
+<a class="prvdmwrong-api-wordmark" href="../">
+<img src="../../assets/wordmark-light.svg#only-light">
+<img src="../../assets/wordmark-dark.svg#only-dark">
+</a>
+<span class="prvdmwrong-api-packageslash">/</span>
+<span class="prvdmwrong-api-packagename">core</span>
 </h1>
 
 Core Prvd 'M Wrong functionality including providers, lifecycles, and module roots along with built-in components and networking libraries.
 
-## Providers
+```Luau
+local PlayerProvider = {}
+type Self = typeof(PlayerProvider)
+
+function PlayerProvider.onInit(self: Self)
+  self.playerAdded = prvd.lifecycle("onPlayerAdded", prvd.fireConcurrent)
+
+  local function onPlayerAdded(newPlayer: Player)
+    self.playerAdded:fire(newPlayer)
+  end
+
+  self.conn = Players.PlayerAdded:Connect(onPlayerAdded)
+  for _, existingPlayer in Players:GetPlayers() do
+    onPlayerAdded(newPlayer)
+  end
+end
+
+function PlayerProvider.onStop(self: Self)
+  self.playerAdded:destroy()
+  self.conn:Disconnect()
+end
+
+return prvd(PlayerProvider)
+```
+
+
+<h2>Providers</h2>
 
 APIs for creating top level providers that *provide* specific functionality in
 a game, along with creating starting roots for using providers.
 
 <section class="prvdmwrong-api-items">
+  <section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-typekind" title="Type definition">
+      T
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./types/provider">
+      Provider<Self>
+    </a>
+    Provider are objects that *provide* specific functions to a game. Providers
+can use lifecycles by specifying the lifecycle's method. Providers can be
+started using a root, which is a starting point for Prvd 'M Wrong games.
+  </section>
+</section>
 <section class="prvdmwrong-api-item">
-<span class="prvdmwrong-api-itemkind"><span class="prvdmwrong-api-functionkind" title="Function">f</span></span>
-<section class="prvdmwrong-api-iteminfo">
-<a href="providers/functions/prvd">prvd</a>
-Construct and returns a new provider. Providers *provide* specific functionality in a game.
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-typekind" title="Type definition">
+      T
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./types/root">
+      Root
+    </a>
+    Mustard on the beat ho
+  </section>
 </section>
-</section>
-
 <section class="prvdmwrong-api-item">
-<span class="prvdmwrong-api-itemkind"><span class="prvdmwrong-api-functionkind" title="Function">f</span></span>
-<section class="prvdmwrong-api-iteminfo">
-<a href="providers/functions/root">root</a>
-Construct and returns a new root. Roots are starting points for Prvd 'M Wrong games where providers can be bootstrapped.
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-typekind" title="Type definition">
+      T
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./types/startroot">
+      StartRoot
+    </a>
+    Pst. I see dead people.
+  </section>
 </section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/prvd">
+      prvd
+    </a>
+    Construct and returns a new provider. Providers *provide* specific functionality in a game.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/root">
+      root
+    </a>
+    Construct and returns a new root. Roots are starting points for Prvd 'M Wrong games where providers can be bootstrapped.
+  </section>
 </section>
 
-
 </section>
-
-## Lifecycles
+<h2>Lifecycles</h2>
 
 APIs for creating custom provider lifecycle events. Providers with a lifecycle's specified method will register that lifecycle event.
 
 <section class="prvdmwrong-api-items">
+  <section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-typekind" title="Type definition">
+      T
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./types/lifecycle">
+      Lifecycle<Args...>
+    </a>
+    Aye, Mustard on the beat ho
+  </section>
+</section>
 <section class="prvdmwrong-api-item">
-<span class="prvdmwrong-api-itemkind"><span class="prvdmwrong-api-functionkind" title="Function">f</span></span>
-<section class="prvdmwrong-api-iteminfo">
-<a href="lifecycles/functions/fireconcurrent">fireConcurrent</a>
-Spawns all callbacks of a lifecycle asynchronously.
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/fireconcurrent">
+      fireConcurrent
+    </a>
+    Spawns all callbacks of a lifecycle asynchronously.
+  </section>
 </section>
-</section>
-
 <section class="prvdmwrong-api-item">
-<span class="prvdmwrong-api-itemkind"><span class="prvdmwrong-api-functionkind" title="Function">f</span></span>
-<section class="prvdmwrong-api-iteminfo">
-<a href="lifecycles/functions/firesequential">fireSequential</a>
-Calls all callbacks of a lifecycle sequentially.
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/firesequential">
+      fireSequential
+    </a>
+    Calls all callbacks of a lifecycle sequentially.
+  </section>
 </section>
-</section>
-
 <section class="prvdmwrong-api-item">
-<span class="prvdmwrong-api-itemkind"><span class="prvdmwrong-api-functionkind" title="Function">f</span></span>
-<section class="prvdmwrong-api-iteminfo">
-<a href="lifecycles/functions/lifecycle">lifecycle</a>
-Constructs and returns a new lifecycle object. Providers with the specified method will be registered.
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/lifecycle">
+      lifecycle
+    </a>
+    Constructs and returns a new lifecycle object. Providers with the specified method will be registered.
+  </section>
 </section>
-</section>
-
 <section class="prvdmwrong-api-item">
-<span class="prvdmwrong-api-itemkind"><span class="prvdmwrong-api-functionkind" title="Function">f</span></span>
-<section class="prvdmwrong-api-iteminfo">
-<a href="lifecycles/functions/onlifecycledestroying">onLifecycleDestroying</a>
-Called when a lifecycle is being destroyed. Listeners are expected to be infallible and non-yielding. The listener receives the lifecycle.
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/onlifecycledestroying">
+      onLifecycleDestroying
+    </a>
+    Called when a lifecycle is being destroyed. Listeners are expected to be infallible and non-yielding. The listener receives the lifecycle.
+  </section>
 </section>
-</section>
-
 <section class="prvdmwrong-api-item">
-<span class="prvdmwrong-api-itemkind"><span class="prvdmwrong-api-functionkind" title="Function">f</span></span>
-<section class="prvdmwrong-api-iteminfo">
-<a href="lifecycles/functions/onregistered">onRegistered</a>
-Called when an object registers a lifecycle method. Listeners are expected to be infallible and non-yielding. The listener receives the callback.
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/onregistered">
+      onRegistered
+    </a>
+    Called when an object registers a lifecycle method. Listeners are expected to be infallible and non-yielding. The listener receives the callback.
+  </section>
 </section>
-</section>
-
 <section class="prvdmwrong-api-item">
-<span class="prvdmwrong-api-itemkind"><span class="prvdmwrong-api-functionkind" title="Function">f</span></span>
-<section class="prvdmwrong-api-iteminfo">
-<a href="lifecycles/functions/onunregistered">onUnregistered</a>
-Called when an object unregisters a lifecycle method. Listeners are expected to be infallible and non-yielding. The listener receives the callback.
-</section>
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/onunregistered">
+      onUnregistered
+    </a>
+    Called when an object unregisters a lifecycle method. Listeners are expected to be infallible and non-yielding. The listener receives the callback.
+  </section>
 </section>
 
-
 </section>
-
 
 </section>
 
 <section class="md-sidebar md-sidebar--secondary prvdmwrong-api-packagesidebar" markdown>
-
 <section class="prvdmwrong-api-usewith" markdown>
 <nav class="usage-instructions-nav">
 Use with
@@ -215,5 +335,4 @@ import * as prvd from "@prvdmwrong/core"
 </section>
 </section>
 
-</section>
-<script src="../../scripts/usewith.js"></script>
+<script src="../../scripts/usage-instructions.js"></script>

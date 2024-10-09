@@ -27,11 +27,11 @@
   --md-code-fg-color: var(--prvdmwrong-gray-8);
   --md-code-bg-color: var(--prvdmwrong-gray-3);
 
-  --md-code-hl-number-color: oklch(0.8 0.2 40);
-  --md-code-hl-special-color: oklch(0.75 0.2 40);
+  --md-code-hl-number-color: oklch(0.8 var(--prvdmwrong-accent-chroma) var(--prvdmwrong-accent-hue));
+  --md-code-hl-special-color: oklch(0.75 var(--prvdmwrong-accent-chroma) var(--prvdmwrong-accent-hue));
   --md-code-hl-function-color: var(--prvdmwrong-gray-8);
-  --md-code-hl-constant-color: oklch(0.65 0.2 40);
-  --md-code-hl-keyword-color: oklch(0.65 0.2 40);
+  --md-code-hl-constant-color: oklch(0.65 var(--prvdmwrong-accent-chroma) var(--prvdmwrong-accent-hue));
+  --md-code-hl-keyword-color: oklch(0.65 var(--prvdmwrong-accent-chroma) var(--prvdmwrong-accent-hue));
   --md-code-hl-string-color: oklch(from var(--prvdmwrong-accent) 0.9 0.15 h);
   --md-code-hl-name-color: var(--prvdmwrong-gray-8);
   --md-code-hl-operator-color: oklch(from var(--md-default-fg-color) 0.6 c h);

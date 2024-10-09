@@ -2,21 +2,24 @@
 <!-- Run `lune run regen` to generate fresh documentation. -->
 
 <h1 class="prvdmwrong-api-top">
-<span>
-<span class="prvdmwrong-api-header"> fireConcurrent </span>
-</span>
-<span class="prvdmwrong-api-labels">
-<span class="prvdmwrong-api-since", title="Available since version 0.2">
-since 0.2
-</span>
-<a class="prvdmwrong-api-source" href=https://github.com/prvdmwrong/prvdmwrong/tree/0.2/prvdmwrong/core/src/lifecycles.luau#L132 title="View source code on GitHub">
-view code
-</a>
-</span>
+  <span>
+    <span class="prvdmwrong-api-kind prvdmwrong-api-functionkind">
+      function
+    </span>
+    <span class="prvdmwrong-api-header">
+      fireConcurrent
+    </span>
+  </span>
+  <span class="prvdmwrong-api-labels">
+    <a class="prvdmwrong-api-source" href="https://github.com/prvdmwrong/prvdmwrong/blob/0.2/prvdmwrong/core/src/lifecycles.luau#L137" title="View source code on GitHub">
+    view code
+    </a>
+  </span>
 </h1>
 
-```Luau
-function prvd.fireConcurrent(
+<!-- Hack: TypeScript has better syntax highlighting than MkDocs flavored Luau lol -->
+```TypeScript
+fireConcurrent(
 	lifecycle: Lifecycle<Args...>
 	...: Args...
 ): ()
@@ -27,15 +30,17 @@ Spawns all callbacks of a lifecycle asynchronously.
 ## Parameters
 
 <h3 class="prvdmwrong-api-param">
-lifecycle
-<span class="prvdmwrong-api-type">: Lifecycle&lt;Args...&gt; </span>
+  <span class="prvdmwrong-api-type">
+    lifecycle: Lifecycle<Args...>
+  </span>
 </h3>
 
 Lifecycle to spawn callbacks with.
 
 <h3 class="prvdmwrong-api-param">
-...
-<span class="prvdmwrong-api-type">: Args... </span>
+  <span class="prvdmwrong-api-type">
+    ...: Args...
+  </span>
 </h3>
 
 Arguments to call the callbacks with.

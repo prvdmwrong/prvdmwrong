@@ -1,5 +1,19 @@
 local Lifecycles = require("core/lifecycles")
 
+--[=[
+  @within Providers
+  @interface Provider<Self>
+
+  Provider are objects that *provide* specific functions to a game. Providers
+  can use lifecycles by specifying the lifecycle's method. Providers can be
+  started using a root, which is a starting point for Prvd 'M Wrong games.
+
+  .loadOrder number? -- Wow
+  .name string? -- Wow
+  .onInit (self: Provider<Self>) -> ()? -- Wow
+  .onStart (self: Provider<Self>) -> ()? -- Wow
+  .onStop (self: Provider<Self>) -> ()? -- Wow
+]=]
 export type Provider<Self> = Self & {
   loadOrder: number?,
   name: string?,
@@ -9,6 +23,13 @@ export type Provider<Self> = Self & {
   onStop: (self: Provider<Self>) -> ()?,
 }
 
+--[=[
+  @within Providers
+  @interface StartRoot
+
+  .useModule (self: Root, module: ModuleScript) -> Root -- Wow
+  Pst. I see dead people.
+]=]
 export type StartRoot = {
   status: (self: StartRoot) -> RootStatus,
   stop: (self: StartRoot) -> (),
@@ -19,7 +40,7 @@ export type StartRoot = {
   @interface Root
 
   .useModule (self: Root, module: ModuleScript) -> Root -- Wow
-  Fein
+  Mustard on the beat ho
 ]=]
 export type Root = {
   start: (self: Root) -> StartRoot,
@@ -36,7 +57,7 @@ export type Root = {
 
 --[=[
   @class Providers
-  @since 0.1
+
   APIs for creating top level providers that *provide* specific functionality in
   a game, along with creating starting roots for using providers.
 ]=]

@@ -1,6 +1,26 @@
+:root {
+  --prvdmwrong-api-functioncolor: oklch(0.7 var(--prvdmwrong-accent-chroma) var(--prvdmwrong-accent-hue));
+  --prvdmwrong-api-typecolor: oklch(0.7 var(--prvdmwrong-accent-chroma) 280);
+
+  :has(.prvdmwrong-api-functionkind) {
+    --itemkind-color: var(--prvdmwrong-api-functioncolor);
+  }
+
+  :has(.prvdmwrong-api-typekind) {
+    --itemkind-color: var(--prvdmwrong-api-typecolor);
+  }
+}
+
 .prvdmwrong-api-packagepage {
   display: flex;
-  gap: 0.5em;
+  justify-content: space-between;
+  gap: 2rem;
+
+  @media screen and (min-width: 80rem) {
+    .md-content:has(&) {
+      max-width: 53rem;
+    }
+  }
 
   & .prvdmwrong-api-packagesidebar {
     padding: 0;
@@ -12,34 +32,25 @@
     .usage-instructions-nav {
       display: flex;
       align-items: center;
-      gap: 0.25em;
+      gap: 0.25rem;
 
-      font-size: 1.25em;
+      font-size: 1rem;
       font-weight: 700;
-
-      #usage-instructions-select {
-        background-color: var(--md-default-fg-color);
-        color: var(--md-default-bg-color);
-        font: inherit;
-        font-size: 0.875em;
-        padding: 0.25em;
-        border-radius: 0.25em;
-      }
     }
 
     .usage-instructions-package {
       display: flex;
       flex-direction: column;
-      font-size: 0.875em;
-      gap: 0.25em;
+      font-size: 0.75rem;
+      gap: 0.125rem;
 
       * {
         margin: 0;
       }
 
       .usage-instructions-title {
-        margin-top: 1em;
-        font-size: 0.875em;
+        margin-top: 0.75rem;
+        font-size: 0.75rem;
         color: var(--md-default-fg-color--lighter);
       }
     }
@@ -63,7 +74,7 @@
 
   .prvdmwrong-api-kind {
     font-weight: 500;
-    color: var(--md-code-hl-keyword-color);
+    color: var(--itemkind-color);
   }
 
   .prvdmwrong-api-header {
@@ -87,7 +98,8 @@
       background-color: var(--md-default-fg-color);
 
       &:hover {
-        background-color: var(--md-typeset-a-color);
+        background-color: var(--md-accent-fg-color);
+        color: var(--md-default-fg-color) !important;
       }
     }
 
@@ -95,8 +107,49 @@
       padding: 0.25em 0.5em;
       border-radius: 0.25em;
       color: var(--md-default-bg-color) !important;
-      transition: background-color 125ms;
+      transition: background-color 125ms, color 125ms;
     }
+  }
+}
+
+.prvdmwrong-api-packageheader {
+  display: flex;
+  align-items: center;
+  margin: 0 !important;
+  flex-wrap: wrap;
+  margin-bottom: -0.33333em !important;
+  gap: 0.125rem;
+
+  .prvdmwrong-api-packageslash {
+    font-size: 0.875rem;
+    color: var(--md-default-fg-color--lightest);
+  }
+
+  .prvdmwrong-api-wordmark {
+    display: flex;
+    transition: opacity 125ms;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+
+    &::before {
+      content: "@";
+      line-height: 100%;
+      color: var(--md-default-fg-color);
+    }
+
+    img {
+      display: block;
+      width: auto;
+      height: 1.8rem;
+    }
+  }
+
+  .prvdmwrong-api-packagename {
+    line-height: 25%;
+    margin-bottom: 0.2rem;
   }
 }
 
@@ -122,10 +175,7 @@
       margin-top: 0.25rem;
       font-size: 0.675rem;
       font-family: var(--md-code-font-family);
-
-      &:has(.prvdmwrong-api-functionkind) {
-        --itemkind-color: var(--md-code-hl-keyword-color);
-      }
+      cursor: help;
     }
 
     .prvdmwrong-api-iteminfo {

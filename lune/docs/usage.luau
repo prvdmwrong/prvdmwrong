@@ -1,4 +1,4 @@
-local types = require("../../types")
+local types = require("./types")
 
 export type Instruction = {
   title: string,

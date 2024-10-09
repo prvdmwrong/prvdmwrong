@@ -7,11 +7,11 @@
       function
     </span>
     <span class="prvdmwrong-api-header">
-      root
+      $name
     </span>
   </span>
   <span class="prvdmwrong-api-labels">
-    <a class="prvdmwrong-api-source" href="https://github.com/prvdmwrong/prvdmwrong/blob/0.2/prvdmwrong/core/src/providers.luau#L87" title="View source code on GitHub">
+    <a class="prvdmwrong-api-source" href="$source_url" title="View source code on GitHub">
     view code
     </a>
   </span>
@@ -19,18 +19,7 @@
 
 <!-- Hack: TypeScript has better syntax highlighting than MkDocs flavored Luau lol -->
 ```TypeScript
-root(): Root
+$signature
 ```
 
-Construct and returns a new root. Roots are starting points for Prvd 'M Wrong games where providers can be bootstrapped.
-
-## Returns
-
-<h3 class="prvdmwrong-api-return">
-  <span class="prvdmwrong-api-type">
-    Root
-  </span>
-</h3>
-
-A newly constructed root.
-
+$description

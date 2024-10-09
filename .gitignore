@@ -25,12 +25,11 @@ dist
 out
 site
 
+doc.build
+
 package-lock.json
 pnpm-lock.yaml
 wally.lock
 *.lock
-
-
-# Added by cargo
 
 /target

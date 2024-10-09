@@ -1,17 +1,20 @@
 ---
 hide:
- - toc
+  - toc
 ---
 
 <!-- This file was @generated and should not be edited. -->
 <!-- Run `lune run regen` to generate fresh documentation. -->
 
 <section class="prvdmwrong-api-packagepage" markdown>
-
 <section markdown>
-
-<h1 class="prvdmwrong-api-top">
-<span class="prvdmwrong-api-header"> Knit Compatibility for Prvd 'M Wrong </span>
+<h1 class="prvdmwrong-api-packageheader">
+<a class="prvdmwrong-api-wordmark" href="../">
+<img src="../../assets/wordmark-light.svg#only-light">
+<img src="../../assets/wordmark-dark.svg#only-dark">
+</a>
+<span class="prvdmwrong-api-packageslash">/</span>
+<span class="prvdmwrong-api-packagename">knit-compat</span>
 </h1>
 
 Build better games.
@@ -20,7 +23,6 @@ Build better games.
 </section>
 
 <section class="md-sidebar md-sidebar--secondary prvdmwrong-api-packagesidebar" markdown>
-
 <section class="prvdmwrong-api-usewith" markdown>
 <nav class="usage-instructions-nav">
 Use with
@@ -134,5 +136,4 @@ import * as Knit from "@prvdmwrong/knit-compat"
 </section>
 </section>
 
-</section>
-<script src="../../scripts/usewith.js"></script>
+<script src="../../scripts/usage-instructions.js"></script>

@@ -67,10 +67,10 @@ function ZedGenerator:generate(packages: { types.PackageData })
   fs.writeFile(
     PATH_ZED_SETTINGS,
     StringBuilder()
-      :appendLine("// This file was @generated and should not be edited.")
-      :appendLine("// Run `lune run regen` to generate fresh Zed settings.")
-      :appendLine()
-      :appendLine(serde.encode("json", newSettings, true))
+      :appendLn("// This file was @generated and should not be edited.")
+      :appendLn("// Run `lune run regen` to generate fresh Zed settings.")
+      :appendLn()
+      :appendLn(serde.encode("json", newSettings, true))
       :build()
   )
 end

@@ -1,6 +1,6 @@
-type StringBuilder = {
+export type StringBuilder = {
   append: (self: StringBuilder, ...string) -> StringBuilder,
-  appendLine: (self: StringBuilder, ...string) -> StringBuilder,
+  appendLn: (self: StringBuilder, ...string) -> StringBuilder,
   appendStringBuilder: (self: StringBuilder, build: StringBuilder) -> StringBuilder,
   indent: (self: StringBuilder) -> StringBuilder,
   unIndent: (self: StringBuilder) -> StringBuilder,
@@ -22,7 +22,7 @@ local function StringBuilder(initial: string?)
     return self
   end
 
-  function self:appendLine(...)
+  function self:appendLn(...)
     local line = ("  "):rep(indent) .. table.concat({ ... }, " ")
     line = line:gsub("\n", "\n" .. ("  "):rep(indent))
     if select("#", ...) == 0 then

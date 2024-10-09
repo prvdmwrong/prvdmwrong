@@ -7,7 +7,7 @@ local types = require("./types")
 
 local PATH_PACKAGES_RELATIVE = path("prvdmwrong")
 local PATH_PACKAGES = path(process.cwd, PATH_PACKAGES_RELATIVE)
-local PATH_GENERATORS = path(process.cwd, ".lune", "regen", "generators")
+local PATH_GENERATORS = path(process.cwd, "lune", "regen", "generators")
 
 local packages: { types.PackageData } = {}
 local generators: { types.Generator } = {}

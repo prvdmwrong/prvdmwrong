@@ -13,11 +13,13 @@
   --prvdmwrong-gray-9: oklch(0.95 var(--prvdmwrong-chroma) var(--prvdmwrong-hue));
   --prvdmwrong-gray-10: oklch(1 var(--prvdmwrong-chroma) var(--prvdmwrong-hue));
 
-  --prvdmwrong-accent: oklch(0.6 0.186 52.985);
-  --prvdmwrong-accent-dark: oklch(0.55 0.186 52.985);
-  --prvdmwrong-accent-darker: oklch(0.4 0.186 52.985);
-  --prvdmwrong-accent-light: oklch(0.65 0.186 52.985);
-  --prvdmwrong-accent-lighter: oklch(0.7 0.186 52.985);
+  --prvdmwrong-accent-hue: 50;
+  --prvdmwrong-accent-chroma: 0.15;
+  --prvdmwrong-accent: oklch(0.6 var(--prvdmwrong-accent-chroma) var(--prvdmwrong-accent-hue));
+  --prvdmwrong-accent-dark: oklch(0.55 var(--prvdmwrong-accent-chroma) var(--prvdmwrong-accent-hue));
+  --prvdmwrong-accent-darker: oklch(0.4 var(--prvdmwrong-accent-chroma) var(--prvdmwrong-accent-hue));
+  --prvdmwrong-accent-light: oklch(0.65 var(--prvdmwrong-accent-chroma) var(--prvdmwrong-accent-hue));
+  --prvdmwrong-accent-lighter: oklch(0.7 var(--prvdmwrong-accent-chroma) var(--prvdmwrong-accent-hue));
 }
 
 [data-md-color-scheme="prvdmwrong-dark"] {
@@ -108,7 +110,7 @@
   --md-footer-fg-color: var(--prvdmwrong-gray-2);
   --md-footer-fg-color--light: var(--prvdmwrong-gray-3);
   --md-footer-fg-color--lighter: var(--prvdmwrong-gray-4);
-  --md-footer-bg-color: var(--prvdmwrong-gray-7);
+  --md-footer-bg-color: var(--prvdmwrong-gray-9);
   --md-footer-bg-color--dark: var(--prvdmwrong-gray-8);
 }
 

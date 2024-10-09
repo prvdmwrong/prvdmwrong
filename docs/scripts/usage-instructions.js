@@ -10,15 +10,12 @@ try {
   function toggleInstructions() {
     const currentPackage = select.value;
     for (const [package, elements] of packageElements) {
-      console.log(currentPackage, package)
       if (currentPackage == package) {
         for (const element of elements) {
-          console.log("showing", element)
           element.classList.remove("usage-instructions-hidden")
         }
       } else {
         for (const element of elements) {
-          console.log("hiding", element)
           element.classList.add("usage-instructions-hidden")
         }
       }
