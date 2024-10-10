@@ -1,5 +1,7 @@
 local Lifecycles = require("core/lifecycles")
 
+type Set<T> = { [T]: true }
+
 --[=[
   @within Providers
   @interface Provider<Self>
@@ -85,6 +87,8 @@ end
   @return Root -- A newly constructed root.
 ]=]
 function Providers.root(): Root
+  local providerDependencies: { [Provider<unknown>]: Set<Provider<unknown>> } = {}
+
   error("not implemented")
 end
 
