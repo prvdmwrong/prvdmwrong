@@ -19,7 +19,10 @@ end
 local function plainCode(code: string): (types.PackageData) -> string
   return function(package: types.PackageData): string
     return (
-      code:gsub("$name", package.name):gsub("$package", package.relativePath):gsub("$module", package.config.module)
+      code
+        :gsub("$name", package.name)
+        :gsub("$package", package.relativePath)
+        :gsub("$module", package.config.config.module)
     )
   end
 end

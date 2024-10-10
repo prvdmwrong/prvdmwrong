@@ -11,6 +11,58 @@
   }
 }
 
+.prvdmwrong-api-packages {
+  border: oklch(from var(--md-default-fg-color--lightest) l c h / 0.5) solid 0.075rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    .prvdmwrong-api-package {
+      display: block;
+      margin: 0 !important;
+      padding: 0 !important;
+
+      a {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.5rem;
+        color: var(--md-default-fg-color) !important;
+
+        transition: background-color 125ms;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background-color: oklch(from var(--md-default-fg-color--lightest) l c h / 0.125);
+        }
+      }
+
+      h3 {
+        display: flex;
+        align-items: center;
+        margin: 0 !important;
+        flex-wrap: wrap;
+        margin-bottom: -0.33333em !important;
+        gap: 0.125rem;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}
+
 .prvdmwrong-api-packagepage {
   display: flex;
   justify-content: space-between;

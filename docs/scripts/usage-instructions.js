@@ -1,3 +1,5 @@
+/// <reference lib="dom" />
+
 try {
   const select = document.getElementById("usage-instructions-select")
   const selectOptions = [...select.options].map(o => o.value)

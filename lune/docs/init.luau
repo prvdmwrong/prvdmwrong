@@ -8,6 +8,7 @@ local datetime = require("@lune/datetime")
 local fs = require("@lune/fs")
 local path = require("../utils/path")
 local process = require("@lune/process")
+local rootConfig = require("./root-config")
 local serde = require("@lune/serde")
 local stringer = require("../utils/stringer")
 local templates = require("./templates")
@@ -102,8 +103,15 @@ end
 
 reset()
 
+local generatedPackages: { [string]: StringBuilder.StringBuilder } = {}
+local packageNames: { string } = {}
 for _, package in packages do
   print("Documenting package", package.relativePath)
+
+  table.insert(packageNames, package.name)
+  generatedPackages[package.name] = StringBuilder(
+    templates.get("main-package"):gsub("$name", package.name):gsub("$description", package.config.config.description)
+  )
 
   local extracted = Moonwave.extract(package.relativePath)
   local packageSections: { [string]: StringBuilder.StringBuilder } = {}
@@ -315,25 +323,53 @@ for _, package in packages do
     templates
       .get("package")
       :gsub("$name", package.name)
-      :gsub("$technical_description", package.config.description.technical)
+      :gsub("$technical_description", package.config.config.description)
       :gsub("$class_sections", sortedPackageSections:build())
       :gsub("$usage_instructions", packageUsageInstructions:build())
   )
 
   writePages({ index = packagePage }, path(PATH_API_REFERENCE, package.name))
-  fs.writeFile(
-    PATH_DOC_BUILD,
-    StringBuilder()
-      :appendLn("# This file was @generated and is not intended for manual editing.")
-      :appendLn("# It is used to store metadata between documentation builds.")
-      :appendLn("# Run `lune run regen` to generate fresh documentation files.")
-      :appendLn()
-      :appendLn(serde.encode("toml", {
-        build = {
-          generated_at = datetime.now():toIsoDate(),
-          generated_files = generatedPages,
-        },
-      }, true))
-      :build()
-  )
 end
+
+local renderedPackages: { StringBuilder.StringBuilder } = {}
+
+for _, package in rootConfig.docs.sort_order do
+  table.insert(renderedPackages, generatedPackages[package])
+  table.remove(packageNames, table.find(packageNames, package))
+  generatedPackages[package] = nil :: any
+end
+
+table.sort(packageNames)
+
+for _, package in packageNames do
+  table.insert(renderedPackages, generatedPackages[package])
+end
+
+local mainPagePackages = StringBuilder()
+
+for _, builder in renderedPackages do
+  mainPagePackages:appendStringBuilder(builder)
+end
+
+print("Documenting API reference")
+
+writePages(
+  { index = StringBuilder(templates.get("main"):gsub("$packages", mainPagePackages:build())) },
+  PATH_API_REFERENCE
+)
+
+fs.writeFile(
+  PATH_DOC_BUILD,
+  StringBuilder()
+    :appendLn("# This file was @generated and is not intended for manual editing.")
+    :appendLn("# It is used to store metadata between documentation builds.")
+    :appendLn("# Run `lune run regen` to generate fresh documentation files.")
+    :appendLn()
+    :appendLn(serde.encode("toml", {
+      build = {
+        generated_at = datetime.now():toIsoDate(),
+        generated_files = generatedPages,
+      },
+    }, true))
+    :build()
+)

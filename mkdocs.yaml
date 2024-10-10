@@ -109,8 +109,11 @@ extra_javascript:
 
 nav:
   - Home: index.md
+  - Tutorials:
+    - tutorials/index.md
   # TODO(znotfireman): Automate this... oh goodness
   - API Reference:
+    - api-reference/index.md
     - Core:
       - api-reference/core/index.md
       - Providers:

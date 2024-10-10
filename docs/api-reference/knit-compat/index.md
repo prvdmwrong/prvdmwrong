@@ -10,14 +10,14 @@ hide:
 <section markdown>
 <h1 class="prvdmwrong-api-packageheader">
 <a class="prvdmwrong-api-wordmark" href="../">
-<img src="../../assets/wordmark-light.svg#only-light">
-<img src="../../assets/wordmark-dark.svg#only-dark">
+<img src="../../assets/wordmark-light.svg#only-light"/>
+<img src="../../assets/wordmark-dark.svg#only-dark"/>
 </a>
 <span class="prvdmwrong-api-packageslash">/</span>
 <span class="prvdmwrong-api-packagename">knit-compat</span>
 </h1>
 
-Build better games.
+Drop-in Prvd 'M Wrong replacement for games that use Knit.
 
 
 </section>

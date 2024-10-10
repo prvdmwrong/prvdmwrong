@@ -37,6 +37,9 @@
 }
 
 .md-footer-meta {
+  display: flex;
+  justify-content: center;
+  opacity: 0.4;
   background-color: transparent !important;
 }
 
@@ -57,4 +60,14 @@
 
 .md-footer__link--prev:hover .md-footer__button.md-icon {
   transform: translateX(-0.5rem);
+}
+
+@media screen and (min-width: 80rem) {
+
+  .md-footer__inner,
+  .prvdmwrong-footer {
+    max-width: calc(40rem - 1rem) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }

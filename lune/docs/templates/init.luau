@@ -8,6 +8,8 @@ type MarkdownTemplates = {
   ["function"]: string,
   ["function-param"]: string,
   ["function-return"]: string,
+  main: string,
+  ["main-package"]: string,
   package: string,
   ["package-class"]: string,
   ["package-class-item"]: string,

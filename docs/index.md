@@ -1,17 +1,37 @@
-# Build better games.
+---
+  template: home.html
+  hide:
+    - navigation
+    - toc
+---
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+<section class="prvdmwrong-home" markdown>
 
-## Commands
+<section class="prvdmwrong-home-hero" markdown>
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+<h1>Build better games.</h1>
 
-## Project layout
+<p>
+Prvd 'M Wrong is a Roblox framework built with type-safe APIs, dependency
+resolution, and unparalleled DX so you can build better games. Zero bloat,
+plugins, or lock-in required.
+</p>
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+<nav markdown>
+<a href="./tutorials">Learn Prvd 'M Wrong</a>
+<a href="https://github.com/prvdmwrong/prvdmwrong/tree/0.2" markdown>:octicons-mark-github-16: GitHub</a>
+</nav>
+
+<span style="height: 2.5rem"/>
+
+</section>
+
+<aside class="prvdmwrong-home-scrolldown">
+Scroll down for a tour of Prvd 'M Wrong.
+</aside>
+
+<section class="prvdmwrong-home-belowfold" markdown>
+
+</section>
+
+</section>

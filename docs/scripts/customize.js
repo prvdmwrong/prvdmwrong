@@ -1,3 +1,5 @@
+/// <reference lib="dom" />
+
 try {
   (function monospaceFont() {
     const MONOSPACE_FONTS = [
