@@ -245,7 +245,7 @@ for _, package in packages do
     for _, class in classNames do
       local itemBuilder = classItems[class]
       sortedClassItems:appendStringBuilder(itemBuilder)
-      local packageItemBuilder = classItems[class]
+      local packageItemBuilder = packageClassItems[class]
       sortedPackageClassItems:appendStringBuilder(packageItemBuilder)
     end
 

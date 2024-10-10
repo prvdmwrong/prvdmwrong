@@ -58,7 +58,7 @@ a game, along with creating starting roots for using providers.
     </span>
   </span>
   <section class="prvdmwrong-api-iteminfo">
-    <a href="./types/provider">
+    <a href="providers/types/provider">
       Provider<Self>
     </a>
     Provider are objects that *provide* specific functions to a game. Providers
@@ -73,7 +73,7 @@ started using a root, which is a starting point for Prvd 'M Wrong games.
     </span>
   </span>
   <section class="prvdmwrong-api-iteminfo">
-    <a href="./types/root">
+    <a href="providers/types/root">
       Root
     </a>
     Mustard on the beat ho
@@ -86,7 +86,7 @@ started using a root, which is a starting point for Prvd 'M Wrong games.
     </span>
   </span>
   <section class="prvdmwrong-api-iteminfo">
-    <a href="./types/startroot">
+    <a href="providers/types/startroot">
       StartRoot
     </a>
     Pst. I see dead people.
@@ -132,7 +132,7 @@ APIs for creating custom provider lifecycle events. Providers with a lifecycle's
     </span>
   </span>
   <section class="prvdmwrong-api-iteminfo">
-    <a href="./types/lifecycle">
+    <a href="lifecycles/types/lifecycle">
       Lifecycle<Args...>
     </a>
     Aye, Mustard on the beat ho
