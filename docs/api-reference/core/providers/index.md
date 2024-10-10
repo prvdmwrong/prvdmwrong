@@ -1,22 +1,78 @@
-<div class="pmwdoc-reference-breadcrumbs">
-<a href="../../">API Reference</a>
-<a href="../">Core</a>
-</div>
+<!-- This file was @generated and should not be edited. -->
+<!-- Run `lune run regen` to generate fresh documentation. -->
 
-# :octicons-list-unordered-16: Providers
+# Providers
 
-Fundamental primitives for creating and using game providers.
+APIs for creating top level providers that *provide* specific functionality in
+a game, along with creating starting roots for using providers.
 
-## Members
+<section class="prvdmwrong-api-items">
+  <section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-typekind" title="Type definition">
+      T
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./types/provider">
+      Provider<Self>
+    </a>
+    Provider are objects that *provide* specific functions to a game. Providers
+can use lifecycles by specifying the lifecycle's method. Providers can be
+started using a root, which is a starting point for Prvd 'M Wrong games.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-typekind" title="Type definition">
+      T
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./types/root">
+      Root
+    </a>
+    Mustard on the beat ho
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-typekind" title="Type definition">
+      T
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./types/startroot">
+      StartRoot
+    </a>
+    Pst. I see dead people.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/prvd">
+      prvd
+    </a>
+    Construct and returns a new provider. Providers *provide* specific functionality in a game.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/root">
+      root
+    </a>
+    Construct and returns a new root. Roots are starting points for Prvd 'M Wrong games where providers can be bootstrapped.
+  </section>
+</section>
 
-- [:octicons-package-16: Provider](provider.md) · Construct TypeScript providers
-  within Oh My Prvd
-- [:octicons-package-16: new](provider.md) · Construct Luau providers within Oh
-  My Prvd
-- [:octicons-list-ordered-16: StartupStatus](startup-status.md) · All startup
-  phases Prvd 'M Wrong will be in
-- [:octicons-code-16: preload](preload.md) · Preload an array of ModuleScripts
-- [:octicons-code-16: start](start.md) · Starts Prvd 'M Wrong
-- [:octicons-workflow-16: awaitStart](await-start.md) · Yields until startup
-  finishes
-- [:octicons-workflow-16: onStart](on-start.md) · Spawned when startup finishes
+</section>

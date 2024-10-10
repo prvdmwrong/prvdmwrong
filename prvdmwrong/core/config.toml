@@ -1,0 +1,7 @@
+[config]
+name = "Prvd 'M Wrong"
+module = "prvd"
+description = "Core Prvd 'M Wrong functionality along with built-in components and networking libraries."
+
+[docs]
+classes = ["Providers", "Lifecycles"]

@@ -1,5 +1,0 @@
-[config]
-  name = "components"
-  display = "Components for Prvd 'M Wrong"
-  description = "Implements a component system for providers."
-  dependencies = ["core"]

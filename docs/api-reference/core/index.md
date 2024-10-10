@@ -1,105 +1,312 @@
 ---
 hide:
+  - toc
+---
 
-- toc
+<!-- This file was @generated and should not be edited. -->
+<!-- Run `lune run regen` to generate fresh documentation. -->
 
-<div class="pmwdoc-reference-breadcrumbs">
-<a href="../">API Reference</a>
-</div>
-
-# :octicons-list-unordered-16: Core
-
-This package contains fundamental primitives for creating and using game
-providers. Contains everything needed to bootstrap a Roblox game and utilities
-for extending the core Prvd 'M Wrong package.
-
-Install this through your preferred package manager:
-
-=== "Wally"
-
-    ```toml
-    [dependencies]
-      prvd = "prvdmwrong/core@0.2.0-dev.5"
-    ```
-
-=== "Pesde"
-
-    ```yaml
-    dependencies:
-    - prvd:
-      - name: prvdmwrong/core
-      - version: 0.2.0-dev.5
-    ```
-
-=== "NPM"
-
-    ```bash
-    $ npm i @prvdmwrong/core
-    ```
-
-=== "PNPM"
-
-    ```bash
-    $ pnpm i @prvdmwrong/core
-    ```
-
-=== "Yarn"
-
-    ```bash
-    $ yarn add @prvdmwrong/core
-    ```
-
-<section class="grid" markdown>
-
+<section class="prvdmwrong-api-packagepage" markdown>
 <section markdown>
+<h1 class="prvdmwrong-api-packageheader">
+<a class="prvdmwrong-api-wordmark" href="../">
+<img src="../../assets/wordmark-light.svg#only-light"/>
+<img src="../../assets/wordmark-dark.svg#only-dark"/>
+</a>
+<span class="prvdmwrong-api-packageslash">/</span>
+<span class="prvdmwrong-api-packagename">core</span>
+</h1>
 
-## [Providers](providers/index.md)
+Core Prvd 'M Wrong functionality along with built-in components and networking libraries.
 
-- [:octicons-package-16: Provider](providers/provider.md)
-- [:octicons-package-16: new](providers/new.md)
-- [:octicons-list-ordered-16: StartupStatus](providers/startup-status.md)
-- [:octicons-code-16: preload](providers/preload.md)
-- [:octicons-code-16: start](providers/start.md)
-- [:octicons-workflow-16: awaitStart](providers/await-start.md)
-- [:octicons-workflow-16: onStart](providers/on-start.md)
+<h2>Providers</h2>
 
-## [Types](types/index.md)
+APIs for creating top level providers that *provide* specific functionality in
+a game, along with creating starting roots for using providers.
 
-- [:octicons-checklist-16: Lifecycle](types/lifecycle.md)
-- [:octicons-checklist-16: OnInit](types/on-init.md)
-- [:octicons-checklist-16: OnStart](types/on-start.md)
-- [:octicons-checklist-16: Options](types/options.md)
-- [:octicons-checklist-16: Provider](types/provider.md)
+<section class="prvdmwrong-api-items">
+  <section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-typekind" title="Type definition">
+      T
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="providers/types/provider">
+      Provider<Self>
+    </a>
+    Provider are objects that *provide* specific functions to a game. Providers
+can use lifecycles by specifying the lifecycle's method. Providers can be
+started using a root, which is a starting point for Prvd 'M Wrong games.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-typekind" title="Type definition">
+      T
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="providers/types/root">
+      Root
+    </a>
+    Mustard on the beat ho
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-typekind" title="Type definition">
+      T
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="providers/types/startroot">
+      StartRoot
+    </a>
+    Pst. I see dead people.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/prvd">
+      prvd
+    </a>
+    Construct and returns a new provider. Providers *provide* specific functionality in a game.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/root">
+      root
+    </a>
+    Construct and returns a new root. Roots are starting points for Prvd 'M Wrong games where providers can be bootstrapped.
+  </section>
+</section>
+
+</section>
+<h2>Lifecycles</h2>
+
+APIs for creating custom provider lifecycle events. Providers with a lifecycle's specified method will register that lifecycle event.
+
+<section class="prvdmwrong-api-items">
+  <section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-typekind" title="Type definition">
+      T
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="lifecycles/types/lifecycle">
+      Lifecycle<Args...>
+    </a>
+    Aye, Mustard on the beat ho
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/fireconcurrent">
+      fireConcurrent
+    </a>
+    Spawns all callbacks of a lifecycle asynchronously.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/firesequential">
+      fireSequential
+    </a>
+    Calls all callbacks of a lifecycle sequentially.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/lifecycle">
+      lifecycle
+    </a>
+    Constructs and returns a new lifecycle object. Providers with the specified method will be registered.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/onlifecycledestroying">
+      onLifecycleDestroying
+    </a>
+    Called when a lifecycle is being destroyed. Listeners are expected to be infallible and non-yielding. The listener receives the lifecycle.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/onregistered">
+      onRegistered
+    </a>
+    Called when an object registers a lifecycle method. Listeners are expected to be infallible and non-yielding. The listener receives the callback.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="./functions/onunregistered">
+      onUnregistered
+    </a>
+    Called when an object unregisters a lifecycle method. Listeners are expected to be infallible and non-yielding. The listener receives the callback.
+  </section>
+</section>
 
 </section>
 
-<section markdown>
+</section>
 
-## [Lifecycles](lifecycles/index.md)
+<section class="md-sidebar md-sidebar--secondary prvdmwrong-api-packagesidebar" markdown>
+<section class="prvdmwrong-api-usewith" markdown>
+<nav class="usage-instructions-nav">
+Use with
+<select id="usage-instructions-select">
+<option value="wally">Wally</option>
+<option value="pesde">Pesde</option>
+<option value="npm">npm</option>
+<option value="pnpm">pnpm</option>
+<option value="yarn">Yarn</option>
+</select>
+</nav>
+<section class="usage-instructions-package usage-instructions-wally">
+<span class="usage-instructions-title">
+Add to <code>wally.toml</code>
+</span>
 
-- [:octicons-package-16: Lifecycle](lifecycles/lifecycle.md)
-- [:octicons-code-16: fireConcurrent](lifecycles/fire-concurrent.md)
-- [:octicons-code-16: fireSequential](lifecycles/fire-sequential.md)
-- [:octicons-workflow-16: onLifecycleRegistered](lifecycles/on-lifecycle-registered.md)
-- [:octicons-workflow-16: onLifecycleUnregistered](lifecycles/on-lifecycle-unregistered.md)
+```TOML
+prvd = "prvdmwrong/core@0.2"
+```
 
-## [Modding](modding/index.md)
+<span class="usage-instructions-title">
+Install packages
+</span>
 
-- [:octicons-code-16: getStartupOptions](modding/get-startup-options.md)
-- [:octicons-code-16: getStartupStatus](modding/get-startup-status.md)
-- [:octicons-workflow-16: onProviderConstructed](modding/on-provider-constructed.md)
-- [:octicons-workflow-16: onProviderUsed](modding/on-provider-used.md)
+```Bash
+wally install
+```
 
-## [Internal](internal/index.md)
+<span class="usage-instructions-title">
+Import package
+</span>
 
-- [:octicons-code-16: defineMetadata](internal/define-metadata.md)
-- [:octicons-code-16: deleteMetadata](internal/delete-metadata.md)
-- [:octicons-code-16: getMetadata](internal/get-metadata.md)
-- [:octicons-code-16: registerAll](internal/register-all.md)
-- [:octicons-code-16: registerDependency](internal/register-dependency.md)
-- [:octicons-code-16: registerMethod](internal/register-method.md)
-- [:octicons-code-16: unregisterMethod](internal/unregister-method.md)
+```Luau
+local prvd = require(ReplicatedStorage.Packages.prvd)
+```
+
+</section>
+<section class="usage-instructions-package usage-instructions-pesde">
+<span class="usage-instructions-title">
+Install package
+</span>
+
+```Bash
+pesde add prvdmwrong/core@0.2
+```
+
+<span class="usage-instructions-title">
+Import package
+</span>
+
+```Luau
+local prvd = require(ReplicatedStorage.packages.prvd)
+```
+
+</section>
+<section class="usage-instructions-package usage-instructions-npm">
+<span class="usage-instructions-title">
+Install package
+</span>
+
+```Bash
+npm i @prvdmwrong/core
+```
+
+<span class="usage-instructions-title">
+Import package
+</span>
+
+```TypeScript
+import * as prvd from "@prvdmwrong/core"
+```
+
+</section>
+<section class="usage-instructions-package usage-instructions-pnpm">
+<span class="usage-instructions-title">
+Install package
+</span>
+
+```Bash
+pnpm i @prvdmwrong/core
+```
+
+<span class="usage-instructions-title">
+Import package
+</span>
+
+```TypeScript
+import * as prvd from "@prvdmwrong/core"
+```
+
+</section>
+<section class="usage-instructions-package usage-instructions-yarn">
+<span class="usage-instructions-title">
+Install package
+</span>
+
+```Bash
+yarn add @prvdmwrong/core
+```
+
+<span class="usage-instructions-title">
+Import package
+</span>
+
+```TypeScript
+import * as prvd from "@prvdmwrong/core"
+```
 
 </section>
 
 </section>
+</section>
+
+<script src="../../scripts/usage-instructions.js"></script>
