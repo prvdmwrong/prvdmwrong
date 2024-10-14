@@ -1,4 +1,4 @@
-local t = require("../tiny")
+local t = require("./tiny")
 
 local types = {}
 
@@ -7,7 +7,7 @@ export type Config = {
     name: string,
     module: string,
     description: string,
-    dependencies: { string },
+    dependencies: { string }?,
   },
   docs: {
     classes: { string },
@@ -20,12 +20,24 @@ types.Config = t.interface {
     name = t.string,
     module = t.string,
     description = t.string,
-    dependencies = t.array(t.string),
+    dependencies = t.optional(t.array(t.string) :: any),
   },
   docs = t.interface {
     classes = t.array(t.string),
     overview = t.string,
   },
+}
+
+export type Package = {
+  name: string,
+  absolutePath: string,
+  relativePath: string,
+  config: Config,
+}
+
+export type BuildProcessor = {
+  process: (self: BuildProcessor, package: Package) -> (),
+  publish: (self: BuildProcessor, package: Package) -> ()?,
 }
 
 return types

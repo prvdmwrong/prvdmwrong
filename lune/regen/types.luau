@@ -21,13 +21,7 @@ types.RawConfig = t.interface {
   config = t.interface {
     name = t.string,
     module = t.string,
-    description = t.interface {
-      brief = t.string,
-      technical = t.string,
-    },
-    docs = t.interface {
-      classes = t.array(t.string),
-    },
+    description = t.string,
   },
 }
 

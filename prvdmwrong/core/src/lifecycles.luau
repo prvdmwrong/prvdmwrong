@@ -1,5 +1,4 @@
-local assertion = require("core/utils/assertion")
-local threads = require("core/utils/threads")
+local utils = require("@core/utils")
 
 --[=[
   @within Lifecycles
@@ -9,6 +8,7 @@ local threads = require("core/utils/threads")
 export type Lifecycle<Args...> = {
   callbacks: { (Args...) -> () },
   method: string,
+  type: "Lifecycle",
 
   register: (self: Lifecycle<Args...>, callback: (Args...) -> ()) -> (),
   fire: (self: Lifecycle<Args...>, Args...) -> (),
@@ -55,39 +55,40 @@ function Lifecycles.lifecycle<Args...>(
   self.callbacks = {}
   self.fire = onFire
   self.method = method
+  self.type = "Lifecycle"
 
   local selfRegistered: { (Args...) -> () } = {}
   local selfUnregistered: { (Args...) -> () } = {}
   local isDestroyed = false
 
   function self:register(callback)
-    assertion(not isDestroyed, "cannot register listeners after a lifecycle is destroyed")
+    utils.assert(not isDestroyed, "cannot register listeners after a lifecycle is destroyed")
     if DISALLOW_MULTIPLE_LISTENERS then
       findAndRemove(self.callbacks, callback)
     end
     table.insert(self.callbacks, callback)
-    threads.spawnCallbacks(selfRegistered, callback)
+    utils.spawnCallbacks(selfRegistered, callback)
   end
 
   function self:unregister(callback)
-    assertion(not isDestroyed, "cannot unregister listeners after a lifecycle is destroyed")
+    utils.assert(not isDestroyed, "cannot unregister listeners after a lifecycle is destroyed")
     local index = table.find(self.callbacks, callback)
     if index then
       table.remove(self.callbacks, index)
-      threads.spawnCallbacks(selfUnregistered, callback)
+      utils.spawnCallbacks(selfUnregistered, callback)
     end
   end
 
   function self:unregisterAll()
-    assertion(not isDestroyed, "cannot unregister all listeners after a lifecycle is destroyed")
+    utils.assert(not isDestroyed, "cannot unregister all listeners after a lifecycle is destroyed")
     for _, callback in self.callbacks do
-      threads.spawnCallbacks(selfUnregistered, callback)
+      utils.spawnCallbacks(selfUnregistered, callback)
     end
     table.clear(self.callbacks)
   end
 
   function self:onRegistered(listener)
-    assertion(not isDestroyed, "cannot hook onto a lifecycle is destroyed")
+    utils.assert(not isDestroyed, "cannot hook onto a lifecycle is destroyed")
     if DISALLOW_MULTIPLE_LISTENERS then
       findAndRemove(selfRegistered, listener)
     end
@@ -98,7 +99,7 @@ function Lifecycles.lifecycle<Args...>(
   end
 
   function self:onUnregistered(listener)
-    assertion(not isDestroyed, "cannot hook onto a lifecycle is destroyed")
+    utils.assert(not isDestroyed, "cannot hook onto a lifecycle is destroyed")
     if DISALLOW_MULTIPLE_LISTENERS then
       findAndRemove(selfUnregistered, listener)
     end
@@ -109,9 +110,9 @@ function Lifecycles.lifecycle<Args...>(
   end
 
   function self:destroy()
-    assertion(not isDestroyed, "cannot destroy a lifecycle twice")
+    utils.assert(not isDestroyed, "cannot destroy a lifecycle twice")
     findAndRemove(Lifecycles.methodLifecycles[method], self)
-    threads.spawnCallbacks(lifecycleDestroying, self)
+    utils.spawnCallbacks(lifecycleDestroying, self)
     table.clear(self.callbacks)
     isDestroyed = true
   end
@@ -135,7 +136,7 @@ end
   @param ... Args... -- Arguments to call the callbacks with.
 ]=]
 function Lifecycles.fireConcurrent<Args...>(lifecycle: Lifecycle<Args...>, ...: Args...)
-  threads.spawnCallbacks(lifecycle.callbacks, ...)
+  utils.spawnCallbacks(lifecycle.callbacks, ...)
 end
 
 --[=[
@@ -203,10 +204,5 @@ function Lifecycles.onLifecycleDestroying<Args...>(listener: (destroyedLifecycle
     findAndRemove(lifecycleDestroying, listener)
   end
 end
-
--- NOTE(znotfireman): create "binder" functions for these with it`self`
-Lifecycles.providerInit = Lifecycles.lifecycle("onInit", Lifecycles.fireSequential) :: Lifecycle<()>
-Lifecycles.providerStart = Lifecycles.lifecycle("onStart", Lifecycles.fireConcurrent) :: Lifecycle<()>
-Lifecycles.providerStop = Lifecycles.lifecycle("onStop", Lifecycles.fireConcurrent) :: Lifecycle<()>
 
 return Lifecycles

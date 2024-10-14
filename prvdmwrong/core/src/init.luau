@@ -1,6 +1,5 @@
-local Lifecycles = require("core/lifecycles")
-local Providers = require("core/providers")
-local nicknames = require("core/utils/nicknames")
+local Lifecycles = require("@core/lifecycles")
+local Providers = require("@core/providers")
 
 export type Lifecycle<Args...> = Lifecycles.Lifecycle<Args...>
 export type Provider<Self> = Providers.Provider<Self>
@@ -8,11 +7,11 @@ export type Root = Providers.Root
 export type RootStatus = Providers.RootStatus
 
 local prvd = table.freeze {
-  version = _G.BUILD_VERSION,
+  version = _G.PRVDMWRONG_VERSION,
 
   -- Core API
   root = Providers.root,
-  nameOf = nicknames.nameOf,
+  prvd = Providers.prvd,
 
   -- Lifecycle API
   lifecycle = Lifecycles.lifecycle,

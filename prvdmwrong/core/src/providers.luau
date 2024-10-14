@@ -1,4 +1,4 @@
-local Lifecycles = require("core/lifecycles")
+local Lifecycles = require("@core/lifecycles")
 
 type Set<T> = { [T]: true }
 
@@ -48,14 +48,81 @@ export type Root = {
   start: (self: Root) -> StartRoot,
 
   useModule: (self: Root, module: ModuleScript) -> Root,
-  useModules: (self: Root, modules: { ModuleScript }) -> Root,
+  useModules: (self: Root, modules: { Instance }, predicate: ((ModuleScript) -> boolean)?) -> Root,
   useRoot: (self: Root, root: Root) -> Root,
   useRoots: (self: Root, roots: { Root }) -> Root,
   useProvider: (self: Root, provider: Provider<unknown>) -> Root,
   useProviders: (self: Root, providers: { Provider<unknown> }) -> Root,
   useLifecycle: (self: Root, lifecycle: Lifecycles.Lifecycle<...unknown>) -> Root,
   useLifecycles: (self: Root, lifecycles: { Lifecycles.Lifecycle<...unknown> }) -> Root,
+
+  providerInit: Lifecycles.Lifecycle<()>,
+  providerStart: Lifecycles.Lifecycle<()>,
+  providerStop: Lifecycles.Lifecycle<()>,
 }
+
+local registeredProviders = {}
+
+-- TODO(znotfireman): Probably can merge visitProvider w processProviders but
+-- keep visitChild for less functions
+--
+-- I wish the person who dares this good luck
+local function visitProvider(
+  provider: Provider<unknown>,
+  visited: Set<Provider<unknown>>,
+  stack: { Provider<unknown> },
+  lifecycles: { Lifecycles.Lifecycle<...unknown> }
+)
+  visited[provider] = true
+
+  local encountered = {}
+
+  local function visitChild(target: unknown, key: unknown, parent: { [unknown]: unknown })
+    if encountered[target] or typeof(target) ~= "table" then
+      return
+    end
+
+    encountered[target] = true
+    local target: { [unknown]: unknown } = target :: any
+
+    if target.type == "Lifecycle" then
+      table.insert(lifecycles, target)
+      return
+    end
+
+    if key ~= nil and target ~= provider and registeredProviders[target] then
+      if not visited[target :: any] then
+        visitProvider(provider, visited, stack, lifecycles)
+      end
+      return
+    end
+
+    for key, value in target do
+      visitChild(value, key, target)
+    end
+  end
+
+  visitChild(provider, nil, provider :: any)
+  table.insert(stack, provider)
+end
+
+local function processProviders(providers: Set<Provider<unknown>>): {
+  sortedProviders: { Provider<unknown> },
+  lifecycles: { Lifecycles.Lifecycle<...unknown> },
+}
+  local visited: Set<Provider<unknown>> = {}
+  local sortedProviders: { Provider<unknown> } = {}
+  local lifecycles: { Lifecycles.Lifecycle<...unknown> } = {}
+
+  for provider in providers do
+    visitProvider(provider, visited, sortedProviders, lifecycles)
+  end
+
+  return {
+    sortedProviders = sortedProviders,
+    lifecycles = lifecycles,
+  }
+end
 
 --[=[
   @class Providers
@@ -87,9 +154,45 @@ end
   @return Root -- A newly constructed root.
 ]=]
 function Providers.root(): Root
+  local rootProviders: Set<Provider<unknown>> = {}
   local providerDependencies: { [Provider<unknown>]: Set<Provider<unknown>> } = {}
 
-  error("not implemented")
+  local self = {} :: Root
+
+  -- NOTE(znotfireman): create "binder" functions for these with it`self`
+  self.providerInit = Lifecycles.lifecycle("onInit", Lifecycles.fireSequential) :: Lifecycles.Lifecycle<()>
+  self.providerStart = Lifecycles.lifecycle("onStart", Lifecycles.fireConcurrent) :: Lifecycles.Lifecycle<()>
+  self.providerStop = Lifecycles.lifecycle("onStop", Lifecycles.fireConcurrent) :: Lifecycles.Lifecycle<()>
+
+  -- NOTE(znotfireman): Might be interesting to use :GetFullName + a global flag to have a dev mode w stack traces? Maybe?
+  function self:useModule(module: ModuleScript)
+    local moduleExport = require(module) :: any
+    if registeredProviders[moduleExport] and typeof(moduleExport.name) ~= "string" then
+      registeredProviders.name = module.Name
+      rootProviders[moduleExport] = true
+    end
+  end
+
+  function self:useModules(modules: { Instance }, predicate: ((ModuleScript) -> boolean)?)
+    for _, module in modules do
+      if not module:IsA("ModuleScript") or predicate and not predicate(module) then
+        continue
+      end
+
+      local moduleExport = require(module) :: any
+      if registeredProviders[moduleExport] and typeof(moduleExport.name) ~= "string" then
+        registeredProviders.name = module.Name
+        rootProviders[moduleExport] = true
+      end
+    end
+  end
+
+  -- NOTE: https://www.youtube.com/watch?v=5GcPA3C0QeI
+  function self:start()
+    local processed = processProviders(rootProviders)
+  end
+
+  return self
 end
 
 return Providers

@@ -56,10 +56,11 @@ function ZedGenerator:generate(packages: { types.PackageData })
   local newSettings = tabler.clone(ZED_SETTINGS)
   local directoryAliases = {}
   directoryAliases["@lune"] = "~/.lune/.typedefs/0.8.8/"
+  directoryAliases["@lunescripts"] = "./lune"
 
   for _, package in packages do
     print("  Aliasing", package.relativePath, "as", package.name)
-    directoryAliases[package.name] = path(package.relativePath, "src")
+    directoryAliases["@" .. package.name] = path(package.relativePath, "src")
   end
 
   newSettings.lsp["luau-lsp"].settings["luau-lsp"].require.directoryAliases = directoryAliases

@@ -1,9 +1,9 @@
-local config = require("./config")
+local config = require("@lunescripts/regen/config")
 local fs = require("@lune/fs")
-local path = require("../utils/path")
+local path = require("@lunescripts/utils/path")
 local process = require("@lune/process")
 local serde = require("@lune/serde")
-local types = require("./types")
+local types = require("@lunescripts/regen/types")
 
 local PATH_PACKAGES_RELATIVE = path("prvdmwrong")
 local PATH_PACKAGES = path(process.cwd, PATH_PACKAGES_RELATIVE)

@@ -1,0 +1,7 @@
+base: roblox
+name: selene-std
+globals:
+  # Override Roblox require style with string requires
+  require:
+    args:
+      - type: any

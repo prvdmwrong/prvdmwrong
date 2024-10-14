@@ -32,9 +32,11 @@
         "luau-lsp": {
           "require": {
             "directoryAliases": {
+              "@core": "prvdmwrong/core/src",
+              "@knit-compat": "prvdmwrong/knit-compat/src",
+              "@lifecycles": "prvdmwrong/lifecycles/src",
               "@lune": "~/.lune/.typedefs/0.8.8/",
-              "core": "prvdmwrong/core/src",
-              "knit-compat": "prvdmwrong/knit-compat/src"
+              "@lunescripts": "./lune"
             },
             "mode": "relativeToFile"
           }
