@@ -1,4 +1,4 @@
-# This branch contains the ongoing rewrite of Prvd 'M Wrong `0.2`. For the (un)stable-ish version of `0.2`, see the `main` branch.
+<img src="https://media.discordapp.net/attachments/1098859603426553970/1289146627772256310/Dude.png?ex=670e2c5b&is=670cdadb&hm=8f300190b4fa529626f17335bad12271c783257d6a9187d208e24b80a2d7cb9d" width="1029" height="585"/>
 
 <div align="center">
   <picture>
