@@ -188,7 +188,7 @@ for _, package in packages do
 
       packageClassItems[classFunction.name] = StringBuilder(
         templates
-          .get("class-item")
+          .get("package-class-item")
           :gsub("$kind_title", "Function")
           :gsub("$kind_symbol", "f")
           :gsub("$kind", "function")
@@ -323,7 +323,7 @@ for _, package in packages do
     templates
       .get("package")
       :gsub("$name", package.name)
-      :gsub("$technical_description", package.config.config.description)
+      :gsub("$overview", package.config.docs.overview)
       :gsub("$class_sections", sortedPackageSections:build())
       :gsub("$usage_instructions", packageUsageInstructions:build())
   )

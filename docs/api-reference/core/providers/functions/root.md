@@ -18,11 +18,13 @@
 </h1>
 
 <!-- Hack: TypeScript has better syntax highlighting than MkDocs flavored Luau lol -->
+
 ```TypeScript
 root(): Root
 ```
 
-Construct and returns a new root. Roots are starting points for Prvd 'M Wrong games where providers can be bootstrapped.
+Construct and returns a new root. Roots are starting points for Prvd 'M Wrong
+games where providers can be bootstrapped.
 
 ## Returns
 
@@ -33,4 +35,3 @@ Construct and returns a new root. Roots are starting points for Prvd 'M Wrong ga
 </h3>
 
 A newly constructed root.
-

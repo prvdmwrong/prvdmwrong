@@ -17,9 +17,6 @@ hide:
 <span class="prvdmwrong-api-packagename">knit-compat</span>
 </h1>
 
-Drop-in Prvd 'M Wrong replacement for games that use Knit.
-
-
 </section>
 
 <section class="md-sidebar md-sidebar--secondary prvdmwrong-api-packagesidebar" markdown>
@@ -92,7 +89,7 @@ Import package
 </span>
 
 ```TypeScript
-import * as Knit from "@prvdmwrong/knit-compat"
+import * as Knit from "@prvdmwrong/knit-compat";
 ```
 
 </section>
@@ -110,7 +107,7 @@ Import package
 </span>
 
 ```TypeScript
-import * as Knit from "@prvdmwrong/knit-compat"
+import * as Knit from "@prvdmwrong/knit-compat";
 ```
 
 </section>
@@ -128,7 +125,7 @@ Import package
 </span>
 
 ```TypeScript
-import * as Knit from "@prvdmwrong/knit-compat"
+import * as Knit from "@prvdmwrong/knit-compat";
 ```
 
 </section>

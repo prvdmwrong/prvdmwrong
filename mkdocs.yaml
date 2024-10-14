@@ -25,19 +25,20 @@ theme:
   icon:
     top: octicons/chevron-up-24
     repo: fontawesome/brands/github
+    clipboard: octicons/tag-24
     admonition:
-      note: octicons/tag-16
-      abstract: octicons/checklist-16
-      info: octicons/info-16
-      tip: octicons/flame-16
-      success: octicons/check-16
-      question: octicons/question-16
-      warning: octicons/alert-16
-      failure: octicons/x-circle-16
-      danger: octicons/zap-16
-      bug: octicons/bug-16
-      example: octicons/beaker-16
-      quote: octicons/quote-16
+      note: octicons/tag-24
+      abstract: octicons/checklist-24
+      info: octicons/info-24
+      tip: octicons/flame-24
+      success: octicons/check-24
+      question: octicons/question-24
+      warning: octicons/alert-24
+      failure: octicons/x-circle-24
+      danger: octicons/zap-24
+      bug: octicons/bug-24
+      example: octicons/beaker-24
+      quote: octicons/quote-24
   features:
     - content.code.copy
     - content.tabs.link
@@ -98,6 +99,7 @@ markdown_extensions:
 
 extra_css:
   - theme/api-reference.css
+  - theme/admonition.css
   - theme/code.css
   - theme/footer.css
   - theme/page.css
@@ -109,8 +111,29 @@ extra_javascript:
 
 nav:
   - Home: index.md
-  - Tutorials:
-    - tutorials/index.md
+  - Learn Prvd 'M Wrong:
+    - learn/index.md
+    - Installation: learn/installation.md
+    - Foundations:
+      - Providers: learn/foundations/providers.md
+      - Lifecycles: learn/foundations/lifecycles.md
+      - Roots: learn/foundations/roots.md
+      - Modding: learn/foundations/modding.md
+    - Components:
+      - learn/components/index.md
+      - Attributes: learn/components/attributes.md
+      - Inheritance: learn/components/inheritance.md
+    - Net:
+      - learn/net/index.md
+      - One-way Events: learn/net/oneway-events.md
+      - Two-way Events: learn/net/twoway-events.md
+      - Middlewares: learn/net/middlewares.md
+      - Namespaces: learn/net/namespaces.md
+    - Extra:
+      - Why Prvd 'M Wrong?: learn/extra/why-prvd-m-wrong.md
+      - Migrating from Knit: learn/extra/migrating-from-knit.md
+      - Migrating from Lumin: learn/extra/migrating-from-lumin.md
+      - Upgrading from 0.1 to 0.2: learn/extra/upgrading-from-0.1-to-0.2.md
   # TODO(znotfireman): Automate this... oh goodness
   - API Reference:
     - api-reference/index.md

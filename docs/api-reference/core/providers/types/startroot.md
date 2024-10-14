@@ -18,8 +18,9 @@
 </h1>
 
 <!-- Hack: TypeScript has better syntax highlighting than MkDocs flavored Luau lol -->
+
 ```TypeScript
-$signature
+$signature;
 ```
 
 Pst. I see dead people.

@@ -1,3 +1,8 @@
+.md-footer {
+  /* background-color: var(--md-default-bg-color--light);
+  border-top: 0.075rem solid var(--md-default-fg-color--lightest); */
+}
+
 .prvdmwrong-footer {
   padding: 0 0.75rem;
   font-size: 0.64rem;
@@ -23,7 +28,7 @@
         font: inherit;
         font-weight: 700;
         padding: 0.25em;
-        border-radius: 0.25em;
+        border-radius: 0.125rem;
 
 
         &:hover,

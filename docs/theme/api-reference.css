@@ -13,7 +13,7 @@
 
 .prvdmwrong-api-packages {
   border: oklch(from var(--md-default-fg-color--lightest) l c h / 0.5) solid 0.075rem;
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
   overflow: hidden;
 
   ul {
@@ -36,6 +36,7 @@
         color: var(--md-default-fg-color) !important;
 
         transition: background-color 125ms;
+        border: none;
 
         &:last-child {
           border-bottom: none;
@@ -53,6 +54,7 @@
         flex-wrap: wrap;
         margin-bottom: -0.33333em !important;
         gap: 0.125rem;
+        border-bottom: none;
       }
 
       * {
@@ -157,7 +159,7 @@
 
     * {
       padding: 0.25em 0.5em;
-      border-radius: 0.25em;
+      border-radius: 0.125rem;
       color: var(--md-default-bg-color) !important;
       transition: background-color 125ms, color 125ms;
     }
@@ -180,17 +182,18 @@
   .prvdmwrong-api-wordmark {
     display: flex;
     transition: opacity 125ms;
+    border: none !important;
 
     &:hover,
     &:focus {
       opacity: 0.5;
     }
 
-    &::before {
+    /* &::before {
       content: "@";
       line-height: 100%;
       color: var(--md-default-fg-color);
-    }
+    } */
 
     img {
       display: block;
@@ -239,6 +242,7 @@
       a {
         font-size: 1.25em;
         color: var(--md-default-fg-color);
+        border: none;
       }
     }
   }
@@ -259,4 +263,8 @@
   font-size: 0.666666em;
   font-family: var(--md-code-font-family);
   opacity: 0.75;
+
+  h3:has(&) {
+    border-bottom: none !important;
+  }
 }

@@ -18,13 +18,15 @@
 </h1>
 
 <!-- Hack: TypeScript has better syntax highlighting than MkDocs flavored Luau lol -->
+
 ```TypeScript
 onUnregistered(
 	listener: (lifecycle: Lifecycle<Args...>, callback: (Args...) -> ()) -> ()
 ): () -> ()
 ```
 
-Called when an object unregisters a lifecycle method. Listeners are expected to be infallible and non-yielding. The listener receives the callback.
+Called when an object unregisters a lifecycle method. Listeners are expected to
+be infallible and non-yielding. The listener receives the callback.
 
 ## Parameters
 
@@ -36,7 +38,6 @@ Called when an object unregisters a lifecycle method. Listeners are expected to 
 
 Called when any lifecycle unregisters a callback.
 
-
 ## Returns
 
 <h3 class="prvdmwrong-api-return">
@@ -46,4 +47,3 @@ Called when any lifecycle unregisters a callback.
 </h3>
 
 A callback that when called removes the listener.
-

@@ -17,12 +17,38 @@ hide:
 <span class="prvdmwrong-api-packagename">core</span>
 </h1>
 
-Core Prvd 'M Wrong functionality along with built-in components and networking libraries.
+Core Prvd 'M Wrong functionality including providers, lifecycles, and module
+roots along with built-in components and networking.
+
+```Luau
+local PlayerProvider = {}
+type Self = typeof(PlayerProvider)
+
+function PlayerProvider.onInit(self: Self)
+    self.playerAdded = prvd.lifecycle("onPlayerAdded", prvd.fireConcurrent)
+
+    local function onPlayerAdded(newPlayer: Player)
+        self.playerAdded:fire(newPlayer)
+    end
+
+    self.conn = Players.PlayerAdded:Connect(onPlayerAdded)
+    for _, existingPlayer in Players:GetPlayers() do
+      o nPlayerAdded(newPlayer)
+    end
+end
+
+function PlayerProvider.onStop(self: Self)
+    self.playerAdded:destroy()
+    self.conn:Disconnect()
+end
+
+return prvd(PlayerProvider)
+```
 
 <h2>Providers</h2>
 
-APIs for creating top level providers that *provide* specific functionality in
-a game, along with creating starting roots for using providers.
+APIs for creating top level providers that _provide_ specific functionality in a
+game, along with creating starting roots for using providers.
 
 <section class="prvdmwrong-api-items">
   <section class="prvdmwrong-api-item">
@@ -73,7 +99,7 @@ started using a root, which is a starting point for Prvd 'M Wrong games.
     </span>
   </span>
   <section class="prvdmwrong-api-iteminfo">
-    <a href="./functions/prvd">
+    <a href="providers/functions/prvd">
       prvd
     </a>
     Construct and returns a new provider. Providers *provide* specific functionality in a game.
@@ -86,7 +112,7 @@ started using a root, which is a starting point for Prvd 'M Wrong games.
     </span>
   </span>
   <section class="prvdmwrong-api-iteminfo">
-    <a href="./functions/root">
+    <a href="providers/functions/root">
       root
     </a>
     Construct and returns a new root. Roots are starting points for Prvd 'M Wrong games where providers can be bootstrapped.
@@ -96,7 +122,8 @@ started using a root, which is a starting point for Prvd 'M Wrong games.
 </section>
 <h2>Lifecycles</h2>
 
-APIs for creating custom provider lifecycle events. Providers with a lifecycle's specified method will register that lifecycle event.
+APIs for creating custom provider lifecycle events. Providers with a lifecycle's
+specified method will register that lifecycle event.
 
 <section class="prvdmwrong-api-items">
   <section class="prvdmwrong-api-item">
@@ -119,7 +146,7 @@ APIs for creating custom provider lifecycle events. Providers with a lifecycle's
     </span>
   </span>
   <section class="prvdmwrong-api-iteminfo">
-    <a href="./functions/fireconcurrent">
+    <a href="lifecycles/functions/fireconcurrent">
       fireConcurrent
     </a>
     Spawns all callbacks of a lifecycle asynchronously.
@@ -132,7 +159,7 @@ APIs for creating custom provider lifecycle events. Providers with a lifecycle's
     </span>
   </span>
   <section class="prvdmwrong-api-iteminfo">
-    <a href="./functions/firesequential">
+    <a href="lifecycles/functions/firesequential">
       fireSequential
     </a>
     Calls all callbacks of a lifecycle sequentially.
@@ -145,7 +172,7 @@ APIs for creating custom provider lifecycle events. Providers with a lifecycle's
     </span>
   </span>
   <section class="prvdmwrong-api-iteminfo">
-    <a href="./functions/lifecycle">
+    <a href="lifecycles/functions/lifecycle">
       lifecycle
     </a>
     Constructs and returns a new lifecycle object. Providers with the specified method will be registered.
@@ -158,7 +185,7 @@ APIs for creating custom provider lifecycle events. Providers with a lifecycle's
     </span>
   </span>
   <section class="prvdmwrong-api-iteminfo">
-    <a href="./functions/onlifecycledestroying">
+    <a href="lifecycles/functions/onlifecycledestroying">
       onLifecycleDestroying
     </a>
     Called when a lifecycle is being destroyed. Listeners are expected to be infallible and non-yielding. The listener receives the lifecycle.
@@ -171,7 +198,7 @@ APIs for creating custom provider lifecycle events. Providers with a lifecycle's
     </span>
   </span>
   <section class="prvdmwrong-api-iteminfo">
-    <a href="./functions/onregistered">
+    <a href="lifecycles/functions/onregistered">
       onRegistered
     </a>
     Called when an object registers a lifecycle method. Listeners are expected to be infallible and non-yielding. The listener receives the callback.
@@ -184,7 +211,7 @@ APIs for creating custom provider lifecycle events. Providers with a lifecycle's
     </span>
   </span>
   <section class="prvdmwrong-api-iteminfo">
-    <a href="./functions/onunregistered">
+    <a href="lifecycles/functions/onunregistered">
       onUnregistered
     </a>
     Called when an object unregisters a lifecycle method. Listeners are expected to be infallible and non-yielding. The listener receives the callback.
@@ -265,7 +292,7 @@ Import package
 </span>
 
 ```TypeScript
-import * as prvd from "@prvdmwrong/core"
+import * as prvd from "@prvdmwrong/core";
 ```
 
 </section>
@@ -283,7 +310,7 @@ Import package
 </span>
 
 ```TypeScript
-import * as prvd from "@prvdmwrong/core"
+import * as prvd from "@prvdmwrong/core";
 ```
 
 </section>
@@ -301,7 +328,7 @@ Import package
 </span>
 
 ```TypeScript
-import * as prvd from "@prvdmwrong/core"
+import * as prvd from "@prvdmwrong/core";
 ```
 
 </section>

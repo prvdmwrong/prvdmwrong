@@ -20,8 +20,8 @@ Want to know more? [Get going with the Prvd 'M Wrong on rails tutorial.]
 
 ## Contributing
 
-If you're interested in contributing code and/or documentation, [see the Prvd
-'M Wrong contributors guide.]
+If you're interested in contributing code and/or documentation,
+[see the Prvd 'M Wrong contributors guide.]
 
 ## License
 

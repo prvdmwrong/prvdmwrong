@@ -17,9 +17,10 @@ hide:
 <span class="prvdmwrong-api-packagename">$name</span>
 </h1>
 
-$technical_description
+$overview
 
 $class_sections
+
 </section>
 
 <section class="md-sidebar md-sidebar--secondary prvdmwrong-api-packagesidebar" markdown>

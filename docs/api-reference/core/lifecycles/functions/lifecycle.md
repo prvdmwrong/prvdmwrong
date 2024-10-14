@@ -18,6 +18,7 @@
 </h1>
 
 <!-- Hack: TypeScript has better syntax highlighting than MkDocs flavored Luau lol -->
+
 ```TypeScript
 lifecycle(
 	method: string
@@ -25,7 +26,8 @@ lifecycle(
 ): Lifecycle<Args...>
 ```
 
-Constructs and returns a new lifecycle object. Providers with the specified method will be registered.
+Constructs and returns a new lifecycle object. Providers with the specified
+method will be registered.
 
 ## Parameters
 
@@ -43,8 +45,8 @@ The provider method that this lifecycle should hook onto.
   </span>
 </h3>
 
-A method to fire the lifecycle method. It receives itself and the arguments passed to it.
-
+A method to fire the lifecycle method. It receives itself and the arguments
+passed to it.
 
 ## Returns
 
@@ -55,4 +57,3 @@ A method to fire the lifecycle method. It receives itself and the arguments pass
 </h3>
 
 A freshly constructed lifecycle object.
-

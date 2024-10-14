@@ -42,7 +42,7 @@
 }
 
 .md-typeset code {
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
 }
 
 .highlighttable .linenos {
@@ -109,5 +109,5 @@ code:not(pre code, .highlight) {
   margin: 0;
   border: 0;
   vertical-align: baseline;
-  border-radius: 0.25em;
+  border-radius: 0.125rem;
 }

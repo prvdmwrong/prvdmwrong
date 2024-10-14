@@ -18,6 +18,7 @@
 </h1>
 
 <!-- Hack: TypeScript has better syntax highlighting than MkDocs flavored Luau lol -->
+
 ```TypeScript
 fireSequential(
 	lifecycle: Lifecycle<Args...>
@@ -44,4 +45,3 @@ Lifecycle to call callbacks with.
 </h3>
 
 Arguments to call the callbacks with.
-

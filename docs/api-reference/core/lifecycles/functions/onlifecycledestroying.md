@@ -18,13 +18,15 @@
 </h1>
 
 <!-- Hack: TypeScript has better syntax highlighting than MkDocs flavored Luau lol -->
+
 ```TypeScript
 onLifecycleDestroying(
 	listener: (destroyedLifecycle: Lifecycle<Args...>) -> ()
 ): () -> ()
 ```
 
-Called when a lifecycle is being destroyed. Listeners are expected to be infallible and non-yielding. The listener receives the lifecycle.
+Called when a lifecycle is being destroyed. Listeners are expected to be
+infallible and non-yielding. The listener receives the lifecycle.
 
 ## Parameters
 
@@ -36,7 +38,6 @@ Called when a lifecycle is being destroyed. Listeners are expected to be infalli
 
 Called when any lifecycle is being destroyed.
 
-
 ## Returns
 
 <h3 class="prvdmwrong-api-return">
@@ -46,4 +47,3 @@ Called when any lifecycle is being destroyed.
 </h3>
 
 A callback that when called removes the listener.
-

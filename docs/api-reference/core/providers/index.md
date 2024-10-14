@@ -3,8 +3,8 @@
 
 # Providers
 
-APIs for creating top level providers that *provide* specific functionality in
-a game, along with creating starting roots for using providers.
+APIs for creating top level providers that _provide_ specific functionality in a
+game, along with creating starting roots for using providers.
 
 <section class="prvdmwrong-api-items">
   <section class="prvdmwrong-api-item">

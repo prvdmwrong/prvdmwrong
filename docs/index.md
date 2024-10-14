@@ -18,7 +18,7 @@ plugins, or lock-in required.
 </p>
 
 <nav markdown>
-<a href="./tutorials">Learn Prvd 'M Wrong</a>
+<a href="./learn">Learn Prvd 'M Wrong</a>
 <a href="https://github.com/prvdmwrong/prvdmwrong/tree/0.2" markdown>:octicons-mark-github-16: GitHub</a>
 </nav>
 
@@ -33,5 +33,7 @@ Scroll down for a tour of Prvd 'M Wrong.
 <section class="prvdmwrong-home-belowfold" markdown>
 
 </section>
+
+[![lol](https://img.youtube.com/vi/B9synWjqBn8/0.jpg)](https://www.youtube.com/watch?v=B9synWjqBn8)
 
 </section>

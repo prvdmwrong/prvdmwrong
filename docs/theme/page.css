@@ -17,7 +17,7 @@
 
 .md-top {
   background-color: var(--md-default-bg-color--lighter);
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
   box-shadow: none !important;
   z-index: 1000;
   color: var(--md-default-fg-color);
@@ -100,5 +100,15 @@
         background-color: var(--md-default-fg-color--lightest);
       }
     }
+  }
+}
+
+.prvdmwrong-hidden {
+  display: none;
+}
+
+@media screen and (min-width: 60em) {
+  .md-search__form {
+    border-radius: 0.125rem;
   }
 }

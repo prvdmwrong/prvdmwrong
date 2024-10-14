@@ -18,13 +18,15 @@
 </h1>
 
 <!-- Hack: TypeScript has better syntax highlighting than MkDocs flavored Luau lol -->
+
 ```TypeScript
 prvd(
 	provider: Self
 ): Provider<Self>
 ```
 
-Construct and returns a new provider. Providers *provide* specific functionality in a game.
+Construct and returns a new provider. Providers _provide_ specific functionality
+in a game.
 
 ## Parameters
 
@@ -36,7 +38,6 @@ Construct and returns a new provider. Providers *provide* specific functionality
 
 The provider and associated properties itself.
 
-
 ## Returns
 
 <h3 class="prvdmwrong-api-return">
@@ -46,4 +47,3 @@ The provider and associated properties itself.
 </h3>
 
 A newly constructed provider.
-

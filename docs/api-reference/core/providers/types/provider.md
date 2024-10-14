@@ -18,10 +18,11 @@
 </h1>
 
 <!-- Hack: TypeScript has better syntax highlighting than MkDocs flavored Luau lol -->
+
 ```TypeScript
-$signature
+$signature;
 ```
 
-Provider are objects that *provide* specific functions to a game. Providers
-can use lifecycles by specifying the lifecycle's method. Providers can be
-started using a root, which is a starting point for Prvd 'M Wrong games.
+Provider are objects that _provide_ specific functions to a game. Providers can
+use lifecycles by specifying the lifecycle's method. Providers can be started
+using a root, which is a starting point for Prvd 'M Wrong games.

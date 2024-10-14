@@ -2,6 +2,8 @@
 name = "Knit Compatibility for Prvd 'M Wrong"
 module = "Knit"
 description = "Drop-in Prvd 'M Wrong replacement for games that use Knit."
+dependencies = ["core"]
 
 [docs]
 classes = []
+overview = """"""

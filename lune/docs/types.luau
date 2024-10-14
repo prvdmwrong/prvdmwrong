@@ -10,6 +10,7 @@ export type Config = {
   },
   docs: {
     classes: { string },
+    overview: string,
   },
 }
 
@@ -21,6 +22,7 @@ types.Config = t.interface {
   },
   docs = t.interface {
     classes = t.array(t.string),
+    overview = t.string,
   },
 }
 

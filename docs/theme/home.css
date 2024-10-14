@@ -103,7 +103,8 @@ body {
         color: var(--md-default-fg-color);
 
         padding: 0.5rem 1rem;
-        border-radius: 0.25rem;
+        border: none !important;
+        border-radius: 0.125rem;
         transition: background-color 125ms;
         font-weight: 700;
 

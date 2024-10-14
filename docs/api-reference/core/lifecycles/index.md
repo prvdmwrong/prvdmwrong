@@ -3,7 +3,8 @@
 
 # Lifecycles
 
-APIs for creating custom provider lifecycle events. Providers with a lifecycle's specified method will register that lifecycle event.
+APIs for creating custom provider lifecycle events. Providers with a lifecycle's
+specified method will register that lifecycle event.
 
 <section class="prvdmwrong-api-items">
   <section class="prvdmwrong-api-item">

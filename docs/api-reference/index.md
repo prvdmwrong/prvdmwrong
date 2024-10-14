@@ -4,7 +4,8 @@
 # API Reference
 
 This section provides technical documentation about what Prvd 'M Wrong provides.
-For an introduction to Prvd 'M Wrong, [try the tutorials.](../tutorials)
+For an introduction to Prvd 'M Wrong,
+[read the Learn section.](../learn/index.md)
 
 ## Type Signatures
 
@@ -21,10 +22,13 @@ While these type signatures are written to be Luau-like, it is ultimately
 psuedocode for developers. For accurate and syntactically valid type
 information, see the source code.
 
+!!! note "Note that documentation for TypeScript along with TypeScript typings
+are planned."
+
 ## Packages
 
-Prvd 'M Wrong is distributed as an ecosystem of individual packages which
-can be browsed below:
+Prvd 'M Wrong is distributed as an ecosystem of individual packages which can be
+browsed below:
 
 <section class="prvdmwrong-api-packages">
 
@@ -35,7 +39,7 @@ can be browsed below:
 <h3>
 core
 </h3>
-<p>Core Prvd 'M Wrong functionality along with built-in components and networking libraries.</p>
+<p>Core Prvd 'M Wrong functionality including components and networking.</p>
 </a>
 </li>
 <li class="prvdmwrong-api-package">
@@ -46,7 +50,6 @@ knit-compat
 <p>Drop-in Prvd 'M Wrong replacement for games that use Knit.</p>
 </a>
 </li>
-
 
 </ul>
 
