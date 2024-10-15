@@ -48,7 +48,7 @@ function VSCodeGenerator:generate(packages: { types.Package }, log: Log.Log)
 		VSCODE_SETTINGS,
 		StringBuilder()
 			:appendLn("// This file was @generated and should not be edited.")
-			:appendLn("// Run `lune run scripts/regen` to generate fresh Zed settings.")
+			:appendLn("// Run `lune run regen` to generate fresh Zed settings.")
 			:appendLn()
 			:appendLn(serde.encode("json", newSettings, true))
 			:build()
