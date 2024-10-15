@@ -179,6 +179,8 @@ function providers.root(): Root
 			moduleExport.name = _G.PRVDMWRONG_DEV and module:GetFullName() or module.Name
 			rootProviders[moduleExport] = true
 		end
+
+		return self
 	end
 
 	function self:useModules(modules: { Instance }, predicate: ((ModuleScript) -> boolean)?)
@@ -193,6 +195,20 @@ function providers.root(): Root
 				rootProviders[moduleExport] = true
 			end
 		end
+
+		return self
+	end
+
+	function self:useProvider(provider: Provider<unknown>)
+		rootProviders[provider] = true
+		return self
+	end
+
+	function self:useProviders(providers: { Provider<unknown> })
+		for _, provider in providers do
+			rootProviders[provider] = true
+		end
+		return self
 	end
 
 	-- NOTE(znotfireman): Listen to https://www.youtube.com/watch?v=5GcPA3C0QeI
