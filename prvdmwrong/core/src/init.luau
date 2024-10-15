@@ -1,10 +1,12 @@
-local Lifecycles = require("@core/lifecycles")
-local Providers = require("@core/providers")
+local lifecycles = require("@core/lifecycles")
+local providers = require("@core/providers/providers")
+local roots = require("@core/providers/roots")
+local types = require("@core/types")
 
-export type Lifecycle<Args...> = Lifecycles.Lifecycle<Args...>
-export type Provider<Self> = Providers.Provider<Self>
-export type Root = Providers.Root
-export type RootStatus = Providers.RootStatus
+export type Lifecycle<Args...> = types.Lifecycle<Args...>
+export type Provider<Self> = types.Provider<Self>
+export type Root = types.Root
+export type RootStatus = types.RootStatus
 
 --[=[
     @class Prvd
@@ -46,19 +48,20 @@ local prvd = table.freeze {
 	version = _G.PRVDMWRONG_VERSION,
 
 	-- Core API
-	root = Providers.root,
-	prvd = Providers.prvd,
+	root = roots.root,
+	prvd = providers.prvd,
+	onProviderConstructed = providers.onProviderConstructed,
 
 	-- Lifecycle API
-	lifecycle = Lifecycles.lifecycle,
-	fireConcurrent = Lifecycles.fireConcurrent,
-	fireSequential = Lifecycles.fireSequential,
+	lifecycle = lifecycles.lifecycle,
+	fireConcurrent = lifecycles.fireConcurrent,
+	fireSequential = lifecycles.fireSequential,
 
 	-- Net API
-	netRoot = Providers.root(),
+	netRoot = roots.root(),
 
 	-- Component API
-	componentRoot = Providers.root(),
+	componentRoot = roots.root(),
 }
 
 setmetatable(prvd, {

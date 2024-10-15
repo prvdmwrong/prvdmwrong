@@ -38,5 +38,12 @@ function utils.assert<T>(value: T, message: string)
 	error("[Prvd 'M Wrong]: " .. message, 2)
 end
 
+function utils.findAndRemove<T>(from: { T }, toRemove: T)
+	local oldIndex = table.find(from, toRemove)
+	if oldIndex then
+		table.remove(from, toRemove)
+	end
+end
+
 table.freeze(utils)
 return utils
