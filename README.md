@@ -16,20 +16,23 @@ type-safe APIs, dependency resolution, and unparalleled DX. Prvd 'M Wrong does
 the heavy lifting so you can build better games. Zero bloat, plugins, or lock-in
 required.
 
-Want to know more? [Get going with the Prvd 'M Wrong on rails tutorial.]
+Want to learn more? [Get going with the Prvd 'M Wrong on rails tutorial.][Jebaited]
 
 ## Contributing
 
 If you're interested in contributing code and/or documentation,
-[see the Prvd 'M Wrong contributors guide.]
+[see the Prvd 'M Wrong contributors guide.][Contributing]
 
 ## License
 
-Prvd 'M Wrong is distributed under the terms of both the MIT license and the
-Apache License (Version 2.0).
+<sup>
+Licensed under either of <a href="LICENSE-APACHE">Apache License, Version
+2.0</a> or <a href="LICENSE-MIT">MIT license</a> at your option.
+<br/>
+Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in this crate by you, as defined in the Apache-2.0 license, shall
+be dual licensed as above, without any additional terms or conditions.
+</sub>
 
-See [LICENSE-APACHE](LICENSE-APACHE) and [LICENSE-MIT](LICENSE-MIT) for details.
-
-[Get going with the Prvd 'M Wrong on rails tutorial.]: https://www.youtube.com/watch?v=d1YBv2mWll0
-[see the Prvd
-'M Wrong contributors guide.]: .github/CONTRIBUTING.md
+[Jebaited]: https://www.youtube.com/watch?v=d1YBv2mWll0
+[Contributing]: .github/CONTRIBUTING.md

@@ -1,0 +1,30 @@
+{
+  "bundle": {
+    "require_mode": {
+      "name": "path",
+      "sources": {
+        "@core": "prvdmwrong/core/src",
+        "@knit-compat": "prvdmwrong/knit-compat/src",
+        "@lifecycles": "prvdmwrong/lifecycles/src",
+      }
+    }
+  },
+  "generator": {
+    "column_span": 9999999999,
+    "name": "dense"
+  },
+  "rules": [
+    {
+      "identifier": "__DEV__",
+      "rule": "inject_global_value",
+      "value": false
+    },
+    "compute_expression",
+    "remove_unused_if_branch",
+    "remove_unused_while",
+    "filter_after_early_return",
+    "remove_nil_declaration",
+    "remove_empty_do",
+    "remove_spaces"
+  ]
+}

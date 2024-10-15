@@ -80,8 +80,8 @@ if isDistributing then
   version = stdio.prompt("text" :: "text", "Enter a valid semver version to distribute")
 end
 
-build.buildPackages({
+build.buildPackages {
   packages = resolveDependencies(),
   isDistributing = isDistributing,
   version = version,
-})
+}

@@ -4,12 +4,13 @@
 # New tools can be added by running `rokit add <tool>` in a terminal.
 
 [tools]
+darklua = "seaofvoices/darklua@0.13.1"
 luau-lsp = "JohnnyMorganz/luau-lsp@1.33.1"
 lune = "lune-org/lune@0.8.8"
 rojo = "rojo-rbx/rojo@7.4.4"
+selene = "Kampfkarren/selene@0.27.1"
 stylua = "JohnnyMorganz/stylua@0.20.0"
 wally = "UpliftGames/wally@0.3.2"
-selene = "Kampfkarren/selene@0.27.1"
 # FIXME(znotfireman): rokit doesn't like moonwave
 # use `cargo install moonwave` for now
 # moonwave = "evaera/moonwave@1.1.3"
