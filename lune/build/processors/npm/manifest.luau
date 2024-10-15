@@ -6,8 +6,8 @@ return {
   version = any :: string,
   dependencies = any :: { [string]: string },
   main = "src/init.luau",
-  author = "znotfireman <znotfireman+hello@gmail.com>",
-  license = "MIT OR Apache-2.0",
+  author = any :: string,
+  license = any :: string,
   types = "src/index.d.ts",
   files = {
     "src",
@@ -15,6 +15,10 @@ return {
   },
   publishConfig = {
     access = "public",
+  },
+  repository = {
+    type = "git",
+    url = any :: string,
   },
   devDependencies = {
     ["@rbxts/compiler-types"] = "2.3.0-types.1",

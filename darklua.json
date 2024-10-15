@@ -2,32 +2,36 @@
   "generator": "retain_lines",
   "rules": [
     {
+      "rule": "convert_require",
       "current": {
         "name": "path",
         "sources": {
           "@core": "prvdmwrong/core/src",
           "@knit-compat": "prvdmwrong/knit-compat/src",
-          "@lifecycles": "prvdmwrong/lifecycles/src",
+          "@lifecycles": "prvdmwrong/lifecycles/src"
         }
       },
-      "rule": "convert_require",
       "target": {
-        "indexing_style": "property",
         "name": "roblox",
+        "indexing_style": "property",
         "rojo_sourcemap": "./sourcemap.json"
       }
     },
     {
-      "identifier": "__DEV__",
+      "identifier": "PRVDMWRONG_BUILD",
       "rule": "inject_global_value",
       "value": false
+    },
+    {
+      "identifier": "PRVDMWRONG_VERSION",
+      "rule": "inject_global_value",
+      "env": "PRVDMWRONG_VERSION"
     },
     "compute_expression",
     "remove_unused_if_branch",
     "remove_unused_while",
     "filter_after_early_return",
     "remove_nil_declaration",
-    "remove_empty_do",
-    "remove_spaces"
+    "remove_empty_do"
   ]
 }

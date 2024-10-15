@@ -6,11 +6,11 @@ return {
     description = any :: string,
     version = any :: string,
     dependencies = {} :: { [string]: string },
-    license = "MIT OR Apache-2.0",
-    authors = { "znotfireman <znotfireman+hello@gmail.com>" },
+    license = any :: string,
+    authors = any :: { string },
 
     realm = "shared",
-    repository = "https://github.com/prvdmwrong/prvdmwrong",
+    repository = any :: string,
     registry = "https://github.com/UpliftGames/wally-index",
 
     include = {

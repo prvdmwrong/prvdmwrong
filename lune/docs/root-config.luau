@@ -4,7 +4,7 @@ local process = require("@lune/process")
 local serde = require("@lune/serde")
 local types = require("./types")
 
-local PATH_ROOT_CONFIG = path(process.cwd, "config.toml")
+local PATH_ROOT_CONFIG = path(process.cwd, "prvdmwrong.toml")
 
 local ok, result = pcall(function(): types.RootConfig
   local rootConfig = serde.decode("toml", fs.readFile(PATH_ROOT_CONFIG))

@@ -1,16 +1,26 @@
 local fs = require("@lune/fs")
 local path = require("@lunescripts/utils/path")
 local process = require("@lune/process")
-local serde = require("@lune/serde")
-local stdio = require("@lune/stdio")
 local summon = require("@lunescripts/utils/summon")
 local types = require("@lunescripts/types")
 
 local PATH_BUILD = path(process.cwd, "build")
-local DARKLUA_DEV = path(process.cwd, "lune", "build", "darklua", "dev.json")
-local DARKLUA_DIST = path(process.cwd, "lune", "build", "darklua", "dist.json")
+local PATH_PROCESSORS = path(process.cwd, "lune", "build", "processors")
 
 local build = {}
+local processors: { types.BuildProcessor } = {}
+
+for _, processor in fs.readDir(PATH_PROCESSORS) do
+  local buildProcessor = require(path(PATH_PROCESSORS, processor)) :: any
+  assert(types.BuildProcessor(buildProcessor))
+  table.insert(processors, buildProcessor)
+end
+
+table.sort(processors, function(left: types.BuildProcessor, right: types.BuildProcessor)
+  local leftOrder = left.loadOrder or 1
+  local rightOrder = right.loadOrder or 1
+  return leftOrder < rightOrder
+end)
 
 function build.buildPackages(context: {
   packages: { types.Package },
@@ -25,22 +35,28 @@ function build.buildPackages(context: {
   print("Generating Rojo sourcemap")
   summon("rojo", "sourcemap", "-o", "sourcemap.json", "./default.project.json")
 
-  local darkluaConfig = context.isDistributing and DARKLUA_DIST or DARKLUA_DEV
-
+  local buildPackages = {}
   for _, package in context.packages do
     print("Building", package.relativePath)
     local outputPath = path(PATH_BUILD, package.name)
     fs.writeDir(outputPath)
 
-    summon(
-      "darklua",
-      "process",
-      "-c",
-      darkluaConfig,
-      "-vvvv",
-      path(package.absolutePath, "src"),
-      path(outputPath, "src")
-    )
+    local buildPackage: types.BuildPackage = table.clone(package :: any)
+    buildPackage.outputPath = outputPath
+    buildPackage.version = context.version
+    buildPackage.isDistributing = context.isDistributing
+
+    table.insert(buildPackages, buildPackage)
+
+    for _, processor in processors do
+      processor:process(buildPackage)
+    end
+  end
+
+  for _, processor in processors do
+    if processor.postProcessing then
+      processor:postProcessing(buildPackages)
+    end
   end
 end
 

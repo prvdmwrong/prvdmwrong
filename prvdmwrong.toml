@@ -3,6 +3,8 @@ authors = ["znotfireman <znotfireman+hello@gmail.com>"]
 repository = "https://github.com/prvdmwrong/prvdmwrong"
 license = "MIT OR Apache-2.0"
 
+header = ["--!strict", "-- Prvd 'M Wrong is licensed under either of Apache 2.0 or MIT at your option."]
+
 [publish.scopes]
 wally = "prvdmwrong"
 pesde = "prvdmwrong"
