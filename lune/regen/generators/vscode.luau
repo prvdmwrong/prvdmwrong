@@ -8,56 +8,29 @@ local serde = require("@lune/serde")
 local tabler = require("@scripts/_utils/tabler")
 local types = require("@scripts/_types")
 
-local ZED_SETTINGS = path(process.cwd, ".zed", "settings.json")
+local VSCODE_SETTINGS = path(process.cwd, ".vscode", "settings.json")
 local BASE_DIRECTORY_ALIASES: { [string]: string } = {
 	["@lune"] = "~/.lune/.typedefs/0.8.8/",
 	["@scripts"] = "./lune",
 }
 
-local BASE_ZED_SETTINGS = {
-	languages = {
-		Luau = {
-			formmatter = {
-				external = {
-					arguments = { "-" },
-					command = "stylua",
-				},
-			},
-		},
+local BASE_VSCODE_SETTINGS = {
+	["[luau]"] = {
+		["editor.defaultFormatter"] = "JohnyMorganz.stylua",
 	},
-	lsp = {
-		["luau-lsp"] = {
-			settings = {
-				ext = {
-					fflags = {
-						enable_by_default = false,
-						sync = true,
-						override = {
-							LuauTypeSolverRelease = "646",
-							LuauSolverV2 = "True",
-							LuauUserDefinedTypeFunctionsSyntax = "True",
-							LuauUserDefinedTypeFunctions = "True",
-						},
-					},
-				},
-				prefer_worktree_binary = true,
-				roblox = {
-					enabled = true,
-				},
-				["luau-lsp"] = {
-					require = {
-						directoryAliases = {},
-						mode = "relativeToFile",
-					},
-				},
-			},
-		},
+	["luau-lsp.fflags.override"] = {
+		LuauTypeSolverRelease = "646",
+		LuauSolverV2 = "True",
+		LuauUserDefinedTypeFunctionsSyntax = "True",
+		LuauUserDefinedTypeFunctions = "True",
 	},
+	["luau-lsp.require.mode"] = "relativeToFile",
+	["luau-lsp.require.directoryAliases"] = {} :: { [string]: string },
 }
 
-local ZedRegenerator = {} :: regenTypes.Generator
-function ZedRegenerator:generate(packages: { types.Package }, log: Log.Log)
-	local newSettings = tabler.deepCopy(BASE_ZED_SETTINGS)
+local VSCodeGenerator = {} :: regenTypes.Generator
+function VSCodeGenerator:generate(packages: { types.Package }, log: Log.Log)
+	local newSettings = tabler.deepCopy(BASE_VSCODE_SETTINGS)
 	local directoryAliases = table.clone(BASE_DIRECTORY_ALIASES)
 
 	log.print("Writing directory aliases for Zed configuration")
@@ -70,9 +43,9 @@ function ZedRegenerator:generate(packages: { types.Package }, log: Log.Log)
 	log.unIndent()
 	log.print("Writing to local .zed/settings.json")
 
-	newSettings.lsp["luau-lsp"].settings["luau-lsp"].require.directoryAliases = directoryAliases
+	newSettings["luau-lsp.require.directoryAliases"] = directoryAliases
 	fs.writeFile(
-		ZED_SETTINGS,
+		VSCODE_SETTINGS,
 		StringBuilder()
 			:appendLn("// This file was @generated and should not be edited.")
 			:appendLn("// Run `lune run scripts/regen` to generate fresh Zed settings.")
@@ -82,4 +55,4 @@ function ZedRegenerator:generate(packages: { types.Package }, log: Log.Log)
 	)
 end
 
-return ZedRegenerator
+return VSCodeGenerator

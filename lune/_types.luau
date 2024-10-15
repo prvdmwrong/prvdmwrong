@@ -1,4 +1,4 @@
-local t = require("./tiny")
+local t = require("@scripts/_vendor/tiny")
 
 local types = {}
 
@@ -67,34 +67,20 @@ types.RepoConfig = t.interface {
 }
 
 export type Package = {
-	name: string,
+	packageName: string,
 	absolutePath: string,
 	relativePath: string,
 	config: Config,
 }
 
-export type BuildPackage = {
-	name: string,
-	absolutePath: string,
-	relativePath: string,
-	outputPath: string,
-	config: Config,
-	isDistributing: boolean,
-	version: string,
-}
-
-export type BuildProcessor = {
+export type Processor = {
 	loadOrder: number?,
-	process: (self: BuildProcessor, package: BuildPackage) -> (),
-	publish: (self: BuildProcessor, package: BuildPackage) -> ()?,
-	postProcessing: (self: BuildProcessor, packages: { BuildPackage }) -> ()?,
+	process: (self: Processor, package: Package) -> (),
 }
 
-types.BuildProcessor = t.interface {
+types.Processor = t.interface {
 	loadOrder = t.optional(t.number),
 	process = t.callback,
-	publish = t.optional(t.callback),
-	postProcessing = t.optional(t.callback),
 }
 
 return types

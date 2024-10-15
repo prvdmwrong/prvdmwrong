@@ -1,5 +1,5 @@
 local fs = require("@lune/fs")
-local path = require("../../utils/path")
+local path = require("@scripts/_utils/path")
 local process = require("@lune/process")
 
 type MarkdownTemplates = {
@@ -20,7 +20,7 @@ type Templates = MarkdownTemplates & {
 	get: (templateName: keyof<MarkdownTemplates>) -> string,
 }
 
-local PATH_TEMPLATES = path(process.cwd, "lune", "docs", "templates")
+local PATH_TEMPLATES = path(process.cwd, "scripts", "docs", "templates")
 local templates: Templates = {} :: any
 
 for _, template in fs.readDir(PATH_TEMPLATES) do

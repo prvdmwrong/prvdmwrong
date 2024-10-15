@@ -1,9 +1,6 @@
 export type StringBuilder = {
 	append: (self: StringBuilder, ...string) -> StringBuilder,
 	appendLn: (self: StringBuilder, ...string) -> StringBuilder,
-	appendStringBuilder: (self: StringBuilder, build: StringBuilder) -> StringBuilder,
-	indent: (self: StringBuilder) -> StringBuilder,
-	unIndent: (self: StringBuilder) -> StringBuilder,
 	build: (self: StringBuilder) -> string,
 	ensureSize: (self: StringBuilder, minimumSize: number) -> StringBuilder,
 }
@@ -31,25 +28,8 @@ local function StringBuilder(initial: string?)
 		return self:append(line .. "\n")
 	end
 
-	function self:appendStringBuilder(build)
-		self:append(build:build())
-		return self
-	end
-
 	function self:build()
 		return buffer.tostring(stringBuffer)
-	end
-
-	function self:indent()
-		indent += 1
-		return self
-	end
-
-	function self:unIndent()
-		if indent > 0 then
-			indent -= 1
-		end
-		return self
 	end
 
 	function self:ensureSize(minimumSize: number)

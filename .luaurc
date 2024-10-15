@@ -5,6 +5,6 @@
         "LocalShadow": false
     },
     "aliases": {
-        "lunescripts": "./lune"
+        "scripts": "./lune"
     }
 }

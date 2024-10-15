@@ -1,8 +1,8 @@
 local fs = require("@lune/fs")
-local path = require("@lunescripts/_utils/path")
+local path = require("@scripts/_utils/path")
 local process = require("@lune/process")
 local serde = require("@lune/serde")
-local types = require("@lunescripts/types")
+local types = require("@scripts/_types")
 
 local REPO_CONFIG = path(process.cwd, "prvdmwrong.toml")
 
@@ -20,6 +20,11 @@ if not ok then
 end
 
 configs.repoConfig = table.freeze(repoConfig)
+
+function configs.assertToml(toml: any): types.Config
+	assert(types.Config(toml))
+	return toml
+end
 
 table.freeze(configs)
 return configs

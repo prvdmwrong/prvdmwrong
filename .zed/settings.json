@@ -1,50 +1,51 @@
 // This file was @generated and should not be edited.
-// Run `lune run regen` to generate fresh Zed settings.
+// Run `lune run scripts/regen` to generate fresh Zed settings.
+
 {
-    "languages": {
-        "Luau": {
-            "formmatter": {
-                "external": {
-                    "arguments": [
-                        "-"
-                    ],
-                    "command": "stylua"
-                }
-            }
+  "languages": {
+    "Luau": {
+      "formmatter": {
+        "external": {
+          "arguments": [
+            "-"
+          ],
+          "command": "stylua"
         }
-    },
-    "lsp": {
-        "luau-lsp": {
-            "settings": {
-                "ext": {
-                    "fflags": {
-                        "enable_by_default": false,
-                        "override": {
-                            "LuauSolverV2": "True",
-                            "LuauTypeSolverRelease": "646",
-                            "LuauUserDefinedTypeFunctions": "True",
-                            "LuauUserDefinedTypeFunctionsSyntax": "True"
-                        },
-                        "sync": true
-                    }
-                },
-                "luau-lsp": {
-                    "require": {
-                        "directoryAliases": {
-                            "@core": "prvdmwrong/core/src",
-                            "@knit-compat": "prvdmwrong/knit-compat/src",
-                            "@lifecycles": "prvdmwrong/lifecycles/src",
-                            "@lune": "~/.lune/.typedefs/0.8.8/",
-                            "@lunescripts": "./lune"
-                        },
-                        "mode": "relativeToFile"
-                    }
-                },
-                "prefer_worktree_binary": true,
-                "roblox": {
-                    "enabled": true
-                }
-            }
-        }
+      }
     }
+  },
+  "lsp": {
+    "luau-lsp": {
+      "settings": {
+        "ext": {
+          "fflags": {
+            "enable_by_default": false,
+            "override": {
+              "LuauSolverV2": "True",
+              "LuauTypeSolverRelease": "646",
+              "LuauUserDefinedTypeFunctions": "True",
+              "LuauUserDefinedTypeFunctionsSyntax": "True"
+            },
+            "sync": true
+          }
+        },
+        "luau-lsp": {
+          "require": {
+            "directoryAliases": {
+              "@core": "prvdmwrong/core/src",
+              "@knit-compat": "prvdmwrong/knit-compat/src",
+              "@lifecycles": "prvdmwrong/lifecycles/src",
+              "@lune": "~/.lune/.typedefs/0.8.8/",
+              "@scripts": "./lune"
+            },
+            "mode": "relativeToFile"
+          }
+        },
+        "prefer_worktree_binary": true,
+        "roblox": {
+          "enabled": true
+        }
+      }
+    }
+  }
 }
