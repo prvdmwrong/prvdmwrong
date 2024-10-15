@@ -1,5 +1,7 @@
 local Lifecycles = require("@core/lifecycles")
+local utils = require("@core/utils")
 
+type LuauSolverIssue = any
 type Set<T> = { [T]: true }
 
 --[=[
@@ -17,6 +19,8 @@ type Set<T> = { [T]: true }
   .onStop (self: Provider<Self>) -> ()? -- Wow
 ]=]
 export type Provider<Self> = Self & {
+  [ConstructedProvider]: Provider<Self>,
+
   loadOrder: number?,
   name: string?,
 
@@ -61,7 +65,14 @@ export type Root = {
   providerStop: Lifecycles.Lifecycle<()>,
 }
 
-local registeredProviders = {}
+-- Required so TypeScript class decorators can properly register providers
+type ConstructedProvider = { ____phantom__constructedProviderKey: never? }
+local CONSTRUCTED_PROVIDER_KEY: ConstructedProvider = newproxy();
+(getmetatable(CONSTRUCTED_PROVIDER_KEY :: any) :: any).__tostring = function()
+  return "<Prvd 'M Wrong> CONSTRUCTED_PROVIDER_KEY"
+end
+
+local registeredProviders: Set<Provider<unknown>> = {}
 
 -- TODO(znotfireman): Probably can merge visitProvider w processProviders but
 -- keep visitChild for less functions
@@ -90,8 +101,8 @@ local function visitProvider(
       return
     end
 
-    if key ~= nil and target ~= provider and registeredProviders[target] then
-      if not visited[target :: any] then
+    if key ~= nil and target ~= provider and registeredProviders[target :: LuauSolverIssue] then
+      if not visited[target :: LuauSolverIssue] then
         visitProvider(provider, visited, stack, lifecycles)
       end
       return
@@ -102,7 +113,7 @@ local function visitProvider(
     end
   end
 
-  visitChild(provider, nil, provider :: any)
+  visitChild(provider, nil, provider :: LuauSolverIssue)
   table.insert(stack, provider)
 end
 
@@ -145,8 +156,12 @@ export type RootStatus = index<typeof(Providers.RootStatus), keyof<typeof(Provid
   @param provider Self -- The provider and associated properties itself.
   @return Provider<Self> -- A newly constructed provider.
 ]=]
-function Providers.prvd<Self>(provider: Self): Provider<Self>
-  error("not implemented")
+function Providers.prvd<Self>(provider: Self, name: string?): Provider<Self>
+  local newProvider: Provider<Self> = provider
+  newProvider.name = newProvider.name or name
+  newProvider[CONSTRUCTED_PROVIDER_KEY] = newProvider
+  registeredProviders[newProvider] = true
+  return newProvider
 end
 
 --[=[
@@ -168,7 +183,7 @@ function Providers.root(): Root
   function self:useModule(module: ModuleScript)
     local moduleExport = require(module) :: any
     if registeredProviders[moduleExport] and typeof(moduleExport.name) ~= "string" then
-      registeredProviders.name = module.Name
+      moduleExport.name = module.Name :: LuauSolverIssue
       rootProviders[moduleExport] = true
     end
   end
@@ -181,13 +196,14 @@ function Providers.root(): Root
 
       local moduleExport = require(module) :: any
       if registeredProviders[moduleExport] and typeof(moduleExport.name) ~= "string" then
-        registeredProviders.name = module.Name
+        moduleExport.name = module.Name :: LuauSolverIssue
         rootProviders[moduleExport] = true
       end
     end
   end
 
-  -- NOTE: https://www.youtube.com/watch?v=5GcPA3C0QeI
+  -- NOTE(znotfireman): Listen to https://www.youtube.com/watch?v=5GcPA3C0QeI
+  -- when I work on this
   function self:start()
     local processed = processProviders(rootProviders)
   end

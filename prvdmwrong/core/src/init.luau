@@ -17,9 +17,6 @@ local prvd = table.freeze {
   lifecycle = Lifecycles.lifecycle,
   fireConcurrent = Lifecycles.fireConcurrent,
   fireSequential = Lifecycles.fireSequential,
-  providerInit = Lifecycles.providerInit,
-  providerStart = Lifecycles.providerStart,
-  providerStop = Lifecycles.providerStop,
 
   -- Net API
   netRoot = Providers.root(),

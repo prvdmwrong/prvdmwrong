@@ -1,0 +1,25 @@
+{
+  "name": "Prvd 'M Wrong Development",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Client": {
+        "$path": "dev/client"
+      },
+      "Shared": {
+        "$path": "dev/shared",
+        "Packages": {
+          "$path": "dev/roblox_packages",
+          "prvd": {
+            "$path": "build/core"
+          }
+        }
+      }
+    },
+    "ServerScriptService": {
+      "Server": {
+        "$path": "dev/server"
+      }
+    }
+  }
+}
