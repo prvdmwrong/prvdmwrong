@@ -36,26 +36,27 @@ export type Provider<Self> = Self & {
     .useModule (self: Root, module: ModuleScript) -> Root -- Wow
     Pst. I see dead people.
 ]=]
-export type StartRoot = {
-	status: (self: StartRoot) -> RootStatus,
-	stop: (self: StartRoot) -> (),
+export type StartedRoot = {
+	status: (root: StartedRoot) -> RootStatus,
+	stop: (root: StartedRoot) -> (),
 }
 
 export type Root = {
-	start: (self: Root) -> StartRoot,
+	rootProviders: Set<Provider<unknown>>,
+	start: (root: Root) -> StartedRoot,
 
-	useModule: (self: Root, module: ModuleScript) -> Root,
-	useModules: (self: Root, modules: { Instance }, predicate: ((ModuleScript) -> boolean)?) -> Root,
-	useRoot: (self: Root, root: Root) -> Root,
-	useRoots: (self: Root, roots: { Root }) -> Root,
-	useProvider: (self: Root, provider: Provider<unknown>) -> Root,
-	useProviders: (self: Root, providers: { Provider<unknown> }) -> Root,
-	useLifecycle: (self: Root, lifecycle: Lifecycles.Lifecycle<...unknown>) -> Root,
-	useLifecycles: (self: Root, lifecycles: { Lifecycles.Lifecycle<...unknown> }) -> Root,
+	useModule: (root: Root, module: ModuleScript) -> Root,
+	useModules: (root: Root, modules: { Instance }, predicate: ((ModuleScript) -> boolean)?) -> Root,
+	useRoot: (root: Root, root: Root) -> Root,
+	useRoots: (root: Root, roots: { Root }) -> Root,
+	useProvider: (root: Root, provider: Provider<unknown>) -> Root,
+	useProviders: (root: Root, providers: { Provider<unknown> }) -> Root,
+	useLifecycle: (root: Root, lifecycle: Lifecycles.Lifecycle<...unknown>) -> Root,
+	useLifecycles: (root: Root, lifecycles: { Lifecycles.Lifecycle<...unknown> }) -> Root,
 
-	providerInit: Lifecycles.Lifecycle<()>,
-	providerStart: Lifecycles.Lifecycle<()>,
-	providerStop: Lifecycles.Lifecycle<()>,
+	onInit: Lifecycles.Lifecycle<()>,
+	onStart: Lifecycles.Lifecycle<()>,
+	onStop: Lifecycles.Lifecycle<()>,
 }
 
 -- Required so TypeScript class decorators can properly register providers
@@ -152,70 +153,83 @@ function providers.prvd<Self>(provider: Self, name: string?): Provider<Self>
 end
 
 --[=[
+    @within Prvd
+    @class Root
+
+    Mustard on the beat ho
+]=]
+local Root = {}
+
+function Root.useModule(root: Root, module: ModuleScript)
+	local moduleExport = require(module) :: any
+	if registeredProviders[moduleExport] and typeof(moduleExport.name) ~= "string" then
+		moduleExport.name = _G.PRVDMWRONG_DEV and module:GetFullName() or module.Name
+		root.rootProviders[moduleExport] = true
+	end
+
+	return root
+end
+
+function Root.useModules(root: Root, modules: { Instance }, predicate: ((ModuleScript) -> boolean)?)
+	for _, module in modules do
+		if not module:IsA("ModuleScript") or predicate and not predicate(module) then
+			continue
+		end
+
+		local moduleExport = require(module) :: any
+		if registeredProviders[moduleExport] and typeof(moduleExport.name) ~= "string" then
+			moduleExport.name = module.Name :: LuauSolverIssue
+			root.rootProviders[moduleExport] = true
+		end
+	end
+
+	return root
+end
+
+function Root.useProvider(root: Root, provider: Provider<unknown>)
+	root.rootProviders[provider] = true
+	return root
+end
+
+function Root.useProviders(root: Root, providers: { Provider<unknown> })
+	for _, provider in providers do
+		root.rootProviders[provider] = true
+	end
+	return root
+end
+
+-- NOTE(znotfireman): Listen to https://www.youtube.com/watch?v=5GcPA3C0QeI
+-- when I work on this
+function Root.start(root: Root)
+	local processed = processProviders(root.rootProviders)
+end
+
+--[=[
     Construct and returns a new root. Roots are starting points for Prvd 'M Wrong games where providers can be bootstrapped.
 
     @within Prvd
     @return Root -- A newly constructed root.
 ]=]
 function providers.root(): Root
-	local rootProviders: Set<Provider<unknown>> = {}
+	local rootProviders = {}
+	local onInit: Lifecycles.Lifecycle<()> = Lifecycles.lifecycle("onInit", Lifecycles.fireSequential)
+	local onStart: Lifecycles.Lifecycle<()> = Lifecycles.lifecycle("onStart", Lifecycles.fireConcurrent)
+	local onStop: Lifecycles.Lifecycle<()> = Lifecycles.lifecycle("onStop", Lifecycles.fireConcurrent)
 
-	--[=[
-        @within Prvd
-        @class Root
+	local self = {
+		rootProviders = rootProviders,
+		start = Root.start,
 
-        Mustard on the beat ho
-    ]=]
-	local self = {} :: Root
+		useModule = Root.useModule,
+		useModules = Root.useModules,
+		useProvider = Root.useProvider,
+		useProviders = Root.useProviders,
 
-	-- NOTE(znotfireman): create "binder" functions for these with it`self`
-	self.providerInit = Lifecycles.lifecycle("onInit", Lifecycles.fireSequential) :: Lifecycles.Lifecycle<()>
-	self.providerStart = Lifecycles.lifecycle("onStart", Lifecycles.fireConcurrent) :: Lifecycles.Lifecycle<()>
-	self.providerStop = Lifecycles.lifecycle("onStop", Lifecycles.fireConcurrent) :: Lifecycles.Lifecycle<()>
-
-	function self:useModule(module: ModuleScript)
-		local moduleExport = require(module) :: any
-		if registeredProviders[moduleExport] and typeof(moduleExport.name) ~= "string" then
-			moduleExport.name = _G.PRVDMWRONG_DEV and module:GetFullName() or module.Name
-			rootProviders[moduleExport] = true
-		end
-
-		return self
-	end
-
-	function self:useModules(modules: { Instance }, predicate: ((ModuleScript) -> boolean)?)
-		for _, module in modules do
-			if not module:IsA("ModuleScript") or predicate and not predicate(module) then
-				continue
-			end
-
-			local moduleExport = require(module) :: any
-			if registeredProviders[moduleExport] and typeof(moduleExport.name) ~= "string" then
-				moduleExport.name = module.Name :: LuauSolverIssue
-				rootProviders[moduleExport] = true
-			end
-		end
-
-		return self
-	end
-
-	function self:useProvider(provider: Provider<unknown>)
-		rootProviders[provider] = true
-		return self
-	end
-
-	function self:useProviders(providers: { Provider<unknown> })
-		for _, provider in providers do
-			rootProviders[provider] = true
-		end
-		return self
-	end
-
-	-- NOTE(znotfireman): Listen to https://www.youtube.com/watch?v=5GcPA3C0QeI
-	-- when I work on this
-	function self:start()
-		local processed = processProviders(rootProviders)
-	end
+		-- NOTE(znotfireman): create "binder" functions for these with it`self`
+		onInit = onInit,
+		onStart = onStart,
+		onStop = onStop,
+	} :: Root
 
 	return self
 end
