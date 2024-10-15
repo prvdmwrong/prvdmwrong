@@ -1,41 +1,41 @@
 local utils = {}
 
 do
-  local freeThreads: { thread } = {}
-  local function resume<Args...>(resume: (Args...) -> (), thread: thread, ...: Args...)
-    resume(...)
-    table.insert(freeThreads, thread)
-  end
+	local freeThreads: { thread } = {}
+	local function resume<Args...>(resume: (Args...) -> (), thread: thread, ...: Args...)
+		resume(...)
+		table.insert(freeThreads, thread)
+	end
 
-  local function yield()
-    while true do
-      resume(coroutine.yield())
-    end
-  end
+	local function yield()
+		while true do
+			resume(coroutine.yield())
+		end
+	end
 
-  function utils.spawnCallback<Args...>(callback: (Args...) -> (), ...: Args...)
-    local thread: thread
-    if #freeThreads > 0 then
-      thread = assert(table.remove(freeThreads, #freeThreads), "Luau")
-    else
-      thread = coroutine.create(yield)
-      coroutine.resume(thread)
-    end
-    task.spawn(thread, callback, thread, ...)
-  end
+	function utils.spawnCallback<Args...>(callback: (Args...) -> (), ...: Args...)
+		local thread: thread
+		if #freeThreads > 0 then
+			thread = assert(table.remove(freeThreads, #freeThreads), "Luau")
+		else
+			thread = coroutine.create(yield)
+			coroutine.resume(thread)
+		end
+		task.spawn(thread, callback, thread, ...)
+	end
 end
 
 function utils.spawnCallbacks<Args...>(callbacks: { (Args...) -> () }, ...: Args...)
-  for _, callback in callbacks do
-    utils.spawnCallback(callback, ...)
-  end
+	for _, callback in callbacks do
+		utils.spawnCallback(callback, ...)
+	end
 end
 
 function utils.assert<T>(value: T, message: string)
-  if value then
-    return value
-  end
-  error("[Prvd 'M Wrong]: " .. message, 2)
+	if value then
+		return value
+	end
+	error("[Prvd 'M Wrong]: " .. message, 2)
 end
 
 table.freeze(utils)

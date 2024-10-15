@@ -4,48 +4,48 @@
 local Maybe = require("./maybe")
 
 type Typechecker<T> = {
-  expectsType: string,
-  typeError: string,
-  matches: (self: Typechecker<T>, value: unknown) -> boolean,
-  assert: (self: Typechecker<T>, value: unknown) -> T,
-  cast: (self: Typechecker<T>, value: unknown) -> Maybe.Maybe<T>,
+	expectsType: string,
+	typeError: string,
+	matches: (self: Typechecker<T>, value: unknown) -> boolean,
+	assert: (self: Typechecker<T>, value: unknown) -> T,
+	cast: (self: Typechecker<T>, value: unknown) -> Maybe.Maybe<T>,
 }
 
 type PrimitiveTypes = {
-  buffer: buffer,
-  ["function"]: (...unknown) -> ...unknown,
-  ["nil"]: nil,
-  number: number,
-  string: string,
-  table: { [unknown]: unknown },
-  thread: thread,
-  userdata: unknown,
-  vector: unknown,
+	buffer: buffer,
+	["function"]: (...unknown) -> ...unknown,
+	["nil"]: nil,
+	number: number,
+	string: string,
+	table: { [unknown]: unknown },
+	thread: thread,
+	userdata: unknown,
+	vector: unknown,
 }
 
 local Tx = {}
 
 local function typechecker(
-  expectsType: string,
-  cast: (self: Typechecker<unknown>, value: unknown) -> Maybe.Maybe<unknown>
+	expectsType: string,
+	cast: (self: Typechecker<unknown>, value: unknown) -> Maybe.Maybe<unknown>
 ): Typechecker<unknown>
-  local typedef = {} :: Typechecker<unknown>
-  typedef.expectsType = expectsType
-  typedef.typeError = `Type is not {expectsType}`
-  typedef.cast = cast
+	local typedef = {} :: Typechecker<unknown>
+	typedef.expectsType = expectsType
+	typedef.typeError = `Type is not {expectsType}`
+	typedef.cast = cast
 
-  function typedef:matches(value)
-    return cast(value).some
-  end
+	function typedef:matches(value)
+		return cast(value).some
+	end
 
-  function typedef:assert(value)
-    local maybe = cast(value)
-    assert(maybe.some, (maybe :: any).error)
-    return maybe.value
-  end
+	function typedef:assert(value)
+		local maybe = cast(value)
+		assert(maybe.some, (maybe :: any).error)
+		return maybe.value
+	end
 
-  table.freeze(typedef)
-  return typedef
+	table.freeze(typedef)
+	return typedef
 end
 
 -- FUTURE: promote to type function
@@ -56,13 +56,13 @@ end
 
 -- NOTE: Luau throws a shitload of errors here. Dw it still typechecks
 function Tx.primitive<Primitive>(primitive: Primitive & keyof<PrimitiveTypes>): Typechecker<index<PrimitiveTypes, Primitive>>
-  return typechecker(primitive, function(self, value): Maybe.Maybe<unknown>
-    local realType = type(primitive)
-    if realType == self.expectsType then
-      return Maybe.some(value)
-    end
-    return Maybe.none(`Expected primitive type {self.expectsType}, got {realType}`)
-  end)
+	return typechecker(primitive, function(self, value): Maybe.Maybe<unknown>
+		local realType = type(primitive)
+		if realType == self.expectsType then
+			return Maybe.some(value)
+		end
+		return Maybe.none(`Expected primitive type {self.expectsType}, got {realType}`)
+	end)
 end
 
 Tx.buffer = Tx.primitive("buffer")
@@ -76,22 +76,22 @@ Tx.userdata = Tx.primitive("userdata")
 Tx.vector = Tx.primitive("vector")
 
 function Tx.optional<T>(type: Typechecker<T>): Typechecker<T?>
-  return typechecker(type.expectsType .. "?", function(self, value): Maybe.Maybe<unknown>
-    if value == nil then
-      return Maybe.some(value :: any)
-    end
+	return typechecker(type.expectsType .. "?", function(self, value): Maybe.Maybe<unknown>
+		if value == nil then
+			return Maybe.some(value :: any)
+		end
 
-    return type:cast(value)
-  end)
+		return type:cast(value)
+	end)
 end
 
 function Tx.just<T>(literal: T, type: string?): Typechecker<T>
-  return typechecker(type or tostring(literal), function(self, value): Maybe.Maybe<unknown>
-    if rawequal(value, literal) then
-      return Maybe.some(value)
-    end
-    return Maybe.none(self.typeError)
-  end)
+	return typechecker(type or tostring(literal), function(self, value): Maybe.Maybe<unknown>
+		if rawequal(value, literal) then
+			return Maybe.some(value)
+		end
+		return Maybe.none(self.typeError)
+	end)
 end
 
 -- function Tx.keys<Key>(check: Check<Key>): Check<{ [Key]: unknown }>

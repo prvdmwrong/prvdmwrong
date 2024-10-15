@@ -1,10 +1,10 @@
 {
-  "languageMode": "strict",
-  "lint": {
-    "*": true,
-    "LocalShadow": false
-  },
-  "aliases": {
-    "lunescripts": "./lune"
-  }
+    "languageMode": "strict",
+    "lint": {
+        "*": true,
+        "LocalShadow": false
+    },
+    "aliases": {
+        "lunescripts": "./lune"
+    }
 }

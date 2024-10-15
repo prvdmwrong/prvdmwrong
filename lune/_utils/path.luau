@@ -21,8 +21,8 @@
 -- end
 
 local function path(...: string): string
-  -- return trimmingConcat({ ... }, "/")
-  return table.concat({ ... }, "/")
+	-- return trimmingConcat({ ... }, "/")
+	return table.concat({ ... }, "/")
 end
 
 return path
