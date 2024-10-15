@@ -141,7 +141,9 @@ end
     @param listener (lifecycle: Lifecycle<Args...>, callback: (Args...) -> () -- Called when any lifecycle registers a callback.
     @return () -> () -- A callback that when called removes the listener.
 ]=]
-function lifecycles.onRegistered<Args...>(listener: (lifecycle: Lifecycle<Args...>, callback: (Args...) -> ()) -> ()): () -> ()
+function lifecycles.onLifecycleRegistered<Args...>(
+	listener: (lifecycle: Lifecycle<Args...>, callback: (Args...) -> ()) -> ()
+): () -> ()
 	if DISALLOW_MULTIPLE_LISTENERS then
 		findAndRemove(lifecycleRegistered, listener)
 	end
@@ -160,7 +162,12 @@ end
     @param listener (lifecycle: Lifecycle<Args...>, callback: (Args...) -> ()) -> () -- Called when any lifecycle unregisters a callback.
     @return () -> () -- A callback that when called removes the listener.
 ]=]
-function lifecycles.onUnregistered<Args...>(listener: (lifecycle: Lifecycle<Args...>, callback: (Args...) -> ()) -> ()): () -> ()
+function lifecycles.onLifecycleUnregistered<Args...>(
+	listener: (
+		lifecycle: Lifecycle<Args...>,
+		callback: (Args...) -> ()
+	) -> ()
+): () -> ()
 	if DISALLOW_MULTIPLE_LISTENERS then
 		findAndRemove(lifecycleUnregistered, listener)
 	end

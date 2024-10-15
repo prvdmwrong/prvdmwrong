@@ -56,6 +56,9 @@ local prvd = table.freeze {
 	lifecycle = lifecycles.lifecycle,
 	fireConcurrent = lifecycles.fireConcurrent,
 	fireSequential = lifecycles.fireSequential,
+	onLifecycleRegistered = lifecycles.onLifecycleRegistered,
+	onLifecycleUnregistered = lifecycles.onLifecycleUnregistered,
+	onLifecycleDestroying = lifecycles.onLifecycleDestroying,
 
 	-- Net API
 	netRoot = roots.root(),
