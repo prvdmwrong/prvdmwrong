@@ -16,7 +16,7 @@ local BASE_DIRECTORY_ALIASES: { [string]: string } = {
 
 local BASE_VSCODE_SETTINGS = {
 	["[luau]"] = {
-		["editor.defaultFormatter"] = "JohnyMorganz.stylua",
+		["editor.defaultFormatter"] = "JohnnyMorganz.stylua",
 	},
 	["luau-lsp.fflags.override"] = {
 		LuauTypeSolverRelease = "646",

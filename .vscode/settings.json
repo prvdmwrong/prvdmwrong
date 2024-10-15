@@ -3,7 +3,7 @@
 
 {
   "[luau]": {
-    "editor.defaultFormatter": "JohnyMorganz.stylua"
+    "editor.defaultFormatter": "JohnnyMorganz.stylua"
   },
   "luau-lsp.fflags.override": {
     "LuauSolverV2": "True",
