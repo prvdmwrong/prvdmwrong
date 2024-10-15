@@ -50,6 +50,7 @@ local prvd = table.freeze {
 	-- Core API
 	root = roots.root,
 	prvd = providers.prvd,
+	Provider = providers.Provider :: never,
 	onProviderConstructed = providers.onProviderConstructed,
 
 	-- Lifecycle API
