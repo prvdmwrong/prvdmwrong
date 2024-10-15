@@ -88,10 +88,10 @@ declare namespace Prvd {
         lifecycle: Lifecycle<Args>,
         ...args: Args
     ) => void;
-    export const onRegistered: (
+    export const onLifecycleRegistered: (
         listener: (lifecycle: Lifecycle<unknown[]>, ...args: unknown[]) => void,
     ) => Cleanup;
-    export const onUnregistered: (
+    export const onLifecycleUnregistered: (
         listener: (lifecycle: Lifecycle<unknown[]>, ...args: unknown[]) => void,
     ) => Cleanup;
     export const onLifecycleDestroying: (
