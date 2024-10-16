@@ -103,6 +103,7 @@ end
 -- when I work on this
 -- TODO(znotfireman): Should this be async and basically behave like a promise?
 -- TODO(znotfireman): Should we add cancellation here?
+-- TODO: subroots
 local function start(root: Root): StartedRoot
 	utils.assert(root.status == RootStatus.Pending or root.status == RootStatus.Stopped, "cannot start twice")
 	root.status = RootStatus.Starting
