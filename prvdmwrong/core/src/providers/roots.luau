@@ -9,13 +9,13 @@ local providers = require("@core/providers/providers")
 local types = require("@core/types")
 local utils = require("@core/utils")
 
+type Error = types.Error
 type Lifecycle<Args... = ...unknown> = types.Lifecycle<Args...>
 type LuauSolverIssue = any
 type Provider<Self> = types.Provider<Self>
 type Root = types.Root
 type Set<T> = { [T]: true }
 type StartedRoot = types.StartedRoot
-type Error = types.Error
 
 local roots = {}
 local RootStatus = table.freeze {
