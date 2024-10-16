@@ -5,6 +5,7 @@ local types = require("@scripts/build/types")
 
 local RojoProcessor = {} :: types.Processor
 RojoProcessor.processesWhat = "default.project.json files"
+RojoProcessor.loadOrder = 0
 
 function RojoProcessor:process(package: types.Package, context: types.BuildContext)
 	fs.writeFile(
