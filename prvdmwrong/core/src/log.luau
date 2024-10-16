@@ -29,7 +29,7 @@ local function formatMessage(messageId: MessageId, trackback: string, ...: strin
 
 	local message = `[Prvd 'M Wrong]: {rawMessage:format(...)}`
 	if RunService:IsStudio() then
-		message ..= `\nLearn more: {MESSAGE_INFO_URL}{messageId}`
+		message ..= `\nLearn more: {MESSAGE_INFO_URL}{messageId:lower()}`
 	end
 	message ..= `\nID: {messageId}\n---- Stack trace ----\n{trackback}`
 
