@@ -8,7 +8,7 @@ type Self<Args... = ...unknown> = Lifecycle<Args...> & {
 	_selfUnregistered: { (callback: (Args...) -> ()) -> () },
 }
 
-local DISALLOW_MULTIPLE_LISTENERS = false
+local DISALLOW_MULTIPLE_LISTENERS = true
 
 local lifecycleRegistered = {}
 local lifecycleUnregistered = {}

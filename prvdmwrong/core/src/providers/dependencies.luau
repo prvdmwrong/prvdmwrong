@@ -10,12 +10,16 @@ local dependencies = {}
 
 -- TODO(znotfireman): Probably can merge visitProvider w processProviders but
 -- keep visitChild for less functions
+-- TODO(znotfireman): Maybe add a second pass for also delegating lifecycles too?
 local function visitProvider(
 	provider: types.Provider<unknown>,
 	visited: Set<Provider<unknown>>,
 	stack: { Provider<unknown> },
 	lifecycles: { Lifecycle<...unknown> }
 )
+	if visited[provider] then
+		return
+	end
 	visited[provider] = true
 
 	local encountered = {}

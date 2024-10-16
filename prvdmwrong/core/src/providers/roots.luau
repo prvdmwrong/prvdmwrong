@@ -182,6 +182,7 @@ end
 function roots.root(): Root
 	local rootProviders = {}
 	local subRoots = {}
+
 	local onInit: Lifecycle<()> = lifecycles.lifecycle("onInit", handlers.fireSequential)
 	local onStart: Lifecycle<()> = lifecycles.lifecycle("onStart", handlers.fireConcurrent)
 	local onStop: Lifecycle<()> = lifecycles.lifecycle("onStop", handlers.fireConcurrent)
