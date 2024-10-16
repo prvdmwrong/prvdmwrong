@@ -20,6 +20,7 @@ type LuauSolverIssue = any
 type Set<T> = { [T]: true }
 type Self = Root & {
 	_rootProviders: Set<Provider<unknown>>,
+	_rootLifecycles: Set<Lifecycle<...unknown>>,
 	_subRoots: Set<Root>,
 }
 
@@ -67,6 +68,14 @@ local function useModules(root: Self, modules: { Instance }, predicate: ((Module
 	return root
 end
 
+local function useRoot(root: Self, otherRoot: Root)
+	error("not implemented")
+end
+
+local function useRoots(root: Self, otherRoots: { Root })
+	error("not implemented")
+end
+
 local function useProvider(root: Self, provider: Provider<unknown>)
 	root._rootProviders[provider] = true
 	return root
@@ -75,6 +84,18 @@ end
 local function useProviders(root: Self, providers: { Provider<unknown> })
 	for _, provider in providers do
 		root._rootProviders[provider] = true
+	end
+	return root
+end
+
+local function useLifecycle(root: Self, lifecycle: Lifecycle)
+	root._rootLifecycles[lifecycle] = true
+	return root
+end
+
+local function useLifecycles(root: Self, lifecycles: { Lifecycle })
+	for _, lifecycle in lifecycles do
+		root._rootLifecycles[lifecycle] = true
 	end
 	return root
 end
@@ -125,7 +146,12 @@ local function start(root: Self): StartedRoot
 	root.status = RootStatus.Starting
 
 	local processed = dependencies.processProviders(root._rootProviders)
+	local lifecycles = processed.lifecycles
 	local sortedProviders = processed.sortedProviders
+
+	for lifecycle in root._rootLifecycles do
+		table.insert(sortedProviders, lifecycle)
+	end
 
 	local providers: { Provider<unknown> } = table.clone(sortedProviders)
 	table.sort(providers, function(left: Provider<unknown>, right: Provider<unknown>)
@@ -144,7 +170,7 @@ local function start(root: Self): StartedRoot
 		bindLifecycle("onStop", provider, root.onStop, nameOf(provider, "onStop"))
 
 		-- NOTE(znotfireman): I have a gut feeling this will backfire HARD
-		for _, lifecycle in processed.lifecycles do
+		for _, lifecycle in lifecycles do
 			bindLifecycle(lifecycle.method, provider, lifecycle, nameOf(provider, lifecycle.method), lifecycleCallbacks)
 		end
 	end
@@ -203,8 +229,12 @@ function roots.root(): Root
 
 		useModule = useModule,
 		useModules = useModules,
+		useRoot = useRoot,
+		useRoots = useRoots,
 		useProvider = useProvider,
 		useProviders = useProviders,
+		useLifecycle = useLifecycle,
+		useLifecycles = useLifecycles,
 
 		-- NOTE(znotfireman): create "binder" functions for these with it`self`
 		onInit = onInit,
