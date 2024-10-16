@@ -72,6 +72,17 @@ local function onUnregistered<Args...>(lifecycle: Self<Args...>, listener: (call
 	end
 end
 
+local function await<Args...>(lifecycle: Self<Args...>): Args...
+	utils.assert(not lifecycle._isDestroyed, "useAfterDestroy", "Lifecycle")
+	local currentThread = coroutine.running()
+	local function callback(...: Args...)
+		lifecycle:unregister(callback)
+		coroutine.resume(currentThread, ...)
+	end
+	lifecycle:register(callback)
+	return coroutine.yield()
+end
+
 local function destroy<Args...>(lifecycle: Self<Args...>)
 	utils.assert(not lifecycle._isDestroyed, "destroyedTwice", "Lifecycle")
 	findAndRemove(lifecycles.methodLifecycles[lifecycle.method], lifecycle)
@@ -105,6 +116,7 @@ function lifecycles.lifecycle<Args...>(
 		unregisterAll = unregisterAll,
 		onRegistered = onRegistered,
 		onUnregistered = onUnregistered,
+		await = await,
 		destroy = destroy,
 	} :: Self<Args...>
 

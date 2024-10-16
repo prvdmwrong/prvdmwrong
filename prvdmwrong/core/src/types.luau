@@ -17,6 +17,7 @@ export type Lifecycle<Args...> = {
 	unregisterAll: (self: Lifecycle<Args...>) -> (),
 	onRegistered: (self: Lifecycle<Args...>, listener: (callback: (Args...) -> ()) -> ()) -> () -> (),
 	onUnregistered: (self: Lifecycle<Args...>, listener: (callback: (Args...) -> ()) -> ()) -> () -> (),
+	await: (self: Lifecycle<Args...>) -> Args...,
 	destroy: (self: Lifecycle<Args...>) -> (),
 }
 
