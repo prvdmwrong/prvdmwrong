@@ -1,7 +1,7 @@
 -- FIXME(znotfireman): Luau is very janky
 local game: DataModel = game
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local script: typeof(ReplicatedStorage.Client.core.naming.unnamed) = script
+local script: typeof(ReplicatedStorage.Shared.core.naming.unnamed) = script
 
 local Shared = ReplicatedStorage.Shared
 local prvd = require(Shared.Packages.prvd)

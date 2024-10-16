@@ -1,7 +1,6 @@
 -- FIXME(znotfireman): Luau is very janky
 local game: DataModel = game
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local script: typeof(ReplicatedStorage.Client) = script
 
 local Shared = ReplicatedStorage.Shared
 local prvd = require(Shared.Packages.prvd)
@@ -14,4 +13,5 @@ if _G.HAS_RUN then
 end
 
 _G.HAS_RUN = true :: any
-prvd.root():useModules(script:GetDescendants()):start()
+print("Starting client root...")
+prvd.root():useModules(ReplicatedStorage.Shared.core:GetDescendants()):start()

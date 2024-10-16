@@ -2,8 +2,8 @@
 local game: DataModel = game
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local Client, Shared = ReplicatedStorage.Client, ReplicatedStorage.Shared
-local FirstProvider = require(Client.core.simpleDependencies.first)
+local Shared = ReplicatedStorage.Shared
+local FirstProvider = require(Shared.core.simpleDependencies.first)
 local prvd = require(Shared.Packages.prvd)
 
 local SecondProvider = {}
