@@ -1,0 +1,29 @@
+{
+    "name": "Prvd 'M Wrong Development",
+    "emitLegacyScripts": false,
+    "tree": {
+        "$className": "DataModel",
+        "ReplicatedStorage": {
+            "Client": {
+                "$path": "test/client.client.luau"
+            },
+            "Packages": {
+                "$path": "test/roblox_packages",
+                "prvd": {
+                    "$path": "build/core"
+                },
+                "prvdLifecycles": {
+                    "$path": "build/lifecycles"
+                }
+            },
+            "Specs": {
+                "$path": "test/specs"
+            }
+        },
+        "ServerScriptService": {
+            "Server": {
+                "$path": "test/server.server.luau"
+            }
+        }
+    }
+}
