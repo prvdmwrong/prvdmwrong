@@ -3,7 +3,8 @@ local game: DataModel = game
 local RunService = game:GetService("RunService")
 
 local dependencies = require("@core/providers/dependencies")
-local lifecycles = require("@core/lifecycles")
+local handlers = require("@core/lifecycles/handlers")
+local lifecycles = require("@core/lifecycles/lifecycles")
 local log = require("@core/log")
 local providers = require("@core/providers/providers")
 local types = require("@core/types")
@@ -181,9 +182,9 @@ end
 function roots.root(): Root
 	local rootProviders = {}
 	local subRoots = {}
-	local onInit: Lifecycle<()> = lifecycles.lifecycle("onInit", lifecycles.fireSequential)
-	local onStart: Lifecycle<()> = lifecycles.lifecycle("onStart", lifecycles.fireConcurrent)
-	local onStop: Lifecycle<()> = lifecycles.lifecycle("onStop", lifecycles.fireConcurrent)
+	local onInit: Lifecycle<()> = lifecycles.lifecycle("onInit", handlers.fireSequential)
+	local onStart: Lifecycle<()> = lifecycles.lifecycle("onStart", handlers.fireConcurrent)
+	local onStop: Lifecycle<()> = lifecycles.lifecycle("onStop", handlers.fireConcurrent)
 
 	--[=[
         @class Root
