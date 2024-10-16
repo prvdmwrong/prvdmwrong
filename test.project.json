@@ -1,5 +1,5 @@
 {
-    "name": "Prvd 'M Wrong Development",
+    "name": "Prvd 'M Wrong Devtesting",
     "emitLegacyScripts": false,
     "tree": {
         "$className": "DataModel",
@@ -8,7 +8,7 @@
                 "$path": "test/client.client.luau"
             },
             "Packages": {
-                "$path": "test/roblox_packages",
+                "$className": "Folder",
                 "prvd": {
                     "$path": "build/core"
                 },
