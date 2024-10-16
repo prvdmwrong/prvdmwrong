@@ -5,7 +5,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Shared = ReplicatedStorage.Shared
 local prvd = require(Shared.Packages.prvd)
 
-local maxTime = 3
+local maxTime = 2
 local hasStopped = false
 
 local TickConsumer = {}

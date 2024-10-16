@@ -18,7 +18,9 @@ function TickProvider.onInit(self: Self)
 end
 
 function TickProvider.onStop(self: Self)
+	print("Stopping the onStop lifecycle...")
 	self.onTick:unregisterAll()
+	self.conn:Disconnect()
 end
 
 return prvd(TickProvider)

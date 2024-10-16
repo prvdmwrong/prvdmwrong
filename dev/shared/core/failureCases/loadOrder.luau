@@ -7,7 +7,7 @@ local prvd = require(Shared.Packages.prvd)
 
 local LoadOrderProvider = {}
 type Self = typeof(LoadOrderProvider)
-LoadOrderProvider.loadOrder = 0
+LoadOrderProvider.loadOrder = -math.huge
 
 function LoadOrderProvider.onInit(self: Self)
 	print("This should load before every other provider")

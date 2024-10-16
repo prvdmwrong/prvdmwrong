@@ -14,4 +14,9 @@ end
 
 _G.HAS_RUN = true :: any
 print("Starting server root...")
-prvd.root():useModules(ReplicatedStorage.Shared.core:GetDescendants()):start()
+local root = prvd.root():useModules(ReplicatedStorage.Shared.core:GetDescendants()):start()
+
+task.wait(4)
+
+print("Stopping server root...")
+root:stop()
