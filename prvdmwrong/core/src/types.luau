@@ -8,10 +8,9 @@ export type Error = {
 
 -- Core types
 export type Lifecycle<Args...> = {
+	type: "Lifecycle",
 	callbacks: { (Args...) -> () },
 	method: string,
-	type: "Lifecycle",
-
 	register: (self: Lifecycle<Args...>, callback: (Args...) -> ()) -> (),
 	fire: (self: Lifecycle<Args...>, Args...) -> (),
 	unregister: (self: Lifecycle<Args...>, callback: (Args...) -> ()) -> (),
@@ -46,24 +45,14 @@ export type Provider<Self> = Self & {
 	onStop: (self: Provider<Self>) -> ()?,
 }
 
---[=[
-    @within Prvd
-    @interface StartRoot
-
-    .useModule (self: Root, module: ModuleScript) -> Root -- Wow
-    Pst. I see dead people.
-]=]
 export type StartedRoot = {
 	stop: (root: StartedRoot) -> (),
 }
 
 export type Root = {
-	_rootProviders: Set<Provider<unknown>>,
-	_subRoots: Set<Root>,
-
+	type: "Root",
 	start: (root: Root) -> StartedRoot,
 	status: RootStatus,
-
 	useModule: (root: Root, module: ModuleScript) -> Root,
 	useModules: (root: Root, modules: { Instance }, predicate: ((ModuleScript) -> boolean)?) -> Root,
 	useRoot: (root: Root, root: Root) -> Root,
@@ -72,7 +61,6 @@ export type Root = {
 	useProviders: (root: Root, providers: { Provider<unknown> }) -> Root,
 	useLifecycle: (root: Root, lifecycle: Lifecycle<...unknown>) -> Root,
 	useLifecycles: (root: Root, lifecycles: { Lifecycle<...unknown> }) -> Root,
-
 	onInit: Lifecycle<()>,
 	onStart: Lifecycle<()>,
 	onStop: Lifecycle<()>,

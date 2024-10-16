@@ -2,6 +2,11 @@ local types = require("@core/types")
 local utils = require("@core/utils")
 
 type Lifecycle<Args... = ...unknown> = types.Lifecycle<Args...>
+type Self<Args... = ...unknown> = Lifecycle<Args...> & {
+	_isDestroyed: boolean,
+	_selfRegistered: { (callback: (Args...) -> ()) -> () },
+	_selfUnregistered: { (callback: (Args...) -> ()) -> () },
+}
 
 local DISALLOW_MULTIPLE_LISTENERS = false
 
@@ -19,6 +24,62 @@ local function findAndRemove<T>(from: { T }, toRemove: T)
 	end
 end
 
+local function register<Args...>(lifecycle: Self<Args...>, callback: (Args...) -> ())
+	utils.assert(not lifecycle._isDestroyed, "useAfterDestroy", "Lifecycle")
+	if DISALLOW_MULTIPLE_LISTENERS then
+		findAndRemove(lifecycle.callbacks, callback)
+	end
+	table.insert(lifecycle.callbacks, callback)
+	utils.spawnCallbacks(lifecycle._selfRegistered, callback)
+end
+
+local function unregister<Args...>(lifecycle: Self<Args...>, callback: (Args...) -> ())
+	utils.assert(not lifecycle._isDestroyed, "useAfterDestroy", "Lifecycle")
+	local index = table.find(lifecycle.callbacks, callback)
+	if index then
+		table.remove(lifecycle.callbacks, index)
+		utils.spawnCallbacks(lifecycle._selfUnregistered, callback)
+	end
+end
+
+local function unregisterAll<Args...>(lifecycle: Self<Args...>)
+	utils.assert(not lifecycle._isDestroyed, "useAfterDestroy", "Lifecycle")
+	for _, callback in lifecycle.callbacks do
+		utils.spawnCallbacks(lifecycle._selfUnregistered, callback)
+	end
+	table.clear(lifecycle.callbacks)
+end
+
+local function onRegistered<Args...>(lifecycle: Self<Args...>, listener: (callback: (Args...) -> ()) -> ())
+	utils.assert(not lifecycle._isDestroyed, "useAfterDestroy", "Lifecycle")
+	if DISALLOW_MULTIPLE_LISTENERS then
+		findAndRemove(lifecycle._selfRegistered, listener)
+	end
+	table.insert(lifecycle._selfRegistered, listener)
+	return function()
+		findAndRemove(lifecycle._selfRegistered, listener)
+	end
+end
+
+local function onUnregistered<Args...>(lifecycle: Self<Args...>, listener: (callback: (Args...) -> ()) -> ())
+	utils.assert(not lifecycle._isDestroyed, "useAfterDestroy", "Lifecycle")
+	if DISALLOW_MULTIPLE_LISTENERS then
+		findAndRemove(lifecycle._selfUnregistered, listener)
+	end
+	table.insert(lifecycle._selfUnregistered, listener)
+	return function()
+		findAndRemove(lifecycle._selfUnregistered, listener)
+	end
+end
+
+local function destroy<Args...>(lifecycle: Self<Args...>)
+	utils.assert(not lifecycle._isDestroyed, "destroyedTwice", "Lifecycle")
+	findAndRemove(lifecycles.methodLifecycles[lifecycle.method], lifecycle)
+	utils.spawnCallbacks(lifecycleDestroying, lifecycle)
+	table.clear(lifecycle.callbacks)
+	lifecycle._isDestroyed = true
+end
+
 --[=[
     @within Prvd
     Constructs and returns a new lifecycle object. Providers with the specified method will be registered.
@@ -27,76 +88,25 @@ end
     @param onFire (lifecycle: Lifecycle<Args...>, Args...) -> () -- A method to fire the lifecycle method. It receives itself and the arguments passed to it.
     @return Lifecycle<Args...> -- A freshly constructed lifecycle object.
 ]=]
--- TODO(znotfireman): split this into a class table ty
 function lifecycles.lifecycle<Args...>(
 	method: string,
 	onFire: (lifecycle: Lifecycle<Args...>, Args...) -> ()
 ): Lifecycle<Args...>
-	local self = {} :: Lifecycle<Args...>
-	self.callbacks = {}
-	self.fire = onFire
-	self.method = method
-	self.type = "Lifecycle"
-
-	local selfRegistered: { (Args...) -> () } = {}
-	local selfUnregistered: { (Args...) -> () } = {}
-	local isDestroyed = false
-
-	function self:register(callback)
-		utils.assert(not isDestroyed, "useAfterDestroy", "Lifecycle")
-		if DISALLOW_MULTIPLE_LISTENERS then
-			findAndRemove(self.callbacks, callback)
-		end
-		table.insert(self.callbacks, callback)
-		utils.spawnCallbacks(selfRegistered, callback)
-	end
-
-	function self:unregister(callback)
-		utils.assert(not isDestroyed, "useAfterDestroy", "Lifecycle")
-		local index = table.find(self.callbacks, callback)
-		if index then
-			table.remove(self.callbacks, index)
-			utils.spawnCallbacks(selfUnregistered, callback)
-		end
-	end
-
-	function self:unregisterAll()
-		utils.assert(not isDestroyed, "useAfterDestroy", "Lifecycle")
-		for _, callback in self.callbacks do
-			utils.spawnCallbacks(selfUnregistered, callback)
-		end
-		table.clear(self.callbacks)
-	end
-
-	function self:onRegistered(listener)
-		utils.assert(not isDestroyed, "useAfterDestroy", "Lifecycle")
-		if DISALLOW_MULTIPLE_LISTENERS then
-			findAndRemove(selfRegistered, listener)
-		end
-		table.insert(selfRegistered, listener)
-		return function()
-			findAndRemove(selfRegistered, listener)
-		end
-	end
-
-	function self:onUnregistered(listener)
-		utils.assert(not isDestroyed, "useAfterDestroy", "Lifecycle")
-		if DISALLOW_MULTIPLE_LISTENERS then
-			findAndRemove(selfUnregistered, listener)
-		end
-		table.insert(selfUnregistered, listener)
-		return function()
-			findAndRemove(selfUnregistered, listener)
-		end
-	end
-
-	function self:destroy()
-		utils.assert(not isDestroyed, "destroyedTwice", "Lifecycle")
-		findAndRemove(lifecycles.methodLifecycles[method], self)
-		utils.spawnCallbacks(lifecycleDestroying, self)
-		table.clear(self.callbacks)
-		isDestroyed = true
-	end
+	local self = {
+		_isDestroyed = false,
+		_selfRegistered = {},
+		_selfUnregistered = {},
+		type = "Lifecycle",
+		callbacks = {},
+		fire = onFire,
+		method = method,
+		register = register,
+		unregister = unregister,
+		unregisterAll = unregisterAll,
+		onRegistered = onRegistered,
+		onUnregistered = onUnregistered,
+		destroy = destroy,
+	} :: Self<Args...>
 
 	local methodlifecycles = lifecycles.methodLifecycles[method]
 	if not methodlifecycles then
@@ -108,30 +118,6 @@ function lifecycles.lifecycle<Args...>(
 	table.insert(methodlifecycles, self)
 	table.freeze(self)
 	return self
-end
-
---[=[
-    @within Prvd
-    Spawns all callbacks of a lifecycle asynchronously.
-
-    @param lifecycle Lifecycle<Args...> -- Lifecycle to spawn callbacks with.
-    @param ... Args... -- Arguments to call the callbacks with.
-]=]
-function lifecycles.fireConcurrent<Args...>(lifecycle: Lifecycle<Args...>, ...: Args...)
-	utils.spawnCallbacks(lifecycle.callbacks, ...)
-end
-
---[=[
-    @within Prvd
-    Calls all callbacks of a lifecycle sequentially.
-
-    @param lifecycle Lifecycle<Args...> -- Lifecycle to call callbacks with.
-    @param ... Args... -- Arguments to call the callbacks with.
-]=]
-function lifecycles.fireSequential<Args...>(lifecycle: Lifecycle<Args...>, ...: Args...)
-	for _, callback in ipairs(lifecycle.callbacks) do
-		callback(...)
-	end
 end
 
 --[=[

@@ -1,4 +1,5 @@
-local lifecycles = require("@core/lifecycles")
+local handlers = require("@core/lifecycles/handlers")
+local lifecycles = require("@core/lifecycles/lifecycles")
 local providers = require("@core/providers/providers")
 local roots = require("@core/providers/roots")
 local types = require("@core/types")
@@ -55,8 +56,8 @@ local prvd = {
 
 	-- Lifecycle API
 	lifecycle = lifecycles.lifecycle,
-	fireConcurrent = lifecycles.fireConcurrent,
-	fireSequential = lifecycles.fireSequential,
+	fireConcurrent = handlers.fireConcurrent,
+	fireSequential = handlers.fireSequential,
 	onLifecycleRegistered = lifecycles.onLifecycleRegistered,
 	onLifecycleUnregistered = lifecycles.onLifecycleUnregistered,
 	onLifecycleDestroying = lifecycles.onLifecycleDestroying,

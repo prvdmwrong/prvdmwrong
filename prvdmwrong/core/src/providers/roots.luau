@@ -11,11 +11,16 @@ local utils = require("@core/utils")
 
 type Error = types.Error
 type Lifecycle<Args... = ...unknown> = types.Lifecycle<Args...>
-type LuauSolverIssue = any
 type Provider<Self> = types.Provider<Self>
 type Root = types.Root
-type Set<T> = { [T]: true }
 type StartedRoot = types.StartedRoot
+
+type LuauSolverIssue = any
+type Set<T> = { [T]: true }
+type Self = Root & {
+	_rootProviders: Set<Provider<unknown>>,
+	_subRoots: Set<Root>,
+}
 
 local roots = {}
 local RootStatus = table.freeze {
@@ -35,7 +40,7 @@ local function loggedRequire(module: ModuleScript): any
 	return log.fatal("requireError", (result :: Error).trace, module:GetFullName(), (result :: Error).message)
 end
 
-local function useModule(root: Root, module: ModuleScript)
+local function useModule(root: Self, module: ModuleScript)
 	local moduleExport = loggedRequire(module)
 	if providers.constructedProviders[moduleExport] and typeof(moduleExport.name) ~= "string" then
 		moduleExport.name = _G.PRVDMWRONG_DEV and module:GetFullName() or module.Name
@@ -45,7 +50,7 @@ local function useModule(root: Root, module: ModuleScript)
 	return root
 end
 
-local function useModules(root: Root, modules: { Instance }, predicate: ((ModuleScript) -> boolean)?)
+local function useModules(root: Self, modules: { Instance }, predicate: ((ModuleScript) -> boolean)?)
 	for _, module in modules do
 		if not module:IsA("ModuleScript") or predicate and not predicate(module) then
 			continue
@@ -61,12 +66,12 @@ local function useModules(root: Root, modules: { Instance }, predicate: ((Module
 	return root
 end
 
-local function useProvider(root: Root, provider: Provider<unknown>)
+local function useProvider(root: Self, provider: Provider<unknown>)
 	root._rootProviders[provider] = true
 	return root
 end
 
-local function useProviders(root: Root, providers: { Provider<unknown> })
+local function useProviders(root: Self, providers: { Provider<unknown> })
 	for _, provider in providers do
 		root._rootProviders[provider] = true
 	end
@@ -114,7 +119,7 @@ end
 -- TODO(znotfireman): Should this be async and basically behave like a promise?
 -- TODO(znotfireman): Should we add cancellation here?
 -- TODO: subroots
-local function start(root: Root): StartedRoot
+local function start(root: Self): StartedRoot
 	utils.assert(root.status == RootStatus.Pending or root.status == RootStatus.Stopped, "alreadyStarted")
 	root.status = RootStatus.Starting
 
@@ -147,6 +152,10 @@ local function start(root: Root): StartedRoot
 	root.onStart:fire()
 	root.status = RootStatus.Started
 
+	--[=[
+        @class StartedRoot
+        Pst. I see dead people.
+    ]=]
 	local startedRoot = {} :: StartedRoot
 
 	function startedRoot:stop()
@@ -182,6 +191,8 @@ function roots.root(): Root
         Mustard on the beat ho
     ]=]
 	local self = {
+		type = "Root",
+
 		_rootProviders = rootProviders,
 		_subRoots = subRoots,
 
@@ -197,7 +208,7 @@ function roots.root(): Root
 		onInit = onInit,
 		onStart = onStart,
 		onStop = onStop,
-	} :: Root
+	} :: Self
 
 	return self
 end
