@@ -74,7 +74,7 @@ local function bindLifecycle<Args...>(
 	method: string,
 	provider: Provider<unknown>,
 	lifecycle: Lifecycle<Args...>,
-	profileId: string
+	memoryCategory: string
 )
 	local lifecycleMethod = provider[method]
 	if typeof(lifecycleMethod) == "function" then
@@ -85,8 +85,8 @@ local function bindLifecycle<Args...>(
 
 		if isProfiling then
 			lifecycle:register(function(...: Args...)
-				debug.profilebegin(profileId)
-				debug.setmemorycategory(profileId)
+				debug.profilebegin(memoryCategory)
+				debug.setmemorycategory(memoryCategory)
 				lifecycleMethod(provider, ...)
 				debug.resetmemorycategory()
 			end)
