@@ -6,7 +6,7 @@ type Provider<Self> = types.Provider<Self>
 type LuauSolverIssue = any
 
 -- Required so TypeScript class decorators can properly register providers
-local CONSTRUCTED_KEY: ConstructedKey = newproxy();
+local CONSTRUCTED_KEY: ConstructedKey = newproxy(true);
 (getmetatable(CONSTRUCTED_KEY :: any) :: any).__tostring = function()
 	return "<Prvd 'M Wrong> CONSTRUCTED_KEY"
 end

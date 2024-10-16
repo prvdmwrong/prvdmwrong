@@ -35,7 +35,7 @@ local function visitProvider(
 
 		if key ~= nil and target ~= provider and providers.constructedProviders[target :: LuauSolverIssue] then
 			if not visited[target :: LuauSolverIssue] then
-				visitProvider(provider, visited, stack, lifecycles)
+				visitProvider(target :: LuauSolverIssue, visited, stack, lifecycles)
 			end
 			return
 		end

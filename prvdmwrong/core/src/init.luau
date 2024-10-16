@@ -32,7 +32,7 @@ export type RootStatus = types.RootStatus
 
         self.conn = Players.PlayerAdded:Connect(onPlayerAdded)
         for _, existingPlayer in Players:GetPlayers() do
-            o nPlayerAdded(newPlayer)
+            onPlayerAdded(newPlayer)
         end
     end
 
@@ -44,7 +44,7 @@ export type RootStatus = types.RootStatus
     return prvd(PlayerProvider)
     ```
 ]=]
-local prvd = table.freeze {
+local prvd = {
 	version = _G.PRVDMWRONG_VERSION,
 
 	-- Core API
@@ -68,10 +68,11 @@ local prvd = table.freeze {
 	componentRoot = roots.root(),
 }
 
-setmetatable(prvd, {
-	__call = function<Self>(_: unknown, provider: Self): Provider<Self>
-		error("not implemented")
-	end,
-})
-
-return prvd
+return table.freeze(setmetatable(
+	prvd,
+	table.freeze {
+		__call = function<Self>(_: unknown, provider: Self): Provider<Self>
+			return providers.prvd(provider)
+		end,
+	}
+))
