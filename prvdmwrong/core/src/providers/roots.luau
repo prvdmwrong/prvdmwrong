@@ -109,9 +109,20 @@ local function start(root: Root): StartedRoot
 	root.status = RootStatus.Starting
 
 	local processed = dependencies.processProviders(root._rootProviders)
+	local sortedProviders = processed.sortedProviders
+
+	local providers: { Provider<unknown> } = table.clone(sortedProviders)
+	table.sort(providers, function(left: Provider<unknown>, right: Provider<unknown>)
+		if left.loadOrder ~= right.loadOrder then
+			return (left.loadOrder or 1) < (right.loadOrder or 1)
+		end
+		local leftIndex = assert(table.find(sortedProviders, left), "Unreachable")
+		local rightIndex = assert(table.find(sortedProviders, right), "Unreachable")
+		return leftIndex < rightIndex
+	end)
 
 	local lifecycleCallbacks = {}
-	for _, provider in processed.sortedProviders do
+	for _, provider in providers do
 		bindLifecycle("onInit", provider, root.onInit, nameOf(provider, "onInit"))
 		bindLifecycle("onStart", provider, root.onStart, nameOf(provider, "onStart"))
 		bindLifecycle("onStop", provider, root.onStop, nameOf(provider, "onStop"))
