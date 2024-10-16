@@ -8,4 +8,10 @@ local prvd = require(Shared.Packages.prvd)
 
 _G.PRVDMWRONG_VERBOSE = true
 
-local root = prvd.root():useModules(script.Providers:GetDescendants()):start()
+-- RunContext is weird
+if _G.HAS_RUN then
+	return
+end
+
+_G.HAS_RUN = true :: any
+prvd.root():useModules(script:GetDescendants()):start()

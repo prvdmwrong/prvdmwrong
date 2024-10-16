@@ -1,5 +1,6 @@
 {
     "name": "Prvd 'M Wrong Development",
+    "emitLegacyScripts": false,
     "tree": {
         "$className": "DataModel",
         "ReplicatedStorage": {
