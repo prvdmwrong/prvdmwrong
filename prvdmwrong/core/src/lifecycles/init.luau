@@ -43,7 +43,7 @@ function lifecycles.lifecycle<Args...>(
 	local isDestroyed = false
 
 	function self:register(callback)
-		utils.assert(not isDestroyed, "cannot register listeners after a lifecycle is destroyed")
+		utils.assert(not isDestroyed, "useAfterDestroy", "Lifecycle")
 		if DISALLOW_MULTIPLE_LISTENERS then
 			findAndRemove(self.callbacks, callback)
 		end
@@ -52,7 +52,7 @@ function lifecycles.lifecycle<Args...>(
 	end
 
 	function self:unregister(callback)
-		utils.assert(not isDestroyed, "cannot unregister listeners after a lifecycle is destroyed")
+		utils.assert(not isDestroyed, "useAfterDestroy", "Lifecycle")
 		local index = table.find(self.callbacks, callback)
 		if index then
 			table.remove(self.callbacks, index)
@@ -61,7 +61,7 @@ function lifecycles.lifecycle<Args...>(
 	end
 
 	function self:unregisterAll()
-		utils.assert(not isDestroyed, "cannot unregister all listeners after a lifecycle is destroyed")
+		utils.assert(not isDestroyed, "useAfterDestroy", "Lifecycle")
 		for _, callback in self.callbacks do
 			utils.spawnCallbacks(selfUnregistered, callback)
 		end
@@ -69,7 +69,7 @@ function lifecycles.lifecycle<Args...>(
 	end
 
 	function self:onRegistered(listener)
-		utils.assert(not isDestroyed, "cannot hook onto a lifecycle is destroyed")
+		utils.assert(not isDestroyed, "useAfterDestroy", "Lifecycle")
 		if DISALLOW_MULTIPLE_LISTENERS then
 			findAndRemove(selfRegistered, listener)
 		end
@@ -80,7 +80,7 @@ function lifecycles.lifecycle<Args...>(
 	end
 
 	function self:onUnregistered(listener)
-		utils.assert(not isDestroyed, "cannot hook onto a lifecycle is destroyed")
+		utils.assert(not isDestroyed, "useAfterDestroy", "Lifecycle")
 		if DISALLOW_MULTIPLE_LISTENERS then
 			findAndRemove(selfUnregistered, listener)
 		end
@@ -91,7 +91,7 @@ function lifecycles.lifecycle<Args...>(
 	end
 
 	function self:destroy()
-		utils.assert(not isDestroyed, "cannot destroy a lifecycle twice")
+		utils.assert(not isDestroyed, "destroyedTwice", "Lifecycle")
 		findAndRemove(lifecycles.methodLifecycles[method], self)
 		utils.spawnCallbacks(lifecycleDestroying, self)
 		table.clear(self.callbacks)

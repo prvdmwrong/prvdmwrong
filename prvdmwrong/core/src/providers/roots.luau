@@ -4,6 +4,7 @@ local RunService = game:GetService("RunService")
 
 local dependencies = require("@core/providers/dependencies")
 local lifecycles = require("@core/lifecycles")
+local log = require("@core/log")
 local providers = require("@core/providers/providers")
 local types = require("@core/types")
 local utils = require("@core/utils")
@@ -14,6 +15,7 @@ type Provider<Self> = types.Provider<Self>
 type Root = types.Root
 type Set<T> = { [T]: true }
 type StartedRoot = types.StartedRoot
+type Error = types.Error
 
 local roots = {}
 local RootStatus = table.freeze {
@@ -25,8 +27,16 @@ local RootStatus = table.freeze {
 
 roots.RootStatus = RootStatus
 
+local function loggedRequire(module: ModuleScript): any
+	local ok, result: any = xpcall(require, log.parseError, module)
+	if ok then
+		return result
+	end
+	return log.fatal("requireError", (result :: Error).trace, module:GetFullName(), (result :: Error).message)
+end
+
 local function useModule(root: Root, module: ModuleScript)
-	local moduleExport = require(module) :: any
+	local moduleExport = loggedRequire(module)
 	if providers.constructedProviders[moduleExport] and typeof(moduleExport.name) ~= "string" then
 		moduleExport.name = _G.PRVDMWRONG_DEV and module:GetFullName() or module.Name
 		root._rootProviders[moduleExport] = true
@@ -41,7 +51,7 @@ local function useModules(root: Root, modules: { Instance }, predicate: ((Module
 			continue
 		end
 
-		local moduleExport = require(module) :: any
+		local moduleExport = loggedRequire(module)
 		if providers.constructedProviders[moduleExport] and typeof(moduleExport.name) ~= "string" then
 			moduleExport.name = module.Name :: LuauSolverIssue
 			root._rootProviders[moduleExport] = true
@@ -105,7 +115,7 @@ end
 -- TODO(znotfireman): Should we add cancellation here?
 -- TODO: subroots
 local function start(root: Root): StartedRoot
-	utils.assert(root.status == RootStatus.Pending or root.status == RootStatus.Stopped, "cannot start twice")
+	utils.assert(root.status == RootStatus.Pending or root.status == RootStatus.Stopped, "alreadyStarted")
 	root.status = RootStatus.Starting
 
 	local processed = dependencies.processProviders(root._rootProviders)
@@ -140,6 +150,7 @@ local function start(root: Root): StartedRoot
 	local startedRoot = {} :: StartedRoot
 
 	function startedRoot:stop()
+		utils.assert(root.status ~= RootStatus.Stopped, "alreadyStopped")
 		root.onStop:fire()
 		root.status = RootStatus.Stopped
 

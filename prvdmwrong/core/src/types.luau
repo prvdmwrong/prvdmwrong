@@ -1,5 +1,12 @@
-type Set<T> = { [T]: true }
+-- General purpose types
+export type Set<T> = { [T]: true }
+export type Error = {
+	raw: string,
+	message: string,
+	trace: string,
+}
 
+-- Core types
 export type Lifecycle<Args...> = {
 	callbacks: { (Args...) -> () },
 	method: string,

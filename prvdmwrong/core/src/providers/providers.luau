@@ -8,7 +8,7 @@ type LuauSolverIssue = any
 -- Required so TypeScript class decorators can properly register providers
 local CONSTRUCTED_KEY: ConstructedKey = newproxy(true);
 (getmetatable(CONSTRUCTED_KEY :: any) :: any).__tostring = function()
-	return "<Prvd 'M Wrong> CONSTRUCTED_KEY"
+	return "____phantom__constructedKey"
 end
 
 local constructedProviders = {}
@@ -29,6 +29,8 @@ providers.constructedProviders = constructedProviders
     @return Provider<Self> -- A newly constructed provider.
 ]=]
 function providers.prvd<Self>(provider: Self, name: string?): Provider<Self>
+	utils.assert(not constructedProviders[provider], "cannotCreateProvider", "it is already created")
+
 	local newProvider: Provider<Self> = provider
 	newProvider.name = newProvider.name or name
 
@@ -57,13 +59,27 @@ function providers.Provider<Self>(provider: Self & {
 }): Provider<Self>
 	-- HACK: this is all very janky and relies on the TypeScript compiler
 	local newProvider = provider.new
-	utils.assert(typeof(newProvider) == "function", "Missing `new`")
-	utils.assert(typeof(provider.constructor) == "function", "Missing `constructor`")
+	utils.assert(
+		typeof(newProvider) == "function",
+		"cannotCreateProvider",
+		"the TypeScript class is missing a `new` constructor"
+	)
+
+	utils.assert(
+		typeof(provider.constructor) == "function",
+		"cannotCreateProvider",
+		"the TypeScript class is missing a `constructor`"
+	)
 
 	local providerMetatable = getmetatable(provider)
-	utils.assert(typeof(providerMetatable) == "table", "")
+	utils.assert(typeof(providerMetatable) == "table", "cannotCreateProvider", "the TypeScript class lacks a metatable")
+
 	local providerToString = (providerMetatable :: any).__tostring
-	utils.assert(typeof(providerToString) == "function", "")
+	utils.assert(
+		typeof(providerToString) == "function",
+		"cannotCreateProvider",
+		"the TypeScript class lacks a `__tostring` method"
+	)
 
 	local constructedProvider: Provider<Self> = newProvider() :: any
 	if not constructedProvider.name then

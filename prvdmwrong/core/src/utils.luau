@@ -1,3 +1,5 @@
+local log = require("@core/log")
+
 local utils = {}
 
 do
@@ -31,11 +33,11 @@ function utils.spawnCallbacks<Args...>(callbacks: { (Args...) -> () }, ...: Args
 	end
 end
 
-function utils.assert<T>(value: T, message: string)
+function utils.assert<T>(value: T, messageId: log.MessageId, ...: string)
 	if value then
 		return value
 	end
-	error("[Prvd 'M Wrong]: " .. message, 2)
+	return log.fatal(messageId, debug.traceback(nil, 3), ...)
 end
 
 function utils.findAndRemove<T>(from: { T }, toRemove: T)
