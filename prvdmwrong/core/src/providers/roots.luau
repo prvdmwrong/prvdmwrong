@@ -1,3 +1,4 @@
+-- FIXME: Luau is WEIRD
 local game: DataModel = game
 local RunService = game:GetService("RunService")
 
@@ -101,17 +102,14 @@ end
 -- NOTE(znotfireman): Listen to https://www.youtube.com/watch?v=5GcPA3C0QeI
 -- when I work on this
 -- TODO(znotfireman): Should this be async and basically behave like a promise?
-local function start(root: Root): types.StartedRoot
-	utils.assert(
-		root.status == RootStatus.Pending or root.status == RootStatus.Stopped,
-		"cannot start a root twice without stopping it"
-	)
-
+-- TODO(znotfireman): Should we add cancellation here?
+local function start(root: Root): StartedRoot
+	utils.assert(root.status == RootStatus.Pending or root.status == RootStatus.Stopped, "cannot start twice")
 	root.status = RootStatus.Starting
 
 	local processed = dependencies.processProviders(root._rootProviders)
-	root.status = RootStatus.Starting
 
+	local lifecycleCallbacks = {}
 	for _, provider in processed.sortedProviders do
 		bindLifecycle("onInit", provider, root.onInit, nameOf(provider, "onInit"))
 		bindLifecycle("onStart", provider, root.onStart, nameOf(provider, "onStart"))
@@ -119,20 +117,24 @@ local function start(root: Root): types.StartedRoot
 
 		-- NOTE(znotfireman): I have a gut feeling this will backfire HARD
 		for _, lifecycle in processed.lifecycles do
-			bindLifecycle(lifecycle.method, provider, lifecycle, nameOf(provider, lifecycle.method))
+			bindLifecycle(lifecycle.method, provider, lifecycle, nameOf(provider, lifecycle.method), lifecycleCallbacks)
 		end
 	end
 
 	root.onInit:fire()
 	root.onStart:fire()
-
 	root.status = RootStatus.Started
 
-	local startedRoot = {} :: types.StartedRoot
+	local startedRoot = {} :: StartedRoot
 
 	function startedRoot:stop()
 		root.onStop:fire()
 		root.status = RootStatus.Stopped
+
+		-- NOTE(znotfireman): Assume the user cleans up their own lifecycles
+		root.onInit:unregisterAll()
+		root.onStart:unregisterAll()
+		root.onStop:unregisterAll()
 	end
 
 	return startedRoot
@@ -161,6 +163,7 @@ function roots.root(): Root
 		_subRoots = subRoots,
 
 		start = start,
+		status = RootStatus.Pending,
 
 		useModule = useModule,
 		useModules = useModules,

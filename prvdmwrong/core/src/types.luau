@@ -47,7 +47,6 @@ export type Provider<Self> = Self & {
     Pst. I see dead people.
 ]=]
 export type StartedRoot = {
-	status: (root: StartedRoot) -> RootStatus,
 	stop: (root: StartedRoot) -> (),
 }
 
@@ -55,8 +54,8 @@ export type Root = {
 	_rootProviders: Set<Provider<unknown>>,
 	_subRoots: Set<Root>,
 
-	status: RootStatus,
 	start: (root: Root) -> StartedRoot,
+	status: RootStatus,
 
 	useModule: (root: Root, module: ModuleScript) -> Root,
 	useModules: (root: Root, modules: { Instance }, predicate: ((ModuleScript) -> boolean)?) -> Root,
