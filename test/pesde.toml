@@ -1,0 +1,21 @@
+name = "prvdmwrong/dev"
+version = "1.0.0"
+authors = ["znotfireman <znotfireman+hello@gmail.com>"]
+license = "MIT OR Apache 2.0"
+private = true
+
+[target]
+environment = "roblox"
+
+[scripts]
+roblox_sync_config_generator = ".pesde/roblox_sync_config_generator.luau"
+sourcemap_generator = ".pesde/sourcemap_generator.luau"
+
+[indices]
+default = "https://github.com/daimond113/pesde-index"
+
+[wally_indices]
+default = "https://github.com/UpliftGames/wally-index"
+
+[dependencies]
+Fusion = { wally = "elttob/fusion", version = "0.3.0" }
