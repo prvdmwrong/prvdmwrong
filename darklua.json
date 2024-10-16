@@ -5,9 +5,9 @@
       "current": {
         "name": "path",
         "sources": {
-          "@core": "prvdmwrong/core",
-          "@knit-compat": "prvdmwrong/knit-compat",
-          "@lifecycles": "prvdmwrong/lifecycles"
+          "@core": "prvdmwrong/core/src",
+          "@knit-compat": "prvdmwrong/knit-compat/src",
+          "@lifecycles": "prvdmwrong/lifecycles/src"
         }
       },
       "rule": "convert_require",

@@ -1,5 +1,5 @@
 // This file was @generated and should not be edited.
-// Run `lune run scripts/regen` to generate fresh Zed settings.
+// Run `lune run regen` to generate fresh Zed settings.
 
 {
   "languages": {

@@ -63,7 +63,7 @@ function DarkluaRegenerator:generate(packages: { types.Package }, log: Log.Log)
 	local sources = {}
 	for _, package in packages do
 		log.print("Aliasing", package.relativePath)
-		sources["@" .. package.packageName] = package.relativePath
+		sources["@" .. package.packageName] = path(package.relativePath, "src")
 	end
 
 	log.unIndent()

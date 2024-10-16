@@ -1,4 +1,4 @@
---!strict
+--!nonstrict
 -- Tx is Prvd 'M Wrong fully typed mix of osyrisrblx/t and dphfox/ty
 
 local Maybe = require("./maybe")
@@ -237,12 +237,12 @@ function Tx.map<Key, Value>(keyType: Type<Key>, valueType: Type<Value>): Type<{ 
 end
 
 local trueType = Tx.just(true)
-function Tx.set<Value>(valueType: Value): Type<{ [Value]: true }>
+function Tx.set<Value>(valueType: Type<Value>): Type<{ [Value]: true }>
 	return Tx.map(valueType, trueType) :: any
 end
 
 do
-	local arrayKeys = Tx.keys(Tx.number)
+	local arrayKeys = Tx.keys(Tx.number) :: Type<{ unknown }>
 end
 
 --[=[
