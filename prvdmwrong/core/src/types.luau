@@ -52,7 +52,10 @@ export type StartedRoot = {
 }
 
 export type Root = {
-	rootProviders: Set<Provider<unknown>>,
+	_rootProviders: Set<Provider<unknown>>,
+	_subRoots: Set<Root>,
+
+	status: RootStatus,
 	start: (root: Root) -> StartedRoot,
 
 	useModule: (root: Root, module: ModuleScript) -> Root,
@@ -69,7 +72,7 @@ export type Root = {
 	onStop: Lifecycle<()>,
 }
 
-export type RootStatus = "RootStatus.Pending" | "RootStatus.Starting" | "RootStatus.Started"
+export type RootStatus = "RootStatus.Pending" | "RootStatus.Starting" | "RootStatus.Started" | "RootStatus.Stopped"
 
 -- Required so TypeScript class decorators can properly register providers
 export type ConstructedKey = {

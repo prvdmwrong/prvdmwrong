@@ -1,26 +1,34 @@
+local game: DataModel = game
+local RunService = game:GetService("RunService")
+
 local dependencies = require("@core/providers/dependencies")
 local lifecycles = require("@core/lifecycles")
 local providers = require("@core/providers/providers")
 local types = require("@core/types")
+local utils = require("@core/utils")
 
 type Lifecycle<Args... = ...unknown> = types.Lifecycle<Args...>
 type LuauSolverIssue = any
 type Provider<Self> = types.Provider<Self>
 type Root = types.Root
 type Set<T> = { [T]: true }
+type StartedRoot = types.StartedRoot
 
 local roots = {}
-roots.RootStatus = table.freeze {
+local RootStatus = table.freeze {
 	Pending = "RootStatus.Pending" :: "RootStatus.Pending",
 	Starting = "RootStatus.Starting" :: "RootStatus.Starting",
 	Started = "RootStatus.Started" :: "RootStatus.Started",
+	Stopped = "RootStatus.Stopped" :: "RootStatus.Stopped",
 }
+
+roots.RootStatus = RootStatus
 
 local function useModule(root: Root, module: ModuleScript)
 	local moduleExport = require(module) :: any
 	if providers.constructedProviders[moduleExport] and typeof(moduleExport.name) ~= "string" then
 		moduleExport.name = _G.PRVDMWRONG_DEV and module:GetFullName() or module.Name
-		root.rootProviders[moduleExport] = true
+		root._rootProviders[moduleExport] = true
 	end
 
 	return root
@@ -35,7 +43,7 @@ local function useModules(root: Root, modules: { Instance }, predicate: ((Module
 		local moduleExport = require(module) :: any
 		if providers.constructedProviders[moduleExport] and typeof(moduleExport.name) ~= "string" then
 			moduleExport.name = module.Name :: LuauSolverIssue
-			root.rootProviders[moduleExport] = true
+			root._rootProviders[moduleExport] = true
 		end
 	end
 
@@ -43,21 +51,91 @@ local function useModules(root: Root, modules: { Instance }, predicate: ((Module
 end
 
 local function useProvider(root: Root, provider: Provider<unknown>)
-	root.rootProviders[provider] = true
+	root._rootProviders[provider] = true
 	return root
 end
 
 local function useProviders(root: Root, providers: { Provider<unknown> })
 	for _, provider in providers do
-		root.rootProviders[provider] = true
+		root._rootProviders[provider] = true
 	end
 	return root
 end
 
+local function nameOf(provider: Provider<unknown>, extension: string?): string
+	if extension then
+		return `{provider.name or "unnamedProvider"}:{extension}`
+	else
+		return provider.name or "unnamedProvider"
+	end
+end
+
+local function bindLifecycle<Args...>(
+	method: string,
+	provider: Provider<unknown>,
+	lifecycle: Lifecycle<Args...>,
+	profileId: string
+)
+	local lifecycleMethod = provider[method]
+	if typeof(lifecycleMethod) == "function" then
+		local isProfiling = _G.PRVDMWRONG_PROFILE_LIFECYCLES
+		if isProfiling == nil then
+			isProfiling = RunService:IsStudio()
+		end
+
+		if isProfiling then
+			lifecycle:register(function(...: Args...)
+				debug.profilebegin(profileId)
+				debug.setmemorycategory(profileId)
+				lifecycleMethod(provider, ...)
+				debug.resetmemorycategory()
+			end)
+		else
+			lifecycle:register(function(...: Args...)
+				lifecycleMethod(provider, ...)
+			end)
+		end
+	end
+end
+
 -- NOTE(znotfireman): Listen to https://www.youtube.com/watch?v=5GcPA3C0QeI
 -- when I work on this
-local function start(root: Root)
-	local processed = dependencies.processProviders(root.rootProviders)
+-- TODO(znotfireman): Should this be async and basically behave like a promise?
+local function start(root: Root): types.StartedRoot
+	utils.assert(
+		root.status == RootStatus.Pending or root.status == RootStatus.Stopped,
+		"cannot start a root twice without stopping it"
+	)
+
+	root.status = RootStatus.Starting
+
+	local processed = dependencies.processProviders(root._rootProviders)
+	root.status = RootStatus.Starting
+
+	for _, provider in processed.sortedProviders do
+		bindLifecycle("onInit", provider, root.onInit, nameOf(provider, "onInit"))
+		bindLifecycle("onStart", provider, root.onStart, nameOf(provider, "onStart"))
+		bindLifecycle("onStop", provider, root.onStop, nameOf(provider, "onStop"))
+
+		-- NOTE(znotfireman): I have a gut feeling this will backfire HARD
+		for _, lifecycle in processed.lifecycles do
+			bindLifecycle(lifecycle.method, provider, lifecycle, nameOf(provider, lifecycle.method))
+		end
+	end
+
+	root.onInit:fire()
+	root.onStart:fire()
+
+	root.status = RootStatus.Started
+
+	local startedRoot = {} :: types.StartedRoot
+
+	function startedRoot:stop()
+		root.onStop:fire()
+		root.status = RootStatus.Stopped
+	end
+
+	return startedRoot
 end
 
 --[=[
@@ -68,6 +146,7 @@ end
 ]=]
 function roots.root(): Root
 	local rootProviders = {}
+	local subRoots = {}
 	local onInit: Lifecycle<()> = lifecycles.lifecycle("onInit", lifecycles.fireSequential)
 	local onStart: Lifecycle<()> = lifecycles.lifecycle("onStart", lifecycles.fireConcurrent)
 	local onStop: Lifecycle<()> = lifecycles.lifecycle("onStop", lifecycles.fireConcurrent)
@@ -78,7 +157,9 @@ function roots.root(): Root
         Mustard on the beat ho
     ]=]
 	local self = {
-		rootProviders = rootProviders,
+		_rootProviders = rootProviders,
+		_subRoots = subRoots,
+
 		start = start,
 
 		useModule = useModule,

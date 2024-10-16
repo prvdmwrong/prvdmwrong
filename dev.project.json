@@ -12,6 +12,9 @@
                     "$path": "dev/roblox_packages",
                     "prvd": {
                         "$path": "build/core"
+                    },
+                    "prvdLifecycles": {
+                        "$path": "build/lifecycles"
                     }
                 }
             }
