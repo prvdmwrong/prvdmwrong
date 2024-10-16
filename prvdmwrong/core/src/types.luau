@@ -7,7 +7,7 @@ export type Error = {
 }
 
 -- Core types
-export type Lifecycle<Args...> = {
+export type Lifecycle<Args... = ...unknown> = {
 	type: "Lifecycle",
 	callbacks: { (Args...) -> () },
 	method: string,
@@ -60,8 +60,8 @@ export type Root = {
 	useRoots: (root: Root, roots: { Root }) -> Root,
 	useProvider: (root: Root, provider: Provider<unknown>) -> Root,
 	useProviders: (root: Root, providers: { Provider<unknown> }) -> Root,
-	useLifecycle: (root: Root, lifecycle: Lifecycle<...unknown>) -> Root,
-	useLifecycles: (root: Root, lifecycles: { Lifecycle<...unknown> }) -> Root,
+	useLifecycle: (root: Root, lifecycle: Lifecycle) -> Root,
+	useLifecycles: (root: Root, lifecycles: { Lifecycle }) -> Root,
 	onInit: Lifecycle<()>,
 	onStart: Lifecycle<()>,
 	onStop: Lifecycle<()>,

@@ -20,7 +20,7 @@ type LuauSolverIssue = any
 type Set<T> = { [T]: true }
 type Self = Root & {
 	_rootProviders: Set<Provider<unknown>>,
-	_rootLifecycles: Set<Lifecycle<...unknown>>,
+	_rootLifecycles: Set<Lifecycle>,
 	_subRoots: Set<Root>,
 }
 

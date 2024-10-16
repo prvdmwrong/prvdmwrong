@@ -15,7 +15,7 @@ local function visitProvider(
 	provider: types.Provider<unknown>,
 	visited: Set<Provider<unknown>>,
 	stack: { Provider<unknown> },
-	lifecycles: { Lifecycle<...unknown> }
+	lifecycles: { Lifecycle }
 )
 	if visited[provider] then
 		return
@@ -55,11 +55,11 @@ end
 
 function dependencies.processProviders(providers: Set<Provider<unknown>>): {
 	sortedProviders: { Provider<unknown> },
-	lifecycles: { Lifecycle<...unknown> },
+	lifecycles: { Lifecycle },
 }
 	local visited: Set<Provider<unknown>> = {}
 	local sortedProviders: { Provider<unknown> } = {}
-	local lifecycles: { Lifecycle<...unknown> } = {}
+	local lifecycles: { Lifecycle } = {}
 
 	for provider in providers do
 		visitProvider(provider, visited, sortedProviders, lifecycles)

@@ -15,7 +15,7 @@ local lifecycleUnregistered = {}
 local lifecycleDestroying = {}
 
 local lifecycles = {}
-lifecycles.methodLifecycles = {} :: { [string]: { Lifecycle<...unknown> } }
+lifecycles.methodLifecycles = {} :: { [string]: { Lifecycle } }
 
 local function findAndRemove<T>(from: { T }, toRemove: T)
 	local oldIndex = table.find(from, toRemove)
