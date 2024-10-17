@@ -2,54 +2,50 @@
 // Run `lune run regen` to generate fresh Zed settings.
 
 {
-	"formatter": {
-		"external": {
-			"arguments": ["--stdin-filepath", "{buffer_path}"],
-			"command": "npx prettier"
-		}
-	},
-	"languages": {
-		"Luau": {
-			"formmatter": {
-				"external": {
-					"arguments": ["-"],
-					"command": "stylua"
-				}
-			}
-		}
-	},
-	"lsp": {
-		"luau-lsp": {
-			"settings": {
-				"ext": {
-					"fflags": {
-						"enable_by_default": false,
-						"override": {
-							"LuauSolverV2": "True",
-							"LuauTypeSolverRelease": "646",
-							"LuauUserDefinedTypeFunctions": "True",
-							"LuauUserDefinedTypeFunctionsSyntax": "True"
-						},
-						"sync": true
-					}
-				},
-				"luau-lsp": {
-					"require": {
-						"directoryAliases": {
-							"@core": "prvdmwrong/core/src",
-							"@knit-compat": "prvdmwrong/knit-compat/src",
-							"@lifecycles": "prvdmwrong/lifecycles/src",
-							"@lune": "~/.lune/.typedefs/0.8.8/",
-							"@scripts": "./lune"
-						},
-						"mode": "relativeToFile"
-					}
-				},
-				"prefer_worktree_binary": true,
-				"roblox": {
-					"enabled": true
-				}
-			}
-		}
-	}
+  "languages": {
+    "Luau": {
+      "formmatter": {
+        "external": {
+          "arguments": [
+            "-"
+          ],
+          "command": "stylua"
+        }
+      }
+    }
+  },
+  "lsp": {
+    "luau-lsp": {
+      "settings": {
+        "ext": {
+          "fflags": {
+            "enable_by_default": false,
+            "override": {
+              "LuauSolverV2": "True",
+              "LuauTypeSolverRelease": "646",
+              "LuauUserDefinedTypeFunctions": "True",
+              "LuauUserDefinedTypeFunctionsSyntax": "True"
+            },
+            "sync": true
+          }
+        },
+        "luau-lsp": {
+          "require": {
+            "directoryAliases": {
+              "@core": "prvdmwrong/core/src",
+              "@knit-compat": "prvdmwrong/knit-compat/src",
+              "@lifecycles": "prvdmwrong/lifecycles/src",
+              "@lune": "~/.lune/.typedefs/0.8.8/",
+              "@scripts": "./lune"
+            },
+            "mode": "relativeToFile"
+          }
+        },
+        "prefer_worktree_binary": true,
+        "roblox": {
+          "enabled": true
+        }
+      }
+    }
+  }
 }

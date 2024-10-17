@@ -15,12 +15,12 @@ local BASE_DIRECTORY_ALIASES: { [string]: string } = {
 }
 
 local BASE_ZED_SETTINGS = {
-	formatter = {
-		external = {
-			command = "npx prettier",
-			arguments = { "--stdin-filepath", "{buffer_path}" },
-		},
-	},
+	-- formatter = {
+	-- 	external = {
+	-- 		command = "npx prettier",
+	-- 		arguments = { "--stdin-filepath", "{buffer_path}" },
+	-- 	},
+	-- },
 	languages = {
 		Luau = {
 			formmatter = {
