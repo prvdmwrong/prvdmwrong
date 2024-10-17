@@ -1,9 +1,6 @@
-[config]
 name = "Prvd 'M Wrong"
-module = "prvd"
 description = "Core Prvd 'M Wrong functionality including components and networking."
-
-types = ["Lifecycle<Args...>", "Provider<Self>", "Root", "RootStatus"]
+dependencies = []
 
 [docs]
 classes = ["Providers", "Lifecycles"]

@@ -11,7 +11,7 @@ export type RootStatus = types.RootStatus
 
 --[=[
     @class Prvd
-    @tag prvdmwrong-package-root
+    @tag prvdmwrong-root-class
 
     Prvd 'M Wrong is a Roblox game framework built with modern standards
     delivering type-safe APIs, dependency resolution, and unparalleled DX. Zero

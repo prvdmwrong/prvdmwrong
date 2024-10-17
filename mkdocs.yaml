@@ -53,7 +53,6 @@ theme:
         - navigation.sections
         - navigation.tabs
         - navigation.top
-        - navigation.expand
         - search
         - search.suggest
 
@@ -142,20 +141,50 @@ nav:
           - Core:
                 - api-reference/core/index.md
                 - Providers:
-                      - api-reference/core/providers/index.md
-                      - Provider: api-reference/core/providers/types/provider.md
-                      - Root: api-reference/core/providers/types/root.md
-                      - StartRoot: api-reference/core/providers/types/startroot.md
-                      - prvd: api-reference/core/providers/functions/prvd.md
-                      - root: api-reference/core/providers/functions/root.md
+                    - Provider: api-reference/core/functions/provider.md
+                    - prvd: api-reference/core/functions/prvd.md
+                    - onProviderConstructed: api-reference/core/functions/onproviderconstructed.md
+                    - onProviderUsed: api-reference/core/functions/onproviderused.md
+                - Roots:
+                    - Root:
+                        - api-reference/core/root/index.md
+                        - destroy: api-reference/core/root/functions/destroy.md
+                        - start: api-reference/core/root/functions/start.md
+                        - useLifecycle: api-reference/core/root/functions/uselifecycle.md
+                        - useLifecycles: api-reference/core/root/functions/uselifecycles.md
+                        - useProvider: api-reference/core/root/functions/useprovider.md
+                        - useProviders: api-reference/core/root/functions/useproviders.md
+                        - useModule: api-reference/core/root/functions/usemodule.md
+                        - useModules: api-reference/core/root/functions/usemodules.md
+                        - useRoot: api-reference/core/root/functions/useroot.md
+                        - useRoot: api-reference/core/root/functions/useroot.md
+                        - useRoots: api-reference/core/root/functions/useroots.md
+                    - StartedRoot:
+                        - api-reference/core/startedroot/index.md
+                        - stop: api-reference/core/startedroot/functions/stop.md
+                    - root: api-reference/core/functions/root.md
+                    - onRootConstructed: api-reference/core/functions/onrootconstructed.md
+                    - onRootStarted: api-reference/core/functions/onrootstarted.md
+                    - onsubrootused: api-reference/core/functions/onsubrootused.md
                 - Lifecycles:
-                      - api-reference/core/lifecycles/index.md
-                      - Lifecycle: api-reference/core/lifecycles/types/lifecycle.md
-                      - fireConcurrent: api-reference/core/lifecycles/functions/fireconcurrent.md
-                      - fireSequential: api-reference/core/lifecycles/functions/firesequential.md
-                      - lifecycle: api-reference/core/lifecycles/functions/lifecycle.md
-                      - onLifecycleDestroying: api-reference/core/lifecycles/functions/onlifecycledestroying.md
-                      - onRegistered: api-reference/core/lifecycles/functions/onregistered.md
-                      - onUnregistered: api-reference/core/lifecycles/functions/onunregistered.md
-          - Knit Compat:
+                    - Lifecycle:
+                        - api-reference/core/lifecycle/index.md
+                        - await: api-reference/core/lifecycle/functions/await.md
+                        - destroy: api-reference/core/lifecycle/functions/destroy.md
+                        - onRegistered: api-reference/core/lifecycle/functions/onregistered.md
+                        - onUnregistered: api-reference/core/lifecycle/functions/onunregistered.md
+                        - register: api-reference/core/lifecycle/functions/register.md
+                        - unregister: api-reference/core/lifecycle/functions/unregister.md
+                        - unregisterAll: api-reference/core/lifecycle/functions/unregisterall.md
+                    - fireConcurrent: api-reference/core/functions/fireconcurrent.md
+                    - fireSequential: api-reference/core/functions/firesequential.md
+                    - lifecycle: api-reference/core/functions/lifecycle.md
+                    - onLifecycleConstructing: api-reference/core/functions/onlifecycleconstructing.md
+                    - onLifecycleDestroying: api-reference/core/functions/onlifecycledestroying.md
+                    - onLifecycleUsed: api-reference/core/functions/onlifecycleused.md
+                    - onLifecycleRegistered: api-reference/core/functions/onlifecycleregistered.md
+                    - onLifecycleUnregistered: api-reference/core/functions/onlifecycleunregistered.md
+          - Knit:
                 - api-reference/knit-compat/index.md
+          - Lifecycles:
+                - api-reference/lifecycles/index.md

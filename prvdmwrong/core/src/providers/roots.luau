@@ -509,7 +509,7 @@ function roots.onLifecycleUsed(listener: (root: Root, lifecycle: Lifecycle) -> (
 end
 
 --[=[
-    @within Root
+    @within Prvd
 
     Called just before a constructing root is returned. The listener callback
     receives the root that is constructing.
@@ -528,7 +528,7 @@ function roots.onRootConstructed(listener: (root: Root) -> ()): () -> ()
 end
 
 --[=[
-    @within Root
+    @within Prvd
 
     Called just before a root finishes starting. The listener callback receives
     the root that is starting.
