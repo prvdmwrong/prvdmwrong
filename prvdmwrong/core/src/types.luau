@@ -9,8 +9,10 @@ export type Error = {
 -- Core types
 export type Lifecycle<Args... = ...unknown> = {
 	type: "Lifecycle",
+
 	callbacks: { (Args...) -> () },
 	method: string,
+
 	register: (self: Lifecycle<Args...>, callback: (Args...) -> ()) -> (),
 	fire: (self: Lifecycle<Args...>, Args...) -> (),
 	unregister: (self: Lifecycle<Args...>, callback: (Args...) -> ()) -> (),
@@ -23,7 +25,7 @@ export type Lifecycle<Args... = ...unknown> = {
 
 --[=[
     @within Prvd
-    @interface Provider<Self>
+    @interface Provider<Self> extends Self
 
     Provider are objects that *provide* specific functions to a game. Providers
     can use lifecycles by specifying the lifecycle's method. Providers can be
@@ -31,6 +33,7 @@ export type Lifecycle<Args... = ...unknown> = {
 
     .loadOrder number? -- Wow
     .name string? -- Wow
+    .instance Instance? -- Wow
     .onInit (self: Provider<Self>) -> ()? -- Wow
     .onStart (self: Provider<Self>) -> ()? -- Wow
     .onStop (self: Provider<Self>) -> ()? -- Wow
@@ -40,6 +43,7 @@ export type Provider<Self> = Self & {
 
 	loadOrder: number?,
 	name: string?,
+	instance: Instance?,
 
 	onInit: (self: Provider<Self>) -> ()?,
 	onStart: (self: Provider<Self>) -> ()?,
@@ -52,8 +56,10 @@ export type StartedRoot = {
 
 export type Root = {
 	type: "Root",
+
 	start: (root: Root) -> StartedRoot,
 	status: RootStatus,
+
 	useModule: (root: Root, module: ModuleScript) -> Root,
 	useModules: (root: Root, modules: { Instance }, predicate: ((ModuleScript) -> boolean)?) -> Root,
 	useRoot: (root: Root, root: Root) -> Root,
@@ -62,6 +68,8 @@ export type Root = {
 	useProviders: (root: Root, providers: { Provider<unknown> }) -> Root,
 	useLifecycle: (root: Root, lifecycle: Lifecycle) -> Root,
 	useLifecycles: (root: Root, lifecycles: { Lifecycle }) -> Root,
+	destroy: (root: Root) -> (),
+
 	onInit: Lifecycle<()>,
 	onStart: Lifecycle<()>,
 	onStop: Lifecycle<()>,

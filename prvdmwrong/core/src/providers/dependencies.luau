@@ -2,7 +2,7 @@ local providers = require("@core/providers/providers")
 local types = require("@core/types")
 
 type Lifecycle<Args... = ...unknown> = types.Lifecycle<Args...>
-type LuauSolverIssue = any
+type BrokenLuau = any
 type Provider<Self> = types.Provider<Self>
 type Set<T> = { [T]: true }
 
@@ -37,9 +37,9 @@ local function visitProvider(
 			return
 		end
 
-		if key ~= nil and target ~= provider and providers.constructedProviders[target :: LuauSolverIssue] then
-			if not visited[target :: LuauSolverIssue] then
-				visitProvider(target :: LuauSolverIssue, visited, stack, lifecycles)
+		if key ~= nil and target ~= provider and providers.constructedProviders[target :: BrokenLuau] then
+			if not visited[target :: BrokenLuau] then
+				visitProvider(target :: BrokenLuau, visited, stack, lifecycles)
 			end
 			return
 		end
@@ -49,7 +49,7 @@ local function visitProvider(
 		end
 	end
 
-	visitChild(provider, nil, provider :: LuauSolverIssue)
+	visitChild(provider, nil, provider :: BrokenLuau)
 	table.insert(stack, provider)
 end
 

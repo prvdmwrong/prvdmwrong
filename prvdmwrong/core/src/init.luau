@@ -49,10 +49,14 @@ local prvd = {
 	version = _G.PRVDMWRONG_VERSION,
 
 	-- Core API
-	root = roots.root,
-	prvd = providers.prvd,
 	Provider = providers.Provider :: never,
+	prvd = providers.prvd,
+	root = roots.root,
 	onProviderConstructed = providers.onProviderConstructed,
+	onProviderUsed = roots.onProviderUsed,
+	onRootConstructed = roots.onRootConstructed,
+	onRootStarted = roots.onRootStarted,
+	onSubRootUsed = roots.onSubRootUsed,
 
 	-- Lifecycle API
 	lifecycle = lifecycles.lifecycle,
@@ -61,6 +65,7 @@ local prvd = {
 	onLifecycleRegistered = lifecycles.onLifecycleRegistered,
 	onLifecycleUnregistered = lifecycles.onLifecycleUnregistered,
 	onLifecycleDestroying = lifecycles.onLifecycleDestroying,
+	onLifecycleUsed = roots.onLifecycleUsed,
 
 	-- Net API
 	netRoot = roots.root(),

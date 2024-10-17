@@ -8,31 +8,29 @@ type Self<Args... = ...unknown> = Lifecycle<Args...> & {
 	_selfUnregistered: { (callback: (Args...) -> ()) -> () },
 }
 
-local DISALLOW_MULTIPLE_LISTENERS = true
-
-local lifecycleRegistered = {}
-local lifecycleUnregistered = {}
-local lifecycleDestroying = {}
+local lifecycleConstructed: { (constructedLifecycle: Lifecycle) -> () } = {}
+local lifecycleRegistered: { (registeredLifecycle: Lifecycle) -> () } = {}
+local lifecycleUnregistered: { (unregisteredLifecycle: Lifecycle) -> () } = {}
+local lifecycleDestroying: { (destroyingLifecycle: Lifecycle) -> () } = {}
 
 local lifecycles = {}
 lifecycles.methodLifecycles = {} :: { [string]: { Lifecycle } }
 
-local function findAndRemove<T>(from: { T }, toRemove: T)
-	local oldIndex = table.find(from, toRemove)
-	if oldIndex then
-		table.remove(from, toRemove)
-	end
-end
-
+--[=[
+    @within Lifecycle<Args...>
+]=]
 local function register<Args...>(lifecycle: Self<Args...>, callback: (Args...) -> ())
 	utils.assert(not lifecycle._isDestroyed, "useAfterDestroy", "Lifecycle")
-	if DISALLOW_MULTIPLE_LISTENERS then
-		findAndRemove(lifecycle.callbacks, callback)
+	if _G.PRVDMWRONG_DISALLOW_MULTIPLE_LISTENERS then
+		utils.findAndRemove(lifecycle.callbacks, callback)
 	end
 	table.insert(lifecycle.callbacks, callback)
 	utils.spawnCallbacks(lifecycle._selfRegistered, callback)
 end
 
+--[=[
+    @within Lifecycle<Args...>
+]=]
 local function unregister<Args...>(lifecycle: Self<Args...>, callback: (Args...) -> ())
 	utils.assert(not lifecycle._isDestroyed, "useAfterDestroy", "Lifecycle")
 	local index = table.find(lifecycle.callbacks, callback)
@@ -42,6 +40,9 @@ local function unregister<Args...>(lifecycle: Self<Args...>, callback: (Args...)
 	end
 end
 
+--[=[
+    @within Lifecycle<Args...>
+]=]
 local function unregisterAll<Args...>(lifecycle: Self<Args...>)
 	utils.assert(not lifecycle._isDestroyed, "useAfterDestroy", "Lifecycle")
 	for _, callback in lifecycle.callbacks do
@@ -50,28 +51,37 @@ local function unregisterAll<Args...>(lifecycle: Self<Args...>)
 	table.clear(lifecycle.callbacks)
 end
 
+--[=[
+    @within Lifecycle<Args...>
+]=]
 local function onRegistered<Args...>(lifecycle: Self<Args...>, listener: (callback: (Args...) -> ()) -> ())
 	utils.assert(not lifecycle._isDestroyed, "useAfterDestroy", "Lifecycle")
-	if DISALLOW_MULTIPLE_LISTENERS then
-		findAndRemove(lifecycle._selfRegistered, listener)
+	if _G.PRVDMWRONG_DISALLOW_MULTIPLE_LISTENERS then
+		utils.findAndRemove(lifecycle._selfRegistered, listener)
 	end
 	table.insert(lifecycle._selfRegistered, listener)
 	return function()
-		findAndRemove(lifecycle._selfRegistered, listener)
+		utils.findAndRemove(lifecycle._selfRegistered, listener)
 	end
 end
 
+--[=[
+    @within Lifecycle<Args...>
+]=]
 local function onUnregistered<Args...>(lifecycle: Self<Args...>, listener: (callback: (Args...) -> ()) -> ())
 	utils.assert(not lifecycle._isDestroyed, "useAfterDestroy", "Lifecycle")
-	if DISALLOW_MULTIPLE_LISTENERS then
-		findAndRemove(lifecycle._selfUnregistered, listener)
+	if _G.PRVDMWRONG_DISALLOW_MULTIPLE_LISTENERS then
+		utils.findAndRemove(lifecycle._selfUnregistered, listener)
 	end
 	table.insert(lifecycle._selfUnregistered, listener)
 	return function()
-		findAndRemove(lifecycle._selfUnregistered, listener)
+		utils.findAndRemove(lifecycle._selfUnregistered, listener)
 	end
 end
 
+--[=[
+    @within Lifecycle<Args...>
+]=]
 local function await<Args...>(lifecycle: Self<Args...>): Args...
 	utils.assert(not lifecycle._isDestroyed, "useAfterDestroy", "Lifecycle")
 	local currentThread = coroutine.running()
@@ -83,9 +93,12 @@ local function await<Args...>(lifecycle: Self<Args...>): Args...
 	return coroutine.yield()
 end
 
+--[=[
+    @within Lifecycle<Args...>
+]=]
 local function destroy<Args...>(lifecycle: Self<Args...>)
 	utils.assert(not lifecycle._isDestroyed, "destroyedTwice", "Lifecycle")
-	findAndRemove(lifecycles.methodLifecycles[lifecycle.method], lifecycle)
+	utils.findAndRemove(lifecycles.methodLifecycles[lifecycle.method], lifecycle)
 	utils.spawnCallbacks(lifecycleDestroying, lifecycle)
 	table.clear(lifecycle.callbacks)
 	lifecycle._isDestroyed = true
@@ -103,12 +116,17 @@ function lifecycles.lifecycle<Args...>(
 	method: string,
 	onFire: (lifecycle: Lifecycle<Args...>, Args...) -> ()
 ): Lifecycle<Args...>
+	--[=[
+        @class Lifecycle<Args...>
+    ]=]
 	local self = {
 		_isDestroyed = false,
 		_selfRegistered = {},
 		_selfUnregistered = {},
+
 		type = "Lifecycle",
 		callbacks = {},
+
 		fire = onFire,
 		method = method,
 		register = register,
@@ -128,7 +146,11 @@ function lifecycles.lifecycle<Args...>(
 	end
 
 	table.insert(methodlifecycles, self)
-	table.freeze(self)
+
+	for _, onLifecycleConstructed in lifecycleConstructed do
+		onLifecycleConstructed(self :: Lifecycle)
+	end
+
 	return self
 end
 
@@ -142,14 +164,14 @@ end
 function lifecycles.onLifecycleRegistered<Args...>(
 	listener: (lifecycle: Lifecycle<Args...>, callback: (Args...) -> ()) -> ()
 ): () -> ()
-	if DISALLOW_MULTIPLE_LISTENERS then
-		findAndRemove(lifecycleRegistered, listener)
+	if _G.PRVDMWRONG_DISALLOW_MULTIPLE_LISTENERS then
+		utils.findAndRemove(lifecycleRegistered, listener)
 	end
 
 	table.insert(lifecycleRegistered, listener)
 
 	return function()
-		findAndRemove(lifecycleRegistered, listener)
+		utils.findAndRemove(lifecycleRegistered, listener)
 	end
 end
 
@@ -166,33 +188,60 @@ function lifecycles.onLifecycleUnregistered<Args...>(
 		callback: (Args...) -> ()
 	) -> ()
 ): () -> ()
-	if DISALLOW_MULTIPLE_LISTENERS then
-		findAndRemove(lifecycleUnregistered, listener)
+	if _G.PRVDMWRONG_DISALLOW_MULTIPLE_LISTENERS then
+		utils.findAndRemove(lifecycleUnregistered, listener)
 	end
 
 	table.insert(lifecycleUnregistered, listener)
 
 	return function()
-		findAndRemove(lifecycleUnregistered, listener)
+		utils.findAndRemove(lifecycleUnregistered, listener)
 	end
 end
 
 --[=[
     @within Prvd
-    Called when a lifecycle is being destroyed. Listeners are expected to be infallible and non-yielding. The listener receives the lifecycle.
 
-    @param listener (destroyedLifecycle: Lifecycle<Args...>) -> () -- Called when any lifecycle is being destroyed.
+    Called just before a constructing lifecycle is returned. The listener
+    callback receives the lifecycle that is constructing.
+
+    Listener callbacks are expected to be non-yielding and infallible.
+
+    @param listener (constructedLifecycle: Lifecycle<Args...>) -> () -- Fired just before a construcing lifecycle is returned. The listener callback receives the lifecyle that is constructing.
+    @return () -> () -- A callback that when called removes the listener.
+]=]
+function lifecycles.onLifecycleConstructing<Args...>(listener: (constructedLifecycle: Lifecycle<Args...>) -> ()): () -> ()
+	if _G.PRVDMWRONG_DISALLOW_MULTIPLE_LISTENERS then
+		utils.findAndRemove(lifecycleConstructed, listener)
+	end
+
+	table.insert(lifecycleConstructed, listener)
+
+	return function()
+		utils.findAndRemove(lifecycleConstructed, listener)
+	end
+end
+
+--[=[
+    @within Prvd
+
+    Called just before a lifecycle is destroyed. The listener callback receives
+    the lifecycle that is destroyed.
+
+    Listener callbacks are expected to be non-yielding and infallible.
+
+    @param listener (destroyedLifecycle: Lifecycle<Args...>) -> () -- Fired just before any lifecycle is being destroyed. The listener callbacj receives the lifecycle that is being destroyed.
     @return () -> () -- A callback that when called removes the listener.
 ]=]
 function lifecycles.onLifecycleDestroying<Args...>(listener: (destroyedLifecycle: Lifecycle<Args...>) -> ()): () -> ()
-	if DISALLOW_MULTIPLE_LISTENERS then
-		findAndRemove(lifecycleDestroying, listener)
+	if _G.PRVDMWRONG_DISALLOW_MULTIPLE_LISTENERS then
+		utils.findAndRemove(lifecycleDestroying, listener)
 	end
 
 	table.insert(lifecycleDestroying, listener)
 
 	return function()
-		findAndRemove(lifecycleDestroying, listener)
+		utils.findAndRemove(lifecycleDestroying, listener)
 	end
 end
 
