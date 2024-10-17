@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://json.schemastore.org/mkdocs-1.6.json
+
 site_name: Prvd 'M Wrong
 site_url: https://prvdmwrong.github.io/prvdmwrong
 site_description: Built on modern standards, you're simply going to build better Roblox games.
