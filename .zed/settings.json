@@ -2,6 +2,12 @@
 // Run `lune run regen` to generate fresh Zed settings.
 
 {
+	"formatter": {
+		"external": {
+			"arguments": ["--stdin-filepath", "{buffer_path}"],
+			"command": "npx prettier"
+		}
+	},
 	"languages": {
 		"Luau": {
 			"formmatter": {
