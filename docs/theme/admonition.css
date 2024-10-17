@@ -1,69 +1,68 @@
 .md-typeset {
+	.admonition,
+	details {
+		background: linear-gradient(var(--admonition-color) -99999%, transparent 2500%), var(--md-default-bg-color);
+		border-color: var(--admonition-color) !important;
+	}
 
-  .admonition,
-  details {
-    background: linear-gradient(var(--admonition-color) -99999%, transparent 2500%), var(--md-default-bg-color);
-    border-color: var(--admonition-color) !important;
-  }
+	.admonition-title,
+	summary {
+		background: none !important;
+	}
 
-  .admonition-title,
-  summary {
-    background: none !important;
-  }
+	:is(.admonition, details) > :is(.admonition-title, summary)::before {
+		background-color: var(--admonition-color);
+	}
 
-  :is(.admonition, details)> :is(.admonition-title, summary)::before {
-    background-color: var(--admonition-color);
-  }
+	.note {
+		--admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 260);
+	}
 
-  .note {
-    --admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 260);
-  }
+	.abstract {
+		--admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 230);
+	}
 
-  .abstract {
-    --admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 230);
-  }
+	.info {
+		--admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 200);
+	}
 
-  .info {
-    --admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 200);
-  }
+	.tip {
+		--admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 180);
+	}
 
-  .tip {
-    --admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 180);
-  }
+	.success {
+		--admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 150);
+	}
 
-  .success {
-    --admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 150);
-  }
+	.question {
+		--admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 130);
+	}
 
-  .question {
-    --admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 130);
-  }
+	.warning {
+		--admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 80);
+	}
 
-  .warning {
-    --admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 80);
-  }
+	.failure {
+		--admonition-color: oklch(0.6 0.25 20);
+	}
 
-  .failure {
-    --admonition-color: oklch(0.6 0.25 20);
-  }
+	.danger {
+		--admonition-color: oklch(0.6 0.25 0);
+	}
 
-  .danger {
-    --admonition-color: oklch(0.6 0.25 0);
-  }
+	.bug {
+		--admonition-color: oklch(0.6 0.25 340);
+	}
 
-  .bug {
-    --admonition-color: oklch(0.6 0.25 340);
-  }
+	.example {
+		--admonition-color: oklch(0.6 0.25 300);
+	}
 
-  .example {
-    --admonition-color: oklch(0.6 0.25 300);
-  }
+	.quote {
+		--admonition-color: oklch(from var(--md-default-fg-color) 0.6 c h);
+	}
 
-  .quote {
-    --admonition-color: oklch(from var(--md-default-fg-color) 0.6 c h);
-  }
-
-  [data-md-color-scheme="fusiondoc-dark"] & .admonition.details {
-    --md-code-bg-color: var(--fusiondoc-grey-1);
-  }
+	[data-md-color-scheme="fusiondoc-dark"] & .admonition.details {
+		--md-code-bg-color: var(--fusiondoc-grey-1);
+	}
 }

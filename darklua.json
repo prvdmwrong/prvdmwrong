@@ -1,37 +1,37 @@
 {
-  "generator": "retain_lines",
-  "rules": [
-    {
-      "current": {
-        "name": "path",
-        "sources": {
-          "@core": "prvdmwrong/core/src",
-          "@knit-compat": "prvdmwrong/knit-compat/src",
-          "@lifecycles": "prvdmwrong/lifecycles/src"
-        }
-      },
-      "rule": "convert_require",
-      "target": {
-        "indexing_style": "property",
-        "name": "roblox",
-        "rojo_sourcemap": "./sourcemap.json"
-      }
-    },
-    {
-      "identifier": "PRVDMWRONG_BUILD",
-      "rule": "inject_global_value",
-      "value": false
-    },
-    {
-      "env": "PRVDMWRONG_VERSION",
-      "identifier": "PRVDMWRONG_VERSION",
-      "rule": "inject_global_value"
-    },
-    "compute_expression",
-    "remove_unused_if_branch",
-    "remove_unused_while",
-    "filter_after_early_return",
-    "remove_nil_declaration",
-    "remove_empty_do"
-  ]
+	"generator": "retain_lines",
+	"rules": [
+		{
+			"current": {
+				"name": "path",
+				"sources": {
+					"@core": "prvdmwrong/core/src",
+					"@knit-compat": "prvdmwrong/knit-compat/src",
+					"@lifecycles": "prvdmwrong/lifecycles/src"
+				}
+			},
+			"rule": "convert_require",
+			"target": {
+				"indexing_style": "property",
+				"name": "roblox",
+				"rojo_sourcemap": "./sourcemap.json"
+			}
+		},
+		{
+			"identifier": "PRVDMWRONG_BUILD",
+			"rule": "inject_global_value",
+			"value": false
+		},
+		{
+			"env": "PRVDMWRONG_VERSION",
+			"identifier": "PRVDMWRONG_VERSION",
+			"rule": "inject_global_value"
+		},
+		"compute_expression",
+		"remove_unused_if_branch",
+		"remove_unused_while",
+		"filter_after_early_return",
+		"remove_nil_declaration",
+		"remove_empty_do"
+	]
 }

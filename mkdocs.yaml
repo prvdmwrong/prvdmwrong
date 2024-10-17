@@ -5,155 +5,155 @@ repo_name: prvdmwrong/prvdmwrong
 repo_url: https://github.com/prvdmwrong/prvdmwrong
 
 theme:
-  name: material
-  font:
-    text: Jura
-    code: JetBrains Mono
-  logo: assets/wordmark
-  custom_dir: docs/overrides
-  palette:
-    - media: "(prefers-color-scheme: dark)"
-      scheme: prvdmwrong-dark
-      toggle:
-        icon: octicons/sun-24
-        title: Switch to light theme
-    - media: "(prefers-color-scheme: light)"
-      scheme: prvdmwrong-light
-      toggle:
-        icon: octicons/moon-24
-        title: Switch to dark theme
-  icon:
-    top: octicons/chevron-up-24
-    repo: fontawesome/brands/github
-    clipboard: octicons/tag-24
-    admonition:
-      note: octicons/tag-24
-      abstract: octicons/checklist-24
-      info: octicons/info-24
-      tip: octicons/flame-24
-      success: octicons/check-24
-      question: octicons/question-24
-      warning: octicons/alert-24
-      failure: octicons/x-circle-24
-      danger: octicons/zap-24
-      bug: octicons/bug-24
-      example: octicons/beaker-24
-      quote: octicons/quote-24
-  features:
-    - content.code.copy
-    - content.tabs.link
-    - content.tooltips
-    - navigation.footer
-    - navigation.indexes
-    # FIXME(znotfireman): breaks customize footer
-    # - navigation.instant
-    - navigation.instant.progress
-    - navigation.sections
-    - navigation.tabs
-    - navigation.top
-    - navigation.expand
-    - search
-    - search.suggest
+    name: material
+    font:
+        text: Jura
+        code: JetBrains Mono
+    logo: assets/wordmark
+    custom_dir: docs/overrides
+    palette:
+        - media: "(prefers-color-scheme: dark)"
+          scheme: prvdmwrong-dark
+          toggle:
+              icon: octicons/sun-24
+              title: Switch to light theme
+        - media: "(prefers-color-scheme: light)"
+          scheme: prvdmwrong-light
+          toggle:
+              icon: octicons/moon-24
+              title: Switch to dark theme
+    icon:
+        top: octicons/chevron-up-24
+        repo: fontawesome/brands/github
+        clipboard: octicons/tag-24
+        admonition:
+            note: octicons/tag-24
+            abstract: octicons/checklist-24
+            info: octicons/info-24
+            tip: octicons/flame-24
+            success: octicons/check-24
+            question: octicons/question-24
+            warning: octicons/alert-24
+            failure: octicons/x-circle-24
+            danger: octicons/zap-24
+            bug: octicons/bug-24
+            example: octicons/beaker-24
+            quote: octicons/quote-24
+    features:
+        - content.code.copy
+        - content.tabs.link
+        - content.tooltips
+        - navigation.footer
+        - navigation.indexes
+        # FIXME(znotfireman): breaks customize footer
+        # - navigation.instant
+        - navigation.instant.progress
+        - navigation.sections
+        - navigation.tabs
+        - navigation.top
+        - navigation.expand
+        - search
+        - search.suggest
 
 plugins:
-  - search
-  - mike:
-      alias_type: symlink
-      canonical_version: null
-      css_dir: css
-      deploy_prefix: ""
-      javascript_dir: js
-      redirect_template: null
-      version_selector: true
+    - search
+    - mike:
+          alias_type: symlink
+          canonical_version: null
+          css_dir: css
+          deploy_prefix: ""
+          javascript_dir: js
+          redirect_template: null
+          version_selector: true
 
 extra:
-  version:
-    provider: mike
+    version:
+        provider: mike
 
 markdown_extensions:
-  - admonition
-  - attr_list
-  - md_in_html
-  - toc:
-      title: On this page
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-      options:
-        custom_icons:
-          - docs/overrides/.icons
-  - pymdownx.details
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed:
-      alternate_style: true
+    - admonition
+    - attr_list
+    - md_in_html
+    - toc:
+          title: On this page
+    - pymdownx.emoji:
+          emoji_index: !!python/name:material.extensions.emoji.twemoji
+          emoji_generator: !!python/name:material.extensions.emoji.to_svg
+          options:
+              custom_icons:
+                  - docs/overrides/.icons
+    - pymdownx.details
+    - pymdownx.highlight:
+          anchor_linenums: true
+          line_spans: __span
+          pygments_lang_class: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences:
+          custom_fences:
+              - name: mermaid
+                class: mermaid
+                format: !!python/name:pymdownx.superfences.fence_code_format
+    - pymdownx.tabbed:
+          alternate_style: true
 
 extra_css:
-  - theme/api-reference.css
-  - theme/admonition.css
-  - theme/code.css
-  - theme/footer.css
-  - theme/page.css
-  - theme/paragraph.css
-  - theme/prvdmwrong.css
+    - theme/api-reference.css
+    - theme/admonition.css
+    - theme/code.css
+    - theme/footer.css
+    - theme/page.css
+    - theme/paragraph.css
+    - theme/prvdmwrong.css
 
 extra_javascript:
-  - scripts/customize.js
+    - scripts/customize.js
 
 nav:
-  - Home: index.md
-  - Learn Prvd 'M Wrong:
-    - learn/index.md
-    - Installation: learn/installation.md
-    - Foundations:
-      - Providers: learn/foundations/providers.md
-      - Lifecycles: learn/foundations/lifecycles.md
-      - Roots: learn/foundations/roots.md
-      - Modding: learn/foundations/modding.md
-    - Components:
-      - learn/components/index.md
-      - Attributes: learn/components/attributes.md
-      - Inheritance: learn/components/inheritance.md
-    - Net:
-      - learn/net/index.md
-      - One-way Events: learn/net/oneway-events.md
-      - Two-way Events: learn/net/twoway-events.md
-      - Middlewares: learn/net/middlewares.md
-      - Namespaces: learn/net/namespaces.md
-    - Extra:
-      - Why Prvd 'M Wrong?: learn/extra/why-prvd-m-wrong.md
-      - Migrating from Knit: learn/extra/migrating-from-knit.md
-      - Migrating from Lumin: learn/extra/migrating-from-lumin.md
-      - Upgrading from 0.1 to 0.2: learn/extra/upgrading-from-0.1-to-0.2.md
-  # TODO(znotfireman): Automate this... oh goodness
-  - API Reference:
-    - api-reference/index.md
-    - Core:
-      - api-reference/core/index.md
-      - Providers:
-        - api-reference/core/providers/index.md
-        - Provider: api-reference/core/providers/types/provider.md
-        - Root: api-reference/core/providers/types/root.md
-        - StartRoot: api-reference/core/providers/types/startroot.md
-        - prvd: api-reference/core/providers/functions/prvd.md
-        - root: api-reference/core/providers/functions/root.md
-      - Lifecycles:
-        - api-reference/core/lifecycles/index.md
-        - Lifecycle: api-reference/core/lifecycles/types/lifecycle.md
-        - fireConcurrent: api-reference/core/lifecycles/functions/fireconcurrent.md
-        - fireSequential: api-reference/core/lifecycles/functions/firesequential.md
-        - lifecycle: api-reference/core/lifecycles/functions/lifecycle.md
-        - onLifecycleDestroying: api-reference/core/lifecycles/functions/onlifecycledestroying.md
-        - onRegistered: api-reference/core/lifecycles/functions/onregistered.md
-        - onUnregistered: api-reference/core/lifecycles/functions/onunregistered.md
-    - Knit Compat:
-        - api-reference/knit-compat/index.md
+    - Home: index.md
+    - Learn Prvd 'M Wrong:
+          - learn/index.md
+          - Installation: learn/installation.md
+          - Foundations:
+                - Providers: learn/foundations/providers.md
+                - Lifecycles: learn/foundations/lifecycles.md
+                - Roots: learn/foundations/roots.md
+                - Modding: learn/foundations/modding.md
+          - Components:
+                - learn/components/index.md
+                - Attributes: learn/components/attributes.md
+                - Inheritance: learn/components/inheritance.md
+          - Net:
+                - learn/net/index.md
+                - One-way Events: learn/net/oneway-events.md
+                - Two-way Events: learn/net/twoway-events.md
+                - Middlewares: learn/net/middlewares.md
+                - Namespaces: learn/net/namespaces.md
+          - Extra:
+                - Why Prvd 'M Wrong?: learn/extra/why-prvd-m-wrong.md
+                - Migrating from Knit: learn/extra/migrating-from-knit.md
+                - Migrating from Lumin: learn/extra/migrating-from-lumin.md
+                - Upgrading from 0.1 to 0.2: learn/extra/upgrading-from-0.1-to-0.2.md
+    # TODO(znotfireman): Automate this... oh goodness
+    - API Reference:
+          - api-reference/index.md
+          - Core:
+                - api-reference/core/index.md
+                - Providers:
+                      - api-reference/core/providers/index.md
+                      - Provider: api-reference/core/providers/types/provider.md
+                      - Root: api-reference/core/providers/types/root.md
+                      - StartRoot: api-reference/core/providers/types/startroot.md
+                      - prvd: api-reference/core/providers/functions/prvd.md
+                      - root: api-reference/core/providers/functions/root.md
+                - Lifecycles:
+                      - api-reference/core/lifecycles/index.md
+                      - Lifecycle: api-reference/core/lifecycles/types/lifecycle.md
+                      - fireConcurrent: api-reference/core/lifecycles/functions/fireconcurrent.md
+                      - fireSequential: api-reference/core/lifecycles/functions/firesequential.md
+                      - lifecycle: api-reference/core/lifecycles/functions/lifecycle.md
+                      - onLifecycleDestroying: api-reference/core/lifecycles/functions/onlifecycledestroying.md
+                      - onRegistered: api-reference/core/lifecycles/functions/onregistered.md
+                      - onUnregistered: api-reference/core/lifecycles/functions/onunregistered.md
+          - Knit Compat:
+                - api-reference/knit-compat/index.md

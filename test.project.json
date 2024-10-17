@@ -1,29 +1,29 @@
 {
-    "name": "Prvd 'M Wrong Devtesting",
-    "emitLegacyScripts": false,
-    "tree": {
-        "$className": "DataModel",
-        "ReplicatedStorage": {
-            "Client": {
-                "$path": "test/client.client.luau"
-            },
-            "Packages": {
-                "$className": "Folder",
-                "prvd": {
-                    "$path": "build/core"
-                },
-                "prvdLifecycles": {
-                    "$path": "build/lifecycles"
-                }
-            },
-            "Specs": {
-                "$path": "test/specs"
-            }
-        },
-        "ServerScriptService": {
-            "Server": {
-                "$path": "test/server.server.luau"
-            }
-        }
-    }
+	"name": "Prvd 'M Wrong Devtesting",
+	"emitLegacyScripts": false,
+	"tree": {
+		"$className": "DataModel",
+		"ReplicatedStorage": {
+			"Client": {
+				"$path": "test/client.client.luau"
+			},
+			"Packages": {
+				"$className": "Folder",
+				"prvd": {
+					"$path": "build/core"
+				},
+				"prvdLifecycles": {
+					"$path": "build/lifecycles"
+				}
+			},
+			"Specs": {
+				"$path": "test/specs"
+			}
+		},
+		"ServerScriptService": {
+			"Server": {
+				"$path": "test/server.server.luau"
+			}
+		}
+	}
 }

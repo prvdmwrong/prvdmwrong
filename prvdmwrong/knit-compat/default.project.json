@@ -1,6 +1,6 @@
 {
-  "name": "knit-compat",
-  "tree": {
-    "$path": "src"
-  }
+	"name": "knit-compat",
+	"tree": {
+		"$path": "src"
+	}
 }
