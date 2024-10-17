@@ -1,0 +1,7 @@
+name = "More lifecycles for Prvd 'M Wrong"
+description = "An assortment of useful provider lifecycles for Prvd 'M Wrong."
+dependencies = ["core"]
+
+[docs]
+classes = []
+overview = """"""
