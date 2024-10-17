@@ -37,11 +37,6 @@ local BASE_DARKLUA_CONFIG = {
 			},
 		},
 		{
-			identifier = "PRVDMWRONG_BUILD",
-			rule = "inject_global_value",
-			value = false,
-		},
-		{
 			env = "PRVDMWRONG_VERSION",
 			identifier = "PRVDMWRONG_VERSION",
 			rule = "inject_global_value",

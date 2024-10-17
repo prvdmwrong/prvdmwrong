@@ -61,8 +61,9 @@ end
 ]=]
 local function useModule(root: Self, module: ModuleScript)
 	local moduleExport = loggedRequire(module)
-	if providers.constructedProviders[moduleExport] and typeof(moduleExport.name) ~= "string" then
-		moduleExport.name = _G.PRVDMWRONG_DEV and module:GetFullName() or module.Name
+
+	if providers.constructedProviders[moduleExport] and typeof(moduleExport.name) ~= "string" :: BrokenLuau then
+		moduleExport.name = module.Name
 		moduleExport.instance = module
 		root._rootProviders[moduleExport] = true
 		utils.spawnCallbacks(providerUsed, root, moduleExport)
@@ -91,8 +92,8 @@ local function useModules(root: Self, modules: { Instance }, predicate: ((module
 		end
 
 		local moduleExport = loggedRequire(module)
-		if providers.constructedProviders[moduleExport] and typeof(moduleExport.name) ~= "string" then
-			moduleExport.name = _G.PRVDMWRONG_DEV and module:GetFullName() or module.Name
+		if providers.constructedProviders[moduleExport] and typeof(moduleExport.name) ~= "string" :: BrokenLuau then
+			moduleExport.name = module.Name
 			moduleExport.instance = module
 			root._rootProviders[moduleExport] = true
 			utils.spawnCallbacks(providerUsed, root, moduleExport)

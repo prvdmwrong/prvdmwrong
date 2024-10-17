@@ -4,6 +4,8 @@ module = "prvdLifecycles"
 description = "An assortment of useful provider lifecycles for Prvd 'M Wrong."
 dependencies = ["core"]
 
+types = []
+
 [docs]
 classes = []
 overview = """"""

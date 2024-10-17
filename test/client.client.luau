@@ -13,9 +13,16 @@ end
 
 _G.HAS_RUN = true :: any
 print("Starting client root...")
-local root = prvd.root():useModules(ReplicatedStorage.Specs.core:GetDescendants()):start()
+local root = prvd.root():useModules(ReplicatedStorage.Specs.core:GetDescendants())
+
+local startedRoot = root:start()
 
 task.wait(4)
 
 print("Stopping client root...")
-root:stop()
+startedRoot:stop()
+
+task.wait(1)
+print("Restarting :skull:")
+
+root:start()

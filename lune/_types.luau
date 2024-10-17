@@ -8,6 +8,7 @@ export type Config = {
 		module: string,
 		description: string,
 		dependencies: { string }?,
+		types: { string },
 	},
 	docs: {
 		classes: { string },
@@ -21,6 +22,7 @@ types.Config = t.interface {
 		module = t.string,
 		description = t.string,
 		dependencies = t.optional(t.array(t.string) :: any),
+		types = t.array(t.string),
 	},
 	docs = t.interface {
 		classes = t.array(t.string),
@@ -33,6 +35,7 @@ export type RepoConfig = {
 		authors: { string },
 		repository: string,
 		license: string,
+		version: string,
 
 		header: { string },
 
@@ -52,6 +55,7 @@ types.RepoConfig = t.interface {
 		authors = t.array(t.string),
 		repository = t.string,
 		license = t.string,
+		version = t.string,
 
 		header = t.array(t.string),
 

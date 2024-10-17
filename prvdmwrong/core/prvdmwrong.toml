@@ -3,6 +3,8 @@ name = "Prvd 'M Wrong"
 module = "prvd"
 description = "Core Prvd 'M Wrong functionality including components and networking."
 
+types = ["Lifecycle<Args...>", "Provider<Self>", "Root", "RootStatus"]
+
 [docs]
 classes = ["Providers", "Lifecycles"]
 overview = """
@@ -22,7 +24,7 @@ function PlayerProvider.onInit(self: Self)
 
     self.conn = Players.PlayerAdded:Connect(onPlayerAdded)
     for _, existingPlayer in Players:GetPlayers() do
-      o nPlayerAdded(newPlayer)
+       onPlayerAdded(newPlayer)
     end
 end
 
