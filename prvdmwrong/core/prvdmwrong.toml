@@ -1,5 +1,6 @@
 name = "Prvd 'M Wrong"
 description = "Core Prvd 'M Wrong functionality including components and networking."
+version = "0.2.0-rewrite.2"
 dependencies = []
 
 [docs]

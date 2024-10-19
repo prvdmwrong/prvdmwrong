@@ -1,7 +1,35 @@
 name = "More lifecycles for Prvd 'M Wrong"
 description = "An assortment of useful provider lifecycles for Prvd 'M Wrong."
+version = "0.2.0-rewrite.2"
 dependencies = ["core"]
 
 [docs]
 classes = []
-overview = """"""
+overview = """
+Extends Prvd 'M Wrong with common lifecycle events for player tracking and the
+runtime.
+
+Includes the following lifecycles:
+
+- `onPostSimulation(self: Provider<unknown>, deltaTime: number)` fires every `RunService.PostSimulation`
+- `onPreSimulation(self: Provider<unknown>, deltaTime: number)` fires every `RunService.PreSimulation`
+- `onPreAnimation(self: Provider<unknown>, deltaTime: number)` fires every `RunService.PreAnimation`
+- `onPreRender(self: Provider<unknown>, deltaTime: number)` fires every `RunService.PreRender` if `RunService:IsClient`
+- `onPlayerAdded(self: Provider<unknown>, newPlayer: Player)` fires when a new player joins the game including all existing players when `root:onStart` is called
+- `onPlayerRemoving(self: Provider<unknown>, leavingPlayer: Player)` fires when a player leaves the game
+
+This package is intended to be used through `root:useProvider`:
+
+```Luau
+local prvd = require(ReplicatedStorage.Packages.prvd)
+local prvdLifecycles = require(ReplicatedStorage.Packages.prvdLifecycles)
+
+local root = prvd.root()
+    -- @prvdmwrong/lifecycles returns a provider which can be used:
+    :useProvider(prvdLifecycles)
+    -- use your games providers...
+    :useModules(ServerScriptStorage.Server.Providers:GetDescendants())
+    :useModules(ReplicatedStorage.Shared.Providers:GetDescendants())
+    -- start the root!
+    :start()
+```"""

@@ -1,0 +1,24 @@
+name = "Lumin Framework Compatibility for Prvd 'M Wrong"
+description = "Drop-in Prvd 'M Wrong replacement for games that use Lumin Framework."
+version = "0.2.0-rewrite.2"
+dependencies = ["core"]
+
+[docs]
+classes = []
+overview = """
+Implements a drop=in compatibility layer with Lumin Framework version `9.*`
+with Prvd 'M Wrong version `0.2.0-rewrite.*`. Just change wherever Lumin
+Framework is required with this package.
+
+Includes the following APIs:
+
+- `Lumin.New` creates a new Prvd 'M Wrong provider preserving the `Init` and
+    `Start` methods and the `order` argument.
+- `Lumin.Lifecycle` creates a new Prvd 'M Wrong lifecycle and returns a proxy
+    object. Custom fire handlers receive the proxy objects. Defaults to using
+    Prvd 'M Wrong's `fireConcurrent`
+- `Lumin.Start` internally creates a new root and should be identical to Lumin
+    Framework startup behavior.
+
+TODO: Warnings for using such APIs and migration guides.
+"""

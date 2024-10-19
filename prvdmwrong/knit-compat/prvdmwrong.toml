@@ -1,5 +1,6 @@
 name = "Knit Compatibility for Prvd 'M Wrong"
 description = "Drop-in Prvd 'M Wrong replacement for games that use Knit."
+version = "0.2.0-rewrite.2"
 dependencies = ["core"]
 
 [docs]
