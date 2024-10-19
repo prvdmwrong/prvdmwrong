@@ -103,7 +103,7 @@ local function resolveDependencies(): { types.Package }
 		end
 		visited[package] = true
 
-		local dependencies = package.config.config.dependencies
+		local dependencies = package.config.dependencies
 		if dependencies then
 			for _, dependentName in dependencies do
 				local dependentPackage = nameToPackage[dependentName]
@@ -168,8 +168,8 @@ for _, package in resolveDependencies() do
 	local pesdeDependencies = {}
 	local npmDependencies = {}
 
-	if package.config.config.dependencies then
-		for _, dependency in package.config.config.dependencies do
+	if package.config.dependencies then
+		for _, dependency in package.config.dependencies do
 			pesdeDependencies[dependency] = {
 				name = pesdeify(`{publishConfig.scopes.pesde}/{dependency}`),
 				version = publishConfig.version,
@@ -185,7 +185,7 @@ for _, package in resolveDependencies() do
 		package = {
 			name = `{publishConfig.scopes.wally}/{package.packageName}`,
 			version = publishConfig.version,
-			description = package.config.config.description,
+			description = package.config.description,
 			license = publishConfig.license,
 			authors = publishConfig.authors,
 			realm = "shared",
@@ -197,18 +197,29 @@ for _, package in resolveDependencies() do
 	local pesdeConfig = {
 		name = pesdeify(`{publishConfig.scopes.pesde}/{package.packageName}`),
 		version = publishConfig.version,
-		description = package.config.config.description,
+		description = package.config.description,
 		license = publishConfig.license,
 		authors = publishConfig.authors,
 		repository = publishConfig.repository,
-		exports = {
-			lib = "./init.luau",
+		includes = {
+			"pesde.toml",
+			"README.md",
+			"LICENSE-APACHE.md",
+			"LICENSE-MIT.md",
+			"src",
+			"default.project.json",
 		},
-		dependencies = pesdeDependencies,
+		exports = {
+			lib = "./src/init.luau",
+		},
 		target = {
 			environment = "roblox",
 			lib = "src/init.luau",
+			build_files = {
+				"src",
+			},
 		},
+		dependencies = pesdeDependencies,
 		indices = {
 			default = "https://github.com/daimond113/pesde-index",
 		},
@@ -216,7 +227,7 @@ for _, package in resolveDependencies() do
 
 	local npmConfig = {
 		name = `@{publishConfig.scopes.npm}/{package.packageName}`,
-		description = package.config.config.description,
+		description = package.config.description,
 		version = publishConfig.version,
 		author = publishConfig.authors[1],
 		license = publishConfig.license,
@@ -253,7 +264,7 @@ for _, package in resolveDependencies() do
 		fs.writeFile(
 			path(workingDirectory, "README.md"),
 			StringBuilder()
-				:appendLn("#", package.config.config.name)
+				:appendLn("#", package.config.name)
 				:appendLn()
 				:appendLn(package.config.docs.overview)
 				:appendLn()
@@ -281,7 +292,7 @@ build.robloxBundle.Parent = game:GetService("ReplicatedStorage")
 build.robloxBundle.Name = "Packages"
 
 for _, package in packages do
-	assert(build.robloxBundle:FindFirstChild(package.packageName), "Unreachable").Name = package.config.config.module
+	assert(build.robloxBundle:FindFirstChild(package.packageName), "Unreachable").Name = package.config.name
 end
 
 fs.writeFile(path(BUILD_DIRECTORY, "prvdmwrong.rbxl"), roblox.serializePlace(game))
