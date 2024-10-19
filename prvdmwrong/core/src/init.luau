@@ -77,7 +77,7 @@ local prvd = {
 return table.freeze(setmetatable(
 	prvd,
 	table.freeze {
-		__call = function<Self>(_: unknown, provider: Self): Provider<Self>
+		__call = function<Self>(_: typeof(prvd), provider: Self): Provider<Self>
 			return providers.prvd(provider)
 		end,
 	}
