@@ -12,10 +12,13 @@
     "LuauUserDefinedTypeFunctionsSyntax": "True"
   },
   "luau-lsp.require.directoryAliases": {
+    "@components": "prvdmwrong/components/src",
     "@core": "prvdmwrong/core/src",
     "@knit-compat": "prvdmwrong/knit-compat/src",
     "@lifecycles": "prvdmwrong/lifecycles/src",
+    "@lumin-compat": "prvdmwrong/lumin-compat/src",
     "@lune": "~/.lune/.typedefs/0.8.8/",
+    "@net": "prvdmwrong/net/src",
     "@scripts": "./lune"
   },
   "luau-lsp.require.mode": "relativeToFile"

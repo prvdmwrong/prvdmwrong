@@ -2,7 +2,7 @@
 authors = ["znotfireman <znotfireman+hello@gmail.com>"]
 repository = "https://github.com/prvdmwrong/prvdmwrong"
 license = "MIT OR Apache-2.0"
-version = "0.2.0-rewrite.1"
+version = "0.2.0-rewrite.2"
 
 header = ["--!strict", "-- Prvd 'M Wrong is licensed under either of Apache License, Version 2.0 or MIT license at your option."]
 

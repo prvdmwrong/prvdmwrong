@@ -103,6 +103,7 @@ extra_css:
     - theme/admonition.css
     - theme/code.css
     - theme/footer.css
+    - theme/header.css
     - theme/page.css
     - theme/paragraph.css
     - theme/prvdmwrong.css

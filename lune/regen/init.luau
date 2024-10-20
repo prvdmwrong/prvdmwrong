@@ -1,6 +1,6 @@
 local Log = require("@scripts/_utils/log")
 local fs = require("@lune/fs")
-local packages = require("@scripts/_packages")
+local packages = require("@scripts/packages")
 local path = require("@scripts/_utils/path")
 local process = require("@lune/process")
 local regenTypes = require("@scripts/regen/types")
