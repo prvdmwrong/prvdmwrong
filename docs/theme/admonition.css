@@ -1,68 +1,69 @@
 .md-typeset {
-	.admonition,
-	details {
-		background: linear-gradient(var(--admonition-color) -99999%, transparent 2500%), var(--md-default-bg-color);
-		border-color: var(--admonition-color) !important;
-	}
 
-	.admonition-title,
-	summary {
-		background: none !important;
-	}
+    .admonition,
+    details {
+        background: linear-gradient(var(--admonition-color) -99999%, transparent 2500%), var(--md-default-bg-color);
+        border-color: var(--admonition-color) !important;
+    }
 
-	:is(.admonition, details) > :is(.admonition-title, summary)::before {
-		background-color: var(--admonition-color);
-	}
+    .admonition-title,
+    summary {
+        background: none !important;
+    }
 
-	.note {
-		--admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 260);
-	}
+    :is(.admonition, details)> :is(.admonition-title, summary)::before {
+        background-color: var(--admonition-color);
+    }
 
-	.abstract {
-		--admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 230);
-	}
+    .note {
+        --admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 260);
+    }
 
-	.info {
-		--admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 200);
-	}
+    .abstract {
+        --admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 230);
+    }
 
-	.tip {
-		--admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 180);
-	}
+    .info {
+        --admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 200);
+    }
 
-	.success {
-		--admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 150);
-	}
+    .tip {
+        --admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 180);
+    }
 
-	.question {
-		--admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 130);
-	}
+    .success {
+        --admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 150);
+    }
 
-	.warning {
-		--admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 80);
-	}
+    .question {
+        --admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 130);
+    }
 
-	.failure {
-		--admonition-color: oklch(0.6 0.25 20);
-	}
+    .warning {
+        --admonition-color: oklch(0.7 var(--prvdmwrong-accent-chroma) 80);
+    }
 
-	.danger {
-		--admonition-color: oklch(0.6 0.25 0);
-	}
+    .failure {
+        --admonition-color: oklch(0.6 0.25 20);
+    }
 
-	.bug {
-		--admonition-color: oklch(0.6 0.25 340);
-	}
+    .danger {
+        --admonition-color: oklch(0.6 0.2 20);
+    }
 
-	.example {
-		--admonition-color: oklch(0.6 0.25 300);
-	}
+    .bug {
+        --admonition-color: oklch(0.6 0.25 340);
+    }
 
-	.quote {
-		--admonition-color: oklch(from var(--md-default-fg-color) 0.6 c h);
-	}
+    .example {
+        --admonition-color: oklch(0.6 0.25 300);
+    }
 
-	[data-md-color-scheme="fusiondoc-dark"] & .admonition.details {
-		--md-code-bg-color: var(--fusiondoc-grey-1);
-	}
+    .quote {
+        --admonition-color: oklch(from var(--md-default-fg-color) 0.6 c h);
+    }
+
+    [data-md-color-scheme="fusiondoc-dark"] & .admonition.details {
+        --md-code-bg-color: var(--fusiondoc-grey-1);
+    }
 }

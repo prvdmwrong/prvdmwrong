@@ -32,8 +32,8 @@ Scroll down for a tour of Prvd 'M Wrong.
 
 <section class="prvdmwrong-home-belowfold" markdown>
 
-</section>
-
 [![lol](https://img.youtube.com/vi/B9synWjqBn8/0.jpg)](https://www.youtube.com/watch?v=B9synWjqBn8)
+
+</section>
 
 </section>

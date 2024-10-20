@@ -1,113 +1,17 @@
-.md-header {
-	background-color: var(--md-default-bg-color);
-
-	&.md-header--shadow {
-		box-shadow:
-			0 0 0.2rem var(--md-default-bg-color),
-			0 0.2rem 0.4rem var(--md-default-bg-color);
-	}
-}
-
-.md-tabs {
-	background-color: var(--md-default-bg-color);
-}
-
-.md-main__inner {
-	margin-top: 0;
-}
-
-.md-top {
-	background-color: var(--md-default-bg-color--lighter);
-	border-radius: 0.125rem;
-	box-shadow: none !important;
-	z-index: 1000;
-	color: var(--md-default-fg-color);
-	padding: 0.25rem 0.75rem;
-
-	@media screen and (min-width: 90rem) {
-		& {
-			transform: translate(-50%, -2.7rem);
-		}
-	}
-
-	&[data-md-state="hidden"] {
-		transform: translate(-50%, -1rem);
-		transition-duration: 125ms;
-
-		@media screen and (min-width: 90rem) {
-			& {
-				transform: translate(-50%, -3.7rem);
-			}
-		}
-	}
-
-	> svg {
-		transform: scale(75%);
-		margin-left: -0.25rem;
-	}
-}
-
-.md-header__button.md-logo img {
-	position: relative;
-	display: block !important;
-	width: auto !important;
-	height: 1.8rem !important;
-
-	color: var(--md-default-fg-color) !important;
-}
-
 @media screen and (min-width: 80rem) {
-	.md-grid {
-		margin-left: 2rem;
-		margin-right: 2rem;
-		max-width: none;
-	}
+    .md-grid {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        max-width: none;
+    }
 
-	.md-content {
-		max-width: 41rem;
-		margin-left: auto;
-		margin-right: auto;
-	}
-}
-
-.md-tabs__list {
-	gap: 0.25rem;
-	align-items: center;
-	height: 2.4rem;
-
-	.md-tabs__item {
-		display: flex;
-		align-items: center;
-		padding: 0;
-
-		a {
-			background-color: transparent;
-			border-radius: 0.125rem;
-			padding: 0.375rem 0.5rem;
-			margin-top: 0;
-			height: auto;
-
-			transition: background-color 125ms;
-
-			&:hover,
-			&:focus,
-			.md-tabs__item--active > & {
-				background-color: color-mix(in oklch, var(--md-default-bg-color), var(--md-default-fg-color--lightest));
-			}
-
-			.md-tabs__item--active > &:hover {
-				background-color: var(--md-default-fg-color--lightest);
-			}
-		}
-	}
+    .md-content {
+        max-width: 41rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .prvdmwrong-hidden {
-	display: none;
-}
-
-@media screen and (min-width: 60em) {
-	.md-search__form {
-		border-radius: 0.125rem;
-	}
+    display: none;
 }

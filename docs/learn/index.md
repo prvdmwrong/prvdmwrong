@@ -68,3 +68,40 @@ Prvd 'M Wrong users.
 
 [our dedicated thread]: https://discord.com/channels/385151591524597761/1267055070374268969
 [Roblox OSS Discord server]: https://discord.gg/VaDCnesCXj
+
+## Using the Documentation
+
+The Prvd 'M Wrong documentation aims to be as useful and comprehensive as
+possible. Scroll down to find the footer with customization settings for the
+documentation that persist between sessions:
+
+- Customize code blocks from a selection of **monospace fonts**
+- Show relevent **documentation for** the language you use
+
+    - Currently supports Luau and TypeScript, with more languages added as the
+        Roblox ecosystem grows more diverse.
+
+!!! tip "Try it!"
+
+    <section class="only-luau">
+
+    ```Luau
+    local prvd = "Prvd 'M Wrong"
+    local function bestFramework(): string
+        print(`I <3 {prvd}!`)
+        return prvd
+    end
+    ```
+
+    </section>
+    <section class="only-typescript">
+
+    ```TypeScript
+    const prvd = "Prvd 'M Wrong"
+    function bestFramework(): string {
+        print(`I <3 ${prvd}!`)
+        return prvd
+    }
+    ```
+
+    </section>

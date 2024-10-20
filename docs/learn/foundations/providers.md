@@ -1,7 +1,6 @@
 # Providers
 
-!!! warning "This article is a stub. You can help Prvd 'M Wrong by
-[expanding it](https://github.com/prvdmwrong/prvdmwrong/edit/0.2/docs/learn/foundations/providers.md)."
+!!! warning "This article is a stub. You can help Prvd 'M Wrong by [expanding it](https://github.com/prvdmwrong/prvdmwrong/edit/0.2/docs/learn/foundations/providers.md)."
 
 Prvd 'M Wrong is used to create service _providers_, which _provide_ a specific
 function for a game. Use providers to compose the top-level logic of a game.
@@ -161,11 +160,13 @@ local PlayerProvider = {}
 return prvd(PlayerProvider)
 ```
 
-It's best to return the provider constructed from `prvd()` so providers can be
-gradually built up before being returned by the module. This allows Luau to
-infer useful types.
+It's strongly recommended to module return the provider constructed from
+`prvd()` so providers can be gradually built up before being returned by the
+module. This allows Luau to infer useful types and for Prvd 'M Wrong to
+automatically name it after the ModuleScript name.
 
-Do NOT instantiate with `prvd()` then gradually build the provider:
+Do NOT lazily instantiate a provider with `prvd()`, this "seals" the provider
+and will cause type errors:
 
 ```Luau
 -- bad!
@@ -177,7 +178,7 @@ PlayerProvider.someFutureProperty = {}
 return PlayerProvider
 ```
 
-Do NOT instantiate the `prvd()` in one go:
+Do NOT instantiate the `prvd()` in one go, this worsens Luau type safety:
 
 ```Luau
 -- bad!
