@@ -1,0 +1,48 @@
+.md-content {
+    h1:first-of-type {
+        font-weight: 700;
+        font-size: 1.875em;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        margin-bottom: -0.33333em !important;
+    }
+}
+
+.md-typeset {
+
+    h1,
+    h2,
+    h3 {
+        border-bottom: 0.05rem solid var(--md-default-fg-color--lightest);
+    }
+
+    a {
+        border-bottom: 0.05rem solid oklch(from var(--md-typeset-a-color) l c h / 0.25);
+
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: var(--md-typeset-a-color);
+        }
+    }
+}
+
+select {
+    background-color: var(--md-default-fg-color);
+    color: var(--md-default-bg-color);
+    border: none;
+    font: inherit;
+    font-weight: 700;
+    font-size: 0.875rem;
+    padding: 0.25rem;
+    border-radius: 0.125rem;
+    transition: background-color 125ms;
+
+    &:hover,
+    &:focus {
+        background-color: var(--md-accent-fg-color);
+        color: var(--md-default-fg-color);
+        cursor: pointer;
+    }
+}

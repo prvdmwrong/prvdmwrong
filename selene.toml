@@ -1,7 +1,7 @@
 std = "selene-std"
 
 [config]
-  global_usage = { ignore_pattern = "__DEV__|prvdmwrong" }
-
-[lints]
-  shadowing = "allow"
+  # Allow Prvd 'M Wrong build globals
+  global_usage = { ignore_pattern = "^PRVDMWRONG" }
+  # Allow `self` to be shadowed in class construction
+  shadowing = { ignore_pattern = "^_|self" }

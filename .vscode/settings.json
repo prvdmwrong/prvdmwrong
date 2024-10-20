@@ -1,32 +1,25 @@
+// This file was @generated and should not be edited.
+// Run `lune run regen` to generate fresh Zed settings.
+
 {
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+  "[luau]": {
+    "editor.defaultFormatter": "JohnnyMorganz.stylua"
   },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    "editor.formatOnSave": true
+  "luau-lsp.fflags.override": {
+    "LuauSolverV2": "True",
+    "LuauTypeSolverRelease": "646",
+    "LuauUserDefinedTypeFunctions": "True",
+    "LuauUserDefinedTypeFunctionsSyntax": "True"
   },
-  "eslint.format.enable": true,
-  "eslint.run": "onType",
-  "files.eol": "\n",
-  "luau-lsp.ignoreGlobs": [
-    "**/_Index/**",
-    "examples/*",
-    "dist/**"
-  ],
   "luau-lsp.require.directoryAliases": {
-    "@lune/": "~/.lune/.typedefs/0.8.6/",
-    "catwork-compat": "packages/catwork-compat/lib",
-    "components": "packages/components/lib",
-    "core": "packages/core/lib",
-    "debugger": "packages/debugger/lib",
-    "knit-compat": "packages/knit-compat/lib",
-    "lifecycles": "packages/lifecycles/lib",
-    "lumin-compat": "packages/lumin-compat/lib",
-    "net": "packages/net/lib",
-    "sapphire-compat": "packages/sapphire-compat/lib"
+    "@components": "prvdmwrong/components/src",
+    "@core": "prvdmwrong/core/src",
+    "@knit-compat": "prvdmwrong/knit-compat/src",
+    "@lifecycles": "prvdmwrong/lifecycles/src",
+    "@lumin-compat": "prvdmwrong/lumin-compat/src",
+    "@lune": "~/.lune/.typedefs/0.8.8/",
+    "@net": "prvdmwrong/net/src",
+    "@scripts": "./lune"
   },
-  "luau-lsp.require.mode": "relativeToFile",
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "luau-lsp.require.mode": "relativeToFile"
 }
