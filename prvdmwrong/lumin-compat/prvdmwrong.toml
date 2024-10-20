@@ -6,7 +6,7 @@ dependencies = ["core"]
 [docs]
 classes = []
 overview = """
-Implements a drop=in compatibility layer with Lumin Framework version `9.*`
+Implements a drop-in compatibility layer with Lumin Framework version `9.*`
 with Prvd 'M Wrong version `0.2.0-rewrite.*`. Just change wherever Lumin
 Framework is required with this package.
 

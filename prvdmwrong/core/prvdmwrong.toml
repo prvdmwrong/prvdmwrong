@@ -1,13 +1,13 @@
 name = "Prvd 'M Wrong"
-description = "Core Prvd 'M Wrong functionality including components and networking."
-version = "0.2.0-rewrite.2"
+description = "Core Prvd 'M Wrong functionality."
+version = "0.2.0-rewrite.3"
 dependencies = []
 
 [docs]
 classes = ["Providers", "Lifecycles"]
 overview = """
-Core Prvd 'M Wrong functionality including providers, lifecycles, and module \
-roots along with built-in components and networking.
+Core Prvd 'M Wrong functionality including providers, lifecycles, and starting \
+roots.
 
 ```Luau
 local PlayerProvider = {}

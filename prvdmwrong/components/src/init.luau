@@ -66,6 +66,12 @@ local prvd = {
 	onLifecycleUnregistered = lifecycles.onLifecycleUnregistered,
 	onLifecycleDestroying = lifecycles.onLifecycleDestroying,
 	onLifecycleUsed = roots.onLifecycleUsed,
+
+	-- Net API
+	netRoot = roots.root(),
+
+	-- Component API
+	componentRoot = roots.root(),
 }
 
 return table.freeze(setmetatable(
