@@ -1,0 +1,29 @@
+@media screen and (min-width: 80rem) {
+    .md-grid {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        max-width: none;
+    }
+
+    .md-content {
+        max-width: 41rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.prvdmwrong-hidden {
+    display: none;
+}
+
+@media screen and (max-width: 76.2344em) {
+    .md-nav--primary .md-nav__title[for=__drawer] {
+        background-color: var(--md-default-bg-color);
+    }
+}
+
+@media screen and (max-width: 59.9844em) {
+    .md-nav__source {
+        background-color: var(--md-default-bg-color);
+    }
+}

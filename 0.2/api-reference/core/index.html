@@ -6,21 +6,21 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Prvd 'M Wrong is a service provider framework for a next-generation Roblox.">
+        <meta name="description" content="Built on modern standards, you're simply going to build better Roblox games.">
       
       
       
         <link rel="canonical" href="https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/">
       
       
-        <link rel="prev" href="../errors/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="providers/">
+        <link rel="next" href="functions/provider/">
       
       
-      <link rel="icon" href="../../assets/logo-dark.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -73,7 +73,7 @@
     
   
   
-  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.75 1.75 0 0 1 1 7.775m1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13.274 9.537zl-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074M4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5M4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13M6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75M8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.533.753V.752c.217 2.385 1.463 3.626 2.653 4.81C13.37 6.74 14.498 7.863 14.498 10c0 3.5-3 6-6.5 6S1.5 13.512 1.5 10c0-1.298.536-2.56 1.425-3.286.376-.308.862 0 1.035.454C4.46 8.487 5.581 8.419 6 8c.282-.282.341-.811-.003-1.5C4.34 3.187 7.035.75 8.77.146c.39-.137.726.194.763.607M7.998 14.5c2.832 0 5-1.98 5-4.5 0-1.463-.68-2.19-1.879-3.383l-.036-.037c-1.013-1.008-2.3-2.29-2.834-4.434-.322.256-.63.579-.864.953-.432.696-.621 1.58-.046 2.73.473.947.67 2.284-.278 3.232-.61.61-1.545.84-2.403.633a2.8 2.8 0 0 1-1.436-.874A3.2 3.2 0 0 0 3 10c0 2.53 2.164 4.5 4.998 4.5"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 .018-1.042.75.75 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13M6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.76 2.76 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6 6 0 0 0-.26.16 1 1 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661q.154-.1.313-.195l.007-.004c.1-.061.182-.11.258-.161a1 1 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.61.61 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1 1 0 0 0-.34.398M9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0M9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343za8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746m1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275M6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.75.75 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L6.94 8 4.97 6.03a.75.75 0 0 1 .018-1.042.75.75 0 0 1 1.042-.018"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006-.004-.009-.006-.006-.008-.001q-.005 0-.009.004"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.5 3.5 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327q0 .15-.025.292c.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5q-.002.615-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A5 5 0 0 1 8 16a5 5 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5 5 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.7 1.7 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06m.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.17.17 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.75.75 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5m4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5m0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5M2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0"/></svg>');}</style>
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.5 3.75a.25.25 0 0 1 .25-.25h13.5a.25.25 0 0 1 .25.25v10a.75.75 0 0 0 1.5 0v-10A1.75 1.75 0 0 0 17.25 2H3.75A1.75 1.75 0 0 0 2 3.75v16.5c0 .966.784 1.75 1.75 1.75h7a.75.75 0 0 0 0-1.5h-7a.25.25 0 0 1-.25-.25V3.75Z"/><path d="M6.25 7a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Zm-.75 4.75a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Zm16.28 4.53a.75.75 0 1 0-1.06-1.06l-4.97 4.97-1.97-1.97a.75.75 0 1 0-1.06 1.06l2.5 2.5a.75.75 0 0 0 1.06 0l5.5-5.5Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 7.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-3 3.75a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 .75.75v4.25h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75V12h-.75a.75.75 0 0 1-.75-.75Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.265 1.627c0 3.545 1.869 5.327 3.479 7.021 1.54 1.62 3.006 3.163 3.006 6.102 0 4.812-3.753 8.25-8.565 8.25-4.813 0-8.935-3.421-8.935-8.25 0-2.039.962-4.011 2.509-4.899.305-.175.672.007.803.334C7.563 12.684 8.797 12.64 9.437 12c.388-.387.47-1.116-.004-2.062-2.405-4.812 1.863-8.279 4.2-8.854.336-.082.615.198.632.543ZM12.185 21.5c4.059 0 7.065-2.84 7.065-6.75 0-2.337-1.093-3.489-2.678-5.158l-.021-.023c-1.44-1.517-3.139-3.351-3.649-6.557a6.148 6.148 0 0 0-1.911 1.76c-.787 1.144-1.147 2.633-.216 4.495.603 1.205.777 2.74-.277 3.794-.657.657-1.762 1.1-2.956.586-.752-.324-1.353-.955-1.838-1.79-.567.706-.954 1.74-.954 2.893 0 3.847 3.288 6.75 7.435 6.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.03 5.72a.75.75 0 0 1 0 1.06l-11.5 11.5a.747.747 0 0 1-1.072-.012l-5.5-5.75a.75.75 0 1 1 1.084-1.036l4.97 5.195L19.97 5.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.97 8.265a1.45 1.45 0 0 0-.487.57.75.75 0 0 1-1.341-.67c.2-.402.513-.826.997-1.148C10.627 6.69 11.244 6.5 12 6.5c.658 0 1.369.195 1.934.619a2.45 2.45 0 0 1 1.004 2.006c0 1.033-.513 1.72-1.027 2.215-.19.183-.399.358-.579.508l-.147.123a4.329 4.329 0 0 0-.435.409v1.37a.75.75 0 1 1-1.5 0v-1.473c0-.237.067-.504.247-.736.22-.28.486-.517.718-.714l.183-.153.001-.001c.172-.143.324-.27.47-.412.368-.355.569-.676.569-1.136a.953.953 0 0 0-.404-.806C12.766 8.118 12.384 8 12 8c-.494 0-.814.121-1.03.265ZM13 17a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 17.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0v-4.5Z"/><path d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752Zm3.03.751a1.002 1.002 0 0 0-1.732 0L2.168 19.499A1.002 1.002 0 0 0 3.034 21h17.932a1.002 1.002 0 0 0 .866-1.5L12.866 3.994Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.716 1.329a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.148 1.148 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6Zm.452 1.595L4.51 13.061a.25.25 0 0 0 .164.439h5.45a.749.749 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.72.22a.75.75 0 0 1 1.06 0l1.204 1.203A4.98 4.98 0 0 1 12 1c.717 0 1.4.151 2.016.423L15.22.22a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-.971.972A4.991 4.991 0 0 1 17 6v1.104a2.755 2.755 0 0 1 1.917 1.974l1.998-.999a.75.75 0 0 1 .67 1.342L19 10.714V13.5l3.25.003a.75.75 0 0 1 0 1.5L19 15.001V16c0 .568-.068 1.134-.204 1.686l.04.018 2.75 1.375a.75.75 0 1 1-.671 1.342l-2.638-1.319A6.998 6.998 0 0 1 12 23a6.998 6.998 0 0 1-6.197-3.742l-2.758 1.181a.752.752 0 0 1-1.064-.776.752.752 0 0 1 .474-.602l2.795-1.199A6.976 6.976 0 0 1 5 16v-.996H1.75a.75.75 0 0 1 0-1.5H5v-2.79L2.415 9.42a.75.75 0 0 1 .67-1.342l1.998.999A2.756 2.756 0 0 1 7 7.104V6a4.99 4.99 0 0 1 1.69-3.748l-.97-.972a.75.75 0 0 1 0-1.06ZM6.5 9.75V16a5.5 5.5 0 1 0 11 0V9.75c0-.69-.56-1.25-1.25-1.25h-8.5c-.69 0-1.25.56-1.25 1.25ZM8.5 7h7V6a3.5 3.5 0 1 0-7 0Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 8.807V3.5h-.563a.75.75 0 0 1 0-1.5h9.125a.75.75 0 0 1 0 1.5H16v5.307l5.125 9.301c.964 1.75-.302 3.892-2.299 3.892H5.174c-1.998 0-3.263-2.142-2.3-3.892ZM4.189 18.832a1.123 1.123 0 0 0 .985 1.668h13.652a1.123 1.123 0 0 0 .985-1.668L17.7 15H6.3ZM14.5 3.5h-5V9a.75.75 0 0 1-.093.362L7.127 13.5h9.746l-2.28-4.138A.75.75 0 0 1 14.5 9Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6.25a.75.75 0 0 1 .75-.75h13.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.25Zm5 6.063a.75.75 0 0 1 .75-.75h11.5a.75.75 0 0 1 0 1.5H8.75a.75.75 0 0 1-.75-.75Zm0 5.937a.75.75 0 0 1 .75-.75h11.5a.75.75 0 0 1 0 1.5H8.75a.75.75 0 0 1-.75-.75ZM3.75 11a.75.75 0 0 1 .75.75v7a.75.75 0 0 1-1.5 0v-7a.75.75 0 0 1 .75-.75Z"/></svg>');}</style>
 
 
 
@@ -82,38 +82,32 @@
       
     
     
-	<!-- Load fonts from Google -->
-	
-		
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=fallback"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css?family=JetBrains+Mono&display=fallback"
-		/>
-		<style>
-			:root {
-				--md-text-font: "Plus Jakarta Sans";
-				--md-code-font: "JetBrains Mono";
-			}
-		</style>
-	
-
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jura:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Jura";--md-code-font:"JetBrains Mono"}</style>
+      
     
-      <link rel="stylesheet" href="../../assets/theme/404.css">
     
-      <link rel="stylesheet" href="../../assets/theme/code.css">
+      <link rel="stylesheet" href="../../theme/api-reference.css">
     
-      <link rel="stylesheet" href="../../assets/theme/page.css">
+      <link rel="stylesheet" href="../../theme/admonition.css">
     
-      <link rel="stylesheet" href="../../assets/theme/pmwdoc.css">
+      <link rel="stylesheet" href="../../theme/code.css">
     
-      <link rel="stylesheet" href="../../assets/theme/reference.css">
+      <link rel="stylesheet" href="../../theme/footer.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+      <link rel="stylesheet" href="../../theme/header.css">
+    
+      <link rel="stylesheet" href="../../theme/page.css">
+    
+      <link rel="stylesheet" href="../../theme/paragraph.css">
+    
+      <link rel="stylesheet" href="../../theme/prvdmwrong.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -130,7 +124,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="pmwdoc-dark" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="prvdmwrong-dark" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -139,7 +133,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#core" class="md-skip">
+        <a href="#prvd" class="md-skip">
           Skip to content
         </a>
       
@@ -153,63 +147,26 @@
       </div>
     
     
-      <!--
-  Copyright (c) 2016-2024 Martin Donath <martin.donath@squidfunk.com>
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Determine class according to configuration -->
-
-
-
-<!-- Header -->
-<header class="md-header" data-md-component="header">
-  <nav
-    class="md-header__inner md-grid"
-    aria-label="header.title"
-  >
-
-    <!-- Link to home -->
-    <a
-      href="../.."
-      title="Prvd &#39;M Wrong"
-      class="md-header__button md-logo"
-      aria-label="Prvd 'M Wrong"
-      data-md-component="logo"
-    >
       
-  <img src="../../assets/wordmark-dark.svg" alt="logo">
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Prvd &#39;M Wrong" class="md-header__button md-logo" aria-label="Prvd 'M Wrong" data-md-component="logo">
+      <!-- Logo -->
+
+<img src="../../assets/wordmark-light.svg#only-light" alt="logo" />
+<img src="../../assets/wordmark-dark.svg#only-dark" alt="logo" />
 
     </a>
-
-    <!-- Button to open drawer -->
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.75 5.5h11.5a.75.75 0 0 1 0 1.5H8.75a.75.75 0 0 1 0-1.5m0 6h11.5a.75.75 0 0 1 0 1.5H8.75a.75.75 0 0 1 0-1.5m0 6h11.5a.75.75 0 0 1 0 1.5H8.75a.75.75 0 0 1 0-1.5M5 12a1 1 0 1 1-2 0 1 1 0 0 1 2 0M4 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2m0 12a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
-
-    <!-- Header title -->
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            <!-- Prvd 'M Wrong -->
+            Prvd 'M Wrong
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -221,88 +178,106 @@
         </div>
       </div>
     </div>
-
-	  <!-- Prvd 'M Wrong code switcher -->
-	  <button id="pmwdoc-code-switcher">
-      Code for
-      <select name="code-lang" id="code-lang">
-        <option value="luau">Luau</option>
-        <option value="rbxts">TypeScript</option>
-      </select>
-    </button>
-
-    <!-- Color palette -->
     
-      <form class="md-header__option" data-md-component="palette">
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="prvdmwrong-dark" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label=""  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11Zm-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0ZM3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06ZM12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0ZM4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12Zm8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20Zm12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12Zm-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061Zm2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="prvdmwrong-light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label=""  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96v.001l-.002-.005a9.08 9.08 0 0 0-.218-.779c-.13-.394.21-.8.602-.67.29.096.575.205.855.328l.01.005A10.002 10.002 0 0 1 12 22a10.002 10.002 0 0 1-9.162-5.985l-.004-.01a9.722 9.722 0 0 1-.329-.855c-.13-.392.277-.732.67-.602.257.084.517.157.78.218l.004.002A9 9 0 0 0 14.999 6a9.09 9.09 0 0 0-.231-2.04ZM16.5 6c0 5.799-4.701 10.5-10.5 10.5-.426 0-.847-.026-1.26-.075A8.5 8.5 0 1 0 16.425 4.74c.05.413.075.833.075 1.259Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
         
-          
-          
-          <input
-            class="md-option"
-            data-md-color-media="(prefers-color-scheme: dark)"
-            data-md-color-scheme="pmwdoc-dark"
-            data-md-color-primary=""
-            data-md-color-accent=""
-            
-              aria-label=""
-            
-            type="radio"
-            name="__palette"
-            id="__palette_1"
-          />
-          
-            <label
-              class="md-header__button md-icon"
-              title=""
-              for="__palette_2"
-              hidden
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14m0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 1 0 0 11m-5.657.157a.75.75 0 0 1 0 1.06l-1.768 1.768a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.767-1.768a.75.75 0 0 1 1.061 0M3.515 3.515a.75.75 0 0 1 1.06 0l1.768 1.768a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L3.515 4.575a.75.75 0 0 1 0-1.06M12 0a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 12 0M4 12a.75.75 0 0 1-.75.75H.75a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 4 12m8 8a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 20m12-8a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h2.5A.75.75 0 0 1 24 12m-6.343 5.657a.75.75 0 0 1 1.06 0l1.768 1.768a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-1.768-1.767a.75.75 0 0 1 0-1.061m2.828-14.142a.75.75 0 0 1 0 1.06l-1.768 1.768a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l1.767-1.768a.75.75 0 0 1 1.061 0"/></svg>
-            </label>
-          
-        
-          
-          
-          <input
-            class="md-option"
-            data-md-color-media="(prefers-color-scheme: light)"
-            data-md-color-scheme="pmwdoc-light"
-            data-md-color-primary=""
-            data-md-color-accent=""
-            
-              aria-label=""
-            
-            type="radio"
-            name="__palette"
-            id="__palette_2"
-          />
-          
-            <label
-              class="md-header__button md-icon"
-              title=""
-              for="__palette_1"
-              hidden
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.768 3.96zl-.002-.005a9 9 0 0 0-.218-.779c-.13-.394.21-.8.602-.67q.435.144.855.328l.01.005A10.002 10.002 0 0 1 12 22a10 10 0 0 1-9.162-5.985l-.004-.01a10 10 0 0 1-.329-.855c-.13-.392.277-.732.67-.602q.386.126.78.218l.004.002A9 9 0 0 0 14.999 6a9 9 0 0 0-.231-2.04M16.5 6c0 5.799-4.701 10.5-10.5 10.5q-.64 0-1.26-.075A8.5 8.5 0 1 0 16.425 4.74q.075.62.075 1.259Z"/></svg>
-            </label>
-          
-        
-      </form>
-    
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <!-- Search interface -->
+<div class="md-search" data-md-component="search" role="dialog">
+	<label class="md-search__overlay" for="__search"></label>
+	<div class="md-search__inner" role="search">
+		<form class="md-search__form" name="search">
+			<!-- Search input -->
+			<input
+				type="text"
+				class="md-search__input"
+				name="query"
+				aria-label="Search"
+				placeholder="Search"
+				autocapitalize="off"
+				autocorrect="off"
+				autocomplete="off"
+				spellcheck="false"
+				data-md-component="search-query"
+				required
+			/>
 
-    <!-- Site language selector -->
-    
+			<!-- Button to open search -->
+			<label class="md-search__icon md-icon" for="__search">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2ZM3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0Z"/></svg> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"/></svg>
+			</label>
 
-    <!-- Button to open search modal -->
-    
+			<!-- Search options -->
+			<nav class="md-search__options" aria-label="search.title">
+				<!-- Button to share search -->
+				
 
-    <!-- Repository information -->
+				<!-- Button to reset search -->
+				<button
+					type="reset"
+					class="md-search__icon md-icon"
+					aria-label="Clear"
+					tabindex="-1"
+				>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.72 5.72a.75.75 0 0 1 1.06 0L12 10.94l5.22-5.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L13.06 12l5.22 5.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L12 13.06l-5.22 5.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L10.94 12 5.72 6.78a.75.75 0 0 1 0-1.06Z"/></svg>
+				</button>
+			</nav>
+
+			<!-- Search suggestions -->
+			
+			<div class="md-search__suggest" data-md-component="search-suggest"></div>
+			
+		</form>
+		<div class="md-search__output">
+			<div class="md-search__scrollwrap" data-md-scrollfix>
+				<!-- Search results -->
+				<div class="md-search-result" data-md-component="search-result">
+					<div class="md-search-result__meta">Initializing search</div>
+					<ol class="md-search-result__list"></ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+    
     
       <div class="md-header__source">
         <a href="https://github.com/prvdmwrong/prvdmwrong" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
     prvdmwrong/prvdmwrong
@@ -311,16 +286,11 @@
       </div>
     
   </nav>
-
-  <!-- Navigation tabs (sticky) -->
   
 </header>
     
     <div class="md-container" data-md-component="container">
       
-	
-	
-
       
         
           
@@ -353,12 +323,12 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../tutorials/" class="md-tabs__link">
+        <a href="../../learn/" class="md-tabs__link">
           
   
     
   
-  Tutorials
+  Learn Prvd 'M Wrong
 
         </a>
       </li>
@@ -381,46 +351,6 @@
     
   
   API Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../examples/" class="md-tabs__link">
-          
-  
-    
-  
-  Examples
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../extras/" class="md-tabs__link">
-          
-  
-    
-  
-  Extras
 
         </a>
       </li>
@@ -451,8 +381,10 @@
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Prvd &#39;M Wrong" class="md-nav__button md-logo" aria-label="Prvd 'M Wrong" data-md-component="logo">
-      
-  <img src="../../assets/wordmark-dark.svg" alt="logo">
+      <!-- Logo -->
+
+<img src="../../assets/wordmark-light.svg#only-light" alt="logo" />
+<img src="../../assets/wordmark-dark.svg#only-dark" alt="logo" />
 
     </a>
     Prvd 'M Wrong
@@ -462,7 +394,7 @@
       <a href="https://github.com/prvdmwrong/prvdmwrong" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
     prvdmwrong/prvdmwrong
@@ -532,11 +464,11 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tutorials/" class="md-nav__link ">
+            <a href="../../learn/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
-    Tutorials
+    Learn Prvd 'M Wrong
   </span>
   
 
@@ -552,7 +484,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Tutorials
+            Learn Prvd 'M Wrong
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -565,7 +497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/installation/" class="md-nav__link">
+      <a href="../../learn/installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -594,6 +526,8 @@
       
         
       
+        
+      
     
     
       
@@ -613,7 +547,7 @@
             
   
   <span class="md-ellipsis">
-    Fundamentals
+    Foundations
   </span>
   
 
@@ -623,7 +557,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
-            Fundamentals
+            Foundations
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -634,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/fundamentals/providers/" class="md-nav__link">
+      <a href="../../learn/foundations/providers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -655,11 +589,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/fundamentals/startup/" class="md-nav__link">
+      <a href="../../learn/foundations/lifecycles/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Startup
+    Lifecycles
   </span>
   
 
@@ -676,11 +610,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/fundamentals/lifecycles/" class="md-nav__link">
+      <a href="../../learn/foundations/roots/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Lifecycles
+    Roots
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/foundations/modding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modding
   </span>
   
 
@@ -709,10 +664,6 @@
       
         
           
-        
-      
-        
-      
         
       
         
@@ -736,11 +687,11 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../tutorials/net/" class="md-nav__link ">
+            <a href="../../learn/components/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
-    Net
+    Components
   </span>
   
 
@@ -756,160 +707,6 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
-            Net
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tutorials/net/events/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Events
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tutorials/net/functions/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Functions
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tutorials/net/middlewares/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Middlewares
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tutorials/net/namespaces/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Namespaces
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../tutorials/components/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Components
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_5">
-            <span class="md-nav__icon md-icon"></span>
             Components
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -923,28 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/components/usage/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Usage
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tutorials/components/attributes/" class="md-nav__link">
+      <a href="../../learn/components/attributes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -965,7 +741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/components/inheritance/" class="md-nav__link">
+      <a href="../../learn/components/inheritance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -997,6 +773,160 @@
     
       
         
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../learn/net/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Net
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Net
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/net/oneway-events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    One-way Events
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/net/twoway-events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Two-way Events
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/net/middlewares/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Middlewares
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn/net/namespaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Namespaces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
       
         
       
@@ -1025,7 +955,7 @@
             
   
   <span class="md-ellipsis">
-    Advanced
+    Extra
   </span>
   
 
@@ -1035,7 +965,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
-            Advanced
+            Extra
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1046,11 +976,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/advanced/migration/" class="md-nav__link">
+      <a href="../../learn/extra/why-prvd-m-wrong/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Migration
+    Why Prvd 'M Wrong?
   </span>
   
 
@@ -1067,11 +997,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/advanced/modding/" class="md-nav__link">
+      <a href="../../learn/extra/migrating-from-knit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Modding
+    Migrating from Knit
   </span>
   
 
@@ -1088,11 +1018,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/advanced/snippets/" class="md-nav__link">
+      <a href="../../learn/extra/migrating-from-lumin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Code Snippets
+    Migrating from Lumin
   </span>
   
 
@@ -1109,32 +1039,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/advanced/execution-order/" class="md-nav__link">
+      <a href="../../learn/extra/upgrading-from-0.1-to-0.2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Execution Order
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tutorials/advanced/philosophies/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Philosophies
+    Upgrading from 0.1 to 0.2
   </span>
   
 
@@ -1172,12 +1081,6 @@
       
         
           
-        
-      
-        
-      
-        
-      
         
       
         
@@ -1236,27 +1139,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../errors/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Errors
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1266,10 +1148,6 @@
       
         
           
-        
-      
-        
-      
         
       
         
@@ -1293,7 +1171,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           
@@ -1309,14 +1187,14 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+              <label class="md-nav__link md-nav__link--active" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             Core
           </label>
@@ -1332,16 +1210,6 @@
   
     
     
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
       
         
       
@@ -1363,36 +1231,26 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
         
           
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="providers/" class="md-nav__link ">
-              
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
     Providers
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
             <span class="md-nav__icon md-icon"></span>
             Providers
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
             
               
                 
@@ -1401,7 +1259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="providers/provider/" class="md-nav__link">
+      <a href="functions/provider/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1422,11 +1280,11 @@
   
   
     <li class="md-nav__item">
-      <a href="providers/new/" class="md-nav__link">
+      <a href="functions/prvd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    new
+    prvd
   </span>
   
 
@@ -1443,405 +1301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="providers/startup-status/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    StartupStatus
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="providers/await-start/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    awaitStart
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="providers/on-start/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    onStart
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="providers/preload/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    preload
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="providers/start/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    start
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="lifecycles/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Lifecycles
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            Lifecycles
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lifecycles/lifecycle/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lifecycle
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lifecycles/fire-concurrent/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    fireConcurrent
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lifecycles/fire-sequential/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    fireSequential
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lifecycles/on-lifecycle-registered/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    onLifecycleRegistered
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="lifecycles/on-lifecycle-unregistered/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    onLifecycleUnregistered
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_4" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="modding/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Modding
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_3_4" id="__nav_3_3_4_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3_4">
-            <span class="md-nav__icon md-icon"></span>
-            Modding
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="modding/get-startup-options/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    getStartupOptions
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="modding/get-startup-status/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    getStartupStatus
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="modding/on-provider-constructed/" class="md-nav__link">
+      <a href="functions/onproviderconstructed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1862,7 +1322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="modding/on-provider-used/" class="md-nav__link">
+      <a href="functions/onproviderused/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1894,7 +1354,69 @@
     
       
         
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
           
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Roots
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Roots
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -1923,32 +1445,32 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3_1" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="internal/" class="md-nav__link ">
+            <a href="root/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
-    Internal
+    Root
   </span>
   
 
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_3_5" id="__nav_3_3_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2_3_1" id="__nav_3_2_3_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3_5">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3_1">
             <span class="md-nav__icon md-icon"></span>
-            Internal
+            Root
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1961,11 +1483,11 @@
   
   
     <li class="md-nav__item">
-      <a href="internal/define-metadata/" class="md-nav__link">
+      <a href="root/functions/destroy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    defineMetadata
+    destroy
   </span>
   
 
@@ -1982,11 +1504,11 @@
   
   
     <li class="md-nav__item">
-      <a href="internal/get-metadata/" class="md-nav__link">
+      <a href="root/functions/start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    getMetadata
+    start
   </span>
   
 
@@ -2003,11 +1525,11 @@
   
   
     <li class="md-nav__item">
-      <a href="internal/delete-metadata/" class="md-nav__link">
+      <a href="root/functions/uselifecycle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    deleteMetadata
+    useLifecycle
   </span>
   
 
@@ -2024,11 +1546,11 @@
   
   
     <li class="md-nav__item">
-      <a href="internal/register-all/" class="md-nav__link">
+      <a href="root/functions/uselifecycles/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    registerAll
+    useLifecycles
   </span>
   
 
@@ -2045,11 +1567,11 @@
   
   
     <li class="md-nav__item">
-      <a href="internal/register-method/" class="md-nav__link">
+      <a href="root/functions/useprovider/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    registerMethod
+    useProvider
   </span>
   
 
@@ -2066,11 +1588,11 @@
   
   
     <li class="md-nav__item">
-      <a href="internal/unregister-method/" class="md-nav__link">
+      <a href="root/functions/useproviders/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    unregisterMethod
+    useProviders
   </span>
   
 
@@ -2087,11 +1609,95 @@
   
   
     <li class="md-nav__item">
-      <a href="internal/register-dependency/" class="md-nav__link">
+      <a href="root/functions/usemodule/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    registerDependency
+    useModule
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="root/functions/usemodules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    useModules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="root/functions/useroot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    useRoot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="root/functions/useroot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    useRoot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="root/functions/useroots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    useRoots
   </span>
   
 
@@ -2124,6 +1730,189 @@
       
         
       
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="startedroot/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    StartedRoot
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_3_2" id="__nav_3_2_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            StartedRoot
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="startedroot/functions/stop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    stop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions/root/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    root
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions/onrootconstructed/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    onRootConstructed
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions/onrootstarted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    onRootStarted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions/onsubrootused/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    onsubrootused
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -2144,36 +1933,26 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
         
           
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="types/" class="md-nav__link ">
-              
+          <label class="md-nav__link" for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
-    Types
+    Lifecycles
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_3_6" id="__nav_3_3_6_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3_6">
             <span class="md-nav__icon md-icon"></span>
-            Types
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Lifecycles
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
             
               
                 
@@ -2181,19 +1960,68 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="types/lifecycle/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="lifecycle/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     Lifecycle
   </span>
   
 
-      </a>
-    </li>
-  
-
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_4_1" id="__nav_3_2_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Lifecycle
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
               
             
               
@@ -2203,11 +2031,11 @@
   
   
     <li class="md-nav__item">
-      <a href="types/on-init/" class="md-nav__link">
+      <a href="lifecycle/functions/await/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    OnInit
+    await
   </span>
   
 
@@ -2224,11 +2052,11 @@
   
   
     <li class="md-nav__item">
-      <a href="types/on-start/" class="md-nav__link">
+      <a href="lifecycle/functions/destroy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    OnStart
+    destroy
   </span>
   
 
@@ -2245,11 +2073,11 @@
   
   
     <li class="md-nav__item">
-      <a href="types/options/" class="md-nav__link">
+      <a href="lifecycle/functions/onregistered/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Options
+    onRegistered
   </span>
   
 
@@ -2266,11 +2094,250 @@
   
   
     <li class="md-nav__item">
-      <a href="types/provider/" class="md-nav__link">
+      <a href="lifecycle/functions/onunregistered/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Provider
+    onUnregistered
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lifecycle/functions/register/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    register
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lifecycle/functions/unregister/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    unregister
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lifecycle/functions/unregisterall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    unregisterAll
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions/fireconcurrent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    fireConcurrent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions/firesequential/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    fireSequential
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions/lifecycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    lifecycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions/onlifecycleconstructing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    onLifecycleConstructing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions/onlifecycledestroying/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    onLifecycleDestroying
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions/onlifecycleused/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    onLifecycleUsed
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions/onlifecycleregistered/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    onLifecycleRegistered
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="functions/onlifecycleunregistered/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    onLifecycleUnregistered
   </span>
   
 
@@ -2309,8 +2376,66 @@
           
         
       
+    
+    
+      
+      
+        
+          
+          
         
       
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../knit-compat/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Knit
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Knit
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
         
       
     
@@ -2343,11 +2468,6 @@
 
             </a>
             
-              
-              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
           </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
@@ -2357,1060 +2477,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../lifecycles/runtime/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Runtime
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_4_2">
-            <span class="md-nav__icon md-icon"></span>
-            Runtime
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lifecycles/runtime/on-post-simulation/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    OnPostSimulation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lifecycles/runtime/on-pre-simulation/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    OnPreSimulation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lifecycles/runtime/on-pre-render/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    OnPreRender
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lifecycles/runtime/on-shutdown/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    OnShutdown
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_3" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../lifecycles/players/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Players
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_4_3" id="__nav_3_4_3_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_4_3">
-            <span class="md-nav__icon md-icon"></span>
-            Players
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lifecycles/players/on-player-added/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    OnPlayerAdded
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lifecycles/players/on-player-removed/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    OnPlayerRemoved
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../knit-compat/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Knit
-  </span>
-  
-
-            </a>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_5">
-            <span class="md-nav__icon md-icon"></span>
-            Knit
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-          
-        
-      
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../lumin-compat/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Lumin
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_6">
-            <span class="md-nav__icon md-icon"></span>
-            Lumin
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_6_1" id="__nav_3_6_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Framework
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_6_1">
-            <span class="md-nav__icon md-icon"></span>
-            Framework
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lumin-compat/framework/controller/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Controller
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lumin-compat/framework/expect/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Expect
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lumin-compat/framework/signal/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Signal
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lumin-compat/framework/start/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Start
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lumin-compat/framework/started/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Started
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lumin-compat/framework/worker/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Worker
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_6_2" id="__nav_3_6_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Types
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_6_2">
-            <span class="md-nav__icon md-icon"></span>
-            Types
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lumin-compat/types/storage/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Storage
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lumin-compat/types/worker/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Worker
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lumin-compat/types/worker-type/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    WorkerType
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../sapphire-compat/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Sapphire
-  </span>
-  
-
-            </a>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_7">
-            <span class="md-nav__icon md-icon"></span>
-            Sapphire
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../examples/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Examples
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Examples
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../examples/obby/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Prvd 'M Wrong Obby
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../examples/swordfight/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Prvd 'M Wrong Swordfight
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../extras/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Extras
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            Extras
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../extras/branding/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Branding
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_2">
-            <span class="md-nav__icon md-icon"></span>
-            Branding
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../extras/branding/backgrounds/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Backgrounds
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../extras/branding/swag/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Swag
-  </span>
-  
-
-      </a>
-    </li>
-  
-
               
             
           </ul>
@@ -3450,59 +2516,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#providers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Providers
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Types
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lifecycles" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lifecycles
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#modding" class="md-nav__link">
-    <span class="md-ellipsis">
-      Modding
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#internal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Internal
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -3519,96 +2532,275 @@
   
 
 
-<hr />
-<p>hide:</p>
-<ul>
-<li>toc</li>
-</ul>
-<div class="pmwdoc-reference-breadcrumbs">
-<a href="../">API Reference</a>
-</div>
+<!-- This file was @generated and should not be edited. -->
+<!-- Run `lune run regen` to generate fresh documentation. -->
 
-<h1 id="core"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5m0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5m0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5M2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2m1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0M2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/></svg></span> Core</h1>
-<p>This package contains fundamental primitives for creating and using game
-providers. Contains everything needed to bootstrap a Roblox game and utilities
-for extending the core Prvd 'M Wrong package.</p>
-<p>Install this through your preferred package manager:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Wally</label><label for="__tabbed_1_2">Pesde</label><label for="__tabbed_1_3">NPM</label><label for="__tabbed_1_4">PNPM</label><label for="__tabbed_1_5">Yarn</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[dependencies]</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="n">prvd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;prvdmwrong/core@0.2.0-dev.5&quot;</span>
+<h1 id="prvd">Prvd</h1>
+<p>Prvd 'M Wrong is a Roblox game framework built with modern standards
+delivering type-safe APIs, dependency resolution, and unparalleled DX. Zero
+bloat, plugins, or lock-in required.</p>
+<p>This package contains core Prvd 'M Wrong functionality including providers,
+lifecycles, and game roots along with built-in components and networking.</p>
+<div class="language-Luau highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">PlayerProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kr">type</span><span class="w"> </span><span class="nc">Self</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">typeof(</span><span class="nv">PlayerProvider</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kr">function</span><span class="w"> </span><span class="nc">PlayerProvider</span><span class="p">.</span><span class="nf">onInit</span><span class="p">(</span><span class="nv">self</span><span class="p">:</span><span class="w"> </span><span class="nc">Self</span><span class="p">)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="nv">playerAdded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">prvd</span><span class="p">.</span><span class="nf">lifecycle</span><span class="p">(</span><span class="s2">&quot;onPlayerAdded&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">prvd</span><span class="p">.</span><span class="nv">fireConcurrent</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">onPlayerAdded</span><span class="p">(</span><span class="nv">newPlayer</span><span class="p">:</span><span class="w"> </span><span class="nc">Player</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="nv">self</span><span class="p">.</span><span class="nv">playerAdded</span><span class="p">:</span><span class="nc">fire</span><span class="p">(</span><span class="nv">newPlayer</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="kr">end</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="nv">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Players</span><span class="p">.</span><span class="nv">PlayerAdded</span><span class="p">:</span><span class="nc">Connect</span><span class="p">(</span><span class="nv">onPlayerAdded</span><span class="p">)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="w"> </span><span class="nv">existingPlayer</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nv">Players</span><span class="p">:</span><span class="nc">GetPlayers</span><span class="p">()</span><span class="w"> </span><span class="kr">do</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="nf">onPlayerAdded</span><span class="p">(</span><span class="nv">newPlayer</span><span class="p">)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="kr">end</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="kr">end</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="kr">function</span><span class="w"> </span><span class="nc">PlayerProvider</span><span class="p">.</span><span class="nf">onStop</span><span class="p">(</span><span class="nv">self</span><span class="p">:</span><span class="w"> </span><span class="nc">Self</span><span class="p">)</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="nv">playerAdded</span><span class="p">:</span><span class="nc">destroy</span><span class="p">()</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="nv">conn</span><span class="p">:</span><span class="nc">Disconnect</span><span class="p">()</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="kr">end</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="kr">return</span><span class="w"> </span><span class="nf">prvd</span><span class="p">(</span><span class="nv">PlayerProvider</span><span class="p">)</span>
 </span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">dependencies</span><span class="p">:</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">prvd</span><span class="p">:</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prvdmwrong/core</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.2.0-dev.5</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>npm<span class="w"> </span>i<span class="w"> </span>@prvdmwrong/core
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>pnpm<span class="w"> </span>i<span class="w"> </span>@prvdmwrong/core
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>yarn<span class="w"> </span>add<span class="w"> </span>@prvdmwrong/core
-</span></code></pre></div>
-</div>
-</div>
-</div>
-<section class="grid">
-<section>
-<h2 id="providers"><a href="providers/">Providers</a></h2>
-<ul>
-<li><a href="providers/provider/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0M7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.25.25 0 0 0-.25 0M2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"/></svg></span> Provider</a></li>
-<li><a href="providers/new/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0M7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.25.25 0 0 0-.25 0M2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"/></svg></span> new</a></li>
-<li><a href="providers/startup-status/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 3.25a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5A.75.75 0 0 1 5 3.25m0 5a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5A.75.75 0 0 1 5 8.25m0 5a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75M.924 10.32a.5.5 0 0 1-.851-.525l.001-.001.001-.002.002-.004.007-.011q.147-.217.348-.384c.228-.19.588-.392 1.068-.392.468 0 .858.181 1.126.484.259.294.377.673.377 1.038 0 .987-.686 1.495-1.156 1.845l-.047.035c-.303.225-.522.4-.654.597h1.357a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5c0-1.005.692-1.52 1.167-1.875l.035-.025c.531-.396.8-.625.8-1.078a.57.57 0 0 0-.128-.376C1.806 10.068 1.695 10 1.5 10a.66.66 0 0 0-.429.163.8.8 0 0 0-.144.153ZM2.003 2.5V6h.503a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1h.503V3.308l-.28.14a.5.5 0 0 1-.446-.895l1.003-.5a.5.5 0 0 1 .723.447"/></svg></span> StartupStatus</a></li>
-<li><a href="providers/preload/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg></span> preload</a></li>
-<li><a href="providers/start/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg></span> start</a></li>
-<li><a href="providers/await-start/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"/></svg></span> awaitStart</a></li>
-<li><a href="providers/on-start/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"/></svg></span> onStart</a></li>
-</ul>
-<h2 id="types"><a href="types/">Types</a></h2>
-<ul>
-<li><a href="types/lifecycle/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13.274 9.537zl-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074M4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5M4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75"/></svg></span> Lifecycle</a></li>
-<li><a href="types/on-init/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13.274 9.537zl-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074M4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5M4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75"/></svg></span> OnInit</a></li>
-<li><a href="types/on-start/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13.274 9.537zl-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074M4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5M4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75"/></svg></span> OnStart</a></li>
-<li><a href="types/options/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13.274 9.537zl-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074M4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5M4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75"/></svg></span> Options</a></li>
-<li><a href="types/provider/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13.274 9.537zl-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074M4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5M4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75"/></svg></span> Provider</a></li>
-</ul>
+<section class="prvdmwrong-api-items">
+  <section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/provider">
+      Provider
+    </a>
+    Construct and returns a new provider from a Roblox TypeScript class
+declaration. Providers *provide* specific functionality in a game.
+
+Intended for use as a class decorator for Roblox TypeScript projects. For
+Luau projects, consider using prvd instead.
+  </section>
 </section>
-<section>
-<h2 id="lifecycles"><a href="lifecycles/">Lifecycles</a></h2>
-<ul>
-<li><a href="lifecycles/lifecycle/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0M7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.25.25 0 0 0-.25 0M2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"/></svg></span> Lifecycle</a></li>
-<li><a href="lifecycles/fire-concurrent/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg></span> fireConcurrent</a></li>
-<li><a href="lifecycles/fire-sequential/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg></span> fireSequential</a></li>
-<li><a href="lifecycles/on-lifecycle-registered/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"/></svg></span> onLifecycleRegistered</a></li>
-<li><a href="lifecycles/on-lifecycle-unregistered/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"/></svg></span> onLifecycleUnregistered</a></li>
-</ul>
-<h2 id="modding"><a href="modding/">Modding</a></h2>
-<ul>
-<li><a href="modding/get-startup-options/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg></span> getStartupOptions</a></li>
-<li><a href="modding/get-startup-status/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg></span> getStartupStatus</a></li>
-<li><a href="modding/on-provider-constructed/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"/></svg></span> onProviderConstructed</a></li>
-<li><a href="modding/on-provider-used/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"/></svg></span> onProviderUsed</a></li>
-</ul>
-<h2 id="internal"><a href="internal/">Internal</a></h2>
-<ul>
-<li><a href="internal/define-metadata/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg></span> defineMetadata</a></li>
-<li><a href="internal/delete-metadata/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg></span> deleteMetadata</a></li>
-<li><a href="internal/get-metadata/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg></span> getMetadata</a></li>
-<li><a href="internal/register-all/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg></span> registerAll</a></li>
-<li><a href="internal/register-dependency/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg></span> registerDependency</a></li>
-<li><a href="internal/register-method/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg></span> registerMethod</a></li>
-<li><a href="internal/unregister-method/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg></span> unregisterMethod</a></li>
-</ul>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/fireconcurrent">
+      fireConcurrent
+    </a>
+    Spawns all callbacks of a lifecycle asynchronously.
+  </section>
 </section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/firesequential">
+      fireSequential
+    </a>
+    Calls all callbacks of a lifecycle sequentially.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/lifecycle">
+      lifecycle
+    </a>
+    Constructs and returns a new lifecycle object. Providers with the specified method will be registered.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onlifecycleconstructing">
+      onLifecycleConstructing
+    </a>
+    Called just before a constructing lifecycle is returned. The listener
+callback receives the lifecycle that is constructing.
+
+Listener callbacks are expected to be non-yielding and infallible.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onlifecycledestroying">
+      onLifecycleDestroying
+    </a>
+    Called just before a lifecycle is destroyed. The listener callback receives
+the lifecycle that is destroyed.
+
+Listener callbacks are expected to be non-yielding and infallible.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onlifecycleregistered">
+      onLifecycleRegistered
+    </a>
+    Called when an object registers a lifecycle method. Listeners are expected to be infallible and non-yielding. The listener receives the callback.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onlifecycleunregistered">
+      onLifecycleUnregistered
+    </a>
+    Called when an object unregisters a lifecycle method. Listeners are expected to be infallible and non-yielding. The listener receives the callback.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onlifecycleused">
+      onLifecycleUsed
+    </a>
+    Called when a root uses a lifecycle. The listener callback receives the root
+along with the used lifecycle
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onproviderconstructed">
+      onProviderConstructed
+    </a>
+    Called just before a constructing provider is returned. The listener
+callback receives the provider that is constructed.
+
+Listener callbacks are expected to be non-yielding and infallible.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onproviderused">
+      onProviderUsed
+    </a>
+    Called when a root uses a provider. The listener callback receives the root
+along with the used provider
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onrootconstructed">
+      onRootConstructed
+    </a>
+    Called just before a constructing root is returned. The listener callback
+receives the root that is constructing.
+
+Listener callbacks are expected to be non-yielding and infallible.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onrootstarted">
+      onRootStarted
+    </a>
+    Called just before a root finishes starting. The listener callback receives
+the root that is starting.
+
+Listener callbacks are expected to be non-yielding and infallible.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onsubrootused">
+      onSubRootUsed
+    </a>
+    Called when a "parent" root uses a "sub" root. The listener callback
+receives the root along with the used provider
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/prvd">
+      prvd
+    </a>
+    Construct and returns a new provider. Providers *provide* specific
+functionality in a game.
+
+Intended for use as a constructor for Luau projects. For Roblox TypeScript
+projects, consider using Provider instead.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/root">
+      root
+    </a>
+    Construct and returns a new root. Roots are starting points for Prvd 'M
+Wrong games where providers can be bootstrapped.
+  </section>
+</section>
+
 </section>
 
 
@@ -3627,105 +2819,74 @@ for extending the core Prvd 'M Wrong package.</p>
             </div>
           
           
-  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
 
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.78 15.78a.749.749 0 0 1-1.06 0L12 10.061 6.28 15.78a.749.749 0 1 1-1.06-1.06l6.25-6.25a.749.749 0 0 1 1.06 0l6.25 6.25a.749.749 0 0 1 0 1.06Z"/></svg>
   Back to top
 </button>
         
       </main>
       
-        <!--
-  Copyright (c) 2016-2024 Martin Donath <martin.donath@squidfunk.com>
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Footer -->
+        <!-- Footer -->
 <footer class="md-footer">
+	<!-- Link to previous and/or next page -->
+	  
+	<nav class="md-footer__inner md-grid" aria-label="Footer" >
+		<!-- Link to previous page -->
+		 
+		<a
+			href="../"
+			class="md-footer__link md-footer__link--prev"
+			aria-label="Previous: Index"
+		>
+			<div class="md-footer__button md-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.28 5.22a.75.75 0 0 1 0 1.06L9.56 12l5.72 5.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0Z"/></svg></div>
+			<div class="md-footer__title">
+				<span class="md-footer__direction"> Previous </span>
+				<div class="md-ellipsis">Index</div>
+			</div>
+		</a>
+		
 
-  <!-- Link to previous and/or next page -->
-  
-    
-      
-      <nav
-        class="md-footer__inner md-grid"
-        aria-label="Footer"
-        
-      >
+		<!-- Link to next page -->
+		 
+		<a
+			href="functions/provider/"
+			class="md-footer__link md-footer__link--next"
+			aria-label="Next: Provider"
+		>
+			<div class="md-footer__title">
+				<span class="md-footer__direction"> Next </span>
+				<div class="md-ellipsis">Provider</div>
+			</div>
+			<div class="md-footer__button md-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></div>
+		</a>
+		
+	</nav>
+	 
 
-        <!-- Link to previous page -->
-        
-          
-          <a
-            href="../errors/"
-            class="md-footer__link md-footer__link--prev"
-            aria-label="Previous: Errors"
-          >
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.78 19.03a.75.75 0 0 1-1.06 0l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.749.749 0 0 1 1.275.326.75.75 0 0 1-.215.734L5.81 11.5h14.44a.75.75 0 0 1 0 1.5H5.81l4.97 4.97a.75.75 0 0 1 0 1.06"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Errors
-              </div>
-            </div>
-          </a>
-        
+	<!-- Prvd 'M Wrong footer -->
+	<div class="md-grid prvdmwrong-footer">
+		<!-- Prvd 'M Wrong customization -->
+		<div class="prvdmwrong-footer-customization">
+			<span>Customize</span>
+			<form>
+				<label for="monospace-font">Monospace font:</label>
+				<select name="monospace-font" id="monospace-font"></select>
+				<label for="code-lang">Documentation for:</label>
+				<select name="code-lang" id="code-lang"></select>
+			</form>
+		</div>
+	</div>
 
-        <!-- Link to next page -->
-        
-          
-          <a
-            href="providers/"
-            class="md-footer__link md-footer__link--next"
-            aria-label="Next: Index"
-          >
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Index
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
-  
-
-  <!-- Further information -->
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
+	<!-- Further information -->
+	<div class="md-footer-meta md-typeset">
+		<div class="md-footer-meta__inner md-grid">
+			<div class="md-copyright">
   
   
     Made with
@@ -3735,10 +2896,10 @@ for extending the core Prvd 'M Wrong package.</p>
   
 </div>
 
-      <!-- Social links -->
-      
-    </div>
-  </div>
+			<!-- Social links -->
+			
+		</div>
+	</div>
 </footer>
       
     </div>
@@ -3749,12 +2910,12 @@ for extending the core Prvd 'M Wrong package.</p>
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.top", "search", "search.suggest"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.top", "search", "search.suggest"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
-        <script src="../../assets/javascripts/code-switcher.js"></script>
+        <script src="../../scripts/customize.js"></script>
       
     
   </body>
