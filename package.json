@@ -4,11 +4,20 @@
 		"**/out",
 		"!**/*.tsbuildinfo"
 	],
-	"workspaces": [
-		"packages"
-	],
 	"publishConfig": {
 		"access": "public"
+	},
+	"prettier": {
+		"printWidth": 120,
+		"tabWidth": 4,
+		"useTabs": true,
+		"semi": false,
+		"singleQuote": false,
+		"trailingComma": "none",
+		"bracketSpacing": true,
+		"arrowParens": "avoid",
+		"proseWrap": "preserve",
+		"endOfLine": "lf"
 	},
 	"devDependencies": {
 		"@rbxts/compiler-types": "2.3.0-types.2",

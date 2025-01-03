@@ -1,5 +1,0 @@
-[config]
-  name = "knit-compat"
-  display = "Knit compatibility for Prvd 'M Wrong"
-  description = "Implements a thin compatibility layer between Knit and Prvd 'M Wrong. It serves to ease transitioning to use Prvd 'M Wrong."
-  dependencies = ["core"]

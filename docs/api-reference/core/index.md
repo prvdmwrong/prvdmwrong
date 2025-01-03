@@ -1,105 +1,275 @@
----
-hide:
+<!-- This file was @generated and should not be edited. -->
+<!-- Run `lune run regen` to generate fresh documentation. -->
 
-- toc
+# Prvd
 
-<div class="pmwdoc-reference-breadcrumbs">
-<a href="../">API Reference</a>
-</div>
+Prvd 'M Wrong is a Roblox game framework built with modern standards
+delivering type-safe APIs, dependency resolution, and unparalleled DX. Zero
+bloat, plugins, or lock-in required.
 
-# :octicons-list-unordered-16: Core
+This package contains core Prvd 'M Wrong functionality including providers,
+lifecycles, and game roots along with built-in components and networking.
 
-This package contains fundamental primitives for creating and using game
-providers. Contains everything needed to bootstrap a Roblox game and utilities
-for extending the core Prvd 'M Wrong package.
+```Luau
+local PlayerProvider = {}
+type Self = typeof(PlayerProvider)
 
-Install this through your preferred package manager:
+function PlayerProvider.onInit(self: Self)
+    self.playerAdded = prvd.lifecycle("onPlayerAdded", prvd.fireConcurrent)
 
-=== "Wally"
+    local function onPlayerAdded(newPlayer: Player)
+        self.playerAdded:fire(newPlayer)
+    end
 
-    ```toml
-    [dependencies]
-      prvd = "prvdmwrong/core@0.2.0-dev.5"
-    ```
+    self.conn = Players.PlayerAdded:Connect(onPlayerAdded)
+    for _, existingPlayer in Players:GetPlayers() do
+        onPlayerAdded(newPlayer)
+    end
+end
 
-=== "Pesde"
+function PlayerProvider.onStop(self: Self)
+    self.playerAdded:destroy()
+    self.conn:Disconnect()
+end
 
-    ```yaml
-    dependencies:
-    - prvd:
-      - name: prvdmwrong/core
-      - version: 0.2.0-dev.5
-    ```
+return prvd(PlayerProvider)
+```
 
-=== "NPM"
+<section class="prvdmwrong-api-items">
+  <section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/provider">
+      Provider
+    </a>
+    Construct and returns a new provider from a Roblox TypeScript class
+declaration. Providers *provide* specific functionality in a game.
 
-    ```bash
-    $ npm i @prvdmwrong/core
-    ```
-
-=== "PNPM"
-
-    ```bash
-    $ pnpm i @prvdmwrong/core
-    ```
-
-=== "Yarn"
-
-    ```bash
-    $ yarn add @prvdmwrong/core
-    ```
-
-<section class="grid" markdown>
-
-<section markdown>
-
-## [Providers](providers/index.md)
-
-- [:octicons-package-16: Provider](providers/provider.md)
-- [:octicons-package-16: new](providers/new.md)
-- [:octicons-list-ordered-16: StartupStatus](providers/startup-status.md)
-- [:octicons-code-16: preload](providers/preload.md)
-- [:octicons-code-16: start](providers/start.md)
-- [:octicons-workflow-16: awaitStart](providers/await-start.md)
-- [:octicons-workflow-16: onStart](providers/on-start.md)
-
-## [Types](types/index.md)
-
-- [:octicons-checklist-16: Lifecycle](types/lifecycle.md)
-- [:octicons-checklist-16: OnInit](types/on-init.md)
-- [:octicons-checklist-16: OnStart](types/on-start.md)
-- [:octicons-checklist-16: Options](types/options.md)
-- [:octicons-checklist-16: Provider](types/provider.md)
-
+Intended for use as a class decorator for Roblox TypeScript projects. For
+Luau projects, consider using prvd instead.
+  </section>
 </section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/fireconcurrent">
+      fireConcurrent
+    </a>
+    Spawns all callbacks of a lifecycle asynchronously.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/firesequential">
+      fireSequential
+    </a>
+    Calls all callbacks of a lifecycle sequentially.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/lifecycle">
+      lifecycle
+    </a>
+    Constructs and returns a new lifecycle object. Providers with the specified method will be registered.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onlifecycleconstructing">
+      onLifecycleConstructing
+    </a>
+    Called just before a constructing lifecycle is returned. The listener
+callback receives the lifecycle that is constructing.
 
-<section markdown>
+Listener callbacks are expected to be non-yielding and infallible.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onlifecycledestroying">
+      onLifecycleDestroying
+    </a>
+    Called just before a lifecycle is destroyed. The listener callback receives
+the lifecycle that is destroyed.
 
-## [Lifecycles](lifecycles/index.md)
+Listener callbacks are expected to be non-yielding and infallible.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onlifecycleregistered">
+      onLifecycleRegistered
+    </a>
+    Called when an object registers a lifecycle method. Listeners are expected to be infallible and non-yielding. The listener receives the callback.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onlifecycleunregistered">
+      onLifecycleUnregistered
+    </a>
+    Called when an object unregisters a lifecycle method. Listeners are expected to be infallible and non-yielding. The listener receives the callback.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onlifecycleused">
+      onLifecycleUsed
+    </a>
+    Called when a root uses a lifecycle. The listener callback receives the root
+along with the used lifecycle
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onproviderconstructed">
+      onProviderConstructed
+    </a>
+    Called just before a constructing provider is returned. The listener
+callback receives the provider that is constructed.
 
-- [:octicons-package-16: Lifecycle](lifecycles/lifecycle.md)
-- [:octicons-code-16: fireConcurrent](lifecycles/fire-concurrent.md)
-- [:octicons-code-16: fireSequential](lifecycles/fire-sequential.md)
-- [:octicons-workflow-16: onLifecycleRegistered](lifecycles/on-lifecycle-registered.md)
-- [:octicons-workflow-16: onLifecycleUnregistered](lifecycles/on-lifecycle-unregistered.md)
+Listener callbacks are expected to be non-yielding and infallible.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onproviderused">
+      onProviderUsed
+    </a>
+    Called when a root uses a provider. The listener callback receives the root
+along with the used provider
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onrootconstructed">
+      onRootConstructed
+    </a>
+    Called just before a constructing root is returned. The listener callback
+receives the root that is constructing.
 
-## [Modding](modding/index.md)
+Listener callbacks are expected to be non-yielding and infallible.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onrootstarted">
+      onRootStarted
+    </a>
+    Called just before a root finishes starting. The listener callback receives
+the root that is starting.
 
-- [:octicons-code-16: getStartupOptions](modding/get-startup-options.md)
-- [:octicons-code-16: getStartupStatus](modding/get-startup-status.md)
-- [:octicons-workflow-16: onProviderConstructed](modding/on-provider-constructed.md)
-- [:octicons-workflow-16: onProviderUsed](modding/on-provider-used.md)
+Listener callbacks are expected to be non-yielding and infallible.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/onsubrootused">
+      onSubRootUsed
+    </a>
+    Called when a "parent" root uses a "sub" root. The listener callback
+receives the root along with the used provider
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/prvd">
+      prvd
+    </a>
+    Construct and returns a new provider. Providers *provide* specific
+functionality in a game.
 
-## [Internal](internal/index.md)
-
-- [:octicons-code-16: defineMetadata](internal/define-metadata.md)
-- [:octicons-code-16: deleteMetadata](internal/delete-metadata.md)
-- [:octicons-code-16: getMetadata](internal/get-metadata.md)
-- [:octicons-code-16: registerAll](internal/register-all.md)
-- [:octicons-code-16: registerDependency](internal/register-dependency.md)
-- [:octicons-code-16: registerMethod](internal/register-method.md)
-- [:octicons-code-16: unregisterMethod](internal/unregister-method.md)
-
+Intended for use as a constructor for Luau projects. For Roblox TypeScript
+projects, consider using Provider instead.
+  </section>
+</section>
+<section class="prvdmwrong-api-item">
+  <span class="prvdmwrong-api-itemkind">
+    <span class="prvdmwrong-api-functionkind" title="Function">
+      f
+    </span>
+  </span>
+  <section class="prvdmwrong-api-iteminfo">
+    <a href="prvd/functions/root">
+      root
+    </a>
+    Construct and returns a new root. Roots are starting points for Prvd 'M
+Wrong games where providers can be bootstrapped.
+  </section>
 </section>
 
 </section>
