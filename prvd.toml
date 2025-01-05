@@ -1,0 +1,11 @@
+#:schema ./schemas/repo.json
+
+[publish]
+authors = ["Team Fireworks", "Fire <znotfireman+hello@gmail.com>"]
+repository = "https://github.com/prvdmwrong/prvdmwrong"
+license = "MIT or Apache-2.0"
+
+[[target]]
+pesde = { scope = "prvdmwrong" }
+npm = { scope = "prvdmwrong" }
+wally = { scope = "prvdmwrong" }

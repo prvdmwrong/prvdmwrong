@@ -1,4 +1,5 @@
 local log = require("@core/log")
+local messages = require("@core/messages")
 
 local utils = {}
 
@@ -33,7 +34,7 @@ function utils.spawnCallbacks<Args...>(callbacks: { (Args...) -> () }, ...: Args
 	end
 end
 
-function utils.assert<T>(value: T, messageId: log.MessageId, ...: string)
+function utils.assert<T>(value: T, messageId: messages.Message, ...: string)
 	if value then
 		return value
 	end

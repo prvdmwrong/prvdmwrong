@@ -1,8 +1,0 @@
-name = "Net for Prvd 'M Wrong"
-description = "Extends Prvd 'M Wrong with buffer networking fundamentals."
-version = "0.2.0-rewrite.1"
-dependencies = []
-
-[docs]
-classes = []
-overview = """Extends Prvd 'M Wrong with networking fundamentals."""

@@ -68,11 +68,11 @@ local prvd = {
 	onLifecycleUsed = roots.onLifecycleUsed,
 }
 
-return table.freeze(setmetatable(
+return setmetatable(
 	prvd,
 	table.freeze {
 		__call = function<Self>(_, provider: Self): Provider<Self>
 			return providers.prvd(provider)
 		end,
 	}
-))
+)

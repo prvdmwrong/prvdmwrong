@@ -1,0 +1,6 @@
+#:schema ../../schemas/package.json
+
+name = "Prvd 'M Wrong"
+description = "Core Prvd 'M Wrong functionality."
+version = "0.2.0-rewrite.3"
+dependencies = []

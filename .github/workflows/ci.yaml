@@ -1,0 +1,38 @@
+name: Continous Integration
+
+on:
+    push:
+        branches: main
+    pull_request:
+        branches: main
+
+jobs:
+    lint:
+        name: Lint
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            - name: Install Rokit
+              uses: CompeyDev/setup-rokit@v0.1.2
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+            - name: Run Selene
+              run: |
+                  selene packages/
+    formatting:
+        name: Formatting
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            - name: Install Rokit
+              uses: CompeyDev/setup-rokit@v0.1.2
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+            - name: Run Stylua
+              uses: JohnnyMorganz/stylua-action@v4
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  version: v0.20.0
+                  args: --check packages/

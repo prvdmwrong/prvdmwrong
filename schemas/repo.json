@@ -1,0 +1,57 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "$id": "https://github.com/prvdmwrong/prvdmwrong/prvd.toml.schema.json",
+    "title": "Prvd 'M Wrong Repository Configuration",
+    "description": "Compliation options for the Prvd 'M Wrong monorepo",
+    "type": "object",
+    "properties": {
+        "publish": {
+            "type": "object",
+            "description": "Package publishing information",
+            "properties": {
+                "authors": {
+                    "type": "array",
+                    "description": "List of authors to credit. Defaults to [\"Team Fireworks\", \"Fire <znotfireman+hello@gmail.com>\"]"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "Repository to use."
+                },
+                "license": {
+                    "type": "string",
+                    "description": "SPDX license specifier to use. Defaults to MIT OR Apache-2.0."
+                },
+                "target": {
+                    "type": "object",
+                    "description": "Configuration for specific package managers",
+                    "properties": {
+                        "pesde": {
+                            "type": "object",
+                            "properties": {
+                                "scope": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "npm": {
+                            "type": "object",
+                            "properties": {
+                                "scope": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "wally": {
+                            "type": "object",
+                            "properties": {
+                                "scope": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
