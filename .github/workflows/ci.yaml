@@ -19,7 +19,7 @@ jobs:
                   token: ${{ secrets.GITHUB_TOKEN }}
             - name: Run Selene
               run: |
-                  selene packages/
+                  selene prvdmwrong/
     formatting:
         name: Formatting
         runs-on: ubuntu-latest
@@ -31,8 +31,4 @@ jobs:
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
             - name: Run Stylua
-              uses: JohnnyMorganz/stylua-action@v4
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  version: v0.20.0
-                  args: --check packages/
+              run: stylua prvdmwrong/ --check
