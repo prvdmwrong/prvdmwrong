@@ -15,15 +15,3 @@
 .prvdmwrong-hidden {
     display: none;
 }
-
-@media screen and (max-width: 76.2344em) {
-    .md-nav--primary .md-nav__title[for=__drawer] {
-        background-color: var(--md-default-bg-color);
-    }
-}
-
-@media screen and (max-width: 59.9844em) {
-    .md-nav__source {
-        background-color: var(--md-default-bg-color);
-    }
-}

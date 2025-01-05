@@ -2,302 +2,242 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/functions/fireconcurrent/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/functions/firesequential/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/functions/lifecycle/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/functions/onlifecycleconstructing/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/functions/onlifecycledestroying/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/functions/onlifecycleregistered/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/functions/onlifecycleunregistered/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/functions/onlifecycleused/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/functions/onproviderconstructed/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/functions/onproviderused/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/functions/onrootconstructed/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/functions/onrootstarted/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/functions/onsubrootused/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/functions/provider/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/functions/prvd/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/functions/root/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/lifecycle/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/lifecycle/functions/await/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/lifecycle/functions/destroy/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/lifecycle/functions/onregistered/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/lifecycle/functions/onunregistered/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/lifecycle/functions/register/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/lifecycle/functions/unregister/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/lifecycle/functions/unregisterall/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/root/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/root/functions/destroy/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/root/functions/start/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/root/functions/uselifecycle/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/root/functions/uselifecycles/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/root/functions/usemodule/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/root/functions/usemodules/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/root/functions/useprovider/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/root/functions/useproviders/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/root/functions/useroot/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/root/functions/useroots/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/startedroot/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/core/startedroot/functions/stop/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/knit-compat/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/api-reference/lifecycles/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/installation/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/components/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/components/attributes/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/components/inheritance/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/extra/migrating-from-knit/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/extra/migrating-from-lumin/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/extra/upgrading-from-0.1-to-0.2/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/extra/why-prvd-m-wrong/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/foundations/lifecycles/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/foundations/modding/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/foundations/providers/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/foundations/roots/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/net/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/net/middlewares/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/net/namespaces/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/net/oneway-events/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
     <url>
          <loc>https://prvdmwrong.github.io/prvdmwrong/0.2/learn/net/twoway-events/</loc>
-         <lastmod>2025-01-03</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-01-05</lastmod>
     </url>
 </urlset>
