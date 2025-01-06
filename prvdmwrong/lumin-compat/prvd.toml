@@ -1,0 +1,7 @@
+#:schema ../../schemas/package.json
+
+name = "Jecs Scheduler for Prvd 'M Wrong"
+description = "Prvd 'M Wrong provider to schedule Jecs systems"
+version = "0.1.0"
+types = []
+dependencies = ["core"]

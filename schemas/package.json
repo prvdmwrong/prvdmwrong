@@ -8,6 +8,7 @@
         "name",
         "description",
         "version",
+        "types",
         "dependencies"
     ],
     "properties": {
@@ -19,6 +20,9 @@
         },
         "version": {
             "type": "string"
+        },
+        "types": {
+            "type": "array"
         },
         "dependencies": {
             "type": "array"

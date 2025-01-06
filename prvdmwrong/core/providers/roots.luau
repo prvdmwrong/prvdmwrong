@@ -5,7 +5,6 @@ local RunService = game:GetService("RunService")
 local dependencies = require("@core/providers/dependencies")
 local handlers = require("@core/lifecycles/handlers")
 local lifecycles = require("@core/lifecycles/lifecycles")
-local log = require("@core/log")
 local providers = require("@core/providers/providers")
 local types = require("@core/types")
 local utils = require("@core/utils")
@@ -41,11 +40,13 @@ local rootConstructed: { (root: Root) -> () } = {}
 local rootStarted: { (root: Root, startedRoot: StartedRoot) -> () } = {}
 
 local function loggedRequire(module: ModuleScript): any
-	local ok, result: any = xpcall(require, log.parseError, module)
-	if ok then
-		return result
-	end
-	return log.fatal("requireError", (result :: Error).trace, module:GetFullName(), (result :: Error).message)
+	-- FIXME: bad
+	-- local ok, result: any = xpcall(require, log.parseError, module)
+	-- if ok then
+	-- 	return result
+	-- end
+	-- return log.fatal("requireError", (result :: Error).trace, module:GetFullName(), (result :: Error).message)
+	return require(module) :: any
 end
 
 --[=[
@@ -87,11 +88,11 @@ end
 ]=]
 local function useModules(root: Self, modules: { Instance }, predicate: ((module: ModuleScript) -> boolean)?)
 	for _, module in modules do
-		if not module:IsA("ModuleScript") or predicate and not predicate(module) then
+		if not module:IsA("ModuleScript") :: BrokenLuau or predicate and not predicate(module :: BrokenLuau) then
 			continue
 		end
 
-		local moduleExport = loggedRequire(module)
+		local moduleExport = loggedRequire(module :: BrokenLuau)
 		if providers.constructedProviders[moduleExport] and typeof(moduleExport.name) ~= "string" :: BrokenLuau then
 			moduleExport.name = module.Name
 			moduleExport.instance = module

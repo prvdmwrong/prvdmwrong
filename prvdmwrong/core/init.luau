@@ -52,6 +52,7 @@ local prvd = {
 	Provider = providers.Provider :: never,
 	prvd = providers.prvd,
 	root = roots.root,
+	use = providers.use :: never,
 	onProviderConstructed = providers.onProviderConstructed,
 	onProviderUsed = roots.onProviderUsed,
 	onRootConstructed = roots.onRootConstructed,
