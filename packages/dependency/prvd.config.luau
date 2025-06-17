@@ -9,8 +9,6 @@ return types.PackageConfig({
 	}),
 
 	dependencies = types.PackageDependencies({
-		logger = true,
 		lifecycles = true,
-		runtime = true,
 	}),
 })
