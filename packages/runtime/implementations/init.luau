@@ -51,5 +51,6 @@ end
 return table.freeze({
 	supportedRuntimes = supportedRuntimes,
 	currentRuntime = currentRuntime,
+	currentRuntimeName = currentRuntimeName,
 	implementFunction = implementFunction,
 })
