@@ -7,7 +7,7 @@ local fireConcurrent = lifecycles.handlers.fireConcurrent
 
 local RbxLifecycles = {}
 RbxLifecycles.name = "@prvdmwrong/rbx-lifecycles"
-RbxLifecycles.loadOrder = -math.huge
+RbxLifecycles.priority = -math.huge
 
 RbxLifecycles.preSimulation = lifecycles.create("preSimulation", fireConcurrent) :: lifecycles.Lifecycle<number>
 RbxLifecycles.postSimulation = lifecycles.create("postSimulation", fireConcurrent) :: lifecycles.Lifecycle<number>
@@ -30,7 +30,7 @@ function RbxLifecycles.new(self: RbxLifecycles)
 		RunService.PreAnimation:Connect(wrapLifecycle(self.preAnimation :: any))
 	)
 
-	if RunService:IsClient() :: never then
+	if RunService:IsClient() then
 		self:_addConnections(RunService.PreRender:Connect(wrapLifecycle(self.preRender :: any)))
 	end
 
@@ -40,12 +40,6 @@ function RbxLifecycles.new(self: RbxLifecycles)
 	)
 end
 
-function RbxLifecycles._addConnections(self: RbxLifecycles, ...: RBXScriptConnection)
-	for index = 1, select("#", ...) do
-		table.insert(self.connections, select(index, ...) :: any)
-	end
-end
-
 function RbxLifecycles.finish(self: RbxLifecycles)
 	for _, connection in self.connections do
 		if connection.Connected then
@@ -53,6 +47,12 @@ function RbxLifecycles.finish(self: RbxLifecycles)
 		end
 	end
 	table.clear(self.connections)
+end
+
+function RbxLifecycles._addConnections(self: RbxLifecycles, ...: RBXScriptConnection)
+	for index = 1, select("#", ...) do
+		table.insert(self.connections, select(index, ...) :: any)
+	end
 end
 
 export type RbxLifecycles = typeof(RbxLifecycles)
