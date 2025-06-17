@@ -6,7 +6,7 @@ local types = require("@self/types")
 export type Lifecycle<Args... = ...unknown> = types.Lifecycle<Args...>
 
 return table.freeze({
-	createLifecycle = Lifecycle.createLifecycle,
+	create = Lifecycle.createLifecycle,
 	handlers = table.freeze({
 		fireConcurrent = fireConcurrent,
 		fireSequential = fireSequential,

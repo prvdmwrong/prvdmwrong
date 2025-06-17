@@ -12,7 +12,7 @@ export type Root = types.Root
 export type StartedRoot = types.StartedRoot
 
 return table.freeze({
-	createRoot = createRoot,
+	create = createRoot,
 	hooks = table.freeze({
 		onLifecycleUsed = lifecycleUsed.onLifecycleUsed,
 		onProviderUsed = providerUsed.onProviderUsed,

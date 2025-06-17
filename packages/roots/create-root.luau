@@ -32,8 +32,8 @@ local function createRoot(): types.Root
 		_rootProviders = {},
 		_rootLifecycles = {},
 		_subRoots = {},
-		_start = lifecycles.createLifecycle("start", lifecycles.handlers.fireConcurrent),
-		_finish = lifecycles.createLifecycle("finish", lifecycles.handlers.fireSequential),
+		_start = lifecycles.create("start", lifecycles.handlers.fireConcurrent),
+		_finish = lifecycles.create("finish", lifecycles.handlers.fireSequential),
 	} :: any
 
 	for _, callback in rootConstructing.callbacks do

@@ -10,6 +10,7 @@ return types.PackageConfig({
 
 	dependencies = types.PackageDependencies({
 		logger = true,
+		providers = true,
 		lifecycles = true,
 		runtime = true,
 	}),
