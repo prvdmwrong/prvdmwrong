@@ -1,6 +1,14 @@
 export type PackageConfig = {
 	name: string,
 	description: string,
+
+	dependencies: {
+		[string]: true,
+	}?,
+
+	types: {
+		[string]: true,
+	}?,
 }
 
 local function PackageConfig(x: PackageConfig)
