@@ -1,0 +1,11 @@
+{
+    "languageMode": "strict",
+    "lint": {
+        "*": true
+    },
+    "aliases": {
+        "lune": "~/.lune/.typedefs/0.9.4/",
+        "compile": "./compile",
+        "docgen": "./docgen"
+    }
+}
