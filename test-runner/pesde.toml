@@ -9,6 +9,7 @@ environment = "roblox"
 default = "https://github.com/UpliftGames/wally-index"
 
 [dependencies]
+dependencies = { workspace = "prvdmwrong/dependencies", version = "^" }
 lifecycles = { workspace = "prvdmwrong/lifecycles", version = "^" }
 logger = { workspace = "prvdmwrong/logger", version = "^" }
 runtime = { workspace = "prvdmwrong/runtime", version = "^" }

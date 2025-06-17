@@ -10,17 +10,12 @@ local function processDependencies(
 	local sorted = {}
 	local lifecycles = {}
 
-	local function visit(encountered: Set<types.Dependency<unknown>>, target: any, key: any, parent: any)
-		if encountered[target] or typeof(target) ~= "table" then
+	local function visit(target: any)
+		if visited[target] or typeof(target) ~= "table" then
 			return
 		end
 
-		encountered[target] = true
-
-		if dependencies[target] then
-			table.insert(sorted, target)
-			return
-		end
+		visited[target] = true
 
 		if typeof(target) == "table" then
 			if target.type == "Lifecycle" then
@@ -29,17 +24,17 @@ local function processDependencies(
 			end
 
 			for key, value in target do
-				visit(encountered, value, key, target)
+				visit(value)
 			end
+		end
+
+		if dependencies[target] then
+			table.insert(sorted, target)
 		end
 	end
 
 	for dependency in dependencies do
-		if not visited[dependency] then
-			visited[dependency] = true
-			visit({}, dependency, nil, dependency)
-			table.insert(sorted, dependency)
-		end
+		visit(dependency)
 	end
 
 	return sorted, lifecycles

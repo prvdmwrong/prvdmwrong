@@ -54,7 +54,16 @@ end
 
 -- Packages
 
-export type PackageName = "core" | "components" | "logger" | "lifecycles" | "rbx-lifecycles" | "runtime"
+export type PackageName =
+	| "prvdmwrong"
+	| "dependencies"
+	| "providers"
+	| "roots"
+	| "components"
+	| "logger"
+	| "lifecycles"
+	| "rbx-lifecycles"
+	| "runtime"
 
 export type PackageTarget = "roblox"
 

@@ -3,7 +3,7 @@ local types = require("./types")
 local function sortDependencies(dependencies: { types.Dependency<unknown> })
 	table.sort(dependencies, function(left: types.Dependency<unknown>, right: types.Dependency<unknown>)
 		if left.priority ~= right.priority then
-			return (left.priority or 1) < (right.priority or 1)
+			return (left.priority or 1) > (right.priority or 1)
 		end
 		local leftIndex = table.find(dependencies, left)
 		local rightIndex = table.find(dependencies, right)

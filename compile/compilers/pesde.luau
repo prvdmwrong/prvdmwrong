@@ -143,7 +143,7 @@ function PesdeCompiler:compile(ctx)
 		process.exec("pesde", { "install" })
 	end)
 
-	workspaceManifest.workspace_members = { "dist/pesde/*/roblox", "test" }
+	workspaceManifest.workspace_members = { "dist/pesde/*/roblox", "test-runner" }
 	workspaceManifest.target.environment = "roblox"
 	writeWorkspaceManifest(rootManifestPath)
 end

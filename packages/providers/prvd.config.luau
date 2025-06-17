@@ -5,7 +5,7 @@ return types.PackageConfig({
 	description = "Core functionality for Prvd 'M Wrong",
 
 	dependencies = types.PackageDependencies({
-		dependency = true,
+		dependencies = true,
 		logger = true,
 		lifecycles = true,
 		runtime = true,
