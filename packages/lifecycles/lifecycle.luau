@@ -105,7 +105,7 @@ local function destroy<Args...>(lifecycle: Self<Args...>)
 	lifecycle._isDestroyed = true
 end
 
-function Lifecycle<Args...>(
+function createLifecycle<Args...>(
 	method: string,
 	onFire: (lifecycle: types.Lifecycle<Args...>, Args...) -> ()
 ): types.Lifecycle<Args...>
@@ -197,7 +197,7 @@ function onLifecycleDestroying<Args...>(listener: (destroyedLifecycle: types.Lif
 end
 
 return table.freeze({
-	Lifecycle = Lifecycle,
+	createLifecycle = createLifecycle,
 
 	onLifecycleRegistered = onLifecycleRegistered,
 	onLifecycleUnregistered = onLifecycleUnregistered,

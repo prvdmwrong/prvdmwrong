@@ -74,14 +74,13 @@ function PesdeCompiler:compile(ctx)
 
 		local manifest: types.PesdeManifest = {
 			name = packageNameOf(package.config.name),
-			version = "0.1.0",
+			version = "0.2.0",
 			description = package.config.description,
 			license = package.config.license or repoConfig.defaults.license,
 			authors = package.config.authors or repoConfig.defaults.authors,
 			repository = repoConfig.repository,
 
 			includes = {
-				"!**/prvd.config.luau",
 				"**/*.luau",
 			},
 

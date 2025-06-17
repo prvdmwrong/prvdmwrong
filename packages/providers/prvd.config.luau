@@ -1,14 +1,11 @@
 local types = require("@compile/types")
 
 return types.PackageConfig({
-	name = "dependency",
+	name = "providers",
 	description = "Core functionality for Prvd 'M Wrong",
 
-	types = table.freeze({
-		["Dependency<Self>"] = true,
-	}),
-
 	dependencies = types.PackageDependencies({
+		dependency = true,
 		logger = true,
 		lifecycles = true,
 		runtime = true,

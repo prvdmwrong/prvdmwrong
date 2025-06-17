@@ -1,12 +1,12 @@
 local types = require("@compile/types")
 
 return types.PackageConfig({
-	name = "core",
-	description = "Core functionality for Prvd 'M Wrong",
+	name = "prvdmwrong",
+	description = "Entry point to Prvd 'M Wrong",
 
 	dependencies = types.PackageDependencies({
-		logger = true,
 		lifecycles = true,
-		runtime = true,
+		providers = true,
+		roots = true,
 	}),
 })

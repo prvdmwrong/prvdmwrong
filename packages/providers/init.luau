@@ -1,5 +1,5 @@
 local types = require("@self/types")
 
-export type Dependency<Self> = types.Dependency<Self>
+export type Provider<Self> = types.Provider<Self>
 
 return table.freeze({})
