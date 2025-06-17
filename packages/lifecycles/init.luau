@@ -6,16 +6,18 @@ local types = require("@self/types")
 export type Lifecycle<Args... = ...unknown> = types.Lifecycle<Args...>
 
 return table.freeze({
+	Lifecycle = Lifecycle.Lifecycle,
 	handlers = table.freeze({
 		fireConcurrent = fireConcurrent,
 		fireSequential = fireSequential,
 	}),
-	Lifecycle = Lifecycle.Lifecycle,
-
-	onLifecycleRegistered = Lifecycle.onLifecycleRegistered,
-	onLifecycleUnregistered = Lifecycle.onLifecycleUnregistered,
-	onLifecycleConstructing = Lifecycle.onLifecycleConstructing,
-	onLifecycleDestroying = Lifecycle.onLifecycleDestroying,
-
-	methodLifecycles = Lifecycle.methodLifecycles,
+	hooks = table.freeze({
+		onLifecycleRegistered = Lifecycle.onLifecycleRegistered,
+		onLifecycleUnregistered = Lifecycle.onLifecycleUnregistered,
+		onLifecycleConstructing = Lifecycle.onLifecycleConstructing,
+		onLifecycleDestroying = Lifecycle.onLifecycleDestroying,
+	}),
+	_ = table.freeze({
+		methodLifecycles = Lifecycle.methodLifecycles,
+	}),
 })
