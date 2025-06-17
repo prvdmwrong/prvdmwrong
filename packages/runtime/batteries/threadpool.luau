@@ -26,6 +26,13 @@ local function spawn<T...>(f: (T...) -> (), ...: T...)
 	task.spawn(thread, f, thread, ...)
 end
 
+local function spawnCallbacks<Args...>(callbacks: { (Args...) -> () }, ...: Args...)
+	for _, callback in callbacks do
+		spawn(callback, ...)
+	end
+end
+
 return table.freeze({
 	spawn = spawn,
+	spawnCallbacks = spawnCallbacks,
 })

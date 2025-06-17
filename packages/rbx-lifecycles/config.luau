@@ -1,15 +1,11 @@
 local types = require("@compile/types")
 
 return types.PackageConfig({
-	name = "lifecycles",
+	name = "rbx-lifecycles",
 	description = "Extra lifecycles for Prvd 'M Wrong",
 
 	dependencies = types.PackageDependencies({
-		logger = true,
-		runtime = true,
+		core = true,
+		lifecycles = true,
 	}),
-
-	types = {
-		["Lifecycle<Args... = ...unknown>"] = "Lifecycles<Args...>",
-	},
 })

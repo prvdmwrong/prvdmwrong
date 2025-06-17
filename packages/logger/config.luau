@@ -4,9 +4,9 @@ return types.PackageConfig({
 	name = "logger",
 	description = "Logging for Prvd 'M Wrong",
 
-	dependencies = {
+	dependencies = types.PackageDependencies({
 		runtime = true,
-	},
+	}),
 
 	types = {
 		["Logger<Templates>"] = true,

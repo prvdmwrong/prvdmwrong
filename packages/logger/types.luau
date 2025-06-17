@@ -13,6 +13,7 @@ export type Log = {
 }
 
 export type Logger<Templates> = Templates & {
+	print: (self: Logger<Templates>, props: Log) -> (),
 	warn: (self: Logger<Templates>, props: Log) -> (),
 	error: (self: Logger<Templates>, props: Log) -> (),
 	fatalError: (self: Logger<Templates>, props: Log) -> never,
