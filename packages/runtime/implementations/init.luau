@@ -2,6 +2,8 @@ local types = require("@self/../types")
 
 type Implementation<T> = { new: (() -> T)?, implementation: T? }
 
+export type RuntimeName = "roblox" | "luau" | "lune" | "lute" | "seal" | "zune"
+
 local supportedRuntimes = table.freeze({
 	roblox = require("@self/roblox"),
 	luau = require("@self/luau"),
@@ -26,7 +28,7 @@ do
 	assert(currentRuntime, "No supported runtime")
 end
 
-local currentRuntimeName = currentRuntime.name
+local currentRuntimeName: RuntimeName = currentRuntime.name :: any
 
 local function notImplemented(functionName: string)
 	return function()
