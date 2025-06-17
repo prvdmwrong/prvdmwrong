@@ -1,2 +1,8 @@
 .DS_Store
 **/.DS_Store
+
+dist
+
+test-runner/roblox_packages
+pesde.lock
+sourcemap.json

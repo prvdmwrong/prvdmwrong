@@ -6,6 +6,7 @@
     "aliases": {
         "lune": "~/.lune/.typedefs/0.9.4/",
         "compile": "./compile",
-        "docgen": "./docgen"
+        "docgen": "./docgen",
+        "lune-utils": "./lune-utils"
     }
 }

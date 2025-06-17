@@ -7,3 +7,4 @@
 StyLua = "JohnnyMorganz/StyLua@2.1.0"
 lune = "lune-org/lune@0.9.4"
 luau-lsp = "JohnnyMorganz/luau-lsp@1.50.0"
+rojo = "rojo-rbx/rojo@7.5.1"

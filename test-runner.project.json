@@ -1,0 +1,16 @@
+{
+    "name": "Prvd 'M Wrong Test",
+    "emitLegacyScripts": false,
+    "globIgnorePaths": [
+        "**/pesde.toml",
+        "**/pesde.lock"
+    ],
+    "tree": {
+        "$className": "DataModel",
+        "ServerScriptService": {
+            "TestRunner": {
+                "$path": "test-runner"
+            }
+        }
+    }
+}

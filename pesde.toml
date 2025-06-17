@@ -1,0 +1,10 @@
+name = "prvdmwrong/prvdmwrong_root"
+private = true
+version = "0.0.0"
+workspace_members = [
+    "dist/pesde/*/roblox",
+    "test",
+]
+
+[target]
+environment = "roblox"

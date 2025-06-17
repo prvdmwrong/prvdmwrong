@@ -1,0 +1,15 @@
+name = "prvdmwrong/prvdmwrong_test_runner"
+private = true
+version = "0.0.0"
+
+[target]
+environment = "roblox"
+
+[wally_indices]
+default = "https://github.com/UpliftGames/wally-index"
+
+[dependencies]
+lifecycles = { workspace = "prvdmwrong/lifecycles", version = "^" }
+logger = { workspace = "prvdmwrong/logger", version = "^" }
+runtime = { workspace = "prvdmwrong/runtime", version = "^" }
+testez = { wally = "roblox/testez", version = "0.4.1" }

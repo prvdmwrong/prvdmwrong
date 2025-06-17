@@ -2,6 +2,7 @@ local Logger = require("@self/logger")
 local allowWebLinks = require("@self/allow-web-links")
 local formatLog = require("@self/format-log")
 local parseError = require("@self/parse-error")
+local standardErrorInfoUrl = require("@self/standard-error-info-url")
 local types = require("@self/types")
 
 export type Logger<Templates> = types.Logger<Templates>
@@ -13,4 +14,5 @@ return table.freeze({
 	formatLog = formatLog,
 	parseError = parseError,
 	allowWebLinks = allowWebLinks,
+	standardErrorInfoUrl = standardErrorInfoUrl,
 })
