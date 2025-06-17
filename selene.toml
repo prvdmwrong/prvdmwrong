@@ -1,7 +1,0 @@
-std = "selene-std"
-
-[config]
-  # Allow Prvd 'M Wrong build globals
-  global_usage = { ignore_pattern = "^PRVDMWRONG" }
-  # Allow `self` to be shadowed in class construction
-  shadowing = { ignore_pattern = "^_|self" }
