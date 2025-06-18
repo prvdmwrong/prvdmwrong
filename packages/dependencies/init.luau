@@ -1,10 +1,14 @@
+local depend = require("@self/depend")
 local processDependencies = require("@self/process-dependencies")
-local sortDependencies = require("@self/sort-dependencies")
+local sortByPriority = require("@self/sort-by-priority")
+local subdependencies = require("@self/subdependencies")
 local types = require("@self/types")
 
-export type Dependency<Self> = types.Dependency<Self>
+export type Dependency<Self, Dependencies = nil> = types.Dependency<Self, Dependencies>
 
 return table.freeze({
+	depend = depend,
+	subdependencies = subdependencies,
 	processDependencies = processDependencies,
-	sortDependencies = sortDependencies,
+	sortByPriority = sortByPriority,
 })

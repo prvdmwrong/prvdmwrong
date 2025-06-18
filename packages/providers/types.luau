@@ -1,11 +1,11 @@
 local dependencies = require("../dependencies")
 
-export type Provider<Self> = dependencies.Dependency<Self & {
-	__index: Provider<Self>,
+export type Provider<Self, Dependencies = nil> = dependencies.Dependency<Self & {
+	__index: Provider<Self, Dependencies>,
 	name: string?,
-	new: () -> Provider<Self>,
-	constructor: ((self: Provider<Self>) -> ())?,
-	start: (self: Provider<Self>) -> ()?,
-}>
+	constructor: ((self: Provider<Self, Dependencies>, dependencies: Dependencies) -> ())?,
+	start: (self: Provider<Self, Dependencies>) -> ()?,
+	finish: (self: Provider<Self, Dependencies>) -> ()?,
+}, Dependencies>
 
 return nil

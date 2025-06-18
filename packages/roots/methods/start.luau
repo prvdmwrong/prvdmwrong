@@ -41,12 +41,25 @@ local function nameOf(provider: providers.Provider<unknown>, extension: string?)
 end
 
 local function start(root: types.Self): types.StartedRoot
-	local sortedProviders, lifecycles = dependencies.processDependencies(root._rootProviders)
+	local processed = dependencies.processDependencies(root._rootProviders)
+	local sortedProviders = processed.sortedDependencies :: { providers.Provider<any> }
+	local lifecycles = processed.lifecycles
 	table.move(root._rootLifecycles, 1, #root._rootLifecycles, #lifecycles + 1, lifecycles)
 
-	dependencies.sortDependencies(sortedProviders)
-	for _, provider in (sortedProviders :: any) :: { providers.Provider<any> } do
-		local constructed = provider.new()
+	dependencies.sortByPriority(sortedProviders)
+
+	local constructedProviders = {}
+	for _, provider in sortedProviders do
+		local providerDependencies = (provider :: any)[dependencies.subdependencies]
+		if typeof(providerDependencies) == "table" then
+			providerDependencies = table.clone(providerDependencies)
+			for key, value in providerDependencies do
+				providerDependencies[key] = constructedProviders[value]
+			end
+		end
+
+		local constructed = provider.new(providerDependencies)
+		constructedProviders[provider] = constructed
 		bindLifecycle("start", constructed, constructed.start, nameOf(constructed, "start"))
 		bindLifecycle("finish", constructed, constructed.finish, nameOf(constructed, "finish"))
 	end

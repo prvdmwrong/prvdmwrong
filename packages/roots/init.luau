@@ -18,7 +18,7 @@ local roots = table.freeze({
 		onProviderUsed = providerUsed.onProviderUsed,
 		onRootUsed = rootUsed.onRootUsed,
 
-		rootConstructing = rootConstructing.onRootConstructing,
+		onRootConstructing = rootConstructing.onRootConstructing,
 		onRootStarted = rootStarted.onRootStarted,
 		onRootFinished = rootFinished.onRootFinished,
 		onRootDestroyed = rootDestroyed.onRootDestroyed,

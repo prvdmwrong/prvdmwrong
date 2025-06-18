@@ -1,23 +1,22 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
-local lifecycles = require("./lifecycles")
+local prvd = require("./prvdmwrong")
 
-local fireConcurrent = lifecycles.handlers.fireConcurrent
+local fireConcurrent = prvd.fireConcurrent
 
 local RbxLifecycles = {}
-RbxLifecycles.__index = RbxLifecycles
 RbxLifecycles.name = "@prvdmwrong/rbx-lifecycles"
 RbxLifecycles.priority = -math.huge
 
-RbxLifecycles.preSimulation = lifecycles.create("preSimulation", fireConcurrent) :: lifecycles.Lifecycle<number>
-RbxLifecycles.postSimulation = lifecycles.create("postSimulation", fireConcurrent) :: lifecycles.Lifecycle<number>
-RbxLifecycles.preAnimation = lifecycles.create("preAnimation", fireConcurrent) :: lifecycles.Lifecycle<number>
-RbxLifecycles.preRender = lifecycles.create("preRender", fireConcurrent) :: lifecycles.Lifecycle<number>
-RbxLifecycles.playerAdded = lifecycles.create("playerAdded", fireConcurrent) :: lifecycles.Lifecycle<Player>
-RbxLifecycles.playerRemoving = lifecycles.create("playerRemoving", fireConcurrent) :: lifecycles.Lifecycle<Player>
+RbxLifecycles.preSimulation = prvd.lifecycle("preSimulation", fireConcurrent) :: prvd.Lifecycle<number>
+RbxLifecycles.postSimulation = prvd.lifecycle("postSimulation", fireConcurrent) :: prvd.Lifecycle<number>
+RbxLifecycles.preAnimation = prvd.lifecycle("preAnimation", fireConcurrent) :: prvd.Lifecycle<number>
+RbxLifecycles.preRender = prvd.lifecycle("preRender", fireConcurrent) :: prvd.Lifecycle<number>
+RbxLifecycles.playerAdded = prvd.lifecycle("playerAdded", fireConcurrent) :: prvd.Lifecycle<Player>
+RbxLifecycles.playerRemoving = prvd.lifecycle("playerRemoving", fireConcurrent) :: prvd.Lifecycle<Player>
 
-local function wrapLifecycle(lifecycle: lifecycles.Lifecycle<...unknown>)
+local function wrapLifecycle(lifecycle: prvd.Lifecycle<...unknown>)
 	return function(...: unknown)
 		lifecycle:fire(...)
 	end
@@ -58,4 +57,4 @@ function RbxLifecycles._addConnections(self: RbxLifecycles, ...: RBXScriptConnec
 end
 
 export type RbxLifecycles = typeof(RbxLifecycles)
-return RbxLifecycles
+return prvd(RbxLifecycles)

@@ -82,6 +82,7 @@ function PesdeCompiler:compile(ctx)
 
 			includes = {
 				"**/*.luau",
+				"**/!(prvd.config.luau)",
 			},
 
 			target = {

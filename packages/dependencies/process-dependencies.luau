@@ -1,43 +1,58 @@
 local lifecycles = require("../lifecycles")
+local subdependencies = require("./subdependencies")
 local types = require("./types")
+
+export type ProccessDependencyResult = {
+	sortedDependencies: { types.Dependency<any> },
+	lifecycles: { lifecycles.Lifecycle },
+}
 
 type Set<T> = { [T]: true }
 
-local function processDependencies(
-	dependencies: Set<types.Dependency<unknown>>
-): ({ types.Dependency<unknown> }, { lifecycles.Lifecycle })
-	local visited: Set<types.Dependency<unknown>> = {}
-	local sorted = {}
+local function processDependencies(dependencies: Set<types.Dependency<any>>): ProccessDependencyResult
+	local sortedDependencies = {}
 	local lifecycles = {}
 
-	local function visit(target: any)
-		if visited[target] or typeof(target) ~= "table" then
-			return
-		end
+	-- TODO: optimize ts
+	local function visitDependency(dependency: types.Dependency<any>)
+		-- print("Visiting dependency", dependency)
 
-		visited[target] = true
+		for key, value in dependency :: any do
+			if key == subdependencies then
+				-- print("Checking [prvd.dependencies]")
+				if typeof(value) == "table" then
+					for key, value in value do
+						-- print("Checking key", key, "value", value)
+						if typeof(value) == "table" and value.type == "UnresolvedDependency" then
+							local unresolved: types.UnresolvedDependency = value
+							-- print("Got unresolved dependency", unresolved.dependency, "visiting")
+							visitDependency(unresolved.dependency)
+						end
+					end
+				end
 
-		if typeof(target) == "table" then
-			if target.type == "Lifecycle" then
-				table.insert(lifecycles, target)
-				return
+				continue
 			end
 
-			for key, value in target do
-				visit(value)
+			if typeof(value) == "table" and value.type == "Lifecycle" and not table.find(lifecycles, value) then
+				table.insert(lifecycles, value)
 			end
 		end
 
-		if dependencies[target] then
-			table.insert(sorted, target)
+		if dependencies[dependency] and not table.find(sortedDependencies, dependency) then
+			-- print("Pushing to sort")
+			table.insert(sortedDependencies, dependency)
 		end
 	end
 
 	for dependency in dependencies do
-		visit(dependency)
+		visitDependency(dependency)
 	end
 
-	return sorted, lifecycles
+	return {
+		sortedDependencies = sortedDependencies,
+		lifecycles = lifecycles,
+	}
 end
 
 return processDependencies

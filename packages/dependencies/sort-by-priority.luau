@@ -1,6 +1,6 @@
 local types = require("./types")
 
-local function sortDependencies(dependencies: { types.Dependency<unknown> })
+local function sortByPriority(dependencies: { types.Dependency<unknown> })
 	table.sort(dependencies, function(left: types.Dependency<unknown>, right: types.Dependency<unknown>)
 		if left.priority ~= right.priority then
 			return (left.priority or 1) > (right.priority or 1)
@@ -11,4 +11,4 @@ local function sortDependencies(dependencies: { types.Dependency<unknown> })
 	end)
 end
 
-return sortDependencies
+return sortByPriority

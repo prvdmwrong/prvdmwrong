@@ -5,10 +5,11 @@ return types.PackageConfig({
 	description = "Core functionality for Prvd 'M Wrong",
 
 	types = table.freeze({
-		["Dependency<Self>"] = true,
+		["Dependency<Self, Dependencies = nil>"] = "Dependency<Self, Dependencies>",
 	}),
 
 	dependencies = types.PackageDependencies({
 		lifecycles = true,
+		logger = true,
 	}),
 })

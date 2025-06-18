@@ -1,7 +1,7 @@
-local sortDependencies = require("./sort-dependencies")
+local sortByPriority = require("./sort-by-priority")
 
 return function()
-	describe("sortDependencies", function()
+	describe("sortByPriority", function()
 		it("should sort dependencies correctly", function()
 			local first = {}
 
@@ -19,7 +19,7 @@ return function()
 				third,
 			}
 
-			sortDependencies(sortedDependencies :: any)
+			sortByPriority(sortedDependencies :: any)
 			print(sortedDependencies)
 
 			expect(sortedDependencies[1]).to.equal(first)
@@ -39,7 +39,7 @@ return function()
 				high,
 			}
 
-			sortDependencies(sortedDependencies :: any)
+			sortByPriority(sortedDependencies :: any)
 			print(sortedDependencies)
 
 			expect(sortedDependencies[1]).to.equal(high)
