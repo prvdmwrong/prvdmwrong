@@ -2,6 +2,8 @@ local dependencies = require("../../dependencies")
 local lifecycles = require("../../lifecycles")
 local logger = require("../logger")
 local providers = require("../../providers")
+local rootFinished = require("../hooks/root-finished").callbacks
+local rootStarted = require("../hooks/root-started").callbacks
 local types = require("../types")
 
 local function bindLifecycle(
@@ -32,9 +34,9 @@ end
 
 local function nameOf(provider: providers.Provider<unknown>, extension: string?): string
 	if extension then
-		return `{provider.name or "unnamedProvider"}:{extension}`
+		return `{provider.name or "Provider"}.{extension}`
 	else
-		return provider.name or "unnamedProvider"
+		return provider.name or "Provider"
 	end
 end
 
@@ -76,6 +78,14 @@ local function start(root: types.Self): types.StartedRoot
 		for _, subRoot in subRoots do
 			subRoot:finish()
 		end
+
+		for _, hook in rootFinished do
+			hook(root)
+		end
+	end
+
+	for _, hook in rootStarted do
+		hook(root)
 	end
 
 	return startedRoot
