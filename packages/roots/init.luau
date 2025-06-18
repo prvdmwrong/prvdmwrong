@@ -1,4 +1,4 @@
-local createRoot = require("@self/create-root")
+local create = require("@self/create")
 local lifecycleUsed = require("@self/hooks/lifecycle-used")
 local providerUsed = require("@self/hooks/provider-used")
 local rootConstructing = require("@self/hooks/root-constructing")
@@ -12,7 +12,7 @@ export type Root = types.Root
 export type StartedRoot = types.StartedRoot
 
 return table.freeze({
-	create = createRoot,
+	create = create,
 	hooks = table.freeze({
 		onLifecycleUsed = lifecycleUsed.onLifecycleUsed,
 		onProviderUsed = providerUsed.onProviderUsed,

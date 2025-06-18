@@ -23,33 +23,23 @@ local function wrapLifecycle(lifecycle: lifecycles.Lifecycle<...unknown>)
 	end
 end
 
-function RbxLifecycles.new()
-	local self = {} :: RbxLifecycles
+function RbxLifecycles.constructor(self: RbxLifecycles)
 	self.connections = {} :: { RBXScriptConnection }
 
-	local function addConnections(...: RBXScriptConnection)
-		for index = 1, select("#", ...) do
-			table.insert(self.connections, select(index, ...) :: any)
-		end
-	end
-
-	addConnections(
+	self:_addConnections(
 		RunService.PreSimulation:Connect(wrapLifecycle(RbxLifecycles.preSimulation :: any)),
 		RunService.PostSimulation:Connect(wrapLifecycle(RbxLifecycles.postSimulation :: any)),
 		RunService.PreAnimation:Connect(wrapLifecycle(RbxLifecycles.preAnimation :: any))
 	)
 
 	if RunService:IsClient() then
-		addConnections(RunService.PreRender:Connect(wrapLifecycle(RbxLifecycles.preRender :: any)))
+		self:_addConnections(RunService.PreRender:Connect(wrapLifecycle(RbxLifecycles.preRender :: any)))
 	end
 
-	addConnections(
+	self:_addConnections(
 		Players.PlayerAdded:Connect(wrapLifecycle(RbxLifecycles.playerAdded :: any)),
 		Players.PlayerRemoving:Connect(wrapLifecycle(RbxLifecycles.playerRemoving :: any))
 	)
-
-	setmetatable(self :: any, RbxLifecycles)
-	return self
 end
 
 function RbxLifecycles.finish(self: RbxLifecycles)
@@ -59,6 +49,12 @@ function RbxLifecycles.finish(self: RbxLifecycles)
 		end
 	end
 	table.clear(self.connections)
+end
+
+function RbxLifecycles._addConnections(self: RbxLifecycles, ...: RBXScriptConnection)
+	for index = 1, select("#", ...) do
+		table.insert(self.connections, select(index, ...) :: any)
+	end
 end
 
 export type RbxLifecycles = typeof(RbxLifecycles)

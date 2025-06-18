@@ -11,7 +11,7 @@ local useRoots = require("./methods/use-roots")
 local willFinish = require("./methods/will-finish")
 local willStart = require("./methods/will-start")
 
-local function createRoot(): types.Root
+local function create(): types.Root
 	local self: types.Self = {
 		type = "Root",
 
@@ -43,4 +43,4 @@ local function createRoot(): types.Root
 	return self
 end
 
-return createRoot
+return create
