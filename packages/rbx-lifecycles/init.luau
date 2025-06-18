@@ -6,6 +6,7 @@ local lifecycles = require("./lifecycles")
 local fireConcurrent = lifecycles.handlers.fireConcurrent
 
 local RbxLifecycles = {}
+RbxLifecycles.__index = RbxLifecycles
 RbxLifecycles.name = "@prvdmwrong/rbx-lifecycles"
 RbxLifecycles.priority = -math.huge
 
@@ -22,22 +23,33 @@ local function wrapLifecycle(lifecycle: lifecycles.Lifecycle<...unknown>)
 	end
 end
 
-function RbxLifecycles.new(self: RbxLifecycles)
+function RbxLifecycles.new()
+	local self = {} :: RbxLifecycles
 	self.connections = {} :: { RBXScriptConnection }
-	self:_addConnections(
-		RunService.PreSimulation:Connect(wrapLifecycle(self.preSimulation :: any)),
-		RunService.PostSimulation:Connect(wrapLifecycle(self.postSimulation :: any)),
-		RunService.PreAnimation:Connect(wrapLifecycle(self.preAnimation :: any))
+
+	local function addConnections(...: RBXScriptConnection)
+		for index = 1, select("#", ...) do
+			table.insert(self.connections, select(index, ...) :: any)
+		end
+	end
+
+	addConnections(
+		RunService.PreSimulation:Connect(wrapLifecycle(RbxLifecycles.preSimulation :: any)),
+		RunService.PostSimulation:Connect(wrapLifecycle(RbxLifecycles.postSimulation :: any)),
+		RunService.PreAnimation:Connect(wrapLifecycle(RbxLifecycles.preAnimation :: any))
 	)
 
 	if RunService:IsClient() then
-		self:_addConnections(RunService.PreRender:Connect(wrapLifecycle(self.preRender :: any)))
+		addConnections(RunService.PreRender:Connect(wrapLifecycle(RbxLifecycles.preRender :: any)))
 	end
 
-	self:_addConnections(
-		Players.PlayerAdded:Connect(wrapLifecycle(self.playerAdded :: any)),
-		Players.PlayerRemoving:Connect(wrapLifecycle(self.playerRemoving :: any))
+	addConnections(
+		Players.PlayerAdded:Connect(wrapLifecycle(RbxLifecycles.playerAdded :: any)),
+		Players.PlayerRemoving:Connect(wrapLifecycle(RbxLifecycles.playerRemoving :: any))
 	)
+
+	setmetatable(self :: any, RbxLifecycles)
+	return self
 end
 
 function RbxLifecycles.finish(self: RbxLifecycles)
@@ -47,12 +59,6 @@ function RbxLifecycles.finish(self: RbxLifecycles)
 		end
 	end
 	table.clear(self.connections)
-end
-
-function RbxLifecycles._addConnections(self: RbxLifecycles, ...: RBXScriptConnection)
-	for index = 1, select("#", ...) do
-		table.insert(self.connections, select(index, ...) :: any)
-	end
 end
 
 export type RbxLifecycles = typeof(RbxLifecycles)
