@@ -1,6 +1,6 @@
-local types = require("@compile/types")
+local configure = require("@configure")
 
-return types.PackageConfig({
+return configure.package({
 	name = "rbx-lifecycles",
 	description = "Core functionality for Prvd 'M Wrong",
 
@@ -8,7 +8,7 @@ return types.PackageConfig({
 		roblox = true,
 	},
 
-	dependencies = types.PackageDependencies({
+	dependencies = configure.dependencies({
 		prvdmwrong = true,
 	}),
 })

@@ -1,6 +1,6 @@
-local types = require("@compile/types")
+local configure = require("@configure")
 
-return types.PackageConfig({
+return configure.package({
 	name = "roots",
 	description = "Core functionality for Prvd 'M Wrong",
 
@@ -9,7 +9,7 @@ return types.PackageConfig({
 		StartedRoot = true,
 	},
 
-	dependencies = types.PackageDependencies({
+	dependencies = configure.dependencies({
 		logger = true,
 		lifecycles = true,
 		runtime = true,

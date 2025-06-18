@@ -1,6 +1,6 @@
-local types = require("@compile/types")
+local configure = require("@configure")
 
-return types.PackageConfig({
+return configure.package({
 	name = "providers",
 	description = "Core functionality for Prvd 'M Wrong",
 
@@ -8,7 +8,7 @@ return types.PackageConfig({
 		["Provider<Self, Dependencies = nil>"] = "Provider<Self, Dependencies>",
 	},
 
-	dependencies = types.PackageDependencies({
+	dependencies = configure.dependencies({
 		dependencies = true,
 		logger = true,
 		lifecycles = true,

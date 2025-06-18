@@ -1,6 +1,6 @@
-local types = require("@compile/types")
+local configure = require("@configure")
 
-return types.PackageConfig({
+return configure.package({
 	name = "prvdmwrong",
 	description = "Entry point to Prvd 'M Wrong",
 
@@ -11,7 +11,7 @@ return types.PackageConfig({
 		StartedRoot = true,
 	},
 
-	dependencies = types.PackageDependencies({
+	dependencies = configure.dependencies({
 		lifecycles = true,
 		providers = true,
 		roots = true,

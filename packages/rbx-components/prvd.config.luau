@@ -1,6 +1,6 @@
-local types = require("@compile/types")
+local configure = require("@configure")
 
-return types.PackageConfig({
+return configure.package({
 	name = "components",
 	description = "Component functionality for Prvd 'M Wrong",
 })

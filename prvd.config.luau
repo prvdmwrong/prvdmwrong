@@ -1,6 +1,6 @@
-local types = require("@compile/types")
+local configure = require("@configure")
 
-return types.RepoConfig({
+return configure.repo({
 	repository = "https://github.com/prvdmwrong/prvdmwrong",
 	packageDir = "packages",
 	defaults = {
@@ -8,8 +8,8 @@ return types.RepoConfig({
 		license = "MIT OR Apache-2.0",
 	},
 	publishers = {
-		pesde = types.RepoPublisher({ scope = "prvdmwrong" }),
-		wally = types.RepoPublisher({ scope = "prvdmwrong" }),
-		npm = types.RepoPublisher({ scope = "prvdmwrong" }),
+		pesde = configure.publisher({ scope = "prvdmwrong" }),
+		wally = configure.publisher({ scope = "prvdmwrong" }),
+		npm = configure.publisher({ scope = "prvdmwrong" }),
 	},
 })

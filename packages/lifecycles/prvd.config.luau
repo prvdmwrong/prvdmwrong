@@ -1,10 +1,10 @@
-local types = require("@compile/types")
+local configure = require("@configure")
 
-return types.PackageConfig({
+return configure.package({
 	name = "lifecycles",
 	description = "Extra lifecycles for Prvd 'M Wrong",
 
-	dependencies = types.PackageDependencies({
+	dependencies = configure.dependencies({
 		logger = true,
 		runtime = true,
 	}),
