@@ -7,7 +7,7 @@ local threadpool = runtime.threadpool
 
 local function useLifecycles(root: types.Self, lifecycles: { lifecycles.Lifecycle })
 	for _, lifecycle in lifecycles do
-		root._rootLifecycles[lifecycle] = true
+		table.insert(root._rootLifecycles, lifecycle)
 		threadpool.spawnCallbacks(lifecycleUsed, root, lifecycle)
 	end
 	return root

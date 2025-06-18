@@ -31,7 +31,7 @@ export type StartedRoot = {
 export type Self = Root & {
 	_destroyed: boolean,
 	_rootProviders: Set<providers.Provider<unknown>>,
-	_rootLifecycles: Set<lifecycles.Lifecycle>,
+	_rootLifecycles: { lifecycles.Lifecycle },
 	_subRoots: Set<Root>,
 	_start: lifecycles.Lifecycle<()>,
 	_finish: lifecycles.Lifecycle<()>,

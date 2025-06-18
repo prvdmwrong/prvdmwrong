@@ -11,7 +11,7 @@ local types = require("@self/types")
 export type Root = types.Root
 export type StartedRoot = types.StartedRoot
 
-return table.freeze({
+local roots = table.freeze({
 	create = create,
 	hooks = table.freeze({
 		onLifecycleUsed = lifecycleUsed.onLifecycleUsed,
@@ -24,3 +24,5 @@ return table.freeze({
 		onRootDestroyed = rootDestroyed.onRootDestroyed,
 	}),
 })
+
+return roots

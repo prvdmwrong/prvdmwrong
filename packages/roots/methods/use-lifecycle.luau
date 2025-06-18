@@ -6,7 +6,7 @@ local types = require("../types")
 local threadpool = runtime.threadpool
 
 local function useLifecycle(root: types.Self, lifecycle: lifecycles.Lifecycle)
-	root._rootLifecycles[lifecycle] = true
+	table.insert(root._rootLifecycles, lifecycle)
 	threadpool.spawnCallbacks(lifecycleUsed, root, lifecycle)
 	return root
 end

@@ -1,6 +1,7 @@
 local destroy = require("./methods/destroy")
 local lifecycles = require("../lifecycles")
 local rootConstructing = require("./hooks/root-constructing")
+local start = require("./methods/start")
 local types = require("./types")
 local useModule = require("./methods/use-module")
 local useModules = require("./methods/use-modules")
@@ -15,7 +16,7 @@ local function create(): types.Root
 	local self: types.Self = {
 		type = "Root",
 
-		start = nil,
+		start = start,
 
 		useProvider = useProvider,
 		useProviders = useProviders,
