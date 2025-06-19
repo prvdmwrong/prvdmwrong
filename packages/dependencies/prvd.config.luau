@@ -1,11 +1,11 @@
-local configure = require("@configure")
+local configure = require("@lune-utils/configure")
 
 return configure.package({
 	name = "dependencies",
 	description = "Core functionality for Prvd 'M Wrong",
 
 	types = table.freeze({
-		["Dependency<Self, Dependencies = nil>"] = "Dependency<Self, Dependencies>",
+		["Dependency<Self, Dependencies = nil, NewArgs... = ...unknown>"] = "Dependency<Self, Dependencies, NewArgs...>",
 	}),
 
 	dependencies = configure.dependencies({

@@ -1,0 +1,1 @@
+require("@compile/repo-config")

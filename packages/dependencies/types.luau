@@ -1,6 +1,6 @@
-export type Dependency<Self, Dependencies = nil> = Self & {
+export type Dependency<Self, Dependencies = nil, NewArgs...> = Self & {
 	priority: number?,
-	new: (dependencies: Dependencies) -> Dependency<Self, Dependencies>,
+	new: (dependencies: Dependencies, NewArgs...) -> Dependency<Self, Dependencies, NewArgs...>,
 
 	[subdependencies]: Dependencies,
 }

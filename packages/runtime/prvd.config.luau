@@ -1,4 +1,4 @@
-local configure = require("@configure")
+local configure = require("@lune-utils/configure")
 
 return configure.package({
 	name = "runtime",

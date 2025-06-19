@@ -1,6 +1,6 @@
 local configure = require("@lune-utils/configure")
 
 return configure.package({
-	name = "components",
-	description = "Component functionality for Prvd 'M Wrong",
+	name = "typecheckers",
+	description = "Core functionality for Prvd 'M Wrong",
 })
