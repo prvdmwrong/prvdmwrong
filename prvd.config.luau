@@ -1,4 +1,4 @@
-local configure = require("@lune-utils/configure")
+local configure = require("@lune-lib/configure")
 
 return configure.repo({
 	repository = "https://github.com/prvdmwrong/prvdmwrong",

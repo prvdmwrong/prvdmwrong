@@ -1,43 +1,48 @@
 local implementations = require("./implementations")
+local tiniest = require("@lune-lib/tiniest/tiniest_for_lune")
 
-return function()
+return function(tiniest: tiniest.Configured): ()
+	local test = tiniest.test
+	local expect = tiniest.expect
+	local describe = tiniest.describe
+
 	describe("currentRuntime", function()
-		it("detects roblox runtime", function()
-			expect(implementations.currentRuntimeName).to.equal("roblox")
-			expect(implementations.currentRuntime).to.equal(implementations.supportedRuntimes.roblox)
+		test("detects lune runtime", function()
+			expect(implementations.currentRuntimeName).is("lune")
+			expect(implementations.currentRuntime).is(implementations.supportedRuntimes.lune)
 		end)
 	end)
 
 	describe("implementFunction", function()
-		it("implements for roblox runtime", function()
-			local roblox = function() end
+		test("implements for lune runtime", function()
+			local lune = function() end
 			local luau = function() end
 
 			local implementation = implementations.implementFunction("implementation", {
-				[implementations.supportedRuntimes.roblox] = {
-					implementation = roblox,
+				[implementations.supportedRuntimes.lune] = {
+					implementation = lune,
 				},
 				[implementations.supportedRuntimes.luau] = {
 					implementation = luau,
 				},
 			})
 
-			expect(implementation).to.be.a("function")
-			expect(implementation).never.to.equal(luau)
-			expect(implementation).to.equal(roblox)
+			expect(implementation).is_a("function")
+			expect(implementation).never_is(luau)
+			expect(implementation).is(lune)
 		end)
 
-		it("constructs for roblox runtime", function()
-			local roblox = function() end
+		test("constructs for lune runtime", function()
+			local lune = function() end
 			local luau = function() end
 
-			local constructedRoblox = false
+			local constructedLune = false
 
 			local implementation = implementations.implementFunction("implementation", {
-				[implementations.supportedRuntimes.roblox] = {
+				[implementations.supportedRuntimes.lune] = {
 					new = function()
-						constructedRoblox = true
-						return roblox
+						constructedLune = true
+						return lune
 					end,
 				},
 				[implementations.supportedRuntimes.luau] = {
@@ -47,17 +52,17 @@ return function()
 				},
 			})
 
-			expect(implementation).to.be.a("function")
-			expect(implementation).never.to.equal(luau)
-			expect(implementation).to.equal(roblox)
-			expect(constructedRoblox).to.equal(true)
+			expect(implementation).is_a("function")
+			expect(implementation).never_is(luau)
+			expect(implementation).is(lune)
+			expect(constructedLune).is_true()
 		end)
 
-		it("defaults to not implemented function", function()
+		test("defaults to not implemented function", function()
 			local constructSuccess, runSuccess = false, false
 
 			local implementation = implementations.implementFunction("implementation", {
-				[implementations.supportedRuntimes.lune] = {
+				[implementations.supportedRuntimes.roblox] = {
 					new = function()
 						constructSuccess = true
 						return function()
@@ -67,10 +72,10 @@ return function()
 				},
 			})
 
-			expect(constructSuccess).to.equal(false)
-			expect(implementation).to.be.a("function")
-			expect(implementation).to.throw("'implementation' is not implemented by runtime 'roblox'")
-			expect(runSuccess).to.equal(false)
+			expect(constructSuccess).is(false)
+			expect(implementation).is_a("function")
+			expect(implementation).fails_with("'implementation' is not implemented by runtime 'lune'")
+			expect(runSuccess).is(false)
 		end)
 	end)
 end

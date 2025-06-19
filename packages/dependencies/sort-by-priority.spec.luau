@@ -1,9 +1,14 @@
 local sortByPriority = require("./sort-by-priority")
 local symbols = require("./symbols")
+local tiniest = require("@lune-lib/tiniest/tiniest_for_lune")
 
-return function()
+return function(tiniest: tiniest.Configured): ()
+	local test = tiniest.test
+	local expect = tiniest.expect
+	local describe = tiniest.describe
+
 	describe("sortByPriority", function()
-		it("should sort dependencies correctly", function()
+		test("dependencies", function()
 			local first = {}
 
 			local second = {
@@ -21,14 +26,13 @@ return function()
 			}
 
 			sortByPriority(sortedDependencies :: any)
-			print(sortedDependencies)
 
-			expect(sortedDependencies[1]).to.equal(first)
-			expect(sortedDependencies[2]).to.equal(second)
-			expect(sortedDependencies[3]).to.equal(third)
+			expect(sortedDependencies[1]).is(first)
+			expect(sortedDependencies[2]).is(second)
+			expect(sortedDependencies[3]).is(third)
 		end)
 
-		it("acknowledges priority", function()
+		test("priority", function()
 			local low = {}
 
 			local high = {
@@ -41,10 +45,9 @@ return function()
 			}
 
 			sortByPriority(sortedDependencies :: any)
-			print(sortedDependencies)
 
-			expect(sortedDependencies[1]).to.equal(high)
-			expect(sortedDependencies[2]).to.equal(low)
+			expect(sortedDependencies[1]).is(high)
+			expect(sortedDependencies[2]).is(low)
 		end)
 	end)
 end

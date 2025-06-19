@@ -17,8 +17,8 @@ local function symbol<T>(name: T): Symbol<T>
 		name = name,
 	}
 
-	table.freeze(self)
 	setmetatable(self, symbolMt)
+	table.freeze(self)
 	return self :: any
 end
 

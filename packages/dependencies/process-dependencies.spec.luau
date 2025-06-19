@@ -1,6 +1,7 @@
 local depend = require("./depend")
 local processDependencies = require("./process-dependencies")
 local symbols = require("./symbols")
+local tiniest = require("@lune-lib/tiniest/tiniest_for_lune")
 
 local function nickname(name: string)
 	return function<T>(tbl: T): T
@@ -12,9 +13,13 @@ local function nickname(name: string)
 	end
 end
 
-return function()
+return function(tiniest: tiniest.Configured): ()
+	local test = tiniest.test
+	local expect = tiniest.expect
+	local describe = tiniest.describe
+
 	describe("processDependencies", function()
-		it("should sort least dependencies first", function()
+		test("sortedDependencies", function()
 			local first = nickname("first")({})
 
 			local second = nickname("second")({
@@ -45,15 +50,19 @@ return function()
 				[fourth] = true,
 			} :: any)
 
-			print(processed)
+			expect(typeof(processed)).is("table")
+			expect(processed).has_key("sortedDependencies")
+			expect(typeof(processed.sortedDependencies)).is("table")
 
 			local sortedDependencies = processed.sortedDependencies
 
-			expect(sortedDependencies).to.be.a("table")
-			expect(sortedDependencies[1]).to.equal(first)
-			expect(sortedDependencies[2]).to.equal(second)
-			expect(sortedDependencies[3]).to.equal(third)
-			expect(sortedDependencies[4]).to.equal(fourth)
+			expect(typeof(sortedDependencies)).is("table")
+			expect(sortedDependencies[1]).is(first)
+			expect(sortedDependencies[2]).is(second)
+			expect(sortedDependencies[3]).is(third)
+			expect(sortedDependencies[4]).is(fourth)
 		end)
+
+		test("lifecycles", function() end)
 	end)
 end

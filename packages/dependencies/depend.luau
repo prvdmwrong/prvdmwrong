@@ -16,11 +16,9 @@ function unresolvedMt:__tostring()
 end
 
 -- Wtf luau
-local function depend<Self, Dependencies, NewArgs...>(
-	dependency: types.Dependency<Self, Dependencies, NewArgs...>
-): typeof(({} :: types.Dependency<Self, Dependencies, NewArgs...>).new(
+local function depend<Self, Dependencies, NewArgs...>(dependency: types.Dependency<Self, Dependencies, NewArgs...>): typeof(({} :: types.Dependency<Self, Dependencies, NewArgs...>).new(
 	(nil :: any) :: Dependencies,
-	... :: NewArgs...
+	...
 ))
 	-- Return a mock value that will be resolved during dependency resolution.
 	return setmetatable({
