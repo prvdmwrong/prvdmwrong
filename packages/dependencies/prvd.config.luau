@@ -5,11 +5,12 @@ return configure.package({
 	description = "Core functionality for Prvd 'M Wrong",
 
 	types = table.freeze({
-		["Dependency<Self, Dependencies = nil, NewArgs... = ...unknown>"] = "Dependency<Self, Dependencies, NewArgs...>",
+		["Dependency<Self, Dependencies = nil, NewArgs... = ()>"] = "Dependency<Self, Dependencies, NewArgs...>",
 	}),
 
 	dependencies = configure.dependencies({
 		lifecycles = true,
 		logger = true,
+		symbols = true,
 	}),
 })

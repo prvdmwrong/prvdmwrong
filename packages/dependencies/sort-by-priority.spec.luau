@@ -1,4 +1,5 @@
 local sortByPriority = require("./sort-by-priority")
+local symbols = require("./symbols")
 
 return function()
 	describe("sortByPriority", function()
@@ -31,7 +32,7 @@ return function()
 			local low = {}
 
 			local high = {
-				priority = 500,
+				[symbols.priority] = 500,
 			}
 
 			local sortedDependencies = {

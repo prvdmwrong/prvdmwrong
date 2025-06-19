@@ -1,5 +1,5 @@
 local lifecycles = require("../lifecycles")
-local subdependencies = require("./subdependencies")
+local symbols = require("./symbols")
 local types = require("./types")
 
 export type ProccessDependencyResult = {
@@ -18,7 +18,7 @@ local function processDependencies(dependencies: Set<types.Dependency<any>>): Pr
 		-- print("Visiting dependency", dependency)
 
 		for key, value in dependency :: any do
-			if key == subdependencies then
+			if key == symbols.subdependencies then
 				-- print("Checking [prvd.dependencies]")
 				if typeof(value) == "table" then
 					for key, value in value do

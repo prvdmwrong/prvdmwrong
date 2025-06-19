@@ -1,6 +1,6 @@
 local depend = require("./depend")
 local processDependencies = require("./process-dependencies")
-local subdependencies = require("./subdependencies")
+local symbols = require("./symbols")
 
 local function nickname(name: string)
 	return function<T>(tbl: T): T
@@ -18,20 +18,20 @@ return function()
 			local first = nickname("first")({})
 
 			local second = nickname("second")({
-				[subdependencies] = {
+				[symbols.subdependencies] = {
 					toFirst = depend(first :: any),
 					toFirstAgain = depend(first :: any),
 				},
 			})
 
 			local third = nickname("third")({
-				[subdependencies] = {
+				[symbols.subdependencies] = {
 					toSecond = depend(second :: any),
 				},
 			})
 
 			local fourth = nickname("fourth")({
-				[subdependencies] = {
+				[symbols.subdependencies] = {
 					toFirst = depend(first :: any),
 					toSecond = depend(second :: any),
 					toThird = depend(third :: any),

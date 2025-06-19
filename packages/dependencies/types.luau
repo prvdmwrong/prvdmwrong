@@ -1,8 +1,11 @@
-export type Dependency<Self, Dependencies = nil, NewArgs...> = Self & {
-	priority: number?,
-	new: (dependencies: Dependencies, NewArgs...) -> Dependency<Self, Dependencies, NewArgs...>,
+local symbols = require("./symbols")
 
-	[subdependencies]: Dependencies,
+export type Dependency<Self, Dependencies = nil, NewArgs... = ()> = Self & {
+	[typeof(symbols.subdependencies)]: Dependencies,
+} & {
+	[typeof(symbols.priority)]: number?,
+} & {
+	new: (dependencies: Dependencies, NewArgs...) -> Dependency<Self, Dependencies, NewArgs...>,
 }
 
 export type UnresolvedDependency = {

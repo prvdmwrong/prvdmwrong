@@ -3,8 +3,8 @@ local lifecycles = require("./lifecycles")
 local providers = require("./providers")
 local roots = require("./roots")
 
-export type Lifecycle<Args... = ...unknown> = lifecycles.Lifecycle<Args...>
 export type Provider<Self, Dependencies = nil> = providers.Provider<Self, Dependencies>
+export type Lifecycle<Args... = ...unknown> = lifecycles.Lifecycle<Args...>
 export type Root = roots.Root
 export type StartedRoot = roots.StartedRoot
 
@@ -12,6 +12,7 @@ local prvd = table.freeze({
 	provider = providers.create,
 	root = roots.create,
 	depend = dependencies.depend,
+	priority = dependencies.priority,
 	subdependencies = dependencies.subdependencies,
 
 	lifecycle = lifecycles.create,

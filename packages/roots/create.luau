@@ -34,7 +34,7 @@ local function create(): types.Root
 		_rootLifecycles = {},
 		_subRoots = {},
 		_start = lifecycles.create("start", lifecycles.handlers.fireConcurrent),
-		_finish = lifecycles.create("finish", lifecycles.handlers.fireSequential),
+		_finish = lifecycles.create("destroy", lifecycles.handlers.fireSequential),
 	} :: any
 
 	for _, callback in rootConstructing.callbacks do

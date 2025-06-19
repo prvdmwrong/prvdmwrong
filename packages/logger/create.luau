@@ -6,8 +6,10 @@ local types = require("./types")
 local task = runtime.task
 local warn = runtime.warn
 
-local function createLogger<T>(label: string, errorInfoUrl: string?, templates: T): types.Logger<T>
+local function create<T>(label: string, errorInfoUrl: string?, templates: T): types.Logger<T>
 	local self = {} :: types.Logger<T>
+	self.type = "Logger"
+
 	label = `[{label}] `
 	errorInfoUrl = if allowWebLinks then errorInfoUrl else nil
 
@@ -27,4 +29,4 @@ local function createLogger<T>(label: string, errorInfoUrl: string?, templates: 
 	return self
 end
 
-return createLogger
+return create

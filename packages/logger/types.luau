@@ -1,5 +1,5 @@
 export type Error = {
-	type: string,
+	type: "Error",
 	raw: string,
 	message: string,
 	trace: string,
@@ -13,6 +13,7 @@ export type Log = {
 }
 
 export type Logger<Templates> = Templates & {
+	type: "Logger",
 	print: (self: Logger<Templates>, props: Log) -> (),
 	warn: (self: Logger<Templates>, props: Log) -> (),
 	error: (self: Logger<Templates>, props: Log) -> (),

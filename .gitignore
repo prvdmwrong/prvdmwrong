@@ -6,3 +6,6 @@ dist
 test-runner/roblox_packages
 pesde.lock
 sourcemap.json
+
+bun.lock
+node_modules

@@ -1,8 +1,8 @@
 local types = require("../types")
 
-local callbacks: { (root: types.Self, subRoot: types.Root) -> () } = {}
+local callbacks: { (lifecycle: types.Lifecycle) -> () } = {}
 
-local function onRootUsed(listener: (root: types.Root, subRoot: types.Root) -> ()): () -> ()
+local function onLifecycleDestroyed(listener: (lifecycle: types.Lifecycle) -> ()): () -> ()
 	table.insert(callbacks, listener)
 	return function()
 		table.remove(callbacks, table.find(callbacks, listener))
@@ -11,5 +11,5 @@ end
 
 return table.freeze({
 	callbacks = callbacks,
-	onRootUsed = onRootUsed,
+	onLifecycleDestroyed = onLifecycleDestroyed,
 })

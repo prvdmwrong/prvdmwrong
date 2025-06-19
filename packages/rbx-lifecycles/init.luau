@@ -7,7 +7,7 @@ local fireConcurrent = prvd.fireConcurrent
 
 local RbxLifecycles = {}
 RbxLifecycles.name = "@prvdmwrong/rbx-lifecycles"
-RbxLifecycles.priority = -math.huge
+RbxLifecycles[prvd.priority] = -math.huge
 
 RbxLifecycles.preSimulation = prvd.lifecycle("preSimulation", fireConcurrent) :: prvd.Lifecycle<number>
 RbxLifecycles.postSimulation = prvd.lifecycle("postSimulation", fireConcurrent) :: prvd.Lifecycle<number>
@@ -55,6 +55,13 @@ function RbxLifecycles._addConnections(self: RbxLifecycles, ...: RBXScriptConnec
 		table.insert(self.connections, select(index, ...) :: any)
 	end
 end
+
+-- Needed so typescript can require the provider as:
+--
+-- ```ts
+-- import { RbxLifecycles } from "@rbxts/rbx-lifecycles"
+-- ```
+RbxLifecycles.RbxLifecycles = RbxLifecycles
 
 export type RbxLifecycles = typeof(RbxLifecycles)
 return prvd(RbxLifecycles)
