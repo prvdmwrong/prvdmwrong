@@ -1,0 +1,21 @@
+{
+  "lsp": {
+    "luau-lsp": {
+      "settings": {
+        "luau-lsp": {
+          "require": {
+            "mode": "relativeToFile",
+            "directoryAliases": {
+              "@zcore/": "~/.zune/typedefs/core"
+            }
+          }
+        },
+        "ext": {
+          "definitions": [
+            "/Users/fireluau/.zune/typedefs/global/zune.d.luau"
+          ]
+        }
+      }
+    }
+  }
+}

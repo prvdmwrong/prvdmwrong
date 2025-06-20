@@ -70,7 +70,7 @@ function tiniest_expect.expect(a: any)
 
 	function tests.never_is_true()
 		check(typeof(a) == "boolean", "expect() value must be boolean")
-		return if a then tests else fail()
+		return if not a then tests else fail()
 	end
 
 	function tests.is_a(b: string)

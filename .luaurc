@@ -5,6 +5,7 @@
     },
     "aliases": {
         "lune": "~/.lune/.typedefs/0.9.4/",
-        "lune-lib": "./.lune/lib"
+        "lune-lib": "./.lune/lib",
+        "zcore": "~/.zune/typedefs/core"
     }
 }

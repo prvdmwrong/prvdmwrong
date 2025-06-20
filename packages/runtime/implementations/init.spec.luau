@@ -1,4 +1,4 @@
-local implementations = require("./implementations")
+local implementations = require("@self/../implementations")
 local tiniest = require("@lune-lib/tiniest/tiniest_for_lune")
 
 return function(tiniest: tiniest.Configured): ()

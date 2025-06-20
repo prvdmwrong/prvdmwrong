@@ -5,7 +5,7 @@ export type TaskLib = {
 	defer: <T...>(functionOrThread: thread | (T...) -> (), T...) -> thread,
 	delay: <T...>(duration: number, functionOrThread: thread | (T...) -> (), T...) -> thread,
 	spawn: <T...>(functionOrThread: thread | (T...) -> (), T...) -> thread,
-	wait: (duration: number) -> number,
+	wait: (duration: number?) -> number,
 }
 
 local supportedRuntimes = implementations.supportedRuntimes
@@ -44,6 +44,11 @@ local task: TaskLib = table.freeze({
 				return require("@lune/task").cancel
 			end,
 		},
+		[supportedRuntimes.zune] = {
+			new = function()
+				return require("@zcore/task").cancel
+			end,
+		},
 		[supportedRuntimes.luau] = {
 			implementation = function(thread)
 				if not coroutine.close(thread) then
@@ -60,7 +65,12 @@ local task: TaskLib = table.freeze({
 		},
 		[supportedRuntimes.lune] = {
 			new = function()
-				return require("@lune/task").delay
+				return require("@lune/task").defer
+			end,
+		},
+		[supportedRuntimes.zune] = {
+			new = function()
+				return require("@zcore/task").defer
 			end,
 		},
 		[supportedRuntimes.luau] = {
@@ -76,6 +86,11 @@ local task: TaskLib = table.freeze({
 		[supportedRuntimes.lune] = {
 			new = function()
 				return require("@lune/task").delay
+			end,
+		},
+		[supportedRuntimes.zune] = {
+			new = function()
+				return require("@zcore/task").delay
 			end,
 		},
 		[supportedRuntimes.luau] = {
@@ -108,6 +123,11 @@ local task: TaskLib = table.freeze({
 				return require("@lune/task").spawn
 			end,
 		},
+		[supportedRuntimes.zune] = {
+			new = function()
+				return require("@zcore/task").spawn
+			end,
+		},
 		[supportedRuntimes.luau] = {
 			implementation = defaultSpawn,
 		},
@@ -121,6 +141,11 @@ local task: TaskLib = table.freeze({
 		[supportedRuntimes.lune] = {
 			new = function()
 				return require("@lune/task").wait
+			end,
+		},
+		[supportedRuntimes.zune] = {
+			new = function()
+				return require("@zcore/task").wait
 			end,
 		},
 		[supportedRuntimes.luau] = {

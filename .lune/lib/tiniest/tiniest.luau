@@ -99,7 +99,9 @@ function tiniest.configure(options: Options)
 			local ok, err = catch_errors(inner :: any, root_context)
 			current_context = nil
 			if not ok then
-				error(err.message, 0)
+				-- bro
+				-- error(err.message, 0)
+				error(err, 0)
 			end
 		end
 

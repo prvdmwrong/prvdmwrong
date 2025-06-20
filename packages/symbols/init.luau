@@ -1,25 +1,13 @@
 export type Symbol<T> = {
-	type: "Symbol",
-	name: T,
+	_symbol: (never) -> T,
 }
 
-local symbolMt = {}
-
-function symbolMt.__tostring(self: Symbol<any>)
-	return self.name
-end
-
-table.freeze(symbolMt)
-
-local function symbol<T>(name: T): Symbol<T>
-	local self: Symbol<T> = {
-		type = "Symbol",
-		name = name,
-	}
-
-	setmetatable(self, symbolMt)
-	table.freeze(self)
-	return self :: any
+local function symbol<T>(name: string): Symbol<T>
+	return table.freeze(setmetatable({} :: any, {
+		__tostring = function()
+			return name
+		end,
+	}))
 end
 
 return table.freeze({
