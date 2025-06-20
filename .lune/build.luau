@@ -137,6 +137,16 @@ do
 		lune = true,
 	}
 
+	local SYBAU_PESDE = '\
+		[scripts]\
+		roblox_sync_config_generator = ".pesde/scripts/roblox_sync_config_generator.luau"\
+		sourcemap_generator = ".pesde/scripts/sourcemap_generator.luau"\
+		\
+		[dev_dependencies]\
+		scripts = { name = "pesde/scripts_rojo", version = "^0.1.0", target = "lune" }\
+		rojo = { name = "pesde/rojo", version = "^7.4.4", target = "lune" }\
+	'
+
 	local function pesdeify(name: string)
 		return (string.gsub(name, "%-", "_"))
 	end
@@ -157,7 +167,7 @@ do
 			},
 
 			includes = {
-				"**/*.luau",
+				"src/**/*.luau",
 				"LICENSE.md",
 				"README.md",
 				"pesde.toml",
@@ -204,18 +214,29 @@ do
 			fs.writeDir(src)
 			copyPackageDir(package, src)
 
+			baseManifest = table.clone(baseManifest)
 			baseManifest.target.environment = subtarget :: any
-			local manifest = serde.encode("toml", baseManifest, true)
-			manifest ..= dependenciesFooter
-
-			fs.writeFile(path(distPackagePath, "pesde.toml"), manifest)
 
 			for fileName, source in linkerFiles do
+				local linkerFile = `{fileName}.luau`
+				table.insert(baseManifest.includes, linkerFile)
 				fs.writeFile(
-					path(distPackagePath, `{fileName}.luau`),
+					path(distPackagePath, linkerFile),
 					(string.gsub(source, "$TARGET_PACKAGES", `{subtarget}_packages`))
 				)
 			end
+
+			local manifest = serde.encode("toml", baseManifest, true)
+			manifest ..= dependenciesFooter
+			manifest ..= "\n"
+
+			if subtarget == "roblox" then
+				-- why is pesde so overcomplicated
+				manifest ..= SYBAU_PESDE
+				fs.copy(path(process.cwd, ".lune", "pesde-scripts"), path(distPackagePath, ".pesde", "scripts"))
+			end
+
+			fs.writeFile(path(distPackagePath, "pesde.toml"), manifest)
 
 			fs.copy(licenseToCopy, path(distPackagePath, "LICENSE.md"))
 		end
