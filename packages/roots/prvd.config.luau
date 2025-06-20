@@ -2,7 +2,7 @@ local configure = require("@lune-lib/configure")
 
 return configure.package({
 	name = "roots",
-	description = "Core functionality for Prvd 'M Wrong",
+	description = "Roots implementation for Prvd 'M Wrong",
 
 	types = {
 		Root = true,

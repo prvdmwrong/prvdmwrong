@@ -1,15 +1,17 @@
 local configure = require("@lune-lib/configure")
 
-return configure.repo({
+return configure.root({
 	repository = "https://github.com/prvdmwrong/prvdmwrong",
+	homepage = "https://prvdmwrong.luau.page/latest/",
 	packageDir = "packages",
 	defaults = {
 		authors = { "Fire <znotfireman@gmail.com>" },
-		license = "MIT OR Apache-2.0",
+		license = "MPL-2.0",
+		version = "0.2.0-rc.1",
 	},
 	publishers = {
-		pesde = configure.publisher({ scope = "prvdmwrong" }),
-		wally = configure.publisher({ scope = "prvdmwrong" }),
-		npm = configure.publisher({ scope = "prvdmwrong" }),
+		pesde = configure.publisher({ scope = "prvdmwrong", registry = "https://github.com/pesde-pkg/index" }),
+		wally = configure.publisher({ scope = "prvdmwrong", registry = "https://github.com/upliftgames/wally-index" }),
+		npm = configure.publisher({ scope = "prvdmwrong", registry = "" }),
 	},
 })

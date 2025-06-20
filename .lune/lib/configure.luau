@@ -1,28 +1,31 @@
 -- Repository
 
-export type RepoPublisher = {
+export type RootPublisher = {
 	scope: string,
+	registry: string,
 }
 
-local function publisher(x: RepoPublisher)
+local function publisher(x: RootPublisher)
 	return table.freeze(x)
 end
 
 export type RepoConfig = {
 	repository: string,
+	homepage: string,
 	packageDir: string,
 	defaults: {
 		authors: { string },
 		license: string,
+		version: string,
 	},
 	publishers: {
-		pesde: RepoPublisher,
-		wally: RepoPublisher,
-		npm: RepoPublisher,
+		pesde: RootPublisher,
+		wally: RootPublisher,
+		npm: RootPublisher,
 	},
 }
 
-local function repo(x: RepoConfig)
+local function root(x: RepoConfig)
 	return table.freeze(x)
 end
 
@@ -53,56 +56,23 @@ export type PackageConfig = {
 
 	authors: { string }?,
 	license: string?,
+	version: string?,
+
 	pesdeTargets: { [PesdeEnvironment]: true }?,
 
 	dependencies: PackageDependencies?,
 
-	types: { [string]: any }?,
+	types: { [string]: boolean | string }?,
 }
 
 local function package(x: PackageConfig)
 	return table.freeze(x)
 end
 
--- Publishers
-
--- we support all targets :trol:
 export type PesdeEnvironment = "roblox" | "roblox_server" | "luau" | "lune"
 
-export type PesdeTarget = {
-	environment: PesdeEnvironment,
-	lib: string,
-	build_files: { string },
-}
-
-export type PesdeIndices = {
-	default: string,
-}
-
-export type PesdeDependency = {
-	name: string,
-	version: string,
-	index: string?,
-	target: PesdeEnvironment?,
-}
-
-export type PesdeManifest = {
-	name: string,
-	version: string,
-	description: string,
-	license: string,
-	authors: { string },
-	repository: string,
-
-	includes: { string },
-
-	target: PesdeTarget,
-
-	dependencies: { [string]: PesdeDependency }?,
-}
-
 return table.freeze({
-	repo = repo,
+	root = root,
 	publisher = publisher,
 	package = package,
 	dependencies = dependencies,

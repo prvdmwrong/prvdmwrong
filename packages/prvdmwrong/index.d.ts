@@ -5,21 +5,18 @@ import roots from "../roots";
 
 declare namespace prvd {
 	export type Provider<Self, Dependencies = undefined> = providers.Provider<Self, Dependencies>;
-	export interface Lifecycle<Args extends unknown[] = unknown[]> extends lifecycles.Lifecycle<Args> {}
+	export interface Lifecycle<Args extends unknown[] = unknown[]> extends lifecycles.Lifecycle<Args> { }
 	export type SubdependenciesOf<T> = dependencies.SubdependenciesOf<T>;
-	export interface Root extends roots.Root {}
-	export interface StartedRoot extends roots.StartedRoot {}
+	export interface Root extends roots.Root { }
+	export interface StartedRoot extends roots.StartedRoot { }
 
-	export interface Start extends providers.Start {}
-	export interface Destroy extends providers.Destroy {}
+	export interface Start extends providers.Start { }
+	export interface Destroy extends providers.Destroy { }
 
 	export const provider: typeof providers.create;
 	export const root: typeof roots.create;
 	export const depend: typeof dependencies.depend;
-	export const name: typeof providers.name;
 	export const nameOf: typeof providers.nameOf;
-	export const priority: typeof dependencies.priority;
-	export const subdependencies: typeof dependencies.subdependencies;
 
 	export const lifecycle: typeof lifecycles.create;
 	export const fireConcurrent: typeof lifecycles.handlers.fireConcurrent;

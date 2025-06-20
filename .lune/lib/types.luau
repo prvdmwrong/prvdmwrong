@@ -9,7 +9,8 @@ export type PackageContext = {
 }
 
 export type Package = {
-	path: string,
+	absolutePath: string,
+	relativePath: string,
 	config: configure.PackageConfig,
 }
 

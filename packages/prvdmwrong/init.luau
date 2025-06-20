@@ -12,10 +12,7 @@ local prvd = table.freeze({
 	provider = providers.create,
 	root = roots.create,
 	depend = dependencies.depend,
-	name = providers.name,
 	nameOf = providers.nameOf,
-	priority = dependencies.priority,
-	subdependencies = dependencies.subdependencies,
 
 	lifecycle = lifecycles.create,
 	fireConcurrent = lifecycles.handlers.fireConcurrent,
