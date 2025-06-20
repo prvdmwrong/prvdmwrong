@@ -8,7 +8,7 @@ declare namespace lifecycles {
 		register(callback: (...args: Args) => void): void;
 		fire(...args: Args): void;
 		unregister(callback: (...args: Args) => void): void;
-		unregisterAll(): void;
+		clear(): void;
 		onRegistered(listener: (callback: (...args: Args) => void) => void): () => void;
 		onUnegistered(listener: (callback: (...args: Args) => void) => void): () => void;
 		await(): LuaTuple<Args>;

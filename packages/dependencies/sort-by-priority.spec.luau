@@ -1,5 +1,4 @@
 local sortByPriority = require("./sort-by-priority")
-local symbols = require("./symbols")
 local tiniest = require("@lune-lib/tiniest/tiniest_for_lune")
 
 return function(tiniest: tiniest.Configured): ()
@@ -36,7 +35,7 @@ return function(tiniest: tiniest.Configured): ()
 			local low = {}
 
 			local high = {
-				[symbols.priority] = 500,
+				priority = 500,
 			}
 
 			local sortedDependencies = {

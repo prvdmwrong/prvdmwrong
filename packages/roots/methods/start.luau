@@ -33,11 +33,7 @@ local function bindLifecycle(
 end
 
 local function nameOf(provider: providers.Provider<unknown>, extension: string?): string
-	if extension then
-		return `{provider.name or "Provider"}.{extension}`
-	else
-		return provider.name or "Provider"
-	end
+	return if extension then `{tostring(provider)}.{extension}` else tostring(provider)
 end
 
 local function start(root: types.Self): types.StartedRoot
@@ -50,7 +46,7 @@ local function start(root: types.Self): types.StartedRoot
 
 	local constructedProviders = {}
 	for _, provider in sortedProviders do
-		local providerDependencies = (provider :: any)[dependencies.subdependencies]
+		local providerDependencies = (provider :: any).subdependencies
 		if typeof(providerDependencies) == "table" then
 			providerDependencies = table.clone(providerDependencies)
 			for key, value in providerDependencies do
@@ -85,8 +81,8 @@ local function start(root: types.Self): types.StartedRoot
 		root._finish:fire()
 
 		-- NOTE(znotfireman): Assume the user cleans up their own lifecycles
-		root._start:unregisterAll()
-		root._finish:unregisterAll()
+		root._start:clear()
+		root._finish:clear()
 
 		for _, subRoot in subRoots do
 			subRoot:finish()

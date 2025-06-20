@@ -12,6 +12,8 @@ local prvd = table.freeze({
 	provider = providers.create,
 	root = roots.create,
 	depend = dependencies.depend,
+	name = providers.name,
+	nameOf = providers.nameOf,
 	priority = dependencies.priority,
 	subdependencies = dependencies.subdependencies,
 
@@ -28,8 +30,8 @@ local prvd = table.freeze({
 		onRootFinished = roots.hooks.onRootFinished,
 		onRootDestroyed = roots.hooks.onRootDestroyed,
 
-		onLifecycleConstructing = lifecycles.hooks.onLifecycleConstructing,
-		onLifecycleDestroying = lifecycles.hooks.onLifecycleDestroying,
+		onLifecycleConstructed = lifecycles.hooks.onLifecycleConstructed,
+		onLifecycleDestroyed = lifecycles.hooks.onLifecycleDestroyed,
 		onLifecycleRegistered = lifecycles.hooks.onLifecycleRegistered,
 		onLifecycleUnregistered = lifecycles.hooks.onLifecycleUnregistered,
 	}),

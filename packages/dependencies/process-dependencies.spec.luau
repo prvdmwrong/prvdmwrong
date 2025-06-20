@@ -1,6 +1,5 @@
 local depend = require("./depend")
 local processDependencies = require("./process-dependencies")
-local symbols = require("./symbols")
 local tiniest = require("@lune-lib/tiniest/tiniest_for_lune")
 
 local function nickname(name: string)
@@ -23,20 +22,20 @@ return function(tiniest: tiniest.Configured): ()
 			local first = nickname("first")({})
 
 			local second = nickname("second")({
-				[symbols.subdependencies] = {
+				subdependencies = {
 					toFirst = depend(first :: any),
 					toFirstAgain = depend(first :: any),
 				},
 			})
 
 			local third = nickname("third")({
-				[symbols.subdependencies] = {
+				subdependencies = {
 					toSecond = depend(second :: any),
 				},
 			})
 
 			local fourth = nickname("fourth")({
-				[symbols.subdependencies] = {
+				subdependencies = {
 					toFirst = depend(first :: any),
 					toSecond = depend(second :: any),
 					toThird = depend(third :: any),

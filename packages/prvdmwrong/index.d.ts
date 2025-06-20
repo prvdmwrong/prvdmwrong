@@ -16,6 +16,8 @@ declare namespace prvd {
 	export const provider: typeof providers.create;
 	export const root: typeof roots.create;
 	export const depend: typeof dependencies.depend;
+	export const name: typeof providers.name;
+	export const nameOf: typeof providers.nameOf;
 	export const priority: typeof dependencies.priority;
 	export const subdependencies: typeof dependencies.subdependencies;
 

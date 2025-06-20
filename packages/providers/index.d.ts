@@ -1,4 +1,5 @@
 import { Dependency } from "../dependencies";
+import { Symbol } from "../symbols";
 
 declare namespace providers {
 	export type Provider<Self, Dependencies = undefined> = Dependency<
@@ -12,9 +13,12 @@ declare namespace providers {
 		Dependencies
 	>;
 
-	export function create<Self>(self: Self): Provider<Self>;
 	// Class decorator syntax
 	export function create<Self extends new () => InstanceType<Self>>(self: Self): Provider<Self>;
+	// Normal syntax
+	export function create<Self extends object>(self: Self): Provider<Self>;
+
+	export function nameOf(provider: Provider<any, any>): string;
 
 	export namespace _ {
 		export const providerClasses: Set<Provider<any, any>>;

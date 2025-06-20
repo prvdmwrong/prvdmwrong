@@ -4,7 +4,7 @@ local types = require("../types")
 
 local threadpool = runtime.threadpool
 
-local function unregisterAll<Args...>(lifecycle: types.Self<Args...>)
+local function clear<Args...>(lifecycle: types.Self<Args...>)
 	if lifecycle._isDestroyed then
 		logger:fatalError({ template = logger.useAfterDestroy })
 	end
@@ -14,4 +14,4 @@ local function unregisterAll<Args...>(lifecycle: types.Self<Args...>)
 	table.clear(lifecycle.callbacks)
 end
 
-return unregisterAll
+return clear

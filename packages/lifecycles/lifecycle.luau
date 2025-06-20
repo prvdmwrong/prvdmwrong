@@ -46,7 +46,7 @@ local function unregister<Args...>(lifecycle: Self<Args...>, callback: (Args...)
 	end
 end
 
-local function unregisterAll<Args...>(lifecycle: Self<Args...>)
+local function clear<Args...>(lifecycle: Self<Args...>)
 	if lifecycle._isDestroyed then
 		logger:fatalError({ template = logger.useAfterDestroy })
 	end
@@ -121,7 +121,7 @@ function createLifecycle<Args...>(
 		method = method,
 		register = register,
 		unregister = unregister,
-		unregisterAll = unregisterAll,
+		clear = clear,
 		onRegistered = onRegistered,
 		onUnregistered = onUnregistered,
 		await = await,

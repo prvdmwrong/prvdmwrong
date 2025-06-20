@@ -7,7 +7,7 @@ export type Lifecycle<Args... = ...any> = {
 	register: (self: Lifecycle<Args...>, callback: (Args...) -> ()) -> (),
 	fire: (self: Lifecycle<Args...>, Args...) -> (),
 	unregister: (self: Lifecycle<Args...>, callback: (Args...) -> ()) -> (),
-	unregisterAll: (self: Lifecycle<Args...>) -> (),
+	clear: (self: Lifecycle<Args...>) -> (),
 	onRegistered: (self: Lifecycle<Args...>, listener: (callback: (Args...) -> ()) -> ()) -> () -> (),
 	onUnregistered: (self: Lifecycle<Args...>, listener: (callback: (Args...) -> ()) -> ()) -> () -> (),
 	await: (self: Lifecycle<Args...>) -> Args...,

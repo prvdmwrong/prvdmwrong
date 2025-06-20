@@ -1,10 +1,6 @@
-local symbols = require("./symbols")
-
 export type Dependency<Self, Dependencies = nil, NewArgs... = ()> = Self & {
-	[typeof(symbols.subdependencies)]: Dependencies,
-} & {
-	[typeof(symbols.priority)]: number?,
-} & {
+	subdependencies: Dependencies,
+	priority: number?,
 	new: (dependencies: Dependencies, NewArgs...) -> Dependency<Self, Dependencies, NewArgs...>,
 }
 
