@@ -2,52 +2,23 @@ local collectPackages = require("@lune-lib/utils/collect-packages")
 local fs = require("@lune/fs")
 local path = require("@lune-lib/utils/path")
 local process = require("@lune/process")
--- local roblox = require("@lune/roblox")
+local roblox = require("@lune/roblox")
 local rootConfig = require("@lune-lib/root-config")
+local selectPackages = require("@lune-lib/utils/select-packages")
 local serde = require("@lune/serde")
-local stdio = require("@lune/stdio")
 local types = require("@lune-lib/types")
 
-local packages = collectPackages(process.cwd, rootConfig.packageDir)
-
-local packageNames = {}
-local nameToPackage = {}
-
-local toBuild: { string } = {}
-
-do
-	table.sort(packages, function(lhs, rhs)
-		return lhs.config.name < rhs.config.name
-	end)
-
-	for _, package in packages do
-		local name = package.config.name
-		table.insert(packageNames, name)
-		nameToPackage[name] = package
-	end
-
-	if #process.args == 0 then
-		for _, index in stdio.prompt("multiselect", "Which packages to build?", packageNames) do
-			table.insert(toBuild, packageNames[index])
-		end
-	elseif table.find(process.args, "all") then
-		toBuild = table.clone(packageNames)
-	else
-		table.move(process.args, 1, #process.args, 1, toBuild)
-	end
-
-	if #toBuild == 0 then
-		return print("Cannot build with no packages")
-	end
-end
+local packages = selectPackages(collectPackages(process.cwd, rootConfig.packageDir))
+local _, nameToPackage, toBuild = packages.names, packages.nameToPackage, packages.selected
 
 local distPath = path(process.cwd, "dist")
 local distPesdePath = path(distPath, "pesde")
 local distWallyPath = path(distPath, "wally")
 local distNpmPath = path(distPath, "npm")
--- local distModelPath = path(distPath, "models")
--- local distBundlePath = path(distPath, "bundle.rbxm")
--- local distBundlePlacePath = path(distPath, "bundle.rbxl")
+local distModelPath = path(distPath, "models")
+local distTempPath = path(distPath, "temp")
+local distBundlePath = path(distPath, "bundle.rbxm")
+local distBundlePlacePath = path(distPath, "bundle.rbxl")
 
 if fs.isDir(distPath) then
 	fs.removeDir(distPath)
@@ -57,7 +28,8 @@ fs.writeDir(distPath)
 fs.writeDir(distPesdePath)
 fs.writeDir(distWallyPath)
 fs.writeDir(distNpmPath)
--- fs.writeDir(distModelPath)
+fs.writeDir(distModelPath)
+fs.writeDir(distTempPath)
 
 local function copyPackageDir(package: types.Package, destinationDir: string)
 	for _, file in fs.readDir(package.absolutePath) do
@@ -220,6 +192,7 @@ do
 			for fileName, source in linkerFiles do
 				local linkerFile = `{fileName}.luau`
 				table.insert(baseManifest.includes, linkerFile)
+				table.insert(baseManifest.target.build_files, linkerFile)
 				fs.writeFile(
 					path(distPackagePath, linkerFile),
 					(string.gsub(source, "$TARGET_PACKAGES", `{subtarget}_packages`))
@@ -365,7 +338,6 @@ do
 				url = `git+{rootConfig.repository}.git`,
 			},
 			bugs = {
-
 				url = `{rootConfig.repository}/issues`,
 			},
 			dependencies = {},
@@ -395,6 +367,33 @@ do
 	end
 end
 
+local models: { [types.Package]: string } = {}
+
+local function buildModel(package: types.Package)
+	local distTempModelPath = path(distTempPath, "models", package.config.name)
+	fs.writeDir(distTempModelPath)
+	local src = path(distTempModelPath, "src")
+	fs.writeDir(src)
+	copyPackageDir(package, src)
+	fs.writeFile(
+		path(distTempModelPath, "default.project.json"),
+		serde.encode("json", {
+			name = package.config.name,
+			tree = {
+				["$path"] = "src",
+			},
+		}, true)
+	)
+	local result = process.exec("rojo", { "build", "-o", "model.rbxm", "default.project.json" }, {
+		cwd = distTempModelPath,
+	})
+	assert(result.ok, result.stderr)
+	local modelPath = path(distModelPath, `{package.config.name}.rbxm`)
+	fs.move(path(distTempModelPath, "model.rbxm"), modelPath)
+	models[package] = modelPath
+	fs.removeDir(distTempModelPath)
+end
+
 for _, name in toBuild do
 	print("Building package", name)
 	local package = nameToPackage[name]
@@ -402,4 +401,25 @@ for _, name in toBuild do
 	packageForPesde(package)
 	packageForWally(package)
 	packageForNpm(package)
+
+	buildModel(package)
 end
+
+fs.removeDir(distTempPath)
+print("Building bundle")
+
+local bundle = roblox.Instance.new("Folder")
+bundle.Name = "prvdmwrong"
+
+for _, modelPath in models do
+	for _, instance in roblox.deserializeModel(fs.readFile(modelPath)) do
+		instance.Parent = bundle
+	end
+end
+
+fs.writeFile(distBundlePath, roblox.serializeModel({ bundle }))
+
+local game = roblox.Instance.new("DataModel")
+bundle.Parent = game:GetService("ReplicatedStorage")
+
+fs.writeFile(distBundlePlacePath, roblox.serializePlace(game))

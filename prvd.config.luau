@@ -7,7 +7,7 @@ return configure.root({
 	defaults = {
 		authors = { "Fire <znotfireman@gmail.com>" },
 		license = "MPL-2.0",
-		version = "0.2.0-rc.2",
+		version = "0.2.0-rc.3",
 	},
 	publishers = {
 		pesde = configure.publisher({ scope = "prvdmwrong", registry = "https://github.com/pesde-pkg/index" }),
