@@ -14,10 +14,10 @@ local function createProvider<Self>(self: Self): types.Provider<Self>
 	end
 
 	if provider.new == nil then
-		function provider.new()
+		function provider.new(dependencies)
 			local self: types.Provider<Self> = setmetatable({}, provider) :: any
 			if provider.constructor then
-				return provider.constructor(self) or self
+				return provider.constructor(self, dependencies) or self
 			end
 			return self
 		end

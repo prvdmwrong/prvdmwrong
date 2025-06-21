@@ -7,8 +7,6 @@ local sitemap = require("@sitegen/config/sitemap")
 
 local rootPath = process.args[1]
 
-print("Building site...")
-
 pcall(fs.removeDir, "site")
 fs.copy(path(rootPath, "static"), siteUrls.base)
 
