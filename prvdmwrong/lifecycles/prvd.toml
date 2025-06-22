@@ -1,7 +1,0 @@
-#:schema ../../schemas/package.json
-
-name = "Extra lifecycles for Prvd 'M Wrong"
-description = "Extends Prvd 'M Wrong with common lifecycle events for player tracking and the runtime."
-version = "0.2.0-rewrite.2"
-types = []
-dependencies = ["core"]

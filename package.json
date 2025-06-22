@@ -1,35 +1,25 @@
 {
-	"private": true,
-	"files": [
-		"**/out",
-		"!**/*.tsbuildinfo"
-	],
-	"publishConfig": {
-		"access": "public"
-	},
-	"prettier": {
-		"printWidth": 120,
-		"tabWidth": 4,
-		"useTabs": true,
-		"semi": false,
-		"singleQuote": false,
-		"trailingComma": "none",
-		"bracketSpacing": true,
-		"arrowParens": "avoid",
-		"proseWrap": "preserve",
-		"endOfLine": "lf"
-	},
-	"devDependencies": {
-		"@rbxts/compiler-types": "2.3.0-types.2",
-		"@rbxts/types": "^1.0.790",
-		"@typescript-eslint/eslint-plugin": "^8.0.0",
-		"@typescript-eslint/parser": "^8.0.0",
-		"eslint": "^9.7.0",
-		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-prettier": "^5.2.1",
-		"eslint-plugin-roblox-ts": "^0.0.36",
-		"prettier": "^3.3.3",
-		"roblox-ts": "^2.3.0",
-		"typescript": "^5.5.3"
-	}
+  "private": true,
+  "files": [
+    "**/out",
+    "!**/*.tsbuildinfo"
+  ],
+  "prettier": {
+    "printWidth": 120,
+    "tabWidth": 4,
+    "useTabs": true,
+    "endOfLine": "lf"
+  },
+  "devDependencies": {
+    "@rbxts/compiler-types": "1.2.3-types.1",
+    "@rbxts/types": "1.0.543",
+    "@typescript-eslint/eslint-plugin": "5.1.0",
+    "@typescript-eslint/parser": "5.1.0",
+    "eslint": "8.1.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-roblox-ts": "0.0.32",
+    "prettier": "2.4.1",
+    "typescript": "4.4.4"
+  }
 }

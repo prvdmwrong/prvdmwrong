@@ -1,25 +1,27 @@
 {
-	"compilerOptions": {
-		"allowSyntheticDefaultImports": true,
-		"downlevelIteration": true,
-		"jsx": "react",
-		"jsxFactory": "Roact.createElement",
-		"jsxFragmentFactory": "Roact.createFragment",
-		"module": "commonjs",
-		"moduleResolution": "Node",
-		"noLib": true,
-		"resolveJsonModule": true,
-		"experimentalDecorators": true,
-		"forceConsistentCasingInFileNames": true,
-		"moduleDetection": "force",
-		"strict": true,
-		"target": "ESNext",
-		"typeRoots": ["node_modules/@rbxts"],
-		"rootDir": "prvdmwrong",
-		"outDir": "out",
-		"incremental": true,
-		"tsBuildInfoFile": "out/tsconfig.tsbuildinfo",
-		"declaration": true
-	},
-	"exclude": ["dist"]
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "downlevelIteration": true,
+        "module": "commonjs",
+        "moduleResolution": "Node",
+        "noLib": true,
+        "resolveJsonModule": true,
+        "forceConsistentCasingInFileNames": true,
+        "experimentalDecorators": true,
+        "strict": true,
+        "target": "ESNext",
+        "typeRoots": [
+            "node_modules/@rbxts"
+        ],
+        // i dont care
+        "jsx": "react",
+        "jsxFactory": "Roact.createElement",
+        "jsxFragmentFactory": "Roact.Fragment",
+        "rootDir": "packages",
+        "outDir": "out",
+        "baseUrl": "packages",
+        "incremental": true,
+        "tsBuildInfoFile": "out/tsconfig.tsbuildinfo",
+        "declaration": true
+    }
 }

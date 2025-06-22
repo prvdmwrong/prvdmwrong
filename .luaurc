@@ -2,5 +2,11 @@
     "languageMode": "strict",
     "lint": {
         "*": true
+    },
+    "aliases": {
+        "lune-lib": "./.lune/lib",
+        "lune": "~/.lune/.typedefs/0.9.4/",
+        "zcore": "~/.zune/typedefs/core",
+        "sitegen": "./.lune/sitegen"
     }
 }
