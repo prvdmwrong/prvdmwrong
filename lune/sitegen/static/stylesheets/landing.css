@@ -1,0 +1,39 @@
+
+
+.hero-inner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 1rem;
+
+    margin: 0 var(--content-padding);
+    max-width: var(--max-content-width);
+}
+
+@media only screen and (min-width: 60rem) {
+    .hero-inner {
+        flex-direction: row;
+        gap: 8rem;
+    }
+}
+
+.hero-left, .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.hero-lead {
+    flex: 1 1 auto;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* .hero-inner > section {
+    display: flex;
+    position: relative;
+    max-width: 100%;
+} */

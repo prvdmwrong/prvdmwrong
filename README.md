@@ -21,6 +21,23 @@ Zero bloat, complex tooling, or lock-in required.
 
 Want to prove them wrong?
 [Get going with the Prvd 'M Wrong on rails tutorial,][Tutorial]
-or [read through the library of example projects.](./examples/)
+or [read through the library of example projects.][Examples]
 
 [Tutorial]: https://prvdmwrong.luau.page/latest/tutorials
+[Examples]: https://prvdmwrong.luau.page/latest/examples
+
+## Cultural Impact
+
+Prvd 'M Wrong has a significant cultural impact following the archival of Knit.
+There has been many packages inspired by Prvd 'M Wrong listed below:
+
+- artwork
+- nit
+- hydrogen
+
+## License
+
+Prvd 'M Wrong 0.2 is licensed under the Mozilla Public License 2.0.
+
+Note that historical versions of Prvd 'M Wrong were licensed under the MIT
+License and sometimes the Apache License 2.0.

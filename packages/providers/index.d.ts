@@ -1,5 +1,4 @@
 import { Dependency } from "../dependencies";
-import { Symbol } from "../symbols";
 
 declare namespace providers {
 	export type Provider<Self, Dependencies = undefined> = Dependency<
