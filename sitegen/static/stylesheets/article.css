@@ -1,0 +1,18 @@
+.article-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--navbar-height);
+}
+
+.article-content {
+    margin: var(--content-padding);
+    max-width: var(--max-content-width);
+    width: 100%;
+    flex-grow: 1;
+}
+
+.article-toc,
+.article-nav {
+    background-color: blue;
+    width: 20rem;
+}

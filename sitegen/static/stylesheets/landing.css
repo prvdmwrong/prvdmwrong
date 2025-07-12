@@ -1,0 +1,65 @@
+.hero-inner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 1rem;
+    width: 100%;
+
+    padding: 0 var(--content-padding);
+    max-width: var(--max-content-width);
+}
+
+.hero-lead {
+    flex: 1 1 auto;
+}
+
+.hero-lead :not(:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+.hero-supports {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.hero-supports div span {
+    font-weight: 700;
+    opacity: 50%;
+}
+
+.hero-supports .hero-supports-icons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.hero-supports .hero-supports-icons a {
+    width: 4rem;
+    height: 4rem;
+    background-color: red;
+}
+
+@media only screen and (max-width: 50rem) {
+    .hero-supports {
+        flex-direction: column;
+    }
+}
+
+.hero-left,
+.hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* .hero-inner > section {
+    display: flex;
+    position: relative;
+    max-width: 100%;
+} */

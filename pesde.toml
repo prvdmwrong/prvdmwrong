@@ -2,7 +2,7 @@ name = "prvdmwrong/repo"
 version = "0.0.0"
 private = true
 
-workspace_members = ["dist/pesde/lune/*"]
+workspace_members = ["dist/pesde/roblox/*"]
 
 [target]
     environment = "luau"

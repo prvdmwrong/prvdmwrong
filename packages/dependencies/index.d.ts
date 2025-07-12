@@ -2,7 +2,7 @@ import { Lifecycle } from "../lifecycles";
 
 declare namespace dependencies {
 	export type Dependency<Self, Dependencies = undefined, NewArgs extends unknown[] = []> = Self & {
-		subdependencies: Dependencies,
+		dependencies: Dependencies,
 		priority?: number,
 		new(dependencies: Dependencies, ...args: NewArgs): Dependency<Self, Dependencies, NewArgs>;
 	};
@@ -12,7 +12,7 @@ declare namespace dependencies {
 		lifecycles: Lifecycle<any>[];
 	}
 
-	export type SubdependenciesOf<T> = T extends { subdependencies: infer Dependencies }
+	export type SubdependenciesOf<T> = T extends { dependencies: infer Dependencies }
 		? Dependencies
 		: never;
 

@@ -1,5 +1,5 @@
 export type Dependency<Self, Dependencies = nil, NewArgs... = ()> = Self & {
-	subdependencies: Dependencies,
+	dependencies: Dependencies,
 	priority: number?,
 	new: (dependencies: Dependencies, NewArgs...) -> Dependency<Self, Dependencies, NewArgs...>,
 }
@@ -9,6 +9,6 @@ export type UnresolvedDependency = {
 	dependency: Dependency<any>,
 }
 
-export type subdependencies = { __prvdmwrong_subdependencies: never }
+export type dependencies = { __prvdmwrong_dependencies: never }
 
 return nil

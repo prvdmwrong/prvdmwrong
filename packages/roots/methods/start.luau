@@ -46,7 +46,7 @@ local function start(root: types.Self): types.StartedRoot
 
 	local constructedProviders = {}
 	for _, provider in sortedProviders do
-		local providerDependencies = (provider :: any).subdependencies
+		local providerDependencies = (provider :: any).dependencies
 		if typeof(providerDependencies) == "table" then
 			providerDependencies = table.clone(providerDependencies)
 			for key, value in providerDependencies do

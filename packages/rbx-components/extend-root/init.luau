@@ -10,7 +10,7 @@ local useModulesAsComponents = require("@self/use-modules-as-components")
 
 local function extendRoot(root: types.RootPrivate): types.Root
 	if root._hasComponentExtensions then
-		return logger:fatalError({ template = logger.rootAlreadyExtended })
+		return logger:fatalError({ template = logger.alreadyExtendedRoot })
 	end
 
 	root._hasComponentExtensions = true

@@ -5,15 +5,15 @@ local types = require("../types")
 local ComponentClassProvider = {}
 ComponentClassProvider.priority = -math.huge
 ComponentClassProvider.name = "@rbx-components.ComponentClassProvider"
-ComponentClassProvider.subdependencies = table.freeze({
+ComponentClassProvider.dependencies = table.freeze({
 	componentProvider = ComponentProvider,
 })
 
-ComponentClassProvider._components = {} :: { types.Component<any, any, any> }
+ComponentClassProvider._components = {} :: { types.AnyComponent }
 
 function ComponentClassProvider.constructor(
 	self: ComponentClassProvider,
-	dependencies: typeof(ComponentClassProvider.subdependencies)
+	dependencies: typeof(ComponentClassProvider.dependencies)
 )
 	for _, class in self._components do
 		dependencies.componentProvider:addComponentClass(class)
@@ -22,7 +22,7 @@ end
 
 export type ComponentClassProvider = typeof(ComponentClassProvider)
 
-local function createComponentClassProvider(components: { types.Component<any, any, any> })
+local function createComponentClassProvider(components: { types.AnyComponent })
 	local provider = table.clone(ComponentClassProvider)
 	provider._components = components
 	return providers.create(provider)

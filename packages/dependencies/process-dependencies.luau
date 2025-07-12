@@ -17,7 +17,7 @@ local function processDependencies(dependencies: Set<types.Dependency<any>>): Pr
 		-- print("Visiting dependency", dependency)
 
 		for key, value in dependency :: any do
-			if key == "subdependencies" then
+			if key == "dependencies" then
 				-- print("Checking [prvd.dependencies]")
 				if typeof(value) == "table" then
 					for key, value in value do

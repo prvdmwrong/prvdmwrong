@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Jura';
+    src: url('../fonts/jura.ttf') format('truetype')
+}
+
+* {
+    text-balance: pretty;
+}
+
+body {
+    font-family: "Jura", system-ui;
+    line-height: 2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+
+    &:not(:first-child) {
+        margin-top: 1rem;
+    }
+}
+
+h1 {
+    font-size: 2em;
+    line-height: 1.5;
+}
+
+h2 {
+    font-size: 1.5em;
+    line-height: 1.5;
+}
+
+h3 {
+    font-size: 1.25em;
+    line-height: 1.5;
+}
+
+h4,
+h5,
+h6,
+strong,
+b {
+    font-size: 1em;
+    line-height: 1.5;
+    letter-spacing: 0.125em;
+    text-shadow: 0.125em 0;
+}
+
+u,
+a {
+    text-decoration-thickness: 0.125em;
+    text-underline-offset: 0.125em;
+}
+
+small,
+pre {
+    font-size: 0.75rem;
+}

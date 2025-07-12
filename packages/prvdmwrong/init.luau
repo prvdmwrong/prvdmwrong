@@ -8,7 +8,7 @@ export type Lifecycle<Args... = ...unknown> = lifecycles.Lifecycle<Args...>
 export type Root = roots.Root
 export type StartedRoot = roots.StartedRoot
 
-local prvd = table.freeze({
+local prvd = {
 	provider = providers.create,
 	root = roots.create,
 	depend = dependencies.depend,
@@ -32,13 +32,13 @@ local prvd = table.freeze({
 		onLifecycleRegistered = lifecycles.hooks.onLifecycleRegistered,
 		onLifecycleUnregistered = lifecycles.hooks.onLifecycleUnregistered,
 	}),
-})
+}
 
 local mt = {}
 
-function mt.__call<Self>(_, provider: Self): providers.Provider<Self>
-	return providers.create(provider)
+function mt.__call<Self>(_, provider: Self): providers.Provider<Self, any>
+	return providers.create(provider) :: any
 end
 
 table.freeze(mt)
-return setmetatable(prvd, mt)
+return setmetatable(table.freeze(prvd), mt)

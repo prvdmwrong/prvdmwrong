@@ -22,20 +22,20 @@ return function(tiniest: tiniest.Configured): ()
 			local first = nickname("first")({})
 
 			local second = nickname("second")({
-				subdependencies = {
+				dependencies = {
 					toFirst = depend(first :: any),
 					toFirstAgain = depend(first :: any),
 				},
 			})
 
 			local third = nickname("third")({
-				subdependencies = {
+				dependencies = {
 					toSecond = depend(second :: any),
 				},
 			})
 
 			local fourth = nickname("fourth")({
-				subdependencies = {
+				dependencies = {
 					toFirst = depend(first :: any),
 					toSecond = depend(second :: any),
 					toThird = depend(third :: any),
