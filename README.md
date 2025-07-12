@@ -1,8 +1,8 @@
 <div align="center">
     <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="./gh-assets/wordmark-dark.svg" width="500px">
-        <source media="(prefers-color-scheme: light)" srcset="/gh-assets/wordmark-light.svg" width="500px">
-        <img alt="Prvd 'M Wrong Logo" src="/gh-assets/wordmark-light.svg" width="500px">
+        <source media="(prefers-color-scheme: dark)" srcset="./gh-assets/wordmark-dark.svg" width="600px">
+        <source media="(prefers-color-scheme: light)" srcset="/gh-assets/wordmark-light.svg" width="600px">
+        <img alt="Prvd 'M Wrong Logo" src="/gh-assets/wordmark-light.svg" width="600px">
     </picture>
 </div>
 <hr/>
@@ -45,10 +45,7 @@ bootstrap Prvd 'M Wrong.
 
 First, create and start a root. Roots are starting points for Prvd 'M Wrong:
 
-<details>
-<summary>ServerScriptService → Main</summary>
-
-```lua
+```luau
 -- replace with path to Prvd 'M Wrong!
 local prvd = require(...)
 
@@ -64,15 +61,10 @@ game:BindToClose(function()
 end)
 ```
 
-</details>
-
 Now, let's create your first provider! Inside your "Providers" folder, create a 
 ModuleScript called "TimeProvider":
 
-<details>
-<summary>ServerScriptService → Providers → TimeProvider</summary>
-
-```lua
+```luau
 -- replace with path to Prvd 'M Wrong!
 local prvd = require(...)
 
@@ -101,16 +93,11 @@ export type TimeProvider = typeof(TimeProvider)
 return prvd(TimeProvider)
 ```
 
-</details>
-
 Prvd 'M Wrong can also resolve your provider's dependencies as so the
 dependencies it needs are constructed before the dependent. Create a new
 "ServerTimeProvider" ModuleScript:
 
-<details>
-<summary>ServerScriptService → Providers → ServerTimeProvider</summary>
-
-```lua
+```luau
 -- replace with path to Prvd 'M Wrong!
 local prvd = require(...)
 
@@ -147,8 +134,6 @@ end
 export type ServerTimeProvider = typeof(ServerTimeProvider)
 return prvd(ServerTimeProvider)
 ```
-
-</details>
 
 With that, you've written your first Prvd 'M Wrong project, touching on all of 
 the major Prvd 'M Wrong concepts!
