@@ -149,7 +149,6 @@ you're unsastified, as listed below:
 
 - [Artwork](https://ratplier.github.io/artwork)
 - [Saphhire (archived)](https://github.com/Mark-Marks/sapphire)
-- [Quill](https://github.com/featherfall-org/quill)
 
 ## 📝 License
 

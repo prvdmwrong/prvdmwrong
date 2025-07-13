@@ -14,7 +14,7 @@ function MyProvider.constructor(
 end
 
 function MyProvider.start(self: MyProvider)
-    print(self.value)
+    print("Value:", self.value)
 end
 
 export type MyProvider = typeof(MyProvider)
@@ -29,10 +29,10 @@ return function()
 				h.section({
 					class = "hero-lead",
 
-					h.h1("Delightful cure to Luau's sorrows"),
+					h.h1("Luau's Unstoppable Force"),
 					h.p("The Luau provider framework with a fantastic featureset, extensibility, \
 						and intuitiveness. Structure Luau projects with service providers. All \
-						free from logistical nightmares and sprawling mazes of bloaty \
+						free from logistical nightmares and zero sprawling mazes of bloaty \
 						dependencies."),
 
 					Button({
